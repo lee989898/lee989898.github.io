@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title> - Articles</title>
+    <description>공부 블로그</description>
+    <link>
+    https://lee989898.github.io</link>
+    
+      
+      <item>
+        <title>Git 1강</title>
+        
+          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Git 공부는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./git-01&quot;&gt;Git 시작&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./git-02&quot;&gt;Git 1강 &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Fri, 24 Sep 2021 01:08:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/git-02</link>
+        <guid isPermaLink="true">https://lee989898.github.io/git-02</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Kotlin 1강</title>
+        
+          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Kotlin 공부는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-01&quot;&gt;Kotlin 시작&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-02&quot;&gt;Kotlin 1강 &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Fri, 24 Sep 2021 01:07:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/kotlin-02</link>
+        <guid isPermaLink="true">https://lee989898.github.io/kotlin-02</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>android 1강</title>
+        
+          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Android 공부는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./android-01&quot;&gt;Android 시작&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./android-02&quot;&gt;Android 1강 &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Fri, 24 Sep 2021 01:07:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/android-02</link>
+        <guid isPermaLink="true">https://lee989898.github.io/android-02</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>android 시작</title>
+        
+          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Android 공부는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./android-01&quot;&gt;Android 시작&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./android-02&quot;&gt;Android 1강 &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Fri, 24 Sep 2021 01:07:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/android-01</link>
+        <guid isPermaLink="true">https://lee989898.github.io/android-01</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>git 시작</title>
+        
+          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Git 공부는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./git-01&quot;&gt;Git 시작&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./git-02&quot;&gt;Git 1강 &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Fri, 24 Sep 2021 01:06:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/git-01</link>
+        <guid isPermaLink="true">https://lee989898.github.io/git-01</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Kotlin 시작</title>
+        
+          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Kotlin 공부는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-01&quot;&gt;Kotlin 시작&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-02&quot;&gt;Kotlin 1강 &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Fri, 24 Sep 2021 01:05:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/kotlin-01</link>
+        <guid isPermaLink="true">https://lee989898.github.io/kotlin-01</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Gettysburg Address</title>
+        
+          <description>&lt;p&gt;Fourscore and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 19 Nov 1863 19:18:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/gettysburg-address</link>
+        <guid isPermaLink="true">https://lee989898.github.io/gettysburg-address</guid>
+      </item>
+      
+    
+  </channel>
+</rss>
