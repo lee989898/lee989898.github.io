@@ -8,6 +8,126 @@
     
       
       <item>
+        <title>클래스의 상속</title>
+        
+          <description>&lt;h1 id=&quot;클래스의-상속&quot;&gt;클래스의 상속&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Sat, 25 Sep 2021 01:07:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/kotlin-10</link>
+        <guid isPermaLink="true">https://lee989898.github.io/kotlin-10</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>클래스의 생성</title>
+        
+          <description>&lt;h1 id=&quot;클래스의-생성&quot;&gt;클래스의 생성&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Sat, 25 Sep 2021 01:07:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/kotlin-09</link>
+        <guid isPermaLink="true">https://lee989898.github.io/kotlin-09</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>클래스의 기본구조</title>
+        
+          <description>&lt;h1 id=&quot;클래스의-기본구조&quot;&gt;클래스의 기본구조&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Sat, 25 Sep 2021 01:07:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/kotlin-08</link>
+        <guid isPermaLink="true">https://lee989898.github.io/kotlin-08</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>흐름제어와 논리연산자</title>
+        
+          <description>&lt;h1 id=&quot;흐름제어와-논리연산자&quot;&gt;흐름제어와 논리연산자&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Sat, 25 Sep 2021 01:07:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/kotlin-07</link>
+        <guid isPermaLink="true">https://lee989898.github.io/kotlin-07</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>반복문과 증감연산자</title>
+        
+          <description>&lt;h1 id=&quot;반복문과-증감연산자&quot;&gt;반복문과 증감연산자&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Sat, 25 Sep 2021 01:07:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/kotlin-06</link>
+        <guid isPermaLink="true">https://lee989898.github.io/kotlin-06</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>조건문과 비교연산자</title>
+        
+          <description>&lt;h1 id=&quot;조건문과-비교연산자&quot;&gt;조건문과 비교연산자&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Sat, 25 Sep 2021 01:07:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/kotlin-05</link>
+        <guid isPermaLink="true">https://lee989898.github.io/kotlin-05</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>타입추론과 함수</title>
+        
+          <description>&lt;h1 id=&quot;타입추론과-함수&quot;&gt;타입추론과 함수&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Sat, 25 Sep 2021 01:07:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/kotlin-04</link>
+        <guid isPermaLink="true">https://lee989898.github.io/kotlin-04</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>형변환과 배열</title>
+        
+          <description>&lt;h1 id=&quot;형변환과-배열&quot;&gt;형변환과 배열&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Sat, 25 Sep 2021 01:07:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/kotlin-03</link>
+        <guid isPermaLink="true">https://lee989898.github.io/kotlin-03</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>알고리즘 시작</title>
         
           <description>&lt;p&gt;알고리즘 시작 입니다.&lt;/p&gt;
@@ -41,13 +161,9 @@
     
       
       <item>
-        <title>Kotlin 1강</title>
+        <title>변수와 자료형</title>
         
-          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Kotlin 공부는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
-&lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-01&quot;&gt;Kotlin 시작&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-02&quot;&gt;Kotlin 1강 &lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+          <description>&lt;h1 id=&quot;변수와-자료형&quot;&gt;변수와 자료형&lt;/h1&gt;
 
 </description>
         
@@ -117,12 +233,20 @@
     
       
       <item>
-        <title>Kotlin 시작</title>
+        <title>코틀린 규칙들</title>
         
           <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Kotlin 공부는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-01&quot;&gt;Kotlin 시작&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-02&quot;&gt;Kotlin 1강 &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-01&quot;&gt;코틀린 규칙들&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-02&quot;&gt;변수와 자료형 &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-03&quot;&gt;형변환과 배열 &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-04&quot;&gt;타입추론과 함수 &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-05&quot;&gt;조건문과 비교연산자 &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-06&quot;&gt;반복문과 증감연산자 &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-07&quot;&gt;흐름제어와 논리연산자 &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-08&quot;&gt;클래스의 기본구조 &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-09&quot;&gt;클래스의 생성 &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-09&quot;&gt;클래스의 상속 &lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -140,8 +264,16 @@
         
           <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Kotlin 공부는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-01&quot;&gt;Kotlin 시작&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-02&quot;&gt;Kotlin 1강 &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-01&quot;&gt;코틀린 규칙들&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-02&quot;&gt;변수와 자료형 &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-03&quot;&gt;형변환과 배열 &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-04&quot;&gt;타입추론과 함수 &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-05&quot;&gt;조건문과 비교연산자 &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-06&quot;&gt;반복문과 증감연산자 &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-07&quot;&gt;흐름제어와 논리연산자 &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-08&quot;&gt;클래스의 기본구조 &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-09&quot;&gt;클래스의 생성 &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-09&quot;&gt;클래스의 상속 &lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>

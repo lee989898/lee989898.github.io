@@ -56,7 +56,7 @@
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Gettysburg Address" />
-    <meta property="og:description" content="Kotlin 공부는 여러 절로 구성되어 있습니다. Kotlin 시작 Kotlin 1강 코틀린 시작 입니다. function syntaxHighlight(code) { var foo = 'Hello World'; var bar = 100; } # Jekyll configuration markdown: kramdown # kramdown : markdown의 개조판. # markdown에서 불편한 사항을 개선한 형태. # MyData owner: name: JoonKyung Lee avatar: photo.jpg" />
+    <meta property="og:description" content="Kotlin 공부는 여러 절로 구성되어 있습니다. 코틀린 규칙들 변수와 자료형 형변환과 배열 타입추론과 함수 조건문과 비교연산자 반복문과 증감연산자 흐름제어와 논리연산자 클래스의 기본구조 클래스의 생성 클래스의 상속 function syntaxHighlight(code) { var foo = 'Hello World'; var bar = 100; } # Jekyll configuration markdown: kramdown # kramdown : markdown의 개조판. #" />
     <meta property="og:url" content="https://lee989898.github.io/gettysburg-address" />
     <meta property="og:image" content="https://lee989898.github.io/assets/images/bus.jpg" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -65,7 +65,7 @@
     <meta property="article:modified_time" content="1863-11-19T19:18:00+09:00" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Gettysburg Address" />
-    <meta name="twitter:description" content="Kotlin 공부는 여러 절로 구성되어 있습니다. Kotlin 시작 Kotlin 1강 코틀린 시작 입니다. function syntaxHighlight(code) { var foo = 'Hello World'; var bar = 100; } # Jekyll configuration markdown: kramdown # kramdown : markdown의 개조판. # markdown에서 불편한 사항을 개선한 형태. # MyData owner: name: JoonKyung Lee avatar: photo.jpg" />
+    <meta name="twitter:description" content="Kotlin 공부는 여러 절로 구성되어 있습니다. 코틀린 규칙들 변수와 자료형 형변환과 배열 타입추론과 함수 조건문과 비교연산자 반복문과 증감연산자 흐름제어와 논리연산자 클래스의 기본구조 클래스의 생성 클래스의 상속 function syntaxHighlight(code) { var foo = 'Hello World'; var bar = 100; } # Jekyll configuration markdown: kramdown # kramdown : markdown의 개조판. #" />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
     <meta name="twitter:image" content="https://lee989898.github.io/assets/images/bus.jpg" />
     <meta name="twitter:label1" content="Written by" />
@@ -95,7 +95,7 @@
         "@type": "WebPage",
         "@id": "https://lee989898.github.io/gettysburg-address"
     },
-    "description": "Kotlin 공부는 여러 절로 구성되어 있습니다. Kotlin 시작 Kotlin 1강 코틀린 시작 입니다. function syntaxHighlight(code) { var foo = 'Hello World'; var bar = 100; } # Jekyll configuration markdown: kramdown # kramdown : markdown의 개조판. # markdown에서 불편한 사항을 개선한 형태. # MyData owner: name: JoonKyung Lee avatar: photo.jpg"
+    "description": "Kotlin 공부는 여러 절로 구성되어 있습니다. 코틀린 규칙들 변수와 자료형 형변환과 배열 타입추론과 함수 조건문과 비교연산자 반복문과 증감연산자 흐름제어와 논리연산자 클래스의 기본구조 클래스의 생성 클래스의 상속 function syntaxHighlight(code) { var foo = 'Hello World'; var bar = 100; } # Jekyll configuration markdown: kramdown # kramdown : markdown의 개조판. #"
 }
     </script>
 
@@ -193,11 +193,17 @@ into the {body} of the default.hbs template -->
                 <div class="kg-card-markdown">
                     <p><span class="table-of-contents-list">Kotlin 공부는 여러 절로 구성되어 있습니다. </span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./kotlin-01">Kotlin 시작</a></li>
-    <li><a href="./kotlin-02">Kotlin 1강 </a></li>
+    <li><a href="./kotlin-01">코틀린 규칙들</a></li>
+    <li><a href="./kotlin-02">변수와 자료형 </a></li>
+    <li><a href="./kotlin-03">형변환과 배열 </a></li>
+    <li><a href="./kotlin-04">타입추론과 함수 </a></li>
+    <li><a href="./kotlin-05">조건문과 비교연산자 </a></li>
+    <li><a href="./kotlin-06">반복문과 증감연산자 </a></li>
+    <li><a href="./kotlin-07">흐름제어와 논리연산자 </a></li>
+    <li><a href="./kotlin-08">클래스의 기본구조 </a></li>
+    <li><a href="./kotlin-09">클래스의 생성 </a></li>
+    <li><a href="./kotlin-09">클래스의 상속 </a></li>
 </ul>
-
-<p>코틀린 시작 입니다.</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">syntaxHighlight</span><span class="p">(</span><span class="nx">code</span><span class="p">)</span> <span class="p">{</span>
    <span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Hello World</span><span class="dl">'</span><span class="p">;</span>
@@ -371,36 +377,7 @@ exclude:
   </li>
 </ul>
 
-<h3 id="1-파일-시스템-구조">1. 파일 시스템 구조</h3>
-
-<hr />
-
 <p><img src="/assets/built/images/systemprog/structure.png" width="100%" height="50%" title="제목" alt="파일시스템구조" /></p>
-
-<hr />
-
-<p>하드디스크가 논리적인 디스크들인 파티션들로 나누어진다.</p>
-
-<p>각각의 파티션들은 4개의 영역으로 나뉘어진다.</p>
-
-<p>모든 파일의 실제 내용은 data block에 들어가 있다.</p>
-
-<h3 id="1-1-i-node">1-1. i-node</h3>
-
-<hr />
-
-<p>i-node
-인덱스 노드의 준말이다. 
-meta data가 저장 되어 있는 영역
-하드디스크에 저장
-파일 타입, 퍼미션 정보, 파일 크기, 포인터등으로 구성된다
-Stat 구조체의 필드는 i-node에서 읽어온다.</p>
-
-<p>directory block은 
-i-node 번호와 파일이름으로 구성되어 있다.</p>
-
-<p>hard link는 실제 i-node 쪽으로 연결되는 링크이다.
-i-node에 link count</p>
 
 
                 </div>
@@ -499,14 +476,22 @@ i-node에 link count</p>
                         
                     
 
-                    <h2 class="post-card-title">Kotlin 시작</h2>
+                    <h2 class="post-card-title">코틀린 규칙들</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
                         <p>Kotlin 공부는 여러 절로 구성되어 있습니다. 
 
-    Kotlin 시작
-    Kotlin 1강 
+    코틀린 규칙들
+    변수와 자료형 
+    형변환과 배열 
+    타입추론과 함수 
+    조건문과 비교연산자 
+    반복문과 증감연산자 
+    흐름제어와 논리연산자 
+    클래스의 기본구조 
+    클래스의 생성 
+    클래스의 상속 
 
 
 </p>
