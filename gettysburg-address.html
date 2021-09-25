@@ -139,17 +139,18 @@ into the {body} of the default.hbs template -->
     <li class="nav-kotlin" role="menuitem"><a href="/tag/kotlin/">Kotlin</a></li>
     <li class="nav-git" role="menuitem"><a href="/tag/git/">Git</a></li>
     <li class="nav-algorithm" role="menuitem"><a href="/tag/algorithm/">Algorithm</a></li>
-    <li class="nav-database" role="menuitem"><a href="/tag/database/">Database design</a></li>
-    <li class="nav-security" role="menuitem"><a href="/tag/security/">Security</a></li>
-    <li class="nav-language" role="menuitem"><a href="/tag/language/">Language</a></li>
-    <li class="nav-system" role="menuitem"><a href="/tag/system/">System program</a></li>
     <li class="nav-archive" role="menuitem">
         <a href="/archive.html">All Posts</a>
     </li>
     <li class="nav-archive" role="menuitem">
         <a href="/author_archive.html">Tag별 Posts</a>
     </li>
+
+
 </ul>
+
+
+
         
     </div>
     <div class="site-nav-right">
@@ -359,6 +360,47 @@ exclude:
   - _posts/r
   - _posts/economy</pre></noscript>
 <script src="https://gist.github.com/lee989898/838a9429b8ca500ff93d922548b725c5.js"> </script>
+
+<h1 id="제-4장-file-operation"><strong>제 4장 File Operation</strong></h1>
+
+<ul>
+  <li><u>1. 파일 시스템 구조</u>
+    <ul>
+      <li><u>1.1 i-node</u></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="1-파일-시스템-구조">1. 파일 시스템 구조</h3>
+
+<hr />
+
+<p><img src="/assets/built/images/systemprog/structure.png" width="100%" height="50%" title="제목" alt="파일시스템구조" /></p>
+
+<hr />
+
+<p>하드디스크가 논리적인 디스크들인 파티션들로 나누어진다.</p>
+
+<p>각각의 파티션들은 4개의 영역으로 나뉘어진다.</p>
+
+<p>모든 파일의 실제 내용은 data block에 들어가 있다.</p>
+
+<h3 id="1-1-i-node">1-1. i-node</h3>
+
+<hr />
+
+<p>i-node
+인덱스 노드의 준말이다. 
+meta data가 저장 되어 있는 영역
+하드디스크에 저장
+파일 타입, 퍼미션 정보, 파일 크기, 포인터등으로 구성된다
+Stat 구조체의 필드는 i-node에서 읽어온다.</p>
+
+<p>directory block은 
+i-node 번호와 파일이름으로 구성되어 있다.</p>
+
+<p>hard link는 실제 i-node 쪽으로 연결되는 링크이다.
+i-node에 link count</p>
 
 
                 </div>
