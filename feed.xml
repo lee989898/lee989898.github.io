@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lee989898.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lee989898.github.io/" rel="alternate" type="text/html" /><updated>2021-10-15T20:47:31+09:00</updated><id>https://lee989898.github.io/feed.xml</id><title type="html">LEE</title><subtitle>공부 블로그</subtitle><entry><title type="html">PL-01</title><link href="https://lee989898.github.io/pl-01" rel="alternate" type="text/html" title="PL-01" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-01</id><content type="html" xml:base="https://lee989898.github.io/pl-01">&lt;h1 id=&quot;제-1장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 1장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lee989898.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lee989898.github.io/" rel="alternate" type="text/html" /><updated>2021-10-15T22:22:26+09:00</updated><id>https://lee989898.github.io/feed.xml</id><title type="html">LEE</title><subtitle>공부 블로그</subtitle><entry><title type="html">PL-01</title><link href="https://lee989898.github.io/pl-01" rel="alternate" type="text/html" title="PL-01" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-01</id><content type="html" xml:base="https://lee989898.github.io/pl-01">&lt;h1 id=&quot;제-1장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 1장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;hr /&gt;
 
@@ -87,60 +87,269 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="study" /><summary type="html">제 1장 프로그래밍 언어</summary></entry><entry><title type="html">PL-04</title><link href="https://lee989898.github.io/pl-04" rel="alternate" type="text/html" title="PL-04" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-04</id><content type="html" xml:base="https://lee989898.github.io/pl-04">&lt;h1 id=&quot;제-4장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 4장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="study" /><summary type="html">제 1장 프로그래밍 언어</summary></entry><entry><title type="html">PL-05</title><link href="https://lee989898.github.io/pl-05" rel="alternate" type="text/html" title="PL-05" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-05</id><content type="html" xml:base="https://lee989898.github.io/pl-05">&lt;h1 id=&quot;제-5장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 5장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;hr /&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;언어 평가 기준과 언어 설계시 기준 간의 균형&lt;/strong&gt;
-&lt;br /&gt;&lt;br /&gt;
-역사적으로 프로그래밍 언어는 응용의 표현에 적합한 개념이 추가되면서 발전되어 왔으며,  ​
-그 개념의 활용에 필요한 프로그램 설계 방법이 개발되었다. ​
-이에 대해 간략히 간단히 살펴 보자.&lt;br /&gt;
-&lt;br /&gt;
-    &lt;ul&gt;
-      &lt;li&gt;50년대와 60년대 초반에는 숫자 계산을 주로 수행하는 수치 해석 등 비교적 단순한 응용이 컴퓨팅의 주류를 이루었고, 이들 프로그램은 수식 표현이 용이한 Fortran으로 작성되었다.  이러한 이유로 프로그램 설계 방법은 
-기계(컴퓨팅 자원)의 효율적 사용 방법을 찾는데 집중되었다.&lt;br /&gt;
- &lt;br /&gt;&lt;/li&gt;
-      &lt;li&gt;60년대 후반에는 프로그램의 데이터 처리 절차가 복잡해지고 타인이 작성
-한 프로그램을 이해하고 수정하기가 어려워지면서, 기계의 효율적 
-사용보다 프로그래머의 효율(생산성)에 관심이 집중되었다. 따라서
- 프로그램의 가독성(readability), 다양한 컨트롤 스트럭처에 의한
-표현의 편리성이 언어의 중요한 요소로 인식되고, 이를 지원하는 A
-LGOL 언어가 등장했다. 이러한 언어를 통해 구조적 프로그래밍, 
-하향식 설계, 단계적 정련 기법 등 프로그래밍 기법 또는 설계 방법
-이 개발되었다.  여기서 컨트롤 스트럭처란 if-then, loop, {중
-괄호} 등과 같이 인풋의 처리 로직을 표현하는 데 사용되는 구조를 
-말한다.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-      &lt;li&gt;1970년대 후반에는 데이터의 구조가 복잡해지면서,
- 처리 절차 중심의 프로그램 설계에서 데이터 중심의 프
- 로그램 설계로 옮겨갔다. 이를 위해 데이터 추상화 기법이 창안되었다
- . 데이터 추상화 기법은 데이터를 구조화하고, 이 데이터에 대한 연산
- 을 정의한다. 이와 같은 데이터 추상화 기법은 추상 데이터 타입을 지
- 원하는 프로그래밍 언어를 탄생시켰다. 이것이 바로 ALGOL을 발전시
- 킨 Pascal의 등장이다. Pascal은 Java가 등장하기 전까지 모든 컴
- 퓨터 관련 학과에서 필수 언어로 가르쳤다.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-      &lt;li&gt;1980년 중반에 데이터 추상화, 상속(속성, 메소드), 
-동적 바인딩을 특징으로 하는 객체 지향 언어가 등장하여
- 지금까지 이어오고 있다. C++, Java 등이 대표적인 언
- 어로, 이들 특징은 이후의 다른 언어에서도 지원할 수 있
- 을 정도로 일반적이다.&lt;/li&gt;
-    &lt;/ul&gt;
+  &lt;li&gt;&lt;strong&gt;프로그래밍 언어의 구현 시스템&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;프로그래밍 언어의 각 특징과 컨스트럭트들이 ​
+어떻게 구현되는지 이해하는 것은 매우 중요하다. ​
+PL 컨스트럭트의 구현은 고급 언어를 어셈블리 언어와 같은 
+하위 언어로 번역한다.&lt;br /&gt;
+  ​
+프로그램의 문장을 번역하는 것을 컴파일이라고 하고, ​
+문장을 의미에 적합하게 매핑하는 것을 인터프리테이션이라고 한다. ​&lt;/p&gt;
+
+&lt;p&gt;이와 같은 구현 시스템에 대해 왜 알아야 할까? ​
+ 컨스트럭트가 효율적으로 구현되고 있는지, ​
+ 더 좋은 구현 방법이 있는지, ​
+  이들간의 절충점이 있는지 등을 알아내기 위함이다.&lt;/p&gt;
+
+&lt;p&gt;컴파일 방법은 컴파일러를 써서 고급 언어로 짠 
+ 프로그램을 기계 언어로 번역한다.
+ 컴파일 프로세스는 어휘 분석, 구문 분석, 의
+ 미 분석, 코드 생성, 링크 및 적재 단계로 구성되어 있다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/pl/pl04.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;위 그림은 컴파일러의 구성요소와 이들 요소간의 처
+리 순서에 의한 컴파일 과정을 ​
+플로우 차트로 보여주고 있다. ​&lt;/p&gt;
+
+&lt;p&gt;어휘 분석기(lexical analyzer)는 소스 프로그램의 글
+자들을 어휘 단위로 모아 놓는다. ​
+프로그램의 어휘 단위는 변수, 키워드, 연산자 등을 의미한다.&lt;/p&gt;
+
+&lt;p&gt;구문 분석기(syntax analyzer)는 어휘 단위를 받아서 파스 트리를 생성한다. ​
+파스 트리는 프로그램의 구문 구조를 나타낸다. ​&lt;/p&gt;
+
+&lt;p&gt;중간 코드 생성기는 소스 프로그램과 기계 코드
+ 사이의 중간 수준의 언어로 작성된 프로그램을 생성한다. ​
+중간 언어로 어셈블리 어가 쓰이기도 하고, 이보다 
+조금 더 고급 수준의 언어가 사용되기도 한다. ​&lt;/p&gt;
+
+&lt;p&gt;의미 분석기(semantic analyzer)는 중간 코드 생성기(i
+ntermediate code generator)의 일부분으로 통합되어 있으며, ​
+구문 분석시에 탐지되지 않는 타입 오류 등을 검사한다. ​&lt;/p&gt;
+
+&lt;p&gt;최적화 단계는 중간 코드의 프로그램을 좀더 작고 빠르게 만든다. ​
+기계 언어보다 중간 코드를 최적화하는 이유는 기계 코드가 
+바이너리 형태이기 때문에​ 중간코드(알파벳으로 표현된)에 비해 최
+적화가 더 어렵기 때문이다. ​&lt;/p&gt;
+
+&lt;p&gt;코드 생성기는 중간 코드를
+받아서 컴퓨터가 직접 실행할 수 있는 기계 언어로 변환한다. ​&lt;/p&gt;
+
+&lt;p&gt;심볼 테이블은 소스 프로그램내의 변수의 타입과 속성(길이 
+등)을 저장하고 있다. 이들 정보는 어휘 분석기와 구문
+ 분석기에 의해 심볼 테이블에 저장되고, 의미 분석기와 중간 코
+ 드 생성기 및 코드 생성기에 의해 사용된다. ​&lt;/p&gt;
+
+&lt;p&gt;이렇게 컴파일된 사용자 코드는 실행 시 시스템 코드를 호출하여 ​
+시스템 소프트웨어의 도움을 받는다. ​&lt;/p&gt;
+
+&lt;p&gt;이를 위해 실행 직전에 사용자 코드와 시스템 코드를 링크(연결)한다. ​
+이 과정을 linking 또는 linking and loading이라고 하고, ​
+이러한 역할을 하는 시스템 소프트웨어를 linker라고 한다. ​
+링킹에 의해 생성된 것을 executable image(실행 이미지)
+ 또는 load module(적재 모듈)이라고 한다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/pl/pl05.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;인터프리터는 프로그램을 기계 언어로 번역하지 않고, ​
+문장의 의미에 적합하게 시뮬레이션하여 결과를 낸다. ​&lt;/p&gt;
+
+&lt;p&gt;따라서 인터프러터는 고급 언어 처리를 위한 시뮬레이터 또는 ​
+고급언어를 기계어처럼 처리하는 가상 머신의 역할을 한다. ​&lt;/p&gt;
+
+&lt;p&gt;인터프리터의 장점은, 프로그램의 실행 오류 발생시, ​
+소스 프로그램의 몇번 라인에서 오류가 발생했는지 오
+류 메시지가 알려주기 때문에 ​
+프로그램 개발에 매우 편리한다. ​&lt;/p&gt;
+
+&lt;p&gt;단점은 컴파일 코드에 비해 10-100배 느리다는 것이며, ​
+프로그램의 인터프리테이션 동안에 심볼 테이블이 메모리에
+ 적재되어 있어야 하기 때문에 ​
+메모리 공간을 많이 차지한다는 것이다. ​&lt;/p&gt;
+
+&lt;p&gt;인터프리터를 이용하는 대표적인 언어
+로 자바스크립트, PHP, 파이썬 등이 있다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/pl/pl06.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;하이브리드 방식은 먼저 컴파일을 해서 중간 코드를 생성한 다음에, ​
+중간 코드를 인터프리터에 의해 실행한다. ​&lt;/p&gt;
+
+&lt;p&gt;자바에서는 자바 가상 머신에서 실행되는 바이트 코드를 중간 코드로 생성한다.  ​
+바이트 코드는 이진 코드지만 CPU가 아닌 자바 가상 머신이 이해할 수 
+있는 언어이다.​&lt;/p&gt;
+
+&lt;p&gt;자바 가상 머신은 바이트 코드 명령어를 하나씩 읽어 들여 실행한다. ​&lt;/p&gt;
+
+&lt;p&gt;이와 같이 중간 코드를 생성하여 자바 가상 머신으로 실행하면, ​
+하드웨어의 특이 사항에 제한을 받지 않아서 portability가 높
+은 장점이 있다. ​&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/pl/pl07.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;클래스 및 변수를 선언하고 초기화하는 자바 소스 프로그램을 바
+이트 코드로 번역한 예는 위와 같다. ​
+빨간색 박스를 눈여겨 보시기 보자. ​
+메모리에 위치를 잡고, 초기화 함수를 호출하거나 조작하고 반환한다.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;​&lt;/p&gt;</content><author><name>lee989898</name></author><category term="study" /><summary type="html">제 5장 프로그래밍 언어</summary></entry><entry><title type="html">PL-04</title><link href="https://lee989898.github.io/pl-04" rel="alternate" type="text/html" title="PL-04" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-04</id><content type="html" xml:base="https://lee989898.github.io/pl-04">&lt;h1 id=&quot;제-4장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 4장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;언어 평가 기준과 언어 설계시 기준 간의 균형&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;좋은 프로그래밍 언어가 갖춰야 할 기준은 무엇인가 살펴 보자. ​&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Readability(읽기 쉬움): 프로그램을 읽고 이해하기 쉬운 정
+도를 프로그래밍 언어의 readability라고 한다. ​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Writability(쓰기쉬움): 프로그램을 작성하기 쉬운 정
+도를 프로그래밍 언어의 writability라고 한다. ​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Reliability(신뢰성): 프로그램이 다양한 조건 아래
+서 ‘원래 하기로 되어 있던’ 일을 수행하는 것을 
+reliability라고 한다. 즉, 인풋이 같으면 아웃풋이 같아
+야 한다. 만일 인풋이 같은데 조건에 따라 다른 아웃풋을 낸
+다면 이 프로그램은 신뢰성이 없는 것이다. ​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;비용: 프로그램은 학습 비용, 개발 비용(인건비 등 포함)
+, 실행 비용 등 여러 가지 비용을 수반한다. 이 모든 비용
+이 적으면 좋은 프로그래밍 언어인 것이다.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/pl/pl03.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어03&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;프로그래밍 언어의 Readability를 올리려면 다음과 
+같은 특성을 갖는 것이 바람직하다.
+ ​&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;첫째, 단순성이다. 만일 프로그래밍 언어가, 언어의 고유 기능과 기본 컨스트럭트(construc
+ts; control structure를 의미함)를 비교적 적게 갖고 있으며, ​
+고유 기능에 대한 다중성이 적을 수록,   ​
+연산의 오버로딩을 최소한으로 허용할 수록 읽기 쉽다.   ​
+여기서 다중성이란 동일한 연산을 수행하는 방법이 
+여러 가지가 있다는 것을 의미하며,
+충돌이 발생할 가능성에 대비하여 프로그래머에 의한 조치가 필요하다. 
+이러한 다중성은 객체 지향 언어에서 두드러지는데, ​
+C++에서는 허용되지만 Java에서는 허용되지 않는다.   ​
+오버로딩은 동일한 이름의 연산을 여러 개 정의하는 것을 의미하고, ​
+컴파일할 때 어느 연산을 실행할지 컴파일러가 결정한다. ​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;둘째, 독립성입니다. ​
+독립성이란 컨스트럭트 결합 규칙이 문맥에 대해 
+종속되지 않고 독립적인 것을 의미합니다. ​
+컨스트럭트 간의 결합 규칙에 예외나 불규칙성이 비교적 적고, ​
+모든 결합(combination)이 구문적으로 적
+합하고 문맥에 독립적이어야 읽기 쉽습니다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;구조적 프로그래밍에 필요한 loop, if-then-else, begin
+-end와 같은 컨트롤 구조를 충분히 제공하면, ​
+프로그램을 위에서 아래로 읽어 내려가면서 이해할 수 있
+어서 readability에 기여한다. ​&lt;/p&gt;
+
+&lt;p&gt;데이터 타입과 데이터 구조의 정의 기능 또한 프로그램
+의 readability에 기여한다. ​
+데이터 타입의 정의를 통해 데이터가 가질 수 있는 값의 범위와 ​
+이들 데이터에 허용되는 연산을 이해할 수 있다. ​
+데이터 구조의 정의 기능은 다양한 여러 복잡한 데이터 유형을 모아서, ​
+새로운 단순한 유형의 데이터를 정의할 수 있는 능력을 프로
+그래머에게 제공한다. ​
+프로그래머는 이와 같이 복잡한 것을 단순화시킬 수 있어서, ​
+프로그램을 쉽게 작성할 수 있는 동시에, 다른 프로그
+래머를 쉽게 이해시킬 수 있다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;이 그림은 널리 사용되어 온 프로그래밍 언어의 족보를 보여주고 있다. ​
- 많은 언어가 생멸하는 와중에 지속적인 발전이 있었음을 알 수 있다. ​
- 눈여겨 볼만한 중요한 언어로는 FORTRAN, COBO
- L, COMMON LISP, Pascal, C, C++, Java 등이다.&lt;/p&gt;</content><author><name>lee989898</name></author><category term="study" /><summary type="html">제 4장 프로그래밍 언어</summary></entry><entry><title type="html">PL-03</title><link href="https://lee989898.github.io/pl-03" rel="alternate" type="text/html" title="PL-03" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-03</id><content type="html" xml:base="https://lee989898.github.io/pl-03">&lt;h1 id=&quot;제-3장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 3장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Writablility: 프로그래밍 언어의 쓰기쉬움의 주요 평가 기준은 ​
+단순성과 독립성, 추상화 지원, 표현력을 들 수 있다. ​
+단순성이란 컨스트럭트의 수가 적다는 것을 의미하고, ​
+독립성이란 컨스트럭트 결합 규칙이 문맥에 대해 독립적이라는 것을 의미한다. ​
+그러나 컨스트럭트 결합 규칙이 문맥에 지나치게 독립적이면, ​
+실행시 발생하는 오류를 탐지할 수 없게 될 수도 있다. ​
+따라서 독립성은 프로그래밍 언어를 설계할 때 신중하게 고려해야 한다.
+ &lt;br /&gt;​
+복잡한 구조 또는 연산의 추상화도 프로그래밍 언어의 쓰기쉬움을 평가하는 기준이다. ​
+추상화에는 처리 절차의 추상화(서브 프로그램)와 데이터 추상화가 있다.
+For loop과 같이 편리한 표현 방식과 같은 표현력 또한 쓰기쉬움 평가의 기준입니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Reliablitiy:
+신뢰성은 타입 검사에 의한 오류 처리, ​
+프로그램 실행시에 발생하는 예외 처리, ​
+Aliasing(같은 메모리 주소를 다른 이름으로 레퍼런스하는 것), ​
+읽기쉬움과 쓰기쉬움 등은 모두 프로그래밍 언어의 신뢰성 평가의 기준이 된다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Cost: 
+학습, 개발, 컴파일 및 실행, 컴파일러 및 인터프리터와 
+같은 언어 구현 시스템, 신뢰성, 유지 보수 등 ​
+프로그래밍 언어 사용에 관련된 모든 비용은 언어 평가 기준에 속한다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;이밖에 구현 시스템간의 이식성, 다양한 응용에 대한 적용성, 언어
+의 표준화에 의한 완결성 및 정확성, 전력 소비 효율 등도 ​
+프로그래밍 언어의 평가 기준이다&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;언어 설계시 이들 모든 평가 기준을 최적화하기는 매우 어렵다. ​
+문제 해결에 필요한 기준을 먼저 설정하고 이들 간의 
+균형점을 찾는 것이 중요하다. ​&lt;/p&gt;
+
+&lt;p&gt;레퍼런스 변수는 메모리 상에 있는 인스턴스를 가리키는 데 사용되는 변수이다. ​
+자바에서는 모든 레퍼런스 변수에 대해, ​
+이들이 가리키는 메모리에 대한 인덱싱이 적절한지 검사합니다. ​
+이것은 신뢰성을 높여 주지만 매우 높은 실행 비용을 유발한다. ​&lt;/p&gt;
+
+&lt;p&gt;강력한 연산자가 많으면 프로그램 짜기는 쉽지만, ​
+읽고 이해하기 어려울 수도 있다. ​&lt;/p&gt;
+
+&lt;p&gt;C++의 포인터는 매우 강력하고 유연하여 쓰기 쉬움을 높여주지만, ​
+주의를 기울이지 않으면 신뢰성에 문제를 일으킨다.&lt;/p&gt;
+
+&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="study" /><summary type="html">제 4장 프로그래밍 언어</summary></entry><entry><title type="html">PL-03</title><link href="https://lee989898.github.io/pl-03" rel="alternate" type="text/html" title="PL-03" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-03</id><content type="html" xml:base="https://lee989898.github.io/pl-03">&lt;h1 id=&quot;제-3장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 3장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;hr /&gt;
 
@@ -411,82 +620,7 @@ fact(X,Fact) :-
   Fact is X * NF.&lt;/pre&gt;&lt;/noscript&gt;
 &lt;script src=&quot;https://gist.github.com/lee989898/fca92516fff281d9b22e9c38494280bf.js&quot;&gt; &lt;/script&gt;
 
-&lt;p&gt;보기엔 깔끔해 보일 수 있지만, 레졸루션해서 풀려면 오래걸린다.&lt;/p&gt;</content><author><name>lee989898</name></author><category term="study" /><summary type="html">제 2장 프로그래밍 언어</summary></entry><entry><title type="html">반복문과 증감연산자</title><link href="https://lee989898.github.io/kotlin-06" rel="alternate" type="text/html" title="반복문과 증감연산자" /><published>2021-09-25T01:07:00+09:00</published><updated>2021-09-25T01:07:00+09:00</updated><id>https://lee989898.github.io/kotlin-06</id><content type="html" xml:base="https://lee989898.github.io/kotlin-06">&lt;h1 id=&quot;반복문과-증감연산자&quot;&gt;반복문과 증감연산자&lt;/h1&gt;
-
-&lt;hr /&gt;
-
-&lt;noscript&gt;&lt;pre&gt;fun main() {
-    var intValue:Int = 1234
-    var LongValue:Long = 1234L
-    var intValueByHex:Int = 0x1af
-    var intValueByBin:Int = 0b10110110
-    
-    var doubleValue:Double = 123.5
-    var doubleValueWithExp: Double = 123.5e10
-    var floatValue:Float = 123.5f
-    
-    var charValue: Char = &amp;#39;a&amp;#39;
-    var koreanCharValue: Char = &amp;#39;가&amp;#39;
-    
-    var booleanValue: Boolean = true
-    
-    var stringValue = &amp;quot;one line string test&amp;quot;
-    
-    val multiLineStringValue = &amp;quot;&amp;quot;&amp;quot;multiline
-    string
-    test&amp;quot;&amp;quot;&amp;quot;
-}&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/lee989898/c6ccc4221fdbd96eae8b91fa55199f92.js&quot;&gt; &lt;/script&gt;</content><author><name>lee989898</name></author><category term="kotlin" /><summary type="html">반복문과 증감연산자</summary></entry><entry><title type="html">클래스의 상속</title><link href="https://lee989898.github.io/kotlin-10" rel="alternate" type="text/html" title="클래스의 상속" /><published>2021-09-25T01:07:00+09:00</published><updated>2021-09-25T01:07:00+09:00</updated><id>https://lee989898.github.io/kotlin-10</id><content type="html" xml:base="https://lee989898.github.io/kotlin-10">&lt;h1 id=&quot;클래스의-상속&quot;&gt;클래스의 상속&lt;/h1&gt;
-
-&lt;hr /&gt;
-
-&lt;noscript&gt;&lt;pre&gt;fun main() {
-    var intValue:Int = 1234
-    var LongValue:Long = 1234L
-    var intValueByHex:Int = 0x1af
-    var intValueByBin:Int = 0b10110110
-    
-    var doubleValue:Double = 123.5
-    var doubleValueWithExp: Double = 123.5e10
-    var floatValue:Float = 123.5f
-    
-    var charValue: Char = &amp;#39;a&amp;#39;
-    var koreanCharValue: Char = &amp;#39;가&amp;#39;
-    
-    var booleanValue: Boolean = true
-    
-    var stringValue = &amp;quot;one line string test&amp;quot;
-    
-    val multiLineStringValue = &amp;quot;&amp;quot;&amp;quot;multiline
-    string
-    test&amp;quot;&amp;quot;&amp;quot;
-}&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/lee989898/c6ccc4221fdbd96eae8b91fa55199f92.js&quot;&gt; &lt;/script&gt;</content><author><name>lee989898</name></author><category term="kotlin" /><summary type="html">클래스의 상속</summary></entry><entry><title type="html">클래스의 기본구조</title><link href="https://lee989898.github.io/kotlin-08" rel="alternate" type="text/html" title="클래스의 기본구조" /><published>2021-09-25T01:07:00+09:00</published><updated>2021-09-25T01:07:00+09:00</updated><id>https://lee989898.github.io/kotlin-08</id><content type="html" xml:base="https://lee989898.github.io/kotlin-08">&lt;h1 id=&quot;클래스의-기본구조&quot;&gt;클래스의 기본구조&lt;/h1&gt;
-
-&lt;hr /&gt;
-
-&lt;noscript&gt;&lt;pre&gt;fun main() {
-    var intValue:Int = 1234
-    var LongValue:Long = 1234L
-    var intValueByHex:Int = 0x1af
-    var intValueByBin:Int = 0b10110110
-    
-    var doubleValue:Double = 123.5
-    var doubleValueWithExp: Double = 123.5e10
-    var floatValue:Float = 123.5f
-    
-    var charValue: Char = &amp;#39;a&amp;#39;
-    var koreanCharValue: Char = &amp;#39;가&amp;#39;
-    
-    var booleanValue: Boolean = true
-    
-    var stringValue = &amp;quot;one line string test&amp;quot;
-    
-    val multiLineStringValue = &amp;quot;&amp;quot;&amp;quot;multiline
-    string
-    test&amp;quot;&amp;quot;&amp;quot;
-}&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/lee989898/c6ccc4221fdbd96eae8b91fa55199f92.js&quot;&gt; &lt;/script&gt;</content><author><name>lee989898</name></author><category term="kotlin" /><summary type="html">클래스의 기본구조</summary></entry><entry><title type="html">흐름제어와 논리연산자</title><link href="https://lee989898.github.io/kotlin-07" rel="alternate" type="text/html" title="흐름제어와 논리연산자" /><published>2021-09-25T01:07:00+09:00</published><updated>2021-09-25T01:07:00+09:00</updated><id>https://lee989898.github.io/kotlin-07</id><content type="html" xml:base="https://lee989898.github.io/kotlin-07">&lt;h1 id=&quot;흐름제어와-논리연산자&quot;&gt;흐름제어와 논리연산자&lt;/h1&gt;
+&lt;p&gt;보기엔 깔끔해 보일 수 있지만, 레졸루션해서 풀려면 오래걸린다.&lt;/p&gt;</content><author><name>lee989898</name></author><category term="study" /><summary type="html">제 2장 프로그래밍 언어</summary></entry><entry><title type="html">흐름제어와 논리연산자</title><link href="https://lee989898.github.io/kotlin-07" rel="alternate" type="text/html" title="흐름제어와 논리연산자" /><published>2021-09-25T01:07:00+09:00</published><updated>2021-09-25T01:07:00+09:00</updated><id>https://lee989898.github.io/kotlin-07</id><content type="html" xml:base="https://lee989898.github.io/kotlin-07">&lt;h1 id=&quot;흐름제어와-논리연산자&quot;&gt;흐름제어와 논리연산자&lt;/h1&gt;
 
 &lt;hr /&gt;
 
@@ -536,7 +670,57 @@ fact(X,Fact) :-
     string
     test&amp;quot;&amp;quot;&amp;quot;
 }&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/lee989898/c6ccc4221fdbd96eae8b91fa55199f92.js&quot;&gt; &lt;/script&gt;</content><author><name>lee989898</name></author><category term="kotlin" /><summary type="html">클래스의 생성</summary></entry><entry><title type="html">형변환과 배열</title><link href="https://lee989898.github.io/kotlin-03" rel="alternate" type="text/html" title="형변환과 배열" /><published>2021-09-25T01:07:00+09:00</published><updated>2021-09-25T01:07:00+09:00</updated><id>https://lee989898.github.io/kotlin-03</id><content type="html" xml:base="https://lee989898.github.io/kotlin-03">&lt;h1 id=&quot;형변환과-배열&quot;&gt;형변환과 배열&lt;/h1&gt;
+&lt;script src=&quot;https://gist.github.com/lee989898/c6ccc4221fdbd96eae8b91fa55199f92.js&quot;&gt; &lt;/script&gt;</content><author><name>lee989898</name></author><category term="kotlin" /><summary type="html">클래스의 생성</summary></entry><entry><title type="html">클래스의 기본구조</title><link href="https://lee989898.github.io/kotlin-08" rel="alternate" type="text/html" title="클래스의 기본구조" /><published>2021-09-25T01:07:00+09:00</published><updated>2021-09-25T01:07:00+09:00</updated><id>https://lee989898.github.io/kotlin-08</id><content type="html" xml:base="https://lee989898.github.io/kotlin-08">&lt;h1 id=&quot;클래스의-기본구조&quot;&gt;클래스의 기본구조&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;noscript&gt;&lt;pre&gt;fun main() {
+    var intValue:Int = 1234
+    var LongValue:Long = 1234L
+    var intValueByHex:Int = 0x1af
+    var intValueByBin:Int = 0b10110110
+    
+    var doubleValue:Double = 123.5
+    var doubleValueWithExp: Double = 123.5e10
+    var floatValue:Float = 123.5f
+    
+    var charValue: Char = &amp;#39;a&amp;#39;
+    var koreanCharValue: Char = &amp;#39;가&amp;#39;
+    
+    var booleanValue: Boolean = true
+    
+    var stringValue = &amp;quot;one line string test&amp;quot;
+    
+    val multiLineStringValue = &amp;quot;&amp;quot;&amp;quot;multiline
+    string
+    test&amp;quot;&amp;quot;&amp;quot;
+}&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/lee989898/c6ccc4221fdbd96eae8b91fa55199f92.js&quot;&gt; &lt;/script&gt;</content><author><name>lee989898</name></author><category term="kotlin" /><summary type="html">클래스의 기본구조</summary></entry><entry><title type="html">클래스의 상속</title><link href="https://lee989898.github.io/kotlin-10" rel="alternate" type="text/html" title="클래스의 상속" /><published>2021-09-25T01:07:00+09:00</published><updated>2021-09-25T01:07:00+09:00</updated><id>https://lee989898.github.io/kotlin-10</id><content type="html" xml:base="https://lee989898.github.io/kotlin-10">&lt;h1 id=&quot;클래스의-상속&quot;&gt;클래스의 상속&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;noscript&gt;&lt;pre&gt;fun main() {
+    var intValue:Int = 1234
+    var LongValue:Long = 1234L
+    var intValueByHex:Int = 0x1af
+    var intValueByBin:Int = 0b10110110
+    
+    var doubleValue:Double = 123.5
+    var doubleValueWithExp: Double = 123.5e10
+    var floatValue:Float = 123.5f
+    
+    var charValue: Char = &amp;#39;a&amp;#39;
+    var koreanCharValue: Char = &amp;#39;가&amp;#39;
+    
+    var booleanValue: Boolean = true
+    
+    var stringValue = &amp;quot;one line string test&amp;quot;
+    
+    val multiLineStringValue = &amp;quot;&amp;quot;&amp;quot;multiline
+    string
+    test&amp;quot;&amp;quot;&amp;quot;
+}&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/lee989898/c6ccc4221fdbd96eae8b91fa55199f92.js&quot;&gt; &lt;/script&gt;</content><author><name>lee989898</name></author><category term="kotlin" /><summary type="html">클래스의 상속</summary></entry><entry><title type="html">형변환과 배열</title><link href="https://lee989898.github.io/kotlin-03" rel="alternate" type="text/html" title="형변환과 배열" /><published>2021-09-25T01:07:00+09:00</published><updated>2021-09-25T01:07:00+09:00</updated><id>https://lee989898.github.io/kotlin-03</id><content type="html" xml:base="https://lee989898.github.io/kotlin-03">&lt;h1 id=&quot;형변환과-배열&quot;&gt;형변환과 배열&lt;/h1&gt;
 
 &lt;hr /&gt;
 

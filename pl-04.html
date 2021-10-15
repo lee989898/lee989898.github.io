@@ -56,7 +56,7 @@
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="PL-04" />
-    <meta property="og:description" content="제 4장 프로그래밍 언어 언어 평가 기준과 언어 설계시 기준 간의 균형 역사적으로 프로그래밍 언어는 응용의 표현에 적합한 개념이 추가되면서 발전되어 왔으며, ​ 그 개념의 활용에 필요한 프로그램 설계 방법이 개발되었다. ​ 이에 대해 간략히 간단히 살펴 보자. 50년대와 60년대 초반에는 숫자 계산을 주로 수행하는 수치 해석 등 비교적 단순한" />
+    <meta property="og:description" content="제 4장 프로그래밍 언어 언어 평가 기준과 언어 설계시 기준 간의 균형 좋은 프로그래밍 언어가 갖춰야 할 기준은 무엇인가 살펴 보자. ​ Readability(읽기 쉬움): 프로그램을 읽고 이해하기 쉬운 정 도를 프로그래밍 언어의 readability라고 한다. ​ Writability(쓰기쉬움): 프로그램을 작성하기 쉬운 정 도를 프로그래밍 언어의 writability라고 한다. ​ Reliability(신뢰성): 프로그램이 다양한 조건" />
     <meta property="og:url" content="https://lee989898.github.io/pl-04" />
     <meta property="og:image" content="https://lee989898.github.io/assets/built/images/study-background-frontend.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -66,7 +66,7 @@
     <meta property="article:tag" content="Study" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="PL-04" />
-    <meta name="twitter:description" content="제 4장 프로그래밍 언어 언어 평가 기준과 언어 설계시 기준 간의 균형 역사적으로 프로그래밍 언어는 응용의 표현에 적합한 개념이 추가되면서 발전되어 왔으며, ​ 그 개념의 활용에 필요한 프로그램 설계 방법이 개발되었다. ​ 이에 대해 간략히 간단히 살펴 보자. 50년대와 60년대 초반에는 숫자 계산을 주로 수행하는 수치 해석 등 비교적 단순한" />
+    <meta name="twitter:description" content="제 4장 프로그래밍 언어 언어 평가 기준과 언어 설계시 기준 간의 균형 좋은 프로그래밍 언어가 갖춰야 할 기준은 무엇인가 살펴 보자. ​ Readability(읽기 쉬움): 프로그램을 읽고 이해하기 쉬운 정 도를 프로그래밍 언어의 readability라고 한다. ​ Writability(쓰기쉬움): 프로그램을 작성하기 쉬운 정 도를 프로그래밍 언어의 writability라고 한다. ​ Reliability(신뢰성): 프로그램이 다양한 조건" />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
     <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/study-background-frontend.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -98,7 +98,7 @@
         "@type": "WebPage",
         "@id": "https://lee989898.github.io/pl-04"
     },
-    "description": "제 4장 프로그래밍 언어 언어 평가 기준과 언어 설계시 기준 간의 균형 역사적으로 프로그래밍 언어는 응용의 표현에 적합한 개념이 추가되면서 발전되어 왔으며, ​ 그 개념의 활용에 필요한 프로그램 설계 방법이 개발되었다. ​ 이에 대해 간략히 간단히 살펴 보자. 50년대와 60년대 초반에는 숫자 계산을 주로 수행하는 수치 해석 등 비교적 단순한"
+    "description": "제 4장 프로그래밍 언어 언어 평가 기준과 언어 설계시 기준 간의 균형 좋은 프로그래밍 언어가 갖춰야 할 기준은 무엇인가 살펴 보자. ​ Readability(읽기 쉬움): 프로그램을 읽고 이해하기 쉬운 정 도를 프로그래밍 언어의 readability라고 한다. ​ Writability(쓰기쉬움): 프로그램을 작성하기 쉬운 정 도를 프로그래밍 언어의 writability라고 한다. ​ Reliability(신뢰성): 프로그램이 다양한 조건"
 }
     </script>
 
@@ -207,56 +207,132 @@ into the {body} of the default.hbs template -->
 <hr />
 
 <ul>
-  <li><strong>언어 평가 기준과 언어 설계시 기준 간의 균형</strong>
-<br /><br />
-역사적으로 프로그래밍 언어는 응용의 표현에 적합한 개념이 추가되면서 발전되어 왔으며,  ​
-그 개념의 활용에 필요한 프로그램 설계 방법이 개발되었다. ​
-이에 대해 간략히 간단히 살펴 보자.<br />
-<br />
-    <ul>
-      <li>50년대와 60년대 초반에는 숫자 계산을 주로 수행하는 수치 해석 등 비교적 단순한 응용이 컴퓨팅의 주류를 이루었고, 이들 프로그램은 수식 표현이 용이한 Fortran으로 작성되었다.  이러한 이유로 프로그램 설계 방법은 
-기계(컴퓨팅 자원)의 효율적 사용 방법을 찾는데 집중되었다.<br />
- <br /></li>
-      <li>60년대 후반에는 프로그램의 데이터 처리 절차가 복잡해지고 타인이 작성
-한 프로그램을 이해하고 수정하기가 어려워지면서, 기계의 효율적 
-사용보다 프로그래머의 효율(생산성)에 관심이 집중되었다. 따라서
- 프로그램의 가독성(readability), 다양한 컨트롤 스트럭처에 의한
-표현의 편리성이 언어의 중요한 요소로 인식되고, 이를 지원하는 A
-LGOL 언어가 등장했다. 이러한 언어를 통해 구조적 프로그래밍, 
-하향식 설계, 단계적 정련 기법 등 프로그래밍 기법 또는 설계 방법
-이 개발되었다.  여기서 컨트롤 스트럭처란 if-then, loop, {중
-괄호} 등과 같이 인풋의 처리 로직을 표현하는 데 사용되는 구조를 
-말한다.<br />
-<br /></li>
-      <li>1970년대 후반에는 데이터의 구조가 복잡해지면서,
- 처리 절차 중심의 프로그램 설계에서 데이터 중심의 프
- 로그램 설계로 옮겨갔다. 이를 위해 데이터 추상화 기법이 창안되었다
- . 데이터 추상화 기법은 데이터를 구조화하고, 이 데이터에 대한 연산
- 을 정의한다. 이와 같은 데이터 추상화 기법은 추상 데이터 타입을 지
- 원하는 프로그래밍 언어를 탄생시켰다. 이것이 바로 ALGOL을 발전시
- 킨 Pascal의 등장이다. Pascal은 Java가 등장하기 전까지 모든 컴
- 퓨터 관련 학과에서 필수 언어로 가르쳤다.<br />
-<br /></li>
-      <li>1980년 중반에 데이터 추상화, 상속(속성, 메소드), 
-동적 바인딩을 특징으로 하는 객체 지향 언어가 등장하여
- 지금까지 이어오고 있다. C++, Java 등이 대표적인 언
- 어로, 이들 특징은 이후의 다른 언어에서도 지원할 수 있
- 을 정도로 일반적이다.</li>
-    </ul>
+  <li><strong>언어 평가 기준과 언어 설계시 기준 간의 균형</strong></li>
+</ul>
+
+<p>좋은 프로그래밍 언어가 갖춰야 할 기준은 무엇인가 살펴 보자. ​</p>
+
+<ul>
+  <li>
+    <p>Readability(읽기 쉬움): 프로그램을 읽고 이해하기 쉬운 정
+도를 프로그래밍 언어의 readability라고 한다. ​</p>
+  </li>
+  <li>
+    <p>Writability(쓰기쉬움): 프로그램을 작성하기 쉬운 정
+도를 프로그래밍 언어의 writability라고 한다. ​</p>
+  </li>
+  <li>
+    <p>Reliability(신뢰성): 프로그램이 다양한 조건 아래
+서 ‘원래 하기로 되어 있던’ 일을 수행하는 것을 
+reliability라고 한다. 즉, 인풋이 같으면 아웃풋이 같아
+야 한다. 만일 인풋이 같은데 조건에 따라 다른 아웃풋을 낸
+다면 이 프로그램은 신뢰성이 없는 것이다. ​</p>
+  </li>
+  <li>
+    <p>비용: 프로그램은 학습 비용, 개발 비용(인건비 등 포함)
+, 실행 비용 등 여러 가지 비용을 수반한다. 이 모든 비용
+이 적으면 좋은 프로그래밍 언어인 것이다.</p>
   </li>
 </ul>
 
 <hr />
 
-<p><img src="/assets/built/images/pl/pl03.png" width="100%" height="50%" title="제목" alt="프로그래밍언어03" /></p>
+<p>프로그래밍 언어의 Readability를 올리려면 다음과 
+같은 특성을 갖는 것이 바람직하다.
+ ​</p>
+<ul>
+  <li>
+    <p>첫째, 단순성이다. 만일 프로그래밍 언어가, 언어의 고유 기능과 기본 컨스트럭트(construc
+ts; control structure를 의미함)를 비교적 적게 갖고 있으며, ​
+고유 기능에 대한 다중성이 적을 수록,   ​
+연산의 오버로딩을 최소한으로 허용할 수록 읽기 쉽다.   ​
+여기서 다중성이란 동일한 연산을 수행하는 방법이 
+여러 가지가 있다는 것을 의미하며,
+충돌이 발생할 가능성에 대비하여 프로그래머에 의한 조치가 필요하다. 
+이러한 다중성은 객체 지향 언어에서 두드러지는데, ​
+C++에서는 허용되지만 Java에서는 허용되지 않는다.   ​
+오버로딩은 동일한 이름의 연산을 여러 개 정의하는 것을 의미하고, ​
+컴파일할 때 어느 연산을 실행할지 컴파일러가 결정한다. ​</p>
+  </li>
+  <li>
+    <p>둘째, 독립성입니다. ​
+독립성이란 컨스트럭트 결합 규칙이 문맥에 대해 
+종속되지 않고 독립적인 것을 의미합니다. ​
+컨스트럭트 간의 결합 규칙에 예외나 불규칙성이 비교적 적고, ​
+모든 결합(combination)이 구문적으로 적
+합하고 문맥에 독립적이어야 읽기 쉽습니다.</p>
+  </li>
+</ul>
+
+<p>구조적 프로그래밍에 필요한 loop, if-then-else, begin
+-end와 같은 컨트롤 구조를 충분히 제공하면, ​
+프로그램을 위에서 아래로 읽어 내려가면서 이해할 수 있
+어서 readability에 기여한다. ​</p>
+
+<p>데이터 타입과 데이터 구조의 정의 기능 또한 프로그램
+의 readability에 기여한다. ​
+데이터 타입의 정의를 통해 데이터가 가질 수 있는 값의 범위와 ​
+이들 데이터에 허용되는 연산을 이해할 수 있다. ​
+데이터 구조의 정의 기능은 다양한 여러 복잡한 데이터 유형을 모아서, ​
+새로운 단순한 유형의 데이터를 정의할 수 있는 능력을 프로
+그래머에게 제공한다. ​
+프로그래머는 이와 같이 복잡한 것을 단순화시킬 수 있어서, ​
+프로그램을 쉽게 작성할 수 있는 동시에, 다른 프로그
+래머를 쉽게 이해시킬 수 있다.</p>
 
 <hr />
 
-<p>이 그림은 널리 사용되어 온 프로그래밍 언어의 족보를 보여주고 있다. ​
- 많은 언어가 생멸하는 와중에 지속적인 발전이 있었음을 알 수 있다. ​
- 눈여겨 볼만한 중요한 언어로는 FORTRAN, COBO
- L, COMMON LISP, Pascal, C, C++, Java 등이다.</p>
+<ul>
+  <li>
+    <p>Writablility: 프로그래밍 언어의 쓰기쉬움의 주요 평가 기준은 ​
+단순성과 독립성, 추상화 지원, 표현력을 들 수 있다. ​
+단순성이란 컨스트럭트의 수가 적다는 것을 의미하고, ​
+독립성이란 컨스트럭트 결합 규칙이 문맥에 대해 독립적이라는 것을 의미한다. ​
+그러나 컨스트럭트 결합 규칙이 문맥에 지나치게 독립적이면, ​
+실행시 발생하는 오류를 탐지할 수 없게 될 수도 있다. ​
+따라서 독립성은 프로그래밍 언어를 설계할 때 신중하게 고려해야 한다.
+ <br />​
+복잡한 구조 또는 연산의 추상화도 프로그래밍 언어의 쓰기쉬움을 평가하는 기준이다. ​
+추상화에는 처리 절차의 추상화(서브 프로그램)와 데이터 추상화가 있다.
+For loop과 같이 편리한 표현 방식과 같은 표현력 또한 쓰기쉬움 평가의 기준입니다.</p>
+  </li>
+  <li>
+    <p>Reliablitiy:
+신뢰성은 타입 검사에 의한 오류 처리, ​
+프로그램 실행시에 발생하는 예외 처리, ​
+Aliasing(같은 메모리 주소를 다른 이름으로 레퍼런스하는 것), ​
+읽기쉬움과 쓰기쉬움 등은 모두 프로그래밍 언어의 신뢰성 평가의 기준이 된다.</p>
+  </li>
+  <li>
+    <p>Cost: 
+학습, 개발, 컴파일 및 실행, 컴파일러 및 인터프리터와 
+같은 언어 구현 시스템, 신뢰성, 유지 보수 등 ​
+프로그래밍 언어 사용에 관련된 모든 비용은 언어 평가 기준에 속한다.</p>
+  </li>
+</ul>
 
+<p>이밖에 구현 시스템간의 이식성, 다양한 응용에 대한 적용성, 언어
+의 표준화에 의한 완결성 및 정확성, 전력 소비 효율 등도 ​
+프로그래밍 언어의 평가 기준이다</p>
+
+<hr />
+
+<p>언어 설계시 이들 모든 평가 기준을 최적화하기는 매우 어렵다. ​
+문제 해결에 필요한 기준을 먼저 설정하고 이들 간의 
+균형점을 찾는 것이 중요하다. ​</p>
+
+<p>레퍼런스 변수는 메모리 상에 있는 인스턴스를 가리키는 데 사용되는 변수이다. ​
+자바에서는 모든 레퍼런스 변수에 대해, ​
+이들이 가리키는 메모리에 대한 인덱싱이 적절한지 검사합니다. ​
+이것은 신뢰성을 높여 주지만 매우 높은 실행 비용을 유발한다. ​</p>
+
+<p>강력한 연산자가 많으면 프로그램 짜기는 쉽지만, ​
+읽고 이해하기 어려울 수도 있다. ​</p>
+
+<p>C++의 포인터는 매우 강력하고 유연하여 쓰기 쉬움을 높여주지만, ​
+주의를 기울이지 않으면 신뢰성에 문제를 일으킨다.</p>
+
+<hr />
 
                 </div>
             </section>
@@ -370,6 +446,15 @@ LGOL 언어가 등장했다. 이러한 언어를 통해 구조적 프로그래�
                                 
                                   
                                     
+                                        
+                                        
+                                            <li><a href="/pl-05">PL-05</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
                                   
                                 
                                   
@@ -393,8 +478,6 @@ LGOL 언어가 등장했다. 이러한 언어를 통해 구조적 프로그래�
                                   
                                     
                                         
-                                        
-                                            <li><a href="/pl-01">PL-01</a></li>
                                         
                                     
                                   
@@ -436,7 +519,7 @@ LGOL 언어가 등장했다. 이러한 언어를 통해 구조적 프로그래�
                         <footer class="read-next-card-footer">
                             <a href="/tag/study/">
                                 
-                                    See all 3 posts  →
+                                    See all 4 posts  →
                                 
                             </a>
                         </footer>
@@ -445,6 +528,57 @@ LGOL 언어가 등장했다. 이러한 언어를 통해 구조적 프로그래�
             
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/pl-05">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/study-background-frontend.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/pl-05">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Study</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">PL-05</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>제 5장  프로그래밍 언어
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="lee989898" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/lee989898/">lee989898</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      2 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
             
 
             <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
