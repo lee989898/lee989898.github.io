@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/author/lee989898/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-10-15T14:49:11+09:00</updated>
+  <updated>2021-10-15T18:42:44+09:00</updated>
   <id>https://lee989898.github.io/author/lee989898/feed.xml</id>
 
   
@@ -32,66 +32,160 @@
 
   
     <entry>
-      <title type="html">형변환과 배열</title>
-      <link href="https://lee989898.github.io/kotlin-03" rel="alternate" type="text/html" title="형변환과 배열" />
-      <published>2021-09-25T01:07:00+09:00</published>
-      <updated>2021-09-25T01:07:00+09:00</updated>
-      <id>https://lee989898.github.io/kotlin-03</id>
-      <content type="html" xml:base="https://lee989898.github.io/kotlin-03">&lt;h1 id=&quot;형변환과-배열&quot;&gt;형변환과 배열&lt;/h1&gt;
+      <title type="html">PL-01</title>
+      <link href="https://lee989898.github.io/pl-01" rel="alternate" type="text/html" title="PL-01" />
+      <published>2021-10-13T19:18:00+09:00</published>
+      <updated>2021-10-13T19:18:00+09:00</updated>
+      <id>https://lee989898.github.io/pl-01</id>
+      <content type="html" xml:base="https://lee989898.github.io/pl-01">&lt;h1 id=&quot;제-1장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 1장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;hr /&gt;
-
-&lt;h2 id=&quot;형변환&quot;&gt;형변환&lt;/h2&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;형변환은 하나의 변수에 지정된 자료형을 
-호환되는 다른 자료형으로 변경하는 기능입니다&lt;/p&gt;
-
-&lt;p&gt;코틀린은 형변환시 발생할 수 있는 오류를 막기 위해 자동으로 형변환 
-해주는 암시적 형변환은 지원하지 않습니다&lt;/p&gt;
-
-&lt;p&gt;명시적 형변환은 변환될 자료형을 개발자가 직접 지정하는 것입니다&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;형변환 함수
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;프로그래밍 언어란?&lt;/strong&gt;
+&lt;br /&gt;&lt;br /&gt;
+프로그래밍 언어는 인공적으로 설계된 언어로 컴퓨터가 실행할 수 있는 계산이나
+알고리즘을 표현하는 수단이다.
+&lt;br /&gt;&lt;br /&gt;
+인간의 언어는 타인에게 자신의 생각을 표현하듯이 프로그래밍 언어는
+자신의 생각을 컴퓨터에게 표현하는 수단이다.
+&lt;br /&gt;&lt;br /&gt;
+현재 프로그래밍 언어는 매우 다양할까?&lt;br /&gt;
+문제의 특성에 따라, 프로그램이 각기 요구하는 프로그래밍 언어의 표현력이
+다르기 때문이다. 표현력은 언어 선택에 있어 매우 중요하다.&lt;/p&gt;
+
+    &lt;p&gt;&lt;br /&gt;  &lt;br /&gt;
+문제해결에 적합한 언어를 선택하려면 아래 내용을 숙지해야 한다.&lt;/p&gt;
+
     &lt;ul&gt;
-      &lt;li&gt;toByte()&lt;/li&gt;
-      &lt;li&gt;toShort()&lt;/li&gt;
-      &lt;li&gt;toInt()&lt;/li&gt;
-      &lt;li&gt;toLong()&lt;/li&gt;
-      &lt;li&gt;toFloat()&lt;/li&gt;
-      &lt;li&gt;toDouble()&lt;/li&gt;
-      &lt;li&gt;toChar()&lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;언어가 다르면, 알고리즘의 표현이 어떻게 다른가? ​&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;어떤 언어가 더 적합한가? 언어의 적합성(goodness)을 어떻게 평가할 것인가? ​&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;왜 이렇게 다른 언어가 많은가? ​&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;도대체 프로그래밍 언어가 뭔가? ​&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;프로그래밍 언어의 특성이 왜 이렇게 많은가? ​&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;이들 특성은 어떻게 구현시스템에서 실현되는가?​&lt;/p&gt;
+        &lt;ul&gt;
+          &lt;li&gt;여기서 구현 시스템이란 컴파일러나 인터프리터 등 PL을 실행할 수 있는 소프트웨어를 말한다. ​&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
     &lt;/ul&gt;
+
+    &lt;p&gt;프로그래밍 언어의 역사, 신택스 및 시맨틱스, 바인딩, 데이터 타입,
+컨트롤 구조, 서브 프로그램, 추상데이터 타입, 캡슐화, 예외 처리,
+함수 프로그래밍을 공부할 것이다.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;noscript&gt;&lt;pre&gt;fun main() {
-    var a: Int = 54321
-    var b: Long = a.toLong()
-}&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/lee989898/c96b8a54be145f7b4b07f03f4e1336e6.js&quot;&gt; &lt;/script&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/pl/pl01.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어01&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;배열&quot;&gt;배열&lt;/h2&gt;
+&lt;p&gt;PL의 트렌드에 따른 언어를 살펴보면 다음과 같은 특성을 갖고 있다.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;타입의 안정성을 고려한 언어의 사용 증가: C,C++에 비해 Java, C# 타입이 안정적임&lt;/li&gt;
+  &lt;li&gt;웹 응용을 위해 클라이언트 측의 기능성을 갖춘 스크립트 언어&lt;/li&gt;
+  &lt;li&gt;신택스 보다 알고리즘의 표현력에 중점을 둔 언어&lt;/li&gt;
+  &lt;li&gt;컴파일, 분석, 타입 검사 등 실행 환경과 가상화를 갖춘 언어&lt;/li&gt;
+  &lt;li&gt;자동 오류 탐지 및 복구 등 프로그램 분석 능력을 갖춘 언어&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;PL에 영향을 미치는 요인을 표현력과 구현 시스템의 효율 측면에서 살펴보면 다음과 같다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;표현력: 응용 도메인의 특성과 프로그래밍 방법을 들 수 있다. &lt;br /&gt;
+    다중 프로그래밍은 큰 작업(프로그램)이 여러 개의 작은 작업(서브프로그램)으로
+    나뉘어져서 서로 연관성을 가지고 동시에 실행되는 것을 말한다.&lt;br /&gt;
+    물론 동시라는 말은 특정 시간에는 작은 작업 하나가 실행되지만, 
+    타임 피리어드 동안 여러 개의 작은 프로그램이 
+    동시에 처리되는 것으로 보이게 된다.&lt;br /&gt;
+    이것은 CPU의 시분할과 메모리의 공간 분할에 의해 이루어진다.
+    이렇게 하여 큰 프로그램 하나가 다른 프로그램의 방해없이
+    여러 개의 작은 서브프로그램으로 나누어져 처리될 수 있는 것이다.  ​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;언어 구현 시스템의 효율성: 즉 컴파일러나 인터프리터의 성능을 말한다.&lt;br /&gt;
+    컴파일러나 인터프리터의 성능은 주로 컴퓨터 구조, OS, 관련 도구, 라이브러리 등에 달려 있다.    ​
+    편의성은 비용을 수반한다. 추상적 관점을 지원하면 편의성은 좋아지지만, 이것을 머신에 
+    표현하는데는 나름의 비용이 들어간다.   이러한 사실을 고려하여 편의성과 비용간에 균형을 잡는 것이 
+    중요하다.   ​&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="study" />
+      
+
+      
+        <summary type="html">제 1장 프로그래밍 언어</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">클래스의 상속</title>
+      <link href="https://lee989898.github.io/kotlin-10" rel="alternate" type="text/html" title="클래스의 상속" />
+      <published>2021-09-25T01:07:00+09:00</published>
+      <updated>2021-09-25T01:07:00+09:00</updated>
+      <id>https://lee989898.github.io/kotlin-10</id>
+      <content type="html" xml:base="https://lee989898.github.io/kotlin-10">&lt;h1 id=&quot;클래스의-상속&quot;&gt;클래스의 상속&lt;/h1&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;배열은 내부적으로 Array&lt;T&gt; 클래스로 제공되는 기능입니다&lt;/T&gt;&lt;/p&gt;
-
 &lt;noscript&gt;&lt;pre&gt;fun main() {
+    var intValue:Int = 1234
+    var LongValue:Long = 1234L
+    var intValueByHex:Int = 0x1af
+    var intValueByBin:Int = 0b10110110
     
-    var intArr = arrayOf(1,2,3,4,5)
+    var doubleValue:Double = 123.5
+    var doubleValueWithExp: Double = 123.5e10
+    var floatValue:Float = 123.5f
     
-    val nullArr = arrayOfNulls&amp;lt;Int&amp;gt;(5) //비어있는 배열 만들기
+    var charValue: Char = &amp;#39;a&amp;#39;
+    var koreanCharValue: Char = &amp;#39;가&amp;#39;
     
-    intArr[2] = 8
+    var booleanValue: Boolean = true
     
-    println(intArr[4])
+    var stringValue = &amp;quot;one line string test&amp;quot;
+    
+    val multiLineStringValue = &amp;quot;&amp;quot;&amp;quot;multiline
+    string
+    test&amp;quot;&amp;quot;&amp;quot;
 }&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/lee989898/6e915687a4c5bcea20ac0c89e590ce74.js&quot;&gt; &lt;/script&gt;</content>
+&lt;script src=&quot;https://gist.github.com/lee989898/c6ccc4221fdbd96eae8b91fa55199f92.js&quot;&gt; &lt;/script&gt;</content>
 
       
       
@@ -112,7 +206,7 @@
       
 
       
-        <summary type="html">형변환과 배열</summary>
+        <summary type="html">클래스의 상속</summary>
       
 
       
@@ -415,6 +509,94 @@
     </entry>
   
     <entry>
+      <title type="html">형변환과 배열</title>
+      <link href="https://lee989898.github.io/kotlin-03" rel="alternate" type="text/html" title="형변환과 배열" />
+      <published>2021-09-25T01:07:00+09:00</published>
+      <updated>2021-09-25T01:07:00+09:00</updated>
+      <id>https://lee989898.github.io/kotlin-03</id>
+      <content type="html" xml:base="https://lee989898.github.io/kotlin-03">&lt;h1 id=&quot;형변환과-배열&quot;&gt;형변환과 배열&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;형변환&quot;&gt;형변환&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;형변환은 하나의 변수에 지정된 자료형을 
+호환되는 다른 자료형으로 변경하는 기능입니다&lt;/p&gt;
+
+&lt;p&gt;코틀린은 형변환시 발생할 수 있는 오류를 막기 위해 자동으로 형변환 
+해주는 암시적 형변환은 지원하지 않습니다&lt;/p&gt;
+
+&lt;p&gt;명시적 형변환은 변환될 자료형을 개발자가 직접 지정하는 것입니다&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;형변환 함수
+    &lt;ul&gt;
+      &lt;li&gt;toByte()&lt;/li&gt;
+      &lt;li&gt;toShort()&lt;/li&gt;
+      &lt;li&gt;toInt()&lt;/li&gt;
+      &lt;li&gt;toLong()&lt;/li&gt;
+      &lt;li&gt;toFloat()&lt;/li&gt;
+      &lt;li&gt;toDouble()&lt;/li&gt;
+      &lt;li&gt;toChar()&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;noscript&gt;&lt;pre&gt;fun main() {
+    var a: Int = 54321
+    var b: Long = a.toLong()
+}&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/lee989898/c96b8a54be145f7b4b07f03f4e1336e6.js&quot;&gt; &lt;/script&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;배열&quot;&gt;배열&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;배열은 내부적으로 Array&lt;T&gt; 클래스로 제공되는 기능입니다&lt;/T&gt;&lt;/p&gt;
+
+&lt;noscript&gt;&lt;pre&gt;fun main() {
+    
+    var intArr = arrayOf(1,2,3,4,5)
+    
+    val nullArr = arrayOfNulls&amp;lt;Int&amp;gt;(5) //비어있는 배열 만들기
+    
+    intArr[2] = 8
+    
+    println(intArr[4])
+}&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/lee989898/6e915687a4c5bcea20ac0c89e590ce74.js&quot;&gt; &lt;/script&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="kotlin" />
+      
+
+      
+        <summary type="html">형변환과 배열</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">타입추론과 함수</title>
       <link href="https://lee989898.github.io/kotlin-04" rel="alternate" type="text/html" title="타입추론과 함수" />
       <published>2021-09-25T01:07:00+09:00</published>
@@ -509,65 +691,6 @@ fun add(a: Int, b: Int, c: Int) = a + b + c //위 함수와 동일합니다&lt;/
     </entry>
   
     <entry>
-      <title type="html">클래스의 상속</title>
-      <link href="https://lee989898.github.io/kotlin-10" rel="alternate" type="text/html" title="클래스의 상속" />
-      <published>2021-09-25T01:07:00+09:00</published>
-      <updated>2021-09-25T01:07:00+09:00</updated>
-      <id>https://lee989898.github.io/kotlin-10</id>
-      <content type="html" xml:base="https://lee989898.github.io/kotlin-10">&lt;h1 id=&quot;클래스의-상속&quot;&gt;클래스의 상속&lt;/h1&gt;
-
-&lt;hr /&gt;
-
-&lt;noscript&gt;&lt;pre&gt;fun main() {
-    var intValue:Int = 1234
-    var LongValue:Long = 1234L
-    var intValueByHex:Int = 0x1af
-    var intValueByBin:Int = 0b10110110
-    
-    var doubleValue:Double = 123.5
-    var doubleValueWithExp: Double = 123.5e10
-    var floatValue:Float = 123.5f
-    
-    var charValue: Char = &amp;#39;a&amp;#39;
-    var koreanCharValue: Char = &amp;#39;가&amp;#39;
-    
-    var booleanValue: Boolean = true
-    
-    var stringValue = &amp;quot;one line string test&amp;quot;
-    
-    val multiLineStringValue = &amp;quot;&amp;quot;&amp;quot;multiline
-    string
-    test&amp;quot;&amp;quot;&amp;quot;
-}&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/lee989898/c6ccc4221fdbd96eae8b91fa55199f92.js&quot;&gt; &lt;/script&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="kotlin" />
-      
-
-      
-        <summary type="html">클래스의 상속</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
       <title type="html">알고리즘 시작</title>
       <link href="https://lee989898.github.io/algorithm-01" rel="alternate" type="text/html" title="알고리즘 시작" />
       <published>2021-09-24T01:09:00+09:00</published>
@@ -595,46 +718,6 @@ fun add(a: Int, b: Int, c: Int) = a + b + c //위 함수와 동일합니다&lt;/
 
       
         <summary type="html">알고리즘 시작 입니다.</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">Git 1강</title>
-      <link href="https://lee989898.github.io/git-02" rel="alternate" type="text/html" title="Git 1강" />
-      <published>2021-09-24T01:08:00+09:00</published>
-      <updated>2021-09-24T01:08:00+09:00</updated>
-      <id>https://lee989898.github.io/git-02</id>
-      <content type="html" xml:base="https://lee989898.github.io/git-02">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Git 공부는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
-&lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./git-01&quot;&gt;Git 시작&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./git-02&quot;&gt;Git 1강 &lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;git 1강 입니다.&lt;/p&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="git" />
-      
-
-      
-        <summary type="html">Git 공부는 여러 절로 구성되어 있습니다. Git 시작 Git 1강</summary>
       
 
       
