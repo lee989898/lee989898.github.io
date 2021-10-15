@@ -1,93 +1,295 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lee989898.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lee989898.github.io/" rel="alternate" type="text/html" /><updated>2021-10-15T23:11:34+09:00</updated><id>https://lee989898.github.io/feed.xml</id><title type="html">LEE</title><subtitle>공부 블로그</subtitle><entry><title type="html">PL-01</title><link href="https://lee989898.github.io/pl-01" rel="alternate" type="text/html" title="PL-01" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-01</id><content type="html" xml:base="https://lee989898.github.io/pl-01">&lt;h1 id=&quot;제-1장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 1장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lee989898.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lee989898.github.io/" rel="alternate" type="text/html" /><updated>2021-10-16T01:12:31+09:00</updated><id>https://lee989898.github.io/feed.xml</id><title type="html">LEE</title><subtitle>공부 블로그</subtitle><entry><title type="html">PL-09</title><link href="https://lee989898.github.io/pl-09" rel="alternate" type="text/html" title="PL-09" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-09</id><content type="html" xml:base="https://lee989898.github.io/pl-09">&lt;h1 id=&quot;제-9장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 9장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;hr /&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;프로그래밍 언어란?&lt;/strong&gt;
-&lt;br /&gt;&lt;br /&gt;
-프로그래밍 언어는 인공적으로 설계된 언어로 컴퓨터가 실행할 수 있는 계산이나
-알고리즘을 표현하는 수단이다.
-&lt;br /&gt;&lt;br /&gt;
-인간의 언어는 타인에게 자신의 생각을 표현하듯이 프로그래밍 언어는
-자신의 생각을 컴퓨터에게 표현하는 수단이다.
-&lt;br /&gt;&lt;br /&gt;
-현재 프로그래밍 언어는 매우 다양할까?&lt;br /&gt;
-문제의 특성에 따라, 프로그램이 각기 요구하는 프로그래밍 언어의 표현력이
-다르기 때문이다. 표현력은 언어 선택에 있어 매우 중요하다.&lt;/p&gt;
-
-    &lt;p&gt;&lt;br /&gt;  &lt;br /&gt;
-문제해결에 적합한 언어를 선택하려면 아래 내용을 숙지해야 한다.&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;언어가 다르면, 알고리즘의 표현이 어떻게 다른가? ​&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;어떤 언어가 더 적합한가? 언어의 적합성(goodness)을 어떻게 평가할 것인가? ​&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;왜 이렇게 다른 언어가 많은가? ​&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;도대체 프로그래밍 언어가 뭔가? ​&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;프로그래밍 언어의 특성이 왜 이렇게 많은가? ​&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;이들 특성은 어떻게 구현시스템에서 실현되는가?​&lt;/p&gt;
-        &lt;ul&gt;
-          &lt;li&gt;여기서 구현 시스템이란 컴파일러나 인터프리터 등 PL을 실행할 수 있는 소프트웨어를 말한다. ​&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;프로그래밍 언어의 역사, 신택스 및 시맨틱스, 바인딩, 데이터 타입,
-컨트롤 구조, 서브 프로그램, 추상데이터 타입, 캡슐화, 예외 처리,
-함수 프로그래밍을 공부할 것이다.&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;정적 시맨틱과 동적 시맨틱&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/pl/pl01.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어01&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;/p&gt;</content><author><name>lee989898</name></author><category term="study" /><summary type="html">제 9장 프로그래밍 언어</summary></entry><entry><title type="html">PL-08</title><link href="https://lee989898.github.io/pl-08" rel="alternate" type="text/html" title="PL-08" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-08</id><content type="html" xml:base="https://lee989898.github.io/pl-08">&lt;h1 id=&quot;제-8장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 8장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;PL의 트렌드에 따른 언어를 살펴보면 다음과 같은 특성을 갖고 있다.&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;타입의 안정성을 고려한 언어의 사용 증가: C,C++에 비해 Java, C# 타입이 안정적임&lt;/li&gt;
-  &lt;li&gt;웹 응용을 위해 클라이언트 측의 기능성을 갖춘 스크립트 언어&lt;/li&gt;
-  &lt;li&gt;신택스 보다 알고리즘의 표현력에 중점을 둔 언어&lt;/li&gt;
-  &lt;li&gt;컴파일, 분석, 타입 검사 등 실행 환경과 가상화를 갖춘 언어&lt;/li&gt;
-  &lt;li&gt;자동 오류 탐지 및 복구 등 프로그램 분석 능력을 갖춘 언어&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;프로그래밍 언어의 신택스와 시맨틱스&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;PL에 영향을 미치는 요인을 표현력과 구현 시스템의 효율 측면에서 살펴보면 다음과 같다.&lt;/p&gt;
+&lt;p&gt;프로그래밍 언어의 신택스는 산술식, 문, 프로그램 단위의 형태를 말한다. ​
+문은 statement 또는 sentence를 말한다.   ​&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;표현력: 응용 도메인의 특성과 프로그래밍 방법을 들 수 있다. &lt;br /&gt;
-    다중 프로그래밍은 큰 작업(프로그램)이 여러 개의 작은 작업(서브프로그램)으로
-    나뉘어져서 서로 연관성을 가지고 동시에 실행되는 것을 말한다.&lt;br /&gt;
-    물론 동시라는 말은 특정 시간에는 작은 작업 하나가 실행되지만, 
-    타임 피리어드 동안 여러 개의 작은 프로그램이 
-    동시에 처리되는 것으로 보이게 된다.&lt;br /&gt;
-    이것은 CPU의 시분할과 메모리의 공간 분할에 의해 이루어진다.
-    이렇게 하여 큰 프로그램 하나가 다른 프로그램의 방해없이
-    여러 개의 작은 서브프로그램으로 나누어져 처리될 수 있는 것이다.  ​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;언어 구현 시스템의 효율성: 즉 컴파일러나 인터프리터의 성능을 말한다.&lt;br /&gt;
-    컴파일러나 인터프리터의 성능은 주로 컴퓨터 구조, OS, 관련 도구, 라이브러리 등에 달려 있다.    ​
-    편의성은 비용을 수반한다. 추상적 관점을 지원하면 편의성은 좋아지지만, 이것을 머신에 
-    표현하는데는 나름의 비용이 들어간다.   이러한 사실을 고려하여 편의성과 비용간에 균형을 잡는 것이 
-    중요하다.   ​&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;프로그램 단위는 컨스트럭트(컨트롤 스트럭처)를 말하는데, ​
+앞으로 명확한 설명을 위해 프로그램 단위라는 추상적인 말을 쓰지 않고, ​
+가급적 컨스트럭스 또는 컨트롤 스트럭처라는 말을 쓰겠다. ​&lt;/p&gt;
 
-&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="study" /><summary type="html">제 1장 프로그래밍 언어</summary></entry><entry><title type="html">PL-07</title><link href="https://lee989898.github.io/pl-07" rel="alternate" type="text/html" title="PL-07" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-07</id><content type="html" xml:base="https://lee989898.github.io/pl-07">&lt;h1 id=&quot;제-7장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 7장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+&lt;p&gt;시맨틱스는 신택스에 맞게 작성된 표현식, 문, 컨스트럭트의 의미를 말합니다. ​&lt;/p&gt;
+
+&lt;p&gt;자바 while 문에 대해, ​
+신택스는 while (Boolean_expr) statement 의 형태를 띄어야 하고, ​
+그 시맨틱스는 부울 표현식이 참일 때, statement를 실행하고, ​
+컨트롤은 부울 표현식으로 되돌아가서 이 프로세스를 반복하는데, ​
+부울 표현식이 거짓이면 ​
+while 컨스트럭트의 실행이 끝난다는 의미이다.​&lt;/p&gt;
+
+&lt;p&gt;시맨틱스의 서술 방법은 여러 가지가 있지만, ​
+컴퓨터에서 실행되는 ‘연산의 의미’로 시맨틱스를 서술하는 것을 ​
+operational semantics라고 하는데, ​
+위에 서술된 while문의 시맨틱스는 operational semantics의 예이다.
+​
+잘 설계된 프로그래밍 언어에서, 시맨틱스는 신택스를 따릅니다. ​
+이것은 위에 설명된 자바 while 문의 신택스와 시맨틱스의 예를 
+보면 직관적으로 알 수 있을 것이다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;그럼 신택스를 어떻게 서술하는지 살펴 보자.&lt;/p&gt;
+
+&lt;p&gt;신택스 서술 방법으로 BNF가 널리 사용되고 있다. ​
+BNF를 메타 언어라고 하는데, 메타 언어란 언어를 
+서술하는데 사용되는 언어라는 뜻이다.&lt;/p&gt;
+
+&lt;p&gt;즉, BNF는 프로그래밍 언어의 신택스를 서술하는데 사용되는 메타 언어이다. ​
+BNF는 신택스 구조를 위한 추상적 개념을 사용하는 규칙 언어이다. ​
+규칙은 화살표 왼편(LHS)과 오른편(RHS)으로 나누어지는데, ​
+문을 생성하면서, 왼편이 오른편으로 대체된다.
+​
+BNF가 사용하는 추상적 개념들에는 무엇이 있는지 ​
+자바의 예를 보면서 알아 보자&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl12.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;자바의 assign과 if 문은 다음과 같이 서술된다.​&lt;/p&gt;
+&lt;assign&gt;, &lt;var&gt;, &lt;expression&gt;, 화살표(-&amp;gt;), =(이퀄 사인)​
+&lt;if_stmt&gt;, &lt;logic_expr&gt; &lt;stmt&gt;, if, (괄호), |(세로줄, 
+or의 뜻) 등을 볼 수 있다.
+
+화살표를 제외하고, 이들은 각각 BNF를
+ 구성하는 non-terminal/terminal 심볼입니다. ​
+꺽쇠 괄호로 싸여 있는 것이 난터미날이다.
+
+하나의 왼편에 대해 여러 개의 규칙을 가질 수 있는데, ​
+이때 여러 개의 규칙에 대해 |를 사용하여 각각의 오른편을 구분합니다. ​
+
+List를 보면, &lt;ident_list&gt;의 오른편에 두개의 규칙이 있음을 알 수 있는데, ​
+두번째 규칙은 &lt;ident_list&gt;가 identifier와 &lt;ident_list&gt;로 대체하는 것
+입이다. ​
+
+이 규칙의 오른편을 보면, &lt;ident_list&gt;가 또 들어 있는데,  ​
+이러한 규칙을 recursive rule(순환 규칙)이라고 한다.
+
+문법은 언어를 정의하기 위한 생성 장치이다.
+문은 문법에 있는 일련의 규칙 적용을 통해 생성되며, ​
+이러한 일련의 규칙 적용을 유도(derivation)이라고 한다. ​
+유도에 의해 생성된 결과를 문형식(sentential form)이라고 한다. ​
+
+문형식(sentential form)에서,  ​
+가장 왼쪽의 난터미날을 먼저 대체하는 것을 좌
+선유도(leftmost derivation)이라고 하고, ​
+그 반대를 우선유도(rightmost derivation)이라고 한다.
+
+---
+
+ ​&lt;img src=&quot;/assets/built/images/pl/pl13.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;
+
+---
+
+위 사례는 덧셈과 뺄셈으로 구성된 산술식을 서술하기 위한 문법과 ​
+그 문법에 의한 산술식의 유도(derivation) 과정을 보여주고 있다. ​
+
+오른쪽에 나열된 일련의 문형식(sentential form)들은 ​
+&lt;program&gt;이라는 난터미날 심볼에서 시작하여, ​
+왼쪽의 문법을 적용하여 좌선유도(Leftmost derivation)된 결과이다.  ​
+=&amp;gt;의 오른쪽에 있는 begin &lt;stmt_list&gt; end, ​
+begin &lt;stmt&gt; ; &lt;stmt_list&gt; end, 등은 모두 문형식의 예들이다. ​
+마지막에 있는 begin A = B + C ; B = C end 은 문(sentence)이다. ​
+그러니까 문과 문형식의 차이는 난터미날 심볼의 유무에 달려 있다. ​
+
+---
+
+ ​&lt;img src=&quot;/assets/built/images/pl/pl14.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;
+
+---
+
+위 사례는 Assignment 문을 위한 문법과 ​
+그 문법에 의한 assignment 문의 유도를 보여주고 있다. ​
+
+왼쪽 아래는 난터미날 심볼 &lt;assign&gt;에서 시작하여 leftmost
+derivation을 보여주고 있고,  ​
+
+이것을 트리로 나타내 보면 오른쪽 그림과 같다. ​
+이 트리를 파스(parse) 트리라고 한다. ​
+
+당연한 말이지만 leftmost derivation을 하면, ​
+파스 트리의 가장 왼쪽 노드부터 터미날 심볼로 바뀌
+는 것을 볼 수 있다. 
+
+---
+
+ ​&lt;img src=&quot;/assets/built/images/pl/pl15.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;
+
+---
+
+이 문법을 가지고 &lt;expr&gt;에서 시작해서 산술식을 유도할 때, ​
++이 포함된 RHS를 먼저 적용하느냐, *이 포함된 RHS를 먼저 적용하느냐에 따라, ​
+A=B+C*A를 위한 파스 트리가 두개 생성된다. ​
+
+이와 같이, 문형식에 문법을 적용할 때, ​
+동일한 문형식에 대해 파스 트리가 여러 개 생성되면, ​
+이 문법을 모호한 문법이라고 한다. ​
+
+문법의 모호성은 중대한 문제를 야기한다. ​
+일반적으로 preorder에 따라 산술식을 계산하는데, ​
+이들 트리는 실행 결과가 서로 다르다. ​
+
+왜냐하면, 왼쪽의 트리는 덧셈이 먼저, 오른쪽의 트리는 곱셈이 
+먼저 계산되기 때문이다. ​
+즉, 동일한 문에 대해 어떤 규칙을 먼저 적
+용하였느냐에 따라 파스 트리가 다르고, ​
+그 트리의 실행 결과가 항상 같지 않다는 것이다. ​
+이러한 이유로 문법의 모호성은 제거되어야 한다. 
+
+문의 실행 결과가 항상 같지 않을 수 있기 때문에 모
+호성은 제거되어야 함을 알게 되었다. ​
+
+이러한 모호성을 어떻게 제거할 수 있을까?  ​
+
++ 연산자에 대한 우선순위를 둔다. ​
+
+    즉, 파스 트리의 가장 아래에 있는 연산자부터 먼저 실행한다. ​
+    따라서, 아래에 있는 연산자가 위의 연산자보다 우선 순위가 높다. ​
+
++ 우선순위에 따라 연산자 출현 순서를 지정한다. ​
+
+    이와 같은 출현 순서의 지정은 별도의 난터미널 심볼을 사용
+    하여 명세할 수 있다. ​
+    난터미널 심볼은 우선순위가 다른 연산자의 오퍼랜
+    드를 표현하기 위해 사용한다. ​
+
+모호성 제거 방법을 종합하면, 문법을 서술할 때,  ​
+파스 트리에서 낮은 우선순위의 연산자가 ​
+높은 우선순위의 연산자보다 위에 나타날 수 있도록, ​
+낮은 우선순위의 오른쪽 오퍼랜드를 ​
+새로운 난터미널 심볼로 대체한다.  ​
+
+예를 들어 살펴 보자.
+
+---
+
+ ​&lt;img src=&quot;/assets/built/images/pl/pl16.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;
+
+---
+
+
++는 *에 비해 트리의 아래에 위치해야 한다
+따라서, &lt;expr&gt; -&amp;gt; &lt;expr&gt; + &lt;expr&gt;의 RHS에서 ​
+오른쪽 오퍼랜드 &lt;expr&gt;를 &lt;term&gt;으로 대체한다.
+그러면 이제 &lt;expr&gt; -&amp;gt; &lt;expr&gt; * &lt;expr&gt;는 ​
+&lt;term&gt; -&amp;gt; &lt;term&gt; * &lt;term&gt;으로 잠정적으로 바뀐다.
+이 규칙의 RHS에서 오른쪽 오퍼랜드는 ​
+곱셈 다음에 &lt;id&gt;나 (괄호속의 식)을 나타날 수 있다.
+(괄호속 식)을 서술할 수 있도록 하기 위해 ​
+곱셈의 오른쪽 오퍼랜드 &lt;term&gt;을 ​
+난터미날 심볼 &lt;factor&gt;를 사용하여 대체한다.
+그러면, 잠정적으로 바뀐 &lt;term&gt; -&amp;gt; &lt;term&gt; * &lt;term&gt;은 ​
+&lt;term&gt; -&amp;gt; &lt;term&gt; * &lt;factor&gt;가 된다.
+
+원래 &lt;factor&gt;는 없었는데, ​
+곱셈의 오른쪽 오퍼랜드로 (괄
+호속 식) 또는 &lt;id&gt;를 나타낼 수 있도록 하기 위해 ​
+&lt;factor&gt;라는 난터미날을 새로 도입한 것이다. ​
+
+이러한 목적에 의해 &lt;factor&gt;가 (괄호속 식)
+ 또는 &lt;id&gt;를 생성하는 규칙을 서술해야 한다.
+이 규칙은 &lt;factor&gt; -&amp;gt; (&lt;expr&gt;) | &lt;id&gt;로 쓸 수 있다.
+
+연산자 우선순위와 연산자 출현 순서의 지정에 의해 모호성을 제거하여 ​
+트리를 생성하면 유일하게 생성된다.
+
+
+그러나 만일 우선순위가 같은 곱셈과 나눗셈이 포함된 산술식을 위한 문법이라면, ​
+모호성을 어떻게 제거해야 할까? ​
+
+이와 긑은 문제는 시맨틱 규칙으로 지정해서 해결해야 한다. ​​
+
+A / B * C와 같이 동일한 우선순위를 가진 곱셈과 나눗셈으
+로 이루어진 식에서, ​
+이들 연산자간의 계산 순서를 정하기 위해 어떤 시맨틱 규칙을 쓸 수 있을까? ​
+바로 결합 법칙을 이용할 수 있다. ​
+
+그런데 결합 법칙에는, ​
+왼쪽부터 결합하는 방식과 오른쪽부터 결합하는 방식, ​
+두 가지가 있다.
+A / B * C 은 어느 방식을 쓰느냐에 따라 계산 결과가 달라진다.  ​
+    
+또한 if-else 문법의 모호성 문제도 있다.  ​
+
+---
+
+ ​&lt;img src=&quot;/assets/built/images/pl/pl17.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;
+
+---
+
+
+if (&lt;logic_expr&gt;) if (&lt;logic_expr&gt;) &lt;stmt&gt; else &lt;st mt=&quot;&quot;&gt;에 대해, 위의 문법은 두개의 파스 트리를 생성한다. ​
+따라서 이 문법은 모호성이 있다.  
+
+---
+
+ ​&lt;img src=&quot;/assets/built/images/pl/pl18.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;
+
+---
+
+If-else의 모호성 제거는 ‘가장 가까운 t
+hen에 else를 매치시킨다’는 규칙으로 해소된다.
+If문은 then과 else가 모두 있는 것과 ​
+then만 있고 else는 없는 것으로 구분된다. ​
+
+즉 난터미날 &lt;stmt&gt;는 난터미날 &lt;matche d=&quot;&quot;&gt;이거나 &lt;unmatched&gt;로 대체된다.
+&lt;matched&gt;는 if… else…를 모두 갖춘 것이고, &lt;unm atched=&quot;&quot;&gt;는 if… 로 구성되어 있다.
+&lt;unmatched&gt;는 else 다음에 if… els
+e를 허용하기 위해, 규칙에 else &lt;unmatched&gt;를 추가한다. ​
+
+모호성을 제거한 새로운 문법은 오른쪽 아래와 같다.
+
+---
+
++ Extended BNF
+
+---
+
+ ​&lt;img src=&quot;/assets/built/images/pl/pl19.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;
+
+---
+
+&amp;lt;…&amp;gt;는 난터미날 심볼, x, y, z는 터미날 심볼​
+( )는 그룹으로 묶기(일상적인 괄호의 의미), ​
+{ }와 [ ]는 일상적인 의미가 아니고, ​
+{ }는 0번 이상 반복, ​
+[ ]는 생략 가능(이 예제에는 없음), ​
+“ ”는 터미날 심볼을 나타내는 규칙의 표현 기호이며, ​
+( )는 규칙 표기에 사용되는 기호이기 때문에, ​
+산술식의 일부로서 표현되는 소괄호는 “(“  “)”로 표기함  
+
+---
+
+ ​&lt;img src=&quot;/assets/built/images/pl/pl20.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;
+
+---
+
+위 그림에서 왼쪽의 BNF를 EBNF로 나타내면 오른쪽과 같다고 되어 있다.  ​
+그러나 이 문법은 산술식에서 우선순위를 나타낼 때 사용하는 소괄호와
+EBNF로 표기법의 소괄호의 의미를 구분하지 못하고 있다.  ​
+
+이를 바로 잡으면, 오른쪽 아래의 문법과 같다. ​
+EBNF에서 ( )를 산술식의 괄호로 쓰려면, “(“, “)”로 써야 한다.
+
+---
+&lt;/unmatched&gt;&lt;/unmatched&gt;&lt;/unm&gt;&lt;/matched&gt;&lt;/unmatched&gt;&lt;/matche&gt;&lt;/stmt&gt;&lt;/st&gt;&lt;/stmt&gt;&lt;/logic_expr&gt;&lt;/logic_expr&gt;&lt;/id&gt;&lt;/expr&gt;&lt;/factor&gt;&lt;/id&gt;&lt;/factor&gt;&lt;/factor&gt;&lt;/id&gt;&lt;/factor&gt;&lt;/factor&gt;&lt;/term&gt;&lt;/term&gt;&lt;/term&gt;&lt;/term&gt;&lt;/term&gt;&lt;/factor&gt;&lt;/term&gt;&lt;/id&gt;&lt;/term&gt;&lt;/term&gt;&lt;/term&gt;&lt;/expr&gt;&lt;/expr&gt;&lt;/expr&gt;&lt;/term&gt;&lt;/expr&gt;&lt;/expr&gt;&lt;/expr&gt;&lt;/expr&gt;&lt;/expr&gt;&lt;/assign&gt;&lt;/stmt_list&gt;&lt;/stmt&gt;&lt;/stmt_list&gt;&lt;/program&gt;&lt;/ident_list&gt;&lt;/ident_list&gt;&lt;/ident_list&gt;&lt;/ident_list&gt;&lt;/stmt&gt;&lt;/logic_expr&gt;&lt;/if_stmt&gt;&lt;/expression&gt;&lt;/var&gt;&lt;/assign&gt;</content><author><name>lee989898</name></author><category term="study" /><summary type="html">제 8장 프로그래밍 언어</summary></entry><entry><title type="html">PL-07</title><link href="https://lee989898.github.io/pl-07" rel="alternate" type="text/html" title="PL-07" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-07</id><content type="html" xml:base="https://lee989898.github.io/pl-07">&lt;h1 id=&quot;제-7장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 7장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;hr /&gt;
 
@@ -1154,108 +1356,153 @@ fact(X,Fact) :-
   Fact is X * NF.&lt;/pre&gt;&lt;/noscript&gt;
 &lt;script src=&quot;https://gist.github.com/lee989898/fca92516fff281d9b22e9c38494280bf.js&quot;&gt; &lt;/script&gt;
 
-&lt;p&gt;보기엔 깔끔해 보일 수 있지만, 레졸루션해서 풀려면 오래걸린다.&lt;/p&gt;</content><author><name>lee989898</name></author><category term="study" /><summary type="html">제 2장 프로그래밍 언어</summary></entry><entry><title type="html">클래스의 상속</title><link href="https://lee989898.github.io/kotlin-10" rel="alternate" type="text/html" title="클래스의 상속" /><published>2021-09-25T01:07:00+09:00</published><updated>2021-09-25T01:07:00+09:00</updated><id>https://lee989898.github.io/kotlin-10</id><content type="html" xml:base="https://lee989898.github.io/kotlin-10">&lt;h1 id=&quot;클래스의-상속&quot;&gt;클래스의 상속&lt;/h1&gt;
+&lt;p&gt;보기엔 깔끔해 보일 수 있지만, 레졸루션해서 풀려면 오래걸린다.&lt;/p&gt;</content><author><name>lee989898</name></author><category term="study" /><summary type="html">제 2장 프로그래밍 언어</summary></entry><entry><title type="html">PL-01</title><link href="https://lee989898.github.io/pl-01" rel="alternate" type="text/html" title="PL-01" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-01</id><content type="html" xml:base="https://lee989898.github.io/pl-01">&lt;h1 id=&quot;제-1장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 1장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;hr /&gt;
-
-&lt;noscript&gt;&lt;pre&gt;fun main() {
-    var intValue:Int = 1234
-    var LongValue:Long = 1234L
-    var intValueByHex:Int = 0x1af
-    var intValueByBin:Int = 0b10110110
-    
-    var doubleValue:Double = 123.5
-    var doubleValueWithExp: Double = 123.5e10
-    var floatValue:Float = 123.5f
-    
-    var charValue: Char = &amp;#39;a&amp;#39;
-    var koreanCharValue: Char = &amp;#39;가&amp;#39;
-    
-    var booleanValue: Boolean = true
-    
-    var stringValue = &amp;quot;one line string test&amp;quot;
-    
-    val multiLineStringValue = &amp;quot;&amp;quot;&amp;quot;multiline
-    string
-    test&amp;quot;&amp;quot;&amp;quot;
-}&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/lee989898/c6ccc4221fdbd96eae8b91fa55199f92.js&quot;&gt; &lt;/script&gt;</content><author><name>lee989898</name></author><category term="kotlin" /><summary type="html">클래스의 상속</summary></entry><entry><title type="html">클래스의 생성</title><link href="https://lee989898.github.io/kotlin-09" rel="alternate" type="text/html" title="클래스의 생성" /><published>2021-09-25T01:07:00+09:00</published><updated>2021-09-25T01:07:00+09:00</updated><id>https://lee989898.github.io/kotlin-09</id><content type="html" xml:base="https://lee989898.github.io/kotlin-09">&lt;h1 id=&quot;클래스의-생성&quot;&gt;클래스의 생성&lt;/h1&gt;
-
-&lt;hr /&gt;
-
-&lt;noscript&gt;&lt;pre&gt;fun main() {
-    var intValue:Int = 1234
-    var LongValue:Long = 1234L
-    var intValueByHex:Int = 0x1af
-    var intValueByBin:Int = 0b10110110
-    
-    var doubleValue:Double = 123.5
-    var doubleValueWithExp: Double = 123.5e10
-    var floatValue:Float = 123.5f
-    
-    var charValue: Char = &amp;#39;a&amp;#39;
-    var koreanCharValue: Char = &amp;#39;가&amp;#39;
-    
-    var booleanValue: Boolean = true
-    
-    var stringValue = &amp;quot;one line string test&amp;quot;
-    
-    val multiLineStringValue = &amp;quot;&amp;quot;&amp;quot;multiline
-    string
-    test&amp;quot;&amp;quot;&amp;quot;
-}&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/lee989898/c6ccc4221fdbd96eae8b91fa55199f92.js&quot;&gt; &lt;/script&gt;</content><author><name>lee989898</name></author><category term="kotlin" /><summary type="html">클래스의 생성</summary></entry><entry><title type="html">형변환과 배열</title><link href="https://lee989898.github.io/kotlin-03" rel="alternate" type="text/html" title="형변환과 배열" /><published>2021-09-25T01:07:00+09:00</published><updated>2021-09-25T01:07:00+09:00</updated><id>https://lee989898.github.io/kotlin-03</id><content type="html" xml:base="https://lee989898.github.io/kotlin-03">&lt;h1 id=&quot;형변환과-배열&quot;&gt;형변환과 배열&lt;/h1&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;형변환&quot;&gt;형변환&lt;/h2&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;형변환은 하나의 변수에 지정된 자료형을 
-호환되는 다른 자료형으로 변경하는 기능입니다&lt;/p&gt;
-
-&lt;p&gt;코틀린은 형변환시 발생할 수 있는 오류를 막기 위해 자동으로 형변환 
-해주는 암시적 형변환은 지원하지 않습니다&lt;/p&gt;
-
-&lt;p&gt;명시적 형변환은 변환될 자료형을 개발자가 직접 지정하는 것입니다&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;형변환 함수
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;프로그래밍 언어란?&lt;/strong&gt;
+&lt;br /&gt;&lt;br /&gt;
+프로그래밍 언어는 인공적으로 설계된 언어로 컴퓨터가 실행할 수 있는 계산이나
+알고리즘을 표현하는 수단이다.
+&lt;br /&gt;&lt;br /&gt;
+인간의 언어는 타인에게 자신의 생각을 표현하듯이 프로그래밍 언어는
+자신의 생각을 컴퓨터에게 표현하는 수단이다.
+&lt;br /&gt;&lt;br /&gt;
+현재 프로그래밍 언어는 매우 다양할까?&lt;br /&gt;
+문제의 특성에 따라, 프로그램이 각기 요구하는 프로그래밍 언어의 표현력이
+다르기 때문이다. 표현력은 언어 선택에 있어 매우 중요하다.&lt;/p&gt;
+
+    &lt;p&gt;&lt;br /&gt;  &lt;br /&gt;
+문제해결에 적합한 언어를 선택하려면 아래 내용을 숙지해야 한다.&lt;/p&gt;
+
     &lt;ul&gt;
-      &lt;li&gt;toByte()&lt;/li&gt;
-      &lt;li&gt;toShort()&lt;/li&gt;
-      &lt;li&gt;toInt()&lt;/li&gt;
-      &lt;li&gt;toLong()&lt;/li&gt;
-      &lt;li&gt;toFloat()&lt;/li&gt;
-      &lt;li&gt;toDouble()&lt;/li&gt;
-      &lt;li&gt;toChar()&lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;언어가 다르면, 알고리즘의 표현이 어떻게 다른가? ​&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;어떤 언어가 더 적합한가? 언어의 적합성(goodness)을 어떻게 평가할 것인가? ​&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;왜 이렇게 다른 언어가 많은가? ​&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;도대체 프로그래밍 언어가 뭔가? ​&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;프로그래밍 언어의 특성이 왜 이렇게 많은가? ​&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;이들 특성은 어떻게 구현시스템에서 실현되는가?​&lt;/p&gt;
+        &lt;ul&gt;
+          &lt;li&gt;여기서 구현 시스템이란 컴파일러나 인터프리터 등 PL을 실행할 수 있는 소프트웨어를 말한다. ​&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
     &lt;/ul&gt;
+
+    &lt;p&gt;프로그래밍 언어의 역사, 신택스 및 시맨틱스, 바인딩, 데이터 타입,
+컨트롤 구조, 서브 프로그램, 추상데이터 타입, 캡슐화, 예외 처리,
+함수 프로그래밍을 공부할 것이다.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;noscript&gt;&lt;pre&gt;fun main() {
-    var a: Int = 54321
-    var b: Long = a.toLong()
-}&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/lee989898/c96b8a54be145f7b4b07f03f4e1336e6.js&quot;&gt; &lt;/script&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/pl/pl01.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어01&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;배열&quot;&gt;배열&lt;/h2&gt;
+&lt;p&gt;PL의 트렌드에 따른 언어를 살펴보면 다음과 같은 특성을 갖고 있다.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;타입의 안정성을 고려한 언어의 사용 증가: C,C++에 비해 Java, C# 타입이 안정적임&lt;/li&gt;
+  &lt;li&gt;웹 응용을 위해 클라이언트 측의 기능성을 갖춘 스크립트 언어&lt;/li&gt;
+  &lt;li&gt;신택스 보다 알고리즘의 표현력에 중점을 둔 언어&lt;/li&gt;
+  &lt;li&gt;컴파일, 분석, 타입 검사 등 실행 환경과 가상화를 갖춘 언어&lt;/li&gt;
+  &lt;li&gt;자동 오류 탐지 및 복구 등 프로그램 분석 능력을 갖춘 언어&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;PL에 영향을 미치는 요인을 표현력과 구현 시스템의 효율 측면에서 살펴보면 다음과 같다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;표현력: 응용 도메인의 특성과 프로그래밍 방법을 들 수 있다. &lt;br /&gt;
+    다중 프로그래밍은 큰 작업(프로그램)이 여러 개의 작은 작업(서브프로그램)으로
+    나뉘어져서 서로 연관성을 가지고 동시에 실행되는 것을 말한다.&lt;br /&gt;
+    물론 동시라는 말은 특정 시간에는 작은 작업 하나가 실행되지만, 
+    타임 피리어드 동안 여러 개의 작은 프로그램이 
+    동시에 처리되는 것으로 보이게 된다.&lt;br /&gt;
+    이것은 CPU의 시분할과 메모리의 공간 분할에 의해 이루어진다.
+    이렇게 하여 큰 프로그램 하나가 다른 프로그램의 방해없이
+    여러 개의 작은 서브프로그램으로 나누어져 처리될 수 있는 것이다.  ​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;언어 구현 시스템의 효율성: 즉 컴파일러나 인터프리터의 성능을 말한다.&lt;br /&gt;
+    컴파일러나 인터프리터의 성능은 주로 컴퓨터 구조, OS, 관련 도구, 라이브러리 등에 달려 있다.    ​
+    편의성은 비용을 수반한다. 추상적 관점을 지원하면 편의성은 좋아지지만, 이것을 머신에 
+    표현하는데는 나름의 비용이 들어간다.   이러한 사실을 고려하여 편의성과 비용간에 균형을 잡는 것이 
+    중요하다.   ​&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="study" /><summary type="html">제 1장 프로그래밍 언어</summary></entry><entry><title type="html">타입추론과 함수</title><link href="https://lee989898.github.io/kotlin-04" rel="alternate" type="text/html" title="타입추론과 함수" /><published>2021-09-25T01:07:00+09:00</published><updated>2021-09-25T01:07:00+09:00</updated><id>https://lee989898.github.io/kotlin-04</id><content type="html" xml:base="https://lee989898.github.io/kotlin-04">&lt;h1 id=&quot;타입추론과-함수&quot;&gt;타입추론과 함수&lt;/h1&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;배열은 내부적으로 Array&lt;T&gt; 클래스로 제공되는 기능입니다&lt;/T&gt;&lt;/p&gt;
+&lt;h2 id=&quot;타입추론&quot;&gt;타입추론&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;타입추론은 변수나 함수들을 선언할 때나 연산이 이루어 질 떄
+자료형을 코드에 명시하지 않아도 코틀린이 자동으로 자료형을 추론해주는
+기능입니다&lt;/p&gt;
+
+&lt;p&gt;변수가 선언될 때 할당된 값의 형태로 해당 변수가 어떤 자료형을 가지는지 
+추론이 가능하기 때문입니다&lt;/p&gt;
 
 &lt;noscript&gt;&lt;pre&gt;fun main() {
     
-    var intArr = arrayOf(1,2,3,4,5)
+   var a = 1234
+   var b = 1234L
+   
+   var c = 12.45
+   var d = 12.45f
     
-    val nullArr = arrayOfNulls&amp;lt;Int&amp;gt;(5) //비어있는 배열 만들기
+   var e = 0xABCD
+   var f = 0b01010101
     
-    intArr[2] = 8
-    
-    println(intArr[4])
+   var g = true
+   var h = &amp;#39;c&amp;#39;
 }&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/lee989898/6e915687a4c5bcea20ac0c89e590ce74.js&quot;&gt; &lt;/script&gt;</content><author><name>lee989898</name></author><category term="kotlin" /><summary type="html">형변환과 배열</summary></entry></feed>
+&lt;script src=&quot;https://gist.github.com/lee989898/425656230beda11e903155fee1a0eb07.js&quot;&gt; &lt;/script&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;함수&quot;&gt;함수&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;함수는 특정한 동작을 하거나 원하는 결과값을 연산하는데 사용합니다.&lt;/p&gt;
+
+&lt;p&gt;함수안에서 return은 뒤에 오는 값을 반환하는 키워드로 return이 발생하면
+함수의 중간이더라도 값을 반환하고 함수를 종료합니다&lt;/p&gt;
+
+&lt;p&gt;코틀린은 함수를 좀 더 간단하게 기술할 수
+ 있도록 단일 표현식 함수를 지원합니다&lt;/p&gt;
+
+&lt;noscript&gt;&lt;pre&gt;fun main() {
+    
+    println(add(5,6,7))
+   
+}
+
+fun add(a: Int, b: Int, c: Int): Int{
+    return a+b+c    
+}
+
+fun add(a: Int, b: Int, c: Int) = a + b + c //위 함수와 동일합니다&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/lee989898/9e247743b379a5df3a1bc54a6c16124f.js&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;코틀린에서 함수는 내부적으로 기능을 가진 형태이지만 외부에서
+볼 때는 파라미터를 넣는다는 점 외에는 자료형이 결정된 변수라는 개념으로
+접근합니다&lt;/p&gt;</content><author><name>lee989898</name></author><category term="kotlin" /><summary type="html">타입추론과 함수</summary></entry></feed>
