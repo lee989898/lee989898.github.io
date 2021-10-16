@@ -1,4 +1,140 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lee989898.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lee989898.github.io/" rel="alternate" type="text/html" /><updated>2021-10-16T13:17:07+09:00</updated><id>https://lee989898.github.io/feed.xml</id><title type="html">LEE</title><subtitle>공부 블로그</subtitle><entry><title type="html">신택스 분석방법</title><link href="https://lee989898.github.io/pl-10" rel="alternate" type="text/html" title="신택스 분석방법" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-10</id><content type="html" xml:base="https://lee989898.github.io/pl-10">&lt;h1 id=&quot;제-10장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 10장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lee989898.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lee989898.github.io/" rel="alternate" type="text/html" /><updated>2021-10-16T14:38:37+09:00</updated><id>https://lee989898.github.io/feed.xml</id><title type="html">LEE</title><subtitle>공부 블로그</subtitle><entry><title type="html">변수와 시맨틱스</title><link href="https://lee989898.github.io/pl-11" rel="alternate" type="text/html" title="변수와 시맨틱스" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-11</id><content type="html" xml:base="https://lee989898.github.io/pl-11">&lt;h1 id=&quot;제-11장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 11장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;변수와 시맨틱스&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;변수는 변수명, 데이터 타입, 값, 메모리 주소 등의 속성을 갖는다. ​
+이들 속성을 변수에 결합하는 것을 바인딩이라고 한다. ​
+바인딩이 되는 때를 바인딩 타임이라고 하는데, ​
+주로 컴파일 할 때, 링크할 때, 메모리에 적재할
+때, 실행할 때가 바인딩 타임이다.&lt;/p&gt;
+
+&lt;p&gt;값이 assign될 때(assignment statement) 
+타입이 바인딩 되는 것을 동적 바인딩이라고 한다. ​&lt;/p&gt;
+
+&lt;p&gt;정적(static) 바인딩은 변수가 정의되거나 맨처음 
+나타날 때 타입이 바인딩된다. ​&lt;/p&gt;
+
+&lt;p&gt;바인딩 타임에 따라 변수의 값, 타입 등 ‘변수의 시맨틱’이 달라진다.  ​
+스코프는 해당 변수가 정의 및 언급(reference)된 문장의 범위를 말한다.  ​
+프로그램에서 선언(정의)문을 기준으로 하는 방법이 있고, ​
+값의 할당문 하는(정해지는 순간을 기준으로 하는 방법이 있다. ​&lt;/p&gt;
+
+&lt;p&gt;전자를 static scope(정적 스코프)라고 하고, ​
+후자를 dynamic scope(동적 스코프)라고 한다. ​&lt;/p&gt;
+
+&lt;p&gt;이제 상세히 알아보자&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;변수&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;우선 변수의 개념을 살펴 보자.
+변수는 이름, 값, 타입, 주소(메모리)를 속성으로 갖는다. ​&lt;/p&gt;
+
+&lt;p&gt;변수의 개념을 좀더 상세히 알아보면, ​&lt;/p&gt;
+
+&lt;p&gt;x=1, x=x+1의 의미를 따져 보자.
+여기서 =은 수학의 equal 사인이 아니라, ​
+x에 1을 할당(assign)한다는 말이다. ​&lt;/p&gt;
+
+&lt;p&gt;x는 변수의 이름이거나 변수의 위치를 지칭한다. ​
+즉, 변수는 메모리 셀의 추상화이다. ​&lt;/p&gt;
+
+&lt;p&gt;따라서, x는 이름(고유식별자)이고, ​
+x는 어떤 값이 저장된 위치를 지칭한다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Stack&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;함수가 호출되면, 스택 프레임을 스택의 꼭대기에 push 하고, ​
+함수 실행이 끝나면, 스택 프레임을 꼭대기로부터 pop한다. ​&lt;/p&gt;
+
+&lt;p&gt;스택 프레임은 호출되는 함수에 넘겨지는 파라미터 값, ​
+호출함수가 호출된 함수로부터 값을 넘겨받는 반환 주소, ​
+호출된 함수의 로컬 변수를 위한 저장 공간을 포함한다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Heap&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;힙은 동적 메모리 할당이 일어나는 메모리의 일부분이다. ​
+할당/해제 함수로는 malloc/free(pointer), new(poi
+nter)/delete(pointer)가 있다. ​&lt;/p&gt;
+
+&lt;p&gt;힙에 대한 메모리 할당은,    ​
+메모리 일부분이 런타임에 동적으로 할당되고, ​
+여러 함수에서 언급한 변수는 스코프에 제한이 없다
+할당된 메모리 크기가 크다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;명령형 언어는 본뉴만 아키텍처를 흉내낸 것이다.
+본뉴만 아키텍처의 주요 구성요소는 메모리와 프로세서이다
+메모리는 데이터와 명령어를 저장하고, ​
+프로세서는 메모리 컨텐트를 수정하는 연산을 실행한다&lt;/p&gt;
+
+&lt;p&gt;이에 대응되는 명령형 언어의 추상화는 변수와 산술식이다
+변수는 메모리셀에 대응하고, 산술식은 CPU 실행에 대응된다.&lt;/p&gt;
+
+&lt;p&gt;컴퓨터에 실재로 존재하는 메모리(이것을 물리
+적 메모리 또는 메모리라고 한다)는 ​
+때때로 프로그래머의 프로그램을 한꺼번에 메모리에 모두 올려 놓지 않는다.&lt;/p&gt;
+
+&lt;p&gt;그 이유는 다른 프로그램과 메모리를 나누어 쓰기도 하고, ​
+프로그램이 메모리 사이즈를 넘어가기도 하기 때문이다.
+프로그래머가 제한된 물리적 메모리 공간을 고려하면서 ​
+변수나 배열에 메모리 공간을 할당한다는 것은 매우 복잡하고 어렵다. ​&lt;/p&gt;
+
+&lt;p&gt;따라서 프로그램을 전부 저장할 수 있는 가상 메모리를 프로그램에 할당하고, ​
+사용 가능한 메모리에 그만큼의 프로그램을 올렸다 내렸다 하면서 프로그램을 
+실행한다. ​&lt;/p&gt;
+
+&lt;p&gt;이와 같이 프로그램을 올렸다 내렸다 하는 작업은 OS가 한다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl29.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;가상 메모리에서,  ​
+변수 i와 배열 a[100]은 메모리에 오렌지 색으로 할당된다. ​
+함수 foo에서 적용되는 변수 i, j는 연두색으로 할당된다. ​
+이중에서 적재 가능한 만큼의 프로그램을 메모리에 올려서, ​
+프로세서에서 실행하고, ​
+실행이 끝나면, 프로그램의 다음 부분을 올려서 실행하게 된다.&lt;/p&gt;
+
+&lt;p&gt;이때 가상 메모리를 쓰면, ​
+전체적인 상대 주소가 변하지 않기 때문에 ​
+물리적 메모리에 적재할 때 ​
+프로그램의 주소 변환이 매우 간단해 지는 장점이 있다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl30.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;변수의 타입에 따라 할당되는 메모리 공간이 다르다. ​
+개략적으로 설명하면, ​
+스택은 프로시져에 대한 정보를 저장하는 공간으로, ​
+이들 프로시져에서 사용되는 파라미터, 변수 등의 속성 정보 등을 저장한다. ​
+스택은 중첩 프로시져(함수) 호출, 순환 프로시져(함수) 호출 등을 ​
+올바르게 처리하기 위한 목적으로 사용된다. ​&lt;/p&gt;
+
+&lt;p&gt;힙은 malloc, free에 의해 명시적으로 메모
+리의 동적 할당 및 해제를 위한 메모리 풀(pool)이다.   ​
+Static에는 정적, 글로벌 변수가 저장된다.
+Code는 프로그램이 저장된다.&lt;/p&gt;
+
+&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="pl" /><summary type="html">제 11장 프로그래밍 언어</summary></entry><entry><title type="html">신택스 분석방법</title><link href="https://lee989898.github.io/pl-10" rel="alternate" type="text/html" title="신택스 분석방법" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-10</id><content type="html" xml:base="https://lee989898.github.io/pl-10">&lt;h1 id=&quot;제-10장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 10장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;hr /&gt;
 
@@ -185,6 +321,239 @@ getChar는 인풋 스트링에서 다음 글자를 가져와서 변수 nextChar�
 &lt;/ul&gt;
 
 &lt;p&gt;우선 신택스 어낼리시스 즉, 파싱이 뭔지, 파서가 뭘하는지 알아보자.&lt;/p&gt;
+
+&lt;p&gt;파서는 주어진 프로그램에 대해 파스 트리를 생성한다. ​&lt;/p&gt;
+
+&lt;p&gt;파스 트리는 명시적으로 생성되기도 하지만 ​
+트리 순회(traversal) 흔적이 생성되기도 한다. ​
+(이러한 트리 순회 흔적을 유래(파생, derivation)이라고 합니다.) ​&lt;/p&gt;
+
+&lt;p&gt;파스 트리와 유래 모두 컴파일러나 인터프리터가 필
+요로 하는 모든 신택스(구문 구조적) 정보를 포함한다. ​&lt;/p&gt;
+
+&lt;p&gt;신택스 어낼리시스의 목표는 인풋 프로그램이 문법적으로 올바른지 검사하고, ​
+문법적으로 올바른 인풋에 대한 파스 트리를 생성한다. ​&lt;/p&gt;
+
+&lt;p&gt;도중에 오류가 발견되면 오류 진단 메시지를 생성하고, ​
+인풋 프로그램의 신택스 어낼리시스를 계속한다. ​&lt;/p&gt;
+
+&lt;p&gt;물론 신택스 어낼리시스 도중에 오류가 발생하면, ​
+신택스 어낼리시스만 계속하면서 문법적으로 잘못된 부분을 식별할 뿐이지, ​
+파스 트리를 생성하지는 않는다.&lt;/p&gt;
+
+&lt;p&gt;파싱 방법은 하향식(탑다운)과 상향식(바텀업) 방식이 있다. ​&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Top -down parsing&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;탑다운 파싱은 start 심볼에서 시작하여, ​
+인풋 스트링을 derivation에 어느 BNF 규칙을 적용하는 게 좋을지 따져 보고 ​
+규칙을 선택하여 derivation한다.&lt;/p&gt;
+
+&lt;p&gt;이러한 derivation을 트리로 간주하면, 위에서 아래로 내려오면서 ​
+반복적으로 규칙을 선택하고 적용하여 ​
+궁극적으로 인풋 스트링(프로그램)이 생성될 때까지 계속한다. ​&lt;/p&gt;
+
+&lt;p&gt;그래서 이것을 recursive-descent parser(반복적 하강
+식 파서)라고 한다. ​&lt;/p&gt;
+
+&lt;p&gt;이와 같은 방식의 파싱 알고리즘을 LL 알고리즘이라고 하는데, ​
+인풋을 왼쪽에서 오른쪽으로 스캔하고, ​
+Leftmost derivation을 생성한다. ​&lt;/p&gt;
+
+&lt;p&gt;Leftmost derivation이란 sentential form
+(문형식)의 가장 왼쪽에 있는 난터미날에 대해, ​
+그 난터미날을 LHS로 갖고 있는 규칙을 선정하여, ​
+그 규칙의 RHS로 바꾸는 것을 의미한다. ​&lt;/p&gt;
+
+&lt;p&gt;LL의 앞에 있는 L은 ‘왼쪽에서 오른쪽으로’를 나타내고,  ​
+뒤의 L은 ‘leftmost derivation’을 나타낸다.&lt;/p&gt;
+
+&lt;p&gt;탑다운 파서의 파싱 결정 문제 ​
+Preorder에 의해 파스 트리를 생성한다.  ​
+Preorder 순회는 root, left, right 순서로 트리를 방문한다.
+​
+좌선 유도 중인 문형식이 주어졌을 때, 파서는 ​
+주어진 문형식에서 가장 왼쪽의 난터미날 심볼에 대해, ​
+그 난터미날 심볼을 LHS로 갖고 있는 규칙을 찾아서, ​
+그 규칙의 오른쪽 부분으로 문형식의 난 터미날 심볼을
+ 교체한다.(이것을 expand라고 함) ​
+이렇게 하여, 좌선 유도에 의한 다음 문형식을 생성한다.
+​
+문형식에서 xAa에서, x는 터미날 심볼로 구성된 스트링을, ​
+A는 난터미날 심볼을, a는 터미날과 난터미날 심볼의 혼합 스트링을 나타낸다. ​
+Expand할 때는 적용할 규칙을 선택하여 ​
+주어진 스트링의 난터미날 심볼을 규칙의 오른쪽으로 교체하여 확장한다.​&lt;/p&gt;
+
+&lt;p&gt;예를 들어 보자. ​
+현재 문형식이 xAa이고, ​
+A에 적용 가능한 규칙이 A→bB | cBb | a 라고 하면, ​
+탑다운 파서는 어느 규칙을 선택하느냐에 따라, ​
+다음 문형식으로 xbBa, xcBba, or xaa 중의 하나를 생성한다. 
+이것이 바로 탑다운 파서의 파싱 결정 문제이며, ​
+백트래킹 비용을 수반한다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bottom-up parsing&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;바텀업 파싱은 인풋 스트링을 스캐닝하면서, ​
+규칙의 RHS에 해당되는 스트링이 발견되면, ​
+이 스트링을 발견된 규칙의 왼쪽 스트링으로 바꾼다. ​&lt;/p&gt;
+
+&lt;p&gt;이러한 과정을 반복해서 인풋 스트링이 ​
+궁극적으로 starting 심볼로 바뀌면 파싱이 끝나는 것이다. ​&lt;/p&gt;
+
+&lt;p&gt;이렇게 하려면 탑다운 방식과 달리 스택이라는 자료 구조를
+ 필요로 하는데, ​
+스택에 넣고 빼고 하는 과정을 포함하기 때문에 이것을 shif
+t-reduce 파서라고 한다. ​&lt;/p&gt;
+
+&lt;p&gt;Shift는 스택에 심볼을 넣는 것, reduce는
+ 스택의 서브 스트링을 규칙의 LHS로 바꾸는 것을 말한다. ​  ​&lt;/p&gt;
+
+&lt;p&gt;이러한 알고리즘을 LR 알고리즘이라고 하는데, ​
+L은 왼쪽에서 오른쪽으로 인풋을 스캐닝하고, ​
+R은 rightmost derivation을 생성한다는 것을 나타낸다.&lt;/p&gt;
+
+&lt;p&gt;바텀업 파싱의 기본 아이디어는 ​
+주어진 스트링을 처리할 때, 규칙의 RHS에 해당되는 서브 스트링을 찾아서, ​
+그 서브스트링을 규칙의 LHS로 교체하는 과정을,  ​
+주어진 스트링이 start 심볼이 될 때까지 반복하는 것이다. ​&lt;/p&gt;
+
+&lt;p&gt;바텀업 파싱의 기술적인 이슈는 ​
+어느 규칙을 적용해서 어느 서브스트링을 교체할 것인지, ​
+미리 따져보는 것이다.&lt;/p&gt;
+
+&lt;p&gt;쉬프트-리듀스 파싱은 바텀업 파싱의 일종이다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl27.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;예를 보면서, 바텀업 파싱을 알아 보자
+문법과 인풋 스트링이 이와 같을 때, ​
+인풋 스트링의 왼쪽에서부터 시작해서, ​
+서브스트링에 적용할 수 있는 규칙을 찾아 본다.
+RHS에 b가 있는 규칙 A → b를 적용할 수 있다. ​
+빨간색 b에 A-&amp;gt;b를 적용하면,  ​
+빨간색 b가 규칙 A-&amp;gt;b의 LHS인 A로 교체되어 ​
+aAbcde가 된다.&lt;/p&gt;
+
+&lt;p&gt;다음, 빨간색 Abc가 A-&amp;gt;Abc에 의해 A로 교체되어 ​
+aAde가 되고, ​
+빨간색 d가 B-&amp;gt;d에 의해, A로 교체되어 ​
+aABe가 된다.&lt;/p&gt;
+
+&lt;p&gt;빨간색 aABe가 S-&amp;gt;aABe에 의해 start 심볼 S로 교체되어 ​
+파싱이 종료된다.&lt;/p&gt;
+
+&lt;p&gt;위의 그림을 잘 살펴보면, reduce의 의미와 derivar
+ion의 의미가 반대임을 알 수 있습니다. ​&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;바텀업 파싱은 규칙이 허용하는 바에 따라 인풋 스트링의 서브스트링을 ​
+LHS의 난터미날 심볼로 교체한다. ​
+이러한 교체는 인풋 스트링이 S로 교체될 때까지 계속된다. ​
+여기서 교체되는 서브스트링은 ​
+처음에는 터미날 심볼로 구성되지만, ​
+점차 터미날 심볼로 구성된 서브스트링이 난터미날로 교체되면서, ​
+터미날 심볼과 난터미날 심볼로 구성된다.  ​
+LHS로 교체하는 과정을 보면, ​
+인풋 스트링의 길이가 점점 줄어들고 있
+음(즉, reduce되고 있음)을 볼 수 있다.  ​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;탑다운 파싱과 비교를 해 보면, ​
+탑다운 파싱은 S에서 인풋 스트링이 생성될 때까지 규칙을 적용해서 ​
+가장 왼쪽의(leftmost) 난터미날 심볼을 RHS로 expand한다. ​
+이것을 좌선 유도(leftmost derivation)이라고 하는데… ​
+위의 파싱 과정을 거꾸로 살펴 보면, ​
+가장 오른쪽의 난터미날이 먼저 RHS로 expand됨을 볼 수 있다. ​
+즉, 우선 유도(rightmost derivation)가 되고 있는 것이다. ​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;따라서, 탑다운과 바텀업 파싱의 과정을 보면 서로 반대임을 알 수 있다. ​
+즉, 바텀업 파싱은 탑다운 우선 유도의 역순과 같다.   ​&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;바텀업 파싱에서는 어느 서브 스트링에 어떤 규칙을 적용하느냐가 중요하다.   ​
+앞의 예에서 abbcde(b에 A-&amp;gt;b를 적용) =&amp;gt; aAbcde(d에 B-&amp;gt;d를 적용) =&amp;gt; a
+AbcBe이 생성되면, ​&lt;/p&gt;
+
+&lt;p&gt;이후 어떠한 규칙을 적용해도 S로 리듀스되지 않는다.  ​
+규칙의 LHS로 교체할 수 있는 ‘인풋 스트링 S의
+ 서브스트링 a’를 핸들이라고 한다. ​&lt;/p&gt;
+
+&lt;p&gt;a가 A → a의 RHS에 매치되면, ​
+a를 A(규칙의 LHS)로 교체한다. ​
+이때 이러한 교체 과정은 탑다운 
+방식의 우선 유도(rightmost derivation)의 역순으로 나타난다.   ​&lt;/p&gt;
+
+&lt;p&gt;쉬프트-리듀스 파싱에서 리듀스 연산은 핸들에만 적용 가능하다.&lt;/p&gt;
+
+&lt;p&gt;쉬프트-리듀스 파싱의 구현 방법에 대해 알아 보자. ​
+바텀업 파싱은 쉬프트와 리듀스라는 두개의 액션으로 설명되기 때문에, ​
+쉬프트-리듀스 파싱으로 불리며, ​
+이를 위한 자료구조로 스택을 사용한다.  ​​&lt;/p&gt;
+
+&lt;p&gt;쉬프트 액션은 다음 인풋 토큰을 스택의 꼭대기에 옮겨 넣는 것을 의미하며, ​
+리듀스 액션은 스택의 꼭대기에 있는 핸들(규칙의 RHS)를 규칙의 LHS로 교체
+하는 것을 의미한다. ​&lt;/p&gt;
+
+&lt;p&gt;이 과정을 start 심볼로 리듀스 될 때까지 반복한다. ​
+쉬프트할 때 스택을 사용하면, ​
+현재 처리 중인 스트링에서 리듀스 가능한 서브스트
+링(핸들)을 찾기 쉬운 경향이 있다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl28.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;위 그림은 쉬프트-리듀스의 예이다.&lt;/p&gt;
+
+&lt;p&gt;쉬프트와 리듀스 둘다 가능할 때, 쉬프트-리듀스 컨플릭트가 발생한다. ​
+스택에 핸들 if E then S가 있을 때, 문법에 의하면 
+쉬프트, 리듀스 모두 가능하다. ​&lt;/p&gt;
+
+&lt;p&gt;그러나, 이것은 그 다음에 나오는 심볼이 무엇이냐에 달려 있다. ​
+다음에 else가 나온다면 리듀스하면 안되고 쉬프트해야 한다.  ​
+반대로 else가 나오지 않는다면 리듀스해도 된다.  ​&lt;/p&gt;
+
+&lt;p&gt;리듀스에 적용할 규칙이 여럿일 때, 리듀스-리듀스 컨플릭트 발생한다. ​
+스택에 핸들 id(arg)가 있을 때, Stmt로 리듀스할지, Expr로 리듀스할지?  ​
+이것 역시 다음에 나오는 심볼에 달려 있다.&lt;/p&gt;
+
+&lt;p&gt;앞에 언급한 문제를 해결하려면, ​
+인풋 스트링에서 현재 심볼의 다음에 오는 k개의 심볼을 먼저 본다면 ​
+현재 어느 규칙을 써서 무엇을 할지 쉽게 결정할 수 있을 것이다
+이것을 LR(k) 파서라고 하고, 여기서 k는 lookahead라고 한다.​&lt;/p&gt;
+
+&lt;p&gt;장점은 일반적인 방법이면서 많은 유형의 문법을 다룰 수 있고, 효율적이라는 것이다
+단점은 구현하기 어렵다는 것이다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;컴파일러가 각 단게별로 소모하는 처리 비용을 시간의 비율로 나타내
+면 다음과 같다. ​&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;~ 35-40% of time spent in I/O​&lt;/li&gt;
+  &lt;li&gt;~ 30% in lexical analysis​&lt;/li&gt;
+  &lt;li&gt;~ 10% in symbol table management​&lt;/li&gt;
+  &lt;li&gt;~ 7-15% in parsing and other control​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;가장 많은 비용을 소모하는 것이 바로 IO이다
+렉시칼 애널라이저가 그 만큼의 시간을 소모하고, ​
+정착 알고리듬 측면에서 가장 복잡한 파싱이 비용소모가 적다. ​&lt;/p&gt;
 
 &lt;hr /&gt;</content><author><name>lee989898</name></author><category term="pl" /><summary type="html">제 10장 프로그래밍 언어</summary></entry><entry><title type="html">정적 시맨틱과 동적 시맨틱</title><link href="https://lee989898.github.io/pl-09" rel="alternate" type="text/html" title="정적 시맨틱과 동적 시맨틱" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-09</id><content type="html" xml:base="https://lee989898.github.io/pl-09">&lt;h1 id=&quot;제-9장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 9장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
 
@@ -1677,93 +2046,4 @@ fact(X,Fact) :-
   Fact is X * NF.&lt;/pre&gt;&lt;/noscript&gt;
 &lt;script src=&quot;https://gist.github.com/lee989898/fca92516fff281d9b22e9c38494280bf.js&quot;&gt; &lt;/script&gt;
 
-&lt;p&gt;보기엔 깔끔해 보일 수 있지만, 레졸루션해서 풀려면 오래걸린다.&lt;/p&gt;</content><author><name>lee989898</name></author><category term="pl" /><summary type="html">제 2장 프로그래밍 언어</summary></entry><entry><title type="html">프로그래밍 언어란?</title><link href="https://lee989898.github.io/pl-01" rel="alternate" type="text/html" title="프로그래밍 언어란?" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-01</id><content type="html" xml:base="https://lee989898.github.io/pl-01">&lt;h1 id=&quot;제-1장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 1장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
-
-&lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;프로그래밍 언어란?&lt;/strong&gt;
-&lt;br /&gt;&lt;br /&gt;
-프로그래밍 언어는 인공적으로 설계된 언어로 컴퓨터가 실행할 수 있는 계산이나
-알고리즘을 표현하는 수단이다.
-&lt;br /&gt;&lt;br /&gt;
-인간의 언어는 타인에게 자신의 생각을 표현하듯이 프로그래밍 언어는
-자신의 생각을 컴퓨터에게 표현하는 수단이다.
-&lt;br /&gt;&lt;br /&gt;
-현재 프로그래밍 언어는 매우 다양할까?&lt;br /&gt;
-문제의 특성에 따라, 프로그램이 각기 요구하는 프로그래밍 언어의 표현력이
-다르기 때문이다. 표현력은 언어 선택에 있어 매우 중요하다.&lt;/p&gt;
-
-    &lt;p&gt;&lt;br /&gt;  &lt;br /&gt;
-문제해결에 적합한 언어를 선택하려면 아래 내용을 숙지해야 한다.&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;언어가 다르면, 알고리즘의 표현이 어떻게 다른가? ​&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;어떤 언어가 더 적합한가? 언어의 적합성(goodness)을 어떻게 평가할 것인가? ​&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;왜 이렇게 다른 언어가 많은가? ​&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;도대체 프로그래밍 언어가 뭔가? ​&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;프로그래밍 언어의 특성이 왜 이렇게 많은가? ​&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;이들 특성은 어떻게 구현시스템에서 실현되는가?​&lt;/p&gt;
-        &lt;ul&gt;
-          &lt;li&gt;여기서 구현 시스템이란 컴파일러나 인터프리터 등 PL을 실행할 수 있는 소프트웨어를 말한다. ​&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;프로그래밍 언어의 역사, 신택스 및 시맨틱스, 바인딩, 데이터 타입,
-컨트롤 구조, 서브 프로그램, 추상데이터 타입, 캡슐화, 예외 처리,
-함수 프로그래밍을 공부할 것이다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/pl/pl01.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어01&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;PL의 트렌드에 따른 언어를 살펴보면 다음과 같은 특성을 갖고 있다.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;타입의 안정성을 고려한 언어의 사용 증가: C,C++에 비해 Java, C# 타입이 안정적임&lt;/li&gt;
-  &lt;li&gt;웹 응용을 위해 클라이언트 측의 기능성을 갖춘 스크립트 언어&lt;/li&gt;
-  &lt;li&gt;신택스 보다 알고리즘의 표현력에 중점을 둔 언어&lt;/li&gt;
-  &lt;li&gt;컴파일, 분석, 타입 검사 등 실행 환경과 가상화를 갖춘 언어&lt;/li&gt;
-  &lt;li&gt;자동 오류 탐지 및 복구 등 프로그램 분석 능력을 갖춘 언어&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;PL에 영향을 미치는 요인을 표현력과 구현 시스템의 효율 측면에서 살펴보면 다음과 같다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;표현력: 응용 도메인의 특성과 프로그래밍 방법을 들 수 있다. &lt;br /&gt;
-    다중 프로그래밍은 큰 작업(프로그램)이 여러 개의 작은 작업(서브프로그램)으로
-    나뉘어져서 서로 연관성을 가지고 동시에 실행되는 것을 말한다.&lt;br /&gt;
-    물론 동시라는 말은 특정 시간에는 작은 작업 하나가 실행되지만, 
-    타임 피리어드 동안 여러 개의 작은 프로그램이 
-    동시에 처리되는 것으로 보이게 된다.&lt;br /&gt;
-    이것은 CPU의 시분할과 메모리의 공간 분할에 의해 이루어진다.
-    이렇게 하여 큰 프로그램 하나가 다른 프로그램의 방해없이
-    여러 개의 작은 서브프로그램으로 나누어져 처리될 수 있는 것이다.  ​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;언어 구현 시스템의 효율성: 즉 컴파일러나 인터프리터의 성능을 말한다.&lt;br /&gt;
-    컴파일러나 인터프리터의 성능은 주로 컴퓨터 구조, OS, 관련 도구, 라이브러리 등에 달려 있다.    ​
-    편의성은 비용을 수반한다. 추상적 관점을 지원하면 편의성은 좋아지지만, 이것을 머신에 
-    표현하는데는 나름의 비용이 들어간다.   이러한 사실을 고려하여 편의성과 비용간에 균형을 잡는 것이 
-    중요하다.   ​&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="pl" /><summary type="html">제 1장 프로그래밍 언어</summary></entry></feed>
+&lt;p&gt;보기엔 깔끔해 보일 수 있지만, 레졸루션해서 풀려면 오래걸린다.&lt;/p&gt;</content><author><name>lee989898</name></author><category term="pl" /><summary type="html">제 2장 프로그래밍 언어</summary></entry></feed>
