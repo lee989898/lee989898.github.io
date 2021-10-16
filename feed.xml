@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lee989898.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lee989898.github.io/" rel="alternate" type="text/html" /><updated>2021-10-16T01:12:31+09:00</updated><id>https://lee989898.github.io/feed.xml</id><title type="html">LEE</title><subtitle>공부 블로그</subtitle><entry><title type="html">PL-09</title><link href="https://lee989898.github.io/pl-09" rel="alternate" type="text/html" title="PL-09" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-09</id><content type="html" xml:base="https://lee989898.github.io/pl-09">&lt;h1 id=&quot;제-9장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 9장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lee989898.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lee989898.github.io/" rel="alternate" type="text/html" /><updated>2021-10-16T11:57:55+09:00</updated><id>https://lee989898.github.io/feed.xml</id><title type="html">LEE</title><subtitle>공부 블로그</subtitle><entry><title type="html">정적 시맨틱과 동적 시맨틱</title><link href="https://lee989898.github.io/pl-09" rel="alternate" type="text/html" title="정적 시맨틱과 동적 시맨틱" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-09</id><content type="html" xml:base="https://lee989898.github.io/pl-09">&lt;h1 id=&quot;제-9장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 9장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;hr /&gt;
 
@@ -8,7 +8,7 @@
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;/p&gt;</content><author><name>lee989898</name></author><category term="study" /><summary type="html">제 9장 프로그래밍 언어</summary></entry><entry><title type="html">PL-08</title><link href="https://lee989898.github.io/pl-08" rel="alternate" type="text/html" title="PL-08" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-08</id><content type="html" xml:base="https://lee989898.github.io/pl-08">&lt;h1 id=&quot;제-8장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 8장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+&lt;p&gt;​&lt;/p&gt;</content><author><name>lee989898</name></author><category term="pl" /><summary type="html">제 9장 프로그래밍 언어</summary></entry><entry><title type="html">프로그래밍 언어의 신택스와 시맨틱스</title><link href="https://lee989898.github.io/pl-08" rel="alternate" type="text/html" title="프로그래밍 언어의 신택스와 시맨틱스" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-08</id><content type="html" xml:base="https://lee989898.github.io/pl-08">&lt;h1 id=&quot;제-8장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 8장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;hr /&gt;
 
@@ -289,7 +289,7 @@ EBNF로 표기법의 소괄호의 의미를 구분하지 못하고 있다.  ​
 EBNF에서 ( )를 산술식의 괄호로 쓰려면, “(“, “)”로 써야 한다.
 
 ---
-&lt;/unmatched&gt;&lt;/unmatched&gt;&lt;/unm&gt;&lt;/matched&gt;&lt;/unmatched&gt;&lt;/matche&gt;&lt;/stmt&gt;&lt;/st&gt;&lt;/stmt&gt;&lt;/logic_expr&gt;&lt;/logic_expr&gt;&lt;/id&gt;&lt;/expr&gt;&lt;/factor&gt;&lt;/id&gt;&lt;/factor&gt;&lt;/factor&gt;&lt;/id&gt;&lt;/factor&gt;&lt;/factor&gt;&lt;/term&gt;&lt;/term&gt;&lt;/term&gt;&lt;/term&gt;&lt;/term&gt;&lt;/factor&gt;&lt;/term&gt;&lt;/id&gt;&lt;/term&gt;&lt;/term&gt;&lt;/term&gt;&lt;/expr&gt;&lt;/expr&gt;&lt;/expr&gt;&lt;/term&gt;&lt;/expr&gt;&lt;/expr&gt;&lt;/expr&gt;&lt;/expr&gt;&lt;/expr&gt;&lt;/assign&gt;&lt;/stmt_list&gt;&lt;/stmt&gt;&lt;/stmt_list&gt;&lt;/program&gt;&lt;/ident_list&gt;&lt;/ident_list&gt;&lt;/ident_list&gt;&lt;/ident_list&gt;&lt;/stmt&gt;&lt;/logic_expr&gt;&lt;/if_stmt&gt;&lt;/expression&gt;&lt;/var&gt;&lt;/assign&gt;</content><author><name>lee989898</name></author><category term="study" /><summary type="html">제 8장 프로그래밍 언어</summary></entry><entry><title type="html">PL-07</title><link href="https://lee989898.github.io/pl-07" rel="alternate" type="text/html" title="PL-07" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-07</id><content type="html" xml:base="https://lee989898.github.io/pl-07">&lt;h1 id=&quot;제-7장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 7장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+&lt;/unmatched&gt;&lt;/unmatched&gt;&lt;/unm&gt;&lt;/matched&gt;&lt;/unmatched&gt;&lt;/matche&gt;&lt;/stmt&gt;&lt;/st&gt;&lt;/stmt&gt;&lt;/logic_expr&gt;&lt;/logic_expr&gt;&lt;/id&gt;&lt;/expr&gt;&lt;/factor&gt;&lt;/id&gt;&lt;/factor&gt;&lt;/factor&gt;&lt;/id&gt;&lt;/factor&gt;&lt;/factor&gt;&lt;/term&gt;&lt;/term&gt;&lt;/term&gt;&lt;/term&gt;&lt;/term&gt;&lt;/factor&gt;&lt;/term&gt;&lt;/id&gt;&lt;/term&gt;&lt;/term&gt;&lt;/term&gt;&lt;/expr&gt;&lt;/expr&gt;&lt;/expr&gt;&lt;/term&gt;&lt;/expr&gt;&lt;/expr&gt;&lt;/expr&gt;&lt;/expr&gt;&lt;/expr&gt;&lt;/assign&gt;&lt;/stmt_list&gt;&lt;/stmt&gt;&lt;/stmt_list&gt;&lt;/program&gt;&lt;/ident_list&gt;&lt;/ident_list&gt;&lt;/ident_list&gt;&lt;/ident_list&gt;&lt;/stmt&gt;&lt;/logic_expr&gt;&lt;/if_stmt&gt;&lt;/expression&gt;&lt;/var&gt;&lt;/assign&gt;</content><author><name>lee989898</name></author><category term="pl" /><summary type="html">제 8장 프로그래밍 언어</summary></entry><entry><title type="html">프로그래밍 언어의 정교화</title><link href="https://lee989898.github.io/pl-07" rel="alternate" type="text/html" title="프로그래밍 언어의 정교화" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-07</id><content type="html" xml:base="https://lee989898.github.io/pl-07">&lt;h1 id=&quot;제-7장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 7장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;hr /&gt;
 
@@ -637,7 +637,7 @@ l producer)으로 구성되어 있다.&lt;/p&gt;
 &lt;p&gt;​에이다는 들인 노력에 비해, 대중성에서 실패한 사례로 간주된다. ​
 비슷한 시기에 나온 C++에 그 자리를 내준 듯 하다. ​&lt;/p&gt;
 
-&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="study" /><summary type="html">제 7장 프로그래밍 언어</summary></entry><entry><title type="html">PL-06</title><link href="https://lee989898.github.io/pl-06" rel="alternate" type="text/html" title="PL-06" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-06</id><content type="html" xml:base="https://lee989898.github.io/pl-06">&lt;h1 id=&quot;제-6장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 6장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="pl" /><summary type="html">제 7장 프로그래밍 언어</summary></entry><entry><title type="html">프로그래밍 언어의 진화</title><link href="https://lee989898.github.io/pl-06" rel="alternate" type="text/html" title="프로그래밍 언어의 진화" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-06</id><content type="html" xml:base="https://lee989898.github.io/pl-06">&lt;h1 id=&quot;제-6장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 6장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;hr /&gt;
 
@@ -823,7 +823,7 @@ Recursion(순환 함수)와 조건식을 통해 흐름을 컨트롤하며, ​
 링크드 리스트를 동적으로 필요시마다 메모리에 할당을 한다.&lt;/p&gt;
 
 &lt;hr /&gt;
-&lt;p&gt;​&lt;/p&gt;</content><author><name>lee989898</name></author><category term="study" /><summary type="html">제 6장 프로그래밍 언어</summary></entry><entry><title type="html">PL-05</title><link href="https://lee989898.github.io/pl-05" rel="alternate" type="text/html" title="PL-05" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-05</id><content type="html" xml:base="https://lee989898.github.io/pl-05">&lt;h1 id=&quot;제-5장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 5장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+&lt;p&gt;​&lt;/p&gt;</content><author><name>lee989898</name></author><category term="pl" /><summary type="html">제 6장 프로그래밍 언어</summary></entry><entry><title type="html">프로그래밍 언어의 구현 시스템</title><link href="https://lee989898.github.io/pl-05" rel="alternate" type="text/html" title="프로그래밍 언어의 구현 시스템" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-05</id><content type="html" xml:base="https://lee989898.github.io/pl-05">&lt;h1 id=&quot;제-5장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 5장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;hr /&gt;
 
@@ -955,7 +955,7 @@ ntermediate code generator)의 일부분으로 통합되어 있으며, ​
 메모리에 위치를 잡고, 초기화 함수를 호출하거나 조작하고 반환한다.&lt;/p&gt;
 
 &lt;hr /&gt;
-&lt;p&gt;​&lt;/p&gt;</content><author><name>lee989898</name></author><category term="study" /><summary type="html">제 5장 프로그래밍 언어</summary></entry><entry><title type="html">PL-04</title><link href="https://lee989898.github.io/pl-04" rel="alternate" type="text/html" title="PL-04" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-04</id><content type="html" xml:base="https://lee989898.github.io/pl-04">&lt;h1 id=&quot;제-4장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 4장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+&lt;p&gt;​&lt;/p&gt;</content><author><name>lee989898</name></author><category term="pl" /><summary type="html">제 5장 프로그래밍 언어</summary></entry><entry><title type="html">언어 평가 기준과 언어 설계시 기준 간의 균형</title><link href="https://lee989898.github.io/pl-04" rel="alternate" type="text/html" title="언어 평가 기준과 언어 설계시 기준 간의 균형" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-04</id><content type="html" xml:base="https://lee989898.github.io/pl-04">&lt;h1 id=&quot;제-4장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 4장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;hr /&gt;
 
@@ -1085,7 +1085,7 @@ Aliasing(같은 메모리 주소를 다른 이름으로 레퍼런스하는 것),
 &lt;p&gt;C++의 포인터는 매우 강력하고 유연하여 쓰기 쉬움을 높여주지만, ​
 주의를 기울이지 않으면 신뢰성에 문제를 일으킨다.&lt;/p&gt;
 
-&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="study" /><summary type="html">제 4장 프로그래밍 언어</summary></entry><entry><title type="html">PL-03</title><link href="https://lee989898.github.io/pl-03" rel="alternate" type="text/html" title="PL-03" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-03</id><content type="html" xml:base="https://lee989898.github.io/pl-03">&lt;h1 id=&quot;제-3장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 3장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="pl" /><summary type="html">제 4장 프로그래밍 언어</summary></entry><entry><title type="html">프로그래밍 언어가 프로그램 설계 방법에 준 영향</title><link href="https://lee989898.github.io/pl-03" rel="alternate" type="text/html" title="프로그래밍 언어가 프로그램 설계 방법에 준 영향" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-03</id><content type="html" xml:base="https://lee989898.github.io/pl-03">&lt;h1 id=&quot;제-3장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 3장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;hr /&gt;
 
@@ -1138,7 +1138,7 @@ LGOL 언어가 등장했다. 이러한 언어를 통해 구조적 프로그래�
 &lt;p&gt;이 그림은 널리 사용되어 온 프로그래밍 언어의 족보를 보여주고 있다. ​
  많은 언어가 생멸하는 와중에 지속적인 발전이 있었음을 알 수 있다. ​
  눈여겨 볼만한 중요한 언어로는 FORTRAN, COBO
- L, COMMON LISP, Pascal, C, C++, Java 등이다.&lt;/p&gt;</content><author><name>lee989898</name></author><category term="study" /><summary type="html">제 3장 프로그래밍 언어</summary></entry><entry><title type="html">PL-02</title><link href="https://lee989898.github.io/pl-02" rel="alternate" type="text/html" title="PL-02" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-02</id><content type="html" xml:base="https://lee989898.github.io/pl-02">&lt;h1 id=&quot;제-2장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 2장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+ L, COMMON LISP, Pascal, C, C++, Java 등이다.&lt;/p&gt;</content><author><name>lee989898</name></author><category term="pl" /><summary type="html">제 3장 프로그래밍 언어</summary></entry><entry><title type="html">왜 PL을 공부하는가?</title><link href="https://lee989898.github.io/pl-02" rel="alternate" type="text/html" title="왜 PL을 공부하는가?" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-02</id><content type="html" xml:base="https://lee989898.github.io/pl-02">&lt;h1 id=&quot;제-2장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 2장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;hr /&gt;
 
@@ -1356,7 +1356,7 @@ fact(X,Fact) :-
   Fact is X * NF.&lt;/pre&gt;&lt;/noscript&gt;
 &lt;script src=&quot;https://gist.github.com/lee989898/fca92516fff281d9b22e9c38494280bf.js&quot;&gt; &lt;/script&gt;
 
-&lt;p&gt;보기엔 깔끔해 보일 수 있지만, 레졸루션해서 풀려면 오래걸린다.&lt;/p&gt;</content><author><name>lee989898</name></author><category term="study" /><summary type="html">제 2장 프로그래밍 언어</summary></entry><entry><title type="html">PL-01</title><link href="https://lee989898.github.io/pl-01" rel="alternate" type="text/html" title="PL-01" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-01</id><content type="html" xml:base="https://lee989898.github.io/pl-01">&lt;h1 id=&quot;제-1장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 1장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+&lt;p&gt;보기엔 깔끔해 보일 수 있지만, 레졸루션해서 풀려면 오래걸린다.&lt;/p&gt;</content><author><name>lee989898</name></author><category term="pl" /><summary type="html">제 2장 프로그래밍 언어</summary></entry><entry><title type="html">프로그래밍 언어란?</title><link href="https://lee989898.github.io/pl-01" rel="alternate" type="text/html" title="프로그래밍 언어란?" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-01</id><content type="html" xml:base="https://lee989898.github.io/pl-01">&lt;h1 id=&quot;제-1장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 1장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;hr /&gt;
 
@@ -1445,64 +1445,6 @@ fact(X,Fact) :-
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="study" /><summary type="html">제 1장 프로그래밍 언어</summary></entry><entry><title type="html">타입추론과 함수</title><link href="https://lee989898.github.io/kotlin-04" rel="alternate" type="text/html" title="타입추론과 함수" /><published>2021-09-25T01:07:00+09:00</published><updated>2021-09-25T01:07:00+09:00</updated><id>https://lee989898.github.io/kotlin-04</id><content type="html" xml:base="https://lee989898.github.io/kotlin-04">&lt;h1 id=&quot;타입추론과-함수&quot;&gt;타입추론과 함수&lt;/h1&gt;
+&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="pl" /><summary type="html">제 1장 프로그래밍 언어</summary></entry><entry><title type="html">DB-01</title><link href="https://lee989898.github.io/db-01" rel="alternate" type="text/html" title="DB-01" /><published>2021-10-13T19:18:00+09:00</published><updated>2021-10-13T19:18:00+09:00</updated><id>https://lee989898.github.io/db-01</id><content type="html" xml:base="https://lee989898.github.io/db-01">&lt;h1 id=&quot;2&quot;&gt;&lt;strong&gt;2&lt;/strong&gt;&lt;/h1&gt;
 
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;타입추론&quot;&gt;타입추론&lt;/h2&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;타입추론은 변수나 함수들을 선언할 때나 연산이 이루어 질 떄
-자료형을 코드에 명시하지 않아도 코틀린이 자동으로 자료형을 추론해주는
-기능입니다&lt;/p&gt;
-
-&lt;p&gt;변수가 선언될 때 할당된 값의 형태로 해당 변수가 어떤 자료형을 가지는지 
-추론이 가능하기 때문입니다&lt;/p&gt;
-
-&lt;noscript&gt;&lt;pre&gt;fun main() {
-    
-   var a = 1234
-   var b = 1234L
-   
-   var c = 12.45
-   var d = 12.45f
-    
-   var e = 0xABCD
-   var f = 0b01010101
-    
-   var g = true
-   var h = &amp;#39;c&amp;#39;
-}&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/lee989898/425656230beda11e903155fee1a0eb07.js&quot;&gt; &lt;/script&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;함수&quot;&gt;함수&lt;/h2&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;함수는 특정한 동작을 하거나 원하는 결과값을 연산하는데 사용합니다.&lt;/p&gt;
-
-&lt;p&gt;함수안에서 return은 뒤에 오는 값을 반환하는 키워드로 return이 발생하면
-함수의 중간이더라도 값을 반환하고 함수를 종료합니다&lt;/p&gt;
-
-&lt;p&gt;코틀린은 함수를 좀 더 간단하게 기술할 수
- 있도록 단일 표현식 함수를 지원합니다&lt;/p&gt;
-
-&lt;noscript&gt;&lt;pre&gt;fun main() {
-    
-    println(add(5,6,7))
-   
-}
-
-fun add(a: Int, b: Int, c: Int): Int{
-    return a+b+c    
-}
-
-fun add(a: Int, b: Int, c: Int) = a + b + c //위 함수와 동일합니다&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/lee989898/9e247743b379a5df3a1bc54a6c16124f.js&quot;&gt; &lt;/script&gt;
-
-&lt;p&gt;코틀린에서 함수는 내부적으로 기능을 가진 형태이지만 외부에서
-볼 때는 파라미터를 넣는다는 점 외에는 자료형이 결정된 변수라는 개념으로
-접근합니다&lt;/p&gt;</content><author><name>lee989898</name></author><category term="kotlin" /><summary type="html">타입추론과 함수</summary></entry></feed>
+&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="database" /><summary type="html">2</summary></entry></feed>

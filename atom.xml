@@ -8,7 +8,7 @@
     
       
       <item>
-        <title>PL-09</title>
+        <title>정적 시맨틱과 동적 시맨틱</title>
         
           <description>&lt;h1 id=&quot;제-9장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 9장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
 
@@ -23,7 +23,7 @@
     
       
       <item>
-        <title>PL-08</title>
+        <title>프로그래밍 언어의 신택스와 시맨틱스</title>
         
           <description>&lt;h1 id=&quot;제-8장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 8장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
 
@@ -38,7 +38,7 @@
     
       
       <item>
-        <title>PL-07</title>
+        <title>프로그래밍 언어의 정교화</title>
         
           <description>&lt;h1 id=&quot;제-7장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 7장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
 
@@ -53,7 +53,7 @@
     
       
       <item>
-        <title>PL-06</title>
+        <title>프로그래밍 언어의 진화</title>
         
           <description>&lt;h1 id=&quot;제-6장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 6장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
 
@@ -68,7 +68,7 @@
     
       
       <item>
-        <title>PL-05</title>
+        <title>프로그래밍 언어의 구현 시스템</title>
         
           <description>&lt;h1 id=&quot;제-5장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 5장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
 
@@ -83,7 +83,7 @@
     
       
       <item>
-        <title>PL-04</title>
+        <title>언어 평가 기준과 언어 설계시 기준 간의 균형</title>
         
           <description>&lt;h1 id=&quot;제-4장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 4장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
 
@@ -98,7 +98,7 @@
     
       
       <item>
-        <title>PL-03</title>
+        <title>프로그래밍 언어가 프로그램 설계 방법에 준 영향</title>
         
           <description>&lt;h1 id=&quot;제-3장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 3장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
 
@@ -113,7 +113,7 @@
     
       
       <item>
-        <title>PL-02</title>
+        <title>왜 PL을 공부하는가?</title>
         
           <description>&lt;h1 id=&quot;제-2장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 2장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
 
@@ -128,7 +128,7 @@
     
       
       <item>
-        <title>PL-01</title>
+        <title>프로그래밍 언어란?</title>
         
           <description>&lt;h1 id=&quot;제-1장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 1장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
 
@@ -138,6 +138,21 @@
         <link>
         https://lee989898.github.io/pl-01</link>
         <guid isPermaLink="true">https://lee989898.github.io/pl-01</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>DB-01</title>
+        
+          <description>&lt;h1 id=&quot;2&quot;&gt;&lt;strong&gt;2&lt;/strong&gt;&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Wed, 13 Oct 2021 19:18:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/db-01</link>
+        <guid isPermaLink="true">https://lee989898.github.io/db-01</guid>
       </item>
       
     
@@ -277,25 +292,6 @@
     
       
       <item>
-        <title>Git 1강</title>
-        
-          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Git 공부는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
-&lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./git-01&quot;&gt;Git 시작&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./git-02&quot;&gt;Git 1강 &lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-</description>
-        
-        <pubDate>Fri, 24 Sep 2021 01:08:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/git-02</link>
-        <guid isPermaLink="true">https://lee989898.github.io/git-02</guid>
-      </item>
-      
-    
-      
-      <item>
         <title>변수와 자료형</title>
         
           <description>&lt;h1 id=&quot;변수와-자료형&quot;&gt;변수와 자료형&lt;/h1&gt;
@@ -306,25 +302,6 @@
         <link>
         https://lee989898.github.io/kotlin-02</link>
         <guid isPermaLink="true">https://lee989898.github.io/kotlin-02</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>android 1강</title>
-        
-          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Android 공부는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
-&lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./android-01&quot;&gt;Android 시작&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./android-02&quot;&gt;Android 1강 &lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-</description>
-        
-        <pubDate>Fri, 24 Sep 2021 01:07:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/android-02</link>
-        <guid isPermaLink="true">https://lee989898.github.io/android-02</guid>
       </item>
       
     
