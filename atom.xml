@@ -8,6 +8,21 @@
     
       
       <item>
+        <title>신택스 분석방법</title>
+        
+          <description>&lt;h1 id=&quot;제-10장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 10장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Wed, 13 Oct 2021 19:18:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/pl-10</link>
+        <guid isPermaLink="true">https://lee989898.github.io/pl-10</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>정적 시맨틱과 동적 시맨틱</title>
         
           <description>&lt;h1 id=&quot;제-9장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 9장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
@@ -367,33 +382,6 @@
         <link>
         https://lee989898.github.io/kotlin-01</link>
         <guid isPermaLink="true">https://lee989898.github.io/kotlin-01</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>Gettysburg Address</title>
-        
-          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Kotlin 공부는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
-&lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-01&quot;&gt;코틀린 규칙들&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-02&quot;&gt;변수와 자료형 &lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-03&quot;&gt;형변환과 배열 &lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-04&quot;&gt;타입추론과 함수 &lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-05&quot;&gt;조건문과 비교연산자 &lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-06&quot;&gt;반복문과 증감연산자 &lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-07&quot;&gt;흐름제어와 논리연산자 &lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-08&quot;&gt;클래스의 기본구조 &lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-09&quot;&gt;클래스의 생성 &lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-10&quot;&gt;클래스의 상속 &lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-</description>
-        
-        <pubDate>Thu, 19 Nov 1863 19:18:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/gettysburg-address</link>
-        <guid isPermaLink="true">https://lee989898.github.io/gettysburg-address</guid>
       </item>
       
     
