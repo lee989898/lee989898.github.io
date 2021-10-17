@@ -218,9 +218,88 @@
     
       
       <item>
-        <title>DB-01</title>
+        <title>E-R DIAGRAMS</title>
         
-          <description>&lt;h1 id=&quot;2&quot;&gt;&lt;strong&gt;2&lt;/strong&gt;&lt;/h1&gt;
+          <description>&lt;h1 id=&quot;e-r-diagrams&quot;&gt;E-R DIAGRAMS&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Wed, 13 Oct 2021 19:18:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/db-06</link>
+        <guid isPermaLink="true">https://lee989898.github.io/db-06</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Entity-RelationshipModel</title>
+        
+          <description>&lt;h1 id=&quot;entity-relationshipmodel&quot;&gt;Entity-RelationshipModel&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Wed, 13 Oct 2021 19:18:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/db-05</link>
+        <guid isPermaLink="true">https://lee989898.github.io/db-05</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>DATA MANIPULATION LANGUAGE (DML)</title>
+        
+          <description>&lt;h1 id=&quot;data-manipulation-language-dml&quot;&gt;DATA MANIPULATION LANGUAGE (DML)&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Wed, 13 Oct 2021 19:18:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/db-04</link>
+        <guid isPermaLink="true">https://lee989898.github.io/db-04</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>DATA DEFINITION LANGUAGE (DDL)</title>
+        
+          <description>&lt;h1 id=&quot;data-definition-language-ddl&quot;&gt;DATA DEFINITION LANGUAGE (DDL)&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Wed, 13 Oct 2021 19:18:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/db-03</link>
+        <guid isPermaLink="true">https://lee989898.github.io/db-03</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Relational Model</title>
+        
+          <description>&lt;ul&gt;
+  &lt;li&gt;Data model&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Wed, 13 Oct 2021 19:18:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/db-02</link>
+        <guid isPermaLink="true">https://lee989898.github.io/db-02</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>데이터베이스에 대하여</title>
+        
+          <description>&lt;ul&gt;
+  &lt;li&gt;Data &amp;amp; Database&lt;/li&gt;
+&lt;/ul&gt;
 
 </description>
         
@@ -353,9 +432,25 @@
     
       
       <item>
-        <title>알고리즘 시작</title>
+        <title>알고리즘의 효율성 분석</title>
         
-          <description>&lt;p&gt;알고리즘 시작 입니다.&lt;/p&gt;
+          <description>&lt;h3 id=&quot;알고리즘-분석-체계&quot;&gt;알고리즘 분석 체계&lt;/h3&gt;
+
+</description>
+        
+        <pubDate>Fri, 24 Sep 2021 01:09:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/algorithm-02</link>
+        <guid isPermaLink="true">https://lee989898.github.io/algorithm-02</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>알고리즘</title>
+        
+          <description>&lt;h3 id=&quot;알고리즘이란&quot;&gt;알고리즘이란?&lt;/h3&gt;
+
 </description>
         
         <pubDate>Fri, 24 Sep 2021 01:09:00 +0900</pubDate>

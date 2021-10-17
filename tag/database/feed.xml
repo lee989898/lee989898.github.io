@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/database/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-10-16T23:10:33+09:00</updated>
+  <updated>2021-10-17T22:00:32+09:00</updated>
   <id>https://lee989898.github.io/tag/database/feed.xml</id>
 
   
@@ -32,12 +32,293 @@
 
   
     <entry>
-      <title type="html">DB-01</title>
-      <link href="https://lee989898.github.io/db-01" rel="alternate" type="text/html" title="DB-01" />
+      <title type="html">Entity-RelationshipModel</title>
+      <link href="https://lee989898.github.io/db-05" rel="alternate" type="text/html" title="Entity-RelationshipModel" />
       <published>2021-10-13T19:18:00+09:00</published>
       <updated>2021-10-13T19:18:00+09:00</updated>
-      <id>https://lee989898.github.io/db-01</id>
-      <content type="html" xml:base="https://lee989898.github.io/db-01">&lt;h1 id=&quot;2&quot;&gt;&lt;strong&gt;2&lt;/strong&gt;&lt;/h1&gt;
+      <id>https://lee989898.github.io/db-05</id>
+      <content type="html" xml:base="https://lee989898.github.io/db-05">&lt;h1 id=&quot;entity-relationshipmodel&quot;&gt;Entity-RelationshipModel&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;데이터베이스 응용 프로그램을 만드는 작업은 복잡합니다.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;데이터베이스 스키마 설계&lt;/li&gt;
+  &lt;li&gt;데이터에 액세스하고 업데이트하는 프로그램 설계&lt;/li&gt;
+  &lt;li&gt;데이터 액세스를 제어하기 위한 보안 체계 설계&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;사용자의 요구가 중심 역할을 합니다. 데이터베이스 디자
+이너는 애플리케이션의 요구를 이해하기 위해 애플리케
+이션 사용자와 상호 작용해야 합니다. 사용자가 이해
+할 수 있는 높은 수준의 방식으로 사용자를 표현합니다.
+요구 사항을 더 낮은 수준의 설계로 변환한다.&lt;/p&gt;
+
+&lt;p&gt;데이터베이스 설계의 초기 단계는 잠재 데이터베이스 사용자의 데이터 요구를 
+특성화하는 것입니다.&lt;/p&gt;
+
+&lt;p&gt;다음으로 디자이너는 데이터 모델을 선택하고 선택한 데이터 모델
+의 개념을 적용하여 이러한 요구 사항을 데이터베이스의 개념적 스키마
+로 변환합니다.&lt;/p&gt;
+
+&lt;p&gt;완전히 개발된 개념 스키마는 엔터프라이즈의 기능 요구 사항
+도 나타냅니다. 사용자는 데이터에 대해 수
+행될 작업(또는 트랜잭션)의 종류를 설명합니다.&lt;/p&gt;
+
+&lt;p&gt;추상 데이터 모델에서 데이터베이스 구현으
+로 이동하는 프로세스는 두 가지 최종 설계 단계로 진행됩니다.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Logical Design&lt;/li&gt;
+  &lt;li&gt;Physical Design&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;나머지 데이터베이스 애플리케이션을 구축하기 
+전에 데이터베이스 설계 단계를 신중하게 수행하는 것이 중요합니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;entity-relationship-model&quot;&gt;ENTITY-RELATIONSHIP MODEL&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Design Process&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;데이터 요구 사항 특성화&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;DB 디자이너는 도메인 전문가 및 사용자와 상호 작용&lt;/li&gt;
+  &lt;li&gt;결과: 사용자 요구 사항 사양(예: 텍스트 설명)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;개념 설계 단계&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;데이터 모델 선택&lt;/li&gt;
+  &lt;li&gt;요구 사항을 개념 데이터베이스 스키마로 변환&lt;/li&gt;
+  &lt;li&gt;엔티티 관계 모델은 일반적으로 개념 DB 스키마에 사용됩니다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;기능 요구 사항 사양&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;작업(트랜잭션)의 종류 설명&lt;/li&gt;
+  &lt;li&gt;데이터베이스 디자이너는 스키마가 기능 요구 사항
+을 충족하는지 확인하기 위해 스키마를 검토합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;논리적 설계 단계&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;상위 개념 스키마를 DBMS의 데이터 모델(예: 관계형 데이터 모델)에 매핑&lt;/li&gt;
+  &lt;li&gt;E-R 모델에서 관계형 모델로 매핑&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;물리적 설계 단계&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;데이터베이스의 물리적 기능이 지정됩니다&lt;/li&gt;
+  &lt;li&gt;(예: 파일 형식, 인덱스 구조 선택).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;두 가지 주요 함정을 피합시다.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;중복성
+    &lt;ul&gt;
+      &lt;li&gt;잘못된 설계는 정보를 반복할 수 있음&lt;/li&gt;
+      &lt;li&gt;불일치로 이어질 수 있음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;불완전성
+    &lt;ul&gt;
+      &lt;li&gt;잘못된 설계는 일부 정보를 모델링하기 어렵게 만들 수 있음(예: 손실 분해)&lt;/li&gt;
+      &lt;li&gt;결합할 때 관계 R을 R1 및 R2로 분해하는 것은 손실 R1과 R2의 관계는 R과 동일한 관계를 생성하지 않습니다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Entity Sets&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;데이터베이스는 다음과 같이 모델링할 수 있습니다.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;a collection of entities&lt;/li&gt;
+  &lt;li&gt;relationship among entities&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;entity는 다른 개체와 구별 됩니다.
+엔티티에는 속성이 있습니다.
+엔터티 집합은 동일한 속성을 공유하는 동일한 유형의 엔터티 집합입니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Attributes (속성)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Simple vs. Composite attributes&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;simple
+    &lt;ul&gt;
+      &lt;li&gt;값은 하위 부분으로 나눌 수 없습니다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;composite
+    &lt;ul&gt;
+      &lt;li&gt;여러 부분으로 구성&lt;/li&gt;
+      &lt;li&gt;주소 = (거리, 시, 주, 우편번호)&lt;/li&gt;
+      &lt;li&gt;번호 = (번호, 내선 번호)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Null attributes&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;null 값: “missing”” 또는 “unknown”을 의미하는 특수 값&lt;/li&gt;
+  &lt;li&gt;일부 속성은 null 값을 가질 수 없습니다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Single-valued vs. multivalued&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Single-valued attribute
+    &lt;ul&gt;
+      &lt;li&gt;각 속성에는 엔터티에 대한 단일 값이 있습니다&lt;/li&gt;
+      &lt;li&gt;id, name, dept&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Multivaluedattribute
+    &lt;ul&gt;
+      &lt;li&gt;속성은 인스턴스에 대해 하나 이상의 값을 가질 수 있습니다.&lt;/li&gt;
+      &lt;li&gt;children={ john,tom},phone#={5567,5568}&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Derivedattributes&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;값은 다른 관련 속성 또는 엔터티의 값에서 파생될 수 있습니다.&lt;/li&gt;
+  &lt;li&gt;duration,age,count,sum,…&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;relationship&quot;&gt;Relationship&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Role
+Relationship에서의 각 entity의 역할
+    &lt;ul&gt;
+      &lt;li&gt;「소유」에서 「고객」은 “소유자”의 기능,
+  「대출구좌」는 “피소유자”의기능&lt;/li&gt;
+      &lt;li&gt;“Prerequisite” relationship에서
+  한 과목은 다른 과목의 선수 과목 역할
+  prereq relationship (C1,C2)인 경우(C2,C1)은 용인되지않음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;m-aryrelationship
+    &lt;ul&gt;
+      &lt;li&gt;대부분의 relationship은 binary
+        &lt;ul&gt;
+          &lt;li&gt;
+            &lt;table&gt;
+              &lt;tbody&gt;
+                &lt;tr&gt;
+                  &lt;td&gt;R= { [e1, e2]&lt;/td&gt;
+                  &lt;td&gt;e1∈E1, e2∈E2}&lt;/td&gt;
+                &lt;/tr&gt;
+              &lt;/tbody&gt;
+            &lt;/table&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;3개 이상의 entity들이 참여하는 relationship
+        &lt;ul&gt;
+          &lt;li&gt;
+            &lt;table&gt;
+              &lt;tbody&gt;
+                &lt;tr&gt;
+                  &lt;td&gt;R= { [e1, e2 , e3]&lt;/td&gt;
+                  &lt;td&gt;e1∈E1, e2∈E2, e3∈E3} : 3-ary&lt;/td&gt;
+                &lt;/tr&gt;
+              &lt;/tbody&gt;
+            &lt;/table&gt;
+          &lt;/li&gt;
+          &lt;li&gt;예) 어떤 supplier가 어떤 part를 무슨 project에 제공&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Relationship도 attribute를 가질 수 있다! –descriptive attribute&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/db/db04.png&quot; width=&quot;75%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;엔터티 집합 instructor와 student 사이에 설정된 어
+드바이저 관계는 학생이 어드바이저와 연결되기 시작한
+ 시점을 추적하는 date속성을 가질 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;Relationship cardinality&lt;/p&gt;
+
+&lt;p&gt;관계 집합을 통해 다른 엔터티를 연결할 수 있는 엔터티의 수&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;1 : 1 (one-to-one)&lt;/li&gt;
+  &lt;li&gt;1 : m (one-to-many)&lt;/li&gt;
+  &lt;li&gt;m : 1 (many-to-one)&lt;/li&gt;
+  &lt;li&gt;m : n (many-to-many)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/db/db05.png&quot; width=&quot;75%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/db/db06.png&quot; width=&quot;75%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;A와 B의 일부 요소는 다른 세트의 요소에 매핑되지 않을 수 있습니다.&lt;br /&gt;
+관계 카디널리티는 관계 속성의 배치에 영향을 줄 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;수퍼 키, 후보 키 및 기본 키의 개념은 엔티티 세트에도 적용 가능합니다.
+키는 또한 관계를 고유하게 식별하는 데 도움이 됩니다.&lt;/p&gt;
+
+&lt;p&gt;기본 키의 구조는 매핑 카디널리티에 따라 다릅니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;One to one
+    &lt;ul&gt;
+      &lt;li&gt;두 키 모두 사용 가능&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Many to many
+    &lt;ul&gt;
+      &lt;li&gt;관계 집합 ‘지도자’의 기본 키는 학생과 강사의 기본 키의 결합으로 구성&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Many to one
+    &lt;ul&gt;
+      &lt;li&gt;각 학생은 최대 한 명의 고문을 가질 수 있음&lt;/li&gt;
+      &lt;li&gt;학생에서 강사로 다대일&lt;/li&gt;
+      &lt;li&gt;학생의 기본 키는 관계 집합 고문의 기본 키입니다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;One to many
+    &lt;ul&gt;
+      &lt;li&gt;강사는 한 명의 학생에게만 조언할 수 있음&lt;/li&gt;
+      &lt;li&gt;강사에서 학생으로 다대일&lt;/li&gt;
+      &lt;li&gt;조언의 기본 키는 강사의 기본 키입니다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;hr /&gt;</content>
 
@@ -60,7 +341,938 @@
       
 
       
-        <summary type="html">2</summary>
+        <summary type="html">Entity-RelationshipModel</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">DATA MANIPULATION LANGUAGE (DML)</title>
+      <link href="https://lee989898.github.io/db-04" rel="alternate" type="text/html" title="DATA MANIPULATION LANGUAGE (DML)" />
+      <published>2021-10-13T19:18:00+09:00</published>
+      <updated>2021-10-13T19:18:00+09:00</updated>
+      <id>https://lee989898.github.io/db-04</id>
+      <content type="html" xml:base="https://lee989898.github.io/db-04">&lt;h1 id=&quot;data-manipulation-language-dml&quot;&gt;DATA MANIPULATION LANGUAGE (DML)&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Data Manipulation Language (DML)
+    &lt;ul&gt;
+      &lt;li&gt;Database의 data를 조작(schema는불변)하는언어.&lt;/li&gt;
+      &lt;li&gt;Retrieve&lt;/li&gt;
+      &lt;li&gt;Insert&lt;/li&gt;
+      &lt;li&gt;Drop Table
+  ex) drop table r
+  ex) insert into instructor values (‘10211’, ‘Smith’, ‘Biology’, 66000);&lt;/li&gt;
+      &lt;li&gt;Delete
+  Remove all tuples from the student relation
+  ex) delete from student&lt;/li&gt;
+      &lt;li&gt;Change&lt;/li&gt;
+      &lt;li&gt;Alter&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;주의: SQL 이름은 대소문자 구분하지 않는다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;select&quot;&gt;SELECT&lt;/h3&gt;
+
+&lt;p&gt;데이터베이스에서 원하는 데이터를 검색, 추출할때 사용한다.&lt;/p&gt;
+
+&lt;p&gt;SQL은 쿼리 결과뿐만 아니라 관계에서도 중복을 허용한다.&lt;/p&gt;
+
+&lt;p&gt;중복을 제거 하고 싶으면 distint 키워드를 사용하면 된다.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;select distinct dept_name
+from instructor
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;모든 결과를 보고 싶으면 all 키워드를 사용하면 된다.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;select all dept_name
+from instructor
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;*표시는 모든 속성을 나타낸다.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;select *
+from instructor
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;속성은 from 절 유무에 상관없이 리터럴을 사용할 수 있다.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;select '437'
+
+select  ‘A’
+from instructor
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;select절은 수학 표현(+,-,*,/)를 포함할 수 있다.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;selectID, name, salary/12
+from instructor
+
+SELECT ename, (sal+200) * 12 FROM emp;
+SELECT ename, -sal * 10 FROM emp;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;salary/12는 salary/12 as monthly_salary 처럼 rename할 수 있다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;where&quot;&gt;WHERE&lt;/h3&gt;
+
+&lt;p&gt;조건을 부여하여 만족하는 ROW Selection&lt;/p&gt;
+
+&lt;p&gt;연산자&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;=, !=, &amp;gt;, &amp;lt;, &amp;lt;=, &amp;gt;=&lt;/li&gt;
+  &lt;li&gt;IN : 집합에포함되는가?&lt;/li&gt;
+  &lt;li&gt;BETWEEN a AND b : a 와b 사이?&lt;/li&gt;
+  &lt;li&gt;LIKE: 문자열부분검색&lt;/li&gt;
+  &lt;li&gt;IS NULL, IS NOT NULL: NULL인지 검색&lt;/li&gt;
+  &lt;li&gt;AND, OR: 둘다 만족? 둘 중 하나만 만족?&lt;/li&gt;
+  &lt;li&gt;NOT: 만족하지않음?&lt;/li&gt;
+  &lt;li&gt;ANY, ALL : 집합중어느한열, 집합중모든열(다른비교연산자와함께사용)&lt;/li&gt;
+  &lt;li&gt;EXIST: 결과Row가하나라도있나? (subquery에서)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To find all instructors in Comp. Sci. dept&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;select name
+from instructor
+where dept_name='Comp. Sci.'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To find all instructors in Comp. Sci. deptwith salary &amp;gt; 80000&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;select name
+from instructor
+where dept_name='Comp. Sci.' and salary &amp;gt; 80000
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;from&quot;&gt;FROM&lt;/h3&gt;
+
+&lt;p&gt;from절은 쿼리와 관련된 관계를 나열한다.
+관계 대수의 데카르트 곱 연산에 해당한다.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;select * 
+from instructor, teaches
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;가능한 모든 instructor와 teaches 쌍을 생성한다.
+공통 속성(예: ID)의 경우 결과 테이블의 속
+성은 관계 이름(예: instructor.ID)을 사용하여 이름이 바뀝니다.&lt;/p&gt;
+
+&lt;p&gt;카티션 프로덕트는 그냥 사용하면 유용하지 않지만 where절 조건과 결합하면 유용하다.&lt;/p&gt;
+
+&lt;p&gt;Find the names and the course_id of all instructors who have taught some course&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;select name, course_id
+from instructor, teaches
+where instructor.ID = teaches.ID 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Find the names of all instructors in the Art department
+ who have taught some course and the course_id&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;select name, course_id
+from instructor, teaches
+where instructor.ID = teaches.ID and
+      instructor. dept_name= 'Art'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;additional-basic-operations&quot;&gt;ADDITIONAL BASIC OPERATIONS&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Rename&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;old-name as new-name
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Find the names of all instructors who have a hi
+gher salary than some instructor in ‘Comp. Sci’.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;select distinct T.name
+from instructor as T, instructor as S
+where T.salary&amp;gt; S.salary and S.dept_name= 'Comp. Sci.'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;as는 선택적이다.
+instructor as T ≡ instructor T&lt;/p&gt;
+
+&lt;p&gt;칼럼 제목 변경
+큰따옴표(“ “)을 사용하여 alias내에 공백이나 특수문자를 포함할수있다.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;SELECT enamename FROM emp;
+SELECT enameas name FROM emp;
+SELECT ename“as” FROM emp;
+SELECT (sal+ comm) “Annual Salary” FROM emp;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;LIKE&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Wildcard를 이용한 문자열 부분 매칭&lt;/p&gt;
+
+&lt;p&gt;Wildcard
+% : 임의의 길이의 문자열(공백 문자 가능)
+_ : 한 글자&lt;/p&gt;
+
+&lt;p&gt;Escape: ESCAPE 뒤의 문자열로 시작하는 문자는 Wildcard가 아닌것으로 해석&lt;/p&gt;
+
+&lt;p&gt;ex)&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;ename LIKE ‘KOR%’ : ‘KOR’로 시작하는 모든 문자열(KOR가능)&lt;/li&gt;
+  &lt;li&gt;ename LIKE ‘KOR_’ : ‘KOR’ 다음에 하나의 문자가 오는 모든 문자열&lt;/li&gt;
+  &lt;li&gt;ename LIKE ‘KOR\%%’ ESCAPE ‘' : ‘KOR%’로 시작하는 모든 문자열&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Literal&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;SELECT 절에 사용되는 문자, 숫자, Date 타입 등의 상수&lt;/li&gt;
+  &lt;li&gt;Date 타입이나 문자열은 작은따옴표(‘ ‘)로 둘러싸야 함&lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;문자열 결합(Concatenation) 연산자:&lt;/td&gt;
+          &lt;td&gt; &lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ex):&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;SELECT ‘Name is ‘&lt;/td&gt;
+          &lt;td&gt; &lt;/td&gt;
+          &lt;td&gt;ename&lt;/td&gt;
+          &lt;td&gt; &lt;/td&gt;
+          &lt;td&gt;’ and no is ‘&lt;/td&gt;
+          &lt;td&gt; &lt;/td&gt;
+          &lt;td&gt;empno FROM emp;&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ORDER BY&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;주어진 컬럼 리스트의 순서로 결과를 정렬&lt;/p&gt;
+
+&lt;p&gt;결과 정렬 방법&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;ASC: 오름차순(작은값→큰값) (default)&lt;/li&gt;
+  &lt;li&gt;DESC: 내림차순(큰값→작은값)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;컬럼이름대신 Alias, expr,SELECT 절상에서의 순서
+(1, 2, 3…)도사용가능
+ex) 부서번호 순으로 정렬하고, sal가 높은 사람부터 출력하시오
+SELECT * FROM emp ORDER BY deptno, sal DESC&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;BETWEEN&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ex) Find the names of all instructors with sala
+ry between $90,000 and $100,000 (that is
+, &amp;gt;= $90,000 and &amp;lt;= $100,000)&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;select name
+from instructor
+where salary between 90000 and 100000
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Data Control Language (DCL)
+    &lt;ul&gt;
+      &lt;li&gt;Database의 constraint를 제어하는 언어.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Procedural vs nonprocedural languages
+    &lt;ul&gt;
+      &lt;li&gt;절차적
+        &lt;ul&gt;
+          &lt;li&gt;필요한 데이터와 해당 데이터를 얻는 방법 지정&lt;/li&gt;
+          &lt;li&gt;e.g., Relational Algebra&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;비절차적
+        &lt;ul&gt;
+          &lt;li&gt;선언적&lt;/li&gt;
+          &lt;li&gt;specify only what data are needed&lt;/li&gt;
+          &lt;li&gt;e.g., Relational Calculus, SQL&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Query (≈ Question)
+        &lt;ul&gt;
+          &lt;li&gt;정보 검색 요청&lt;/li&gt;
+          &lt;li&gt;query language: part of DML&lt;/li&gt;
+          &lt;li&gt;sometimes “query language = DML”&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Consistency Constraints(일관성 제약)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Domain Constraints(도메인 제약 조건)
+    &lt;ul&gt;
+      &lt;li&gt;가능한 값의 도메인은 모든 속성이다.&lt;/li&gt;
+      &lt;li&gt;E.g., integer types, character types, etc&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Referential Integrity(참조 무결성)
+    &lt;ul&gt;
+      &lt;li&gt;한 관계에 나타나는 값은 다른 관계에도 나타난다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Assertions
+    &lt;ul&gt;
+      &lt;li&gt;데이터베이스가 항상 충족해야 하는 모든 조건&lt;/li&gt;
+      &lt;li&gt;E.g., “모든 학과는 매 학기에 최소 5과목을 이수해야 합니다.”&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Authorization(권한 부여)
+    &lt;ul&gt;
+      &lt;li&gt;사용자마다 다른 권한&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;SQL&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;SQL은 널리 사용되는 비절차적 언어이다.
+SQL은 튜링 머신과 동등한 언어가 아니다. 복잡한 기능을 계산할 수 있도록 SQL은
+ 일반적으로 일부 고급 언어에 내장되어 있습니다.&lt;/p&gt;
+
+&lt;p&gt;응용 프로그램은 일반적으로 SQL 쿼리를 데이터
+베이스로 보낼 수 있는 응용 프로그램 인터페이스
+(예: ODBC/JDBC)를 허용하기 위해 언어 확장 
+중 하나를 통해 데이터베이스에 액세스합니다. (
+Java Database Connectivity) 표준은 
+Java 언어에 해당하는 기능을 제공합니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;트랜잭션
+ 데이터베이스 응용 프로그램에서 단일 논리 기능을 수행하는 작업 모음이다.
+ 프로그래머는 “정확한” 트랜잭션 작성에 대한 책임이 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;DBMS는 BMS는 각 트랜잭션의 ACID를 보장해야 합니다&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;atomicity: 전부 아니면 전무&lt;/li&gt;
+  &lt;li&gt;consistency: 결과가 정확해야 함&lt;/li&gt;
+  &lt;li&gt;isoloation: 변경 사항이 만들어지고 다른 사람이 볼 수 있는 방법과 시기를 제어합니다.&lt;/li&gt;
+  &lt;li&gt;durability: 트랜잭션 성공 후에도 효과가 지속되어야 합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;+++&lt;/p&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="database" />
+      
+
+      
+        <summary type="html">DATA MANIPULATION LANGUAGE (DML)</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">DATA DEFINITION LANGUAGE (DDL)</title>
+      <link href="https://lee989898.github.io/db-03" rel="alternate" type="text/html" title="DATA DEFINITION LANGUAGE (DDL)" />
+      <published>2021-10-13T19:18:00+09:00</published>
+      <updated>2021-10-13T19:18:00+09:00</updated>
+      <id>https://lee989898.github.io/db-03</id>
+      <content type="html" xml:base="https://lee989898.github.io/db-03">&lt;h1 id=&quot;data-definition-language-ddl&quot;&gt;DATA DEFINITION LANGUAGE (DDL)&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Data Definition Language (DDL)
+    &lt;ul&gt;
+      &lt;li&gt;Database Schema를 정의하는 언어.&lt;/li&gt;
+      &lt;li&gt;DDL에는 무결성 제약 조건을 지정하는 명령이 포함되어 있다.
+  무결성 제약 조건을 위반하는 업데이트는 허용되지 않습니다.&lt;/li&gt;
+      &lt;li&gt;create table: 테이블 생성&lt;/li&gt;
+      &lt;li&gt;drop table: 테이블 삭제&lt;/li&gt;
+      &lt;li&gt;alter table: 테이블 관련 변경&lt;/li&gt;
+      &lt;li&gt;rename: 이름 변경&lt;/li&gt;
+      &lt;li&gt;truncate: 테이블의 모든 데이터 삭제&lt;/li&gt;
+      &lt;li&gt;comment: 테이블에 설명 추가&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;테이블-생성&quot;&gt;테이블 생성&lt;/h3&gt;
+
+&lt;p&gt;CREATE TABLE문 이용
+테이블 이름, 컬럼 이름, 데이터 타입 등 정의&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;create table book(
+    bookno   number(5),
+    title    varchar2(50),
+    author   varchar2(10),
+    pubdate  DATE
+    );
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Subquery를 이용한 테이블 생성&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;질의 결과 레코드들이 포함된다
+NOT NULL 제약조건만 상속된다&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;create table empSALES
+as
+    select * from emp
+    where job = 'SALES';
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;기존 테이블과 동일한 스키마로 테이블을 생성하고 싶으면&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;create table temp_account like account
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;alter-table&quot;&gt;ALTER TABLE&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;칼럼 추가
+    &lt;ul&gt;
+      &lt;li&gt;ALTER TABLE book ADD(pubs VARCHAR2(50));&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;칼럼 수정
+    &lt;ul&gt;
+      &lt;li&gt;ALTER TABLE book MODIFY(title VARCHAR2(100));&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;칼럼 삭제
+    &lt;ul&gt;
+      &lt;li&gt;ALTER TABLE book DROP author ;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;UNUSED 칼럼
+    &lt;ul&gt;
+      &lt;li&gt;ALTER TABLE book SET UNUSED (author);&lt;/li&gt;
+      &lt;li&gt;ALTER TABLE book DROP UNUSED COLUMNS;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;칼럼 이름 변경
+    &lt;ul&gt;
+      &lt;li&gt;ALTER TABLE book RENAME COLUMN pubs TO publisher&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;기타-테이블-관련-명령&quot;&gt;기타 테이블 관련 명령&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;테이블 삭제
+    &lt;ul&gt;
+      &lt;li&gt;DROP TABLE book;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;데이터 삭제
+    &lt;ul&gt;
+      &lt;li&gt;TRUNCATE TABLE book;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Comment
+    &lt;ul&gt;
+      &lt;li&gt;COMMENT ON TABLE book IS ‘this is comment’;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;RENAME
+    &lt;ul&gt;
+      &lt;li&gt;RENAME book TO article;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;주의: ROLLBACK의 대상이 아니다&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;제약-조건&quot;&gt;제약 조건&lt;/h3&gt;
+
+&lt;p&gt;제약 조건이란 Database 테이블 레벨에서 특정한 규칙을 설정해
+두는 것이다 예상치 못한 데이터의 손실이나 일관성을 어기는 데이터의추가,
+변경등을 예방한다.&lt;/p&gt;
+
+&lt;p&gt;종류&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;NOT NULL
+    &lt;ul&gt;
+      &lt;li&gt;NULL 값이 들어올 수 없다&lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;컬럼 형태로만 제약조건 정의할 수 있다(테이블 제약조건 불가)&lt;/p&gt;
+
+        &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CREATE TABLE book (
+       bookno NUMBER(5) NOT NULL)
+;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;UNIQUE
+    &lt;ul&gt;
+      &lt;li&gt;중복된 값을 허용하지 않음(NULL은 들어올 수 있음)&lt;/li&gt;
+      &lt;li&gt;복합 컬럼에 대해서도 정의가능&lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;자동적으로 인덱스 생성&lt;/p&gt;
+
+        &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CREATE TABLE book (
+        bookno NUMBER(5) CONSTRAINT c_emp_u UNIQUE
+);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;PRIMARY KEY
+    &lt;ul&gt;
+      &lt;li&gt;NOT NULL + UNIQUE (인덱스자동생성)&lt;/li&gt;
+      &lt;li&gt;테이블 당 하나만 나올 수 있음&lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;복합 컬럼에 대해서 정의가능(순서중요)&lt;/p&gt;
+
+        &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CREATE TABLE book (
+      ssn1 NUMBER(6),
+      ssn2 NUMBER(7),
+      PRIMARY KEY (ssn1,ssn2)
+ );
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;FOREIGN KEY
+    &lt;ul&gt;
+      &lt;li&gt;참조 무결성 제약&lt;/li&gt;
+      &lt;li&gt;일반적으로 REFERENCE 테이블의 PK를 참조&lt;/li&gt;
+      &lt;li&gt;REFERENCE 테이블에 없는 값은 삽입불가&lt;/li&gt;
+      &lt;li&gt;REFERENCE 테이블의 레코드 삭제 시 동작
+        &lt;ul&gt;
+          &lt;li&gt;ON DELETE CASCADE: 해당하는 FK를 가진 참조행도 삭제&lt;/li&gt;
+          &lt;li&gt;
+            &lt;p&gt;ON DELETE SET NULL: 해당하는 FK를 NULL로 바꿈&lt;/p&gt;
+
+            &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CREATE TABLE book ( 
+      ...author_idNUMBER(10), 
+      CONSTRAINT c_book_fk FOREIGN KEY (author_id)
+      REFERENCES author(id)
+      ON DELETE SET NULL
+);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;            &lt;/div&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;CHECK
+    &lt;ul&gt;
+      &lt;li&gt;임의의 조건 검사. 조건식이 참이어야 변경가능&lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;동일 테이블의 컬럼만 이용가능&lt;/p&gt;
+
+        &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CREATE TABLE book (
+      rate NUMBER CHECK (rate IN (1,2,3,4,5))
+);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;주의 제약조건에 이름을 부여하지 않으면 Oracle이 Sys-Cn의 형태로 자동 부여&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;제약조건 추가
+    &lt;ul&gt;
+      &lt;li&gt;ALTER TABLE 테이블 이름 ADD CONSTRAINT…&lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;NOT NULL은추가못함&lt;/p&gt;
+
+        &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ALTER TABLE emp ADD CONSTRAINT emp_mgr_fk
+  FOREIGN KEY(mgr) REFERENCES emp(empno);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;제약 조건 삭제
+    &lt;ul&gt;
+      &lt;li&gt;ALTER TABLE 테이블이름 DROP CONSTRAINT 제약조건이름&lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;PRIMARY KEY의 경우 FK 조건이 걸린 경우에는 CASCADE로 삭제해야함&lt;/p&gt;
+
+        &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ALTER TABLE book DROP CONSTRAINT c_emp_u;
+ALTER TABLE dept DROP PRIMARY KEY CASCADE;
+      (-&amp;gt; Foreign Key까지같이삭제)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="database" />
+      
+
+      
+        <summary type="html">DATA DEFINITION LANGUAGE (DDL)</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Relational Model</title>
+      <link href="https://lee989898.github.io/db-02" rel="alternate" type="text/html" title="Relational Model" />
+      <published>2021-10-13T19:18:00+09:00</published>
+      <updated>2021-10-13T19:18:00+09:00</updated>
+      <id>https://lee989898.github.io/db-02</id>
+      <content type="html" xml:base="https://lee989898.github.io/db-02">&lt;ul&gt;
+  &lt;li&gt;Data model&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Data를 어떻게 표현해야 할까? List? Tree?
+DBMS마다 Data Model이 다를 수 있다.&lt;/p&gt;
+
+&lt;p&gt;주요 data model&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Relational data model&lt;/li&gt;
+  &lt;li&gt;Entity-Relationship(E-R) (데이터베이스 설계에 주로 이용됨)&lt;/li&gt;
+  &lt;li&gt;Object-based (Object-Orientedand Object-Relational)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;가장 널리 이용되는 대표적인 data model은 Relational model이다.
+Relation (Table)에 기반한 모델이다. 사용이 편리하고 성능이 우수하다.&lt;/p&gt;
+
+&lt;p&gt;Relational Model의 주요개념&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Domain(type): Attribute가 가질 수 있는 값의 집합&lt;/li&gt;
+  &lt;li&gt;Attribute(column)&lt;/li&gt;
+  &lt;li&gt;Tuple(row, record): set of values for attributes&lt;/li&gt;
+  &lt;li&gt;Relation(table): set of tuples&lt;/li&gt;
+  &lt;li&gt;Database: set of relations&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/db/db01.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Scheme (schema)
+데이터 콘텐츠의 골격 구조이다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/db/db02.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Instance
+특정 시간에 데이터의 실제 내용이다.
+데이터베이스 상태이다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/db/db03.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Key : Tuple을 구별하기 위한 Attribute 집합(Relation은 동일한 tuple이 있을 수 없다)&lt;/li&gt;
+  &lt;li&gt;Superkey(수퍼키) : Relation에서 Tuple을 식별할 수 있는 Unique한
+Attribute의집합&lt;/li&gt;
+  &lt;li&gt;Candidate Key(후보키) : Superkey 중에서 Minimal 한 Key
+Minimal: 하나의 Attribute 라도 빼면 더이상Key가 아님&lt;/li&gt;
+  &lt;li&gt;Primary Key (기본키, PK) : Candidate Key 중하나
+(Relation을정의할때선택) 
+Entity Integrity : NULL이될수없음&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Foreign Key (참조키, FK) : 타 relation을 참조하는 attribute
+참조하는 relation에서 key는아니지만, 참조되는 relation에서 primary
+ key임. Referential Integrity: 반드시참조된 relation의 PK
+ 값이 존재하거나 NULL이어야한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;NULL
+special value for “unknown” or “undefined”
+숫자0, 빈문자열”” 등과는다름
+모든 Domain은 NULL값을 포함한다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="database" />
+      
+
+      
+        <summary type="html">Data model</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">데이터베이스에 대하여</title>
+      <link href="https://lee989898.github.io/db-01" rel="alternate" type="text/html" title="데이터베이스에 대하여" />
+      <published>2021-10-13T19:18:00+09:00</published>
+      <updated>2021-10-13T19:18:00+09:00</updated>
+      <id>https://lee989898.github.io/db-01</id>
+      <content type="html" xml:base="https://lee989898.github.io/db-01">&lt;ul&gt;
+  &lt;li&gt;Data &amp;amp; Database&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;데이터: 정형화되고 기록한 만한 가치가 있다고 판단되는 어떤 현상이나
+사건, 아이디어에 대한 묘사&lt;br /&gt;
+ex) 기상 data, 금융 data, 이동 data, IOT data 등등&lt;/p&gt;
+
+&lt;p&gt;데이터베이스: 조직이나 개인이 사용하는 조작가능한 저장된 데이터의 모임&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Database Management System (DBMS)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;초기에 데이터베이스 응용 프로그램들은 파일 시스템 위에서 구축되었습니다.
+하지만 여러가지 단점이 있었습니다.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;데이터 중복 및 불일치 (여러 파일 형식, 다른 파일에 정보 중복)&lt;/li&gt;
+  &lt;li&gt;데이터 접근의 어려움 (각각의 새로운 작업을 수행하기 위해 새로운 프로그램을 작성해야 함)&lt;/li&gt;
+  &lt;li&gt;데이터 종속성 (데이터 형식 및 액세스 방법은 특정 프로그램에 따라 다름)&lt;/li&gt;
+  &lt;li&gt;데이터 고립 (업데이트가 문제를 일으킬 수 있음)&lt;/li&gt;
+  &lt;li&gt;무결성 문제 (새로운 제약 조건을 추가하거나 기존 제약 조건을 변경하기 어려움)&lt;/li&gt;
+  &lt;li&gt;업데이트의 원자성 (데이터베이스가 부분 업데이트가 수행된 일관성 없는 상태가 될 수 있음)&lt;/li&gt;
+  &lt;li&gt;여러 사용자의 동시 액세스 (제어되지 않은 동시 액세스로 인해 불일치가 발생할 수 있음)&lt;/li&gt;
+  &lt;li&gt;보안 보장의 어려움 (다양한파일, 다양한접근경로, 다양한프로그램의이용)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;이러한 문제들로 인해 DBMS를 만들었다.&lt;/p&gt;
+
+&lt;p&gt;DBMS: 데이터 접근을 위한 프로그램이다. DBMS는 데이터베이스 정보를 저장하
+고 검색하는 등 사용이 편리하고 효율적인 환경을 제공한다.
+Oracle, Informix, MS SQL Server 등이 있다.&lt;/p&gt;
+
+&lt;p&gt;DBMS의 장점&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;데이터 중복(redundancy)의 최소화&lt;/li&gt;
+  &lt;li&gt;데이터의 공유(sharing)&lt;/li&gt;
+  &lt;li&gt;일관성(consistency)유지&lt;/li&gt;
+  &lt;li&gt;무결성(integrity)유지&lt;/li&gt;
+  &lt;li&gt;보안(security)보장&lt;/li&gt;
+  &lt;li&gt;표준화(standardization)용이&lt;/li&gt;
+  &lt;li&gt;전체 데이터 요구의 조정&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;DBMS의 단점&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;비용: H/W, DBMS, 운영비, 교육비, 개발비&lt;/li&gt;
+  &lt;li&gt;프로그램의 복잡화&lt;/li&gt;
+  &lt;li&gt;성능상의 오버헤드&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="database" />
+      
+
+      
+        <summary type="html">Data &amp;amp; Database</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">E-R DIAGRAMS</title>
+      <link href="https://lee989898.github.io/db-06" rel="alternate" type="text/html" title="E-R DIAGRAMS" />
+      <published>2021-10-13T19:18:00+09:00</published>
+      <updated>2021-10-13T19:18:00+09:00</updated>
+      <id>https://lee989898.github.io/db-06</id>
+      <content type="html" xml:base="https://lee989898.github.io/db-06">&lt;h1 id=&quot;e-r-diagrams&quot;&gt;E-R DIAGRAMS&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;e-r-diagram-basics&quot;&gt;E-R Diagram Basics&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Rectangles divided into two parts: Entity Set을 나타냅니다.
+    &lt;ul&gt;
+      &lt;li&gt;엔티티 세트의 이름&lt;/li&gt;
+      &lt;li&gt;엔티티 세트의 모든 속성 이름&lt;/li&gt;
+      &lt;li&gt;밑줄은 기본 키 속성을 나타냅니다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/db/db07.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Diamonds: 관계 집합을 나타냅니다.&lt;/li&gt;
+  &lt;li&gt;Undivided rectangles: 관계 집합의 속성을 나타냅니다.
+    &lt;ul&gt;
+      &lt;li&gt;기본 키의 일부인 속성은 밑줄이 그어져 있습니다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Lines: 엔터티 집합을 관계 집합에 연결&lt;/li&gt;
+  &lt;li&gt;Dashed lines: 관계 세트의 속성을 관계 세트에 연결&lt;/li&gt;
+  &lt;li&gt;Double lines: 관계 집합에서 엔터티의 전체 참여를 나타냅니다.&lt;/li&gt;
+  &lt;li&gt;Double diamonds: 약한 엔터티 집합에 연결된 식별 관계 집합을 나타냅니다.&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="database" />
+      
+
+      
+        <summary type="html">E-R DIAGRAMS</summary>
       
 
       
