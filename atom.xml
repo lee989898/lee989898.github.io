@@ -432,6 +432,23 @@
     
       
       <item>
+        <title>분할 정복</title>
+        
+          <description>&lt;ul&gt;
+  &lt;li&gt;분할 정복 설계 전략&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Fri, 24 Sep 2021 01:09:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/algorithm-03</link>
+        <guid isPermaLink="true">https://lee989898.github.io/algorithm-03</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>알고리즘의 효율성 분석</title>
         
           <description>&lt;h3 id=&quot;알고리즘-분석-체계&quot;&gt;알고리즘 분석 체계&lt;/h3&gt;
