@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/author/lee989898/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-10-18T14:00:40+09:00</updated>
+  <updated>2021-10-18T23:25:05+09:00</updated>
   <id>https://lee989898.github.io/author/lee989898/feed.xml</id>
 
   
@@ -32,249 +32,85 @@
 
   
     <entry>
-      <title type="html">DATA DEFINITION LANGUAGE (DDL)</title>
-      <link href="https://lee989898.github.io/db-03" rel="alternate" type="text/html" title="DATA DEFINITION LANGUAGE (DDL)" />
+      <title type="html">Relational Model</title>
+      <link href="https://lee989898.github.io/db-02" rel="alternate" type="text/html" title="Relational Model" />
       <published>2021-10-13T19:18:00+09:00</published>
       <updated>2021-10-13T19:18:00+09:00</updated>
-      <id>https://lee989898.github.io/db-03</id>
-      <content type="html" xml:base="https://lee989898.github.io/db-03">&lt;h1 id=&quot;data-definition-language-ddl&quot;&gt;DATA DEFINITION LANGUAGE (DDL)&lt;/h1&gt;
+      <id>https://lee989898.github.io/db-02</id>
+      <content type="html" xml:base="https://lee989898.github.io/db-02">&lt;ul&gt;
+  &lt;li&gt;Data model&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;hr /&gt;
+&lt;p&gt;Data를 어떻게 표현해야 할까? List? Tree?
+DBMS마다 Data Model이 다를 수 있다.&lt;/p&gt;
 
+&lt;p&gt;주요 data model&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;Data Definition Language (DDL)
-    &lt;ul&gt;
-      &lt;li&gt;Database Schema를 정의하는 언어.&lt;/li&gt;
-      &lt;li&gt;DDL에는 무결성 제약 조건을 지정하는 명령이 포함되어 있다.
-  무결성 제약 조건을 위반하는 업데이트는 허용되지 않습니다.&lt;/li&gt;
-      &lt;li&gt;create table: 테이블 생성&lt;/li&gt;
-      &lt;li&gt;drop table: 테이블 삭제&lt;/li&gt;
-      &lt;li&gt;alter table: 테이블 관련 변경&lt;/li&gt;
-      &lt;li&gt;rename: 이름 변경&lt;/li&gt;
-      &lt;li&gt;truncate: 테이블의 모든 데이터 삭제&lt;/li&gt;
-      &lt;li&gt;comment: 테이블에 설명 추가&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
+  &lt;li&gt;Relational data model&lt;/li&gt;
+  &lt;li&gt;Entity-Relationship(E-R) (데이터베이스 설계에 주로 이용됨)&lt;/li&gt;
+  &lt;li&gt;Object-based (Object-Orientedand Object-Relational)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;가장 널리 이용되는 대표적인 data model은 Relational model이다.
+Relation (Table)에 기반한 모델이다. 사용이 편리하고 성능이 우수하다.&lt;/p&gt;
+
+&lt;p&gt;Relational Model의 주요개념&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Domain(type): Attribute가 가질 수 있는 값의 집합&lt;/li&gt;
+  &lt;li&gt;Attribute(column)&lt;/li&gt;
+  &lt;li&gt;Tuple(row, record): set of values for attributes&lt;/li&gt;
+  &lt;li&gt;Relation(table): set of tuples&lt;/li&gt;
+  &lt;li&gt;Database: set of relations&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
 
-&lt;h3 id=&quot;테이블-생성&quot;&gt;테이블 생성&lt;/h3&gt;
-
-&lt;p&gt;CREATE TABLE문 이용
-테이블 이름, 컬럼 이름, 데이터 타입 등 정의&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;create table book(
-    bookno   number(5),
-    title    varchar2(50),
-    author   varchar2(10),
-    pubdate  DATE
-    );
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/db/db01.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Subquery를 이용한 테이블 생성&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;질의 결과 레코드들이 포함된다
-NOT NULL 제약조건만 상속된다&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;create table empSALES
-as
-    select * from emp
-    where job = 'SALES';
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;기존 테이블과 동일한 스키마로 테이블을 생성하고 싶으면&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;create table temp_account like account
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;alter-table&quot;&gt;ALTER TABLE&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;칼럼 추가
-    &lt;ul&gt;
-      &lt;li&gt;ALTER TABLE book ADD(pubs VARCHAR2(50));&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;칼럼 수정
-    &lt;ul&gt;
-      &lt;li&gt;ALTER TABLE book MODIFY(title VARCHAR2(100));&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;칼럼 삭제
-    &lt;ul&gt;
-      &lt;li&gt;ALTER TABLE book DROP author ;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;UNUSED 칼럼
-    &lt;ul&gt;
-      &lt;li&gt;ALTER TABLE book SET UNUSED (author);&lt;/li&gt;
-      &lt;li&gt;ALTER TABLE book DROP UNUSED COLUMNS;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;칼럼 이름 변경
-    &lt;ul&gt;
-      &lt;li&gt;ALTER TABLE book RENAME COLUMN pubs TO publisher&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
+  &lt;li&gt;Scheme (schema)
+데이터 콘텐츠의 골격 구조이다.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
 
-&lt;h3 id=&quot;기타-테이블-관련-명령&quot;&gt;기타 테이블 관련 명령&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;테이블 삭제
-    &lt;ul&gt;
-      &lt;li&gt;DROP TABLE book;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;데이터 삭제
-    &lt;ul&gt;
-      &lt;li&gt;TRUNCATE TABLE book;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Comment
-    &lt;ul&gt;
-      &lt;li&gt;COMMENT ON TABLE book IS ‘this is comment’;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;RENAME
-    &lt;ul&gt;
-      &lt;li&gt;RENAME book TO article;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;주의: ROLLBACK의 대상이 아니다&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;제약-조건&quot;&gt;제약 조건&lt;/h3&gt;
-
-&lt;p&gt;제약 조건이란 Database 테이블 레벨에서 특정한 규칙을 설정해
-두는 것이다 예상치 못한 데이터의 손실이나 일관성을 어기는 데이터의추가,
-변경등을 예방한다.&lt;/p&gt;
-
-&lt;p&gt;종류&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;NOT NULL
-    &lt;ul&gt;
-      &lt;li&gt;NULL 값이 들어올 수 없다&lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;컬럼 형태로만 제약조건 정의할 수 있다(테이블 제약조건 불가)&lt;/p&gt;
-
-        &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CREATE TABLE book (
-       bookno NUMBER(5) NOT NULL)
-;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;UNIQUE
-    &lt;ul&gt;
-      &lt;li&gt;중복된 값을 허용하지 않음(NULL은 들어올 수 있음)&lt;/li&gt;
-      &lt;li&gt;복합 컬럼에 대해서도 정의가능&lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;자동적으로 인덱스 생성&lt;/p&gt;
-
-        &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CREATE TABLE book (
-        bookno NUMBER(5) CONSTRAINT c_emp_u UNIQUE
-);
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;PRIMARY KEY
-    &lt;ul&gt;
-      &lt;li&gt;NOT NULL + UNIQUE (인덱스자동생성)&lt;/li&gt;
-      &lt;li&gt;테이블 당 하나만 나올 수 있음&lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;복합 컬럼에 대해서 정의가능(순서중요)&lt;/p&gt;
-
-        &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CREATE TABLE book (
-      ssn1 NUMBER(6),
-      ssn2 NUMBER(7),
-      PRIMARY KEY (ssn1,ssn2)
- );
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;FOREIGN KEY
-    &lt;ul&gt;
-      &lt;li&gt;참조 무결성 제약&lt;/li&gt;
-      &lt;li&gt;일반적으로 REFERENCE 테이블의 PK를 참조&lt;/li&gt;
-      &lt;li&gt;REFERENCE 테이블에 없는 값은 삽입불가&lt;/li&gt;
-      &lt;li&gt;REFERENCE 테이블의 레코드 삭제 시 동작
-        &lt;ul&gt;
-          &lt;li&gt;ON DELETE CASCADE: 해당하는 FK를 가진 참조행도 삭제&lt;/li&gt;
-          &lt;li&gt;
-            &lt;p&gt;ON DELETE SET NULL: 해당하는 FK를 NULL로 바꿈&lt;/p&gt;
-
-            &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CREATE TABLE book ( 
-      ...author_idNUMBER(10), 
-      CONSTRAINT c_book_fk FOREIGN KEY (author_id)
-      REFERENCES author(id)
-      ON DELETE SET NULL
-);
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;            &lt;/div&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;CHECK
-    &lt;ul&gt;
-      &lt;li&gt;임의의 조건 검사. 조건식이 참이어야 변경가능&lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;동일 테이블의 컬럼만 이용가능&lt;/p&gt;
-
-        &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CREATE TABLE book (
-      rate NUMBER CHECK (rate IN (1,2,3,4,5))
-);
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;주의 제약조건에 이름을 부여하지 않으면 Oracle이 Sys-Cn의 형태로 자동 부여&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/db/db02.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;제약조건 추가
-    &lt;ul&gt;
-      &lt;li&gt;ALTER TABLE 테이블 이름 ADD CONSTRAINT…&lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;NOT NULL은추가못함&lt;/p&gt;
+  &lt;li&gt;Instance
+특정 시간에 데이터의 실제 내용이다.
+데이터베이스 상태이다.&lt;/li&gt;
+&lt;/ul&gt;
 
-        &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ALTER TABLE emp ADD CONSTRAINT emp_mgr_fk
-  FOREIGN KEY(mgr) REFERENCES emp(empno);
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;제약 조건 삭제
-    &lt;ul&gt;
-      &lt;li&gt;ALTER TABLE 테이블이름 DROP CONSTRAINT 제약조건이름&lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;PRIMARY KEY의 경우 FK 조건이 걸린 경우에는 CASCADE로 삭제해야함&lt;/p&gt;
+&lt;hr /&gt;
 
-        &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ALTER TABLE book DROP CONSTRAINT c_emp_u;
-ALTER TABLE dept DROP PRIMARY KEY CASCADE;
-      (-&amp;gt; Foreign Key까지같이삭제)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/db/db03.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Key : Tuple을 구별하기 위한 Attribute 집합(Relation은 동일한 tuple이 있을 수 없다)&lt;/li&gt;
+  &lt;li&gt;Superkey(수퍼키) : Relation에서 Tuple을 식별할 수 있는 Unique한
+Attribute의집합&lt;/li&gt;
+  &lt;li&gt;Candidate Key(후보키) : Superkey 중에서 Minimal 한 Key
+Minimal: 하나의 Attribute 라도 빼면 더이상Key가 아님&lt;/li&gt;
+  &lt;li&gt;Primary Key (기본키, PK) : Candidate Key 중하나
+(Relation을정의할때선택) 
+Entity Integrity : NULL이될수없음&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Foreign Key (참조키, FK) : 타 relation을 참조하는 attribute
+참조하는 relation에서 key는아니지만, 참조되는 relation에서 primary
+ key임. Referential Integrity: 반드시참조된 relation의 PK
+ 값이 존재하거나 NULL이어야한다.&lt;/p&gt;
   &lt;/li&gt;
+  &lt;li&gt;NULL
+special value for “unknown” or “undefined”
+숫자0, 빈문자열”” 등과는다름
+모든 Domain은 NULL값을 포함한다&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;</content>
@@ -298,7 +134,7 @@ ALTER TABLE dept DROP PRIMARY KEY CASCADE;
       
 
       
-        <summary type="html">DATA DEFINITION LANGUAGE (DDL)</summary>
+        <summary type="html">Data model</summary>
       
 
       
