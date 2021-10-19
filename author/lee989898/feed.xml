@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/author/lee989898/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-10-18T23:25:05+09:00</updated>
+  <updated>2021-10-19T23:37:51+09:00</updated>
   <id>https://lee989898.github.io/author/lee989898/feed.xml</id>
 
   
@@ -32,88 +32,262 @@
 
   
     <entry>
-      <title type="html">Relational Model</title>
-      <link href="https://lee989898.github.io/db-02" rel="alternate" type="text/html" title="Relational Model" />
+      <title type="html">표현식과 대입문</title>
+      <link href="https://lee989898.github.io/pl-14" rel="alternate" type="text/html" title="표현식과 대입문" />
       <published>2021-10-13T19:18:00+09:00</published>
       <updated>2021-10-13T19:18:00+09:00</updated>
-      <id>https://lee989898.github.io/db-02</id>
-      <content type="html" xml:base="https://lee989898.github.io/db-02">&lt;ul&gt;
-  &lt;li&gt;Data model&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Data를 어떻게 표현해야 할까? List? Tree?
-DBMS마다 Data Model이 다를 수 있다.&lt;/p&gt;
-
-&lt;p&gt;주요 data model&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Relational data model&lt;/li&gt;
-  &lt;li&gt;Entity-Relationship(E-R) (데이터베이스 설계에 주로 이용됨)&lt;/li&gt;
-  &lt;li&gt;Object-based (Object-Orientedand Object-Relational)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;가장 널리 이용되는 대표적인 data model은 Relational model이다.
-Relation (Table)에 기반한 모델이다. 사용이 편리하고 성능이 우수하다.&lt;/p&gt;
-
-&lt;p&gt;Relational Model의 주요개념&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Domain(type): Attribute가 가질 수 있는 값의 집합&lt;/li&gt;
-  &lt;li&gt;Attribute(column)&lt;/li&gt;
-  &lt;li&gt;Tuple(row, record): set of values for attributes&lt;/li&gt;
-  &lt;li&gt;Relation(table): set of tuples&lt;/li&gt;
-  &lt;li&gt;Database: set of relations&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/db/db01.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+      <id>https://lee989898.github.io/pl-14</id>
+      <content type="html" xml:base="https://lee989898.github.io/pl-14">&lt;h1 id=&quot;제-14장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 14장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;hr /&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Scheme (schema)
-데이터 콘텐츠의 골격 구조이다.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;표현식과 대입문&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;hr /&gt;
+&lt;p&gt;표현식(expression)은 프로그래밍 언어에서 계산을 상술
+(상세히 서술)하는 수단이다. ​
+대입문은 변수의 값을 변화시키는 문장으로, 모든 명령형 언어의 필수적 요소이다. ​
+대입문은 독립적으로 실행 가능한 문장인 반면, ​
+표현식은 대입문의 일부분으로서, 독립적으로 실행될 수 있는 문장이 아니다. ​&lt;/p&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/db/db02.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;대입문과 표현식의 차이를 좀더 살펴 보자.  ​
+변수가 메모리의 일정 부분임을 상술하는 수단이라는 것과, ​
+대입문의 BNF 형식이 &lt;var&gt;=&lt;expression&gt;임을 알고 있다. ​
+BNF의 형식으로부터, ​
+표현식(&lt;expression&gt;)은 대입문의 일부분임을 알 수 있고, ​
+대입문의 변수(&lt;var&gt;)가 가리키는 메모리에 저장된 값을 ​
+표현식의 계산 결과로 변경시킨다는 것을 알 수 있다. ​&lt;/var&gt;&lt;/expression&gt;&lt;/expression&gt;&lt;/var&gt;&lt;/p&gt;
 
-&lt;hr /&gt;
+&lt;p&gt;그런데, 표현식의 계산 방식에 따라 계산 결과는 달라질 수 있다.  ​
+표현식의 계산 방식을 이해하려면, ​
+연산자와 오퍼랜드의 계산 순서에 대한 규칙을 알 필요가 있다.  ​
+이들 순서는 결합 법칙과 우선순위 규칙에 의하며, ​
+오퍼랜드 계산 순서는 오퍼랜드의 부수효과(부작용)때문에 중요하다.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Instance
-특정 시간에 데이터의 실제 내용이다.
-데이터베이스 상태이다.&lt;/li&gt;
+  &lt;li&gt;산술식&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;hr /&gt;
+&lt;p&gt;산술식은 연산자, 오퍼랜드, 괄호, 함수 호출로 구성된다. ​
+연산자는 단항 연산자, 이진 연산자, 삼항 조건 연산자(?:) 등이 있다. ​&lt;/p&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/db/db03.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;표현식의 구현은, ​
+메모리에서 오퍼랜드를 가지고 와서, ​
+그 오퍼랜드에 산술 연산자를 실행한다. ​
+산술식 설계시 고려사항 ​
+연산자 우선 순위, 결합 법칙 등 ​
+오퍼랜드 계산 순서와 부작용(부수효과) ​
+연산자 오버로딩 ​
+표현식에서 오퍼랜드 타입의 혼합&lt;/p&gt;
 
-&lt;hr /&gt;
+&lt;p&gt;연산자 우선순위 규칙은 우선 순위가 다르면서 이웃하는 연산자의
+ 계산 순서를 정의한다. ​
+전형적인 우선순위 규칙은 괄호&amp;gt;단항연산&amp;gt;지수&amp;gt;곱셈과 나눗셈&amp;gt;덧셈과 뺄셈 ​&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Key : Tuple을 구별하기 위한 Attribute 집합(Relation은 동일한 tuple이 있을 수 없다)&lt;/li&gt;
-  &lt;li&gt;Superkey(수퍼키) : Relation에서 Tuple을 식별할 수 있는 Unique한
-Attribute의집합&lt;/li&gt;
-  &lt;li&gt;Candidate Key(후보키) : Superkey 중에서 Minimal 한 Key
-Minimal: 하나의 Attribute 라도 빼면 더이상Key가 아님&lt;/li&gt;
-  &lt;li&gt;Primary Key (기본키, PK) : Candidate Key 중하나
-(Relation을정의할때선택) 
-Entity Integrity : NULL이될수없음&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Foreign Key (참조키, FK) : 타 relation을 참조하는 attribute
-참조하는 relation에서 key는아니지만, 참조되는 relation에서 primary
- key임. Referential Integrity: 반드시참조된 relation의 PK
- 값이 존재하거나 NULL이어야한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;NULL
-special value for “unknown” or “undefined”
-숫자0, 빈문자열”” 등과는다름
-모든 Domain은 NULL값을 포함한다&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;연산자 결합 법칙은 우선 순위가 같으면서 이웃하는 연산자의 순서를 정의한다. ​
+전형적인 결합법칙은 좌에서 우로(단, 지수는 우에서 좌로) 적용된다.  ​
+괄호는 우선순위와 결합 법칙에 앞선다. 
+​
+C, C++에서 조건 표현식은 삼항 조건 연산자 ?:를 사용한다. ​
+average = (count == 0)? 0 : sum / count와 같이 표현한다. ​
+이것의 의미는 다음과 같다. ​
+if (count == 0), average = 0​
+else average = sum / count ​
+이 문장을 이해하려면, 대입문의 BNF 형식 &lt;var&gt;=&lt;expr&gt;을 떠올리면 쉽다. ​
+그러니까 &lt;var&gt;이 average이고, ​&lt;/var&gt;&lt;/expr&gt;&lt;/var&gt;&lt;/p&gt;
+&lt;expr&gt;가 삼항 조건 표현식인 (count==0) ? 0 : sum/count이다. 
 
-&lt;hr /&gt;</content>
+표현식에서 오퍼랜드는 어떻게 계산되는지 살펴 보면, ​
+변수는 메모리에서 값을 가져온다.  ​
+상수는 메모리에서 값을 가져오기도 하지만, 기계 언어에 내재되기도 한다. ​
+괄호가 있는 표현식은 괄호속에 있는 모든 오퍼랜드와 연산자를 먼저 
+계산하고, 괄호 전체를 계산한다. ​
+
+오퍼랜드가 아무런 부작용(부수효과)가 없을 때, 
+오퍼랜드 계산 순서는 결과에 무관하다. ​
+
+그러나 함수가 오퍼랜드일 때, 계산 순서는 다른 결과를 가져온다.  
+함수는 다수의 파라미터 또는 글로벌 변수를 변경시킬 수 있고,  ​
+이때 함수 부수효과가 발생할 수 있다. ​
+이로 인해 표현식의 계산 결과에 영향을 미칠 수 있다. ​
+
+
+---
+
+ ​&lt;img src=&quot;/assets/built/images/pl/pl37.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;
+
+---
+
+위 그림에서 함수 부수효과 문제의 예를 보자. ​
+다음 프로그램에서, ​
+Main의 a = a + fun1( )의 값은 ​
+먼저 a를 계산하느냐, fun1( )을 먼저 계산하느냐에 따라 달라진다. ​
+
+1. 먼저 a를 계산(메모리에서 가져오는 fetch)하면, ​
+a가 5이고, fun1()이 3이므로, 둘을 더하면 a는 8이다. ​
+
+2. 먼저 fun1을 계산하면, ​
+fun1은 3이지만 부수효과로서 a가 17이므로, ​
+둘을 더하면 a는 20이 된다. 
+
+수학에서 함수는 x에 대응하는 y값을 찾는 것이므로, 부수 효과가 없다.​
+함수 언어에서도 마찬가지다. ​
+부수효과는 본 뉴만 아키텍처 및
+ 이에 기반한 명령형 언어의 계산 모형으로 인해 발생한다. ​
+본 뉴만 아키텍처 및 이를 그대로 본뜬 명령형 언어의 계산 모형은 ​
+계산하여 변화된 값의 상태를 항상 메모리에 
+저장하도록 설계되어 있기 때문이다. ​
+
+함수 부수효과의 해결책은 다음 두가지가 있다. ​
+
++ C, C++ 처럼 함수 부수 효과를 허용하지 않도록 언어를 설계하는 것이다. ​
+    함수에서 단일 파라미터만 허용하여, 단일 값을 반환한다. ​
+    만일 다수의 파라미터가 필요하면, struct를 사용하여 하나의 파라미터로 만든다. ​
+    함수에서 글로벌 변수를 접근 불허한다. ​
+    단점은 파라미터 및 글로벌 변수에 융통성이 없다. ​
+
+2. 자바처럼 오퍼랜드 계산 순서를 고정시킨다. ​
+    좌에서 우로… ​
+    단점은 컴파일러 최적화를 제한한다.  ​
+
+최적화를 위해 표현식을 reordering하기도 하는데 고정 순서는 이를 불허한다. 
+
+---
+
++ 과적 연산자
+
+기계어에서는 정수의 덧셈 연산자와 부동점 소수의 덧셈 연산자를 구분한다. 
+부동점 소수의 덧셈: FADD, ​
+정수의 덧셈: ADD ​
+프로그래머는 정수의 덧셈과, 부동점 소수의 덧셈에 모두 +를 쓰고 싶어한다.  ​
+
+1. 그러면서, 컴파일러가 알아서 이들을 구분하여 번역하기 바란다. ​
+2. 두개의 배열 변수의 덧셈도 +로 간단히 쓰고 싶어 한다.  ​
+
+이와 같이 하나의 연산자를 여러가지 목적으로 사용하는 것을 ​
+연산자의 과적(오버로딩)이라고 한다. 
+
+정수와 부동점에 대한 +의 과적은 ​
+일상적으로 허용되지만, C와 C++에서는 문제를 일으키기도 한다. 
+
+___
+
++ 타입 변환
+
+정수와 부동점 소수 간의 덧셈에서, ​
+데이터를 어떤 유형으로, 그리고 어떤 포맷으로 변환할 것인가? ​
+유형: 정수, 부동점 소수 ​
+포맷: 십진수 vs 이진수, 부동점의 (싸인,지수부분,소수부분) 각 몇 비트? 
+
+Narrowing conversion은 ‘원래 유형의 모든 값’을 포함할 수 없
+는 유형으로 변환하는 것을 의미한다. ​
+예를 들어, 더블 부동점 소수를 싱글 부동점 소수로 변환하는 경우. ​
+이때 항상 safe하지는 않다. -&amp;gt; 값의 크기가 바뀐다. 짤린다. ​​
+
+Widening conversion은 원래 유형의 근사값을 포
+함하는 유형으로 변환하는 것을 의미한다. ​
+예를 들어 정수를 부동점 소수로 변환하는 경우. ​
+이때, safe하다. 즉, 근사값으로 바뀌므로 크기가 바뀌지 않는다. ​
+다만 포맷(내부 표현 방식)의 차이로 인해 정확하게 같지 않을 경우도 있다.   
+
+오퍼랜드의 타입이 혼합되어 있을 때, ​
+명시적이거나 암묵적으로 타입 변환이 필요하다. ​
+컴파일러에 의한 암묵적 타입 변환을 코어젼이라고
+ 한다. -&amp;gt; 대부분의 언어에서…   ​
+프로그래머에 의한 명시적 타입 변환을 캐스팅이라고 한다. ​
+C에서는 (int) angle과 같이 캐스팅을 괄호로 표시한다.  ​
+
+___
+
++ 비교 및 부울 표현식
+
+비교 표현식은 두개의 오퍼랜드를 비교하
+기 위해 비교 연산자를 사용한다. 
+
+부울 표현식은 부울 연산자 and, or, not를 사용한다. 
+
+표현식의 Short-circuit evaluation에 대해 살펴 본다.
+Short-circuit evaluation은 ​
+표현식의 결과를 도출하는데 충분한 계산이 완료되면, ​
+그 이후의 표현식 계산을 중단한다는 의미이다. ​
+따라서, 표현식의 최소 계산이라고 번역하겠다.  
+
+표현식에서 여러 오퍼랜드 중에서 몇 개만 해보고 그 결과를 알 수 있다면 ​
+모든 오퍼랜드를 계산할 필요가 없다. ​
+이것을 표현식의 최소 계산이라고 한다. ​
+
+간단한 예를 보자. ​
+(13 * a) * (b/13–1)에서, a가 0이면, 1
+3*a가 0이므로 더 이상 계산할 필요가 없다. ​
+
+만일 최소 계산을 채택하지 않을 경우, ​
+다음 프로그램에서 예상치 않은 문제를 발생시킨다. ​
+
+index = 0;​
+while ((index &amp;lt; listlen) &amp;amp;&amp;amp; (LIST[index]!= key)) 
+index = index + 1; 이고, ​
+LIST 배열의 인덱스가 0에서 listlen-1까지 라고 가정하자. ​
+
+index==listlen일 때, (index &amp;lt; listlen)을 만족시키지 못한다. ​
+그런데 최소 계산을 채택하지 않기때문에 여기서 중단되지 않고, ​
+그 이후의 (LIST[index]!= key))를 계산하게 되며, ​
+이때, LIST[index]에서 인덱싱 문제가 발생하게 된다. ​
+
+이와 같이 최소 계산을 채택하지 않을 경우 ​
+불필요한 오류를 발생시키기도 한다. 
+
+최소 계산은 표현식의 부작용에 영향을 받을 수도 있다. ​
+(a &amp;gt; b) || (b++ / 3)에서 ​
+||의 두번째 오퍼랜드를 먼저 계산하면 ​
+b가 증가하여 첫째 오퍼랜드의 결과에 영향을 준다.   
+
+---
+
++ 대입문과 혼합 타입의 대입문
+
+대입문의 일반적 형식은 &lt;var&gt; = &lt;expression&gt;이다. ​
+대입 연산자 = 대신에 :=를 쓰기도 한다. ​
+= 대신에 :=을 쓰는 이유는 =의 의미가 ‘같다＇의 의미와 혼동되기 때문이다. ​
+=를 대입 연산자로 사용하는 경우, ‘같다＇의 연산자로 ==를 사용한다. 
+
+조건 타겟은 조건에 따라 타겟 변수가 결정된다. ​
+펄에서 조건 타겟이 포함된 대입문의 예를 보자. ​
+대입문 ($flag ? $total : $subtotal) = 0에서 ​
+대입 연산자 =의 왼쪽에 조건식이 포함되어 있는데, ​
+이 뜻은 만일 ($flag)이 참이면 $total = 0이고, ​
+거짓이면 $subtotal = 0이다 ​
+
+복합 대입문 연산자는 대입문의 =과 연산자를 연결한 것이다. 
+단항 대입문 연산자는 ++과 같은 것을 의미한다. 
+
+표현식에 대입문을 쓰기도 한다. ​
+while ((ch = getchar())!= EOF){…}​
+  ch = getchar()
+위의 while 문의 조건식에 ch = getchar()라는 대입문이 들어가 있다. ​
+이 대입문이 먼저 실행되고 나서, 조건식이 계산된다. ​
+그러면 getchar 값이 ch에 할당되고, ​
+ch!=eof가 참이면 {…}가 실행된다. ​
+a=b+(c=d/b)-1의 경우처럼, ​
+표현식에 대입문을 쓰는 것은 대입문의 이해를 어렵게 한다. 
+ 
+​($first, $second, $third) = (20, 30, 4
+0)와 같이 다수의 값을 할당할 수도 있고, ​ 
+ 
+Interchange를 ($first, $second) =
+($second, $first)와 같이 쓸 수도 있다. 
+
+함수 언어에서 identifier는 값의 이름에 불과하며, ​
+변수를 나타내는 것이 아니기때문에 이들의 값은 바뀔 수 없다. ​
+val fruit = apples + oranges;에서 ​
+이름 fruit는 apples와 oranges의 값을 더해서 나온 결과 값의 이름이다.  ​
+
+대입문에서 혼합 타입이 가능하다. ​
+이때 타입 변환이 발생한다. 
+​
+
+---
+&lt;/expression&gt;&lt;/var&gt;&lt;/expr&gt;</content>
 
       
       
@@ -130,11 +304,11 @@ special value for “unknown” or “undefined”
       
 
       
-        <category term="database" />
+        <category term="pl" />
       
 
       
-        <summary type="html">Data model</summary>
+        <summary type="html">제 14장 프로그래밍 언어</summary>
       
 
       

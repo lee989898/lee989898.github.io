@@ -218,100 +218,6 @@
     
       
       <item>
-        <title>E-R DIAGRAMS</title>
-        
-          <description>&lt;h1 id=&quot;e-r-diagrams&quot;&gt;E-R DIAGRAMS&lt;/h1&gt;
-
-</description>
-        
-        <pubDate>Wed, 13 Oct 2021 19:18:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/db-06</link>
-        <guid isPermaLink="true">https://lee989898.github.io/db-06</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>Entity-RelationshipModel</title>
-        
-          <description>&lt;h1 id=&quot;entity-relationshipmodel&quot;&gt;Entity-RelationshipModel&lt;/h1&gt;
-
-</description>
-        
-        <pubDate>Wed, 13 Oct 2021 19:18:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/db-05</link>
-        <guid isPermaLink="true">https://lee989898.github.io/db-05</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>DATA MANIPULATION LANGUAGE (DML)</title>
-        
-          <description>&lt;h1 id=&quot;data-manipulation-language-dml&quot;&gt;DATA MANIPULATION LANGUAGE (DML)&lt;/h1&gt;
-
-</description>
-        
-        <pubDate>Wed, 13 Oct 2021 19:18:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/db-04</link>
-        <guid isPermaLink="true">https://lee989898.github.io/db-04</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>DATA DEFINITION LANGUAGE (DDL)</title>
-        
-          <description>&lt;h1 id=&quot;data-definition-language-ddl&quot;&gt;DATA DEFINITION LANGUAGE (DDL)&lt;/h1&gt;
-
-</description>
-        
-        <pubDate>Wed, 13 Oct 2021 19:18:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/db-03</link>
-        <guid isPermaLink="true">https://lee989898.github.io/db-03</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>Relational Model</title>
-        
-          <description>&lt;ul&gt;
-  &lt;li&gt;Data model&lt;/li&gt;
-&lt;/ul&gt;
-
-</description>
-        
-        <pubDate>Wed, 13 Oct 2021 19:18:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/db-02</link>
-        <guid isPermaLink="true">https://lee989898.github.io/db-02</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>데이터베이스에 대하여</title>
-        
-          <description>&lt;ul&gt;
-  &lt;li&gt;Data &amp;amp; Database&lt;/li&gt;
-&lt;/ul&gt;
-
-</description>
-        
-        <pubDate>Wed, 13 Oct 2021 19:18:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/db-01</link>
-        <guid isPermaLink="true">https://lee989898.github.io/db-01</guid>
-      </item>
-      
-    
-      
-      <item>
         <title>클래스의 상속</title>
         
           <description>&lt;h1 id=&quot;클래스의-상속&quot;&gt;클래스의 상속&lt;/h1&gt;
@@ -427,6 +333,51 @@
         <link>
         https://lee989898.github.io/kotlin-03</link>
         <guid isPermaLink="true">https://lee989898.github.io/kotlin-03</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>중복 숫자 제거</title>
+        
+          <description>&lt;h3 id=&quot;중복-숫자-제거&quot;&gt;중복 숫자 제거&lt;/h3&gt;
+
+</description>
+        
+        <pubDate>Fri, 24 Sep 2021 01:09:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/algorithm-09</link>
+        <guid isPermaLink="true">https://lee989898.github.io/algorithm-09</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>숫자들 재배치</title>
+        
+          <description>&lt;h3 id=&quot;숫자들-재배치&quot;&gt;숫자들 재배치&lt;/h3&gt;
+
+</description>
+        
+        <pubDate>Fri, 24 Sep 2021 01:09:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/algorithm-08</link>
+        <guid isPermaLink="true">https://lee989898.github.io/algorithm-08</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>올바른 문자열들의 수</title>
+        
+          <description>&lt;h3 id=&quot;올바른-문자열들의-수&quot;&gt;올바른 문자열들의 수&lt;/h3&gt;
+
+</description>
+        
+        <pubDate>Fri, 24 Sep 2021 01:09:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/algorithm-07</link>
+        <guid isPermaLink="true">https://lee989898.github.io/algorithm-07</guid>
       </item>
       
     

@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/algorithm/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-10-18T23:25:05+09:00</updated>
+  <updated>2021-10-19T23:37:51+09:00</updated>
   <id>https://lee989898.github.io/tag/algorithm/feed.xml</id>
 
   
@@ -30,6 +30,299 @@
   
   
 
+  
+    <entry>
+      <title type="html">중복 숫자 제거</title>
+      <link href="https://lee989898.github.io/algorithm-09" rel="alternate" type="text/html" title="중복 숫자 제거" />
+      <published>2021-09-24T01:09:00+09:00</published>
+      <updated>2021-09-24T01:09:00+09:00</updated>
+      <id>https://lee989898.github.io/algorithm-09</id>
+      <content type="html" xml:base="https://lee989898.github.io/algorithm-09">&lt;h3 id=&quot;중복-숫자-제거&quot;&gt;중복 숫자 제거&lt;/h3&gt;
+
+&lt;p&gt;N 개의 숫자들의 배열이 있다. 
+이 배열 안에 있는 숫자들 중
+ 일부는 값들이 서로 같다. 다시 말
+ 해, 어떤 숫자는 배열 안에 두 번 이상
+  저장되어 있다. 배열 안에 있는 중복된
+   숫자들을 모두 제거하는 알고리즘을 작성하라.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;partition(A[], low, high)
+    
+i = low + 1
+j = high
+while(i &amp;lt;= j){
+    if(A[i] &amp;lt; 0) i = i + 1
+    else if(A[j] &amp;gt; 0) j = j - 1
+    else if(A[i] == 0 &amp;amp;&amp;amp; A[i+1] == 0) i = i + 2
+    else if(A[j] == 0 &amp;amp;&amp;amp; A[j-1] == 0) j = j -2
+    else if(A[i] == 0 ) A[i] &amp;lt;-&amp;gt; A[i+1]
+    else if(A[j] == 0 ) A[j] &amp;lt;-&amp;gt; A[j-1] 
+    else { A[i] &amp;lt;-&amp;gt; A[j]
+            i = i+1
+            j = j-1
+            }
+    }
+}
+A[low] &amp;lt;-&amp;gt; 
+return j
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="algorithm" />
+      
+
+      
+        <summary type="html">중복 숫자 제거</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">숫자들 재배치</title>
+      <link href="https://lee989898.github.io/algorithm-08" rel="alternate" type="text/html" title="숫자들 재배치" />
+      <published>2021-09-24T01:09:00+09:00</published>
+      <updated>2021-09-24T01:09:00+09:00</updated>
+      <id>https://lee989898.github.io/algorithm-08</id>
+      <content type="html" xml:base="https://lee989898.github.io/algorithm-08">&lt;h3 id=&quot;숫자들-재배치&quot;&gt;숫자들 재배치&lt;/h3&gt;
+
+&lt;p&gt;N(&amp;gt; 0)개의 정수들의 배열이 주어져 있다. 
+배열 요소들은 음수, 양수 혹은 0 이다. 
+이 배열의 요소들을 모든 음수(들)이 먼저 나오고 
+다음으로 0(들)이 나오고 마지막으로 
+양수(들)이 나오도록 재정렬하는 O(N) 알고리즘을 작성하라.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;partition(A[], low, high)
+    
+i = low
+j = high
+while(i &amp;lt;= j){
+    if(A[i] &amp;lt; 0) i = i + 1
+    else if(A[j] &amp;gt; 0) j = j - 1
+    else if(A[i] == 0 &amp;amp;&amp;amp; A[i+1] == 0) i = i + 2
+    else if(A[j] == 0 &amp;amp;&amp;amp; A[j-1] == 0) j = j -2
+    else if(A[i] == 0 ) A[i] &amp;lt;-&amp;gt; A[i+1]
+    else if(A[j] == 0 ) A[j] &amp;lt;-&amp;gt; A[j-1] 
+    else { A[i] &amp;lt;-&amp;gt; A[j]
+            i = i+1
+            j = j-1
+            }
+    }
+}
+
+return j
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="algorithm" />
+      
+
+      
+        <summary type="html">숫자들 재배치</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">올바른 문자열들의 수</title>
+      <link href="https://lee989898.github.io/algorithm-07" rel="alternate" type="text/html" title="올바른 문자열들의 수" />
+      <published>2021-09-24T01:09:00+09:00</published>
+      <updated>2021-09-24T01:09:00+09:00</updated>
+      <id>https://lee989898.github.io/algorithm-07</id>
+      <content type="html" xml:base="https://lee989898.github.io/algorithm-07">&lt;h3 id=&quot;올바른-문자열들의-수&quot;&gt;올바른 문자열들의 수&lt;/h3&gt;
+
+&lt;p&gt;0과 1로 이루어진 문자열이 있다. 이 문자
+열에는 1이 연속하여 나올 수는 있지만 0 이 
+연속하여 나올 수는 없다. 예를 들면 ‘1111’, ‘1
+10111’, ‘010101’은 올바른 문자열이지만, ‘000’,
+ ‘1100111’ 등은 잘못된 문자열이다. 길이가 N
+ (&amp;gt; 0)인 올바른 문자열들의 수를 구하려고 한다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;길이가 1인 올바른 문자열들의 수는 몇 개인가?
+    &lt;ul&gt;
+      &lt;li&gt;2개&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;길이가 2인 올바른 문자열들의 수는 몇 개인가?
+    &lt;ul&gt;
+      &lt;li&gt;3게&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;길이가 3인 올바른 문자열들의 수는 몇 개인가?
+    &lt;ul&gt;
+      &lt;li&gt;5개&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;길이가 N(&amp;gt; 0)인 올바른 문자열들의 수에 대한 점화식을 작성하라.
+    &lt;ul&gt;
+      &lt;li&gt;a1 = 2, a2= 3, an = a(n-1) + a(n-2) (n&amp;gt;2)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;4번의 점화식을 이용하여 길이가 N(&amp;gt; 0)인 올바른 문자열들의 수를 구하
+는 재귀 알고리즘을 작성하라.&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;int stringNum(int N){
+ int a=2,b=3
+ int c=a+b
+ if(N==1)
+     return 2;
+ else if(N==2)
+     return 3;
+    
+ return stringNum(N-1)+stringNum(N-2);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;길이가 N(&amp;gt; 0)인 올바른 문자열들의 수를 반복을 이용하여 구하는 
+빅오(N) 알고리즘을 작성하라.&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;int a=2,b=3
+int c=a+b
+if(N==1)
+    return 2;
+else if(N==2)
+    return 3;
+else{
+     for(int i = 3; i &amp;lt; N; i++)
+     {
+         a = b
+         b = c
+         c = a + b
+     }
+     return c;
+     }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="algorithm" />
+      
+
+      
+        <summary type="html">올바른 문자열들의 수</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">등수 매기기</title>
+      <link href="https://lee989898.github.io/algorithm-06" rel="alternate" type="text/html" title="등수 매기기" />
+      <published>2021-09-24T01:09:00+09:00</published>
+      <updated>2021-09-24T01:09:00+09:00</updated>
+      <id>https://lee989898.github.io/algorithm-06</id>
+      <content type="html" xml:base="https://lee989898.github.io/algorithm-06">&lt;h3 id=&quot;등수-매기기&quot;&gt;등수 매기기&lt;/h3&gt;
+
+&lt;p&gt;시험 점수들을 값이 큰 순서대로 등수를 매기려고 한다. 
+예를 들면, 5명의 시험 점수가 82, 75, 98, 63, 40이라면 
+각 점수의 등수는 2등, 3등, 1등, 4등, 5등이 된다. 
+시험 점수들의 갯수는 N(&amp;gt; 0)이다. 시험 점수들은 크기가 N
+인 Score라는 배열에 저장되어 있다. 각 점수의 등
+수는 크기가 N인 Rank라는 배열에 저장해야 한다. 등수를
+ 매기는 알고리즘을 작성하라. 정렬을 사용하지 말아라.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Score[N] = {82,75,98,63,40, ''', }
+Rank[N] = {1,}
+
+for(i = 0; i &amp;lt; N; i++){
+    for(j = i+1; j &amp;lt; N; j++){
+        if(Score[i] &amp;gt; Score[j])
+            Rank[j]++;
+        else
+            Rank[i]++
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="algorithm" />
+      
+
+      
+        <summary type="html">등수 매기기</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">빠진 번호 찾기</title>
@@ -897,63 +1190,6 @@ return max​
 
       
         <summary type="html">알고리즘이란?</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">등수 매기기</title>
-      <link href="https://lee989898.github.io/algorithm-06" rel="alternate" type="text/html" title="등수 매기기" />
-      <published>2021-09-24T01:09:00+09:00</published>
-      <updated>2021-09-24T01:09:00+09:00</updated>
-      <id>https://lee989898.github.io/algorithm-06</id>
-      <content type="html" xml:base="https://lee989898.github.io/algorithm-06">&lt;h3 id=&quot;등수-매기기&quot;&gt;등수 매기기&lt;/h3&gt;
-
-&lt;p&gt;시험 점수들을 값이 큰 순서대로 등수를 매기려고 한다. 
-예를 들면, 5명의 시험 점수가 82, 75, 98, 63, 40이라면 
-각 점수의 등수는 2등, 3등, 1등, 4등, 5등이 된다. 
-시험 점수들의 갯수는 N(&amp;gt; 0)이다. 시험 점수들은 크기가 N
-인 Score라는 배열에 저장되어 있다. 각 점수의 등
-수는 크기가 N인 Rank라는 배열에 저장해야 한다. 등수를
- 매기는 알고리즘을 작성하라. 정렬을 사용하지 말아라.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Score[N] = {82,75,98,63,40, ''', }
-Rank[N] = {1,}
-
-for(i = 0; i &amp;lt; N; i++){
-    for(j = i+1; j &amp;lt; N; j++){
-        if(Score[i] &amp;gt; Score[j])
-            Rank[j]++;
-        else
-            Rank[i]++
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="algorithm" />
-      
-
-      
-        <summary type="html">등수 매기기</summary>
       
 
       
