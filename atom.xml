@@ -70,7 +70,7 @@
       <item>
         <title>신택스 분석방법</title>
         
-          <description>&lt;h1 id=&quot;제-10장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 10장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+          <description>&lt;h3 id=&quot;신택스-분석-방법&quot;&gt;&lt;strong&gt;신택스 분석 방법&lt;/strong&gt;&lt;/h3&gt;
 
 </description>
         
@@ -85,7 +85,7 @@
       <item>
         <title>정적 시맨틱과 동적 시맨틱</title>
         
-          <description>&lt;h1 id=&quot;제-9장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 9장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+          <description>&lt;h3 id=&quot;정적-시맨틱과-동적-시맨틱&quot;&gt;&lt;strong&gt;정적 시맨틱과 동적 시맨틱&lt;/strong&gt;&lt;/h3&gt;
 
 </description>
         
@@ -100,7 +100,7 @@
       <item>
         <title>프로그래밍 언어의 신택스와 시맨틱스</title>
         
-          <description>&lt;h1 id=&quot;제-8장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 8장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+          <description>&lt;h3 id=&quot;프로그래밍-언어의-신택스와-시맨틱스&quot;&gt;&lt;strong&gt;프로그래밍 언어의 신택스와 시맨틱스&lt;/strong&gt;&lt;/h3&gt;
 
 </description>
         
@@ -115,7 +115,7 @@
       <item>
         <title>프로그래밍 언어의 정교화</title>
         
-          <description>&lt;h1 id=&quot;제-7장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 7장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+          <description>&lt;h3 id=&quot;프로그래밍-언어의-정교화&quot;&gt;&lt;strong&gt;프로그래밍 언어의 정교화&lt;/strong&gt;&lt;/h3&gt;
 
 </description>
         
@@ -130,7 +130,7 @@
       <item>
         <title>프로그래밍 언어의 진화</title>
         
-          <description>&lt;h1 id=&quot;제-6장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 6장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+          <description>&lt;h3 id=&quot;프로그래밍-언어의-진화&quot;&gt;&lt;strong&gt;프로그래밍 언어의 진화&lt;/strong&gt;&lt;/h3&gt;
 
 </description>
         
@@ -145,7 +145,7 @@
       <item>
         <title>프로그래밍 언어의 구현 시스템</title>
         
-          <description>&lt;h1 id=&quot;제-5장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 5장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+          <description>&lt;h3 id=&quot;프로그래밍-언어의-구현-시스템&quot;&gt;&lt;strong&gt;프로그래밍 언어의 구현 시스템&lt;/strong&gt;&lt;/h3&gt;
 
 </description>
         
@@ -160,7 +160,7 @@
       <item>
         <title>언어 평가 기준과 언어 설계시 기준 간의 균형</title>
         
-          <description>&lt;h1 id=&quot;제-4장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 4장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+          <description>&lt;h3 id=&quot;언어-평가-기준과-언어-설계시-기준-간의-균형&quot;&gt;&lt;strong&gt;언어 평가 기준과 언어 설계시 기준 간의 균형&lt;/strong&gt;&lt;/h3&gt;
 
 </description>
         
@@ -175,7 +175,7 @@
       <item>
         <title>프로그래밍 언어가 프로그램 설계 방법에 준 영향</title>
         
-          <description>&lt;h1 id=&quot;제-3장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 3장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+          <description>&lt;h3 id=&quot;프로그래밍-언어가-프로그램-설계-방법에-준-영향&quot;&gt;&lt;strong&gt;프로그래밍 언어가 프로그램 설계 방법에 준 영향&lt;/strong&gt;&lt;/h3&gt;
 
 </description>
         
@@ -190,7 +190,7 @@
       <item>
         <title>왜 PL을 공부하는가?</title>
         
-          <description>&lt;h1 id=&quot;제-2장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 2장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+          <description>&lt;h3 id=&quot;왜-pl을-공부하는가&quot;&gt;&lt;strong&gt;왜 PL을 공부하는가?&lt;/strong&gt;&lt;/h3&gt;
 
 </description>
         
@@ -205,7 +205,7 @@
       <item>
         <title>프로그래밍 언어란?</title>
         
-          <description>&lt;h1 id=&quot;제-1장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 1장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+          <description>&lt;h3 id=&quot;프로그래밍-언어란&quot;&gt;&lt;strong&gt;프로그래밍 언어란?&lt;/strong&gt;&lt;/h3&gt;
 
 </description>
         
