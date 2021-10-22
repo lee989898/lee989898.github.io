@@ -53,6 +53,21 @@
     
       
       <item>
+        <title>동적 계획</title>
+        
+          <description>&lt;h3 id=&quot;동적-계획&quot;&gt;동적 계획&lt;/h3&gt;
+
+</description>
+        
+        <pubDate>Tue, 05 Oct 2021 01:09:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/algorithm-04</link>
+        <guid isPermaLink="true">https://lee989898.github.io/algorithm-04</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>변수와 시맨틱스</title>
         
           <description>&lt;h1 id=&quot;제-11장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 11장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
@@ -63,203 +78,6 @@
         <link>
         https://lee989898.github.io/pl-11</link>
         <guid isPermaLink="true">https://lee989898.github.io/pl-11</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>클래스의 상속</title>
-        
-          <description>&lt;h1 id=&quot;클래스의-상속&quot;&gt;클래스의 상속&lt;/h1&gt;
-
-</description>
-        
-        <pubDate>Sat, 25 Sep 2021 01:07:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/kotlin-10</link>
-        <guid isPermaLink="true">https://lee989898.github.io/kotlin-10</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>클래스의 생성</title>
-        
-          <description>&lt;h1 id=&quot;클래스의-생성&quot;&gt;클래스의 생성&lt;/h1&gt;
-
-</description>
-        
-        <pubDate>Sat, 25 Sep 2021 01:07:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/kotlin-09</link>
-        <guid isPermaLink="true">https://lee989898.github.io/kotlin-09</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>클래스의 기본구조</title>
-        
-          <description>&lt;h1 id=&quot;클래스의-기본구조&quot;&gt;클래스의 기본구조&lt;/h1&gt;
-
-</description>
-        
-        <pubDate>Sat, 25 Sep 2021 01:07:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/kotlin-08</link>
-        <guid isPermaLink="true">https://lee989898.github.io/kotlin-08</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>흐름제어와 논리연산자</title>
-        
-          <description>&lt;h1 id=&quot;흐름제어와-논리연산자&quot;&gt;흐름제어와 논리연산자&lt;/h1&gt;
-
-</description>
-        
-        <pubDate>Sat, 25 Sep 2021 01:07:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/kotlin-07</link>
-        <guid isPermaLink="true">https://lee989898.github.io/kotlin-07</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>반복문과 증감연산자</title>
-        
-          <description>&lt;h1 id=&quot;반복문과-증감연산자&quot;&gt;반복문과 증감연산자&lt;/h1&gt;
-
-</description>
-        
-        <pubDate>Sat, 25 Sep 2021 01:07:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/kotlin-06</link>
-        <guid isPermaLink="true">https://lee989898.github.io/kotlin-06</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>조건문과 비교연산자</title>
-        
-          <description>&lt;h1 id=&quot;조건문과-비교연산자&quot;&gt;조건문과 비교연산자&lt;/h1&gt;
-
-</description>
-        
-        <pubDate>Sat, 25 Sep 2021 01:07:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/kotlin-05</link>
-        <guid isPermaLink="true">https://lee989898.github.io/kotlin-05</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>타입추론과 함수</title>
-        
-          <description>&lt;h1 id=&quot;타입추론과-함수&quot;&gt;타입추론과 함수&lt;/h1&gt;
-
-</description>
-        
-        <pubDate>Sat, 25 Sep 2021 01:07:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/kotlin-04</link>
-        <guid isPermaLink="true">https://lee989898.github.io/kotlin-04</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>형변환과 배열</title>
-        
-          <description>&lt;h1 id=&quot;형변환과-배열&quot;&gt;형변환과 배열&lt;/h1&gt;
-
-</description>
-        
-        <pubDate>Sat, 25 Sep 2021 01:07:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/kotlin-03</link>
-        <guid isPermaLink="true">https://lee989898.github.io/kotlin-03</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>동적 계획</title>
-        
-          <description>&lt;h3 id=&quot;동적-계획&quot;&gt;동적 계획&lt;/h3&gt;
-
-</description>
-        
-        <pubDate>Fri, 24 Sep 2021 01:09:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/algorithm-04</link>
-        <guid isPermaLink="true">https://lee989898.github.io/algorithm-04</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>분할 정복</title>
-        
-          <description>&lt;ul&gt;
-  &lt;li&gt;분할 정복 설계 전략&lt;/li&gt;
-&lt;/ul&gt;
-
-</description>
-        
-        <pubDate>Fri, 24 Sep 2021 01:09:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/algorithm-03</link>
-        <guid isPermaLink="true">https://lee989898.github.io/algorithm-03</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>알고리즘의 효율성 분석</title>
-        
-          <description>&lt;h3 id=&quot;알고리즘-분석-체계&quot;&gt;알고리즘 분석 체계&lt;/h3&gt;
-
-</description>
-        
-        <pubDate>Fri, 24 Sep 2021 01:09:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/algorithm-02</link>
-        <guid isPermaLink="true">https://lee989898.github.io/algorithm-02</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>알고리즘</title>
-        
-          <description>&lt;h3 id=&quot;알고리즘이란&quot;&gt;알고리즘이란?&lt;/h3&gt;
-
-</description>
-        
-        <pubDate>Fri, 24 Sep 2021 01:09:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/algorithm-01</link>
-        <guid isPermaLink="true">https://lee989898.github.io/algorithm-01</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>변수와 자료형</title>
-        
-          <description>&lt;h1 id=&quot;변수와-자료형&quot;&gt;변수와 자료형&lt;/h1&gt;
-
-</description>
-        
-        <pubDate>Fri, 24 Sep 2021 01:07:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/kotlin-02</link>
-        <guid isPermaLink="true">https://lee989898.github.io/kotlin-02</guid>
       </item>
       
     
@@ -298,33 +116,6 @@
     
       
       <item>
-        <title>코틀린 규칙들</title>
-        
-          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Kotlin 공부는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
-&lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-01&quot;&gt;코틀린 규칙들&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-02&quot;&gt;변수와 자료형 &lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-03&quot;&gt;형변환과 배열 &lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-04&quot;&gt;타입추론과 함수 &lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-05&quot;&gt;조건문과 비교연산자 &lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-06&quot;&gt;반복문과 증감연산자 &lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-07&quot;&gt;흐름제어와 논리연산자 &lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-08&quot;&gt;클래스의 기본구조 &lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-09&quot;&gt;클래스의 생성 &lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-10&quot;&gt;클래스의 상속 &lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-</description>
-        
-        <pubDate>Fri, 24 Sep 2021 01:05:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/kotlin-01</link>
-        <guid isPermaLink="true">https://lee989898.github.io/kotlin-01</guid>
-      </item>
-      
-    
-      
-      <item>
         <title>신택스 분석방법</title>
         
           <description>&lt;h3 id=&quot;신택스-분석-방법&quot;&gt;&lt;strong&gt;신택스 분석 방법&lt;/strong&gt;&lt;/h3&gt;
@@ -355,6 +146,23 @@
     
       
       <item>
+        <title>분할 정복</title>
+        
+          <description>&lt;ul&gt;
+  &lt;li&gt;분할 정복 설계 전략&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Tue, 21 Sep 2021 01:09:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/algorithm-03</link>
+        <guid isPermaLink="true">https://lee989898.github.io/algorithm-03</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>프로그래밍 언어의 신택스와 시맨틱스</title>
         
           <description>&lt;h3 id=&quot;프로그래밍-언어의-신택스와-시맨틱스&quot;&gt;&lt;strong&gt;프로그래밍 언어의 신택스와 시맨틱스&lt;/strong&gt;&lt;/h3&gt;
@@ -380,6 +188,21 @@
         <link>
         https://lee989898.github.io/pl-07</link>
         <guid isPermaLink="true">https://lee989898.github.io/pl-07</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>알고리즘의 효율성 분석</title>
+        
+          <description>&lt;h3 id=&quot;알고리즘-분석-체계&quot;&gt;알고리즘 분석 체계&lt;/h3&gt;
+
+</description>
+        
+        <pubDate>Tue, 14 Sep 2021 01:09:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/algorithm-02</link>
+        <guid isPermaLink="true">https://lee989898.github.io/algorithm-02</guid>
       </item>
       
     
@@ -470,6 +293,183 @@
         <link>
         https://lee989898.github.io/pl-01</link>
         <guid isPermaLink="true">https://lee989898.github.io/pl-01</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>알고리즘</title>
+        
+          <description>&lt;h3 id=&quot;알고리즘이란&quot;&gt;알고리즘이란?&lt;/h3&gt;
+
+</description>
+        
+        <pubDate>Thu, 02 Sep 2021 01:09:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/algorithm-01</link>
+        <guid isPermaLink="true">https://lee989898.github.io/algorithm-01</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>클래스의 상속</title>
+        
+          <description>&lt;h1 id=&quot;클래스의-상속&quot;&gt;클래스의 상속&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Mon, 09 Aug 2021 01:07:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/kotlin-10</link>
+        <guid isPermaLink="true">https://lee989898.github.io/kotlin-10</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>클래스의 생성</title>
+        
+          <description>&lt;h1 id=&quot;클래스의-생성&quot;&gt;클래스의 생성&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Mon, 09 Aug 2021 01:07:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/kotlin-09</link>
+        <guid isPermaLink="true">https://lee989898.github.io/kotlin-09</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>클래스의 기본구조</title>
+        
+          <description>&lt;h1 id=&quot;클래스의-기본구조&quot;&gt;클래스의 기본구조&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Mon, 09 Aug 2021 01:07:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/kotlin-08</link>
+        <guid isPermaLink="true">https://lee989898.github.io/kotlin-08</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>흐름제어와 논리연산자</title>
+        
+          <description>&lt;h1 id=&quot;흐름제어와-논리연산자&quot;&gt;흐름제어와 논리연산자&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Sun, 08 Aug 2021 01:07:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/kotlin-07</link>
+        <guid isPermaLink="true">https://lee989898.github.io/kotlin-07</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>반복문과 증감연산자</title>
+        
+          <description>&lt;h1 id=&quot;반복문과-증감연산자&quot;&gt;반복문과 증감연산자&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Sun, 08 Aug 2021 01:07:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/kotlin-06</link>
+        <guid isPermaLink="true">https://lee989898.github.io/kotlin-06</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>조건문과 비교연산자</title>
+        
+          <description>&lt;h1 id=&quot;조건문과-비교연산자&quot;&gt;조건문과 비교연산자&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Sun, 08 Aug 2021 01:07:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/kotlin-05</link>
+        <guid isPermaLink="true">https://lee989898.github.io/kotlin-05</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>타입추론과 함수</title>
+        
+          <description>&lt;h1 id=&quot;타입추론과-함수&quot;&gt;타입추론과 함수&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Fri, 06 Aug 2021 01:07:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/kotlin-04</link>
+        <guid isPermaLink="true">https://lee989898.github.io/kotlin-04</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>형변환과 배열</title>
+        
+          <description>&lt;h1 id=&quot;형변환과-배열&quot;&gt;형변환과 배열&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Thu, 05 Aug 2021 01:07:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/kotlin-03</link>
+        <guid isPermaLink="true">https://lee989898.github.io/kotlin-03</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>변수와 자료형</title>
+        
+          <description>&lt;h1 id=&quot;변수와-자료형&quot;&gt;변수와 자료형&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Mon, 02 Aug 2021 01:07:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/kotlin-02</link>
+        <guid isPermaLink="true">https://lee989898.github.io/kotlin-02</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>코틀린 규칙들</title>
+        
+          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Kotlin 공부는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-01&quot;&gt;코틀린 규칙들&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-02&quot;&gt;변수와 자료형 &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-03&quot;&gt;형변환과 배열 &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-04&quot;&gt;타입추론과 함수 &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-05&quot;&gt;조건문과 비교연산자 &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-06&quot;&gt;반복문과 증감연산자 &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-07&quot;&gt;흐름제어와 논리연산자 &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-08&quot;&gt;클래스의 기본구조 &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-09&quot;&gt;클래스의 생성 &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-10&quot;&gt;클래스의 상속 &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Mon, 02 Aug 2021 01:05:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/kotlin-01</link>
+        <guid isPermaLink="true">https://lee989898.github.io/kotlin-01</guid>
       </item>
       
     
