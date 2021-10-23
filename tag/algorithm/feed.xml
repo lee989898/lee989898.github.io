@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/algorithm/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-10-22T18:30:36+09:00</updated>
+  <updated>2021-10-23T22:15:03+09:00</updated>
   <id>https://lee989898.github.io/tag/algorithm/feed.xml</id>
 
   
@@ -37,7 +37,9 @@
       <published>2021-10-05T01:09:00+09:00</published>
       <updated>2021-10-05T01:09:00+09:00</updated>
       <id>https://lee989898.github.io/algorithm-04</id>
-      <content type="html" xml:base="https://lee989898.github.io/algorithm-04">&lt;h3 id=&quot;동적-계획&quot;&gt;동적 계획&lt;/h3&gt;
+      <content type="html" xml:base="https://lee989898.github.io/algorithm-04">&lt;h3 id=&quot;동적-계획&quot;&gt;&lt;strong&gt;동적 계획&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
 
 &lt;ul&gt;
   &lt;li&gt;분할 정복과 같이 주어진 문제를 더 작은 부분 문제들로
@@ -48,26 +50,28 @@
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag07.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag07.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
 &lt;p&gt;위 그림은 분할 정복과 동적 계획의 분할 과정의 예이다.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;동적 계획 전략
-    &lt;ol&gt;
-      &lt;li&gt;문제를 더 작은 부분 문제들로 분할한다.&lt;/li&gt;
-      &lt;li&gt;작은 부분 문제들을 해결하고 해들을 표에 저장한다.&lt;/li&gt;
-      &lt;li&gt;나중에 다른 (부분) 문제를 해결할 때 이미 해결한 부분 문제가 나오면
-다시 해결하는 대신에 표에서 해를 찾아 사용한다.&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
+  &lt;li&gt;동적 계획 전략&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;문제를 더 작은 부분 문제들로 분할한다.&lt;/li&gt;
+  &lt;li&gt;작은 부분 문제들을 해결하고 해들을 표에 저장한다.&lt;/li&gt;
+  &lt;li&gt;나중에 다른 (부분) 문제를 해결할 때 이미 해결한 부분 문제가 나오면
+다시 해결하는 대신에 표에서 해를 찾아 사용한다.&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;hr /&gt;
 
-&lt;h3 id=&quot;막대-자르기&quot;&gt;막대 자르기&lt;/h3&gt;
+&lt;h3 id=&quot;막대-자르기&quot;&gt;&lt;strong&gt;막대 자르기&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
 
 &lt;ul&gt;
   &lt;li&gt;막대의 길이는 n(양의 정수)이다.&lt;/li&gt;
@@ -89,7 +93,7 @@
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag08.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag08.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -137,7 +141,7 @@ else{
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag09.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag09.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -170,11 +174,13 @@ else{
 
 &lt;p&gt;시간복잡도: 박오(n의2제곱)&lt;/p&gt;
 
-&lt;h3 id=&quot;모든-쌍-최단-경로-찾기&quot;&gt;모든 쌍 최단 경로 찾기&lt;/h3&gt;
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;모든-쌍-최단-경로-찾기&quot;&gt;&lt;strong&gt;모든 쌍 최단 경로 찾기&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag10.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag10.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -205,7 +211,7 @@ else{
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag11.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag11.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -263,9 +269,13 @@ for(k = 1; k &amp;lt;= n; k++){
       <published>2021-09-21T01:09:00+09:00</published>
       <updated>2021-09-21T01:09:00+09:00</updated>
       <id>https://lee989898.github.io/algorithm-03</id>
-      <content type="html" xml:base="https://lee989898.github.io/algorithm-03">&lt;ul&gt;
-  &lt;li&gt;분할 정복 설계 전략&lt;/li&gt;
-&lt;/ul&gt;
+      <content type="html" xml:base="https://lee989898.github.io/algorithm-03">&lt;h3 id=&quot;분할-정복&quot;&gt;&lt;strong&gt;분할 정복&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;분할 정복 설계 전략&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;ol&gt;
   &lt;li&gt;분할 단계
@@ -288,9 +298,13 @@ for(k = 1; k &amp;lt;= n; k++){
 
 &lt;hr /&gt;
 
-&lt;h3 id=&quot;최댓값과-최솟값-찾기&quot;&gt;최댓값과 최솟값 찾기&lt;/h3&gt;
+&lt;h3 id=&quot;최댓값과-최솟값-찾기&quot;&gt;&lt;strong&gt;최댓값과 최솟값 찾기&lt;/strong&gt;&lt;/h3&gt;
 
-&lt;p&gt;문제: 크기가 n인 배열내의 요소들 중 최댓값과 최솟값을 찾는다.&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;문제: 크기가 n인 배열내의 요소들 중 최댓값과 최솟값을 찾는다.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;ul&gt;
   &lt;li&gt;쉬운 전략
@@ -340,7 +354,7 @@ for(k = 1; k &amp;lt;= n; k++){
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag04.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag04.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -348,7 +362,9 @@ for(k = 1; k &amp;lt;= n; k++){
 
 &lt;hr /&gt;
 
-&lt;h3 id=&quot;합병-정렬&quot;&gt;합병 정렬&lt;/h3&gt;
+&lt;h3 id=&quot;합병-정렬&quot;&gt;&lt;strong&gt;합병 정렬&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
 
 &lt;ul&gt;
   &lt;li&gt;쉬운 전략
@@ -373,7 +389,7 @@ for(k = 1; k &amp;lt;= n; k++){
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag05.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag05.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -443,7 +459,9 @@ while(size &amp;lt; n){
 
 &lt;hr /&gt;
 
-&lt;h3 id=&quot;빠른-정렬&quot;&gt;빠른 정렬&lt;/h3&gt;
+&lt;h3 id=&quot;빠른-정렬&quot;&gt;&lt;strong&gt;빠른 정렬&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
 
 &lt;p&gt;절대적으로 가장 빠른 정렬 알고리즘은 아니지만 평균적으로 매우 효율적이다&lt;/p&gt;
 
@@ -452,24 +470,22 @@ while(size &amp;lt; n){
 &lt;p&gt;최악 시간복잡도: 빅오(n의2제곱)&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;기본 아이디어
-    &lt;ol&gt;
-      &lt;li&gt;배열을 두 부분으로 분할한다.&lt;/li&gt;
-    &lt;/ol&gt;
+  &lt;li&gt;기본 아이디어&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;배열을 두 부분으로 분할한다.
     &lt;ul&gt;
       &lt;li&gt;배열내의 한 기준 요소보다 작거나 같은 요소들은 앞부분에 놓는다.&lt;/li&gt;
-      &lt;li&gt;기준 요소보다 큰 요소들은 모두 뒷부분에 놓는다.
-        &lt;ol&gt;
-          &lt;li&gt;각 분할된 부분을 재귀적으로 정렬한다.&lt;/li&gt;
-        &lt;/ol&gt;
-      &lt;/li&gt;
+      &lt;li&gt;기준 요소보다 큰 요소들은 모두 뒷부분에 놓는다.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;
+  &lt;li&gt;각 분할된 부분을 재귀적으로 정렬한다.&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag06.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag06.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -513,10 +529,14 @@ while( i &amp;lt;= j){
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;분할-정복이-부적절한-경우&quot;&gt;분할 정복이 부적절한 경우&lt;/h3&gt;
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;분할-정복이-부적절한-경우&quot;&gt;&lt;strong&gt;분할 정복이 부적절한 경우&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
 
 &lt;p&gt;문제가 분할될 때만다 분할된 부분 문제들의 입력 크기의 합이 분할되기 전의 입력
-크기보다 매우 커지는 겨우&lt;/p&gt;
+크기보다 매우 커지는 경우&lt;/p&gt;
 
 &lt;hr /&gt;</content>
 
@@ -539,7 +559,7 @@ while( i &amp;lt;= j){
       
 
       
-        <summary type="html">분할 정복 설계 전략</summary>
+        <summary type="html">분할 정복</summary>
       
 
       
@@ -552,11 +572,13 @@ while( i &amp;lt;= j){
       <published>2021-09-14T01:09:00+09:00</published>
       <updated>2021-09-14T01:09:00+09:00</updated>
       <id>https://lee989898.github.io/algorithm-02</id>
-      <content type="html" xml:base="https://lee989898.github.io/algorithm-02">&lt;h3 id=&quot;알고리즘-분석-체계&quot;&gt;알고리즘 분석 체계&lt;/h3&gt;
+      <content type="html" xml:base="https://lee989898.github.io/algorithm-02">&lt;h3 id=&quot;알고리즘-분석-체계&quot;&gt;&lt;strong&gt;알고리즘 분석 체계&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;입력 크기
-  ex) 배열의 크기, 연결 목록의 길이, 행렬에서 행과 열의 크기, 그래프에서 정점과 간선의 수&lt;/li&gt;
+  &lt;li&gt;입력 크기&lt;br /&gt;
+ex) 배열의 크기, 연결 목록의 길이, 행렬에서 행과 열의 크기, 그래프에서 정점과 간선의 수&lt;/li&gt;
   &lt;li&gt;실행 시간 측정 단위
     &lt;ul&gt;
       &lt;li&gt;기본 연산: 알고리즘의 실행 시간에 가장 많이 기여하는 연산&lt;/li&gt;
@@ -579,16 +601,21 @@ while( i &amp;lt;= j){
 
 &lt;hr /&gt;
 
-&lt;h3 id=&quot;시간-복잡도&quot;&gt;시간 복잡도&lt;/h3&gt;
+&lt;h3 id=&quot;시간-복잡도&quot;&gt;&lt;strong&gt;시간 복잡도&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
 
 &lt;p&gt;공간 복잡도: 알고리즘이 수행되는 동안 요구되는 메모리 공간의 크기를 나타낸다.&lt;/p&gt;
 
-&lt;p&gt;시간 복잡도: 알고리즘이 얼마나 빨리 수행되는지를 나타낸다.
-    + 알고리즘의 기본 연산의 수행 횟수를 입력 크기의 함수로 표현
-    + 입력 크기뿐만이 아니라 특정 입력 값에도 좌우
-    + 복잡도는 입력 크기인 N의 함수로 나타낸다
-    + 복잡도 함수는 보통 여러 개의 항들을 갖는 다항식이다.
-    + 고차 항이 시간복잡도를 궁극적으로 지배한다.&lt;/p&gt;
+&lt;p&gt;시간 복잡도: 알고리즘이 얼마나 빨리 수행되는지를 나타낸다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;알고리즘의 기본 연산의 수행 횟수를 입력 크기의 함수로 표현&lt;/li&gt;
+  &lt;li&gt;입력 크기뿐만이 아니라 특정 입력 값에도 좌우&lt;/li&gt;
+  &lt;li&gt;복잡도는 입력 크기인 N의 함수로 나타낸다&lt;/li&gt;
+  &lt;li&gt;복잡도 함수는 보통 여러 개의 항들을 갖는 다항식이다.&lt;/li&gt;
+  &lt;li&gt;고차 항이 시간복잡도를 궁극적으로 지배한다.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;시간 복잡도의 분류&lt;/p&gt;
 &lt;ul&gt;
@@ -619,7 +646,7 @@ while( i &amp;lt;= j){
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag03.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag03.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -659,9 +686,14 @@ while( i &amp;lt;= j){
       <published>2021-09-02T01:09:00+09:00</published>
       <updated>2021-09-02T01:09:00+09:00</updated>
       <id>https://lee989898.github.io/algorithm-01</id>
-      <content type="html" xml:base="https://lee989898.github.io/algorithm-01">&lt;h3 id=&quot;알고리즘이란&quot;&gt;알고리즘이란?&lt;/h3&gt;
+      <content type="html" xml:base="https://lee989898.github.io/algorithm-01">&lt;h3 id=&quot;알고리즘&quot;&gt;&lt;strong&gt;알고리즘&lt;/strong&gt;&lt;/h3&gt;
 
-&lt;p&gt;알고리즘&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;알고리즘&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;ul&gt;
   &lt;li&gt;문제를 해결하기 위한 단계적 절차 또는 방법&lt;/li&gt;
   &lt;li&gt;순서대로 구체적이고 명확하게 기술해야 함&lt;/li&gt;
@@ -670,11 +702,14 @@ while( i &amp;lt;= j){
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag01.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag01.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;알고리즘의 3가지 조건&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;알고리즘의 3가지 조건&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;ol&gt;
   &lt;li&gt;명확성
     &lt;ul&gt;
@@ -693,7 +728,10 @@ while( i &amp;lt;= j){
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;알고리즘의 효율성&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;알고리즘의 효율성&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;ol&gt;
   &lt;li&gt;시간 효율성
     &lt;ul&gt;
@@ -714,19 +752,24 @@ while( i &amp;lt;= j){
 
 &lt;hr /&gt;
 
-&lt;h3 id=&quot;알고리즘적-문제-해결-과정&quot;&gt;알고리즘적 문제 해결 과정&lt;/h3&gt;
+&lt;h3 id=&quot;알고리즘적-문제-해결-과정&quot;&gt;&lt;strong&gt;알고리즘적 문제 해결 과정&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag02.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag02.png&quot; width=&quot;25%&quot; height=&quot;5%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
 &lt;hr /&gt;
 
-&lt;h3 id=&quot;알고리즘의-표현&quot;&gt;알고리즘의 표현&lt;/h3&gt;
+&lt;h3 id=&quot;알고리즘의-표현&quot;&gt;&lt;strong&gt;알고리즘의 표현&lt;/strong&gt;&lt;/h3&gt;
 
-&lt;p&gt;알고리즘의 표현&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;알고리즘의 표현&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;ul&gt;
   &lt;li&gt;자연어(한글 또는 영어)&lt;/li&gt;
   &lt;li&gt;의사 코드(Pseudocode)&lt;/li&gt;
@@ -736,10 +779,11 @@ while( i &amp;lt;= j){
 
 &lt;hr /&gt;
 
+&lt;blockquote&gt;
+  &lt;p&gt;예: 최댓값 찾기 알고리즘&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;예: 최댓값 찾기 알고리즘&lt;/p&gt;
-  &lt;/li&gt;
   &lt;li&gt;한글
     &lt;ol&gt;
       &lt;li&gt;배열의 첫 번째 요소를 최댓값으로 정한다.&lt;/li&gt;
@@ -786,9 +830,13 @@ return max​
 
 &lt;hr /&gt;
 
-&lt;h3 id=&quot;알고리즘의-분류&quot;&gt;알고리즘의 분류&lt;/h3&gt;
+&lt;h3 id=&quot;알고리즘의-분류&quot;&gt;&lt;strong&gt;알고리즘의 분류&lt;/strong&gt;&lt;/h3&gt;
 
-&lt;p&gt;알고리즘 설계 기법&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;알고리즘 설계 기법&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;ul&gt;
   &lt;li&gt;분할 정복(Divide-and-Conquer)​&lt;/li&gt;
@@ -805,7 +853,11 @@ return max​
   &lt;li&gt;유전자(genetic) 알고리즘​&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;문제 유형에 따른 알고리즘의 분류&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;문제 유형에 따른 알고리즘의 분류&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;ul&gt;
   &lt;li&gt;정렬(sorting) 알고리즘​&lt;/li&gt;
@@ -838,7 +890,7 @@ return max​
       
 
       
-        <summary type="html">알고리즘이란?</summary>
+        <summary type="html">알고리즘</summary>
       
 
       

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
+  <link href="https://lee989898.github.io/tag/security/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
+  <updated>2021-10-23T22:15:03+09:00</updated>
+  <id>https://lee989898.github.io/tag/security/feed.xml</id>
+
+  
+  
+  
+
+  
+    <title type="html">LEE | </title>
+  
+
+  
+    <subtitle>공부 블로그</subtitle>
+  
+
+  
+
+  
+    
+      
+    
+  
+
+  
+  
+
+  
+    <entry>
+      <title type="html">Hash</title>
+      <link href="https://lee989898.github.io/sc-01" rel="alternate" type="text/html" title="Hash" />
+      <published>2021-10-23T01:06:00+09:00</published>
+      <updated>2021-10-23T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc-01</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-01">&lt;h3 id=&quot;hash&quot;&gt;&lt;strong&gt;Hash&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Hash와 관련된 Key Concepts인 Integrity와 Authentication을 살펴보자&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Integrity&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;무결성&lt;/li&gt;
+  &lt;li&gt;원본 그대로임을 보장&lt;/li&gt;
+  &lt;li&gt;변조가 없다는 것 혹은 변경이 있었음을 알게 됨&lt;/li&gt;
+  &lt;li&gt;주요 공격: modification&lt;/li&gt;
+  &lt;li&gt;Integrity를 지키기 위한 Solution : hash&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Authentication&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;인증&lt;/li&gt;
+  &lt;li&gt;송수신자 서로간의 신원 확인&lt;/li&gt;
+  &lt;li&gt;주요 공격 : impersonation&lt;/li&gt;
+  &lt;li&gt;Authentication을 지키기 위환 solution : 전자서명, 공인인증서&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Hash Functions&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;임의의 긴 입력 값을 적절하게 처리하여 고정된 길이의 짧은 값을 출력하는 함수&lt;/li&gt;
+  &lt;li&gt;Message Authentication Code로 무결성 제공&lt;/li&gt;
+  &lt;li&gt;전자 서명으로 sender authentication 제공&lt;/li&gt;
+  &lt;li&gt;공인인증서, 가상화폐 등에 사용&lt;/li&gt;
+  &lt;li&gt;컴퓨터보안에서 대표적인 hash function은 MD2,4,5 SHA1, HAS160&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;http://www.miraclesalad.com/webtools/md5.php&quot;&gt;http://www.miraclesalad.com/webtools/md5.php&lt;/a&gt;&lt;br /&gt;
+위 사이트에서 임의의ㅣ 입력값에 대한 해쉬값을 관찰할 수 있다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;해쉬의 특징으로는 대표적으로 3가지가 있다.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;입력길이에 상관없이 출력길이가 일정&lt;/li&gt;
+  &lt;li&gt;조금이라도 입력값이 다르면 출력값은 완전히 다름&lt;/li&gt;
+  &lt;li&gt;revers가 어렵다(일방향성)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;위 성질중 integrity는 2번에 의해서 보장된다.&lt;br /&gt;
+Encrypt/decrypt와의 차이점은 3번이다. 복호화가 어렵기 때문이다.&lt;/p&gt;
+
+&lt;p&gt;예를 들어보자 h(x): x/23해서 소수점 7~10자리 수를 추출&lt;br /&gt;
+h(345689) = xx.95652177391&lt;br /&gt;
+출력값은 일정하나, reverse는 불가능하다.&lt;/p&gt;
+
+&lt;p&gt;그러나 h(232.8395049993) = 7391 처럼 다른 값을 넣었음에도 값이 같은 일명 collision이 일어날 수 있다.&lt;br /&gt;
+Collison은 서로 다른 입력값이 같은 해시값을 계산하는 것을 의미한다.&lt;br /&gt;
+충동저항성은 collision이 일어날 확률이 작음을 의미한다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;MAC&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;메시지 무결성: 변경되지 않은 원본이 맞음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc01.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;메시지와 해쉬값을 붙어서 보낸다.&lt;br /&gt;
+받는사람은 비교해서 같으면 원본 다르면 원본이 아닌걸 알 수 있다.&lt;br /&gt;
+하지만 여기서 sender authenticationd은 제공되지 않는다.&lt;br /&gt;
+Digital Signature에서 이문제를 해결한다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Digital Signature&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;무결성과 인증을 동시에 제공&lt;/li&gt;
+  &lt;li&gt;키를 사용한다(키를 모르는 사용자는 생성불가)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc02.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;비교하여 같으면 변조되지 않고 보낸사람을 인증해준다.&lt;br /&gt;
+하지만 mac도 한계가 있는데 제 3자에 대한 sender authentication이 불가능 하다.&lt;br /&gt;
+키를 모르면 인증을 못하기 때문이다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Replay Attack&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc03.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;위 그림은 MAC 공격방법이다.&lt;br /&gt;
+Attacker는 고객이 보낸 똑같은 패킷을 복사하여 고객으로 위장하는 공격 방법이다.&lt;br /&gt;
+이러한 공격을 막는 방법은 패킷에 추가정보로 시간을 알려주는 time stamp를 넣어 해결할 수 있다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;대표적인 해쉬 함수로는 두가지 계열이 있는데 MD와 SHA 계열이다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;MD (Message Digest)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;MD2,4,5,6​&lt;/li&gt;
+  &lt;li&gt;Ron Rivest (RSA), 1990~92​&lt;/li&gt;
+  &lt;li&gt;Merkle structure기반​&lt;/li&gt;
+  &lt;li&gt;128bit hash 값​&lt;/li&gt;
+  &lt;li&gt;512 bit block size ​&lt;/li&gt;
+  &lt;li&gt;MD4는 32bit CPU 전용 (MS)​&lt;/li&gt;
+  &lt;li&gt;MD5는 SHA1등 최신 해시들의 기초가됨​&lt;/li&gt;
+  &lt;li&gt;2005 강한 충돌 내성 깨짐&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;SHA (Secure Hash Algorithm)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;NIST 1993​&lt;/li&gt;
+  &lt;li&gt;Merkle structure기반​&lt;/li&gt;
+  &lt;li&gt;SHA0,1은 160bit hash 값, SHA2는 224~512bit​&lt;/li&gt;
+  &lt;li&gt;512 bit block size ​&lt;/li&gt;
+  &lt;li&gt;최대 2^64-1 bit 메시지처리​&lt;/li&gt;
+  &lt;li&gt;가장 많이 사용​&lt;/li&gt;
+  &lt;li&gt;2005 강한 충돌 내성 깨짐&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc04.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;위 그림은 Merkle structure의 예시이다.&lt;br /&gt;
+MD, SHA 두가지 모두 Merkle structure기반인데 이것은
+Message를 block으로 나누어서 고정된 길이의 입력값을 받아들여 고정된 길이로 출력하는 압축함수를 반복 사용하여 긴 길이의 입력을 처리할 수 있는 해쉬 함수로 학대하여 설계하는 방식이다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Hash attack&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;같은 해시값을 갖는 다른 입력값을 찾아낸다​&lt;/li&gt;
+  &lt;li&gt;예를 들면, (ID, PWD)값은 해시값으로 저장되어 있다.​&lt;/li&gt;
+  &lt;li&gt;만일 같은 해시값을 갖는 (ID2, PWD2)를 찾는다면, (ID, PWD)로 로그인 가능​하다&lt;/li&gt;
+  &lt;li&gt;(ID, PWD), (ID2, PWD2)를 충돌쌍(collision pairs)라 한다​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="security" />
+      
+
+      
+        <summary type="html">Hash</summary>
+      
+
+      
+      
+    </entry>
+  
+</feed>

@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/author/lee989898/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-10-22T18:30:36+09:00</updated>
+  <updated>2021-10-23T22:15:03+09:00</updated>
   <id>https://lee989898.github.io/author/lee989898/feed.xml</id>
 
   
@@ -32,18 +32,495 @@
 
   
     <entry>
+      <title type="html">Hash</title>
+      <link href="https://lee989898.github.io/sc-01" rel="alternate" type="text/html" title="Hash" />
+      <published>2021-10-23T01:06:00+09:00</published>
+      <updated>2021-10-23T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc-01</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-01">&lt;h3 id=&quot;hash&quot;&gt;&lt;strong&gt;Hash&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Hash와 관련된 Key Concepts인 Integrity와 Authentication을 살펴보자&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Integrity&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;무결성&lt;/li&gt;
+  &lt;li&gt;원본 그대로임을 보장&lt;/li&gt;
+  &lt;li&gt;변조가 없다는 것 혹은 변경이 있었음을 알게 됨&lt;/li&gt;
+  &lt;li&gt;주요 공격: modification&lt;/li&gt;
+  &lt;li&gt;Integrity를 지키기 위한 Solution : hash&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Authentication&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;인증&lt;/li&gt;
+  &lt;li&gt;송수신자 서로간의 신원 확인&lt;/li&gt;
+  &lt;li&gt;주요 공격 : impersonation&lt;/li&gt;
+  &lt;li&gt;Authentication을 지키기 위환 solution : 전자서명, 공인인증서&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Hash Functions&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;임의의 긴 입력 값을 적절하게 처리하여 고정된 길이의 짧은 값을 출력하는 함수&lt;/li&gt;
+  &lt;li&gt;Message Authentication Code로 무결성 제공&lt;/li&gt;
+  &lt;li&gt;전자 서명으로 sender authentication 제공&lt;/li&gt;
+  &lt;li&gt;공인인증서, 가상화폐 등에 사용&lt;/li&gt;
+  &lt;li&gt;컴퓨터보안에서 대표적인 hash function은 MD2,4,5 SHA1, HAS160&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;http://www.miraclesalad.com/webtools/md5.php&quot;&gt;http://www.miraclesalad.com/webtools/md5.php&lt;/a&gt;&lt;br /&gt;
+위 사이트에서 임의의ㅣ 입력값에 대한 해쉬값을 관찰할 수 있다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;해쉬의 특징으로는 대표적으로 3가지가 있다.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;입력길이에 상관없이 출력길이가 일정&lt;/li&gt;
+  &lt;li&gt;조금이라도 입력값이 다르면 출력값은 완전히 다름&lt;/li&gt;
+  &lt;li&gt;revers가 어렵다(일방향성)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;위 성질중 integrity는 2번에 의해서 보장된다.&lt;br /&gt;
+Encrypt/decrypt와의 차이점은 3번이다. 복호화가 어렵기 때문이다.&lt;/p&gt;
+
+&lt;p&gt;예를 들어보자 h(x): x/23해서 소수점 7~10자리 수를 추출&lt;br /&gt;
+h(345689) = xx.95652177391&lt;br /&gt;
+출력값은 일정하나, reverse는 불가능하다.&lt;/p&gt;
+
+&lt;p&gt;그러나 h(232.8395049993) = 7391 처럼 다른 값을 넣었음에도 값이 같은 일명 collision이 일어날 수 있다.&lt;br /&gt;
+Collison은 서로 다른 입력값이 같은 해시값을 계산하는 것을 의미한다.&lt;br /&gt;
+충동저항성은 collision이 일어날 확률이 작음을 의미한다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;MAC&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;메시지 무결성: 변경되지 않은 원본이 맞음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc01.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;메시지와 해쉬값을 붙어서 보낸다.&lt;br /&gt;
+받는사람은 비교해서 같으면 원본 다르면 원본이 아닌걸 알 수 있다.&lt;br /&gt;
+하지만 여기서 sender authenticationd은 제공되지 않는다.&lt;br /&gt;
+Digital Signature에서 이문제를 해결한다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Digital Signature&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;무결성과 인증을 동시에 제공&lt;/li&gt;
+  &lt;li&gt;키를 사용한다(키를 모르는 사용자는 생성불가)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc02.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;비교하여 같으면 변조되지 않고 보낸사람을 인증해준다.&lt;br /&gt;
+하지만 mac도 한계가 있는데 제 3자에 대한 sender authentication이 불가능 하다.&lt;br /&gt;
+키를 모르면 인증을 못하기 때문이다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Replay Attack&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc03.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;위 그림은 MAC 공격방법이다.&lt;br /&gt;
+Attacker는 고객이 보낸 똑같은 패킷을 복사하여 고객으로 위장하는 공격 방법이다.&lt;br /&gt;
+이러한 공격을 막는 방법은 패킷에 추가정보로 시간을 알려주는 time stamp를 넣어 해결할 수 있다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;대표적인 해쉬 함수로는 두가지 계열이 있는데 MD와 SHA 계열이다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;MD (Message Digest)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;MD2,4,5,6​&lt;/li&gt;
+  &lt;li&gt;Ron Rivest (RSA), 1990~92​&lt;/li&gt;
+  &lt;li&gt;Merkle structure기반​&lt;/li&gt;
+  &lt;li&gt;128bit hash 값​&lt;/li&gt;
+  &lt;li&gt;512 bit block size ​&lt;/li&gt;
+  &lt;li&gt;MD4는 32bit CPU 전용 (MS)​&lt;/li&gt;
+  &lt;li&gt;MD5는 SHA1등 최신 해시들의 기초가됨​&lt;/li&gt;
+  &lt;li&gt;2005 강한 충돌 내성 깨짐&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;SHA (Secure Hash Algorithm)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;NIST 1993​&lt;/li&gt;
+  &lt;li&gt;Merkle structure기반​&lt;/li&gt;
+  &lt;li&gt;SHA0,1은 160bit hash 값, SHA2는 224~512bit​&lt;/li&gt;
+  &lt;li&gt;512 bit block size ​&lt;/li&gt;
+  &lt;li&gt;최대 2^64-1 bit 메시지처리​&lt;/li&gt;
+  &lt;li&gt;가장 많이 사용​&lt;/li&gt;
+  &lt;li&gt;2005 강한 충돌 내성 깨짐&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc04.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;위 그림은 Merkle structure의 예시이다.&lt;br /&gt;
+MD, SHA 두가지 모두 Merkle structure기반인데 이것은
+Message를 block으로 나누어서 고정된 길이의 입력값을 받아들여 고정된 길이로 출력하는 압축함수를 반복 사용하여 긴 길이의 입력을 처리할 수 있는 해쉬 함수로 학대하여 설계하는 방식이다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Hash attack&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;같은 해시값을 갖는 다른 입력값을 찾아낸다​&lt;/li&gt;
+  &lt;li&gt;예를 들면, (ID, PWD)값은 해시값으로 저장되어 있다.​&lt;/li&gt;
+  &lt;li&gt;만일 같은 해시값을 갖는 (ID2, PWD2)를 찾는다면, (ID, PWD)로 로그인 가능​하다&lt;/li&gt;
+  &lt;li&gt;(ID, PWD), (ID2, PWD2)를 충돌쌍(collision pairs)라 한다​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="security" />
+      
+
+      
+        <summary type="html">Hash</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">컨트롤 스트럭처</title>
+      <link href="https://lee989898.github.io/pl-15" rel="alternate" type="text/html" title="컨트롤 스트럭처" />
+      <published>2021-10-22T19:18:00+09:00</published>
+      <updated>2021-10-22T19:18:00+09:00</updated>
+      <id>https://lee989898.github.io/pl-15</id>
+      <content type="html" xml:base="https://lee989898.github.io/pl-15">&lt;h3 id=&quot;컨트롤-스트럭처&quot;&gt;&lt;strong&gt;컨트롤 스트럭처&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;프로그램의 컨트롤 스트럭처에는 3가지가 있다.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;sequence(begin-end)&lt;/li&gt;
+  &lt;li&gt;selection(if-else, case)&lt;/li&gt;
+  &lt;li&gt;iteration(loop)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;각 컨트롤 스트럭처는 여러 개의 문장으로 구성된다. ​&lt;/p&gt;
+
+&lt;p&gt;스트럭처는 여러 문장의 묶음으로, ​
+실행 제어 방법에 따라 각각 키워드(begin, if, while,…)를 포함한다&lt;/p&gt;
+
+&lt;p&gt;여기서 컨트롤 스트럭처의 if, while 문을 제어문이라고 하고, ​
+제어문의 실행 결과에 따라 실행되는 문장을 실행문이라고 한다. ​&lt;/p&gt;
+
+&lt;p&gt;시퀀스는 순차적으로 실행되는 문장들의 연속을 말하며, ​
+실행 제어가 순차적이라서 시작과 끝만 명시하면 된다.&lt;/p&gt;
+
+&lt;p&gt;Selection은 제어문이 참이냐 거짓이냐에 따라 실행문이 다르며,&lt;br /&gt;
+하나의 selection 스트럭처에 제어문과 실행문을 여럿 포함하기도 한다. ​&lt;/p&gt;
+
+&lt;p&gt;Iteration도 제어문과 실행문의 반복으로 구성되는데,&lt;br /&gt;
+for, while, repeat 등 목적에 따라 그 신택스와 시맨틱스가 다양하다. ​&lt;/p&gt;
+
+&lt;p&gt;프로그래머는 이들 컨트롤 스트럭처를 사용하여 쉽게 프로그램을 구조화한다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;프로그램은 나름의 로직을 갖고 있어서, 이에 따른 실행 제어(flow control)가 필요하다. ​&lt;/p&gt;
+
+&lt;p&gt;명령형 프로그램에서 계산은 다음과 같이 진행된다.&lt;br /&gt;
+변수를 읽고 연산자를 실행하여 표현식을 계산하여, ​
+변수에 결과 값을 부여한다.&lt;br /&gt;
+또, 여러 경로 중에서 선택하여 실행을 제어하거나, ​반복 실행한다. ​&lt;/p&gt;
+
+&lt;p&gt;컨트롤 스트럭처는 제어문과 실행문으로 구성된다. ​
+이 표현은 문제가 있다. 시퀀스는 제어문이 없다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;selection-statements&quot;&gt;&lt;strong&gt;Selection Statements&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Selection문은 2개 이상의 실행 경로 중에서 선택하는 것이다. ​&lt;/p&gt;
+
+&lt;p&gt;두가지 범주가 있는데, 둘 중에 하나 선택하는 것과 여럿 중에 선택하는 것이 있다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;If Statements&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;If문의 일반적 형식은 if 제어 표현식 then 실행문1 else 실행문2 이다. ​&lt;/p&gt;
+
+&lt;p&gt;제어 표현식은 산술식이거나 부울식이다. ​&lt;/p&gt;
+
+&lt;p&gt;프로그래밍 언어에서 실행문1과 실행문2는 단순문이거나 복합문이다. ​&lt;/p&gt;
+
+&lt;p&gt;C, C++에서 복합문을 { }로 둘러싼다.&lt;br /&gt;
+펄에서 모든 실행문을 { }로 구분하고, 파이썬에서는 indentation으로 구분한다.&lt;/p&gt;
+
+&lt;p&gt;자바에서는 중첩 if문을 허용한다.&lt;br /&gt;
+dangling else 문제가 발생할 수 있으니 If에 대응되는 else가 어느 것인지 살펴가며 신중하게 써야 한다.&lt;br /&gt;
+자바를 비롯한 대부분의 언어에서는 else를 가장 가까운 if에 대응시킨다.  ​&lt;/p&gt;
+
+&lt;p&gt;C, C++에서는 가장 가까운 if에 else를 대응시키는 것의 대안으로서,&lt;br /&gt;
+{}로 둘러싼 복합문을 사용할 수도 있다. ​&lt;/p&gt;
+
+&lt;p&gt;​복합문 대신에 end를 사용하기도 한다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Switch Statements&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;​Switch는 여러 대안 중에 하나 선택하여 실행할 경우이다. ​&lt;/p&gt;
+
+&lt;p&gt;전형적인 형식은 아래와 같다 ​&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Switch 표현식 {​
+
+case 상수 표현식1 : 실행문1   ​
+
+…​
+
+default … }이다. 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;스위치문의 case는 동시에 상수 표현식을 비교하는 것이 아니라 상수 표현식을 순차적으로 비교하여 끝까지 실행한다. 
+ ​이것을 피하려면, break 사용해야 한다.&lt;/p&gt;
+
+&lt;p&gt;C에서는 스위치문의 제어 표현식으로 정수 타입만 허용한다.&lt;br /&gt;
+ 실행문은 시퀀스, 블록, 복합문을 모두 허용한다.&lt;br /&gt;
+ 조건이 맞으면 여러 case가 실행가능하다.&lt;br /&gt;
+ 디폴트시에, ​If문에 의한 제어가 가능하다.&lt;/p&gt;
+
+&lt;p&gt;파이썬에서는 스위치 대신에 if elif를 사용할 수 있다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;iterative-statements&quot;&gt;&lt;strong&gt;Iterative Statements&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Iteration, recursion은 문장이나 복합문의 반복 실행한다.​ &lt;br /&gt;
+ 카운터로 제어하는 counter-controlled loop은 반복문의 실행 횟수를 세는 변수를 갖는다. ​초기값, 종료값, 증분(반복할 때마다 더해지는 값)&lt;/p&gt;
+
+&lt;p&gt;설계할 때 고려사항은 Loop 변수의 유형과 스코프를 정의해야 하며,&lt;br /&gt;
+Loop에서 변화하는 Loop변수의 값이 룹 제어에 영향을 미치는지 확인해야 한다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;for Statenebts&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;C의 for 반복문을 보면, ​&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;for ([expr_1] ; [expr_2] ; [expr_3]) ​
+
+loop body… 와 같습니다. ​
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;다음과 같이 카운터 변수가 여럿일 수 있고, ​
+부울식을 포함할 수 있다. ​&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;For (count1 = 0, count2 = 1.0;​
+     count1 &amp;lt;= 10 &amp;amp;&amp;amp; count2 &amp;lt;= 100.0;​
+    sum = ++count1 + count2, count2 *= 2); ​
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;자바에서 컨트롤 표현식은 부울식이어야 한다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;while Loops&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;​While Loop은 부울식에 의해 제어된다.&lt;br /&gt;
+Ctrl_expr는 부울식으로, Loop의 맨앞에 또는 맨뒤에 위치한다. ​&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;while (ctrl_expr) ​
+loop body… ​
+
+do ​
+loop body ​
+while (ctrl_expr) ​ ​ 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;User-Located Loop Control&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Break 처럼 loop 컨트롤이 loop body의 중간에 위치하기도 한다.&lt;br /&gt;
+이것을 user-located loop control이라고 부른다.&lt;br /&gt;
+Break 외에도 continue가 있다.&lt;/p&gt;
+
+&lt;p&gt;자료구조를 구성하는 요소에 의해 제어되는 반복 처리가 있다. ​
+Iterator를 호출하면, 자료구조에서 다음 요소를 반환해준다. ​
+이밖에 for에서도 자료구조에 의한 반복처리를 제어할 수 있다.  ​&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Unconditional Branching&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;앞에서 언급했듯이 goto는 가독성 문제를 일으킨다.&lt;br /&gt;
+자바는 goto가 없다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;guarded-commands&quot;&gt;&lt;strong&gt;Guarded Commands&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;각 문장 앞에 부울식이 있는 것을 가디드 코멘드라고 한다. &lt;br /&gt;
+즉 가디드 코멘드는 ​selection 문장의 각 라인이 ​부울식과 ‘하나의 문장 또는 문장의 시퀀스＇로 구성된다. ​&lt;/p&gt;
+
+&lt;p&gt;이렇게 하는 목적은 ​프로그램 개발 중에도 프로그램의 correctness(올바름)를 증명하기 위한 것으로, ​Concurrent 프로그래밍의 기초가 된다. ​&lt;/p&gt;
+
+&lt;p&gt;기존의 언어는 개발(코딩)을 마치고 테스트를 통해 프로그램의 올바름을 확인한다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Selection Guarded Command&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Selection의 가디드 코멘드는 ​If 안의 각 문장마다 부울식이 있다. ​&lt;/p&gt;
+
+&lt;p&gt;이 가디드 코멘드의 시맨틱은 다음과 같다.&lt;br /&gt;
+부울식을 계산해서, ​나 이상이 참이면, 그 중에 아무거나 선택한다.&lt;br /&gt;
+아무것도 참이 아니면, 실행 오류로 처리한다.​&lt;br /&gt;
+프로그램의 correctness는 선택된 문장에 종속되지 않는다.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;if x &amp;gt;= y -&amp;gt; max := x​
+[] y &amp;gt;= x =&amp;gt; max := y​
+fi
+
+if (x &amp;gt;= y)​  
+    max = x;​
+else​
+    max = y;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;X, y가 같을 때, 전자는 아무거나 선택되어 수행되나, ​
+후자는 max=x가 수행됨.&lt;br /&gt;
+따라서, non-deterministic vs. deterministic&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Loop Guarded Command&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;do &amp;lt;Boolean&amp;gt; -&amp;gt; &amp;lt;statement&amp;gt;​
+[] &amp;lt;Boolean&amp;gt; -&amp;gt; &amp;lt;statement&amp;gt;​
+...​
+[] &amp;lt;Boolean&amp;gt; -&amp;gt; &amp;lt;statement&amp;gt;​
+od​
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Loop 가디드 코멘드에서, ​Do 다음에 나오는 모든 문장의 앞에 부울식이 있다. ​
+​
+룹 가디드 코멘드의 시맥틱스는 다음과 같다.&lt;br /&gt;
+부울식을 계산하고, ​
+하나 이상이 참이면, ​
+아무거나 선택하여 룹을 시작한다.&lt;br /&gt;
+아무것도 참이 아니면, 룹에서 나온다.&lt;/p&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="pl" />
+      
+
+      
+        <summary type="html">컨트롤 스트럭처</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">복잡한 데이터 타입</title>
       <link href="https://lee989898.github.io/pl-13" rel="alternate" type="text/html" title="복잡한 데이터 타입" />
       <published>2021-10-14T19:18:00+09:00</published>
       <updated>2021-10-14T19:18:00+09:00</updated>
       <id>https://lee989898.github.io/pl-13</id>
-      <content type="html" xml:base="https://lee989898.github.io/pl-13">&lt;h1 id=&quot;제-13장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 13장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+      <content type="html" xml:base="https://lee989898.github.io/pl-13">&lt;h3 id=&quot;복잡한-데이터-타입&quot;&gt;&lt;strong&gt;복잡한 데이터 타입&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;복잡한 데이터 타입&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
 
 &lt;p&gt;배열과 레코드 타입을 살펴보자&lt;/p&gt;
 
@@ -180,7 +657,7 @@ j=&lt;/em&gt;ptr는 ptr의 값이 가리키는 주소에 저장된 값을 ​
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl35.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl35.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -252,7 +729,7 @@ j=&lt;/em&gt;ptr는 ptr의 값이 가리키는 주소에 저장된 값을 ​
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl36.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl36.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -283,7 +760,7 @@ Q는 결국 아무것도 가리키지 않는 허상 포인터이다.&lt;/p&gt;
       
 
       
-        <summary type="html">제 13장 프로그래밍 언어</summary>
+        <summary type="html">복잡한 데이터 타입</summary>
       
 
       
@@ -296,13 +773,9 @@ Q는 결국 아무것도 가리키지 않는 허상 포인터이다.&lt;/p&gt;
       <published>2021-10-14T19:18:00+09:00</published>
       <updated>2021-10-14T19:18:00+09:00</updated>
       <id>https://lee989898.github.io/pl-14</id>
-      <content type="html" xml:base="https://lee989898.github.io/pl-14">&lt;h1 id=&quot;제-14장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 14장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+      <content type="html" xml:base="https://lee989898.github.io/pl-14">&lt;h3 id=&quot;표현식과-대입문&quot;&gt;&lt;strong&gt;표현식과 대입문&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;표현식과 대입문&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
 
 &lt;p&gt;표현식(expression)은 프로그래밍 언어에서 계산을 상술
 (상세히 서술)하는 수단이다. ​
@@ -374,7 +847,7 @@ else average = sum / count ​
 
 ---
 
- ​&lt;img src=&quot;/assets/built/images/pl/pl37.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;
+ ​&lt;img src=&quot;/assets/built/images/pl/pl37.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;
 
 ---
 
@@ -567,7 +1040,7 @@ val fruit = apples + oranges;에서 ​
       
 
       
-        <summary type="html">제 14장 프로그래밍 언어</summary>
+        <summary type="html">표현식과 대입문</summary>
       
 
       
@@ -580,13 +1053,9 @@ val fruit = apples + oranges;에서 ​
       <published>2021-10-07T19:18:00+09:00</published>
       <updated>2021-10-07T19:18:00+09:00</updated>
       <id>https://lee989898.github.io/pl-12</id>
-      <content type="html" xml:base="https://lee989898.github.io/pl-12">&lt;h1 id=&quot;제-12장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 12장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+      <content type="html" xml:base="https://lee989898.github.io/pl-12">&lt;h3 id=&quot;데이터-타입&quot;&gt;&lt;strong&gt;데이터 타입&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;데이터 타입&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
 
 &lt;p&gt;선언문 int n으로부터 n에 대해 무엇을 알 수 있을까? ​&lt;/p&gt;
 &lt;ul&gt;
@@ -726,7 +1195,7 @@ Escapes는 각 키마다 아스키 코드의 컨트롤 문자가
       
 
       
-        <summary type="html">제 12장 프로그래밍 언어</summary>
+        <summary type="html">데이터 타입</summary>
       
 
       
@@ -739,7 +1208,9 @@ Escapes는 각 키마다 아스키 코드의 컨트롤 문자가
       <published>2021-10-05T01:09:00+09:00</published>
       <updated>2021-10-05T01:09:00+09:00</updated>
       <id>https://lee989898.github.io/algorithm-04</id>
-      <content type="html" xml:base="https://lee989898.github.io/algorithm-04">&lt;h3 id=&quot;동적-계획&quot;&gt;동적 계획&lt;/h3&gt;
+      <content type="html" xml:base="https://lee989898.github.io/algorithm-04">&lt;h3 id=&quot;동적-계획&quot;&gt;&lt;strong&gt;동적 계획&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
 
 &lt;ul&gt;
   &lt;li&gt;분할 정복과 같이 주어진 문제를 더 작은 부분 문제들로
@@ -750,26 +1221,28 @@ Escapes는 각 키마다 아스키 코드의 컨트롤 문자가
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag07.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag07.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
 &lt;p&gt;위 그림은 분할 정복과 동적 계획의 분할 과정의 예이다.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;동적 계획 전략
-    &lt;ol&gt;
-      &lt;li&gt;문제를 더 작은 부분 문제들로 분할한다.&lt;/li&gt;
-      &lt;li&gt;작은 부분 문제들을 해결하고 해들을 표에 저장한다.&lt;/li&gt;
-      &lt;li&gt;나중에 다른 (부분) 문제를 해결할 때 이미 해결한 부분 문제가 나오면
-다시 해결하는 대신에 표에서 해를 찾아 사용한다.&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
+  &lt;li&gt;동적 계획 전략&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;문제를 더 작은 부분 문제들로 분할한다.&lt;/li&gt;
+  &lt;li&gt;작은 부분 문제들을 해결하고 해들을 표에 저장한다.&lt;/li&gt;
+  &lt;li&gt;나중에 다른 (부분) 문제를 해결할 때 이미 해결한 부분 문제가 나오면
+다시 해결하는 대신에 표에서 해를 찾아 사용한다.&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;hr /&gt;
 
-&lt;h3 id=&quot;막대-자르기&quot;&gt;막대 자르기&lt;/h3&gt;
+&lt;h3 id=&quot;막대-자르기&quot;&gt;&lt;strong&gt;막대 자르기&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
 
 &lt;ul&gt;
   &lt;li&gt;막대의 길이는 n(양의 정수)이다.&lt;/li&gt;
@@ -791,7 +1264,7 @@ Escapes는 각 키마다 아스키 코드의 컨트롤 문자가
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag08.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag08.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -839,7 +1312,7 @@ else{
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag09.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag09.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -872,11 +1345,13 @@ else{
 
 &lt;p&gt;시간복잡도: 박오(n의2제곱)&lt;/p&gt;
 
-&lt;h3 id=&quot;모든-쌍-최단-경로-찾기&quot;&gt;모든 쌍 최단 경로 찾기&lt;/h3&gt;
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;모든-쌍-최단-경로-찾기&quot;&gt;&lt;strong&gt;모든 쌍 최단 경로 찾기&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag10.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag10.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -907,7 +1382,7 @@ else{
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag11.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag11.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -965,13 +1440,9 @@ for(k = 1; k &amp;lt;= n; k++){
       <published>2021-09-30T19:18:00+09:00</published>
       <updated>2021-09-30T19:18:00+09:00</updated>
       <id>https://lee989898.github.io/pl-11</id>
-      <content type="html" xml:base="https://lee989898.github.io/pl-11">&lt;h1 id=&quot;제-11장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 11장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+      <content type="html" xml:base="https://lee989898.github.io/pl-11">&lt;h3 id=&quot;변수와-시맨틱스&quot;&gt;&lt;strong&gt;변수와 시맨틱스&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;변수와 시맨틱스&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
 
 &lt;p&gt;변수는 변수명, 데이터 타입, 값, 메모리 주소 등의 속성을 갖는다. ​
 이들 속성을 변수에 결합하는 것을 바인딩이라고 한다. ​
@@ -1027,7 +1498,7 @@ for(k = 1; k &amp;lt;= n; k++){
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl31.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl31.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;—​&lt;/p&gt;
 
@@ -1181,7 +1652,7 @@ Int는 real로 자동 변환되는데, 이를 coercion(자동 변환)이라고 �
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl32.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl32.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1261,7 +1732,7 @@ Int는 real로 자동 변환되는데, 이를 coercion(자동 변환)이라고 �
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl33.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl33.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1337,7 +1808,7 @@ nter)/delete(pointer)가 있다. ​&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl29.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl29.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1355,7 +1826,7 @@ nter)/delete(pointer)가 있다. ​&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl30.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl30.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1396,7 +1867,7 @@ Code는 프로그램이 저장된다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl34.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl34.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1440,81 +1911,7 @@ C에서도 지원하지 않는다. ​
       
 
       
-        <summary type="html">제 11장 프로그래밍 언어</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">android 시작</title>
-      <link href="https://lee989898.github.io/android-01" rel="alternate" type="text/html" title="android 시작" />
-      <published>2021-09-24T01:07:00+09:00</published>
-      <updated>2021-09-24T01:07:00+09:00</updated>
-      <id>https://lee989898.github.io/android-01</id>
-      <content type="html" xml:base="https://lee989898.github.io/android-01">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Android 공부는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
-&lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./android-01&quot;&gt;Android 시작&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./android-02&quot;&gt;Android 1강 &lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;android 시작입니다.&lt;/p&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="android" />
-      
-
-      
-        <summary type="html">Android 공부는 여러 절로 구성되어 있습니다. Android 시작 Android 1강</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">git 시작</title>
-      <link href="https://lee989898.github.io/git-01" rel="alternate" type="text/html" title="git 시작" />
-      <published>2021-09-24T01:06:00+09:00</published>
-      <updated>2021-09-24T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/git-01</id>
-      <content type="html" xml:base="https://lee989898.github.io/git-01">&lt;p&gt;git 시작입니다.&lt;/p&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="git" />
-      
-
-      
-        <summary type="html">git 시작입니다.</summary>
+        <summary type="html">변수와 시맨틱스</summary>
       
 
       
@@ -1586,7 +1983,7 @@ C에서도 지원하지 않는다. ​
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl21.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl21.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1610,7 +2007,7 @@ C에서도 지원하지 않는다. ​
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl22.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl22.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1650,7 +2047,7 @@ attributed parse tree(속성이 부여된 파스 트리)를 보여준다.  ​&l
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl23.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl23.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1775,7 +2172,7 @@ gory이며, 이들을 합친 것을 토큰이라고 한다. ​&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl24.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl24.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1795,7 +2192,7 @@ gory이며, 이들을 합친 것을 토큰이라고 한다. ​&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl25.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl25.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1838,7 +2235,7 @@ reserved word, identifier 등의 토큰을 긴 스트링 중의 서
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl26.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl26.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1972,7 +2369,7 @@ R은 rightmost derivation을 생성한다는 것을 나타낸다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl27.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl27.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -2054,7 +2451,7 @@ a를 A(규칙의 LHS)로 교체한다.&lt;br /&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl28.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl28.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -2130,9 +2527,13 @@ a를 A(규칙의 LHS)로 교체한다.&lt;br /&gt;
       <published>2021-09-21T01:09:00+09:00</published>
       <updated>2021-09-21T01:09:00+09:00</updated>
       <id>https://lee989898.github.io/algorithm-03</id>
-      <content type="html" xml:base="https://lee989898.github.io/algorithm-03">&lt;ul&gt;
-  &lt;li&gt;분할 정복 설계 전략&lt;/li&gt;
-&lt;/ul&gt;
+      <content type="html" xml:base="https://lee989898.github.io/algorithm-03">&lt;h3 id=&quot;분할-정복&quot;&gt;&lt;strong&gt;분할 정복&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;분할 정복 설계 전략&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;ol&gt;
   &lt;li&gt;분할 단계
@@ -2155,9 +2556,13 @@ a를 A(규칙의 LHS)로 교체한다.&lt;br /&gt;
 
 &lt;hr /&gt;
 
-&lt;h3 id=&quot;최댓값과-최솟값-찾기&quot;&gt;최댓값과 최솟값 찾기&lt;/h3&gt;
+&lt;h3 id=&quot;최댓값과-최솟값-찾기&quot;&gt;&lt;strong&gt;최댓값과 최솟값 찾기&lt;/strong&gt;&lt;/h3&gt;
 
-&lt;p&gt;문제: 크기가 n인 배열내의 요소들 중 최댓값과 최솟값을 찾는다.&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;문제: 크기가 n인 배열내의 요소들 중 최댓값과 최솟값을 찾는다.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;ul&gt;
   &lt;li&gt;쉬운 전략
@@ -2207,7 +2612,7 @@ a를 A(규칙의 LHS)로 교체한다.&lt;br /&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag04.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag04.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -2215,7 +2620,9 @@ a를 A(규칙의 LHS)로 교체한다.&lt;br /&gt;
 
 &lt;hr /&gt;
 
-&lt;h3 id=&quot;합병-정렬&quot;&gt;합병 정렬&lt;/h3&gt;
+&lt;h3 id=&quot;합병-정렬&quot;&gt;&lt;strong&gt;합병 정렬&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
 
 &lt;ul&gt;
   &lt;li&gt;쉬운 전략
@@ -2240,7 +2647,7 @@ a를 A(규칙의 LHS)로 교체한다.&lt;br /&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag05.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag05.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -2310,7 +2717,9 @@ while(size &amp;lt; n){
 
 &lt;hr /&gt;
 
-&lt;h3 id=&quot;빠른-정렬&quot;&gt;빠른 정렬&lt;/h3&gt;
+&lt;h3 id=&quot;빠른-정렬&quot;&gt;&lt;strong&gt;빠른 정렬&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
 
 &lt;p&gt;절대적으로 가장 빠른 정렬 알고리즘은 아니지만 평균적으로 매우 효율적이다&lt;/p&gt;
 
@@ -2319,24 +2728,22 @@ while(size &amp;lt; n){
 &lt;p&gt;최악 시간복잡도: 빅오(n의2제곱)&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;기본 아이디어
-    &lt;ol&gt;
-      &lt;li&gt;배열을 두 부분으로 분할한다.&lt;/li&gt;
-    &lt;/ol&gt;
+  &lt;li&gt;기본 아이디어&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;배열을 두 부분으로 분할한다.
     &lt;ul&gt;
       &lt;li&gt;배열내의 한 기준 요소보다 작거나 같은 요소들은 앞부분에 놓는다.&lt;/li&gt;
-      &lt;li&gt;기준 요소보다 큰 요소들은 모두 뒷부분에 놓는다.
-        &lt;ol&gt;
-          &lt;li&gt;각 분할된 부분을 재귀적으로 정렬한다.&lt;/li&gt;
-        &lt;/ol&gt;
-      &lt;/li&gt;
+      &lt;li&gt;기준 요소보다 큰 요소들은 모두 뒷부분에 놓는다.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;
+  &lt;li&gt;각 분할된 부분을 재귀적으로 정렬한다.&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag06.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag06.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -2380,10 +2787,14 @@ while( i &amp;lt;= j){
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;분할-정복이-부적절한-경우&quot;&gt;분할 정복이 부적절한 경우&lt;/h3&gt;
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;분할-정복이-부적절한-경우&quot;&gt;&lt;strong&gt;분할 정복이 부적절한 경우&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
 
 &lt;p&gt;문제가 분할될 때만다 분할된 부분 문제들의 입력 크기의 합이 분할되기 전의 입력
-크기보다 매우 커지는 겨우&lt;/p&gt;
+크기보다 매우 커지는 경우&lt;/p&gt;
 
 &lt;hr /&gt;</content>
 
@@ -2406,7 +2817,7 @@ while( i &amp;lt;= j){
       
 
       
-        <summary type="html">분할 정복 설계 전략</summary>
+        <summary type="html">분할 정복</summary>
       
 
       

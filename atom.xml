@@ -8,9 +8,39 @@
     
       
       <item>
+        <title>Hash</title>
+        
+          <description>&lt;h3 id=&quot;hash&quot;&gt;&lt;strong&gt;Hash&lt;/strong&gt;&lt;/h3&gt;
+
+</description>
+        
+        <pubDate>Sat, 23 Oct 2021 01:06:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/sc-01</link>
+        <guid isPermaLink="true">https://lee989898.github.io/sc-01</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>컨트롤 스트럭처</title>
+        
+          <description>&lt;h3 id=&quot;컨트롤-스트럭처&quot;&gt;&lt;strong&gt;컨트롤 스트럭처&lt;/strong&gt;&lt;/h3&gt;
+
+</description>
+        
+        <pubDate>Fri, 22 Oct 2021 19:18:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/pl-15</link>
+        <guid isPermaLink="true">https://lee989898.github.io/pl-15</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>표현식과 대입문</title>
         
-          <description>&lt;h1 id=&quot;제-14장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 14장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+          <description>&lt;h3 id=&quot;표현식과-대입문&quot;&gt;&lt;strong&gt;표현식과 대입문&lt;/strong&gt;&lt;/h3&gt;
 
 </description>
         
@@ -25,7 +55,7 @@
       <item>
         <title>복잡한 데이터 타입</title>
         
-          <description>&lt;h1 id=&quot;제-13장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 13장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+          <description>&lt;h3 id=&quot;복잡한-데이터-타입&quot;&gt;&lt;strong&gt;복잡한 데이터 타입&lt;/strong&gt;&lt;/h3&gt;
 
 </description>
         
@@ -40,7 +70,7 @@
       <item>
         <title>데이터 타입</title>
         
-          <description>&lt;h1 id=&quot;제-12장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 12장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+          <description>&lt;h3 id=&quot;데이터-타입&quot;&gt;&lt;strong&gt;데이터 타입&lt;/strong&gt;&lt;/h3&gt;
 
 </description>
         
@@ -55,7 +85,7 @@
       <item>
         <title>동적 계획</title>
         
-          <description>&lt;h3 id=&quot;동적-계획&quot;&gt;동적 계획&lt;/h3&gt;
+          <description>&lt;h3 id=&quot;동적-계획&quot;&gt;&lt;strong&gt;동적 계획&lt;/strong&gt;&lt;/h3&gt;
 
 </description>
         
@@ -70,7 +100,7 @@
       <item>
         <title>변수와 시맨틱스</title>
         
-          <description>&lt;h1 id=&quot;제-11장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 11장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+          <description>&lt;h3 id=&quot;변수와-시맨틱스&quot;&gt;&lt;strong&gt;변수와 시맨틱스&lt;/strong&gt;&lt;/h3&gt;
 
 </description>
         
@@ -78,39 +108,6 @@
         <link>
         https://lee989898.github.io/pl-11</link>
         <guid isPermaLink="true">https://lee989898.github.io/pl-11</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>android 시작</title>
-        
-          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Android 공부는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
-&lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./android-01&quot;&gt;Android 시작&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./android-02&quot;&gt;Android 1강 &lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-</description>
-        
-        <pubDate>Fri, 24 Sep 2021 01:07:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/android-01</link>
-        <guid isPermaLink="true">https://lee989898.github.io/android-01</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>git 시작</title>
-        
-          <description>&lt;p&gt;git 시작입니다.&lt;/p&gt;
-</description>
-        
-        <pubDate>Fri, 24 Sep 2021 01:06:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/git-01</link>
-        <guid isPermaLink="true">https://lee989898.github.io/git-01</guid>
       </item>
       
     
@@ -148,9 +145,7 @@
       <item>
         <title>분할 정복</title>
         
-          <description>&lt;ul&gt;
-  &lt;li&gt;분할 정복 설계 전략&lt;/li&gt;
-&lt;/ul&gt;
+          <description>&lt;h3 id=&quot;분할-정복&quot;&gt;&lt;strong&gt;분할 정복&lt;/strong&gt;&lt;/h3&gt;
 
 </description>
         
@@ -195,7 +190,7 @@
       <item>
         <title>알고리즘의 효율성 분석</title>
         
-          <description>&lt;h3 id=&quot;알고리즘-분석-체계&quot;&gt;알고리즘 분석 체계&lt;/h3&gt;
+          <description>&lt;h3 id=&quot;알고리즘-분석-체계&quot;&gt;&lt;strong&gt;알고리즘 분석 체계&lt;/strong&gt;&lt;/h3&gt;
 
 </description>
         
@@ -300,7 +295,7 @@
       <item>
         <title>알고리즘</title>
         
-          <description>&lt;h3 id=&quot;알고리즘이란&quot;&gt;알고리즘이란?&lt;/h3&gt;
+          <description>&lt;h3 id=&quot;알고리즘&quot;&gt;&lt;strong&gt;알고리즘&lt;/strong&gt;&lt;/h3&gt;
 
 </description>
         
@@ -315,7 +310,7 @@
       <item>
         <title>클래스의 상속</title>
         
-          <description>&lt;h1 id=&quot;클래스의-상속&quot;&gt;클래스의 상속&lt;/h1&gt;
+          <description>&lt;h1 id=&quot;클래스의-상속&quot;&gt;&lt;strong&gt;클래스의 상속&lt;/strong&gt;&lt;/h1&gt;
 
 </description>
         
@@ -330,7 +325,7 @@
       <item>
         <title>클래스의 생성</title>
         
-          <description>&lt;h1 id=&quot;클래스의-생성&quot;&gt;클래스의 생성&lt;/h1&gt;
+          <description>&lt;h1 id=&quot;클래스의-생성&quot;&gt;&lt;strong&gt;클래스의 생성&lt;/strong&gt;&lt;/h1&gt;
 
 </description>
         
@@ -345,7 +340,7 @@
       <item>
         <title>클래스의 기본구조</title>
         
-          <description>&lt;h1 id=&quot;클래스의-기본구조&quot;&gt;클래스의 기본구조&lt;/h1&gt;
+          <description>&lt;h1 id=&quot;클래스의-기본구조&quot;&gt;&lt;strong&gt;클래스의 기본구조&lt;/strong&gt;&lt;/h1&gt;
 
 </description>
         
@@ -360,7 +355,7 @@
       <item>
         <title>흐름제어와 논리연산자</title>
         
-          <description>&lt;h1 id=&quot;흐름제어와-논리연산자&quot;&gt;흐름제어와 논리연산자&lt;/h1&gt;
+          <description>&lt;h1 id=&quot;흐름제어와-논리연산자&quot;&gt;&lt;strong&gt;흐름제어와 논리연산자&lt;/strong&gt;&lt;/h1&gt;
 
 </description>
         
@@ -375,7 +370,7 @@
       <item>
         <title>반복문과 증감연산자</title>
         
-          <description>&lt;h1 id=&quot;반복문과-증감연산자&quot;&gt;반복문과 증감연산자&lt;/h1&gt;
+          <description>&lt;h1 id=&quot;반복문과-증감연산자&quot;&gt;&lt;strong&gt;반복문과 증감연산자&lt;/strong&gt;&lt;/h1&gt;
 
 </description>
         
@@ -390,7 +385,7 @@
       <item>
         <title>조건문과 비교연산자</title>
         
-          <description>&lt;h1 id=&quot;조건문과-비교연산자&quot;&gt;조건문과 비교연산자&lt;/h1&gt;
+          <description>&lt;h1 id=&quot;조건문과-비교연산자&quot;&gt;&lt;strong&gt;조건문과 비교연산자&lt;/strong&gt;&lt;/h1&gt;
 
 </description>
         
@@ -405,7 +400,7 @@
       <item>
         <title>타입추론과 함수</title>
         
-          <description>&lt;h1 id=&quot;타입추론과-함수&quot;&gt;타입추론과 함수&lt;/h1&gt;
+          <description>&lt;h1 id=&quot;타입추론과-함수&quot;&gt;&lt;strong&gt;타입추론과 함수&lt;/strong&gt;&lt;/h1&gt;
 
 </description>
         
@@ -420,7 +415,7 @@
       <item>
         <title>형변환과 배열</title>
         
-          <description>&lt;h1 id=&quot;형변환과-배열&quot;&gt;형변환과 배열&lt;/h1&gt;
+          <description>&lt;h1 id=&quot;형변환과-배열&quot;&gt;&lt;strong&gt;형변환과 배열&lt;/strong&gt;&lt;/h1&gt;
 
 </description>
         
@@ -435,7 +430,7 @@
       <item>
         <title>변수와 자료형</title>
         
-          <description>&lt;h1 id=&quot;변수와-자료형&quot;&gt;변수와 자료형&lt;/h1&gt;
+          <description>&lt;h1 id=&quot;변수와-자료형&quot;&gt;&lt;strong&gt;변수와 자료형&lt;/strong&gt;&lt;/h1&gt;
 
 </description>
         
@@ -443,6 +438,37 @@
         <link>
         https://lee989898.github.io/kotlin-02</link>
         <guid isPermaLink="true">https://lee989898.github.io/kotlin-02</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>android 시작</title>
+        
+          <description>&lt;hr /&gt;
+</description>
+        
+        <pubDate>Mon, 02 Aug 2021 01:07:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/android-01</link>
+        <guid isPermaLink="true">https://lee989898.github.io/android-01</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Git 기초 명령어</title>
+        
+          <description>&lt;blockquote&gt;
+  &lt;p&gt;git –version&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        
+        <pubDate>Mon, 02 Aug 2021 01:06:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/git-01</link>
+        <guid isPermaLink="true">https://lee989898.github.io/git-01</guid>
       </item>
       
     

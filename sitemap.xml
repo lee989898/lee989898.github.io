@@ -8,6 +8,38 @@
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
+        <loc>https://lee989898.github.io/sc-01.html</loc>
+        
+        <lastmod>2021-10-23T01:06:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
+        <loc>https://lee989898.github.io/pl-15.html</loc>
+        
+        <lastmod>2021-10-22T19:18:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
         <loc>https://lee989898.github.io/pl-14.html</loc>
         
         <lastmod>2021-10-14T19:18:00+09:00</lastmod>
@@ -75,38 +107,6 @@
         <loc>https://lee989898.github.io/pl-11.html</loc>
         
         <lastmod>2021-09-30T19:18:00+09:00</lastmod>
-        
-
-        
-        <changefreq>weekly</changefreq>
-        
-
-        
-        <priority>0.5</priority>
-        
-
-    </url>
-    
-    <url>
-        <loc>https://lee989898.github.io/android-01.html</loc>
-        
-        <lastmod>2021-09-24T01:07:00+09:00</lastmod>
-        
-
-        
-        <changefreq>weekly</changefreq>
-        
-
-        
-        <priority>0.5</priority>
-        
-
-    </url>
-    
-    <url>
-        <loc>https://lee989898.github.io/git-01.html</loc>
-        
-        <lastmod>2021-09-24T01:06:00+09:00</lastmod>
         
 
         
@@ -459,6 +459,38 @@
         <loc>https://lee989898.github.io/kotlin-02.html</loc>
         
         <lastmod>2021-08-02T01:07:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
+        <loc>https://lee989898.github.io/android-01.html</loc>
+        
+        <lastmod>2021-08-02T01:07:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
+        <loc>https://lee989898.github.io/git-01.html</loc>
+        
+        <lastmod>2021-08-02T01:06:00+09:00</lastmod>
         
 
         

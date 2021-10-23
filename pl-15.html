@@ -11,7 +11,7 @@
 
 
 
-    <title>형변환과 배열</title>
+    <title>컨트롤 스트럭처</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -49,30 +49,30 @@
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="공부 블로그" />
     <link rel="shortcut icon" href="https://lee989898.github.io/assets/built/images/favicon.jpg" type="image/png" />
-    <link rel="canonical" href="https://lee989898.github.io/kotlin-03" />
+    <link rel="canonical" href="https://lee989898.github.io/pl-15" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="형변환과 배열" />
-    <meta property="og:description" content="형변환과 배열 형변환 형변환은 하나의 변수에 지정된 자료형을 호환되는 다른 자료형으로 변경하는 기능입니다 코틀린은 형변환시 발생할 수 있는 오류를 막기 위해 자동으로 형변환 해주는 암시적 형변환은 지원하지 않습니다 명시적 형변환은 변환될 자료형을 개발자가 직접 지정하는 것입니다 형변환 함수 toByte() toShort() toInt() toLong() toFloat() toDouble() toChar() fun main() { var a:" />
-    <meta property="og:url" content="https://lee989898.github.io/kotlin-03" />
-    <meta property="og:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
+    <meta property="og:title" content="컨트롤 스트럭처" />
+    <meta property="og:description" content="컨트롤 스트럭처 프로그램의 컨트롤 스트럭처에는 3가지가 있다. sequence(begin-end) selection(if-else, case) iteration(loop) 각 컨트롤 스트럭처는 여러 개의 문장으로 구성된다. ​ 스트럭처는 여러 문장의 묶음으로, ​ 실행 제어 방법에 따라 각각 키워드(begin, if, while,…)를 포함한다 여기서 컨트롤 스트럭처의 if, while 문을 제어문이라고 하고, ​ 제어문의 실행 결과에 따라 실행되는 문장을 실행문이라고 한다." />
+    <meta property="og:url" content="https://lee989898.github.io/pl-15" />
+    <meta property="og:image" content="https://lee989898.github.io/assets/built/images/pl-background-frontend.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2021-08-05T01:07:00+09:00" />
-    <meta property="article:modified_time" content="2021-08-05T01:07:00+09:00" />
-    <meta property="article:tag" content="Kotlin" />
+    <meta property="article:published_time" content="2021-10-22T19:18:00+09:00" />
+    <meta property="article:modified_time" content="2021-10-22T19:18:00+09:00" />
+    <meta property="article:tag" content="Pl" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="형변환과 배열" />
-    <meta name="twitter:description" content="형변환과 배열 형변환 형변환은 하나의 변수에 지정된 자료형을 호환되는 다른 자료형으로 변경하는 기능입니다 코틀린은 형변환시 발생할 수 있는 오류를 막기 위해 자동으로 형변환 해주는 암시적 형변환은 지원하지 않습니다 명시적 형변환은 변환될 자료형을 개발자가 직접 지정하는 것입니다 형변환 함수 toByte() toShort() toInt() toLong() toFloat() toDouble() toChar() fun main() { var a:" />
+    <meta name="twitter:title" content="컨트롤 스트럭처" />
+    <meta name="twitter:description" content="컨트롤 스트럭처 프로그램의 컨트롤 스트럭처에는 3가지가 있다. sequence(begin-end) selection(if-else, case) iteration(loop) 각 컨트롤 스트럭처는 여러 개의 문장으로 구성된다. ​ 스트럭처는 여러 문장의 묶음으로, ​ 실행 제어 방법에 따라 각각 키워드(begin, if, while,…)를 포함한다 여기서 컨트롤 스트럭처의 if, while 문을 제어문이라고 하고, ​ 제어문의 실행 결과에 따라 실행되는 문장을 실행문이라고 한다." />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
-    <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
+    <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/pl-background-frontend.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="LEE" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Kotlin" />
+    <meta name="twitter:data2" content="Pl" />
     <meta name="twitter:site" content="@" />
     <meta name="twitter:creator" content="@" />
     <meta property="og:image:width" content="1400" />
@@ -87,18 +87,18 @@
         "name": "LEE",
         "logo": "https://lee989898.github.io/"
     },
-    "url": "https://lee989898.github.io/kotlin-03",
+    "url": "https://lee989898.github.io/pl-15",
     "image": {
         "@type": "ImageObject",
-        "url": "https://lee989898.github.io/assets/built/images/kotlin-logo.png",
+        "url": "https://lee989898.github.io/assets/built/images/pl-background-frontend.png",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://lee989898.github.io/kotlin-03"
+        "@id": "https://lee989898.github.io/pl-15"
     },
-    "description": "형변환과 배열 형변환 형변환은 하나의 변수에 지정된 자료형을 호환되는 다른 자료형으로 변경하는 기능입니다 코틀린은 형변환시 발생할 수 있는 오류를 막기 위해 자동으로 형변환 해주는 암시적 형변환은 지원하지 않습니다 명시적 형변환은 변환될 자료형을 개발자가 직접 지정하는 것입니다 형변환 함수 toByte() toShort() toInt() toLong() toFloat() toDouble() toChar() fun main() { var a:"
+    "description": "컨트롤 스트럭처 프로그램의 컨트롤 스트럭처에는 3가지가 있다. sequence(begin-end) selection(if-else, case) iteration(loop) 각 컨트롤 스트럭처는 여러 개의 문장으로 구성된다. ​ 스트럭처는 여러 문장의 묶음으로, ​ 실행 제어 방법에 따라 각각 키워드(begin, if, while,…)를 포함한다 여기서 컨트롤 스트럭처의 if, while 문을 제어문이라고 하고, ​ 제어문의 실행 결과에 따라 실행되는 문장을 실행문이라고 한다."
 }
     </script>
 
@@ -111,7 +111,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="형변환과 배열" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="컨트롤 스트럭처" href="/feed.xml" />
 
 
 </head>
@@ -178,86 +178,263 @@ into the {body} of the default.hbs template -->
 <main id="site-main" class="site-main outer" role="main">
     <div class="inner">
 
-        <article class="post-full  tag-kotlin post tag-kotlin ">
+        <article class="post-full  tag-pl post tag-study ">
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime=" 5 August 2021"> 5 August 2021</time>
+                    <time class="post-full-meta-date" datetime="22 October 2021">22 October 2021</time>
                     
                         <span class="date-divider">/</span>
                         
                             
-                               <a href='/tag/kotlin/'>KOTLIN</a>
+                               <a href='/tag/pl/'>PL</a>
                             
                         
                     
                 </section>
-                <h1 class="post-full-title">형변환과 배열</h1>
+                <h1 class="post-full-title">컨트롤 스트럭처</h1>
             </header>
 
             <!--
             
-            <figure class="post-full-image" style="background-image: url(/assets/built/images/kotlin-logo.png)">
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/pl-background-frontend.png)">
             </figure>
             
             -->
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <h1 id="형변환과-배열"><strong>형변환과 배열</strong></h1>
+                    <h3 id="컨트롤-스트럭처"><strong>컨트롤 스트럭처</strong></h3>
 
 <hr />
 
-<h3 id="형변환"><strong>형변환</strong></h3>
-
-<hr />
-
-<p>형변환은 하나의 변수에 지정된 자료형을 
-호환되는 다른 자료형으로 변경하는 기능입니다</p>
-
-<p>코틀린은 형변환시 발생할 수 있는 오류를 막기 위해 자동으로 형변환 
-해주는 암시적 형변환은 지원하지 않습니다</p>
-
-<p>명시적 형변환은 변환될 자료형을 개발자가 직접 지정하는 것입니다</p>
-
+<p>프로그램의 컨트롤 스트럭처에는 3가지가 있다.</p>
 <ul>
-  <li>형변환 함수
-    <ul>
-      <li>toByte()</li>
-      <li>toShort()</li>
-      <li>toInt()</li>
-      <li>toLong()</li>
-      <li>toFloat()</li>
-      <li>toDouble()</li>
-      <li>toChar()</li>
-    </ul>
-  </li>
+  <li>sequence(begin-end)</li>
+  <li>selection(if-else, case)</li>
+  <li>iteration(loop)</li>
 </ul>
 
-<noscript><pre>fun main() {
-    var a: Int = 54321
-    var b: Long = a.toLong()
-}</pre></noscript>
-<script src="https://gist.github.com/lee989898/c96b8a54be145f7b4b07f03f4e1336e6.js"> </script>
+<p>각 컨트롤 스트럭처는 여러 개의 문장으로 구성된다. ​</p>
+
+<p>스트럭처는 여러 문장의 묶음으로, ​
+실행 제어 방법에 따라 각각 키워드(begin, if, while,…)를 포함한다</p>
+
+<p>여기서 컨트롤 스트럭처의 if, while 문을 제어문이라고 하고, ​
+제어문의 실행 결과에 따라 실행되는 문장을 실행문이라고 한다. ​</p>
+
+<p>시퀀스는 순차적으로 실행되는 문장들의 연속을 말하며, ​
+실행 제어가 순차적이라서 시작과 끝만 명시하면 된다.</p>
+
+<p>Selection은 제어문이 참이냐 거짓이냐에 따라 실행문이 다르며,<br />
+하나의 selection 스트럭처에 제어문과 실행문을 여럿 포함하기도 한다. ​</p>
+
+<p>Iteration도 제어문과 실행문의 반복으로 구성되는데,<br />
+for, while, repeat 등 목적에 따라 그 신택스와 시맨틱스가 다양하다. ​</p>
+
+<p>프로그래머는 이들 컨트롤 스트럭처를 사용하여 쉽게 프로그램을 구조화한다.</p>
 
 <hr />
 
-<h3 id="배열"><strong>배열</strong></h3>
+<p>프로그램은 나름의 로직을 갖고 있어서, 이에 따른 실행 제어(flow control)가 필요하다. ​</p>
+
+<p>명령형 프로그램에서 계산은 다음과 같이 진행된다.<br />
+변수를 읽고 연산자를 실행하여 표현식을 계산하여, ​
+변수에 결과 값을 부여한다.<br />
+또, 여러 경로 중에서 선택하여 실행을 제어하거나, ​반복 실행한다. ​</p>
+
+<p>컨트롤 스트럭처는 제어문과 실행문으로 구성된다. ​
+이 표현은 문제가 있다. 시퀀스는 제어문이 없다.</p>
 
 <hr />
 
-<p>배열은 내부적으로 Array<T> 클래스로 제공되는 기능입니다</T></p>
+<h2 id="selection-statements"><strong>Selection Statements</strong></h2>
 
-<noscript><pre>fun main() {
-    
-    var intArr = arrayOf(1,2,3,4,5)
-    
-    val nullArr = arrayOfNulls&lt;Int&gt;(5) //비어있는 배열 만들기
-    
-    intArr[2] = 8
-    
-    println(intArr[4])
-}</pre></noscript>
-<script src="https://gist.github.com/lee989898/6e915687a4c5bcea20ac0c89e590ce74.js"> </script>
+<hr />
+
+<p>Selection문은 2개 이상의 실행 경로 중에서 선택하는 것이다. ​</p>
+
+<p>두가지 범주가 있는데, 둘 중에 하나 선택하는 것과 여럿 중에 선택하는 것이 있다.</p>
+
+<hr />
+
+<blockquote>
+  <p>If Statements</p>
+</blockquote>
+
+<p>If문의 일반적 형식은 if 제어 표현식 then 실행문1 else 실행문2 이다. ​</p>
+
+<p>제어 표현식은 산술식이거나 부울식이다. ​</p>
+
+<p>프로그래밍 언어에서 실행문1과 실행문2는 단순문이거나 복합문이다. ​</p>
+
+<p>C, C++에서 복합문을 { }로 둘러싼다.<br />
+펄에서 모든 실행문을 { }로 구분하고, 파이썬에서는 indentation으로 구분한다.</p>
+
+<p>자바에서는 중첩 if문을 허용한다.<br />
+dangling else 문제가 발생할 수 있으니 If에 대응되는 else가 어느 것인지 살펴가며 신중하게 써야 한다.<br />
+자바를 비롯한 대부분의 언어에서는 else를 가장 가까운 if에 대응시킨다.  ​</p>
+
+<p>C, C++에서는 가장 가까운 if에 else를 대응시키는 것의 대안으로서,<br />
+{}로 둘러싼 복합문을 사용할 수도 있다. ​</p>
+
+<p>​복합문 대신에 end를 사용하기도 한다.</p>
+
+<hr />
+
+<blockquote>
+  <p>Switch Statements</p>
+</blockquote>
+
+<p>​Switch는 여러 대안 중에 하나 선택하여 실행할 경우이다. ​</p>
+
+<p>전형적인 형식은 아래와 같다 ​</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Switch 표현식 {​
+
+case 상수 표현식1 : 실행문1   ​
+
+…​
+
+default … }이다. 
+</code></pre></div></div>
+
+<p>스위치문의 case는 동시에 상수 표현식을 비교하는 것이 아니라 상수 표현식을 순차적으로 비교하여 끝까지 실행한다. 
+ ​이것을 피하려면, break 사용해야 한다.</p>
+
+<p>C에서는 스위치문의 제어 표현식으로 정수 타입만 허용한다.<br />
+ 실행문은 시퀀스, 블록, 복합문을 모두 허용한다.<br />
+ 조건이 맞으면 여러 case가 실행가능하다.<br />
+ 디폴트시에, ​If문에 의한 제어가 가능하다.</p>
+
+<p>파이썬에서는 스위치 대신에 if elif를 사용할 수 있다.</p>
+
+<hr />
+
+<h2 id="iterative-statements"><strong>Iterative Statements</strong></h2>
+
+<hr />
+
+<p>Iteration, recursion은 문장이나 복합문의 반복 실행한다.​ <br />
+ 카운터로 제어하는 counter-controlled loop은 반복문의 실행 횟수를 세는 변수를 갖는다. ​초기값, 종료값, 증분(반복할 때마다 더해지는 값)</p>
+
+<p>설계할 때 고려사항은 Loop 변수의 유형과 스코프를 정의해야 하며,<br />
+Loop에서 변화하는 Loop변수의 값이 룹 제어에 영향을 미치는지 확인해야 한다.</p>
+
+<blockquote>
+  <p>for Statenebts</p>
+</blockquote>
+
+<p>C의 for 반복문을 보면, ​</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for ([expr_1] ; [expr_2] ; [expr_3]) ​
+
+loop body… 와 같습니다. ​
+</code></pre></div></div>
+
+<p>다음과 같이 카운터 변수가 여럿일 수 있고, ​
+부울식을 포함할 수 있다. ​</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>For (count1 = 0, count2 = 1.0;​
+     count1 &lt;= 10 &amp;&amp; count2 &lt;= 100.0;​
+    sum = ++count1 + count2, count2 *= 2); ​
+</code></pre></div></div>
+
+<p>자바에서 컨트롤 표현식은 부울식이어야 한다.</p>
+
+<blockquote>
+  <p>while Loops</p>
+</blockquote>
+
+<p>​While Loop은 부울식에 의해 제어된다.<br />
+Ctrl_expr는 부울식으로, Loop의 맨앞에 또는 맨뒤에 위치한다. ​</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>while (ctrl_expr) ​
+loop body… ​
+
+do ​
+loop body ​
+while (ctrl_expr) ​ ​ 
+</code></pre></div></div>
+
+<hr />
+
+<blockquote>
+  <p>User-Located Loop Control</p>
+</blockquote>
+
+<p>Break 처럼 loop 컨트롤이 loop body의 중간에 위치하기도 한다.<br />
+이것을 user-located loop control이라고 부른다.<br />
+Break 외에도 continue가 있다.</p>
+
+<p>자료구조를 구성하는 요소에 의해 제어되는 반복 처리가 있다. ​
+Iterator를 호출하면, 자료구조에서 다음 요소를 반환해준다. ​
+이밖에 for에서도 자료구조에 의한 반복처리를 제어할 수 있다.  ​</p>
+
+<hr />
+
+<blockquote>
+  <p>Unconditional Branching</p>
+</blockquote>
+
+<p>앞에서 언급했듯이 goto는 가독성 문제를 일으킨다.<br />
+자바는 goto가 없다.</p>
+
+<hr />
+
+<h2 id="guarded-commands"><strong>Guarded Commands</strong></h2>
+
+<hr />
+
+<p>각 문장 앞에 부울식이 있는 것을 가디드 코멘드라고 한다. <br />
+즉 가디드 코멘드는 ​selection 문장의 각 라인이 ​부울식과 ‘하나의 문장 또는 문장의 시퀀스＇로 구성된다. ​</p>
+
+<p>이렇게 하는 목적은 ​프로그램 개발 중에도 프로그램의 correctness(올바름)를 증명하기 위한 것으로, ​Concurrent 프로그래밍의 기초가 된다. ​</p>
+
+<p>기존의 언어는 개발(코딩)을 마치고 테스트를 통해 프로그램의 올바름을 확인한다.</p>
+
+<blockquote>
+  <p>Selection Guarded Command</p>
+</blockquote>
+
+<p>Selection의 가디드 코멘드는 ​If 안의 각 문장마다 부울식이 있다. ​</p>
+
+<p>이 가디드 코멘드의 시맨틱은 다음과 같다.<br />
+부울식을 계산해서, ​나 이상이 참이면, 그 중에 아무거나 선택한다.<br />
+아무것도 참이 아니면, 실행 오류로 처리한다.​<br />
+프로그램의 correctness는 선택된 문장에 종속되지 않는다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if x &gt;= y -&gt; max := x​
+[] y &gt;= x =&gt; max := y​
+fi
+
+if (x &gt;= y)​  
+    max = x;​
+else​
+    max = y;
+</code></pre></div></div>
+
+<p>X, y가 같을 때, 전자는 아무거나 선택되어 수행되나, ​
+후자는 max=x가 수행됨.<br />
+따라서, non-deterministic vs. deterministic</p>
+
+<blockquote>
+  <p>Loop Guarded Command</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>do &lt;Boolean&gt; -&gt; &lt;statement&gt;​
+[] &lt;Boolean&gt; -&gt; &lt;statement&gt;​
+...​
+[] &lt;Boolean&gt; -&gt; &lt;statement&gt;​
+od​
+</code></pre></div></div>
+
+<p>Loop 가디드 코멘드에서, ​Do 다음에 나오는 모든 문장의 앞에 부울식이 있다. ​
+​
+룹 가디드 코멘드의 시맥틱스는 다음과 같다.<br />
+부울식을 계산하고, ​
+하나 이상이 참이면, ​
+아무거나 선택하여 룹을 시작한다.<br />
+아무것도 참이 아니면, 룹에서 나온다.</p>
 
 <hr />
 
@@ -326,9 +503,9 @@ into the {body} of the default.hbs template -->
                     <div id="disqus_thread"></div>
                     <script>
                         var disqus_config = function () {
-                            var this_page_url = 'https://lee989898.github.io/kotlin-03';
-                            var this_page_identifier = '/kotlin-03';
-                            var this_page_title = '형변환과 배열';
+                            var this_page_url = 'https://lee989898.github.io/pl-15';
+                            var this_page_identifier = '/pl-15';
+                            var this_page_title = '컨트롤 스트럭처';
                         };
                         (function() {
                             var d = document, s = d.createElement('script');
@@ -362,7 +539,7 @@ into the {body} of the default.hbs template -->
                         <header class="read-next-card-header">
                             <small class="read-next-card-header-sitetitle">&mdash; LEE &mdash;</small>
                             
-                                <h3 class="read-next-card-header-title"><a href="/tag/kotlin/">Kotlin</a></h3>
+                                <h3 class="read-next-card-header-title"><a href="/tag/pl/">Pl</a></h3>
                             
                         </header>
                         <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
@@ -374,48 +551,14 @@ into the {body} of the default.hbs template -->
                                   
                                 
                                   
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
+                                    
                                   
                                 
                                   
                                     
                                         
                                         
-                                            <li><a href="/kotlin-10">클래스의 상속</a></li>
+                                            <li><a href="/pl-14">표현식과 대입문</a></li>
                                         
                                     
                                   
@@ -424,7 +567,7 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
-                                            <li><a href="/kotlin-09">클래스의 생성</a></li>
+                                            <li><a href="/pl-13">복잡한 데이터 타입</a></li>
                                         
                                     
                                   
@@ -433,9 +576,11 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
-                                            <li><a href="/kotlin-08">클래스의 기본구조</a></li>
+                                            <li><a href="/pl-12">데이터 타입</a></li>
                                         
                                     
+                                  
+                                
                                   
                                 
                                   
@@ -460,15 +605,6 @@ into the {body} of the default.hbs template -->
                                   
                                 
                                   
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                  
                                 
                                   
                                     
@@ -478,6 +614,11 @@ into the {body} of the default.hbs template -->
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
                                 
                                   
                                 
@@ -486,14 +627,75 @@ into the {body} of the default.hbs template -->
                                         
                                         
                                     
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
                                   
                                 
                             </ul>
                         </div>
                         <footer class="read-next-card-footer">
-                            <a href="/tag/kotlin/">
+                            <a href="/tag/pl/">
                                 
-                                    See all 9 posts  →
+                                    See all 14 posts  →
                                 
                             </a>
                         </footer>
@@ -507,26 +709,26 @@ into the {body} of the default.hbs template -->
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/kotlin-04">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/kotlin-logo.png)"></div>
+            <a class="post-card-image-link" href="/sc-01">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/security-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/kotlin-04">
+            <a class="post-card-content-link" href="/sc-01">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Kotlin</span>
+                                <span class="post-card-tags">Security</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">타입추론과 함수</h2>
+                    <h2 class="post-card-title">Hash</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>타입추론과 함수
+                        <p>Hash
 
 </p>
                     
@@ -546,7 +748,7 @@ into the {body} of the default.hbs template -->
                 <span class="reading-time">
                     
                     
-                      1 min read
+                      2 min read
                     
                 </span>
             </footer>
@@ -561,26 +763,26 @@ into the {body} of the default.hbs template -->
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/kotlin-02">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/kotlin-logo.png)"></div>
+            <a class="post-card-image-link" href="/pl-14">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/pl-background-frontend.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/kotlin-02">
+            <a class="post-card-content-link" href="/pl-14">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Kotlin</span>
+                                <span class="post-card-tags">Pl</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">변수와 자료형</h2>
+                    <h2 class="post-card-title">표현식과 대입문</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>변수와 자료형
+                        <p>표현식과 대입문
 
 </p>
                     
@@ -600,7 +802,7 @@ into the {body} of the default.hbs template -->
                 <span class="reading-time">
                     
                     
-                      1 min read
+                      6 min read
                     
                 </span>
             </footer>
@@ -622,18 +824,18 @@ into the {body} of the default.hbs template -->
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">형변환과 배열</div>
+    <div class="floating-header-title">컨트롤 스트럭처</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%ED%98%95%EB%B3%80%ED%99%98%EA%B3%BC+%EB%B0%B0%EC%97%B4&amp;url=https://lee989898.github.io/kotlin-03"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%EC%BB%A8%ED%8A%B8%EB%A1%A4+%EC%8A%A4%ED%8A%B8%EB%9F%AD%EC%B2%98&amp;url=https://lee989898.github.io/pl-15"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://lee989898.github.io/kotlin-03"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://lee989898.github.io/pl-15"
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
 

@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/kotlin/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-10-22T18:30:36+09:00</updated>
+  <updated>2021-10-23T22:15:03+09:00</updated>
   <id>https://lee989898.github.io/tag/kotlin/feed.xml</id>
 
   
@@ -37,32 +37,11 @@
       <published>2021-08-09T01:07:00+09:00</published>
       <updated>2021-08-09T01:07:00+09:00</updated>
       <id>https://lee989898.github.io/kotlin-09</id>
-      <content type="html" xml:base="https://lee989898.github.io/kotlin-09">&lt;h1 id=&quot;클래스의-생성&quot;&gt;클래스의 생성&lt;/h1&gt;
+      <content type="html" xml:base="https://lee989898.github.io/kotlin-09">&lt;h1 id=&quot;클래스의-생성&quot;&gt;&lt;strong&gt;클래스의 생성&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;hr /&gt;
 
-&lt;noscript&gt;&lt;pre&gt;fun main() {
-    var intValue:Int = 1234
-    var LongValue:Long = 1234L
-    var intValueByHex:Int = 0x1af
-    var intValueByBin:Int = 0b10110110
-    
-    var doubleValue:Double = 123.5
-    var doubleValueWithExp: Double = 123.5e10
-    var floatValue:Float = 123.5f
-    
-    var charValue: Char = &amp;#39;a&amp;#39;
-    var koreanCharValue: Char = &amp;#39;가&amp;#39;
-    
-    var booleanValue: Boolean = true
-    
-    var stringValue = &amp;quot;one line string test&amp;quot;
-    
-    val multiLineStringValue = &amp;quot;&amp;quot;&amp;quot;multiline
-    string
-    test&amp;quot;&amp;quot;&amp;quot;
-}&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/lee989898/c6ccc4221fdbd96eae8b91fa55199f92.js&quot;&gt; &lt;/script&gt;</content>
+&lt;hr /&gt;</content>
 
       
       
@@ -96,32 +75,11 @@
       <published>2021-08-09T01:07:00+09:00</published>
       <updated>2021-08-09T01:07:00+09:00</updated>
       <id>https://lee989898.github.io/kotlin-08</id>
-      <content type="html" xml:base="https://lee989898.github.io/kotlin-08">&lt;h1 id=&quot;클래스의-기본구조&quot;&gt;클래스의 기본구조&lt;/h1&gt;
+      <content type="html" xml:base="https://lee989898.github.io/kotlin-08">&lt;h1 id=&quot;클래스의-기본구조&quot;&gt;&lt;strong&gt;클래스의 기본구조&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;hr /&gt;
 
-&lt;noscript&gt;&lt;pre&gt;fun main() {
-    var intValue:Int = 1234
-    var LongValue:Long = 1234L
-    var intValueByHex:Int = 0x1af
-    var intValueByBin:Int = 0b10110110
-    
-    var doubleValue:Double = 123.5
-    var doubleValueWithExp: Double = 123.5e10
-    var floatValue:Float = 123.5f
-    
-    var charValue: Char = &amp;#39;a&amp;#39;
-    var koreanCharValue: Char = &amp;#39;가&amp;#39;
-    
-    var booleanValue: Boolean = true
-    
-    var stringValue = &amp;quot;one line string test&amp;quot;
-    
-    val multiLineStringValue = &amp;quot;&amp;quot;&amp;quot;multiline
-    string
-    test&amp;quot;&amp;quot;&amp;quot;
-}&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/lee989898/c6ccc4221fdbd96eae8b91fa55199f92.js&quot;&gt; &lt;/script&gt;</content>
+&lt;hr /&gt;</content>
 
       
       
@@ -155,32 +113,11 @@
       <published>2021-08-09T01:07:00+09:00</published>
       <updated>2021-08-09T01:07:00+09:00</updated>
       <id>https://lee989898.github.io/kotlin-10</id>
-      <content type="html" xml:base="https://lee989898.github.io/kotlin-10">&lt;h1 id=&quot;클래스의-상속&quot;&gt;클래스의 상속&lt;/h1&gt;
+      <content type="html" xml:base="https://lee989898.github.io/kotlin-10">&lt;h1 id=&quot;클래스의-상속&quot;&gt;&lt;strong&gt;클래스의 상속&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;hr /&gt;
 
-&lt;noscript&gt;&lt;pre&gt;fun main() {
-    var intValue:Int = 1234
-    var LongValue:Long = 1234L
-    var intValueByHex:Int = 0x1af
-    var intValueByBin:Int = 0b10110110
-    
-    var doubleValue:Double = 123.5
-    var doubleValueWithExp: Double = 123.5e10
-    var floatValue:Float = 123.5f
-    
-    var charValue: Char = &amp;#39;a&amp;#39;
-    var koreanCharValue: Char = &amp;#39;가&amp;#39;
-    
-    var booleanValue: Boolean = true
-    
-    var stringValue = &amp;quot;one line string test&amp;quot;
-    
-    val multiLineStringValue = &amp;quot;&amp;quot;&amp;quot;multiline
-    string
-    test&amp;quot;&amp;quot;&amp;quot;
-}&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/lee989898/c6ccc4221fdbd96eae8b91fa55199f92.js&quot;&gt; &lt;/script&gt;</content>
+&lt;hr /&gt;</content>
 
       
       
@@ -214,32 +151,11 @@
       <published>2021-08-08T01:07:00+09:00</published>
       <updated>2021-08-08T01:07:00+09:00</updated>
       <id>https://lee989898.github.io/kotlin-07</id>
-      <content type="html" xml:base="https://lee989898.github.io/kotlin-07">&lt;h1 id=&quot;흐름제어와-논리연산자&quot;&gt;흐름제어와 논리연산자&lt;/h1&gt;
+      <content type="html" xml:base="https://lee989898.github.io/kotlin-07">&lt;h1 id=&quot;흐름제어와-논리연산자&quot;&gt;&lt;strong&gt;흐름제어와 논리연산자&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;hr /&gt;
 
-&lt;noscript&gt;&lt;pre&gt;fun main() {
-    var intValue:Int = 1234
-    var LongValue:Long = 1234L
-    var intValueByHex:Int = 0x1af
-    var intValueByBin:Int = 0b10110110
-    
-    var doubleValue:Double = 123.5
-    var doubleValueWithExp: Double = 123.5e10
-    var floatValue:Float = 123.5f
-    
-    var charValue: Char = &amp;#39;a&amp;#39;
-    var koreanCharValue: Char = &amp;#39;가&amp;#39;
-    
-    var booleanValue: Boolean = true
-    
-    var stringValue = &amp;quot;one line string test&amp;quot;
-    
-    val multiLineStringValue = &amp;quot;&amp;quot;&amp;quot;multiline
-    string
-    test&amp;quot;&amp;quot;&amp;quot;
-}&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/lee989898/c6ccc4221fdbd96eae8b91fa55199f92.js&quot;&gt; &lt;/script&gt;</content>
+&lt;hr /&gt;</content>
 
       
       
@@ -273,32 +189,11 @@
       <published>2021-08-08T01:07:00+09:00</published>
       <updated>2021-08-08T01:07:00+09:00</updated>
       <id>https://lee989898.github.io/kotlin-06</id>
-      <content type="html" xml:base="https://lee989898.github.io/kotlin-06">&lt;h1 id=&quot;반복문과-증감연산자&quot;&gt;반복문과 증감연산자&lt;/h1&gt;
+      <content type="html" xml:base="https://lee989898.github.io/kotlin-06">&lt;h1 id=&quot;반복문과-증감연산자&quot;&gt;&lt;strong&gt;반복문과 증감연산자&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;hr /&gt;
 
-&lt;noscript&gt;&lt;pre&gt;fun main() {
-    var intValue:Int = 1234
-    var LongValue:Long = 1234L
-    var intValueByHex:Int = 0x1af
-    var intValueByBin:Int = 0b10110110
-    
-    var doubleValue:Double = 123.5
-    var doubleValueWithExp: Double = 123.5e10
-    var floatValue:Float = 123.5f
-    
-    var charValue: Char = &amp;#39;a&amp;#39;
-    var koreanCharValue: Char = &amp;#39;가&amp;#39;
-    
-    var booleanValue: Boolean = true
-    
-    var stringValue = &amp;quot;one line string test&amp;quot;
-    
-    val multiLineStringValue = &amp;quot;&amp;quot;&amp;quot;multiline
-    string
-    test&amp;quot;&amp;quot;&amp;quot;
-}&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/lee989898/c6ccc4221fdbd96eae8b91fa55199f92.js&quot;&gt; &lt;/script&gt;</content>
+&lt;hr /&gt;</content>
 
       
       
@@ -332,32 +227,11 @@
       <published>2021-08-08T01:07:00+09:00</published>
       <updated>2021-08-08T01:07:00+09:00</updated>
       <id>https://lee989898.github.io/kotlin-05</id>
-      <content type="html" xml:base="https://lee989898.github.io/kotlin-05">&lt;h1 id=&quot;조건문과-비교연산자&quot;&gt;조건문과 비교연산자&lt;/h1&gt;
+      <content type="html" xml:base="https://lee989898.github.io/kotlin-05">&lt;h1 id=&quot;조건문과-비교연산자&quot;&gt;&lt;strong&gt;조건문과 비교연산자&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;hr /&gt;
 
-&lt;noscript&gt;&lt;pre&gt;fun main() {
-    var intValue:Int = 1234
-    var LongValue:Long = 1234L
-    var intValueByHex:Int = 0x1af
-    var intValueByBin:Int = 0b10110110
-    
-    var doubleValue:Double = 123.5
-    var doubleValueWithExp: Double = 123.5e10
-    var floatValue:Float = 123.5f
-    
-    var charValue: Char = &amp;#39;a&amp;#39;
-    var koreanCharValue: Char = &amp;#39;가&amp;#39;
-    
-    var booleanValue: Boolean = true
-    
-    var stringValue = &amp;quot;one line string test&amp;quot;
-    
-    val multiLineStringValue = &amp;quot;&amp;quot;&amp;quot;multiline
-    string
-    test&amp;quot;&amp;quot;&amp;quot;
-}&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/lee989898/c6ccc4221fdbd96eae8b91fa55199f92.js&quot;&gt; &lt;/script&gt;</content>
+&lt;hr /&gt;</content>
 
       
       
@@ -391,11 +265,11 @@
       <published>2021-08-06T01:07:00+09:00</published>
       <updated>2021-08-06T01:07:00+09:00</updated>
       <id>https://lee989898.github.io/kotlin-04</id>
-      <content type="html" xml:base="https://lee989898.github.io/kotlin-04">&lt;h1 id=&quot;타입추론과-함수&quot;&gt;타입추론과 함수&lt;/h1&gt;
+      <content type="html" xml:base="https://lee989898.github.io/kotlin-04">&lt;h1 id=&quot;타입추론과-함수&quot;&gt;&lt;strong&gt;타입추론과 함수&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;타입추론&quot;&gt;타입추론&lt;/h2&gt;
+&lt;h3 id=&quot;타입추론&quot;&gt;&lt;strong&gt;타입추론&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
 
@@ -424,7 +298,7 @@
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;함수&quot;&gt;함수&lt;/h2&gt;
+&lt;h3 id=&quot;함수&quot;&gt;&lt;strong&gt;함수&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
 
@@ -451,7 +325,9 @@ fun add(a: Int, b: Int, c: Int) = a + b + c //위 함수와 동일합니다&lt;/
 
 &lt;p&gt;코틀린에서 함수는 내부적으로 기능을 가진 형태이지만 외부에서
 볼 때는 파라미터를 넣는다는 점 외에는 자료형이 결정된 변수라는 개념으로
-접근합니다&lt;/p&gt;</content>
+접근합니다&lt;/p&gt;
+
+&lt;hr /&gt;</content>
 
       
       
@@ -485,11 +361,11 @@ fun add(a: Int, b: Int, c: Int) = a + b + c //위 함수와 동일합니다&lt;/
       <published>2021-08-05T01:07:00+09:00</published>
       <updated>2021-08-05T01:07:00+09:00</updated>
       <id>https://lee989898.github.io/kotlin-03</id>
-      <content type="html" xml:base="https://lee989898.github.io/kotlin-03">&lt;h1 id=&quot;형변환과-배열&quot;&gt;형변환과 배열&lt;/h1&gt;
+      <content type="html" xml:base="https://lee989898.github.io/kotlin-03">&lt;h1 id=&quot;형변환과-배열&quot;&gt;&lt;strong&gt;형변환과 배열&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;형변환&quot;&gt;형변환&lt;/h2&gt;
+&lt;h3 id=&quot;형변환&quot;&gt;&lt;strong&gt;형변환&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
 
@@ -523,7 +399,7 @@ fun add(a: Int, b: Int, c: Int) = a + b + c //위 함수와 동일합니다&lt;/
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;배열&quot;&gt;배열&lt;/h2&gt;
+&lt;h3 id=&quot;배열&quot;&gt;&lt;strong&gt;배열&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
 
@@ -539,7 +415,9 @@ fun add(a: Int, b: Int, c: Int) = a + b + c //위 함수와 동일합니다&lt;/
     
     println(intArr[4])
 }&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/lee989898/6e915687a4c5bcea20ac0c89e590ce74.js&quot;&gt; &lt;/script&gt;</content>
+&lt;script src=&quot;https://gist.github.com/lee989898/6e915687a4c5bcea20ac0c89e590ce74.js&quot;&gt; &lt;/script&gt;
+
+&lt;hr /&gt;</content>
 
       
       
@@ -573,11 +451,11 @@ fun add(a: Int, b: Int, c: Int) = a + b + c //위 함수와 동일합니다&lt;/
       <published>2021-08-02T01:07:00+09:00</published>
       <updated>2021-08-02T01:07:00+09:00</updated>
       <id>https://lee989898.github.io/kotlin-02</id>
-      <content type="html" xml:base="https://lee989898.github.io/kotlin-02">&lt;h1 id=&quot;변수와-자료형&quot;&gt;변수와 자료형&lt;/h1&gt;
+      <content type="html" xml:base="https://lee989898.github.io/kotlin-02">&lt;h1 id=&quot;변수와-자료형&quot;&gt;&lt;strong&gt;변수와 자료형&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;변수&quot;&gt;변수&lt;/h2&gt;
+&lt;h3 id=&quot;변수&quot;&gt;&lt;strong&gt;변수&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
 
@@ -600,7 +478,7 @@ ex) var a: Int? = null&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;자료형&quot;&gt;자료형&lt;/h2&gt;
+&lt;h3 id=&quot;자료형&quot;&gt;&lt;strong&gt;자료형&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
 
@@ -636,7 +514,9 @@ ex) var a: Int? = null&lt;/p&gt;
     string
     test&amp;quot;&amp;quot;&amp;quot;
 }&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/lee989898/c6ccc4221fdbd96eae8b91fa55199f92.js&quot;&gt; &lt;/script&gt;</content>
+&lt;script src=&quot;https://gist.github.com/lee989898/c6ccc4221fdbd96eae8b91fa55199f92.js&quot;&gt; &lt;/script&gt;
+
+&lt;hr /&gt;</content>
 
       
       
@@ -684,7 +564,11 @@ ex) var a: Int? = null&lt;/p&gt;
     &lt;li&gt;&lt;a href=&quot;./kotlin-10&quot;&gt;클래스의 상속 &lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;hr /&gt;
+
 &lt;h1 id=&quot;코틀린-규칙들&quot;&gt;코틀린 규칙들&lt;/h1&gt;
+
+&lt;hr /&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -731,8 +615,10 @@ ex) var a: Int? = null&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;+클래스에 선언된 변수 Property(속성)&lt;br /&gt;
- 이 외의 Scope 내에 선언된 변수 Local Variable(로컬변수)&lt;/p&gt;</content>
+&lt;ul&gt;
+  &lt;li&gt;클래스에 선언된 변수 Property(속성)&lt;br /&gt;
+ 이 외의 Scope 내에 선언된 변수 Local Variable(로컬변수)&lt;/li&gt;
+&lt;/ul&gt;</content>
 
       
       

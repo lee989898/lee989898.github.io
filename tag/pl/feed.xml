@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/pl/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-10-22T18:30:36+09:00</updated>
+  <updated>2021-10-23T22:15:03+09:00</updated>
   <id>https://lee989898.github.io/tag/pl/feed.xml</id>
 
   
@@ -32,18 +32,281 @@
 
   
     <entry>
+      <title type="html">컨트롤 스트럭처</title>
+      <link href="https://lee989898.github.io/pl-15" rel="alternate" type="text/html" title="컨트롤 스트럭처" />
+      <published>2021-10-22T19:18:00+09:00</published>
+      <updated>2021-10-22T19:18:00+09:00</updated>
+      <id>https://lee989898.github.io/pl-15</id>
+      <content type="html" xml:base="https://lee989898.github.io/pl-15">&lt;h3 id=&quot;컨트롤-스트럭처&quot;&gt;&lt;strong&gt;컨트롤 스트럭처&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;프로그램의 컨트롤 스트럭처에는 3가지가 있다.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;sequence(begin-end)&lt;/li&gt;
+  &lt;li&gt;selection(if-else, case)&lt;/li&gt;
+  &lt;li&gt;iteration(loop)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;각 컨트롤 스트럭처는 여러 개의 문장으로 구성된다. ​&lt;/p&gt;
+
+&lt;p&gt;스트럭처는 여러 문장의 묶음으로, ​
+실행 제어 방법에 따라 각각 키워드(begin, if, while,…)를 포함한다&lt;/p&gt;
+
+&lt;p&gt;여기서 컨트롤 스트럭처의 if, while 문을 제어문이라고 하고, ​
+제어문의 실행 결과에 따라 실행되는 문장을 실행문이라고 한다. ​&lt;/p&gt;
+
+&lt;p&gt;시퀀스는 순차적으로 실행되는 문장들의 연속을 말하며, ​
+실행 제어가 순차적이라서 시작과 끝만 명시하면 된다.&lt;/p&gt;
+
+&lt;p&gt;Selection은 제어문이 참이냐 거짓이냐에 따라 실행문이 다르며,&lt;br /&gt;
+하나의 selection 스트럭처에 제어문과 실행문을 여럿 포함하기도 한다. ​&lt;/p&gt;
+
+&lt;p&gt;Iteration도 제어문과 실행문의 반복으로 구성되는데,&lt;br /&gt;
+for, while, repeat 등 목적에 따라 그 신택스와 시맨틱스가 다양하다. ​&lt;/p&gt;
+
+&lt;p&gt;프로그래머는 이들 컨트롤 스트럭처를 사용하여 쉽게 프로그램을 구조화한다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;프로그램은 나름의 로직을 갖고 있어서, 이에 따른 실행 제어(flow control)가 필요하다. ​&lt;/p&gt;
+
+&lt;p&gt;명령형 프로그램에서 계산은 다음과 같이 진행된다.&lt;br /&gt;
+변수를 읽고 연산자를 실행하여 표현식을 계산하여, ​
+변수에 결과 값을 부여한다.&lt;br /&gt;
+또, 여러 경로 중에서 선택하여 실행을 제어하거나, ​반복 실행한다. ​&lt;/p&gt;
+
+&lt;p&gt;컨트롤 스트럭처는 제어문과 실행문으로 구성된다. ​
+이 표현은 문제가 있다. 시퀀스는 제어문이 없다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;selection-statements&quot;&gt;&lt;strong&gt;Selection Statements&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Selection문은 2개 이상의 실행 경로 중에서 선택하는 것이다. ​&lt;/p&gt;
+
+&lt;p&gt;두가지 범주가 있는데, 둘 중에 하나 선택하는 것과 여럿 중에 선택하는 것이 있다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;If Statements&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;If문의 일반적 형식은 if 제어 표현식 then 실행문1 else 실행문2 이다. ​&lt;/p&gt;
+
+&lt;p&gt;제어 표현식은 산술식이거나 부울식이다. ​&lt;/p&gt;
+
+&lt;p&gt;프로그래밍 언어에서 실행문1과 실행문2는 단순문이거나 복합문이다. ​&lt;/p&gt;
+
+&lt;p&gt;C, C++에서 복합문을 { }로 둘러싼다.&lt;br /&gt;
+펄에서 모든 실행문을 { }로 구분하고, 파이썬에서는 indentation으로 구분한다.&lt;/p&gt;
+
+&lt;p&gt;자바에서는 중첩 if문을 허용한다.&lt;br /&gt;
+dangling else 문제가 발생할 수 있으니 If에 대응되는 else가 어느 것인지 살펴가며 신중하게 써야 한다.&lt;br /&gt;
+자바를 비롯한 대부분의 언어에서는 else를 가장 가까운 if에 대응시킨다.  ​&lt;/p&gt;
+
+&lt;p&gt;C, C++에서는 가장 가까운 if에 else를 대응시키는 것의 대안으로서,&lt;br /&gt;
+{}로 둘러싼 복합문을 사용할 수도 있다. ​&lt;/p&gt;
+
+&lt;p&gt;​복합문 대신에 end를 사용하기도 한다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Switch Statements&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;​Switch는 여러 대안 중에 하나 선택하여 실행할 경우이다. ​&lt;/p&gt;
+
+&lt;p&gt;전형적인 형식은 아래와 같다 ​&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Switch 표현식 {​
+
+case 상수 표현식1 : 실행문1   ​
+
+…​
+
+default … }이다. 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;스위치문의 case는 동시에 상수 표현식을 비교하는 것이 아니라 상수 표현식을 순차적으로 비교하여 끝까지 실행한다. 
+ ​이것을 피하려면, break 사용해야 한다.&lt;/p&gt;
+
+&lt;p&gt;C에서는 스위치문의 제어 표현식으로 정수 타입만 허용한다.&lt;br /&gt;
+ 실행문은 시퀀스, 블록, 복합문을 모두 허용한다.&lt;br /&gt;
+ 조건이 맞으면 여러 case가 실행가능하다.&lt;br /&gt;
+ 디폴트시에, ​If문에 의한 제어가 가능하다.&lt;/p&gt;
+
+&lt;p&gt;파이썬에서는 스위치 대신에 if elif를 사용할 수 있다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;iterative-statements&quot;&gt;&lt;strong&gt;Iterative Statements&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Iteration, recursion은 문장이나 복합문의 반복 실행한다.​ &lt;br /&gt;
+ 카운터로 제어하는 counter-controlled loop은 반복문의 실행 횟수를 세는 변수를 갖는다. ​초기값, 종료값, 증분(반복할 때마다 더해지는 값)&lt;/p&gt;
+
+&lt;p&gt;설계할 때 고려사항은 Loop 변수의 유형과 스코프를 정의해야 하며,&lt;br /&gt;
+Loop에서 변화하는 Loop변수의 값이 룹 제어에 영향을 미치는지 확인해야 한다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;for Statenebts&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;C의 for 반복문을 보면, ​&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;for ([expr_1] ; [expr_2] ; [expr_3]) ​
+
+loop body… 와 같습니다. ​
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;다음과 같이 카운터 변수가 여럿일 수 있고, ​
+부울식을 포함할 수 있다. ​&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;For (count1 = 0, count2 = 1.0;​
+     count1 &amp;lt;= 10 &amp;amp;&amp;amp; count2 &amp;lt;= 100.0;​
+    sum = ++count1 + count2, count2 *= 2); ​
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;자바에서 컨트롤 표현식은 부울식이어야 한다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;while Loops&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;​While Loop은 부울식에 의해 제어된다.&lt;br /&gt;
+Ctrl_expr는 부울식으로, Loop의 맨앞에 또는 맨뒤에 위치한다. ​&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;while (ctrl_expr) ​
+loop body… ​
+
+do ​
+loop body ​
+while (ctrl_expr) ​ ​ 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;User-Located Loop Control&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Break 처럼 loop 컨트롤이 loop body의 중간에 위치하기도 한다.&lt;br /&gt;
+이것을 user-located loop control이라고 부른다.&lt;br /&gt;
+Break 외에도 continue가 있다.&lt;/p&gt;
+
+&lt;p&gt;자료구조를 구성하는 요소에 의해 제어되는 반복 처리가 있다. ​
+Iterator를 호출하면, 자료구조에서 다음 요소를 반환해준다. ​
+이밖에 for에서도 자료구조에 의한 반복처리를 제어할 수 있다.  ​&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Unconditional Branching&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;앞에서 언급했듯이 goto는 가독성 문제를 일으킨다.&lt;br /&gt;
+자바는 goto가 없다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;guarded-commands&quot;&gt;&lt;strong&gt;Guarded Commands&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;각 문장 앞에 부울식이 있는 것을 가디드 코멘드라고 한다. &lt;br /&gt;
+즉 가디드 코멘드는 ​selection 문장의 각 라인이 ​부울식과 ‘하나의 문장 또는 문장의 시퀀스＇로 구성된다. ​&lt;/p&gt;
+
+&lt;p&gt;이렇게 하는 목적은 ​프로그램 개발 중에도 프로그램의 correctness(올바름)를 증명하기 위한 것으로, ​Concurrent 프로그래밍의 기초가 된다. ​&lt;/p&gt;
+
+&lt;p&gt;기존의 언어는 개발(코딩)을 마치고 테스트를 통해 프로그램의 올바름을 확인한다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Selection Guarded Command&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Selection의 가디드 코멘드는 ​If 안의 각 문장마다 부울식이 있다. ​&lt;/p&gt;
+
+&lt;p&gt;이 가디드 코멘드의 시맨틱은 다음과 같다.&lt;br /&gt;
+부울식을 계산해서, ​나 이상이 참이면, 그 중에 아무거나 선택한다.&lt;br /&gt;
+아무것도 참이 아니면, 실행 오류로 처리한다.​&lt;br /&gt;
+프로그램의 correctness는 선택된 문장에 종속되지 않는다.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;if x &amp;gt;= y -&amp;gt; max := x​
+[] y &amp;gt;= x =&amp;gt; max := y​
+fi
+
+if (x &amp;gt;= y)​  
+    max = x;​
+else​
+    max = y;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;X, y가 같을 때, 전자는 아무거나 선택되어 수행되나, ​
+후자는 max=x가 수행됨.&lt;br /&gt;
+따라서, non-deterministic vs. deterministic&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Loop Guarded Command&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;do &amp;lt;Boolean&amp;gt; -&amp;gt; &amp;lt;statement&amp;gt;​
+[] &amp;lt;Boolean&amp;gt; -&amp;gt; &amp;lt;statement&amp;gt;​
+...​
+[] &amp;lt;Boolean&amp;gt; -&amp;gt; &amp;lt;statement&amp;gt;​
+od​
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Loop 가디드 코멘드에서, ​Do 다음에 나오는 모든 문장의 앞에 부울식이 있다. ​
+​
+룹 가디드 코멘드의 시맥틱스는 다음과 같다.&lt;br /&gt;
+부울식을 계산하고, ​
+하나 이상이 참이면, ​
+아무거나 선택하여 룹을 시작한다.&lt;br /&gt;
+아무것도 참이 아니면, 룹에서 나온다.&lt;/p&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="pl" />
+      
+
+      
+        <summary type="html">컨트롤 스트럭처</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">복잡한 데이터 타입</title>
       <link href="https://lee989898.github.io/pl-13" rel="alternate" type="text/html" title="복잡한 데이터 타입" />
       <published>2021-10-14T19:18:00+09:00</published>
       <updated>2021-10-14T19:18:00+09:00</updated>
       <id>https://lee989898.github.io/pl-13</id>
-      <content type="html" xml:base="https://lee989898.github.io/pl-13">&lt;h1 id=&quot;제-13장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 13장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+      <content type="html" xml:base="https://lee989898.github.io/pl-13">&lt;h3 id=&quot;복잡한-데이터-타입&quot;&gt;&lt;strong&gt;복잡한 데이터 타입&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;복잡한 데이터 타입&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
 
 &lt;p&gt;배열과 레코드 타입을 살펴보자&lt;/p&gt;
 
@@ -180,7 +443,7 @@ j=&lt;/em&gt;ptr는 ptr의 값이 가리키는 주소에 저장된 값을 ​
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl35.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl35.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -252,7 +515,7 @@ j=&lt;/em&gt;ptr는 ptr의 값이 가리키는 주소에 저장된 값을 ​
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl36.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl36.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -283,7 +546,7 @@ Q는 결국 아무것도 가리키지 않는 허상 포인터이다.&lt;/p&gt;
       
 
       
-        <summary type="html">제 13장 프로그래밍 언어</summary>
+        <summary type="html">복잡한 데이터 타입</summary>
       
 
       
@@ -296,13 +559,9 @@ Q는 결국 아무것도 가리키지 않는 허상 포인터이다.&lt;/p&gt;
       <published>2021-10-14T19:18:00+09:00</published>
       <updated>2021-10-14T19:18:00+09:00</updated>
       <id>https://lee989898.github.io/pl-14</id>
-      <content type="html" xml:base="https://lee989898.github.io/pl-14">&lt;h1 id=&quot;제-14장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 14장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+      <content type="html" xml:base="https://lee989898.github.io/pl-14">&lt;h3 id=&quot;표현식과-대입문&quot;&gt;&lt;strong&gt;표현식과 대입문&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;표현식과 대입문&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
 
 &lt;p&gt;표현식(expression)은 프로그래밍 언어에서 계산을 상술
 (상세히 서술)하는 수단이다. ​
@@ -374,7 +633,7 @@ else average = sum / count ​
 
 ---
 
- ​&lt;img src=&quot;/assets/built/images/pl/pl37.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;
+ ​&lt;img src=&quot;/assets/built/images/pl/pl37.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;
 
 ---
 
@@ -567,7 +826,7 @@ val fruit = apples + oranges;에서 ​
       
 
       
-        <summary type="html">제 14장 프로그래밍 언어</summary>
+        <summary type="html">표현식과 대입문</summary>
       
 
       
@@ -580,13 +839,9 @@ val fruit = apples + oranges;에서 ​
       <published>2021-10-07T19:18:00+09:00</published>
       <updated>2021-10-07T19:18:00+09:00</updated>
       <id>https://lee989898.github.io/pl-12</id>
-      <content type="html" xml:base="https://lee989898.github.io/pl-12">&lt;h1 id=&quot;제-12장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 12장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+      <content type="html" xml:base="https://lee989898.github.io/pl-12">&lt;h3 id=&quot;데이터-타입&quot;&gt;&lt;strong&gt;데이터 타입&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;데이터 타입&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
 
 &lt;p&gt;선언문 int n으로부터 n에 대해 무엇을 알 수 있을까? ​&lt;/p&gt;
 &lt;ul&gt;
@@ -726,7 +981,7 @@ Escapes는 각 키마다 아스키 코드의 컨트롤 문자가
       
 
       
-        <summary type="html">제 12장 프로그래밍 언어</summary>
+        <summary type="html">데이터 타입</summary>
       
 
       
@@ -739,13 +994,9 @@ Escapes는 각 키마다 아스키 코드의 컨트롤 문자가
       <published>2021-09-30T19:18:00+09:00</published>
       <updated>2021-09-30T19:18:00+09:00</updated>
       <id>https://lee989898.github.io/pl-11</id>
-      <content type="html" xml:base="https://lee989898.github.io/pl-11">&lt;h1 id=&quot;제-11장--프로그래밍-언어&quot;&gt;&lt;strong&gt;제 11장  프로그래밍 언어&lt;/strong&gt;&lt;/h1&gt;
+      <content type="html" xml:base="https://lee989898.github.io/pl-11">&lt;h3 id=&quot;변수와-시맨틱스&quot;&gt;&lt;strong&gt;변수와 시맨틱스&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;변수와 시맨틱스&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
 
 &lt;p&gt;변수는 변수명, 데이터 타입, 값, 메모리 주소 등의 속성을 갖는다. ​
 이들 속성을 변수에 결합하는 것을 바인딩이라고 한다. ​
@@ -801,7 +1052,7 @@ Escapes는 각 키마다 아스키 코드의 컨트롤 문자가
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl31.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl31.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;—​&lt;/p&gt;
 
@@ -955,7 +1206,7 @@ Int는 real로 자동 변환되는데, 이를 coercion(자동 변환)이라고 �
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl32.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl32.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1035,7 +1286,7 @@ Int는 real로 자동 변환되는데, 이를 coercion(자동 변환)이라고 �
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl33.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl33.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1111,7 +1362,7 @@ nter)/delete(pointer)가 있다. ​&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl29.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl29.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1129,7 +1380,7 @@ nter)/delete(pointer)가 있다. ​&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl30.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl30.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1170,7 +1421,7 @@ Code는 프로그램이 저장된다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl34.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl34.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1214,7 +1465,7 @@ C에서도 지원하지 않는다. ​
       
 
       
-        <summary type="html">제 11장 프로그래밍 언어</summary>
+        <summary type="html">변수와 시맨틱스</summary>
       
 
       
@@ -1286,7 +1537,7 @@ C에서도 지원하지 않는다. ​
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl21.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl21.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1310,7 +1561,7 @@ C에서도 지원하지 않는다. ​
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl22.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl22.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1350,7 +1601,7 @@ attributed parse tree(속성이 부여된 파스 트리)를 보여준다.  ​&l
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl23.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl23.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1475,7 +1726,7 @@ gory이며, 이들을 합친 것을 토큰이라고 한다. ​&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl24.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl24.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1495,7 +1746,7 @@ gory이며, 이들을 합친 것을 토큰이라고 한다. ​&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl25.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl25.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1538,7 +1789,7 @@ reserved word, identifier 등의 토큰을 긴 스트링 중의 서
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl26.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl26.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1672,7 +1923,7 @@ R은 rightmost derivation을 생성한다는 것을 나타낸다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl27.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl27.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1754,7 +2005,7 @@ a를 A(규칙의 LHS)로 교체한다.&lt;br /&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl28.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl28.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1877,7 +2128,7 @@ BNF는 신택스 구조를 위한 추상적 개념을 사용하는 규칙 언어
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl12.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl12.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1911,7 +2162,7 @@ or의 뜻) 등을 볼 수 있다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl13.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl13.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1928,7 +2179,7 @@ begin stmt ; stmt_list end, 등은 모두 문형식의 예들이다.&lt;br /&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl14.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl14.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1947,7 +2198,7 @@ derivation을 보여주고 있고,  ​&lt;/assign&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl15.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl15.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1999,7 +2250,7 @@ A=B+C&lt;/em&gt;A를 위한 파스 트리가 두개 생성된다. ​&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl16.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl16.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -2045,7 +2296,7 @@ A / B * C 은 어느 방식을 쓰느냐에 따라 계산 결과가 달라진다
 
 ---
 
- ​&lt;img src=&quot;/assets/built/images/pl/pl17.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;
+ ​&lt;img src=&quot;/assets/built/images/pl/pl17.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;
 
 ---
 
@@ -2056,7 +2307,7 @@ mt에 대해, 위의 문법은 두개의 파스 트리를 생성한다.
 
 ---
 
- ​&lt;img src=&quot;/assets/built/images/pl/pl18.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;
+ ​&lt;img src=&quot;/assets/built/images/pl/pl18.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;
 
 ---  
 
@@ -2076,7 +2327,7 @@ e를 허용하기 위해, 규칙에 else &lt;unmatched&gt;를 추가한다. ​
 &amp;gt; Extended BNF
 
 
- ​&lt;img src=&quot;/assets/built/images/pl/pl19.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;
+ ​&lt;img src=&quot;/assets/built/images/pl/pl19.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;
 
 ---
 
@@ -2091,7 +2342,7 @@ e를 허용하기 위해, 규칙에 else &lt;unmatched&gt;를 추가한다. ​
 
 ---
 
- ​&lt;img src=&quot;/assets/built/images/pl/pl20.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;  
+ ​&lt;img src=&quot;/assets/built/images/pl/pl20.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;  
  
 ---
 
@@ -2224,7 +2475,7 @@ while, switch, for, until 등이 언어에 포함되었다.&lt;br /&gt;
 Call by name은 ‘넘어간 함수의 호출 시점’을 다루고 있다.
 Call by name은 함수 프로그래밍에서 사용하는 방법이다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/pl/pl10.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/pl/pl10.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;함수 호출시 파라미터를 call by value로 넘겨준다면, ​
 그 아웃풋 순서는 hi 다음에 call이지만, ​&lt;/p&gt;
@@ -2315,7 +2566,7 @@ PL/1은 이들 분야의 문제 해결을 위한 프로그래밍 언어였다. �
 
 &lt;hr /&gt;
 
-&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/pl/pl11.png&quot; width=&quot;50%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/pl/pl11.png&quot; width=&quot;50%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 &lt;p&gt;​
@@ -2526,7 +2777,7 @@ PL 컨스트럭트의 구현은 고급 언어를 어셈블리 언어와 같은
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/pl/pl04.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/pl/pl04.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -2574,7 +2825,7 @@ PL 컨스트럭트의 구현은 고급 언어를 어셈블리 언어와 같은
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/pl/pl05.png&quot; width=&quot;25%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/pl/pl05.png&quot; width=&quot;25%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -2598,7 +2849,7 @@ PL 컨스트럭트의 구현은 고급 언어를 어셈블리 언어와 같은
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/pl/pl06.png&quot; width=&quot;25%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/pl/pl06.png&quot; width=&quot;25%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -2616,7 +2867,7 @@ PL 컨스트럭트의 구현은 고급 언어를 어셈블리 언어와 같은
 
 &lt;hr /&gt;
 
-&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/pl/pl07.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어05&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/pl/pl07.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -2647,167 +2898,6 @@ PL 컨스트럭트의 구현은 고급 언어를 어셈블리 언어와 같은
 
       
         <summary type="html">프로그래밍 언어의 구현 시스템</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">언어 평가 기준과 언어 설계시 기준 간의 균형</title>
-      <link href="https://lee989898.github.io/pl-04" rel="alternate" type="text/html" title="언어 평가 기준과 언어 설계시 기준 간의 균형" />
-      <published>2021-09-09T19:18:00+09:00</published>
-      <updated>2021-09-09T19:18:00+09:00</updated>
-      <id>https://lee989898.github.io/pl-04</id>
-      <content type="html" xml:base="https://lee989898.github.io/pl-04">&lt;h3 id=&quot;언어-평가-기준과-언어-설계시-기준-간의-균형&quot;&gt;&lt;strong&gt;언어 평가 기준과 언어 설계시 기준 간의 균형&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;좋은 프로그래밍 언어가 갖춰야 할 기준은 무엇인가 살펴 보자. ​&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Readability(읽기 쉬움): 프로그램을 읽고 이해하기 쉬운 정
-도를 프로그래밍 언어의 readability라고 한다. ​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Writability(쓰기쉬움): 프로그램을 작성하기 쉬운 정
-도를 프로그래밍 언어의 writability라고 한다. ​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Reliability(신뢰성): 프로그램이 다양한 조건 아래
-서 ‘원래 하기로 되어 있던’ 일을 수행하는 것을 
-reliability라고 한다. &lt;br /&gt;
-즉, 인풋이 같으면 아웃풋이 같아야 한다. &lt;br /&gt;
-만일 인풋이 같은데 조건에 따라 다른 아웃풋을 낸
-다면 이 프로그램은 신뢰성이 없는 것이다. ​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;비용: 프로그램은 학습 비용, 개발 비용(인건비 등 포함)
-, 실행 비용 등 여러 가지 비용을 수반한다. &lt;br /&gt;
-이 모든 비용이 적으면 좋은 프로그래밍 언어인 것이다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Readability를 올리려면 다음과 같은 특성을 갖는 것이 바람직하다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;첫째, 단순성이다. &lt;br /&gt;
-만일 프로그래밍 언어가, 언어의 고유 기능과 기본 컨스트럭트(construc
-ts; control structure를 의미함)를 비교적 적게 갖고 있으며, ​
-고유 기능에 대한 다중성이 적을 수록,   ​
-연산의 오버로딩을 최소한으로 허용할 수록 읽기 쉽다. &lt;br /&gt;
-여기서 다중성이란 동일한 연산을 수행하는 방법이 
-여러 가지가 있다는 것을 의미하며,
-충돌이 발생할 가능성에 대비하여 프로그래머에 의한 조치가 필요하다. &lt;br /&gt;
-이러한 다중성은 객체 지향 언어에서 두드러지는데, ​
-C++에서는 허용되지만 Java에서는 허용되지 않는다. &lt;br /&gt;
-오버로딩은 동일한 이름의 연산을 여러 개 정의하는 것을 의미하고, ​
-컴파일할 때 어느 연산을 실행할지 컴파일러가 결정한다. ​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;둘째, 독립성이다.&lt;br /&gt;
-독립성이란 컨스트럭트 결합 규칙이 문맥에 대해 
-종속되지 않고 독립적인 것을 의미한다.&lt;br /&gt;
-컨스트럭트 간의 결합 규칙에 예외나 불규칙성이 비교적 적고, ​
-모든 결합(combination)이 구문적으로 적
-합하고 문맥에 독립적이어야 읽기 쉽습니다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;구조적 프로그래밍에 필요한 loop, if-then-else, begin
--end와 같은 컨트롤 구조를 충분히 제공하면, ​
-프로그램을 위에서 아래로 읽어 내려가면서 이해할 수 있
-어서 readability에 기여한다. ​&lt;/p&gt;
-
-&lt;p&gt;데이터 타입과 데이터 구조의 정의 기능 또한 프로그램
-의 readability에 기여한다. &lt;br /&gt;
-데이터 타입의 정의를 통해 데이터가 가질 수 있는 값의 범위와 ​
-이들 데이터에 허용되는 연산을 이해할 수 있다. &lt;br /&gt;
-데이터 구조의 정의 기능은 다양한 여러 복잡한 데이터 유형을 모아서, ​
-새로운 단순한 유형의 데이터를 정의할 수 있는 능력을 프로
-그래머에게 제공한다. &lt;br /&gt;
-프로그래머는 이와 같이 복잡한 것을 단순화시킬 수 있어서, ​
-프로그램을 쉽게 작성할 수 있는 동시에, 다른 프로그래머를 쉽게 이해시킬 수 있다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Writablility&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;프로그래밍 언어의 쓰기쉬움의 주요 평가 기준은 ​단순성과 독립성, 추상화 지원, 표현력을 들 수 있다. &lt;br /&gt;
-단순성이란 컨스트럭트의 수가 적다는 것을 의미하고, ​독립성이란 컨스트럭트 결합 규칙이 문맥에 대해 독립적이라는 것을 의미한다. &lt;br /&gt;
-그러나 컨스트럭트 결합 규칙이 문맥에 지나치게 독립적이면, ​실행시 발생하는 오류를 탐지할 수 없게 될 수도 있다. &lt;br /&gt;
-따라서 독립성은 프로그래밍 언어를 설계할 때 신중하게 고려해야 한다. &lt;br /&gt;
-복잡한 구조 또는 연산의 추상화도 프로그래밍 언어의 쓰기쉬움을 평가하는 기준이다. &lt;br /&gt;
-추상화에는 처리 절차의 추상화(서브 프로그램)와 데이터 추상화가 있다. &lt;br /&gt;
-For loop과 같이 편리한 표현 방식과 같은 표현력 또한 쓰기쉬움 평가의 기준입니다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Reliablitiy:&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;신뢰성은 타입 검사에 의한 오류 처리, ​
-프로그램 실행시에 발생하는 예외 처리, ​
-Aliasing(같은 메모리 주소를 다른 이름으로 레퍼런스하는 것), ​
-읽기쉬움과 쓰기쉬움 등은 모두 프로그래밍 언어의 신뢰성 평가의 기준이 된다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Cost:&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;학습, 개발, 컴파일 및 실행, 컴파일러 및 인터프리터와 
-같은 언어 구현 시스템, 신뢰성, 유지 보수 등 ​
-프로그래밍 언어 사용에 관련된 모든 비용은 언어 평가 기준에 속한다.&lt;/p&gt;
-
-&lt;p&gt;이밖에 구현 시스템간의 이식성, 다양한 응용에 대한 적용성, 언어
-의 표준화에 의한 완결성 및 정확성, 전력 소비 효율 등도 ​
-프로그래밍 언어의 평가 기준이다&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;언어 설계시 이들 모든 평가 기준을 최적화하기는 매우 어렵다. &lt;br /&gt;
-문제 해결에 필요한 기준을 먼저 설정하고 이들 간의 
-균형점을 찾는 것이 중요하다. ​&lt;/p&gt;
-
-&lt;p&gt;레퍼런스 변수는 메모리 상에 있는 인스턴스를 가리키는 데 사용되는 변수이다. &lt;br /&gt;
-자바에서는 모든 레퍼런스 변수에 대해, ​이들이 가리키는 메모리에 대한 인덱싱이 적절한지 검사한다.&lt;br /&gt;
-이것은 신뢰성을 높여 주지만 매우 높은 실행 비용을 유발한다. ​&lt;/p&gt;
-
-&lt;p&gt;강력한 연산자가 많으면 프로그램 짜기는 쉽지만, ​
-읽고 이해하기 어려울 수도 있다. ​&lt;/p&gt;
-
-&lt;p&gt;C++의 포인터는 매우 강력하고 유연하여 쓰기 쉬움을 높여주지만, ​
-주의를 기울이지 않으면 신뢰성에 문제를 일으킨다.&lt;/p&gt;
-
-&lt;hr /&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="pl" />
-      
-
-      
-        <summary type="html">언어 평가 기준과 언어 설계시 기준 간의 균형</summary>
       
 
       
