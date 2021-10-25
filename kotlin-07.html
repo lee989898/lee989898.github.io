@@ -56,12 +56,7 @@
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="흐름제어와 논리연산자" />
-    <meta property="og:description" content="흐름제어와 논리연산자
-
-
-
-
-" />
+    <meta property="og:description" content="흐름제어와 논리연산자 흐름을 제어하는 키워드 break: 반복문 내의 구문이 실행되는 중간에 즉시 반복문을 종료하고 다음 구문으로 넘어가는 역할을 한다. continue: 다음 반복조건으로 즉시 넘어가는 역할을 합니다. fun main(){ for(i in 1..10){ if(i == 3) break print(i) } for(j in 1..10){ if(j == 3) continue print(j) } } 코틀린은 다중 반복문에서" />
     <meta property="og:url" content="https://lee989898.github.io/kotlin-07" />
     <meta property="og:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -71,12 +66,7 @@
     <meta property="article:tag" content="Kotlin" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="흐름제어와 논리연산자" />
-    <meta name="twitter:description" content="흐름제어와 논리연산자
-
-
-
-
-" />
+    <meta name="twitter:description" content="흐름제어와 논리연산자 흐름을 제어하는 키워드 break: 반복문 내의 구문이 실행되는 중간에 즉시 반복문을 종료하고 다음 구문으로 넘어가는 역할을 한다. continue: 다음 반복조건으로 즉시 넘어가는 역할을 합니다. fun main(){ for(i in 1..10){ if(i == 3) break print(i) } for(j in 1..10){ if(j == 3) continue print(j) } } 코틀린은 다중 반복문에서" />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
     <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -108,12 +98,7 @@
         "@type": "WebPage",
         "@id": "https://lee989898.github.io/kotlin-07"
     },
-    "description": "흐름제어와 논리연산자
-
-
-
-
-"
+    "description": "흐름제어와 논리연산자 흐름을 제어하는 키워드 break: 반복문 내의 구문이 실행되는 중간에 즉시 반복문을 종료하고 다음 구문으로 넘어가는 역할을 한다. continue: 다음 반복조건으로 즉시 넘어가는 역할을 합니다. fun main(){ for(i in 1..10){ if(i == 3) break print(i) } for(j in 1..10){ if(j == 3) continue print(j) } } 코틀린은 다중 반복문에서"
 }
     </script>
 
@@ -218,9 +203,84 @@ into the {body} of the default.hbs template -->
             -->
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <h1 id="흐름제어와-논리연산자"><strong>흐름제어와 논리연산자</strong></h1>
+                    <h3 id="흐름제어와-논리연산자"><strong>흐름제어와 논리연산자</strong></h3>
 
 <hr />
+
+<blockquote>
+  <p>흐름을 제어하는 키워드</p>
+</blockquote>
+
+<ul>
+  <li>break: 반복문 내의 구문이 실행되는 중간에 즉시 반복문을 종료하고 다음 구문으로 넘어가는 역할을 한다.</li>
+  <li>continue: 다음 반복조건으로 즉시 넘어가는 역할을 합니다.</li>
+</ul>
+
+<hr />
+
+<noscript><pre>fun main(){
+    
+   for(i in 1..10){
+       if(i == 3) break
+       print(i)
+   }
+   
+   for(j in 1..10){
+       if(j == 3) continue
+       print(j)
+   }
+    
+}</pre></noscript>
+<script src="https://gist.github.com/lee989898/c45e3e7ff56735d5f8c1bccaed1d11f8.js"> </script>
+
+<hr />
+
+<p>코틀린은 다중 반복문에서 break나 continue가 적용되는 반복문을 label을 통해 지정할 수 있는 기능이 있습니다.</p>
+
+<hr />
+
+<noscript><pre>fun main(){
+    
+   loop@for(i in 1..10){
+       for(j in 1..10){
+           if(i == 1 &amp;&amp; j == 2) break@loop
+           println(&quot;i : $i, j : $j&quot;)
+       }
+   }
+    
+}</pre></noscript>
+<script src="https://gist.github.com/lee989898/4d8365d4a8e0296984e9039064fbcf07.js"> </script>
+
+<hr />
+
+<blockquote>
+  <p>논리연산자</p>
+</blockquote>
+
+<p>논리 값을 연산하여 새로운 논리값을 도출할 떄 쓰는 연산자입니다</p>
+
+<ul>
+  <li>&amp;&amp; : 둘다 true인 경우 결과값이 true입니다.</li>
+  <li>|| : 하나라도 true이면 결과값이 true입니다.</li>
+  <li>! : 뒤에 붙는 값을 반전시킵니다.</li>
+</ul>
+
+<hr />
+
+<noscript><pre>fun main(){
+    
+    println(true &amp;&amp; false)
+    println(true || false)
+    println(!false)
+    println(!true)
+    
+    var a = 6
+    var b = 4
+    
+    println(a &gt; 5 &amp;&amp; b &gt; 5) 
+    
+}</pre></noscript>
+<script src="https://gist.github.com/lee989898/7c772edd91c61e2b32dbb811c42403de.js"> </script>
 
 <hr />
 
@@ -378,7 +438,7 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
-                                            <li><a href="/kotlin-10">클래스의 상속</a></li>
+                                            <li><a href="/kotlin-24">Kotlin 24</a></li>
                                         
                                     
                                   
@@ -387,7 +447,7 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
-                                            <li><a href="/kotlin-09">클래스의 생성</a></li>
+                                            <li><a href="/kotlin-23">Kotlin 23</a></li>
                                         
                                     
                                   
@@ -396,7 +456,105 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
-                                            <li><a href="/kotlin-08">클래스의 기본구조</a></li>
+                                            <li><a href="/kotlin-22">Kotlin 22</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
                                         
                                     
                                   
@@ -456,7 +614,7 @@ into the {body} of the default.hbs template -->
                         <footer class="read-next-card-footer">
                             <a href="/tag/kotlin/">
                                 
-                                    See all 9 posts  →
+                                    See all 23 posts  →
                                 
                             </a>
                         </footer>
@@ -489,7 +647,7 @@ into the {body} of the default.hbs template -->
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>클래스의 기본구조
+                        <p>클래스
 
 </p>
                     

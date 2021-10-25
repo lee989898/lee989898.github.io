@@ -56,7 +56,7 @@
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="코틀린 규칙들" />
-    <meta property="og:description" content="Kotlin 공부는 여러 절로 구성되어 있습니다. 코틀린 규칙들 변수와 자료형 형변환과 배열 타입추론과 함수 조건문과 비교연산자 반복문과 증감연산자 흐름제어와 논리연산자 클래스의 기본구조 클래스의 생성 클래스의 상속 코틀린 규칙들 한줄 짜리 주석 // 여러 줄 주석 /* */ fun main() { //안녕하세요 /*안 *녕 *하 *세 *요*/ } 구문이 끝날때 세미콜론(;)을" />
+    <meta property="og:description" content="Kotlin 공부는 여러 절로 구성되어 있습니다. 코틀린 규칙들 변수와 자료형 형변환과 배열 타입추론과 함수 조건문과 비교연산자 반복문과 증감연산자 흐름제어와 논리연산자 클래스의 기본구조 코틀린 규칙들 한줄 짜리 주석 // 여러 줄 주석 /* */ fun main() { //안녕하세요 /*안 *녕 *하 *세 *요*/ } 구문이 끝날때 세미콜론(;)을 붙이지 않아도 됩니다. 클래스" />
     <meta property="og:url" content="https://lee989898.github.io/kotlin-01" />
     <meta property="og:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -66,7 +66,7 @@
     <meta property="article:tag" content="Kotlin" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="코틀린 규칙들" />
-    <meta name="twitter:description" content="Kotlin 공부는 여러 절로 구성되어 있습니다. 코틀린 규칙들 변수와 자료형 형변환과 배열 타입추론과 함수 조건문과 비교연산자 반복문과 증감연산자 흐름제어와 논리연산자 클래스의 기본구조 클래스의 생성 클래스의 상속 코틀린 규칙들 한줄 짜리 주석 // 여러 줄 주석 /* */ fun main() { //안녕하세요 /*안 *녕 *하 *세 *요*/ } 구문이 끝날때 세미콜론(;)을" />
+    <meta name="twitter:description" content="Kotlin 공부는 여러 절로 구성되어 있습니다. 코틀린 규칙들 변수와 자료형 형변환과 배열 타입추론과 함수 조건문과 비교연산자 반복문과 증감연산자 흐름제어와 논리연산자 클래스의 기본구조 코틀린 규칙들 한줄 짜리 주석 // 여러 줄 주석 /* */ fun main() { //안녕하세요 /*안 *녕 *하 *세 *요*/ } 구문이 끝날때 세미콜론(;)을 붙이지 않아도 됩니다. 클래스" />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
     <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -98,7 +98,7 @@
         "@type": "WebPage",
         "@id": "https://lee989898.github.io/kotlin-01"
     },
-    "description": "Kotlin 공부는 여러 절로 구성되어 있습니다. 코틀린 규칙들 변수와 자료형 형변환과 배열 타입추론과 함수 조건문과 비교연산자 반복문과 증감연산자 흐름제어와 논리연산자 클래스의 기본구조 클래스의 생성 클래스의 상속 코틀린 규칙들 한줄 짜리 주석 // 여러 줄 주석 /* */ fun main() { //안녕하세요 /*안 *녕 *하 *세 *요*/ } 구문이 끝날때 세미콜론(;)을"
+    "description": "Kotlin 공부는 여러 절로 구성되어 있습니다. 코틀린 규칙들 변수와 자료형 형변환과 배열 타입추론과 함수 조건문과 비교연산자 반복문과 증감연산자 흐름제어와 논리연산자 클래스의 기본구조 코틀린 규칙들 한줄 짜리 주석 // 여러 줄 주석 /* */ fun main() { //안녕하세요 /*안 *녕 *하 *세 *요*/ } 구문이 끝날때 세미콜론(;)을 붙이지 않아도 됩니다. 클래스"
 }
     </script>
 
@@ -213,8 +213,6 @@ into the {body} of the default.hbs template -->
     <li><a href="./kotlin-06">반복문과 증감연산자 </a></li>
     <li><a href="./kotlin-07">흐름제어와 논리연산자 </a></li>
     <li><a href="./kotlin-08">클래스의 기본구조 </a></li>
-    <li><a href="./kotlin-09">클래스의 생성 </a></li>
-    <li><a href="./kotlin-10">클래스의 상속 </a></li>
 </ul>
 
 <hr />
@@ -273,6 +271,60 @@ into the {body} of the default.hbs template -->
  이 외의 Scope 내에 선언된 변수 Local Variable(로컬변수)</li>
 </ul>
 
+<hr />
+
+<blockquote>
+  <p>Any</p>
+</blockquote>
+
+<p>어떤 자료형이든 상관없이 호환되는 코틀린의 최상위 자료형입니다.</p>
+
+<hr />
+
+<blockquote>
+  <p>init</p>
+</blockquote>
+
+<p>init 함수는 패러미터나 반환형이 없는 특수한 함수입니다.</p>
+
+<hr />
+
+<blockquote>
+  <p>open</p>
+</blockquote>
+
+<p>클래스가 상속될 수 있도록 클래스 선언시 붙여주는 키워드입니다.</p>
+
+<hr />
+
+<blockquote>
+  <p>기본 프로젝트 구조</p>
+</blockquote>
+
+<blockquote>
+  <p>물리적인구조</p>
+</blockquote>
+
+<ul>
+  <li>프로젝트: 코틀린으로 어플을 짤때 관련한 모든 내용을 담는 큰틀입니다.</li>
+  <li>모듈: 편리한 기능 단위, 모듈안에는 다양한 폴더와 파일이 들어갈 수 있습니다.</li>
+</ul>
+
+<blockquote>
+  <p>논리적인 구조</p>
+</blockquote>
+
+<ul>
+  <li>
+    <p>패키지: 소스 코드의 소속을 지정하기 위한 단위입니다. ex) package com.youtube.lee
+패키지를 설정하지 않으면 자동으로 default패키지로 묶입니다.</p>
+  </li>
+  <li>
+    <p>import: 사용할 외부 패키지 이름을 쓰면 다른 패키지의 함수,변수,클래스 등을 사용할 수 있습니다.</p>
+  </li>
+</ul>
+
+<hr />
 
                 </div>
             </section>
@@ -428,7 +480,7 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
-                                            <li><a href="/kotlin-10">클래스의 상속</a></li>
+                                            <li><a href="/kotlin-24">Kotlin 24</a></li>
                                         
                                     
                                   
@@ -437,7 +489,7 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
-                                            <li><a href="/kotlin-09">클래스의 생성</a></li>
+                                            <li><a href="/kotlin-23">Kotlin 23</a></li>
                                         
                                     
                                   
@@ -446,7 +498,105 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
-                                            <li><a href="/kotlin-08">클래스의 기본구조</a></li>
+                                            <li><a href="/kotlin-22">Kotlin 22</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
                                         
                                     
                                   
@@ -506,7 +656,7 @@ into the {body} of the default.hbs template -->
                         <footer class="read-next-card-footer">
                             <a href="/tag/kotlin/">
                                 
-                                    See all 9 posts  →
+                                    See all 23 posts  →
                                 
                             </a>
                         </footer>

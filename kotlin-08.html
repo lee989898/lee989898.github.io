@@ -56,12 +56,7 @@
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="클래스의 기본구조" />
-    <meta property="og:description" content="클래스의 기본구조
-
-
-
-
-" />
+    <meta property="og:description" content="클래스 클래스 클래스는 ‘값’과 그 값을 사용하는 ‘기능’들을 묶어놓은 것입니다. 클래스는 고유의 특징값을 담는 속성과 기능을 구현한 함수로 이루어져 있습니다. 또한 클래스는 인스턴스를 만드는 틀입니다. 인스턴스란 클래스를 이용해서 만들어내는 서로 다른 속성의 객체를 지칭하는 용어입니다. fun main(){ var a = Person(&quot;박보영&quot;,1990) var b = Person(&quot;전정국&quot;,1997) var c = Person(&quot;장원영&quot;,2004) a.introduce()" />
     <meta property="og:url" content="https://lee989898.github.io/kotlin-08" />
     <meta property="og:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -71,12 +66,7 @@
     <meta property="article:tag" content="Kotlin" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="클래스의 기본구조" />
-    <meta name="twitter:description" content="클래스의 기본구조
-
-
-
-
-" />
+    <meta name="twitter:description" content="클래스 클래스 클래스는 ‘값’과 그 값을 사용하는 ‘기능’들을 묶어놓은 것입니다. 클래스는 고유의 특징값을 담는 속성과 기능을 구현한 함수로 이루어져 있습니다. 또한 클래스는 인스턴스를 만드는 틀입니다. 인스턴스란 클래스를 이용해서 만들어내는 서로 다른 속성의 객체를 지칭하는 용어입니다. fun main(){ var a = Person(&quot;박보영&quot;,1990) var b = Person(&quot;전정국&quot;,1997) var c = Person(&quot;장원영&quot;,2004) a.introduce()" />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
     <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -108,12 +98,7 @@
         "@type": "WebPage",
         "@id": "https://lee989898.github.io/kotlin-08"
     },
-    "description": "클래스의 기본구조
-
-
-
-
-"
+    "description": "클래스 클래스 클래스는 ‘값’과 그 값을 사용하는 ‘기능’들을 묶어놓은 것입니다. 클래스는 고유의 특징값을 담는 속성과 기능을 구현한 함수로 이루어져 있습니다. 또한 클래스는 인스턴스를 만드는 틀입니다. 인스턴스란 클래스를 이용해서 만들어내는 서로 다른 속성의 객체를 지칭하는 용어입니다. fun main(){ var a = Person(&quot;박보영&quot;,1990) var b = Person(&quot;전정국&quot;,1997) var c = Person(&quot;장원영&quot;,2004) a.introduce()"
 }
     </script>
 
@@ -218,9 +203,238 @@ into the {body} of the default.hbs template -->
             -->
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <h1 id="클래스의-기본구조"><strong>클래스의 기본구조</strong></h1>
+                    <h3 id="클래스"><strong>클래스</strong></h3>
 
 <hr />
+
+<blockquote>
+  <p>클래스</p>
+</blockquote>
+
+<p>클래스는 ‘값’과 그 값을 사용하는 ‘기능’들을 묶어놓은 것입니다.
+클래스는 고유의 특징값을 담는 속성과 기능을 구현한 함수로 이루어져 있습니다.</p>
+
+<p>또한 클래스는 인스턴스를 만드는 틀입니다.
+인스턴스란 클래스를 이용해서 만들어내는 서로 다른 속성의 객체를 지칭하는 용어입니다.</p>
+
+<hr />
+
+<noscript><pre>fun main(){
+    
+    var a = Person(&quot;박보영&quot;,1990)
+    var b = Person(&quot;전정국&quot;,1997)
+    var c = Person(&quot;장원영&quot;,2004)
+    
+    a.introduce()
+    b.introduce()
+    c.introduce()
+    
+    
+}
+
+class Person(var name: String, val birthYear: Int){
+    fun introduce(){
+    println(&quot;안녕하세요, ${birthYear}년생 ${name}입니다.&quot;)
+    }
+}</pre></noscript>
+<script src="https://gist.github.com/lee989898/381b608c1a19be8b32abc6334b9620ae.js"> </script>
+
+<hr />
+
+<blockquote>
+  <p>클래스의 생성자</p>
+</blockquote>
+
+<p>생성자란 새로운 인스턴스를 만들기 위해 호출하는 특수한 함수입니다.
+생성자는 인스턴스의 속성을 초기화 및 인스턴스 생성시 구문을 수행하는 역할을 할 수 있습니다.</p>
+
+<ul>
+  <li>기본 생성자: 클래스를 만들 때 기본으로 선언</li>
+  <li>보조 생성자: 필요에 따라 추가적으로 선언</li>
+</ul>
+
+<hr />
+
+<noscript><pre>fun main(){
+    
+    var a = Person(&quot;박보영&quot;,1990)
+    var b = Person(&quot;전정국&quot;,1997)
+    var c = Person(&quot;장원영&quot;,2004)
+    
+    var d = Person(&quot;이루다&quot;)
+    var e = Person(&quot;차은우&quot;)
+    var f = Person(&quot;류수정&quot;)
+ 
+}
+
+class Person(var name: String, val birthYear: Int = 1997){
+    init{
+        println(&quot;${this.birthYear}년생 ${this.name}님이 생성되었습니다.&quot;)
+    }
+    
+    constructor(name:String) : this(name, 1997){
+        println(&quot;보조 생성자가 사용되었습니다.&quot;)
+    }
+}</pre></noscript>
+<script src="https://gist.github.com/lee989898/ed92fc7943d194074a63a5a9b01d0d08.js"> </script>
+
+<hr />
+
+<blockquote>
+  <p>클래스의 상속</p>
+</blockquote>
+
+<ul>
+  <li>수퍼클래스: 속성과 함수를 물려주는 클래스</li>
+  <li>서브클래스: 속성과 함수를 물려받는 클래스</li>
+</ul>
+
+<p>상속시 서브클래스는 수퍼클래스에 존재하는 속성과 같은이름의 속성을 가질 수 없다.<br />
+서브클래스가 생성될때는 반드시 수퍼클래스의 생성자도 호출해야합니다.</p>
+
+<hr />
+
+<noscript><pre>fun main(){
+    
+    var a = Animal(&quot;별이&quot;,5,&quot;개&quot;)
+    var b = Dog(&quot;별이&quot;,5)
+    
+    a.introduce()
+    b.introduce()
+    
+    b.bark()
+    
+    var c = Cat(&quot;루이&quot;, 1)
+    
+    c.introduce()
+    c.meow()
+}
+
+open class Animal(var name: String, var age: Int, var type: String){
+    fun introduce(){
+        println(&quot;저는 ${type} ${name}이고, ${age}살 입니다.&quot;)
+    }
+    
+}
+
+class Dog(name: String, age: Int): Animal(name,age,&quot;개&quot;){
+    fun bark(){
+        println(&quot;멍멍&quot;)
+    }
+}
+
+class Cat(name: String, age: Int): Animal(name,age,&quot;고양이&quot;){
+    fun meow(){
+        println(&quot;냐옹&quot;)
+    }
+}</pre></noscript>
+<script src="https://gist.github.com/lee989898/859d84d0c7f7550567ad728dd8f018fd.js"> </script>
+
+<hr />
+
+<blockquote>
+  <p>오버라이딩</p>
+</blockquote>
+
+<p>수퍼클래스에서 허용해주면 서브클래스에서 같은 이름과 형태로 된 함수의 내용을 구현할 수 있습니다.</p>
+
+<hr />
+
+<noscript><pre>fun main(){
+   
+    var t = Tiger()
+    
+    t.eat()
+    
+}
+
+open class Animal{
+    open fun eat(){
+        println(&quot;음식을 먹습니다&quot;)
+    }
+}
+
+class Tiger: Animal(){
+    override fun eat(){
+        println(&quot;고기를 먹습니다&quot;)
+    }
+}</pre></noscript>
+<script src="https://gist.github.com/lee989898/ac2a3b08052dba20f13dae2a3e78ce9b.js"> </script>
+
+<hr />
+
+<blockquote>
+  <p>추상화</p>
+</blockquote>
+
+<p>선언부만 있고 기능이 구현되지 않은 추상함수와 추상함수를 포함하는 추상클래스</p>
+
+<hr />
+
+<noscript><pre>fun main(){
+   
+    var r = Rabbit()
+    
+    r.eat()
+    r.sniff()
+}
+
+abstract class Animal(){
+    abstract fun eat()
+    fun sniff(){
+        println(&quot;킁킁&quot;)
+    }
+}
+
+class Rabbit : Animal(){
+    override fun eat(){
+        println(&quot;당근을 먹습니다.&quot;)
+    }
+}</pre></noscript>
+<script src="https://gist.github.com/lee989898/02664376392556d4d7f376a670ec6771.js"> </script>
+
+<hr />
+
+<blockquote>
+  <p>인터페이스</p>
+</blockquote>
+
+<p>인터페이스는 추상함수,일반함수,속성을 가집니다.<br />
+인터페이스는 생성자를 가질 수 없습니다.<br />
+인터페이스에서 구현부가 있는 함수는 open함수로 간주하고 구현부가 없는 함수는 abstract 함수로 간주합니다.<br />
+별도의 키워드가 없어도 포함된 모든 함수를 서브클래스에서 구현 및 재정의가 가능합니다.<br />
+또한 여러 인터페이스를 상속 받을 수 있습니다.</p>
+
+<hr />
+
+<noscript><pre>fun main(){
+    var d = Dog()
+    
+    d.run()
+    d.eat()
+    
+}
+
+interface Runner{
+    fun run()
+}
+
+interface Eater{
+    fun eat(){
+        println(&quot;음식을 먹습니다&quot;)
+    }
+}
+
+class Dog: Runner, Eater{
+    override fun run(){
+        println(&quot;우다다다 뜁니다&quot;)
+    }
+    
+    override fun eat(){
+        println(&quot;허겁지겁 먹습니다&quot;)
+    }
+}</pre></noscript>
+<script src="https://gist.github.com/lee989898/cea6ef3920b0a94e931f28c4f8b5e504.js"> </script>
 
 <hr />
 
@@ -378,7 +592,7 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
-                                            <li><a href="/kotlin-10">클래스의 상속</a></li>
+                                            <li><a href="/kotlin-24">Kotlin 24</a></li>
                                         
                                     
                                   
@@ -387,7 +601,107 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
-                                            <li><a href="/kotlin-09">클래스의 생성</a></li>
+                                            <li><a href="/kotlin-23">Kotlin 23</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/kotlin-22">Kotlin 22</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
                                         
                                     
                                   
@@ -399,8 +713,6 @@ into the {body} of the default.hbs template -->
                                   
                                     
                                         
-                                        
-                                            <li><a href="/kotlin-07">흐름제어와 논리연산자</a></li>
                                         
                                     
                                   
@@ -456,7 +768,7 @@ into the {body} of the default.hbs template -->
                         <footer class="read-next-card-footer">
                             <a href="/tag/kotlin/">
                                 
-                                    See all 9 posts  →
+                                    See all 23 posts  →
                                 
                             </a>
                         </footer>
@@ -485,11 +797,11 @@ into the {body} of the default.hbs template -->
                         
                     
 
-                    <h2 class="post-card-title">클래스의 생성</h2>
+                    <h2 class="post-card-title">변수, 함수, 클래스의 접근범위와 접근제한자</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>클래스의 생성
+                        <p>변수, 함수, 클래스의 접근범위와 접근제한자
 
 </p>
                     

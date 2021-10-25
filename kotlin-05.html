@@ -56,12 +56,7 @@
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="조건문과 비교연산자" />
-    <meta property="og:description" content="조건문과 비교연산자
-
-
-
-
-" />
+    <meta property="og:description" content="조건문과 비교연산자 if 만약 ~ 한다면 if문에 주어진 값이 ‘참’이라면 따라오는 구문을 실행하는 기능입니다. fun main(){ var a = 11 if(a &gt; 10){ println(&quot;a는 10보다 크다&quot;) }else{ println(&quot;a는 10보다 작거나 같다&quot;) } } 비교연산자 부등호 등호 is연산자, !is연산자 (자료형이 호환되는지 체크하고 형변환까지 해줍니다) ex) a is Int when when은 하나의" />
     <meta property="og:url" content="https://lee989898.github.io/kotlin-05" />
     <meta property="og:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -71,12 +66,7 @@
     <meta property="article:tag" content="Kotlin" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="조건문과 비교연산자" />
-    <meta name="twitter:description" content="조건문과 비교연산자
-
-
-
-
-" />
+    <meta name="twitter:description" content="조건문과 비교연산자 if 만약 ~ 한다면 if문에 주어진 값이 ‘참’이라면 따라오는 구문을 실행하는 기능입니다. fun main(){ var a = 11 if(a &gt; 10){ println(&quot;a는 10보다 크다&quot;) }else{ println(&quot;a는 10보다 작거나 같다&quot;) } } 비교연산자 부등호 등호 is연산자, !is연산자 (자료형이 호환되는지 체크하고 형변환까지 해줍니다) ex) a is Int when when은 하나의" />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
     <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -108,12 +98,7 @@
         "@type": "WebPage",
         "@id": "https://lee989898.github.io/kotlin-05"
     },
-    "description": "조건문과 비교연산자
-
-
-
-
-"
+    "description": "조건문과 비교연산자 if 만약 ~ 한다면 if문에 주어진 값이 ‘참’이라면 따라오는 구문을 실행하는 기능입니다. fun main(){ var a = 11 if(a &gt; 10){ println(&quot;a는 10보다 크다&quot;) }else{ println(&quot;a는 10보다 작거나 같다&quot;) } } 비교연산자 부등호 등호 is연산자, !is연산자 (자료형이 호환되는지 체크하고 형변환까지 해줍니다) ex) a is Int when when은 하나의"
 }
     </script>
 
@@ -218,9 +203,104 @@ into the {body} of the default.hbs template -->
             -->
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <h1 id="조건문과-비교연산자"><strong>조건문과 비교연산자</strong></h1>
+                    <h3 id="조건문과-비교연산자"><strong>조건문과 비교연산자</strong></h3>
 
 <hr />
+
+<blockquote>
+  <p>if</p>
+</blockquote>
+
+<p>만약 ~ 한다면 if문에 주어진 값이 ‘참’이라면 따라오는 구문을 실행하는 기능입니다.</p>
+
+<hr />
+
+<noscript><pre>fun main(){
+    var a = 11
+    
+    if(a &gt; 10){
+        println(&quot;a는 10보다 크다&quot;)
+    }else{
+        println(&quot;a는 10보다 작거나 같다&quot;)
+    }
+}
+</pre></noscript>
+<script src="https://gist.github.com/lee989898/3bd0acf1a85959a4eb4fa6fc2f076361.js"> </script>
+
+<hr />
+
+<blockquote>
+  <p>비교연산자</p>
+</blockquote>
+
+<ul>
+  <li>부등호</li>
+  <li>등호</li>
+  <li>is연산자, !is연산자 (자료형이 호환되는지 체크하고 형변환까지 해줍니다)
+ex) a is Int</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>when</p>
+</blockquote>
+
+<p>when은 하나의 변수를 여러개의 값과 비교할 수 있는 장점이있습니다.
+여러개의 조건이 부합되도 먼저 부합하는 조건이 실행됩니다.</p>
+
+<hr />
+
+<noscript><pre>fun main(){
+    
+    doWhen(1)
+    doWhen(&quot;LEE&quot;)
+    doWhen(12L)
+    doWhen(3.14159)
+    doWhen(&quot;Kotlin&quot;)
+}
+
+
+fun doWhen(a: Any){
+    when(a){
+        1 -&gt; println(&quot;정수 1입니다&quot;)
+        &quot;LEE&quot; -&gt; println(&quot;LEE의 코틀린입니다.&quot;)
+        is Long -&gt; println(&quot;Long 타입 입니다&quot;)
+        !is String -&gt; println(&quot;String 타입이 아닙니다&quot;)
+        else -&gt; println(&quot;어떤 조건도 만족하지 않습니다&quot;)
+    }
+    
+}
+</pre></noscript>
+<script src="https://gist.github.com/lee989898/c1ea3b14084a5557caf09d5a579accee.js"> </script>
+
+<hr />
+
+<p>when의 조건이 맞을때 동작 대신 값을 반환하려면 아래 같이 써주면 됩니다.</p>
+
+<hr />
+
+<noscript><pre>fun main(){
+    
+    doWhen(1)
+    doWhen(&quot;LEE&quot;)
+    doWhen(12L)
+    doWhen(3.14159)
+    doWhen(&quot;Kotlin&quot;)
+}
+
+
+fun doWhen(a: Any){
+    var result = when(a){
+        1 -&gt; &quot;정수 1입니다&quot;
+        &quot;LEE&quot; -&gt; &quot;LEE의 코틀린입니다.&quot;
+        is Long -&gt; &quot;Long 타입 입니다&quot;
+        !is String -&gt; &quot;String 타입이 아닙니다&quot;
+        else -&gt; &quot;어떤 조건도 만족하지 않습니다&quot;
+    }
+    println(result)
+}</pre></noscript>
+<script src="https://gist.github.com/lee989898/8a59f73ea9115ca5f96c27dce35e94c8.js"> </script>
 
 <hr />
 
@@ -378,7 +458,7 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
-                                            <li><a href="/kotlin-10">클래스의 상속</a></li>
+                                            <li><a href="/kotlin-24">Kotlin 24</a></li>
                                         
                                     
                                   
@@ -387,7 +467,7 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
-                                            <li><a href="/kotlin-09">클래스의 생성</a></li>
+                                            <li><a href="/kotlin-23">Kotlin 23</a></li>
                                         
                                     
                                   
@@ -396,7 +476,105 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
-                                            <li><a href="/kotlin-08">클래스의 기본구조</a></li>
+                                            <li><a href="/kotlin-22">Kotlin 22</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
                                         
                                     
                                   
@@ -456,7 +634,7 @@ into the {body} of the default.hbs template -->
                         <footer class="read-next-card-footer">
                             <a href="/tag/kotlin/">
                                 
-                                    See all 9 posts  →
+                                    See all 23 posts  →
                                 
                             </a>
                         </footer>

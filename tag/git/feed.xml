@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/git/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-10-23T22:15:03+09:00</updated>
+  <updated>2021-10-25T18:48:50+09:00</updated>
   <id>https://lee989898.github.io/tag/git/feed.xml</id>
 
   
@@ -113,6 +113,48 @@ message 이름으로 현재 추적하고 있는 코드들을 ‘찰칵’&lt;/p&
   &lt;p&gt;git pull origin main
 서버에서 변경사항이 일어난 것을 로컬로 동기화한다.&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;p&gt;git init -&amp;gt;gid add -&amp;gt; git commit -&amp;gt; 리포지토리만들기 -&amp;gt; git remote add origin 리포지토리 주소 -&amp;gt; git push origin main&lt;/p&gt;
+
+&lt;p&gt;리포지토리만들기 -&amp;gt; git clone 리포지토리주소 -&amp;gt; 필요한 폴더 넣기-&amp;gt; git add . -&amp;gt; git commit -&amp;gt;  -&amp;gt; git push origin maijn&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;.gitingnore
+txt 파일로 만들어서 확장자 없애기 
+*.exe 로 하면 exe는 커밋 및 올리지마
+하지만 매번 하면 귀찮gitignore.io사이트에서 활용하면 좋음&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git branch
+현재 생성되어있는 브랜치의 목록을 본다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git branch newFeature
+new Fragute이라는 새로운 브랜치를 만든다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git checkout newFeaute
+이라는 브랜치로 이동한다&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git branch -D newfraure
+이라는 브랜치를 삭제한다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git push origin 브랜치이름
+특정 브랜치를 깃허브에 푸시한다&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git pull origin 브랜치이름&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;브랜치를 깃허브에서 가져와서 최신화한다.&lt;/p&gt;
 
 &lt;hr /&gt;</content>
 

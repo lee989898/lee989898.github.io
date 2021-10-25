@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lee989898.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lee989898.github.io/" rel="alternate" type="text/html" /><updated>2021-10-23T22:15:03+09:00</updated><id>https://lee989898.github.io/feed.xml</id><title type="html">LEE</title><subtitle>공부 블로그</subtitle><entry><title type="html">Hash</title><link href="https://lee989898.github.io/sc-01" rel="alternate" type="text/html" title="Hash" /><published>2021-10-23T01:06:00+09:00</published><updated>2021-10-23T01:06:00+09:00</updated><id>https://lee989898.github.io/sc-01</id><content type="html" xml:base="https://lee989898.github.io/sc-01">&lt;h3 id=&quot;hash&quot;&gt;&lt;strong&gt;Hash&lt;/strong&gt;&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lee989898.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lee989898.github.io/" rel="alternate" type="text/html" /><updated>2021-10-25T18:48:50+09:00</updated><id>https://lee989898.github.io/feed.xml</id><title type="html">LEE</title><subtitle>공부 블로그</subtitle><entry><title type="html">Hash</title><link href="https://lee989898.github.io/sc-01" rel="alternate" type="text/html" title="Hash" /><published>2021-10-23T01:06:00+09:00</published><updated>2021-10-23T01:06:00+09:00</updated><id>https://lee989898.github.io/sc-01</id><content type="html" xml:base="https://lee989898.github.io/sc-01">&lt;h3 id=&quot;hash&quot;&gt;&lt;strong&gt;Hash&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
 
@@ -1647,7 +1647,142 @@ C에서도 지원하지 않는다. ​
 이렇게 하는 이유는 읽기 쉽고, 수정하기 쉽도록 하기 위한 것이다. ​
 스토리지에 바인딩될 때 값이 결정된다.&lt;/p&gt;
 
-&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="pl" /><summary type="html">변수와 시맨틱스</summary></entry><entry><title type="html">신택스 분석방법</title><link href="https://lee989898.github.io/pl-10" rel="alternate" type="text/html" title="신택스 분석방법" /><published>2021-09-23T19:18:00+09:00</published><updated>2021-09-23T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-10</id><content type="html" xml:base="https://lee989898.github.io/pl-10">&lt;h3 id=&quot;신택스-분석-방법&quot;&gt;&lt;strong&gt;신택스 분석 방법&lt;/strong&gt;&lt;/h3&gt;
+&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="pl" /><summary type="html">변수와 시맨틱스</summary></entry><entry><title type="html">정적 시맨틱과 동적 시맨틱</title><link href="https://lee989898.github.io/pl-09" rel="alternate" type="text/html" title="정적 시맨틱과 동적 시맨틱" /><published>2021-09-23T19:18:00+09:00</published><updated>2021-09-23T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-09</id><content type="html" xml:base="https://lee989898.github.io/pl-09">&lt;h3 id=&quot;정적-시맨틱과-동적-시맨틱&quot;&gt;&lt;strong&gt;정적 시맨틱과 동적 시맨틱&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;시맨틱에는 정적 시맨틱과 동적 시맨틱이 있다.&lt;br /&gt;
+정적인 시맨틱은 컴파일 시에 확인할 수 있는 시맨틱 규칙을 말한다.&lt;br /&gt;
+이들 시맨틱 규칙은 ​타입 검사, 프로그램에서 변수가 언급되기 전에 이에 대한 정의가 되어 있는지, ​서브 프로그램에서 어느 선언
+ 이 어느 변수에 적용되어야 하는지, ​서브 프로그램과 메소드가 호출될 때 호출 순서를 올
+바르게 지키는지 등을 포함한다.  ​&lt;/p&gt;
+
+&lt;p&gt;동적 시맨틱스는 프로그램이 실행될 때 ​프로그램 컨스트럭트가 
+언제 어떤 행태(계산 결과)를 생성해야 하는지 정의하는 것이다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;BNF로 시맨틱을 표현할 수 있을까?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;타입 호환성 규칙은 BNF로 서술할 수 있지만, ​
+새로운 난터미널 심볼과 규칙을 추가로 요구하기 때문에, ​
+문법이 너무 커지고 신택스 애널라이저(구문 해석기)가 비대해져 유용하지 않다. ​&lt;/p&gt;
+
+&lt;p&gt;프로그래밍 언어에 공통적으로 적용되고 있는 ​
+‘모든 변수는 언급되기(reference) 이전에 
+선언(정의)되어야 한다’는 규칙은 BNF로 서술이 불가하다. ​&lt;/p&gt;
+
+&lt;p&gt;이러한 종류의 규칙을 정적인(static) 시맨틱스라고 부른다.&lt;br /&gt;
+정적인 시맨틱스는 프로그램 실행시 프로그램의 의미에 간접적으로
+ 관련이 있을 뿐이고, 오히려, 프로그램의 올바른 형태(신택
+ 스)와 직접 관련이 있다. ​&lt;/p&gt;
+
+&lt;p&gt;따라서, 정적인 시맨틱스의 검사는 컴파일 시에 가능하다.&lt;br /&gt;
+이 말은 정적인 시맨틱스는 컴파일러의 구현시 고려되어야 한다는 의미이다. ​&lt;/p&gt;
+
+&lt;p&gt;그러면 정적인 시맨틱스를 어떻게 서술할 수 있을까? ​
+바로 속성 문법(attribute grammar)으로 서술한다. ​
+속성 문법은, ‘프로그래밍 언어가 만족해야 할’ 정적인 시맨틱 규칙을 
+서술하고 검사하기 위해 사용되는 ​BNF와 유사한 형태의 문법이다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;속성 문법이 단순한 assignment 문장의 타입 검사에 어떻게 사용 될까?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;이 assignment 문장의 신택스와 정적 시맨틱스는 다음과 같다. ​&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;변수명은 A, B, C 뿐이다.​&lt;/li&gt;
+  &lt;li&gt;Assignment의 우변은 변수거나 ‘변수 + 변수’의 표현식이다. ​&lt;/li&gt;
+  &lt;li&gt;변수의 타입은 int거나 real이다.​&lt;/li&gt;
+  &lt;li&gt;우변에 변수 2개가 있을 때, 이들의 타입은 같을 필요가 없다. ​&lt;/li&gt;
+  &lt;li&gt;두 오퍼랜드가 같은 타입이 아닐 때 표현식의 타입은 real이다.&lt;br /&gt;
+(여기서 표현식의 타입이란 표현식을 계산한 결과값의 타입을 말한다.) ​&lt;/li&gt;
+  &lt;li&gt;이들의 타입이 같을 때, 표현식의 타입은 오퍼랜드의 타입과 같다. ​&lt;/li&gt;
+  &lt;li&gt;좌변의 타입은 우변의 타입과 같아야 한다. ​&lt;/li&gt;
+  &lt;li&gt;그래서, 우변의 오퍼랜드의 타입이 mix될 수 있으나, 우변의 계산 결과값과 좌변의 타겟이 같을 때만 assignment는 타당하다.  ​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;속성 문법은 위와 같은 정적 시맨틱 규칙을 명세한다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl21.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;간단한 assignment를 속성문법으로 서술하면 위 그림과 같다. ​&lt;/p&gt;
+
+&lt;p&gt;속성 문법에는 신택스 규칙과 함께 데이터 타입에 관한 시맨틱 
+규칙, 그리고 판단식이 서술되어 있다.&lt;br /&gt;
+룩업 함수는 심볼 테이블에서 변수명을 찾아서 변수의 타입을 반환한다.&lt;br /&gt;
+심볼 테이블은 컴파일러가 구문 분석 단계에서 ​
+변수에 대한 이름, 타입 등을 저장하기 위해 생성한 ​
+테이블 구조를 말한다. ​&lt;/p&gt;
+
+&lt;p&gt;실제 타입은 var, expr의 실제 타입을 말한다.&lt;br /&gt;
+실제 타입은 선언되어 있거나 변수명으로부터 유추 가능하다.&lt;br /&gt;
+예를 들어, Perl에서 $, @, %는 ​
+각각 스칼라(스티링, 숫자), 벡터(배열), 해쉬 구조를 나타낸다.&lt;br /&gt;
+이로부터 변수의 타입을 유추할 수 있다. ​&lt;/p&gt;
+
+&lt;p&gt;예상 타입은 expr와 관련된 속성으로부터 상속된 타입으로 ​
+좌변의 변수의 실제 타입에 의해 결정된다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl22.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;왼쪽 그림은 속성의 흐름, ​
+즉 속성이 파스 트리를 따라
+ 상속(pass up, pass down)되는 흐름을 나타내고 있고, ​&lt;/p&gt;
+
+&lt;p&gt;오른쪽 그림은 속성 문법에 의한 ​
+attributed parse tree(속성이 부여된 파스 트리)를 보여준다.  ​&lt;/p&gt;
+
+&lt;p&gt;이와 같이 부여된 속성에 근거하여, 컴파일러는 타입 검사를 할 수 있다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;동적 시맨틱스를 서술하는 방법은 여러 가지가 있으나, operational semantics에 대해 살펴 보기로 한다. ​&lt;/p&gt;
+
+&lt;p&gt;Operational semantics는 연산의 의미에 의해 
+표현식, 문장, 단위 프로그램의 의미를 서술하는 방식이다. ​&lt;/p&gt;
+
+&lt;p&gt;시맨틱스 서술의 중요성을 각 사용자별로 따져 보면 다음과 같다.  ​&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;프로그래머는 원하는 프로그램을 짜기 위해 프로그
+래밍 언어의 각 문장이 무엇을 하는지 알 필요가 있다. ​&lt;/li&gt;
+  &lt;li&gt;컴파일러 개발자는 프로그래밍 언어
+에서 각 컨스트럭트의 의미를 정확히 알아야 한다. ​&lt;/li&gt;
+  &lt;li&gt;프로그래밍 언어 설계자는 설계 상의 모호성과 불일치를 발견할 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Operational semantics는 문장이나 단위 프로그램
+을 컴퓨터에서 실행한 효과를 명세하여, ​
+문장이나 프로그램의 의미를 서술한다. ​&lt;/p&gt;
+
+&lt;p&gt;Operational semantics는 머신 상태의 일련의 변화로 볼 수 있다.&lt;br /&gt;
+여기서 머신의 상태란 프로그램 수행에 따라 변화하는 각 변수 값의 콜
+렉션(집합)이다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl23.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;위의 그림과 같이, operational semantics는 ​
+문장에 대한 의미를 intermediate code처럼 정해진 
+방식으로 서술한 것으로 볼 수 있다.&lt;br /&gt;
+Intermediate 언어는 가상 머신에서 실
+행되는 언어 또는 어셈블리 언어를 말한다.&lt;/p&gt;
+
+&lt;p&gt;Operational semantics 서술을 위해 intermediate 언어와 가상 머신을 사용하기도 한다. ​​&lt;/p&gt;
+
+&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="pl" /><summary type="html">정적 시맨틱과 동적 시맨틱</summary></entry><entry><title type="html">신택스 분석방법</title><link href="https://lee989898.github.io/pl-10" rel="alternate" type="text/html" title="신택스 분석방법" /><published>2021-09-23T19:18:00+09:00</published><updated>2021-09-23T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-10</id><content type="html" xml:base="https://lee989898.github.io/pl-10">&lt;h3 id=&quot;신택스-분석-방법&quot;&gt;&lt;strong&gt;신택스 분석 방법&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
 
@@ -2047,142 +2182,7 @@ a를 A(규칙의 LHS)로 교체한다.&lt;br /&gt;
 렉시칼 애널라이저가 그 만큼의 시간을 소모하고, ​
 정착 알고리듬 측면에서 가장 복잡한 파싱이 비용소모가 적다. ​&lt;/p&gt;
 
-&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="pl" /><summary type="html">신택스 분석 방법</summary></entry><entry><title type="html">정적 시맨틱과 동적 시맨틱</title><link href="https://lee989898.github.io/pl-09" rel="alternate" type="text/html" title="정적 시맨틱과 동적 시맨틱" /><published>2021-09-23T19:18:00+09:00</published><updated>2021-09-23T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-09</id><content type="html" xml:base="https://lee989898.github.io/pl-09">&lt;h3 id=&quot;정적-시맨틱과-동적-시맨틱&quot;&gt;&lt;strong&gt;정적 시맨틱과 동적 시맨틱&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;시맨틱에는 정적 시맨틱과 동적 시맨틱이 있다.&lt;br /&gt;
-정적인 시맨틱은 컴파일 시에 확인할 수 있는 시맨틱 규칙을 말한다.&lt;br /&gt;
-이들 시맨틱 규칙은 ​타입 검사, 프로그램에서 변수가 언급되기 전에 이에 대한 정의가 되어 있는지, ​서브 프로그램에서 어느 선언
- 이 어느 변수에 적용되어야 하는지, ​서브 프로그램과 메소드가 호출될 때 호출 순서를 올
-바르게 지키는지 등을 포함한다.  ​&lt;/p&gt;
-
-&lt;p&gt;동적 시맨틱스는 프로그램이 실행될 때 ​프로그램 컨스트럭트가 
-언제 어떤 행태(계산 결과)를 생성해야 하는지 정의하는 것이다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;BNF로 시맨틱을 표현할 수 있을까?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;타입 호환성 규칙은 BNF로 서술할 수 있지만, ​
-새로운 난터미널 심볼과 규칙을 추가로 요구하기 때문에, ​
-문법이 너무 커지고 신택스 애널라이저(구문 해석기)가 비대해져 유용하지 않다. ​&lt;/p&gt;
-
-&lt;p&gt;프로그래밍 언어에 공통적으로 적용되고 있는 ​
-‘모든 변수는 언급되기(reference) 이전에 
-선언(정의)되어야 한다’는 규칙은 BNF로 서술이 불가하다. ​&lt;/p&gt;
-
-&lt;p&gt;이러한 종류의 규칙을 정적인(static) 시맨틱스라고 부른다.&lt;br /&gt;
-정적인 시맨틱스는 프로그램 실행시 프로그램의 의미에 간접적으로
- 관련이 있을 뿐이고, 오히려, 프로그램의 올바른 형태(신택
- 스)와 직접 관련이 있다. ​&lt;/p&gt;
-
-&lt;p&gt;따라서, 정적인 시맨틱스의 검사는 컴파일 시에 가능하다.&lt;br /&gt;
-이 말은 정적인 시맨틱스는 컴파일러의 구현시 고려되어야 한다는 의미이다. ​&lt;/p&gt;
-
-&lt;p&gt;그러면 정적인 시맨틱스를 어떻게 서술할 수 있을까? ​
-바로 속성 문법(attribute grammar)으로 서술한다. ​
-속성 문법은, ‘프로그래밍 언어가 만족해야 할’ 정적인 시맨틱 규칙을 
-서술하고 검사하기 위해 사용되는 ​BNF와 유사한 형태의 문법이다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;속성 문법이 단순한 assignment 문장의 타입 검사에 어떻게 사용 될까?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;이 assignment 문장의 신택스와 정적 시맨틱스는 다음과 같다. ​&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;변수명은 A, B, C 뿐이다.​&lt;/li&gt;
-  &lt;li&gt;Assignment의 우변은 변수거나 ‘변수 + 변수’의 표현식이다. ​&lt;/li&gt;
-  &lt;li&gt;변수의 타입은 int거나 real이다.​&lt;/li&gt;
-  &lt;li&gt;우변에 변수 2개가 있을 때, 이들의 타입은 같을 필요가 없다. ​&lt;/li&gt;
-  &lt;li&gt;두 오퍼랜드가 같은 타입이 아닐 때 표현식의 타입은 real이다.&lt;br /&gt;
-(여기서 표현식의 타입이란 표현식을 계산한 결과값의 타입을 말한다.) ​&lt;/li&gt;
-  &lt;li&gt;이들의 타입이 같을 때, 표현식의 타입은 오퍼랜드의 타입과 같다. ​&lt;/li&gt;
-  &lt;li&gt;좌변의 타입은 우변의 타입과 같아야 한다. ​&lt;/li&gt;
-  &lt;li&gt;그래서, 우변의 오퍼랜드의 타입이 mix될 수 있으나, 우변의 계산 결과값과 좌변의 타겟이 같을 때만 assignment는 타당하다.  ​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;속성 문법은 위와 같은 정적 시맨틱 규칙을 명세한다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl21.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;간단한 assignment를 속성문법으로 서술하면 위 그림과 같다. ​&lt;/p&gt;
-
-&lt;p&gt;속성 문법에는 신택스 규칙과 함께 데이터 타입에 관한 시맨틱 
-규칙, 그리고 판단식이 서술되어 있다.&lt;br /&gt;
-룩업 함수는 심볼 테이블에서 변수명을 찾아서 변수의 타입을 반환한다.&lt;br /&gt;
-심볼 테이블은 컴파일러가 구문 분석 단계에서 ​
-변수에 대한 이름, 타입 등을 저장하기 위해 생성한 ​
-테이블 구조를 말한다. ​&lt;/p&gt;
-
-&lt;p&gt;실제 타입은 var, expr의 실제 타입을 말한다.&lt;br /&gt;
-실제 타입은 선언되어 있거나 변수명으로부터 유추 가능하다.&lt;br /&gt;
-예를 들어, Perl에서 $, @, %는 ​
-각각 스칼라(스티링, 숫자), 벡터(배열), 해쉬 구조를 나타낸다.&lt;br /&gt;
-이로부터 변수의 타입을 유추할 수 있다. ​&lt;/p&gt;
-
-&lt;p&gt;예상 타입은 expr와 관련된 속성으로부터 상속된 타입으로 ​
-좌변의 변수의 실제 타입에 의해 결정된다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl22.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;왼쪽 그림은 속성의 흐름, ​
-즉 속성이 파스 트리를 따라
- 상속(pass up, pass down)되는 흐름을 나타내고 있고, ​&lt;/p&gt;
-
-&lt;p&gt;오른쪽 그림은 속성 문법에 의한 ​
-attributed parse tree(속성이 부여된 파스 트리)를 보여준다.  ​&lt;/p&gt;
-
-&lt;p&gt;이와 같이 부여된 속성에 근거하여, 컴파일러는 타입 검사를 할 수 있다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;동적 시맨틱스를 서술하는 방법은 여러 가지가 있으나, operational semantics에 대해 살펴 보기로 한다. ​&lt;/p&gt;
-
-&lt;p&gt;Operational semantics는 연산의 의미에 의해 
-표현식, 문장, 단위 프로그램의 의미를 서술하는 방식이다. ​&lt;/p&gt;
-
-&lt;p&gt;시맨틱스 서술의 중요성을 각 사용자별로 따져 보면 다음과 같다.  ​&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;프로그래머는 원하는 프로그램을 짜기 위해 프로그
-래밍 언어의 각 문장이 무엇을 하는지 알 필요가 있다. ​&lt;/li&gt;
-  &lt;li&gt;컴파일러 개발자는 프로그래밍 언어
-에서 각 컨스트럭트의 의미를 정확히 알아야 한다. ​&lt;/li&gt;
-  &lt;li&gt;프로그래밍 언어 설계자는 설계 상의 모호성과 불일치를 발견할 수 있다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Operational semantics는 문장이나 단위 프로그램
-을 컴퓨터에서 실행한 효과를 명세하여, ​
-문장이나 프로그램의 의미를 서술한다. ​&lt;/p&gt;
-
-&lt;p&gt;Operational semantics는 머신 상태의 일련의 변화로 볼 수 있다.&lt;br /&gt;
-여기서 머신의 상태란 프로그램 수행에 따라 변화하는 각 변수 값의 콜
-렉션(집합)이다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl23.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;위의 그림과 같이, operational semantics는 ​
-문장에 대한 의미를 intermediate code처럼 정해진 
-방식으로 서술한 것으로 볼 수 있다.&lt;br /&gt;
-Intermediate 언어는 가상 머신에서 실
-행되는 언어 또는 어셈블리 언어를 말한다.&lt;/p&gt;
-
-&lt;p&gt;Operational semantics 서술을 위해 intermediate 언어와 가상 머신을 사용하기도 한다. ​​&lt;/p&gt;
-
-&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="pl" /><summary type="html">정적 시맨틱과 동적 시맨틱</summary></entry><entry><title type="html">분할 정복</title><link href="https://lee989898.github.io/algorithm-03" rel="alternate" type="text/html" title="분할 정복" /><published>2021-09-21T01:09:00+09:00</published><updated>2021-09-21T01:09:00+09:00</updated><id>https://lee989898.github.io/algorithm-03</id><content type="html" xml:base="https://lee989898.github.io/algorithm-03">&lt;h3 id=&quot;분할-정복&quot;&gt;&lt;strong&gt;분할 정복&lt;/strong&gt;&lt;/h3&gt;
+&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="pl" /><summary type="html">신택스 분석 방법</summary></entry><entry><title type="html">분할 정복</title><link href="https://lee989898.github.io/algorithm-03" rel="alternate" type="text/html" title="분할 정복" /><published>2021-09-21T01:09:00+09:00</published><updated>2021-09-21T01:09:00+09:00</updated><id>https://lee989898.github.io/algorithm-03</id><content type="html" xml:base="https://lee989898.github.io/algorithm-03">&lt;h3 id=&quot;분할-정복&quot;&gt;&lt;strong&gt;분할 정복&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
 

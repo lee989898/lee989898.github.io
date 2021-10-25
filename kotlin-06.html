@@ -56,12 +56,7 @@
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="반복문과 증감연산자" />
-    <meta property="og:description" content="반복문과 증감연산자
-
-
-
-
-" />
+    <meta property="og:description" content="반복문과 증감연산자 증가연산자 변수의 값을 ‘1’ 증가시켜주는 역할을 합니다. ex)++a, a++ 감소연산자 변수의 값을 ‘1’ 감소시켜주는 역할을 합니다. ex)–a, a– 반복문은 크게 두가지로 조건형 반복문과 범위형 반복문 형태가 있습니다. 조건형 반복문 조건형 반복문에는 while, do..while이 있다. fun main(){ var a = 0 var b = 0 while(a &lt; 5){ println(a++)" />
     <meta property="og:url" content="https://lee989898.github.io/kotlin-06" />
     <meta property="og:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -71,12 +66,7 @@
     <meta property="article:tag" content="Kotlin" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="반복문과 증감연산자" />
-    <meta name="twitter:description" content="반복문과 증감연산자
-
-
-
-
-" />
+    <meta name="twitter:description" content="반복문과 증감연산자 증가연산자 변수의 값을 ‘1’ 증가시켜주는 역할을 합니다. ex)++a, a++ 감소연산자 변수의 값을 ‘1’ 감소시켜주는 역할을 합니다. ex)–a, a– 반복문은 크게 두가지로 조건형 반복문과 범위형 반복문 형태가 있습니다. 조건형 반복문 조건형 반복문에는 while, do..while이 있다. fun main(){ var a = 0 var b = 0 while(a &lt; 5){ println(a++)" />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
     <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -108,12 +98,7 @@
         "@type": "WebPage",
         "@id": "https://lee989898.github.io/kotlin-06"
     },
-    "description": "반복문과 증감연산자
-
-
-
-
-"
+    "description": "반복문과 증감연산자 증가연산자 변수의 값을 ‘1’ 증가시켜주는 역할을 합니다. ex)++a, a++ 감소연산자 변수의 값을 ‘1’ 감소시켜주는 역할을 합니다. ex)–a, a– 반복문은 크게 두가지로 조건형 반복문과 범위형 반복문 형태가 있습니다. 조건형 반복문 조건형 반복문에는 while, do..while이 있다. fun main(){ var a = 0 var b = 0 while(a &lt; 5){ println(a++)"
 }
     </script>
 
@@ -218,9 +203,72 @@ into the {body} of the default.hbs template -->
             -->
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <h1 id="반복문과-증감연산자"><strong>반복문과 증감연산자</strong></h1>
+                    <h3 id="반복문과-증감연산자"><strong>반복문과 증감연산자</strong></h3>
 
 <hr />
+
+<blockquote>
+  <p>증가연산자</p>
+</blockquote>
+
+<p>변수의 값을 ‘1’ 증가시켜주는 역할을 합니다. ex)++a, a++</p>
+
+<blockquote>
+  <p>감소연산자</p>
+</blockquote>
+
+<p>변수의 값을 ‘1’ 감소시켜주는 역할을 합니다. ex)–a, a–</p>
+
+<hr />
+
+<p>반복문은 크게 두가지로 조건형 반복문과 범위형 반복문 형태가 있습니다.</p>
+
+<blockquote>
+  <p>조건형 반복문</p>
+</blockquote>
+
+<p>조건형 반복문에는 while, do..while이 있다.</p>
+
+<hr />
+
+<noscript><pre>fun main(){
+    
+    var a = 0
+    var b = 0
+    
+    while(a &lt; 5){
+        println(a++)
+    }
+    
+    do{
+        println(++b)
+    }while(b &lt; 5)
+    
+}</pre></noscript>
+<script src="https://gist.github.com/lee989898/e9e692b89e19b9153219b2c22e3c4b14.js"> </script>
+
+<hr />
+
+<blockquote>
+  <p>범위형 반복문</p>
+</blockquote>
+
+<p>범위형 반복문에는 for가 있다.</p>
+
+<hr />
+
+<noscript><pre>fun main(){
+    
+   for(i in 0..9 step 3){
+       print(i)
+   }
+   
+   for(j in 9 downTo 0){
+       print(j)
+   }
+    
+}</pre></noscript>
+<script src="https://gist.github.com/lee989898/3062fc5bb6b4c74afd11a1b882fed489.js"> </script>
 
 <hr />
 
@@ -378,7 +426,7 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
-                                            <li><a href="/kotlin-10">클래스의 상속</a></li>
+                                            <li><a href="/kotlin-24">Kotlin 24</a></li>
                                         
                                     
                                   
@@ -387,7 +435,7 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
-                                            <li><a href="/kotlin-09">클래스의 생성</a></li>
+                                            <li><a href="/kotlin-23">Kotlin 23</a></li>
                                         
                                     
                                   
@@ -396,7 +444,105 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
-                                            <li><a href="/kotlin-08">클래스의 기본구조</a></li>
+                                            <li><a href="/kotlin-22">Kotlin 22</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
                                         
                                     
                                   
@@ -456,7 +602,7 @@ into the {body} of the default.hbs template -->
                         <footer class="read-next-card-footer">
                             <a href="/tag/kotlin/">
                                 
-                                    See all 9 posts  →
+                                    See all 23 posts  →
                                 
                             </a>
                         </footer>
