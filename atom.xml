@@ -308,24 +308,9 @@
     
       
       <item>
-        <title>Kotlin 24</title>
+        <title>코루틴</title>
         
-          <description>&lt;h3 id=&quot;__&quot;&gt;&lt;em&gt;__&lt;/em&gt;&lt;/h3&gt;
-
-</description>
-        
-        <pubDate>Mon, 09 Aug 2021 01:07:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/kotlin-24</link>
-        <guid isPermaLink="true">https://lee989898.github.io/kotlin-24</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>Kotlin 23</title>
-        
-          <description>&lt;h3 id=&quot;__&quot;&gt;&lt;em&gt;__&lt;/em&gt;&lt;/h3&gt;
+          <description>&lt;h3 id=&quot;코루틴&quot;&gt;&lt;strong&gt;코루틴&lt;/strong&gt;&lt;/h3&gt;
 
 </description>
         
@@ -338,9 +323,9 @@
     
       
       <item>
-        <title>Kotlin 22</title>
+        <title>변수의 고급 기술</title>
         
-          <description>&lt;h3 id=&quot;__&quot;&gt;&lt;em&gt;__&lt;/em&gt;&lt;/h3&gt;
+          <description>&lt;h3 id=&quot;상수-lateinit-lazy&quot;&gt;&lt;strong&gt;상수, lateinit, lazy&lt;/strong&gt;&lt;/h3&gt;
 
 </description>
         
@@ -353,9 +338,9 @@
     
       
       <item>
-        <title>Kotlin 21</title>
+        <title>컬렉션 함수</title>
         
-          <description>&lt;h3 id=&quot;__&quot;&gt;&lt;em&gt;__&lt;/em&gt;&lt;/h3&gt;
+          <description>&lt;h3 id=&quot;컬렉션-함수&quot;&gt;&lt;strong&gt;컬렉션 함수&lt;/strong&gt;&lt;/h3&gt;
 
 </description>
         
@@ -368,9 +353,9 @@
     
       
       <item>
-        <title>Kotlin 20</title>
+        <title>Set과 Map</title>
         
-          <description>&lt;h3 id=&quot;__&quot;&gt;&lt;em&gt;__&lt;/em&gt;&lt;/h3&gt;
+          <description>&lt;h3 id=&quot;set과-map&quot;&gt;&lt;strong&gt;Set과 Map&lt;/strong&gt;&lt;/h3&gt;
 
 </description>
         

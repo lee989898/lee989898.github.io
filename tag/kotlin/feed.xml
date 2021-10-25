@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/kotlin/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-10-25T18:48:50+09:00</updated>
+  <updated>2021-10-26T00:25:45+09:00</updated>
   <id>https://lee989898.github.io/tag/kotlin/feed.xml</id>
 
   
@@ -32,48 +32,103 @@
 
   
     <entry>
-      <title type="html">Kotlin 24</title>
-      <link href="https://lee989898.github.io/kotlin-24" rel="alternate" type="text/html" title="Kotlin 24" />
-      <published>2021-08-09T01:07:00+09:00</published>
-      <updated>2021-08-09T01:07:00+09:00</updated>
-      <id>https://lee989898.github.io/kotlin-24</id>
-      <content type="html" xml:base="https://lee989898.github.io/kotlin-24">&lt;h3 id=&quot;__&quot;&gt;&lt;em&gt;__&lt;/em&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="kotlin" />
-      
-
-      
-        <summary type="html">__</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">Kotlin 23</title>
-      <link href="https://lee989898.github.io/kotlin-23" rel="alternate" type="text/html" title="Kotlin 23" />
+      <title type="html">코루틴</title>
+      <link href="https://lee989898.github.io/kotlin-23" rel="alternate" type="text/html" title="코루틴" />
       <published>2021-08-09T01:07:00+09:00</published>
       <updated>2021-08-09T01:07:00+09:00</updated>
       <id>https://lee989898.github.io/kotlin-23</id>
-      <content type="html" xml:base="https://lee989898.github.io/kotlin-23">&lt;h3 id=&quot;__&quot;&gt;&lt;em&gt;__&lt;/em&gt;&lt;/h3&gt;
+      <content type="html" xml:base="https://lee989898.github.io/kotlin-23">&lt;h3 id=&quot;코루틴&quot;&gt;&lt;strong&gt;코루틴&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;코루틴을 사용할 때는 import kotlinx.coroutines.* 모두 import해야 합니다.&lt;br /&gt;
+코루틴은 제어범위 및 실행범위를 지정할 수 있는데 이것을 스코프라고 합니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;GlobalScope: 프로그램 어디서나 제어,동작이 가능한 기본범위&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;CoroutineScope: 특정한 목적의 Dispatcher를 지정하여 제어 및 동작이 가능한 범위&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Dispatchers.Default: 기본적인 백그라운드 동작&lt;/li&gt;
+  &lt;li&gt;Dispatchers.Io: I/O에 최적화 된 동작&lt;/li&gt;
+  &lt;li&gt;Dispatchers.Main: 메인(UI) 스레드에서 동작&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;모든 플랫폼에서 지원되지는 않는다&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;launch: 반환값이 없는 Job객체&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;async: 반환값이 있는 Deffered 객체&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;delay(milisecond: Long): milisecond단위로 루틴을 잠시 대기시키는 함수&lt;/li&gt;
+  &lt;li&gt;Job.join(): Job의 실행이 끝날때까지 대기하는 함수&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Deferred.await(): Defferred의 실행이 끝날때까지 대기하는 함수, Deferred의 결과도 반환함&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;cancel: 코루틴에 cancel()을 걸어주면 두가지 조건이 발생하며 코루틴을 중단시킬 수 있습니다.
+    &lt;ol&gt;
+      &lt;li&gt;코루틴 내부의 delay()함수 또는 yield()함수가 사용된 위치까지 수행된 뒤 종료됨&lt;/li&gt;
+      &lt;li&gt;cancel()로 인해 속성인 isActive가 false가 되므로 이를 확인하여 수동으로 종료함&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;noscript&gt;&lt;pre&gt;import kotlinx.coroutines.*
+
+fun main(){
+    
+    runBlocking{
+         val a = launch{
+        for(i in 1..5)
+        {
+            println(i)
+            delay(10)
+        }
+    }
+        val b = async{
+            &amp;quot;async 종료&amp;quot;
+        }
+        
+        println(&amp;quot;async 대기&amp;quot;)
+        println(b.await())
+        
+        println(&amp;quot;launch 취소&amp;quot;)
+        a.cancel()
+        println(&amp;quot;launch 종료&amp;quot;)
+        
+    }
+   
+}&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/lee989898/76f7048f94630e5de570004dfb09b24a.js&quot;&gt; &lt;/script&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;withTimeoutOrNull: blocking함수이다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;noscript&gt;&lt;pre&gt;import kotlinx.coroutines.*
+
+fun main(){
+ 
+    runBlocking{
+        val result = withTimeoutOrNull(50){
+            for(i in 1..10){
+                println(i)
+                delay(10)
+            }
+            &amp;quot;Finish&amp;quot;
+        }
+        println(result)
+    }
+    
+}&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/lee989898/2e158dbfa9f2d19e7596a08a5b8f7909.js&quot;&gt; &lt;/script&gt;
 
 &lt;hr /&gt;</content>
 
@@ -96,7 +151,7 @@
       
 
       
-        <summary type="html">__</summary>
+        <summary type="html">코루틴</summary>
       
 
       
@@ -104,12 +159,119 @@
     </entry>
   
     <entry>
-      <title type="html">Kotlin 22</title>
-      <link href="https://lee989898.github.io/kotlin-22" rel="alternate" type="text/html" title="Kotlin 22" />
+      <title type="html">변수의 고급 기술</title>
+      <link href="https://lee989898.github.io/kotlin-22" rel="alternate" type="text/html" title="변수의 고급 기술" />
       <published>2021-08-09T01:07:00+09:00</published>
       <updated>2021-08-09T01:07:00+09:00</updated>
       <id>https://lee989898.github.io/kotlin-22</id>
-      <content type="html" xml:base="https://lee989898.github.io/kotlin-22">&lt;h3 id=&quot;__&quot;&gt;&lt;em&gt;__&lt;/em&gt;&lt;/h3&gt;
+      <content type="html" xml:base="https://lee989898.github.io/kotlin-22">&lt;h3 id=&quot;상수-lateinit-lazy&quot;&gt;&lt;strong&gt;상수, lateinit, lazy&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;val은 할당된 객체를 바꿀 수 없을 뿐이지 객체 내부의 속성을 변경할 수 없는 것은 아닙니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;상수&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;컴파일 시점에 결정되어 절대 바꿀 수 없는 값입니다.&lt;br /&gt;
+상수로 선언될 수 있는 값은 String자료형을 포함한 기본 자료형만 가능합니다.&lt;br /&gt;
+상수는 클래스의 속성이나 지역변수 등으로는 사용할 수 없습니다.
+반드시 companion object안에서 사용해야 합니다.&lt;br /&gt;
+ex) const val CONST_A = 1234&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;noscript&gt;&lt;pre&gt;fun main(){
+
+    val foodCourt = FoodCourt()
+    
+    foodCourt.searchPrice(FoodCourt.FOOD_CREAM_PASTA)
+    foodCourt.searchPrice(FoodCourt.FOOD_STEAK)
+    foodCourt.searchPrice(FoodCourt.FOOD_PIZZA)
+    
+}
+
+class FoodCourt{
+    fun searchPrice(foodName: String){
+        val price = when(foodName)
+        {
+            FOOD_CREAM_PASTA -&amp;gt; 13000
+            FOOD_STEAK -&amp;gt; 25000
+            FOOD_PIZZA -&amp;gt; 15000
+            else -&amp;gt; 0
+        }
+        
+        println(&amp;quot;${foodName}의 가격은 ${price}원 입니다&amp;quot;)
+    }
+    
+    companion object{
+        const val FOOD_CREAM_PASTA = &amp;quot;크림파스타&amp;quot;
+        const val FOOD_STEAK = &amp;quot;스테이크&amp;quot;
+        const val FOOD_PIZZA = &amp;quot;피자&amp;quot;
+    }
+}&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/lee989898/c70c01acf390c827517c77afaec5b46e.js&quot;&gt; &lt;/script&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;lateinit&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;lateinit var 변수의 제한사항&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;초기값 할당 전까지 변수를 사용할 수 없음(에러 발생)&lt;/li&gt;
+  &lt;li&gt;기본 자료형에는 사용할 수 없음(String 클래스에는 사용가능)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;noscript&gt;&lt;pre&gt;fun main(){
+
+    val a = LateInitSample()
+    
+    println(a.getLateInitText())
+    a.text = &amp;quot;새로 할당한 값&amp;quot;
+    println(a.getLateInitText())
+}
+
+class LateInitSample{
+    lateinit var text: String
+    
+    fun getLateInitText(): String{
+        if(::text.isInitialized){
+            return text
+        }else{
+            return &amp;quot;기본값&amp;quot;
+        }
+    }
+}&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/lee989898/60066023e03a44810b545ea086f896ff.js&quot;&gt; &lt;/script&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;lazy&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;코드에서는 선언시 즉기 객체를 생성 및 할당하여 변수를 초기화하는 형태를 갖고 있지만 실제 실행시에는 변수를 사용하는 시점에 초기화 과정을 진행합니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;noscript&gt;&lt;pre&gt;fun main(){
+
+    val number: Int by lazy{
+        println(&amp;quot;초기화를 합니다&amp;quot;)
+        7
+    }
+    
+    println(&amp;quot;코드를 시작합니다&amp;quot;)
+    println(number)
+    println(number)
+    
+}&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/lee989898/e4713a0e8c3a0707ea8213af2cf38354.js&quot;&gt; &lt;/script&gt;
 
 &lt;hr /&gt;</content>
 
@@ -132,7 +294,7 @@
       
 
       
-        <summary type="html">__</summary>
+        <summary type="html">상수, lateinit, lazy</summary>
       
 
       
@@ -140,12 +302,135 @@
     </entry>
   
     <entry>
-      <title type="html">Kotlin 21</title>
-      <link href="https://lee989898.github.io/kotlin-21" rel="alternate" type="text/html" title="Kotlin 21" />
+      <title type="html">컬렉션 함수</title>
+      <link href="https://lee989898.github.io/kotlin-21" rel="alternate" type="text/html" title="컬렉션 함수" />
       <published>2021-08-09T01:07:00+09:00</published>
       <updated>2021-08-09T01:07:00+09:00</updated>
       <id>https://lee989898.github.io/kotlin-21</id>
-      <content type="html" xml:base="https://lee989898.github.io/kotlin-21">&lt;h3 id=&quot;__&quot;&gt;&lt;em&gt;__&lt;/em&gt;&lt;/h3&gt;
+      <content type="html" xml:base="https://lee989898.github.io/kotlin-21">&lt;h3 id=&quot;컬렉션-함수&quot;&gt;&lt;strong&gt;컬렉션 함수&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;컬렉션 함수란 list나 set,map과 같은 컬렉션 또는 배열에 일반 함수 또는 람다 함수 형태를 사용하여 for문 없이도 아이템을 
+순회하며 참조하거나 조건을 걸고, 구조의 변경까지 가능한 여러가지 함수를 지칭합니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;컬렉션 함수&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;forEach: 리스트에 있는 모든 객체를 순서대로 출력합니다.&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; collection.forEach{
+     println(it)
+ }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;filter: 조건에 맞는 객체만 다시 컬렉션으로 만들어서 반환합니다.&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;collection.filter{
+    it &amp;lt; 4
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;map: 값을 변경하여 다시 컬렉션으로 만들어서 반환합니다.&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;collection.map{
+    it * 2
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;any: 하나라도 조건에 맞으면 true ex) collection.any{it == 0}&lt;/li&gt;
+  &lt;li&gt;all: 모두 조건에 맞으면 true ex) collection.all{it == 0}&lt;/li&gt;
+  &lt;li&gt;none: 하나도 조건에 맞지 않으면 true ex) collection.none{it == 0}&lt;/li&gt;
+  &lt;li&gt;collection.first(): 컬렉션의 첫번째 아이템 반환&lt;/li&gt;
+  &lt;li&gt;collection.first{it &amp;gt; 3} 조건에 맞는 첫번째 아이템을 반환&lt;/li&gt;
+  &lt;li&gt;collection.last{it &amp;gt; 3} 조건에 맞는 마지막 아이템을 반환&lt;br /&gt;
+first는 find로 대체 가능하고 last는 findLast로 대체 가능합니다.&lt;br /&gt;
+first와 last함수를 사용할 때 조건에 맞는 객체가 없는 경우 NoSuchElementException이 발생할 수 있습니다.&lt;br /&gt;
+이럴때 firstOrNull이나 lastOrNull을 사용하면 객체가 없는 경우 null을 반환해 줍니다.&lt;/li&gt;
+  &lt;li&gt;collection.count(): 컬렉션의 모든 아이템의 개수 반환&lt;/li&gt;
+  &lt;li&gt;collection.count(it &amp;gt; 7): 조건에 맞는 아이템의 개수 반환&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;noscript&gt;&lt;pre&gt;fun main(){
+ 
+    val nameList= listOf(&amp;quot;박수영&amp;quot;, &amp;quot;김지수&amp;quot;, &amp;quot;김다현&amp;quot;, &amp;quot;신유나&amp;quot;, &amp;quot;김지우&amp;quot;)
+    
+    nameList.forEach{print(it + &amp;quot; &amp;quot;)}
+    println()
+    
+    println(nameList.filter{it.startsWith(&amp;quot;김&amp;quot;)})
+    
+    println(nameList.map{&amp;quot;이름 : &amp;quot; + it})
+    
+    println(nameList.any{it == &amp;quot;김지연&amp;quot;})
+    println(nameList.all{it.length == 3})
+    println(nameList.none{it.startsWith(&amp;quot;이&amp;quot;)})
+    
+    println(nameList.first{it.startsWith(&amp;quot;김&amp;quot;)})
+    println(nameList.last{it.startsWith(&amp;quot;김&amp;quot;)})
+    println(nameList.count{it.contains(&amp;quot;지&amp;quot;)})
+}&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/lee989898/fb28957e210d6627f609769d5dea1400.js&quot;&gt; &lt;/script&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;collection.associateBy{it.name}: 아이템에서 key를 추출하여 map으로 변환하는 함수&lt;/li&gt;
+  &lt;li&gt;collection.groupBy: key가 같은 아이템 끼리 배열로 묶어 map으로 만드는 함수&lt;/li&gt;
+  &lt;li&gt;collection.partition{it.birthYear &amp;gt; 2002}: 두 컬렉션으로 나누어줍니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;noscript&gt;&lt;pre&gt;fun main(){
+    
+    data class Person(val name: String, val birthYear: Int)
+    
+    val personList = listOf(Person(&amp;quot;유나&amp;quot;, 1992),
+                           Person(&amp;quot;조이&amp;quot;, 1996),
+                           Person(&amp;quot;츄&amp;quot;, 1999),
+                           Person(&amp;quot;유나&amp;quot;, 2003))
+    
+    println(personList.associateBy{it.birthYear})
+    println(personList.groupBy{it.name})
+    
+    val (over98, under98) = personList.partition{it.birthYear &amp;gt; 1998}
+    println(over98)
+    println(under98)
+}&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/lee989898/46b6fe5d0c80b0c9272e72276b25c384.js&quot;&gt; &lt;/script&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;collection.flatMap{listOf(it*3, it+3)}: 아이템마다 만들어진 컬렉션을 합쳐서 반환하는 함수&lt;/li&gt;
+  &lt;li&gt;collection.getOrElse(1){50}: 인덱스 위취에 아이템이 있으면 아이템을 반환하고 아닌 경우 지정한 기본값을 반환하는 함수&lt;/li&gt;
+  &lt;li&gt;collectionAzipcollectionB: 컬렉션 두 개의 아이템을 1:1로 매칭하여 새 컬렉션을 만들어 줌&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;noscript&gt;&lt;pre&gt;fun main(){
+    
+    val numbers = listOf(-3,7,2,-10,1)
+    
+    println(numbers.flatMap{listOf(it*10, it+10)})
+    
+    println(numbers.getOrElse(1){50})
+    println(numbers.getOrElse(10){50})
+    
+    val names = listOf(&amp;quot;A&amp;quot;,&amp;quot;B&amp;quot;,&amp;quot;C&amp;quot;,&amp;quot;D&amp;quot;)
+    
+    println(names zip numbers)
+}&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/lee989898/9d5ccd3bcdde957f8d69308504c5d01e.js&quot;&gt; &lt;/script&gt;
 
 &lt;hr /&gt;</content>
 
@@ -168,7 +453,7 @@
       
 
       
-        <summary type="html">__</summary>
+        <summary type="html">컬렉션 함수</summary>
       
 
       
@@ -176,12 +461,73 @@
     </entry>
   
     <entry>
-      <title type="html">Kotlin 20</title>
-      <link href="https://lee989898.github.io/kotlin-20" rel="alternate" type="text/html" title="Kotlin 20" />
+      <title type="html">Set과 Map</title>
+      <link href="https://lee989898.github.io/kotlin-20" rel="alternate" type="text/html" title="Set과 Map" />
       <published>2021-08-09T01:07:00+09:00</published>
       <updated>2021-08-09T01:07:00+09:00</updated>
       <id>https://lee989898.github.io/kotlin-20</id>
-      <content type="html" xml:base="https://lee989898.github.io/kotlin-20">&lt;h3 id=&quot;__&quot;&gt;&lt;em&gt;__&lt;/em&gt;&lt;/h3&gt;
+      <content type="html" xml:base="https://lee989898.github.io/kotlin-20">&lt;h3 id=&quot;set과-map&quot;&gt;&lt;strong&gt;Set과 Map&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Set&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;순서가 정렬 되지 않으며 중복이 허용되지 않습니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;noscript&gt;&lt;pre&gt;fun main(){
+    
+    val a = mutableSetOf(&amp;quot;귤&amp;quot;,&amp;quot;바나나&amp;quot;, &amp;quot;키위&amp;quot;)
+    
+    for(item in a)
+    {
+        println(&amp;quot;${item}&amp;quot;)
+    }
+    
+    a.add(&amp;quot;자몽&amp;quot;)
+    println(a)
+    
+    a.remove(&amp;quot;바나나&amp;quot;)
+    println(a)
+
+    println(a.contains(&amp;quot;귤&amp;quot;))   
+    
+}&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/lee989898/c5cd1ce6a9eaab676ecb9c0e66273e69.js&quot;&gt; &lt;/script&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Map&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;객체를 넣을 때 그 객체를 찾아낼 수 있는 Key를 쌍으로 넣어주는 컬렉션입니다.
+같은 Key에 다른 객체를 넣으면 대체됩니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;noscript&gt;&lt;pre&gt;fun main(){
+    
+    val a = mutableMapOf(&amp;quot;레드벨벳&amp;quot; to &amp;quot;음파음파&amp;quot;,
+                        &amp;quot;트와이스&amp;quot; to &amp;quot;FANCY&amp;quot;,
+                        &amp;quot;ITZY&amp;quot; to &amp;quot;ICY&amp;quot;)
+    
+    for(entry in a){
+        println(&amp;quot;${entry.key}:${entry.value}&amp;quot;)
+    }
+    
+    a.put(&amp;quot;오마이걸&amp;quot;,&amp;quot;번지&amp;quot;)
+    println(a)
+    
+    a.remove(&amp;quot;ITZY&amp;quot;)
+    println(a)
+    
+    println(a[&amp;quot;레드벨벳&amp;quot;])       
+}&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/lee989898/f8d5d7597ac8351867d15590abbaaf0e.js&quot;&gt; &lt;/script&gt;
 
 &lt;hr /&gt;</content>
 
@@ -204,7 +550,7 @@
       
 
       
-        <summary type="html">__</summary>
+        <summary type="html">Set과 Map</summary>
       
 
       
@@ -855,6 +1201,94 @@ class Product(val name: String, val price: Int){
 
       
         <summary type="html">리스트</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">제너릭</title>
+      <link href="https://lee989898.github.io/kotlin-14" rel="alternate" type="text/html" title="제너릭" />
+      <published>2021-08-09T01:07:00+09:00</published>
+      <updated>2021-08-09T01:07:00+09:00</updated>
+      <id>https://lee989898.github.io/kotlin-14</id>
+      <content type="html" xml:base="https://lee989898.github.io/kotlin-14">&lt;h3 id=&quot;제너릭&quot;&gt;&lt;strong&gt;제너릭&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;제너릭&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;함수나 클래스를 선언할때 고정적인 자료형 대신 실제 자료형으로 대체되는 타입 패러미터를 받아 사용하는 방법입니다.
+(T,U,V)&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;noscript&gt;&lt;pre&gt;fun main(){
+    
+    UsingGeneric(A()).doShouting()
+    UsingGeneric(B()).doShouting()
+    UsingGeneric(C()).doShouting()
+    
+    doShouting(B())
+}
+
+fun &amp;lt;T: A&amp;gt; doShouting(t: T){
+    t.shout()
+}
+
+open class A{
+    open fun shout(){
+        println(&amp;quot;A가 소리칩니다.&amp;quot;)
+    }
+}
+
+class B: A(){
+    override open fun shout(){
+        println(&amp;quot;B가 소리칩니다.&amp;quot;)
+    }
+}
+
+class C: A(){
+    override open fun shout(){
+        println(&amp;quot;C가 소리칩니다.&amp;quot;)
+    }
+}
+
+class UsingGeneric&amp;lt;T: A&amp;gt; (val t: T){
+    fun doShouting(){
+        t.shout()
+    }
+}&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/lee989898/af278d2e41fefdc4c7906c72171dd57d.js&quot;&gt; &lt;/script&gt;
+&lt;blockquote&gt;
+
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="kotlin" />
+      
+
+      
+        <summary type="html">제너릭</summary>
       
 
       

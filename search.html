@@ -376,47 +376,38 @@ into the {body} of the default.hbs template -->
     }
     ,
     
-    "kotlin-24": {
-        "title": "Kotlin 24",
-            "author": "lee989898",
-            "category": "",
-            "content": "__",
-        "url": "/kotlin-24"
-    }
-    ,
-    
     "kotlin-23": {
-        "title": "Kotlin 23",
+        "title": "코루틴",
             "author": "lee989898",
             "category": "",
-            "content": "__",
+            "content": "코루틴코루틴을 사용할 때는 import kotlinx.coroutines.* 모두 import해야 합니다.코루틴은 제어범위 및 실행범위를 지정할 수 있는데 이것을 스코프라고 합니다.  GlobalScope: 프로그램 어디서나 제어,동작이 가능한 기본범위      CoroutineScope: 특정한 목적의 Dispatcher를 지정하여 제어 및 동작이 가능한 범위    Dispatchers.Default: 기본적인 백그라운드 동작  Dispatchers.Io: I/O에 최적화 된 동작  Dispatchers.Main: 메인(UI) 스레드에서 동작모든 플랫폼에서 지원되지는 않는다  launch: 반환값이 없는 Job객체      async: 반환값이 있는 Deffered 객체    delay(milisecond: Long): milisecond단위로 루틴을 잠시 대기시키는 함수  Job.join(): Job의 실행이 끝날때까지 대기하는 함수      Deferred.await(): Defferred의 실행이 끝날때까지 대기하는 함수, Deferred의 결과도 반환함    cancel: 코루틴에 cancel()을 걸어주면 두가지 조건이 발생하며 코루틴을 중단시킬 수 있습니다.          코루틴 내부의 delay()함수 또는 yield()함수가 사용된 위치까지 수행된 뒤 종료됨      cancel()로 인해 속성인 isActive가 false가 되므로 이를 확인하여 수동으로 종료함      import kotlinx.coroutines.*fun main(){        runBlocking{         val a = launch{        for(i in 1..5)        {            println(i)            delay(10)        }    }        val b = async{            &quot;async 종료&quot;        }                println(&quot;async 대기&quot;)        println(b.await())                println(&quot;launch 취소&quot;)        a.cancel()        println(&quot;launch 종료&quot;)            }   }  withTimeoutOrNull: blocking함수이다.import kotlinx.coroutines.*fun main(){     runBlocking{        val result = withTimeoutOrNull(50){            for(i in 1..10){                println(i)                delay(10)            }            &quot;Finish&quot;        }        println(result)    }    }",
         "url": "/kotlin-23"
     }
     ,
     
     "kotlin-22": {
-        "title": "Kotlin 22",
+        "title": "변수의 고급 기술",
             "author": "lee989898",
             "category": "",
-            "content": "__",
+            "content": "상수, lateinit, lazyval은 할당된 객체를 바꿀 수 없을 뿐이지 객체 내부의 속성을 변경할 수 없는 것은 아닙니다.  상수컴파일 시점에 결정되어 절대 바꿀 수 없는 값입니다.상수로 선언될 수 있는 값은 String자료형을 포함한 기본 자료형만 가능합니다.상수는 클래스의 속성이나 지역변수 등으로는 사용할 수 없습니다.반드시 companion object안에서 사용해야 합니다.ex) const val CONST_A = 1234fun main(){    val foodCourt = FoodCourt()        foodCourt.searchPrice(FoodCourt.FOOD_CREAM_PASTA)    foodCourt.searchPrice(FoodCourt.FOOD_STEAK)    foodCourt.searchPrice(FoodCourt.FOOD_PIZZA)    }class FoodCourt{    fun searchPrice(foodName: String){        val price = when(foodName)        {            FOOD_CREAM_PASTA -&gt; 13000            FOOD_STEAK -&gt; 25000            FOOD_PIZZA -&gt; 15000            else -&gt; 0        }                println(&quot;${foodName}의 가격은 ${price}원 입니다&quot;)    }        companion object{        const val FOOD_CREAM_PASTA = &quot;크림파스타&quot;        const val FOOD_STEAK = &quot;스테이크&quot;        const val FOOD_PIZZA = &quot;피자&quot;    }}  lateinitlateinit var 변수의 제한사항  초기값 할당 전까지 변수를 사용할 수 없음(에러 발생)  기본 자료형에는 사용할 수 없음(String 클래스에는 사용가능)fun main(){    val a = LateInitSample()        println(a.getLateInitText())    a.text = &quot;새로 할당한 값&quot;    println(a.getLateInitText())}class LateInitSample{    lateinit var text: String        fun getLateInitText(): String{        if(::text.isInitialized){            return text        }else{            return &quot;기본값&quot;        }    }}  lazy코드에서는 선언시 즉기 객체를 생성 및 할당하여 변수를 초기화하는 형태를 갖고 있지만 실제 실행시에는 변수를 사용하는 시점에 초기화 과정을 진행합니다.fun main(){    val number: Int by lazy{        println(&quot;초기화를 합니다&quot;)        7    }        println(&quot;코드를 시작합니다&quot;)    println(number)    println(number)    }",
         "url": "/kotlin-22"
     }
     ,
     
     "kotlin-21": {
-        "title": "Kotlin 21",
+        "title": "컬렉션 함수",
             "author": "lee989898",
             "category": "",
-            "content": "__",
+            "content": "컬렉션 함수컬렉션 함수란 list나 set,map과 같은 컬렉션 또는 배열에 일반 함수 또는 람다 함수 형태를 사용하여 for문 없이도 아이템을 순회하며 참조하거나 조건을 걸고, 구조의 변경까지 가능한 여러가지 함수를 지칭합니다.  컬렉션 함수      forEach: 리스트에 있는 모든 객체를 순서대로 출력합니다.     collection.forEach{     println(it) }            filter: 조건에 맞는 객체만 다시 컬렉션으로 만들어서 반환합니다.    collection.filter{    it &lt; 4}            map: 값을 변경하여 다시 컬렉션으로 만들어서 반환합니다.    collection.map{    it * 2}        any: 하나라도 조건에 맞으면 true ex) collection.any{it == 0}  all: 모두 조건에 맞으면 true ex) collection.all{it == 0}  none: 하나도 조건에 맞지 않으면 true ex) collection.none{it == 0}  collection.first(): 컬렉션의 첫번째 아이템 반환  collection.first{it &gt; 3} 조건에 맞는 첫번째 아이템을 반환  collection.last{it &gt; 3} 조건에 맞는 마지막 아이템을 반환first는 find로 대체 가능하고 last는 findLast로 대체 가능합니다.first와 last함수를 사용할 때 조건에 맞는 객체가 없는 경우 NoSuchElementException이 발생할 수 있습니다.이럴때 firstOrNull이나 lastOrNull을 사용하면 객체가 없는 경우 null을 반환해 줍니다.  collection.count(): 컬렉션의 모든 아이템의 개수 반환  collection.count(it &gt; 7): 조건에 맞는 아이템의 개수 반환fun main(){     val nameList= listOf(&quot;박수영&quot;, &quot;김지수&quot;, &quot;김다현&quot;, &quot;신유나&quot;, &quot;김지우&quot;)        nameList.forEach{print(it + &quot; &quot;)}    println()        println(nameList.filter{it.startsWith(&quot;김&quot;)})        println(nameList.map{&quot;이름 : &quot; + it})        println(nameList.any{it == &quot;김지연&quot;})    println(nameList.all{it.length == 3})    println(nameList.none{it.startsWith(&quot;이&quot;)})        println(nameList.first{it.startsWith(&quot;김&quot;)})    println(nameList.last{it.startsWith(&quot;김&quot;)})    println(nameList.count{it.contains(&quot;지&quot;)})}  collection.associateBy{it.name}: 아이템에서 key를 추출하여 map으로 변환하는 함수  collection.groupBy: key가 같은 아이템 끼리 배열로 묶어 map으로 만드는 함수  collection.partition{it.birthYear &gt; 2002}: 두 컬렉션으로 나누어줍니다.fun main(){        data class Person(val name: String, val birthYear: Int)        val personList = listOf(Person(&quot;유나&quot;, 1992),                           Person(&quot;조이&quot;, 1996),                           Person(&quot;츄&quot;, 1999),                           Person(&quot;유나&quot;, 2003))        println(personList.associateBy{it.birthYear})    println(personList.groupBy{it.name})        val (over98, under98) = personList.partition{it.birthYear &gt; 1998}    println(over98)    println(under98)}  collection.flatMap{listOf(it*3, it+3)}: 아이템마다 만들어진 컬렉션을 합쳐서 반환하는 함수  collection.getOrElse(1){50}: 인덱스 위취에 아이템이 있으면 아이템을 반환하고 아닌 경우 지정한 기본값을 반환하는 함수  collectionAzipcollectionB: 컬렉션 두 개의 아이템을 1:1로 매칭하여 새 컬렉션을 만들어 줌fun main(){        val numbers = listOf(-3,7,2,-10,1)        println(numbers.flatMap{listOf(it*10, it+10)})        println(numbers.getOrElse(1){50})    println(numbers.getOrElse(10){50})        val names = listOf(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;D&quot;)        println(names zip numbers)}",
         "url": "/kotlin-21"
     }
     ,
     
     "kotlin-20": {
-        "title": "Kotlin 20",
+        "title": "Set과 Map",
             "author": "lee989898",
             "category": "",
-            "content": "__",
+            "content": "Set과 Map  Set순서가 정렬 되지 않으며 중복이 허용되지 않습니다.fun main(){        val a = mutableSetOf(&quot;귤&quot;,&quot;바나나&quot;, &quot;키위&quot;)        for(item in a)    {        println(&quot;${item}&quot;)    }        a.add(&quot;자몽&quot;)    println(a)        a.remove(&quot;바나나&quot;)    println(a)    println(a.contains(&quot;귤&quot;))       }  Map객체를 넣을 때 그 객체를 찾아낼 수 있는 Key를 쌍으로 넣어주는 컬렉션입니다.같은 Key에 다른 객체를 넣으면 대체됩니다.fun main(){        val a = mutableMapOf(&quot;레드벨벳&quot; to &quot;음파음파&quot;,                        &quot;트와이스&quot; to &quot;FANCY&quot;,                        &quot;ITZY&quot; to &quot;ICY&quot;)        for(entry in a){        println(&quot;${entry.key}:${entry.value}&quot;)    }        a.put(&quot;오마이걸&quot;,&quot;번지&quot;)    println(a)        a.remove(&quot;ITZY&quot;)    println(a)        println(a[&quot;레드벨벳&quot;])       }",
         "url": "/kotlin-20"
     }
     ,

@@ -11,7 +11,7 @@
 
 
 
-    <title>Kotlin 22</title>
+    <title>변수의 고급 기술</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -55,12 +55,8 @@
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Kotlin 22" />
-    <meta property="og:description" content="__
-
-
-
-" />
+    <meta property="og:title" content="변수의 고급 기술" />
+    <meta property="og:description" content="상수, lateinit, lazy val은 할당된 객체를 바꿀 수 없을 뿐이지 객체 내부의 속성을 변경할 수 없는 것은 아닙니다. 상수 컴파일 시점에 결정되어 절대 바꿀 수 없는 값입니다. 상수로 선언될 수 있는 값은 String자료형을 포함한 기본 자료형만 가능합니다. 상수는 클래스의 속성이나 지역변수 등으로는 사용할 수 없습니다. 반드시 companion object안에서 사용해야 합니다." />
     <meta property="og:url" content="https://lee989898.github.io/kotlin-22" />
     <meta property="og:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -69,12 +65,8 @@
     <meta property="article:modified_time" content="2021-08-09T01:07:00+09:00" />
     <meta property="article:tag" content="Kotlin" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Kotlin 22" />
-    <meta name="twitter:description" content="__
-
-
-
-" />
+    <meta name="twitter:title" content="변수의 고급 기술" />
+    <meta name="twitter:description" content="상수, lateinit, lazy val은 할당된 객체를 바꿀 수 없을 뿐이지 객체 내부의 속성을 변경할 수 없는 것은 아닙니다. 상수 컴파일 시점에 결정되어 절대 바꿀 수 없는 값입니다. 상수로 선언될 수 있는 값은 String자료형을 포함한 기본 자료형만 가능합니다. 상수는 클래스의 속성이나 지역변수 등으로는 사용할 수 없습니다. 반드시 companion object안에서 사용해야 합니다." />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
     <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -106,11 +98,7 @@
         "@type": "WebPage",
         "@id": "https://lee989898.github.io/kotlin-22"
     },
-    "description": "__
-
-
-
-"
+    "description": "상수, lateinit, lazy val은 할당된 객체를 바꿀 수 없을 뿐이지 객체 내부의 속성을 변경할 수 없는 것은 아닙니다. 상수 컴파일 시점에 결정되어 절대 바꿀 수 없는 값입니다. 상수로 선언될 수 있는 값은 String자료형을 포함한 기본 자료형만 가능합니다. 상수는 클래스의 속성이나 지역변수 등으로는 사용할 수 없습니다. 반드시 companion object안에서 사용해야 합니다."
 }
     </script>
 
@@ -123,7 +111,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="Kotlin 22" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="변수의 고급 기술" href="/feed.xml" />
 
 
 </head>
@@ -204,7 +192,7 @@ into the {body} of the default.hbs template -->
                         
                     
                 </section>
-                <h1 class="post-full-title">Kotlin 22</h1>
+                <h1 class="post-full-title">변수의 고급 기술</h1>
             </header>
 
             <!--
@@ -215,7 +203,114 @@ into the {body} of the default.hbs template -->
             -->
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <h3 id="__"><em>__</em></h3>
+                    <h3 id="상수-lateinit-lazy"><strong>상수, lateinit, lazy</strong></h3>
+
+<hr />
+
+<p>val은 할당된 객체를 바꿀 수 없을 뿐이지 객체 내부의 속성을 변경할 수 없는 것은 아닙니다.</p>
+
+<blockquote>
+  <p>상수</p>
+</blockquote>
+
+<p>컴파일 시점에 결정되어 절대 바꿀 수 없는 값입니다.<br />
+상수로 선언될 수 있는 값은 String자료형을 포함한 기본 자료형만 가능합니다.<br />
+상수는 클래스의 속성이나 지역변수 등으로는 사용할 수 없습니다.
+반드시 companion object안에서 사용해야 합니다.<br />
+ex) const val CONST_A = 1234</p>
+
+<hr />
+
+<noscript><pre>fun main(){
+
+    val foodCourt = FoodCourt()
+    
+    foodCourt.searchPrice(FoodCourt.FOOD_CREAM_PASTA)
+    foodCourt.searchPrice(FoodCourt.FOOD_STEAK)
+    foodCourt.searchPrice(FoodCourt.FOOD_PIZZA)
+    
+}
+
+class FoodCourt{
+    fun searchPrice(foodName: String){
+        val price = when(foodName)
+        {
+            FOOD_CREAM_PASTA -&gt; 13000
+            FOOD_STEAK -&gt; 25000
+            FOOD_PIZZA -&gt; 15000
+            else -&gt; 0
+        }
+        
+        println(&quot;${foodName}의 가격은 ${price}원 입니다&quot;)
+    }
+    
+    companion object{
+        const val FOOD_CREAM_PASTA = &quot;크림파스타&quot;
+        const val FOOD_STEAK = &quot;스테이크&quot;
+        const val FOOD_PIZZA = &quot;피자&quot;
+    }
+}</pre></noscript>
+<script src="https://gist.github.com/lee989898/c70c01acf390c827517c77afaec5b46e.js"> </script>
+
+<hr />
+
+<blockquote>
+  <p>lateinit</p>
+</blockquote>
+
+<p>lateinit var 변수의 제한사항</p>
+<ul>
+  <li>초기값 할당 전까지 변수를 사용할 수 없음(에러 발생)</li>
+  <li>기본 자료형에는 사용할 수 없음(String 클래스에는 사용가능)</li>
+</ul>
+
+<hr />
+
+<noscript><pre>fun main(){
+
+    val a = LateInitSample()
+    
+    println(a.getLateInitText())
+    a.text = &quot;새로 할당한 값&quot;
+    println(a.getLateInitText())
+}
+
+class LateInitSample{
+    lateinit var text: String
+    
+    fun getLateInitText(): String{
+        if(::text.isInitialized){
+            return text
+        }else{
+            return &quot;기본값&quot;
+        }
+    }
+}</pre></noscript>
+<script src="https://gist.github.com/lee989898/60066023e03a44810b545ea086f896ff.js"> </script>
+
+<hr />
+
+<blockquote>
+  <p>lazy</p>
+</blockquote>
+
+<p>코드에서는 선언시 즉기 객체를 생성 및 할당하여 변수를 초기화하는 형태를 갖고 있지만 실제 실행시에는 변수를 사용하는 시점에 초기화 과정을 진행합니다.</p>
+
+<hr />
+
+<noscript><pre>fun main(){
+
+    val number: Int by lazy{
+        println(&quot;초기화를 합니다&quot;)
+        7
+    }
+    
+    println(&quot;코드를 시작합니다&quot;)
+    println(number)
+    println(number)
+    
+}</pre></noscript>
+<script src="https://gist.github.com/lee989898/e4713a0e8c3a0707ea8213af2cf38354.js"> </script>
 
 <hr />
 
@@ -287,7 +382,7 @@ into the {body} of the default.hbs template -->
                         var disqus_config = function () {
                             var this_page_url = 'https://lee989898.github.io/kotlin-22';
                             var this_page_identifier = '/kotlin-22';
-                            var this_page_title = 'Kotlin 22';
+                            var this_page_title = '변수의 고급 기술';
                         };
                         (function() {
                             var d = document, s = d.createElement('script');
@@ -374,16 +469,7 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
-                                            <li><a href="/kotlin-24">Kotlin 24</a></li>
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                            <li><a href="/kotlin-23">Kotlin 23</a></li>
+                                            <li><a href="/kotlin-23">코루틴</a></li>
                                         
                                     
                                   
@@ -396,7 +482,7 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
-                                            <li><a href="/kotlin-21">Kotlin 21</a></li>
+                                            <li><a href="/kotlin-21">컬렉션 함수</a></li>
                                         
                                     
                                   
@@ -404,6 +490,8 @@ into the {body} of the default.hbs template -->
                                   
                                     
                                         
+                                        
+                                            <li><a href="/kotlin-20">Set과 Map</a></li>
                                         
                                     
                                   
@@ -550,7 +638,7 @@ into the {body} of the default.hbs template -->
                         <footer class="read-next-card-footer">
                             <a href="/tag/kotlin/">
                                 
-                                    See all 23 posts  →
+                                    See all 22 posts  →
                                 
                             </a>
                         </footer>
@@ -579,11 +667,11 @@ into the {body} of the default.hbs template -->
                         
                     
 
-                    <h2 class="post-card-title">Kotlin 23</h2>
+                    <h2 class="post-card-title">코루틴</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>__
+                        <p>코루틴
 
 </p>
                     
@@ -633,11 +721,11 @@ into the {body} of the default.hbs template -->
                         
                     
 
-                    <h2 class="post-card-title">Kotlin 21</h2>
+                    <h2 class="post-card-title">컬렉션 함수</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>__
+                        <p>컬렉션 함수
 
 </p>
                     
@@ -679,13 +767,13 @@ into the {body} of the default.hbs template -->
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">Kotlin 22</div>
+    <div class="floating-header-title">변수의 고급 기술</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Kotlin+22&amp;url=https://lee989898.github.io/kotlin-22"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%EB%B3%80%EC%88%98%EC%9D%98+%EA%B3%A0%EA%B8%89+%EA%B8%B0%EC%88%A0&amp;url=https://lee989898.github.io/kotlin-22"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 

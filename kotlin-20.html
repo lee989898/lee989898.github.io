@@ -11,7 +11,7 @@
 
 
 
-    <title>Kotlin 20</title>
+    <title>Set과 Map</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -55,12 +55,8 @@
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Kotlin 20" />
-    <meta property="og:description" content="__
-
-
-
-" />
+    <meta property="og:title" content="Set과 Map" />
+    <meta property="og:description" content="Set과 Map Set 순서가 정렬 되지 않으며 중복이 허용되지 않습니다. fun main(){ val a = mutableSetOf(&quot;귤&quot;,&quot;바나나&quot;, &quot;키위&quot;) for(item in a) { println(&quot;${item}&quot;) } a.add(&quot;자몽&quot;) println(a) a.remove(&quot;바나나&quot;) println(a) println(a.contains(&quot;귤&quot;)) } Map 객체를 넣을 때 그 객체를 찾아낼 수 있는 Key를 쌍으로 넣어주는 컬렉션입니다. 같은 Key에 다른 객체를 넣으면 대체됩니다. fun main(){" />
     <meta property="og:url" content="https://lee989898.github.io/kotlin-20" />
     <meta property="og:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -69,12 +65,8 @@
     <meta property="article:modified_time" content="2021-08-09T01:07:00+09:00" />
     <meta property="article:tag" content="Kotlin" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Kotlin 20" />
-    <meta name="twitter:description" content="__
-
-
-
-" />
+    <meta name="twitter:title" content="Set과 Map" />
+    <meta name="twitter:description" content="Set과 Map Set 순서가 정렬 되지 않으며 중복이 허용되지 않습니다. fun main(){ val a = mutableSetOf(&quot;귤&quot;,&quot;바나나&quot;, &quot;키위&quot;) for(item in a) { println(&quot;${item}&quot;) } a.add(&quot;자몽&quot;) println(a) a.remove(&quot;바나나&quot;) println(a) println(a.contains(&quot;귤&quot;)) } Map 객체를 넣을 때 그 객체를 찾아낼 수 있는 Key를 쌍으로 넣어주는 컬렉션입니다. 같은 Key에 다른 객체를 넣으면 대체됩니다. fun main(){" />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
     <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -106,11 +98,7 @@
         "@type": "WebPage",
         "@id": "https://lee989898.github.io/kotlin-20"
     },
-    "description": "__
-
-
-
-"
+    "description": "Set과 Map Set 순서가 정렬 되지 않으며 중복이 허용되지 않습니다. fun main(){ val a = mutableSetOf(&quot;귤&quot;,&quot;바나나&quot;, &quot;키위&quot;) for(item in a) { println(&quot;${item}&quot;) } a.add(&quot;자몽&quot;) println(a) a.remove(&quot;바나나&quot;) println(a) println(a.contains(&quot;귤&quot;)) } Map 객체를 넣을 때 그 객체를 찾아낼 수 있는 Key를 쌍으로 넣어주는 컬렉션입니다. 같은 Key에 다른 객체를 넣으면 대체됩니다. fun main(){"
 }
     </script>
 
@@ -123,7 +111,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="Kotlin 20" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Set과 Map" href="/feed.xml" />
 
 
 </head>
@@ -204,7 +192,7 @@ into the {body} of the default.hbs template -->
                         
                     
                 </section>
-                <h1 class="post-full-title">Kotlin 20</h1>
+                <h1 class="post-full-title">Set과 Map</h1>
             </header>
 
             <!--
@@ -215,10 +203,70 @@ into the {body} of the default.hbs template -->
             -->
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <h3 id="__"><em>__</em></h3>
+                    <h3 id="set과-map"><strong>Set과 Map</strong></h3>
 
 <hr />
 
+<blockquote>
+  <p>Set</p>
+</blockquote>
+
+<p>순서가 정렬 되지 않으며 중복이 허용되지 않습니다.</p>
+
+<hr />
+
+<noscript><pre>fun main(){
+    
+    val a = mutableSetOf(&quot;귤&quot;,&quot;바나나&quot;, &quot;키위&quot;)
+    
+    for(item in a)
+    {
+        println(&quot;${item}&quot;)
+    }
+    
+    a.add(&quot;자몽&quot;)
+    println(a)
+    
+    a.remove(&quot;바나나&quot;)
+    println(a)
+
+    println(a.contains(&quot;귤&quot;))   
+    
+}</pre></noscript>
+<script src="https://gist.github.com/lee989898/c5cd1ce6a9eaab676ecb9c0e66273e69.js"> </script>
+
+<hr />
+
+<blockquote>
+  <p>Map</p>
+</blockquote>
+
+<p>객체를 넣을 때 그 객체를 찾아낼 수 있는 Key를 쌍으로 넣어주는 컬렉션입니다.
+같은 Key에 다른 객체를 넣으면 대체됩니다.</p>
+
+<hr />
+
+<noscript><pre>fun main(){
+    
+    val a = mutableMapOf(&quot;레드벨벳&quot; to &quot;음파음파&quot;,
+                        &quot;트와이스&quot; to &quot;FANCY&quot;,
+                        &quot;ITZY&quot; to &quot;ICY&quot;)
+    
+    for(entry in a){
+        println(&quot;${entry.key}:${entry.value}&quot;)
+    }
+    
+    a.put(&quot;오마이걸&quot;,&quot;번지&quot;)
+    println(a)
+    
+    a.remove(&quot;ITZY&quot;)
+    println(a)
+    
+    println(a[&quot;레드벨벳&quot;])       
+}</pre></noscript>
+<script src="https://gist.github.com/lee989898/f8d5d7597ac8351867d15590abbaaf0e.js"> </script>
+
+<hr />
 
                 </div>
             </section>
@@ -287,7 +335,7 @@ into the {body} of the default.hbs template -->
                         var disqus_config = function () {
                             var this_page_url = 'https://lee989898.github.io/kotlin-20';
                             var this_page_identifier = '/kotlin-20';
-                            var this_page_title = 'Kotlin 20';
+                            var this_page_title = 'Set과 Map';
                         };
                         (function() {
                             var d = document, s = d.createElement('script');
@@ -374,7 +422,7 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
-                                            <li><a href="/kotlin-24">Kotlin 24</a></li>
+                                            <li><a href="/kotlin-23">코루틴</a></li>
                                         
                                     
                                   
@@ -383,7 +431,7 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
-                                            <li><a href="/kotlin-23">Kotlin 23</a></li>
+                                            <li><a href="/kotlin-22">변수의 고급 기술</a></li>
                                         
                                     
                                   
@@ -392,14 +440,7 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
-                                            <li><a href="/kotlin-22">Kotlin 22</a></li>
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
+                                            <li><a href="/kotlin-21">컬렉션 함수</a></li>
                                         
                                     
                                   
@@ -550,7 +591,7 @@ into the {body} of the default.hbs template -->
                         <footer class="read-next-card-footer">
                             <a href="/tag/kotlin/">
                                 
-                                    See all 23 posts  →
+                                    See all 22 posts  →
                                 
                             </a>
                         </footer>
@@ -579,11 +620,11 @@ into the {body} of the default.hbs template -->
                         
                     
 
-                    <h2 class="post-card-title">Kotlin 21</h2>
+                    <h2 class="post-card-title">컬렉션 함수</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>__
+                        <p>컬렉션 함수
 
 </p>
                     
@@ -679,13 +720,13 @@ into the {body} of the default.hbs template -->
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">Kotlin 20</div>
+    <div class="floating-header-title">Set과 Map</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Kotlin+20&amp;url=https://lee989898.github.io/kotlin-20"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Set%EA%B3%BC+Map&amp;url=https://lee989898.github.io/kotlin-20"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
