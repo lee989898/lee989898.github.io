@@ -11,7 +11,7 @@
 
 
 
-    <title>컨트롤 스트럭처</title>
+    <title>탐욕 기법</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -49,8 +49,33 @@
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="공부 블로그" />
     <link rel="shortcut icon" href="https://lee989898.github.io/assets/built/images/favicon.jpg" type="image/png" />
-    <link rel="canonical" href="https://lee989898.github.io/pl-15" />
+    <link rel="canonical" href="https://lee989898.github.io/algorithm-05" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
+
+    
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$'] ],
+    processEscapes: true,
+  }
+});
+MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 
     
 
@@ -58,24 +83,24 @@
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="컨트롤 스트럭처" />
-    <meta property="og:description" content="컨트롤 스트럭처 프로그램의 컨트롤 스트럭처에는 3가지가 있다. sequence(begin-end) selection(if-else, case) iteration(loop) 각 컨트롤 스트럭처는 여러 개의 문장으로 구성된다. ​ 스트럭처는 여러 문장의 묶음으로, ​ 실행 제어 방법에 따라 각각 키워드(begin, if, while,…)를 포함한다 여기서 컨트롤 스트럭처의 if, while 문을 제어문이라고 하고, ​ 제어문의 실행 결과에 따라 실행되는 문장을 실행문이라고 한다." />
-    <meta property="og:url" content="https://lee989898.github.io/pl-15" />
-    <meta property="og:image" content="https://lee989898.github.io/assets/built/images/pl-background-frontend.png" />
+    <meta property="og:title" content="탐욕 기법" />
+    <meta property="og:description" content="탐욕 기법 탐욕 기법 매 번 선택할 때 마다 그 순간에 좋은 선택을 함으로써 최종적인 해에 도달한다. 최적인 해들을 모아서 최종 해를 만들었다고 해서, 그 해가 궁극 적으로 최적이라는 보장이 없다. 따라서 탐욕 기법은 항상 최적의 해를 만들어내는 지를 반드시 검증해야 한다. 선택 기준 선택이 실현 가능해야 한다. 모든 선택들" />
+    <meta property="og:url" content="https://lee989898.github.io/algorithm-05" />
+    <meta property="og:image" content="https://lee989898.github.io/assets/built/images/algorithm-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2021-10-22T19:18:00+09:00" />
-    <meta property="article:modified_time" content="2021-10-22T19:18:00+09:00" />
-    <meta property="article:tag" content="Pl" />
+    <meta property="article:published_time" content="2021-10-26T01:09:00+09:00" />
+    <meta property="article:modified_time" content="2021-10-26T01:09:00+09:00" />
+    <meta property="article:tag" content="Algorithm" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="컨트롤 스트럭처" />
-    <meta name="twitter:description" content="컨트롤 스트럭처 프로그램의 컨트롤 스트럭처에는 3가지가 있다. sequence(begin-end) selection(if-else, case) iteration(loop) 각 컨트롤 스트럭처는 여러 개의 문장으로 구성된다. ​ 스트럭처는 여러 문장의 묶음으로, ​ 실행 제어 방법에 따라 각각 키워드(begin, if, while,…)를 포함한다 여기서 컨트롤 스트럭처의 if, while 문을 제어문이라고 하고, ​ 제어문의 실행 결과에 따라 실행되는 문장을 실행문이라고 한다." />
+    <meta name="twitter:title" content="탐욕 기법" />
+    <meta name="twitter:description" content="탐욕 기법 탐욕 기법 매 번 선택할 때 마다 그 순간에 좋은 선택을 함으로써 최종적인 해에 도달한다. 최적인 해들을 모아서 최종 해를 만들었다고 해서, 그 해가 궁극 적으로 최적이라는 보장이 없다. 따라서 탐욕 기법은 항상 최적의 해를 만들어내는 지를 반드시 검증해야 한다. 선택 기준 선택이 실현 가능해야 한다. 모든 선택들" />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
-    <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/pl-background-frontend.png" />
+    <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/algorithm-logo.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="LEE" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Pl" />
+    <meta name="twitter:data2" content="Algorithm" />
     <meta name="twitter:site" content="@" />
     <meta name="twitter:creator" content="@" />
     <meta property="og:image:width" content="1400" />
@@ -90,18 +115,18 @@
         "name": "LEE",
         "logo": "https://lee989898.github.io/"
     },
-    "url": "https://lee989898.github.io/pl-15",
+    "url": "https://lee989898.github.io/algorithm-05",
     "image": {
         "@type": "ImageObject",
-        "url": "https://lee989898.github.io/assets/built/images/pl-background-frontend.png",
+        "url": "https://lee989898.github.io/assets/built/images/algorithm-logo.png",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://lee989898.github.io/pl-15"
+        "@id": "https://lee989898.github.io/algorithm-05"
     },
-    "description": "컨트롤 스트럭처 프로그램의 컨트롤 스트럭처에는 3가지가 있다. sequence(begin-end) selection(if-else, case) iteration(loop) 각 컨트롤 스트럭처는 여러 개의 문장으로 구성된다. ​ 스트럭처는 여러 문장의 묶음으로, ​ 실행 제어 방법에 따라 각각 키워드(begin, if, while,…)를 포함한다 여기서 컨트롤 스트럭처의 if, while 문을 제어문이라고 하고, ​ 제어문의 실행 결과에 따라 실행되는 문장을 실행문이라고 한다."
+    "description": "탐욕 기법 탐욕 기법 매 번 선택할 때 마다 그 순간에 좋은 선택을 함으로써 최종적인 해에 도달한다. 최적인 해들을 모아서 최종 해를 만들었다고 해서, 그 해가 궁극 적으로 최적이라는 보장이 없다. 따라서 탐욕 기법은 항상 최적의 해를 만들어내는 지를 반드시 검증해야 한다. 선택 기준 선택이 실현 가능해야 한다. 모든 선택들"
 }
     </script>
 
@@ -114,7 +139,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="컨트롤 스트럭처" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="탐욕 기법" href="/feed.xml" />
 
 
 </head>
@@ -181,265 +206,284 @@ into the {body} of the default.hbs template -->
 <main id="site-main" class="site-main outer" role="main">
     <div class="inner">
 
-        <article class="post-full  tag-pl post tag-study ">
+        <article class="post-full  tag-algorithm post tag-algorithm ">
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="22 October 2021">22 October 2021</time>
+                    <time class="post-full-meta-date" datetime="26 October 2021">26 October 2021</time>
                     
                         <span class="date-divider">/</span>
                         
                             
-                               <a href='/tag/pl/'>PL</a>
+                               <a href='/tag/algorithm/'>ALGORITHM</a>
                             
                         
                     
                 </section>
-                <h1 class="post-full-title">컨트롤 스트럭처</h1>
+                <h1 class="post-full-title">탐욕 기법</h1>
             </header>
 
             <!--
             
-            <figure class="post-full-image" style="background-image: url(/assets/built/images/pl-background-frontend.png)">
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/algorithm-logo.png)">
             </figure>
             
             -->
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <h3 id="컨트롤-스트럭처"><strong>컨트롤 스트럭처</strong></h3>
+                    <h3 id="탐욕-기법"><strong>탐욕 기법</strong></h3>
 
 <hr />
 
-<p>프로그램의 컨트롤 스트럭처에는 3가지가 있다.</p>
+<blockquote>
+  <p>탐욕 기법</p>
+</blockquote>
+
 <ul>
-  <li>sequence(begin-end)</li>
-  <li>selection(if-else, case)</li>
-  <li>iteration(loop)</li>
+  <li>매 번 선택할 때 마다 그 순간에 좋은 선택을 함으로써 최종적인 해에 도달한다.</li>
+  <li>최적인 해들을 모아서 최종 해를 만들었다고 해서, 그 해가 궁극 적으로 최적이라는 보장이 없다.</li>
+  <li>따라서 탐욕 기법은 항상 최적의 해를 만들어내는 지를 반드시 검증해야 한다.</li>
 </ul>
 
-<p>각 컨트롤 스트럭처는 여러 개의 문장으로 구성된다. ​</p>
+<blockquote>
+  <p>선택 기준</p>
+</blockquote>
 
-<p>스트럭처는 여러 문장의 묶음으로, ​
-실행 제어 방법에 따라 각각 키워드(begin, if, while,…)를 포함한다</p>
+<ol>
+  <li>선택이 실현 가능해야 한다.</li>
+  <li>모든 선택들 중에서 최적이라고 여겨지는 선택을 해야 한다.</li>
+  <li>한 번 선택하면 나중에 되돌릴 수 없다.</li>
+</ol>
 
-<p>여기서 컨트롤 스트럭처의 if, while 문을 제어문이라고 하고, ​
-제어문의 실행 결과에 따라 실행되는 문장을 실행문이라고 한다. ​</p>
+<blockquote>
+  <p>설계 전략</p>
+</blockquote>
 
-<p>시퀀스는 순차적으로 실행되는 문장들의 연속을 말하며, ​
-실행 제어가 순차적이라서 시작과 끝만 명시하면 된다.</p>
-
-<p>Selection은 제어문이 참이냐 거짓이냐에 따라 실행문이 다르며,<br />
-하나의 selection 스트럭처에 제어문과 실행문을 여럿 포함하기도 한다. ​</p>
-
-<p>Iteration도 제어문과 실행문의 반복으로 구성되는데,<br />
-for, while, repeat 등 목적에 따라 그 신택스와 시맨틱스가 다양하다. ​</p>
-
-<p>프로그래머는 이들 컨트롤 스트럭처를 사용하여 쉽게 프로그램을 구조화한다.</p>
-
-<hr />
-
-<p>프로그램은 나름의 로직을 갖고 있어서, 이에 따른 실행 제어(flow control)가 필요하다. ​</p>
-
-<p>명령형 프로그램에서 계산은 다음과 같이 진행된다.<br />
-변수를 읽고 연산자를 실행하여 표현식을 계산하여, ​
-변수에 결과 값을 부여한다.<br />
-또, 여러 경로 중에서 선택하여 실행을 제어하거나, ​반복 실행한다. ​</p>
-
-<p>컨트롤 스트럭처는 제어문과 실행문으로 구성된다. ​
-이 표현은 문제가 있다. 시퀀스는 제어문이 없다.</p>
-
-<hr />
-
-<h2 id="selection-statements"><strong>Selection Statements</strong></h2>
-
-<hr />
-
-<p>Selection문은 2개 이상의 실행 경로 중에서 선택하는 것이다. ​</p>
-
-<p>두가지 범주가 있는데, 둘 중에 하나 선택하는 것과 여럿 중에 선택하는 것이 있다.</p>
+<ol>
+  <li>비어 있는 해 모음으로 시작한다.</li>
+  <li>탐욕적인 기준에 따라 해 모음에 추가할 다음 해를 선택한다.</li>
+  <li>새 해 모음이 실형 가능한지를 확인한다.
+실현 가능하다면 새 해 모음을 확정하고 아니면 선택한 해를 버린다.</li>
+  <li>새 해 모음이 최종 해라면 종료한다. 아니면 2번으로 간다.</li>
+</ol>
 
 <hr />
 
 <blockquote>
-  <p>If Statements</p>
+  <p>거스름돈 주기</p>
 </blockquote>
 
-<p>If문의 일반적 형식은 if 제어 표현식 then 실행문1 else 실행문2 이다. ​</p>
+<p>거스름돈을 동전들의 수가 최소가 되도록 주어야 한다.</p>
 
-<p>제어 표현식은 산술식이거나 부울식이다. ​</p>
+<ul>
+  <li>액면가가 다른 m(&gt;=1)개의 동전들이 있다.</li>
+  <li>동전 i,1&lt;=i&lt;=m,의 액면가는 d<sub>i</sub> 이고 d<sub>1</sub> &gt; 
+d<sub>2</sub> &gt; … &gt; d<sub>m</sub> = 1이다.</li>
+  <li>액면가가 같은 동전들의 개수는 무한히 많이 있다.</li>
+  <li>거스름돈 n(&gt;=1)을 최소 개수의 동전들을 사용하여 주어야 한다.</li>
+</ul>
 
-<p>프로그래밍 언어에서 실행문1과 실행문2는 단순문이거나 복합문이다. ​</p>
+<blockquote>
+  <p>탐욕 알고리즘의 아이디어</p>
+</blockquote>
 
-<p>C, C++에서 복합문을 { }로 둘러싼다.<br />
-펄에서 모든 실행문을 { }로 구분하고, 파이썬에서는 indentation으로 구분한다.</p>
+<p>주어야 할 거스름돈이 남아 있는 동안 다음을 반복한다.</p>
 
-<p>자바에서는 중첩 if문을 허용한다.<br />
-dangling else 문제가 발생할 수 있으니 If에 대응되는 else가 어느 것인지 살펴가며 신중하게 써야 한다.<br />
-자바를 비롯한 대부분의 언어에서는 else를 가장 가까운 if에 대응시킨다.  ​</p>
+<ol>
+  <li>남은 동전들 중 액면가가 가장 큰 동전을 선택한다.</li>
+  <li>선택한 동전을 거스름돈에 추가하면 거스름돈이 주어야 할 금액을 
+초과한다면 그 동전을 버린다. 아니면 그 동전을 거스름돈에 추가하고 주어야 할 거스름돈을 추가한 동전의 액면가만큼 감소시킨다.<br />
+주: 최적의 알고리즘</li>
+</ol>
 
-<p>C, C++에서는 가장 가까운 if에 else를 대응시키는 것의 대안으로서,<br />
-{}로 둘러싼 복합문을 사용할 수도 있다. ​</p>
+<blockquote>
+  <p>탐욕적인 알고리즘</p>
+</blockquote>
 
-<p>​복합문 대신에 end를 사용하기도 한다.</p>
+<p>coinChange(d[],m,n)
+//거스름돈에 포함되는 동전들의 수를 최소화한다.<br />
+//입력: m - 액면가가 다른 동전들의 수<br />
+//     d[1..m] - 동전들의 액면가를 저장하는 배열<br />
+//     n - 거스름돈<br />
+//출력(반환 값): 거스름돈에 포함된 동전들의 최소 개수<br />
+1  count = 0<br />
+2  i = 1<br />
+3  while(n &gt; 0 &amp;&amp; i &lt;=m){<br />
+4    count = count + $\frac{n}{d[i]}$ 　//가치가 가장 큰 동전들을 최대한 많이 선택<br />
+5    n = n mod d[i] 　　　 //남은 거스름돈을 계산<br />
+6    i = i + 1 　　　　　　 //다음으로 가치가 큰 동전을 선택<br />
+    }<br />
+7  return count</p>
+
+<blockquote>
+  <p>시간 복잡도</p>
+</blockquote>
+
+<ul>
+  <li>입력의 크기: m(액면가가 다른 동전들의 수)</li>
+  <li>기본 연산: 4번의 배정문</li>
+  <li>기본 연산의 수행 횟수: 최대 m</li>
+  <li>시간 복잡도: m = $\theta$(m)</li>
+</ul>
 
 <hr />
 
 <blockquote>
-  <p>Switch Statements</p>
+  <p>최소 비용 신장 트리 찾기</p>
 </blockquote>
 
-<p>​Switch는 여러 대안 중에 하나 선택하여 실행할 경우이다. ​</p>
+<ul>
+  <li>n(&gt;1)개의 도시들을 최소한의 비용으로 연결하는 철도망을 새로 구축하려고 한다.</li>
+  <li>모든 도시들을 서로 연결하기 위해 도시간 철도를 최소한(n-1)개 깔아야 한다.</li>
+  <li>각 철도는 두 도시를 연결한다.</li>
+  <li>이 철도망들 중에서 철도 노선들의 총 길이가 최소가 되도록 철도망을 구축해야 한다.</li>
+</ul>
 
-<p>전형적인 형식은 아래와 같다 ​</p>
+<blockquote>
+  <p>최소 비용 신장 트리</p>
+</blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Switch 표현식 {​
-
-case 상수 표현식1 : 실행문1   ​
-
-…​
-
-default … }이다. 
-</code></pre></div></div>
-
-<p>스위치문의 case는 동시에 상수 표현식을 비교하는 것이 아니라 상수 표현식을 순차적으로 비교하여 끝까지 실행한다. 
- ​이것을 피하려면, break 사용해야 한다.</p>
-
-<p>C에서는 스위치문의 제어 표현식으로 정수 타입만 허용한다.<br />
- 실행문은 시퀀스, 블록, 복합문을 모두 허용한다.<br />
- 조건이 맞으면 여러 case가 실행가능하다.<br />
- 디폴트시에, ​If문에 의한 제어가 가능하다.</p>
-
-<p>파이썬에서는 스위치 대신에 if elif를 사용할 수 있다.</p>
+<ul>
+  <li>신장트리: 연결된, 무방향 그래프 안에 있는 모든 정점을 다 포함하면서 트리가 되는 연결된 부분 그래프</li>
+  <li>산장트리는 순환을 포함하지 않으며 그래프 안에 있는 모든 정점들을 연결시칸다.</li>
+  <li>신장트리의 가중치: 모든 간선들의 가중치들의 합</li>
+  <li>최소 비용 신장 트리: 최소 가중치를 가진 신장트리</li>
+</ul>
 
 <hr />
 
-<h2 id="iterative-statements"><strong>Iterative Statements</strong></h2>
-
-<hr />
-
-<p>Iteration, recursion은 문장이나 복합문의 반복 실행한다.​ <br />
- 카운터로 제어하는 counter-controlled loop은 반복문의 실행 횟수를 세는 변수를 갖는다. ​초기값, 종료값, 증분(반복할 때마다 더해지는 값)</p>
-
-<p>설계할 때 고려사항은 Loop 변수의 유형과 스코프를 정의해야 하며,<br />
-Loop에서 변화하는 Loop변수의 값이 룹 제어에 영향을 미치는지 확인해야 한다.</p>
-
-<blockquote>
-  <p>for Statenebts</p>
-</blockquote>
-
-<p>C의 for 반복문을 보면, ​</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for ([expr_1] ; [expr_2] ; [expr_3]) ​
-
-loop body… 와 같습니다. ​
-</code></pre></div></div>
-
-<p>다음과 같이 카운터 변수가 여럿일 수 있고, ​
-부울식을 포함할 수 있다. ​</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>For (count1 = 0, count2 = 1.0;​
-     count1 &lt;= 10 &amp;&amp; count2 &lt;= 100.0;​
-    sum = ++count1 + count2, count2 *= 2); ​
-</code></pre></div></div>
-
-<p>자바에서 컨트롤 표현식은 부울식이어야 한다.</p>
-
-<blockquote>
-  <p>while Loops</p>
-</blockquote>
-
-<p>​While Loop은 부울식에 의해 제어된다.<br />
-Ctrl_expr는 부울식으로, Loop의 맨앞에 또는 맨뒤에 위치한다. ​</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>while (ctrl_expr) ​
-loop body… ​
-
-do ​
-loop body ​
-while (ctrl_expr) ​ ​ 
-</code></pre></div></div>
+<p>​<img src="/assets/built/images/ag/ag12.png" width="50%" height="25%" title="제목" alt="알고리즘" /></p>
 
 <hr />
 
 <blockquote>
-  <p>User-Located Loop Control</p>
+  <p>억지 기법 알고리즘</p>
 </blockquote>
 
-<p>Break 처럼 loop 컨트롤이 loop body의 중간에 위치하기도 한다.<br />
-이것을 user-located loop control이라고 부른다.<br />
-Break 외에도 continue가 있다.</p>
-
-<p>자료구조를 구성하는 요소에 의해 제어되는 반복 처리가 있다. ​
-Iterator를 호출하면, 자료구조에서 다음 요소를 반환해준다. ​
-이밖에 for에서도 자료구조에 의한 반복처리를 제어할 수 있다.  ​</p>
-
-<hr />
+<ul>
+  <li>모든 신장 트리를 찾은 후 그 중에서 최소 비용 신장 트리를 선택한다.</li>
+  <li>시간 복잡도 분석
+    <ul>
+      <li>최악의 경우, 지수 시간보다도 나쁘다.</li>
+    </ul>
+  </li>
+</ul>
 
 <blockquote>
-  <p>Unconditional Branching</p>
+  <p>탐욕적인 전략</p>
 </blockquote>
 
-<p>앞에서 언급했듯이 goto는 가독성 문제를 일으킨다.<br />
-자바는 goto가 없다.</p>
+<ol>
+  <li>신장 트리에 추가할 최선의 간선들을 반복적으로 한 번에 하나씩 선택한다. 선택 시점에서 추가할 최선의 간선을 쉽게 알 수 있다고 가정한다.</li>
+  <li>(n-1)개의 간선들이 신장 트리에 포함된다면 종료한다.</li>
+  <li>한 간선이 선택되면 그 간선의 정점들을 합친다.</li>
+</ol>
 
-<hr />
+<ul>
+  <li>적절한 이유<br />
+정점 a와 b가 연결된다면 정점a에 연결하는 것은 정점 b에 연결하는 것과 같다.</li>
+</ul>
 
-<h2 id="guarded-commands"><strong>Guarded Commands</strong></h2>
+<p>명제. n(&gt;0)개의 정점들을 가진 그래프 G는 (n-1)개의 간선들을 가지고 순환이 없으면 트리이다. 또한 G가 트리이면 (n-1)개의 간선들이 있고 비순환 그래프이다.</p>
 
-<hr />
-
-<p>각 문장 앞에 부울식이 있는 것을 가디드 코멘드라고 한다. <br />
-즉 가디드 코멘드는 ​selection 문장의 각 라인이 ​부울식과 ‘하나의 문장 또는 문장의 시퀀스＇로 구성된다. ​</p>
-
-<p>이렇게 하는 목적은 ​프로그램 개발 중에도 프로그램의 correctness(올바름)를 증명하기 위한 것으로, ​Concurrent 프로그래밍의 기초가 된다. ​</p>
-
-<p>기존의 언어는 개발(코딩)을 마치고 테스트를 통해 프로그램의 올바름을 확인한다.</p>
+<p>정리. 간선 e가 정점 v에 접합한 가장 가중치가 작은 간선이라면 e를 포함하는 최소 비용 신장 트리가 있다.</p>
 
 <blockquote>
-  <p>Selection Guarded Command</p>
+  <p>최소 비용 신장트리 찾기 - 정점지향 전략</p>
 </blockquote>
 
-<p>Selection의 가디드 코멘드는 ​If 안의 각 문장마다 부울식이 있다. ​</p>
-
-<p>이 가디드 코멘드의 시맨틱은 다음과 같다.<br />
-부울식을 계산해서, ​나 이상이 참이면, 그 중에 아무거나 선택한다.<br />
-아무것도 참이 아니면, 실행 오류로 처리한다.​<br />
-프로그램의 correctness는 선택된 문장에 종속되지 않는다.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if x &gt;= y -&gt; max := x​
-[] y &gt;= x =&gt; max := y​
-fi
-
-if (x &gt;= y)​  
-    max = x;​
-else​
-    max = y;
-</code></pre></div></div>
-
-<p>X, y가 같을 때, 전자는 아무거나 선택되어 수행되나, ​
-후자는 max=x가 수행됨.<br />
-따라서, non-deterministic vs. deterministic</p>
+<ol>
+  <li>처음 시작할 때 한 정점 v<sub>0</sub>를 선택한다.</li>
+  <li>v<sub>0</sub> 에서 나가는 가장 가중치가 작은 간선 (v<sub>0</sub>, x)를 선택한다. 그 간선을 최소 비용 신장 트리 T에 추가하고 v<sub>0</sub>와 x를 합친다. 모든 정점이 T에 포함될 때까지 이 과정을 반복한다.</li>
+</ol>
 
 <blockquote>
-  <p>Loop Guarded Command</p>
+  <p>프림 알고리즘</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>do &lt;Boolean&gt; -&gt; &lt;statement&gt;​
-[] &lt;Boolean&gt; -&gt; &lt;statement&gt;​
-...​
-[] &lt;Boolean&gt; -&gt; &lt;statement&gt;​
-od​
-</code></pre></div></div>
+<ul>
+  <li>적색 정점: 처음에 선택된 정점 v<sub>0</sub>와 합쳐진 정점</li>
+  <li>
+    <p>청색 정점: 그 외 다른 정점</p>
+  </li>
+  <li>아이디어<br />
+다음을 (n-1)번 반복한다:
+    <ol>
+      <li>한 적색 정점과 한 청색 정점을 연결하는 가장 가중치가 작은 간선을 선택한다.</li>
+      <li>선택된 간선의 청색 정점을 적색으로 바꾸고 그 간선을 트리에 추가한다.</li>
+    </ol>
+  </li>
+  <li>그래프의 표현: 비용 행렬 W</li>
+</ul>
 
-<p>Loop 가디드 코멘드에서, ​Do 다음에 나오는 모든 문장의 앞에 부울식이 있다. ​
-​
-룹 가디드 코멘드의 시맥틱스는 다음과 같다.<br />
-부울식을 계산하고, ​
-하나 이상이 참이면, ​
-아무거나 선택하여 룹을 시작한다.<br />
-아무것도 참이 아니면, 룹에서 나온다.</p>
+<p>R: 적색 정점들의 집합, B: 청색 정점들의 집합<br />
+V: 그래프내의 모든 정점들의 집합<br />
+T: 트리 내에 포함되는 간선들의 집합</p>
+
+<ol>
+  <li>  R = {v<sub>0</sub>}</li>
+  <li>  B = V - {v<sub>0</sub>}</li>
+  <li> T = $\emptyset${공집합}</li>
+  <li> for(i = 1; i &lt; n; i++) {</li>
+  <li> 　　w[ r,b ]가 최소인 $r \in R$과 $b \in B$를 선택한다.</li>
+  <li> 　　T = T U {(r,b)}　　// 간선 (r,b)를 트리에 추가한다.</li>
+  <li> 　　B = B - {b}</li>
+  <li> 　　R = R U {b}　　　//정점 b를 적색으로 바꾼다.</li>
+</ol>
+
+<p>명확하게 청색 정점의 관점을 취해야 한다. 단순히 어느 적색 정점이 자신에게 가장 가까운지만 기억한다. 이는 한 정점이 적색이 될 때 쉽게 갱신될 수 있다.</p>
+
+<blockquote>
+  <p>시간 복잡도</p>
+</blockquote>
+
+<p>이 알고리즘은 중복 계산을 많이 한다. 매번 반복할 때마다 최소 간선을 거의 같은 집합에서 찾는다.<br />
+$\theta$(n<sup>3</sup>)</p>
+
+<blockquote>
+  <p>개선된 프림 알고리즘</p>
+</blockquote>
+
+<p>near[0 .. n - 1]: 각 청색 정점에 가장 가까운 적생 정점을 저장하는 배열<br />
+isblue[0 .. n - 1]: 각 정점이 청색이면 true를 아니면 false를 저장하는 배열<br />
+T: 트리 내에 포함되는 간선들의 집합</p>
+
+<ol>
+  <li> isblue[0] = false 　　　　//정점 0은 적색이다</li>
+  <li> T = $\emptyset$</li>
+  <li> for(i = 1; i &lt; n; i++){</li>
+  <li> 　　isblue[i] = true 　　　　//다른 정점들은 청색이다</li>
+  <li> 　　near[i] = 0 } 　　　　　 // 가장 가까운 적색 정점은 0이다</li>
+  <li> for(i = 1; i &lt; n; i++){</li>
+  <li> 　　minval = $\infty$</li>
+  <li> 　　for(b = 0; b &lt; n; b++)　//적색 정점들에 가장 가까운 청색 정점을 찾는다</li>
+  <li> 　　　if(isblue[b] &amp;&amp; W[b,near[b]]&lt; minval){</li>
+  <li> 　　　　minval = W[b,near[b]]</li>
+  <li> 　　　　newred = b }</li>
+  <li> 　isblue[newred] = fasle 　　　//정점 newred를 적색으로 바꾼다</li>
+  <li> 　T = T $\cup$ { (newred, near[newred])}　//가장 가중치가 작은 간선을 T에 추가한다</li>
+  <li> 　for(b = 0; b &lt; n; b++)</li>
+  <li> 　　　if(isblue[b] &amp;&amp; W[b,newred] &lt; W[b,near[b]])near[b] = newred<br />
+　　}</li>
+</ol>
+
+<blockquote>
+  <p>시간 복잡도</p>
+</blockquote>
+
+<ul>
+  <li>입력 크기: n(정점들의 수)</li>
+  <li>기본 연산: isblue의 요소들에 대한 참조 횟수</li>
+  <li>참조 횟수
+    <ul>
+      <li>각 i, 1&lt;= i &lt; n, 에 대해 항상 n이다.</li>
+      <li>따라서 총 참조 횟수 = (n-1) x n $\in$ $\theta$(n<sup>2</sup>)</li>
+    </ul>
+  </li>
+</ul>
 
 <hr />
+
 
                 </div>
             </section>
@@ -506,9 +550,9 @@ od​
                     <div id="disqus_thread"></div>
                     <script>
                         var disqus_config = function () {
-                            var this_page_url = 'https://lee989898.github.io/pl-15';
-                            var this_page_identifier = '/pl-15';
-                            var this_page_title = '컨트롤 스트럭처';
+                            var this_page_url = 'https://lee989898.github.io/algorithm-05';
+                            var this_page_identifier = '/algorithm-05';
+                            var this_page_title = '탐욕 기법';
                         };
                         (function() {
                             var d = document, s = d.createElement('script');
@@ -542,7 +586,7 @@ od​
                         <header class="read-next-card-header">
                             <small class="read-next-card-header-sitetitle">&mdash; LEE &mdash;</small>
                             
-                                <h3 class="read-next-card-header-title"><a href="/tag/pl/">Pl</a></h3>
+                                <h3 class="read-next-card-header-title"><a href="/tag/algorithm/">Algorithm</a></h3>
                             
                         </header>
                         <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
@@ -552,38 +596,15 @@ od​
                                 
                                 
                                   
-                                
-                                  
-                                
-                                  
                                     
                                   
                                 
                                   
-                                    
-                                        
-                                        
-                                            <li><a href="/pl-14">표현식과 대입문</a></li>
-                                        
-                                    
+                                
                                   
                                 
                                   
-                                    
-                                        
-                                        
-                                            <li><a href="/pl-13">복잡한 데이터 타입</a></li>
-                                        
-                                    
-                                  
                                 
-                                  
-                                    
-                                        
-                                        
-                                            <li><a href="/pl-12">데이터 타입</a></li>
-                                        
-                                    
                                   
                                 
                                   
@@ -592,21 +613,13 @@ od​
                                     
                                         
                                         
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
+                                            <li><a href="/algorithm-04">동적 계획</a></li>
                                         
                                     
                                   
                                 
                                   
-                                    
-                                        
-                                        
-                                    
+                                
                                   
                                 
                                   
@@ -615,14 +628,32 @@ od​
                                     
                                         
                                         
+                                            <li><a href="/algorithm-03">분할 정복</a></li>
+                                        
                                     
+                                  
+                                
+                                  
+                                
                                   
                                 
                                   
                                     
                                         
                                         
+                                            <li><a href="/algorithm-02">알고리즘의 효율성 분석</a></li>
+                                        
                                     
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
                                   
                                 
                                   
@@ -632,43 +663,6 @@ od​
                                         
                                         
                                     
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
                                   
                                 
                                   
@@ -724,9 +718,9 @@ od​
                             </ul>
                         </div>
                         <footer class="read-next-card-footer">
-                            <a href="/tag/pl/">
+                            <a href="/tag/algorithm/">
                                 
-                                    See all 14 posts  →
+                                    See all 4 posts  →
                                 
                             </a>
                         </footer>
@@ -735,6 +729,9 @@ od​
             
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
             
                 
 
@@ -788,60 +785,6 @@ od​
 
             
 
-            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
-            
-                
-
-    <article class="post-card post-template">
-        
-            <a class="post-card-image-link" href="/pl-14">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/pl-background-frontend.png)"></div>
-            </a>
-        
-        <div class="post-card-content">
-            <a class="post-card-content-link" href="/pl-14">
-                <header class="post-card-header">
-                    
-                        
-                            
-                                <span class="post-card-tags">Pl</span>
-                            
-                        
-                    
-
-                    <h2 class="post-card-title">표현식과 대입문</h2>
-                </header>
-                <section class="post-card-excerpt">
-                    
-                        <p>표현식과 대입문
-
-</p>
-                    
-                </section>
-            </a>
-            <footer class="post-card-meta">
-                
-                    
-                        
-                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="lee989898" />
-                        
-                        <span class="post-card-author">
-                            <a href="/author/lee989898/">lee989898</a>
-                        </span>
-                    
-                
-                <span class="reading-time">
-                    
-                    
-                      6 min read
-                    
-                </span>
-            </footer>
-        </div>
-    </article>
-
-            
-
         </div>
     </div>
 </aside>
@@ -855,18 +798,18 @@ od​
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">컨트롤 스트럭처</div>
+    <div class="floating-header-title">탐욕 기법</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%EC%BB%A8%ED%8A%B8%EB%A1%A4+%EC%8A%A4%ED%8A%B8%EB%9F%AD%EC%B2%98&amp;url=https://lee989898.github.io/pl-15"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%ED%83%90%EC%9A%95+%EA%B8%B0%EB%B2%95&amp;url=https://lee989898.github.io/algorithm-05"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://lee989898.github.io/pl-15"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://lee989898.github.io/algorithm-05"
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
 

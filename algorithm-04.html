@@ -52,6 +52,34 @@
     <link rel="canonical" href="https://lee989898.github.io/algorithm-04" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
+    
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$'] ],
+    processEscapes: true,
+  }
+});
+MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+    
+
+
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
@@ -265,7 +293,7 @@ into the {body} of the default.hbs template -->
 
 <p>위 그림은 막대를 자르는 모든 방법들과 판매 금액이다.</p>
 
-<p>시간 복잡도: 빅오(2의n승)</p>
+<p>시간 복잡도: $\theta$(2<sup>n</sup>)</p>
 
 <ul>
   <li>분할 정복 알고리즘
@@ -282,10 +310,10 @@ into the {body} of the default.hbs template -->
 <p>R(n): 길이가 n인 막대를 판매할 때 얻을 수 있는 최대 판매금액</p>
 <ul>
   <li>
-    <p>R(n) = MAX(pi, R(n-i))
+    <p>R(n) = MAX(p<sub>i</sub>, R(n-i))
           1 &lt;= i &lt;= n
        R(0) = 0<br />
-pi: 길이가 i인 막대의 판매 가격<br />
+p<sub>i</sub>: 길이가 i인 막대의 판매 가격<br />
 R(n-i): 길이 (n - i)의 막대를 판매할 때 얻을 수 있는 최대 판매 금액</p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cutRod_DC(p[], i)
@@ -313,7 +341,7 @@ else{
 
 <p>위 그림은 cutRod_DC(p,4) 호출시 실행 트리 이다.</p>
 
-<p>시간 복잡도: 빅오(2의n제곱)</p>
+<p>시간 복잡도: $\theta$(2<sup>n</sup>)</p>
 
 <hr />
 
@@ -338,7 +366,7 @@ else{
   </li>
 </ul>
 
-<p>시간복잡도: 박오(n의2제곱)</p>
+<p>시간복잡도: $\theta$(n<sup>2</sup>)</p>
 
 <hr />
 
@@ -372,7 +400,7 @@ else{
 최단 경로는 L 내에 있는 정점(들)만을 이용한다.</li>
   <li>L에 정점들을 한 번에 하나씩 정점의 번호 순서대로 추가한다.</li>
   <li>최단 거리 행렬들을 다음과 같은 순서대로 계산한다.
-     D(0),D(1),D(2), …, D(n)</li>
+     D<sub>0</sub>,D<sub>1</sub>,D<sub>2</sub>, …, D<sub>n</sub></li>
 </ol>
 
 <hr />
@@ -384,22 +412,21 @@ else{
 <p>위 그림은 Floyd 알고리즘 예이다.</p>
 
 <ul>
-  <li>
-    <p>Floyd 알고리즘</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>AllPairShortestPath(W[])
-//입력: 가중치 행렬 W
-//출력: D(i)
-D(0) = W
-for(k = 1; k &lt;= n; k++){
-  n x n 행렬 D(k) = (dij(k))를 선언한다
-  for(i = 1; i &lt;= n; i++)
-      for(j = 1; j &lt;=n; j++)
-          dij(k) = MIN(dij(k-1),dik(k-1)+dkj(k-1)
-} 
-</code></pre></div>    </div>
-  </li>
+  <li>Floyd 알고리즘</li>
 </ul>
+
+<p>AllPairShortestPath(W[])
+//입력: 가중치 행렬 W [1..n, 1..n]
+//출력: D<sup>(i)</sup> [1..n, 1..n], 0&lt;=i&lt;=n</p>
+<ol>
+  <li>   D<sup>0</sup> = W</li>
+  <li>   for(k = 1; k &lt;= n; k++){</li>
+  <li>       n x n 행렬 D<sup>(k)</sup> = (d<sub>ij</sub><sup>(k)</sup>)를 선언한다</li>
+  <li>       for(i = 1; i &lt;= n; i++)</li>
+  <li>         for(j = 1; j &lt;=n; j++)</li>
+  <li>           d<sub>ij</sub><sup>(k)</sup> = MIN(d<sub>ij</sub><sup>(k-1)</sup>,d<sub>i,k</sub><sup>(k-1)</sup>+d<sub>k,j</sub><sup>(k-1)</sup>
+    }</li>
+</ol>
 
 <hr />
 
@@ -515,6 +542,15 @@ for(k = 1; k &lt;= n; k++){
                                 
                                 
                                   
+                                    
+                                        
+                                        
+                                            <li><a href="/algorithm-05">탐욕 기법</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
                                 
                                   
                                 
@@ -571,8 +607,6 @@ for(k = 1; k &lt;= n; k++){
                                   
                                     
                                         
-                                        
-                                            <li><a href="/algorithm-01">알고리즘</a></li>
                                         
                                     
                                   
@@ -632,7 +666,7 @@ for(k = 1; k &lt;= n; k++){
                         <footer class="read-next-card-footer">
                             <a href="/tag/algorithm/">
                                 
-                                    See all 3 posts  →
+                                    See all 4 posts  →
                                 
                             </a>
                         </footer>

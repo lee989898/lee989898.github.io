@@ -52,6 +52,34 @@
     <link rel="canonical" href="https://lee989898.github.io/algorithm-01" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
+    
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$'] ],
+    processEscapes: true,
+  }
+});
+MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+    
+
+
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
@@ -500,6 +528,15 @@ return max​
                                 
                                 
                                   
+                                    
+                                        
+                                        
+                                            <li><a href="/algorithm-05">탐욕 기법</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
                                 
                                   
                                 
@@ -540,8 +577,6 @@ return max​
                                   
                                     
                                         
-                                        
-                                            <li><a href="/algorithm-02">알고리즘의 효율성 분석</a></li>
                                         
                                     
                                   
@@ -617,7 +652,7 @@ return max​
                         <footer class="read-next-card-footer">
                             <a href="/tag/algorithm/">
                                 
-                                    See all 3 posts  →
+                                    See all 4 posts  →
                                 
                             </a>
                         </footer>

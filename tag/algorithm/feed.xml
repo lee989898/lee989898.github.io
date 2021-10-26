@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/algorithm/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-10-26T00:25:45+09:00</updated>
+  <updated>2021-10-26T23:35:28+09:00</updated>
   <id>https://lee989898.github.io/tag/algorithm/feed.xml</id>
 
   
@@ -30,6 +30,291 @@
   
   
 
+  
+    <entry>
+      <title type="html">탐욕 기법</title>
+      <link href="https://lee989898.github.io/algorithm-05" rel="alternate" type="text/html" title="탐욕 기법" />
+      <published>2021-10-26T01:09:00+09:00</published>
+      <updated>2021-10-26T01:09:00+09:00</updated>
+      <id>https://lee989898.github.io/algorithm-05</id>
+      <content type="html" xml:base="https://lee989898.github.io/algorithm-05">&lt;h3 id=&quot;탐욕-기법&quot;&gt;&lt;strong&gt;탐욕 기법&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;탐욕 기법&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;매 번 선택할 때 마다 그 순간에 좋은 선택을 함으로써 최종적인 해에 도달한다.&lt;/li&gt;
+  &lt;li&gt;최적인 해들을 모아서 최종 해를 만들었다고 해서, 그 해가 궁극 적으로 최적이라는 보장이 없다.&lt;/li&gt;
+  &lt;li&gt;따라서 탐욕 기법은 항상 최적의 해를 만들어내는 지를 반드시 검증해야 한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;선택 기준&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;선택이 실현 가능해야 한다.&lt;/li&gt;
+  &lt;li&gt;모든 선택들 중에서 최적이라고 여겨지는 선택을 해야 한다.&lt;/li&gt;
+  &lt;li&gt;한 번 선택하면 나중에 되돌릴 수 없다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;설계 전략&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;비어 있는 해 모음으로 시작한다.&lt;/li&gt;
+  &lt;li&gt;탐욕적인 기준에 따라 해 모음에 추가할 다음 해를 선택한다.&lt;/li&gt;
+  &lt;li&gt;새 해 모음이 실형 가능한지를 확인한다.
+실현 가능하다면 새 해 모음을 확정하고 아니면 선택한 해를 버린다.&lt;/li&gt;
+  &lt;li&gt;새 해 모음이 최종 해라면 종료한다. 아니면 2번으로 간다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;거스름돈 주기&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;거스름돈을 동전들의 수가 최소가 되도록 주어야 한다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;액면가가 다른 m(&amp;gt;=1)개의 동전들이 있다.&lt;/li&gt;
+  &lt;li&gt;동전 i,1&amp;lt;=i&amp;lt;=m,의 액면가는 d&lt;sub&gt;i&lt;/sub&gt; 이고 d&lt;sub&gt;1&lt;/sub&gt; &amp;gt; 
+d&lt;sub&gt;2&lt;/sub&gt; &amp;gt; … &amp;gt; d&lt;sub&gt;m&lt;/sub&gt; = 1이다.&lt;/li&gt;
+  &lt;li&gt;액면가가 같은 동전들의 개수는 무한히 많이 있다.&lt;/li&gt;
+  &lt;li&gt;거스름돈 n(&amp;gt;=1)을 최소 개수의 동전들을 사용하여 주어야 한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;탐욕 알고리즘의 아이디어&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;주어야 할 거스름돈이 남아 있는 동안 다음을 반복한다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;남은 동전들 중 액면가가 가장 큰 동전을 선택한다.&lt;/li&gt;
+  &lt;li&gt;선택한 동전을 거스름돈에 추가하면 거스름돈이 주어야 할 금액을 
+초과한다면 그 동전을 버린다. 아니면 그 동전을 거스름돈에 추가하고 주어야 할 거스름돈을 추가한 동전의 액면가만큼 감소시킨다.&lt;br /&gt;
+주: 최적의 알고리즘&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;탐욕적인 알고리즘&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;coinChange(d[],m,n)
+//거스름돈에 포함되는 동전들의 수를 최소화한다.&lt;br /&gt;
+//입력: m - 액면가가 다른 동전들의 수&lt;br /&gt;
+//     d[1..m] - 동전들의 액면가를 저장하는 배열&lt;br /&gt;
+//     n - 거스름돈&lt;br /&gt;
+//출력(반환 값): 거스름돈에 포함된 동전들의 최소 개수&lt;br /&gt;
+1  count = 0&lt;br /&gt;
+2  i = 1&lt;br /&gt;
+3  while(n &amp;gt; 0 &amp;amp;&amp;amp; i &amp;lt;=m){&lt;br /&gt;
+4    count = count + $\frac{n}{d[i]}$ 　//가치가 가장 큰 동전들을 최대한 많이 선택&lt;br /&gt;
+5    n = n mod d[i] 　　　 //남은 거스름돈을 계산&lt;br /&gt;
+6    i = i + 1 　　　　　　 //다음으로 가치가 큰 동전을 선택&lt;br /&gt;
+    }&lt;br /&gt;
+7  return count&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;시간 복잡도&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;입력의 크기: m(액면가가 다른 동전들의 수)&lt;/li&gt;
+  &lt;li&gt;기본 연산: 4번의 배정문&lt;/li&gt;
+  &lt;li&gt;기본 연산의 수행 횟수: 최대 m&lt;/li&gt;
+  &lt;li&gt;시간 복잡도: m = $\theta$(m)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;최소 비용 신장 트리 찾기&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;n(&amp;gt;1)개의 도시들을 최소한의 비용으로 연결하는 철도망을 새로 구축하려고 한다.&lt;/li&gt;
+  &lt;li&gt;모든 도시들을 서로 연결하기 위해 도시간 철도를 최소한(n-1)개 깔아야 한다.&lt;/li&gt;
+  &lt;li&gt;각 철도는 두 도시를 연결한다.&lt;/li&gt;
+  &lt;li&gt;이 철도망들 중에서 철도 노선들의 총 길이가 최소가 되도록 철도망을 구축해야 한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;최소 비용 신장 트리&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;신장트리: 연결된, 무방향 그래프 안에 있는 모든 정점을 다 포함하면서 트리가 되는 연결된 부분 그래프&lt;/li&gt;
+  &lt;li&gt;산장트리는 순환을 포함하지 않으며 그래프 안에 있는 모든 정점들을 연결시칸다.&lt;/li&gt;
+  &lt;li&gt;신장트리의 가중치: 모든 간선들의 가중치들의 합&lt;/li&gt;
+  &lt;li&gt;최소 비용 신장 트리: 최소 가중치를 가진 신장트리&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag12.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;억지 기법 알고리즘&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;모든 신장 트리를 찾은 후 그 중에서 최소 비용 신장 트리를 선택한다.&lt;/li&gt;
+  &lt;li&gt;시간 복잡도 분석
+    &lt;ul&gt;
+      &lt;li&gt;최악의 경우, 지수 시간보다도 나쁘다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;탐욕적인 전략&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;신장 트리에 추가할 최선의 간선들을 반복적으로 한 번에 하나씩 선택한다. 선택 시점에서 추가할 최선의 간선을 쉽게 알 수 있다고 가정한다.&lt;/li&gt;
+  &lt;li&gt;(n-1)개의 간선들이 신장 트리에 포함된다면 종료한다.&lt;/li&gt;
+  &lt;li&gt;한 간선이 선택되면 그 간선의 정점들을 합친다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;적절한 이유&lt;br /&gt;
+정점 a와 b가 연결된다면 정점a에 연결하는 것은 정점 b에 연결하는 것과 같다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;명제. n(&amp;gt;0)개의 정점들을 가진 그래프 G는 (n-1)개의 간선들을 가지고 순환이 없으면 트리이다. 또한 G가 트리이면 (n-1)개의 간선들이 있고 비순환 그래프이다.&lt;/p&gt;
+
+&lt;p&gt;정리. 간선 e가 정점 v에 접합한 가장 가중치가 작은 간선이라면 e를 포함하는 최소 비용 신장 트리가 있다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;최소 비용 신장트리 찾기 - 정점지향 전략&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;처음 시작할 때 한 정점 v&lt;sub&gt;0&lt;/sub&gt;를 선택한다.&lt;/li&gt;
+  &lt;li&gt;v&lt;sub&gt;0&lt;/sub&gt; 에서 나가는 가장 가중치가 작은 간선 (v&lt;sub&gt;0&lt;/sub&gt;, x)를 선택한다. 그 간선을 최소 비용 신장 트리 T에 추가하고 v&lt;sub&gt;0&lt;/sub&gt;와 x를 합친다. 모든 정점이 T에 포함될 때까지 이 과정을 반복한다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;프림 알고리즘&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;적색 정점: 처음에 선택된 정점 v&lt;sub&gt;0&lt;/sub&gt;와 합쳐진 정점&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;청색 정점: 그 외 다른 정점&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;아이디어&lt;br /&gt;
+다음을 (n-1)번 반복한다:
+    &lt;ol&gt;
+      &lt;li&gt;한 적색 정점과 한 청색 정점을 연결하는 가장 가중치가 작은 간선을 선택한다.&lt;/li&gt;
+      &lt;li&gt;선택된 간선의 청색 정점을 적색으로 바꾸고 그 간선을 트리에 추가한다.&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;그래프의 표현: 비용 행렬 W&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;R: 적색 정점들의 집합, B: 청색 정점들의 집합&lt;br /&gt;
+V: 그래프내의 모든 정점들의 집합&lt;br /&gt;
+T: 트리 내에 포함되는 간선들의 집합&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;  R = {v&lt;sub&gt;0&lt;/sub&gt;}&lt;/li&gt;
+  &lt;li&gt;  B = V - {v&lt;sub&gt;0&lt;/sub&gt;}&lt;/li&gt;
+  &lt;li&gt; T = $\emptyset${공집합}&lt;/li&gt;
+  &lt;li&gt; for(i = 1; i &amp;lt; n; i++) {&lt;/li&gt;
+  &lt;li&gt; 　　w[ r,b ]가 최소인 $r \in R$과 $b \in B$를 선택한다.&lt;/li&gt;
+  &lt;li&gt; 　　T = T U {(r,b)}　　// 간선 (r,b)를 트리에 추가한다.&lt;/li&gt;
+  &lt;li&gt; 　　B = B - {b}&lt;/li&gt;
+  &lt;li&gt; 　　R = R U {b}　　　//정점 b를 적색으로 바꾼다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;명확하게 청색 정점의 관점을 취해야 한다. 단순히 어느 적색 정점이 자신에게 가장 가까운지만 기억한다. 이는 한 정점이 적색이 될 때 쉽게 갱신될 수 있다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;시간 복잡도&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;이 알고리즘은 중복 계산을 많이 한다. 매번 반복할 때마다 최소 간선을 거의 같은 집합에서 찾는다.&lt;br /&gt;
+$\theta$(n&lt;sup&gt;3&lt;/sup&gt;)&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;개선된 프림 알고리즘&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;near[0 .. n - 1]: 각 청색 정점에 가장 가까운 적생 정점을 저장하는 배열&lt;br /&gt;
+isblue[0 .. n - 1]: 각 정점이 청색이면 true를 아니면 false를 저장하는 배열&lt;br /&gt;
+T: 트리 내에 포함되는 간선들의 집합&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt; isblue[0] = false 　　　　//정점 0은 적색이다&lt;/li&gt;
+  &lt;li&gt; T = $\emptyset$&lt;/li&gt;
+  &lt;li&gt; for(i = 1; i &amp;lt; n; i++){&lt;/li&gt;
+  &lt;li&gt; 　　isblue[i] = true 　　　　//다른 정점들은 청색이다&lt;/li&gt;
+  &lt;li&gt; 　　near[i] = 0 } 　　　　　 // 가장 가까운 적색 정점은 0이다&lt;/li&gt;
+  &lt;li&gt; for(i = 1; i &amp;lt; n; i++){&lt;/li&gt;
+  &lt;li&gt; 　　minval = $\infty$&lt;/li&gt;
+  &lt;li&gt; 　　for(b = 0; b &amp;lt; n; b++)　//적색 정점들에 가장 가까운 청색 정점을 찾는다&lt;/li&gt;
+  &lt;li&gt; 　　　if(isblue[b] &amp;amp;&amp;amp; W[b,near[b]]&amp;lt; minval){&lt;/li&gt;
+  &lt;li&gt; 　　　　minval = W[b,near[b]]&lt;/li&gt;
+  &lt;li&gt; 　　　　newred = b }&lt;/li&gt;
+  &lt;li&gt; 　isblue[newred] = fasle 　　　//정점 newred를 적색으로 바꾼다&lt;/li&gt;
+  &lt;li&gt; 　T = T $\cup$ { (newred, near[newred])}　//가장 가중치가 작은 간선을 T에 추가한다&lt;/li&gt;
+  &lt;li&gt; 　for(b = 0; b &amp;lt; n; b++)&lt;/li&gt;
+  &lt;li&gt; 　　　if(isblue[b] &amp;amp;&amp;amp; W[b,newred] &amp;lt; W[b,near[b]])near[b] = newred&lt;br /&gt;
+　　}&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;시간 복잡도&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;입력 크기: n(정점들의 수)&lt;/li&gt;
+  &lt;li&gt;기본 연산: isblue의 요소들에 대한 참조 횟수&lt;/li&gt;
+  &lt;li&gt;참조 횟수
+    &lt;ul&gt;
+      &lt;li&gt;각 i, 1&amp;lt;= i &amp;lt; n, 에 대해 항상 n이다.&lt;/li&gt;
+      &lt;li&gt;따라서 총 참조 횟수 = (n-1) x n $\in$ $\theta$(n&lt;sup&gt;2&lt;/sup&gt;)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="algorithm" />
+      
+
+      
+        <summary type="html">탐욕 기법</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">동적 계획</title>
@@ -99,7 +384,7 @@
 
 &lt;p&gt;위 그림은 막대를 자르는 모든 방법들과 판매 금액이다.&lt;/p&gt;
 
-&lt;p&gt;시간 복잡도: 빅오(2의n승)&lt;/p&gt;
+&lt;p&gt;시간 복잡도: $\theta$(2&lt;sup&gt;n&lt;/sup&gt;)&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;분할 정복 알고리즘
@@ -116,10 +401,10 @@
 &lt;p&gt;R(n): 길이가 n인 막대를 판매할 때 얻을 수 있는 최대 판매금액&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;R(n) = MAX(pi, R(n-i))
+    &lt;p&gt;R(n) = MAX(p&lt;sub&gt;i&lt;/sub&gt;, R(n-i))
           1 &amp;lt;= i &amp;lt;= n
        R(0) = 0&lt;br /&gt;
-pi: 길이가 i인 막대의 판매 가격&lt;br /&gt;
+p&lt;sub&gt;i&lt;/sub&gt;: 길이가 i인 막대의 판매 가격&lt;br /&gt;
 R(n-i): 길이 (n - i)의 막대를 판매할 때 얻을 수 있는 최대 판매 금액&lt;/p&gt;
 
     &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cutRod_DC(p[], i)
@@ -147,7 +432,7 @@ else{
 
 &lt;p&gt;위 그림은 cutRod_DC(p,4) 호출시 실행 트리 이다.&lt;/p&gt;
 
-&lt;p&gt;시간 복잡도: 빅오(2의n제곱)&lt;/p&gt;
+&lt;p&gt;시간 복잡도: $\theta$(2&lt;sup&gt;n&lt;/sup&gt;)&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -172,7 +457,7 @@ else{
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;시간복잡도: 박오(n의2제곱)&lt;/p&gt;
+&lt;p&gt;시간복잡도: $\theta$(n&lt;sup&gt;2&lt;/sup&gt;)&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -206,7 +491,7 @@ else{
 최단 경로는 L 내에 있는 정점(들)만을 이용한다.&lt;/li&gt;
   &lt;li&gt;L에 정점들을 한 번에 하나씩 정점의 번호 순서대로 추가한다.&lt;/li&gt;
   &lt;li&gt;최단 거리 행렬들을 다음과 같은 순서대로 계산한다.
-     D(0),D(1),D(2), …, D(n)&lt;/li&gt;
+     D&lt;sub&gt;0&lt;/sub&gt;,D&lt;sub&gt;1&lt;/sub&gt;,D&lt;sub&gt;2&lt;/sub&gt;, …, D&lt;sub&gt;n&lt;/sub&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;hr /&gt;
@@ -218,22 +503,21 @@ else{
 &lt;p&gt;위 그림은 Floyd 알고리즘 예이다.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Floyd 알고리즘&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;AllPairShortestPath(W[])
-//입력: 가중치 행렬 W
-//출력: D(i)
-D(0) = W
-for(k = 1; k &amp;lt;= n; k++){
-  n x n 행렬 D(k) = (dij(k))를 선언한다
-  for(i = 1; i &amp;lt;= n; i++)
-      for(j = 1; j &amp;lt;=n; j++)
-          dij(k) = MIN(dij(k-1),dik(k-1)+dkj(k-1)
-} 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
+  &lt;li&gt;Floyd 알고리즘&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;AllPairShortestPath(W[])
+//입력: 가중치 행렬 W [1..n, 1..n]
+//출력: D&lt;sup&gt;(i)&lt;/sup&gt; [1..n, 1..n], 0&amp;lt;=i&amp;lt;=n&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;   D&lt;sup&gt;0&lt;/sup&gt; = W&lt;/li&gt;
+  &lt;li&gt;   for(k = 1; k &amp;lt;= n; k++){&lt;/li&gt;
+  &lt;li&gt;       n x n 행렬 D&lt;sup&gt;(k)&lt;/sup&gt; = (d&lt;sub&gt;ij&lt;/sub&gt;&lt;sup&gt;(k)&lt;/sup&gt;)를 선언한다&lt;/li&gt;
+  &lt;li&gt;       for(i = 1; i &amp;lt;= n; i++)&lt;/li&gt;
+  &lt;li&gt;         for(j = 1; j &amp;lt;=n; j++)&lt;/li&gt;
+  &lt;li&gt;           d&lt;sub&gt;ij&lt;/sub&gt;&lt;sup&gt;(k)&lt;/sup&gt; = MIN(d&lt;sub&gt;ij&lt;/sub&gt;&lt;sup&gt;(k-1)&lt;/sup&gt;,d&lt;sub&gt;i,k&lt;/sub&gt;&lt;sup&gt;(k-1)&lt;/sup&gt;+d&lt;sub&gt;k,j&lt;/sub&gt;&lt;sup&gt;(k-1)&lt;/sup&gt;
+    }&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;hr /&gt;</content>
 
@@ -375,7 +659,7 @@ for(k = 1; k &amp;lt;= n; k++){
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;총 비교횟수 n의2제곱&lt;/p&gt;
+&lt;p&gt;총 비교횟수 $\theta$(n&lt;sup&gt;2&lt;/sup&gt;)&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;분할 정복 전략
@@ -432,7 +716,7 @@ MERGE(A[],low,mid,high){
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;시간 복잡도 nlogn&lt;/p&gt;
+&lt;p&gt;시간 복잡도 $\theta$(n $log n$)&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -452,7 +736,7 @@ while(size &amp;lt; n){
 
 &lt;p&gt;합병 정렬의 단점&lt;/p&gt;
 &lt;ol&gt;
-  &lt;li&gt;합병 정렬의 공간 복잡도: 빅오(n)&lt;/li&gt;
+  &lt;li&gt;합병 정렬의 공간 복잡도: $\theta$(n)&lt;/li&gt;
   &lt;li&gt;입력을 위한 메모리 공간 외에 추가로 입력과 같은 크기의 공간이 별도로 필요&lt;/li&gt;
   &lt;li&gt;2개의 정렬된 부분을 하나로 합병하기 위해 합병된 결과를 저장할 공간이 필요하기 때문이다&lt;/li&gt;
 &lt;/ol&gt;
@@ -465,9 +749,9 @@ while(size &amp;lt; n){
 
 &lt;p&gt;절대적으로 가장 빠른 정렬 알고리즘은 아니지만 평균적으로 매우 효율적이다&lt;/p&gt;
 
-&lt;p&gt;평균 시간복잡도: 빅오(nlogn)&lt;/p&gt;
+&lt;p&gt;평균 시간복잡도: $\theta$(n $log n$)&lt;/p&gt;
 
-&lt;p&gt;최악 시간복잡도: 빅오(n의2제곱)&lt;/p&gt;
+&lt;p&gt;최악 시간복잡도: $\theta$(n&lt;sup&gt;2&lt;/sup&gt;)&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;기본 아이디어&lt;/li&gt;
@@ -641,7 +925,7 @@ ex) 배열의 크기, 연결 목록의 길이, 행렬에서 행과 열의 크기
 &lt;ul&gt;
   &lt;li&gt;O(Big O)-표기: 점근적 상한​&lt;/li&gt;
   &lt;li&gt;Ω(Big Ω)-표기: 점근적 하한​&lt;/li&gt;
-  &lt;li&gt;θ(Big Θ)-표기: 점근적 상한이면서 점근적 하한​&lt;/li&gt;
+  &lt;li&gt;$\theta$(Big $\theta$)-표기: 점근적 상한이면서 점근적 하한​&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;

@@ -52,6 +52,34 @@
     <link rel="canonical" href="https://lee989898.github.io/algorithm-03" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
+    
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$'] ],
+    processEscapes: true,
+  }
+});
+MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+    
+
+
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
@@ -309,7 +337,7 @@ into the {body} of the default.hbs template -->
   </li>
 </ul>
 
-<p>총 비교횟수 n의2제곱</p>
+<p>총 비교횟수 $\theta$(n<sup>2</sup>)</p>
 
 <ul>
   <li>분할 정복 전략
@@ -366,7 +394,7 @@ MERGE(A[],low,mid,high){
   </li>
 </ul>
 
-<p>시간 복잡도 nlogn</p>
+<p>시간 복잡도 $\theta$(n $log n$)</p>
 
 <ul>
   <li>
@@ -386,7 +414,7 @@ while(size &lt; n){
 
 <p>합병 정렬의 단점</p>
 <ol>
-  <li>합병 정렬의 공간 복잡도: 빅오(n)</li>
+  <li>합병 정렬의 공간 복잡도: $\theta$(n)</li>
   <li>입력을 위한 메모리 공간 외에 추가로 입력과 같은 크기의 공간이 별도로 필요</li>
   <li>2개의 정렬된 부분을 하나로 합병하기 위해 합병된 결과를 저장할 공간이 필요하기 때문이다</li>
 </ol>
@@ -399,9 +427,9 @@ while(size &lt; n){
 
 <p>절대적으로 가장 빠른 정렬 알고리즘은 아니지만 평균적으로 매우 효율적이다</p>
 
-<p>평균 시간복잡도: 빅오(nlogn)</p>
+<p>평균 시간복잡도: $\theta$(n $log n$)</p>
 
-<p>최악 시간복잡도: 빅오(n의2제곱)</p>
+<p>최악 시간복잡도: $\theta$(n<sup>2</sup>)</p>
 
 <ul>
   <li>기본 아이디어</li>
@@ -585,6 +613,15 @@ while( i &lt;= j){
                                 
                                 
                                   
+                                    
+                                        
+                                        
+                                            <li><a href="/algorithm-05">탐욕 기법</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
                                 
                                   
                                 
@@ -641,8 +678,6 @@ while( i &lt;= j){
                                   
                                     
                                         
-                                        
-                                            <li><a href="/algorithm-01">알고리즘</a></li>
                                         
                                     
                                   
@@ -702,7 +737,7 @@ while( i &lt;= j){
                         <footer class="read-next-card-footer">
                             <a href="/tag/algorithm/">
                                 
-                                    See all 3 posts  →
+                                    See all 4 posts  →
                                 
                             </a>
                         </footer>
