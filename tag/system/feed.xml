@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
+  <link href="https://lee989898.github.io/tag/system/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
+  <updated>2021-10-31T11:22:00+09:00</updated>
+  <id>https://lee989898.github.io/tag/system/feed.xml</id>
+
+  
+  
+  
+
+  
+    <title type="html">LEE | </title>
+  
+
+  
+    <subtitle>공부 블로그</subtitle>
+  
+
+  
+
+  
+    
+      
+    
+  
+
+  
+  
+
+  
+    <entry>
+      <title type="html">Process_Control</title>
+      <link href="https://lee989898.github.io/st-01" rel="alternate" type="text/html" title="Process_Control" />
+      <published>2021-10-31T01:06:00+09:00</published>
+      <updated>2021-10-31T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/st-01</id>
+      <content type="html" xml:base="https://lee989898.github.io/st-01">&lt;h3 id=&quot;process-control&quot;&gt;&lt;strong&gt;Process Control&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="system" />
+      
+
+      
+        <summary type="html">Process Control</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Signal</title>
+      <link href="https://lee989898.github.io/st-02" rel="alternate" type="text/html" title="Signal" />
+      <published>2021-10-31T01:06:00+09:00</published>
+      <updated>2021-10-31T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/st-02</id>
+      <content type="html" xml:base="https://lee989898.github.io/st-02">&lt;h3 id=&quot;signal&quot;&gt;&lt;strong&gt;Signal&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="system" />
+      
+
+      
+        <summary type="html">Signal</summary>
+      
+
+      
+      
+    </entry>
+  
+</feed>
