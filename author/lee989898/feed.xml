@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/author/lee989898/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-10-31T11:22:00+09:00</updated>
+  <updated>2021-11-01T23:12:11+09:00</updated>
   <id>https://lee989898.github.io/author/lee989898/feed.xml</id>
 
   
@@ -39,6 +39,243 @@
       <id>https://lee989898.github.io/st-01</id>
       <content type="html" xml:base="https://lee989898.github.io/st-01">&lt;h3 id=&quot;process-control&quot;&gt;&lt;strong&gt;Process Control&lt;/strong&gt;&lt;/h3&gt;
 
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;exec&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;프로세스가 exec 함수 중 하나를 호출할 때&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;프로세스는 새 프로그램으로 완전히 대체된다. 텍스트, 데이터, 힙 및 스택 세그먼트를 부모의 주소 공간에 로드한다.&lt;/li&gt;
+  &lt;li&gt;새 program은 main function에서 시작한다.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;새 program은 caller와 동일한 PID를 사용한다.&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;unistd.h&amp;gt;
+main()
+{ printf(&quot;execiton ls\n&quot;)};
+execl(&quot;/bin/ls&quot;,&quot;ls&quot;,&quot;-l&quot;, (char *)0);
+perror(&quot;execl failed to run ls\n&quot;);
+exit(1);}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;exec: Program Execution&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;프로세스 실행을 맡고 있는 시스템 콜은 execve()이다&lt;/li&gt;
+  &lt;li&gt;같은 기능을 하면서 라이브러리 함수로 분류되어 있는것으로 execv(), execvp(), execle(), execl(), execlp()가 있다 ​&lt;/li&gt;
+  &lt;li&gt;이 6가지를 합쳐서 exec()시스템 콜이라 부른다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;exec() 이후에 오는 문자에 의해 구별되는 표시는 다음의 의미가 있다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;l -&amp;gt; argv 정보를 개개의 문자열 데이터를 가르키는 포인터 arg0,arg1……. argn으로 전달한다&lt;/li&gt;
+  &lt;li&gt;v -&amp;gt; argv 정보를 개개의 문자열 데이터를 가리키는 포인터 배열의 ​
+선두주소 argv로 전달한다​&lt;/li&gt;
+  &lt;li&gt;e -&amp;gt; envp 정보를 전달한다​&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;p -&amp;gt; p를 사용하는 경우, 실행할 파일이름을 환경 변수 PATH로 지정한 디렉토리 안에서 찾아내어 실행한다​&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;unistd.h&amp;gt;
+
+int execl(const char *path, const char *arg0, ... *argn,
+(char *)0);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;path: 실행 가능한 파일 경로&lt;/li&gt;
+  &lt;li&gt;arg0~argn: 파일에 전달한 argv 정보(명령 인수)&lt;/li&gt;
+  &lt;li&gt;(char*)0: 마지막임을 알리는 표시로 NULL 포인터&lt;/li&gt;
+  &lt;li&gt;리턴값: 에러시 -1&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;execl.c&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include&amp;lt;unistd.h&amp;gt;
+
+main(int argc, char *argv[]){
+    execl(&quot;/bin/ls&quot;,&quot;ls&quot;,argv[1],(char *)0);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;execv.c&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include&amp;lt;unistd.h&amp;gt;
+main(){
+    char *av[3];
+
+    av[0]=&quot;ls&quot;;
+    av[1]=&quot;-1&quot;;
+    av[2]=(char *)0;
+
+    execv(&quot;/bin/ls&quot;,av);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;execle()&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; #include &amp;lt;unistd.h&amp;gt;
+
+ int execle(const char *path, const char *arg0...*argn,
+                    (char *)0, char *const envp[]);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;path: 파일의 경로명&lt;/li&gt;
+  &lt;li&gt;arg0 ~ argn: 파일에 전달한 argv 정보(명령 인수)&lt;/li&gt;
+  &lt;li&gt;envp[]: envp 정보(환경변수)&lt;/li&gt;
+  &lt;li&gt;리턴 값: 에러시 -1&lt;/li&gt;
+  &lt;li&gt;execl()에 환경 변수 정보를 전달하는 기능을 추가한 것&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;execve()&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;unistd.h&amp;gt;
+
+int execve(const char* path, char *const argv[],
+                char *const envp[]);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;path: 파일의 경로명&lt;/li&gt;
+  &lt;li&gt;argv: 파일에 전달한 argv 정보(명령 인수)&lt;/li&gt;
+  &lt;li&gt;envp[]: envp 정보(환경변수)&lt;/li&gt;
+  &lt;li&gt;리턴 값: 에러시 -1&lt;/li&gt;
+  &lt;li&gt;execv()에 환경 변수 정보를 전달하는 기능을 추가한 것&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;execlp()&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;unistd.h&amp;gt;
+
+int execlp(const char *file, const char *arg0, .... *argn);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;file: 실행하는 파일의 파일 이름&lt;/li&gt;
+  &lt;li&gt;arg0 ~ argn: 파일에 전달한 argv 정보(명령 인수)&lt;/li&gt;
+  &lt;li&gt;리턴 값: 에러시 -1&lt;/li&gt;
+  &lt;li&gt;execlp()는 첫 번째 인자 file에서 지정한 파일 이름을 환경 변수 PATH에서 지정하고 있는 디렉토리 안에서 찾아 실행한다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;execvp()&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;unistd.h&amp;gt;
+
+int execvp(const char *file, char *const argv[]);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;file: 실행하는 파일의 파일 이름&lt;/li&gt;
+  &lt;li&gt;argv: 파일에 전달한 argv 정보(명령 인수)&lt;/li&gt;
+  &lt;li&gt;리턴 값: 에러시 -1&lt;/li&gt;
+  &lt;li&gt;execlp()는 첫 번째 인자 file에서 지정한 파일 이름을 환경 변수 PATH에서 지정하고 있는 디렉토리 안에서 찾아 실행한다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Race Conditions&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;여러 프로세스가 일부 데이터를 공유&lt;/li&gt;
+  &lt;li&gt;결과는 실행 순서(예: RACE)에 따라 다르다&lt;/li&gt;
+  &lt;li&gt;fork() 후에는 부모 또는 자식이 먼저 실행되는지 예측할 수 없다&lt;/li&gt;
+  &lt;li&gt;실행 순서는 다음에 따라 다르다
+    &lt;ul&gt;
+      &lt;li&gt;시스템 부하&lt;/li&gt;
+      &lt;li&gt;커널의 스케줄링 알고리즘&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Race condition 문제는 대부분의 시간 작동하기 때문에 감지하기 어렵다&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;after fork
+    &lt;ul&gt;
+      &lt;li&gt;parent,child 모두 스스로 무언가를 한다&lt;/li&gt;
+      &lt;li&gt;예를 들어 parent: 로그 파일에 기록 쓰기&lt;/li&gt;
+      &lt;li&gt;예를 들어 child: 로그 파일 생성&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;parent,child는 다음을 수행해야 한다
+    &lt;ul&gt;
+      &lt;li&gt;초기 작업 세트가 완료되면 서로 알리고&lt;/li&gt;
+      &lt;li&gt;서로 완료될 때까지 기다린다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;system()&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;stdlib.h&amp;gt;
+
+int system(const char *cmdstring);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;문자열이 터미널에서 명령으로 입력된 것처럼 문자열이 sh(1)에 입력으로 제공한다. ex) system(“date &amp;gt; file”);&lt;/li&gt;
+  &lt;li&gt;fork, exec 및 waitpid를 호출하여 시스템을 구현한다.&lt;/li&gt;
+  &lt;li&gt;반환 값:
+    &lt;ul&gt;
+      &lt;li&gt;-1 with errno: fork 또는 waitpid 실패&lt;/li&gt;
+      &lt;li&gt;127 : 실행 실패&lt;/li&gt;
+      &lt;li&gt;쉘 종료 상태: 3개 모두 성공&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Process Times&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/times.h&amp;gt;
+
+clock_t times(struct tms *buf);
+
+struct tms(
+    clock_t tms_utime;
+    clock_t tms_stime;
+    clock_t tms_cutime;
+    clock_t tms_cstime;
+)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;wall clock time: 프로세스가 실행되는 데 걸리는 시간이며 시스템 부하에 따라 다르다.
+    &lt;ul&gt;
+      &lt;li&gt;반환된 wall clock time의 시간은 과거의 임의의 지점에서 측정된다. 상대 값을 사용한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;사용자 CPU 시간: 사용자 지침에 기인&lt;/li&gt;
+  &lt;li&gt;시스템 CPU 시간: 프로세스를 대신하여 실행될 때 커널에 귀속됨&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;hr /&gt;</content>
 
       
@@ -61,6 +298,150 @@
 
       
         <summary type="html">Process Control</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">이메일 보안</title>
+      <link href="https://lee989898.github.io/sc-03" rel="alternate" type="text/html" title="이메일 보안" />
+      <published>2021-10-31T01:06:00+09:00</published>
+      <updated>2021-10-31T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc-03</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-03">&lt;h3 id=&quot;이메일-보안&quot;&gt;&lt;strong&gt;이메일 보안&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="security" />
+      
+
+      
+        <summary type="html">이메일 보안</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">signature</title>
+      <link href="https://lee989898.github.io/sc-02" rel="alternate" type="text/html" title="signature" />
+      <published>2021-10-31T01:06:00+09:00</published>
+      <updated>2021-10-31T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc-02</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-02">&lt;h3 id=&quot;signature&quot;&gt;&lt;strong&gt;signature&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;서명&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;자기의 동일성을 표시하고 책임을 분명하기 하기 위하여 문서 따위에 자기 이름을 써넣음​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;전자서명의 기본 아이디어&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;송신자(alice)는 자신의 비밀키로 암호화​&lt;/li&gt;
+  &lt;li&gt;수신자는 송신자의 공개키로 복호화&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;시나리오:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;+ Bob은 public key를 공개된 장소에 두고, private key는 자신이 가지고 있다
++ Alice는 Bob의 public key를 가져와, 메시지를 암호화해서 전송​
++ 이 메시지는 다른 사람이 보더라도 풀 수 없다. 메시지를 복호화하려면 Bob의 private key가 필요하기 때문-&amp;gt;기밀성보장​
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;문제점1. Bob은 Alice가 메시지를 작성했다는것을 확신할 수 있을까? NO​&lt;/li&gt;
+  &lt;li&gt;문제점2. Bob은 메시지가 중간에 변경되지않았다는것을 확신할 수 있을까? NO​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;해결법&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Alice는 메시지로 MAC을 만들고, 이것을 Alice가 자신의 private key로 암호화 한다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc05.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;만들어진 것을 본래 메시지에 붙인다 -&amp;gt; 서명&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc06.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;이것을 Bob의 public key로 암호화 해서 전송&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;다른 사람은 Bob의 private key가 없으므로 볼수없다 -&amp;gt; 기밀성​&lt;/li&gt;
+  &lt;li&gt;Bob은 자신의 private key로 열면 평문과 시그니쳐가 나온다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc07.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bob은 다음과 같이 무결성,인증을 한다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc08.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="security" />
+      
+
+      
+        <summary type="html">signature</summary>
       
 
       
@@ -1768,392 +2149,6 @@ val fruit = apples + oranges;에서 ​
 
       
         <summary type="html">표현식과 대입문</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">데이터 타입</title>
-      <link href="https://lee989898.github.io/pl-12" rel="alternate" type="text/html" title="데이터 타입" />
-      <published>2021-10-07T19:18:00+09:00</published>
-      <updated>2021-10-07T19:18:00+09:00</updated>
-      <id>https://lee989898.github.io/pl-12</id>
-      <content type="html" xml:base="https://lee989898.github.io/pl-12">&lt;h3 id=&quot;데이터-타입&quot;&gt;&lt;strong&gt;데이터 타입&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;선언문 int n으로부터 n에 대해 무엇을 알 수 있을까? ​&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;n이 취할 수 있는 값의 범위는? (모든 정수) ​&lt;/li&gt;
-  &lt;li&gt;n에 적용 가능한 연산자는? (닫혀 있는 모든 연산자, +, -, *) ​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;데이터 타입의 개념에 대해 살펴 보면, 
-특정 타입의 변수를 선언하면,  ​
-그 변수가 취할 수 있는 값은 특정 집합이고, ​
-그 값들에 적용 가능한 연산자 집합이 존재한다는 의미이다.  ​&lt;/p&gt;
-
-&lt;p&gt;PL 설계자가 마주하는 기본적인 설계 이슈는 ​
-목적에 적합한 충분한 데이터 타입으로 구성된 집합을 어떻게 정의할 것인가? ​
-무슨 연산자들을 정의하고 이들 연산자를 데이터 타입
-에 어떻게 지정(specify)할 것인가?&lt;/p&gt;
-
-&lt;p&gt;데이터 타입은 다음과 같이 진화해 왔다. ​
-초기 PL에서는, 많은 데이터 타입으로 다양한 응용을 지원하였다. ​
-PL/1이 이러한 예이다. ​&lt;/p&gt;
-
-&lt;p&gt;ALGOL68에서 얻은 지혜: ​
-소수의 기본 타입과 이를 위한 소수의 연산자를 정의하고, ​
-필요에 따라, 사용자 정의(user-defined) 데이터 타입을 지원하자! ​&lt;/p&gt;
-
-&lt;p&gt;사용자 정의 타입으로부터 추상 데이터 타입으로 발전하였다.​
-예를 들어, 스택, 큐, 링크드 리스트 등이 이에 속한다. ​&lt;/p&gt;
-
-&lt;p&gt;타입의 유용성은 다음과 같다.  ​&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;프로그램 구조화 및 문서화에 유용​&lt;/li&gt;
-  &lt;li&gt;오류 식별 및 방지에 유용​&lt;/li&gt;
-  &lt;li&gt;최적화 지원에 유용 ​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;​먼저 비교적 단순한 형태로서, 원시형, 문자열형, 사용자
- 정의 나열형부터 살펴 보자&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;원시 타입&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;원시 타입은 거의 모든 언어가 제공하고 있는 기본적인 데이터 타입으로, ​
-다른 데이터 타입을 사용해서 정의되지 않는 데이터 타입이다. ​
-Integer, floating-point, Boolean, character ​
-원시 타입은 하드웨어 구조를 직접 반영한 것도 있다. ​
-부동점 소수는 4바이트의 싱글 프리시전과 8바이트의 더블 프리시전이 있는데, ​
-각각의 비트 구성은 ​
-싱글 프리시전: 싸인 1비트, 지수부분 8비트, 소수부분 23비트이거나 ​
-더블 프리시전: 싸인 1비트, 지수부분 11비트, 소수부분 52비트이다.    ​&lt;/p&gt;
-
-&lt;p&gt;​+ 문자열 형&lt;/p&gt;
-
-&lt;p&gt;문자열 타입의 값은 문자열이다. ​
-설계 이슈: ​&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;원시 타입으로? 아니면 배열의 특수형으로? ​&lt;/li&gt;
-  &lt;li&gt;스트링의 길이를 정적으로? 아니면 동적으로?​&lt;/li&gt;
-  &lt;li&gt;스트링 연산자는? assignment, copy, comparison, concatenation, substring, pattern matching, etc
-문자열을 비교할 때, &amp;gt;의 의미는 사전식 순서의 앞뒤 관계를 의미한다.  ​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;​C, C++에서 문자열은 원시 타입이 아니라, char 타입을 사용하여 정의한다. 
- 이를 위해 라이브러리 함수를 제공한다. ​ 
- C 스트링 라이브러리의 문제는 제공되는 
- 함수가 오버플로우를 처리하지 못한다는 것이다. ​
- 예를 들어, strcopy (src, dest); 에서 ​
- src가 50바이트이고, dest가 20바이트이면 어떤 일이 일어날까?  ​&lt;/p&gt;
-
-&lt;p&gt;자바의 문자열 타입은 원시 타입으로 String, 
- StringBuffer 클래스를 지원한다.&lt;/p&gt;
-
-&lt;p&gt;문자열 길이 옵션은 3가지(정적, 제한적 동적, 동적) 옵션이 있다.  ​&lt;/p&gt;
-
-&lt;p&gt;먼저 정적 옵션을 보면… ​
-COBOL, Java String 클래스는 정적이다. ​
-스트링이 생성될 때 길이가 정해진다. ​&lt;/p&gt;
-
-&lt;p&gt;제한적 동적 옵션은… ​
-C, C++에서는 동적이나 제한적이다. ​&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;길이는 최대 길이까지 가변적이다. ​&lt;/li&gt;
-  &lt;li&gt;C에서는 최대 길이로 제한하기 보다, ​
-스트링에 특수 문자를 사용하여 스트링의 끝을 나타내기도 한다. ​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;동적 옵션은… Perl, Javascript​&lt;/p&gt;
-
-&lt;p&gt;Ada는 모든 옵션을 지원한다.&lt;/p&gt;
-
-&lt;p&gt;문자열 옵션의 구현 방법은 다음과 같다. ​
-정적 옵션의 구현 방법은 컴파일 시에 문자열의 서술을 위해 ​
-3개의 필드(타입 이름(static string
-), 길이, 첫글자의 주소)를 필요로 한다. ​&lt;/p&gt;
-
-&lt;p&gt;제한적 동적 옵션 구현 방법은 런타임 때 문자열의 서술을 위해 ​
-4개의 필드(타입이름(limited dynamic string), 최대 길이, 현재 길이, 첫글자의 주소)를 필요로 한다.  ​&lt;/p&gt;
-
-&lt;p&gt;동적 옵션의 구현 방법은 런타임 때 문자열의 서술을 위해, ​
-3개의 필드(타입 이름(dynamic string), 현재길이, 첫글자의 주소)를 필요로 한다. ​
-동적 문자열은 문자열의 증가와 감소에 따라 ​
-저장 공간을 동적 관리(allocate, deallocate)해야 한다.  &lt;br /&gt;
-​&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;사용자 정의 서수 타입&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;서수 타입은 ‘데이터를 모아 놓은 것인데 순서가 중요
-한’ 데이터의 모임이라고 볼 수 있다. ​&lt;/p&gt;
-
-&lt;p&gt;Enumeration(나열형)과 subrange(범위형)가 대표적인 서수 타입이다.&lt;/p&gt;
-
-&lt;p&gt;나열형을 살펴 보면, 속성과 값이 정의되어 있음을 볼 수 있다. ​
-Coin은 페니, 니켈, 다임, 쿼터를 각각 1, 5, 10, 25로 정의하고, ​
-Escapes는 각 키마다 아스키 코드의 컨트롤 문자가
- 대응되어 있음을 볼 수 있다. ​
-연산자에 대해, 표현의 특성이 integer면, integer 연산을 수행한다.&lt;/p&gt;
-
-&lt;hr /&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="pl" />
-      
-
-      
-        <summary type="html">데이터 타입</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">동적 계획</title>
-      <link href="https://lee989898.github.io/algorithm-04" rel="alternate" type="text/html" title="동적 계획" />
-      <published>2021-10-05T01:09:00+09:00</published>
-      <updated>2021-10-05T01:09:00+09:00</updated>
-      <id>https://lee989898.github.io/algorithm-04</id>
-      <content type="html" xml:base="https://lee989898.github.io/algorithm-04">&lt;h3 id=&quot;동적-계획&quot;&gt;&lt;strong&gt;동적 계획&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;분할 정복과 같이 주어진 문제를 더 작은 부분 문제들로
-나눈 후 부분 문제들의 해들을 합병하여 해결한다.&lt;/li&gt;
-  &lt;li&gt;분할 정복과 달리 부분 문제들이 서로 겹친다.&lt;/li&gt;
-  &lt;li&gt;많은 해들 중 최적의 해를 찾는 최적화 문제에 적용한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag07.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;위 그림은 분할 정복과 동적 계획의 분할 과정의 예이다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;동적 계획 전략&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;문제를 더 작은 부분 문제들로 분할한다.&lt;/li&gt;
-  &lt;li&gt;작은 부분 문제들을 해결하고 해들을 표에 저장한다.&lt;/li&gt;
-  &lt;li&gt;나중에 다른 (부분) 문제를 해결할 때 이미 해결한 부분 문제가 나오면
-다시 해결하는 대신에 표에서 해를 찾아 사용한다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;막대-자르기&quot;&gt;&lt;strong&gt;막대 자르기&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;막대의 길이는 n(양의 정수)이다.&lt;/li&gt;
-  &lt;li&gt;막대의 길이가 i(양의 정수), 1 &amp;lt;= i &amp;lt;= n-1,인 조각막대로 자를 수 있다.&lt;/li&gt;
-  &lt;li&gt;길이가 i, 1 &amp;lt;= i &amp;lt;= n, 인 (조각) 막대의 판매 가격은 pi이다.&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;길이가 n인 막대를 여러 개의 양의 정수 길이의 조각 막대들로
-잘라서 판매할 때 얻을 수 있는 최대 판매 금액을 구해야 한다.
-물론 막대를 자르지 않고 통째로 팔 수도 있다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;억기 기법 알고리즘
-    &lt;ol&gt;
-      &lt;li&gt;막대를 자르는 모든 경우들을 찾아낸다.&lt;/li&gt;
-      &lt;li&gt;각 경우에서 얻을 수 있는 판매 금액을 계산한 후 그 중 최대 판매
-금액을 구한다.&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag08.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;위 그림은 막대를 자르는 모든 방법들과 판매 금액이다.&lt;/p&gt;
-
-&lt;p&gt;시간 복잡도: $\theta$(2&lt;sup&gt;n&lt;/sup&gt;)&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;분할 정복 알고리즘
-    &lt;ol&gt;
-      &lt;li&gt;길이가 n인 막대를 처음에 길이 i, 1&amp;lt;=i&amp;lt;=n-1, 인 막대와 
-길이 (n-i)인 막대로 자른다.&lt;/li&gt;
-      &lt;li&gt;길이 i인 막대는 그대로 팔고 길이 (n-i)인 막대는 최대 판매 금액을
-얻을 수 있도록 통째로 팔거나 여러 개의 양의 정수 길이의 조각 막대들로 
-잘라서 판다.&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;R(n): 길이가 n인 막대를 판매할 때 얻을 수 있는 최대 판매금액&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;R(n) = MAX(p&lt;sub&gt;i&lt;/sub&gt;, R(n-i))
-          1 &amp;lt;= i &amp;lt;= n
-       R(0) = 0&lt;br /&gt;
-p&lt;sub&gt;i&lt;/sub&gt;: 길이가 i인 막대의 판매 가격&lt;br /&gt;
-R(n-i): 길이 (n - i)의 막대를 판매할 때 얻을 수 있는 최대 판매 금액&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cutRod_DC(p[], i)
-//길이 i의 막대를 판매할 때 얻을 수 있는 최대 판매 금액, R[i]를 계산한다.
-//입력: p[i..n] - 막대들의 판매 가격
-        i - 막대의 길이
-//출력(반환값): 최대 판매 금액
-if(i = 0) return 0
-else{
-      maxSell = 0
-      for(j = 1; j &amp;lt;= i; j++)
-          maxSell = MAX(maxSell, p[j] + cutRod_DC(p,i-j))
-      return maxSell
-}
-최초 호출 maxSellValue = cutRod_DC(p,n)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag09.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;위 그림은 cutRod_DC(p,4) 호출시 실행 트리 이다.&lt;/p&gt;
-
-&lt;p&gt;시간 복잡도: $\theta$(2&lt;sup&gt;n&lt;/sup&gt;)&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;동적 계획 알고리즘 설계 과정&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; cutRod_DP(p[], n)
- // 길이 n의 막대를 판매할 때 얻을 수 있는 최대 판매 금액을 계산
- // 입력: p[1 .. n] - 막대들의 판매 가격, n: 막대의 길이
- // 출력(반환값): 최대 판매 금액
- 배열 maxSell[0 .. n]을 선언한다.
- maxSell[0] = 0
- for(j = 1; j&amp;lt;=n; j++){
-      maxVal = 0
-      for(k = 1; k &amp;lt;= j; k++)
-          maxVal = MAX(maxVal, p[k] + maxSell[j - k])
-      maxSell[j] = maxVal
-  }
-  return maxSell[n]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;시간복잡도: $\theta$(n&lt;sup&gt;2&lt;/sup&gt;)&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;모든-쌍-최단-경로-찾기&quot;&gt;&lt;strong&gt;모든 쌍 최단 경로 찾기&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag10.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;위 그림은 한 그래프 내의 각 정점에서 모든 다른 정점으로 가는 가장 
-짧은 경로를 찾는 문제이다.&lt;/p&gt;
-
-&lt;p&gt;가중치를 포함한 방향(혹은 무방향)그래프 G = (V,E)가 주어지면 
-각 정점에서 모든 다른 정점으로 가는 최단 경로의 거리를 찾아라.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;경로의 거리 = 경로 상의 모든 간선의 가중치들의 합&lt;/li&gt;
-  &lt;li&gt;정점들의 수 = n&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;정점들을 각각 1,2,3, …., n으로 나타낸다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;동적 계획 Floyd 알고리즘&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;문제: 행렬 W가 주어지면 최단 거리 행령 D를 구한다.
-주 아이디어&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;최단 경로들을 단계적으로 만든다.&lt;/li&gt;
-  &lt;li&gt;최단 경로들을 경유 가능한 정점들의 집합 L을 이용하여 만든다.
-최단 경로는 L 내에 있는 정점(들)만을 이용한다.&lt;/li&gt;
-  &lt;li&gt;L에 정점들을 한 번에 하나씩 정점의 번호 순서대로 추가한다.&lt;/li&gt;
-  &lt;li&gt;최단 거리 행렬들을 다음과 같은 순서대로 계산한다.
-     D&lt;sub&gt;0&lt;/sub&gt;,D&lt;sub&gt;1&lt;/sub&gt;,D&lt;sub&gt;2&lt;/sub&gt;, …, D&lt;sub&gt;n&lt;/sub&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag11.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;위 그림은 Floyd 알고리즘 예이다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Floyd 알고리즘&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;AllPairShortestPath(W[])
-//입력: 가중치 행렬 W [1..n, 1..n]
-//출력: D&lt;sup&gt;(i)&lt;/sup&gt; [1..n, 1..n], 0&amp;lt;=i&amp;lt;=n&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;   D&lt;sup&gt;0&lt;/sup&gt; = W&lt;/li&gt;
-  &lt;li&gt;   for(k = 1; k &amp;lt;= n; k++){&lt;/li&gt;
-  &lt;li&gt;       n x n 행렬 D&lt;sup&gt;(k)&lt;/sup&gt; = (d&lt;sub&gt;ij&lt;/sub&gt;&lt;sup&gt;(k)&lt;/sup&gt;)를 선언한다&lt;/li&gt;
-  &lt;li&gt;       for(i = 1; i &amp;lt;= n; i++)&lt;/li&gt;
-  &lt;li&gt;         for(j = 1; j &amp;lt;=n; j++)&lt;/li&gt;
-  &lt;li&gt;           d&lt;sub&gt;ij&lt;/sub&gt;&lt;sup&gt;(k)&lt;/sup&gt; = MIN(d&lt;sub&gt;ij&lt;/sub&gt;&lt;sup&gt;(k-1)&lt;/sup&gt;,d&lt;sub&gt;i,k&lt;/sub&gt;&lt;sup&gt;(k-1)&lt;/sup&gt;+d&lt;sub&gt;k,j&lt;/sub&gt;&lt;sup&gt;(k-1)&lt;/sup&gt;
-    }&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="algorithm" />
-      
-
-      
-        <summary type="html">동적 계획</summary>
       
 
       
