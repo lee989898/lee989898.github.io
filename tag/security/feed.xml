@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/security/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-11-01T23:12:11+09:00</updated>
+  <updated>2021-11-02T00:24:33+09:00</updated>
   <id>https://lee989898.github.io/tag/security/feed.xml</id>
 
   
@@ -146,6 +146,108 @@
       <updated>2021-10-31T01:06:00+09:00</updated>
       <id>https://lee989898.github.io/sc-03</id>
       <content type="html" xml:base="https://lee989898.github.io/sc-03">&lt;h3 id=&quot;이메일-보안&quot;&gt;&lt;strong&gt;이메일 보안&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;PGP&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;운영체제에 상관없이 확정성이 뛰어나다&lt;/li&gt;
+  &lt;li&gt;S/MIME&lt;/li&gt;
+  &lt;li&gt;공개키 기반의 프로토콜이다&lt;/li&gt;
+  &lt;li&gt;RSA, El Gamel을 사용한다&lt;/li&gt;
+  &lt;li&gt;대칭키 방식과도 연동된다(3DES)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Requirements of secure E-mail&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;기밀성&lt;/li&gt;
+  &lt;li&gt;송신자 인증&lt;/li&gt;
+  &lt;li&gt;메시지 무결성&lt;/li&gt;
+  &lt;li&gt;수신자 인증&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Secure e-mail: 기밀성&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc10.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;앨리스는 기밀성을 입증한 e-mail, m을 밥에게 보내고 싶다&lt;/li&gt;
+  &lt;li&gt;랜덤 대칭키를 생성한다, K&lt;sub&gt;S&lt;/sub&gt;&lt;/li&gt;
+  &lt;li&gt;메시지를  K&lt;sub&gt;S&lt;/sub&gt;로 encrypt한다&lt;/li&gt;
+  &lt;li&gt;또한 K&lt;sub&gt;S&lt;/sub&gt;를 밥의 공개키로 encrypt한다&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;밥에게 K&lt;sub&gt;S&lt;/sub&gt;(m)과 K&lt;sub&gt;B&lt;/sub&gt;(K&lt;sub&gt;S&lt;/sub&gt;)를 보낸다&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;밥은 그의 private키로 decrypt하여 K&lt;sub&gt;S&lt;/sub&gt;를 찾아낸다&lt;/li&gt;
+  &lt;li&gt;K&lt;sub&gt;S&lt;/sub&gt;로 K&lt;sub&gt;S&lt;/sub&gt;(m)을 decrypt하여 m을 찾아낸다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Secure e-mail: 송신자 인증, 무결성&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc11.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;앨리스는 송신자 인증과 메시지 무결성을 지키고 싶다&lt;/li&gt;
+  &lt;li&gt;앨리스는 메세지를 digitally 사인한다&lt;/li&gt;
+  &lt;li&gt;메시지와 디지털 시그니처 모두 보낸다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Secure e-mail: all together&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc12.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;앨리스는 보안,송신자 인증,메시지 무결성을 지키고 싶다&lt;/li&gt;
+  &lt;li&gt;앨리스는 3가지 키를 사용한다
+    &lt;ul&gt;
+      &lt;li&gt;그녀의 private key&lt;/li&gt;
+      &lt;li&gt;밥의 public key&lt;/li&gt;
+      &lt;li&gt;새로 만들어진 대칭키&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Email 보안 표준&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;PGP&lt;/li&gt;
+  &lt;li&gt;S/MIME
+    &lt;ul&gt;
+      &lt;li&gt;이메일을 위해 MIME에 보안서비스 제공 표준&lt;/li&gt;
+      &lt;li&gt;인증,무결성,부인방지,기밀성 제공&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc09.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
 
 &lt;hr /&gt;</content>
 
