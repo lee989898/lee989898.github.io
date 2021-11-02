@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/algorithm/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-11-02T00:24:33+09:00</updated>
+  <updated>2021-11-02T11:34:43+09:00</updated>
   <id>https://lee989898.github.io/tag/algorithm/feed.xml</id>
 
   
@@ -287,6 +287,145 @@ T: 트리 내에 포함되는 간선들의 집합&lt;/p&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;최소 비용 신장 트리 찾기 - 간선 지향 전략&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;그래프에 남아 있는 가장 가중치가 작은 간선을 선택한다.&lt;/li&gt;
+  &lt;li&gt;선택된 간선이 합쳐진 두 개의 정덤들 사이에 있다면 그 간선을 버리고 아니면 최소 비용 신장 트리에 추가한다.&lt;/li&gt;
+  &lt;li&gt;(n - 1)개의 간선들이 추가될 때까지 과정 1과 2를 반복한다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;크루스칼 알고리즘&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;//e: 간선들의 수&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;  간선들을 가중치 순서로 오름차순으로 정렬하여 배열 EDGELIST[1 .. e]에 저장한다&lt;/li&gt;
+  &lt;li&gt;  T = $\emptyset$&lt;/li&gt;
+  &lt;li&gt;  ecount = 0  　 　 　 　//최소 비용 신장 트리에 추가된 간선들의 수&lt;/li&gt;
+  &lt;li&gt;  k = 0  　 　 　 　 　 　 　//처리된 간선들의 수&lt;/li&gt;
+  &lt;li&gt;  while (ecount &amp;lt; n - 1){&lt;/li&gt;
+  &lt;li&gt;  　k = k + 1&lt;/li&gt;
+  &lt;li&gt;  　(v, w) = EDGELIST[k]&lt;/li&gt;
+  &lt;li&gt;  　if(! together(v,w)){&lt;/li&gt;
+  &lt;li&gt;  　　T = T U {(v,W)}&lt;/li&gt;
+  &lt;li&gt;  　　v와 w를 합친다&lt;/li&gt;
+  &lt;li&gt;  　  ecount = ecount + 1 }&lt;br /&gt;
+} &lt;br /&gt;
+주: together(v,w) : v와 w가 이미 합쳐졌으면 true이다.&lt;br /&gt;
+분삭: (n-1)번의 통합과 최대 e번의 together를 수행한다.&lt;br /&gt;
+정렬시간 = $\theta$( e log e)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;단일 출발점 최단 경로 찾기&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;연결된 가중 그래프에서 한 특정 정점에서 다른 모든 정점으로 가는 최단 경로를 찾아라.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;다익스트라 알고리즘&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;아이디어: 출방 정점 v&lt;sub&gt;0&lt;/sub&gt;로 부터 가까운 순서로 다른 정점들까지의 최단 경로를 찾는다.&lt;/li&gt;
+  &lt;li&gt;진행 과정
+    &lt;ul&gt;
+      &lt;li&gt;i번째 반복이 시작되기 전에 v&lt;sub&gt;0&lt;/sub&gt;에 가장 가까운 (i - 1)개의 정점들까지의 최단 경로들을 찾았다.&lt;/li&gt;
+      &lt;li&gt;v&lt;sub&gt;0&lt;/sub&gt;, 이 정점들과 최단 경로들 상의 간선들은 주어진 그래프의 부분 트리 T&lt;sub&gt;i&lt;/sub&gt;를 형성한다.&lt;/li&gt;
+      &lt;li&gt;T&lt;sub&gt;i&lt;/sub&gt;내에 있는 정덤들에 인접한 ‘가장자리 정점’들 중에서 찾는다.&lt;/li&gt;
+      &lt;li&gt;T&lt;sub&gt;i&lt;/sub&gt;내에 있는 정점들에 인접한 ‘가장자리 정접’들 중에서 찾는다.&lt;/li&gt;
+      &lt;li&gt;모든 가장자리 정점 u에 대해서 u에 인접한 트리내의 정점 v까지의 거리, W(u,v)와 출발 정점에서 v까지의 최단 경로의 길이, d&lt;sub&gt;v&lt;/sub&gt;의 합을 계산한다.&lt;/li&gt;
+      &lt;li&gt;u에 인접한 트리 내의 정점들이 2개 이상인 경우에는 각 인접 정점에 대해 합을 계산한다. 그러한 합들 중 가장 작은 합을 갖는 가장자리 정점을 트리에 추가할 다음 정점으로 선택한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag13.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;위 그림은 트리 $T_i$이다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;n( &amp;gt; 0): 정점들의 수&lt;/li&gt;
+  &lt;li&gt;i, 0 &amp;lt;= i &amp;lt; n: 정덤의 번호&lt;/li&gt;
+  &lt;li&gt;출발 정점: 0&lt;/li&gt;
+  &lt;li&gt;정점 i에 d[i]와 p[i]를 저장한다.
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;d[i]: 출발 정점에서 각 정점까지의 최단 겅로의 거리
+  d[0] = 0&lt;br /&gt;
+  d[i] = $\infty$ ,i는 최단 경로 트리 내에 포함되지 않은 정점&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;p[i]: 출발 정점에서 각 정점까지의 최단 경로 상의 마지막에서 두 번째 정점(트리에서 부모 노드)의 번호&lt;br /&gt;
+  i = 0혹은 트리안에 포함되지 않은 정점이면 p[i] = -1&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;주어진 그래프는 인접 행렬 w로 나타낸다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;트리에 추가할 정점 u&lt;sup&gt;*&lt;/sup&gt;를 선택한 후의 연산&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;u&lt;sup&gt;*&lt;/sup&gt;를 가장자리 정점에서 트리내에 포함되는 정점으로 바꾼다.&lt;/li&gt;
+  &lt;li&gt;u&lt;sup&gt;*&lt;/sup&gt;에 인접한 트리에 포함되지 않은 각 가장자리 정점 v에 대해 다음 조건을 확인한다.&lt;br /&gt;
+d[u&lt;sup&gt; * &lt;/sup&gt;]  + w( u&lt;sup&gt; * &lt;/sup&gt; ,v) &amp;lt; d[v]&lt;br /&gt;
+위 조건이 만족된다면 다음을 수행한다&lt;br /&gt;
+d[v] = d[ u&lt;sup&gt; * &lt;/sup&gt; ] + w( u&lt;sup&gt; * &lt;/sup&gt;, v)&lt;br /&gt;
+p[v] = u&lt;sup&gt; * &lt;/sup&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;다익스트라 알고리즘&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;  T = $\emptyset$ //트리에 포함된 정점들의 집합을 공집합으로 초기화한다&lt;/li&gt;
+  &lt;li&gt;  for( i = 0; i &amp;lt; n; i++){&lt;/li&gt;
+  &lt;li&gt;  d[i] = $\infty$ //정점 i의 최단 거리를 $\infty$ 로 초기화 한다&lt;/li&gt;
+  &lt;li&gt;  p[i] = -1 } //정점 i의 부모 노드를 -1(없음)으로 초기화한다&lt;/li&gt;
+  &lt;li&gt;  d[0] = 0 //출발 정점 0의 최단 거리를 0으로 한다&lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;  while(&lt;/td&gt;
+          &lt;td&gt;T&lt;/td&gt;
+          &lt;td&gt;&amp;lt; n){}&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;  T에 포함되지 않은 정점들 중에서 배열 d의 요소값이 가장 작은 정점 u를 선택한다&lt;/li&gt;
+  &lt;li&gt;  T = T U { u} //선택된 정점을 트리에 추가한다&lt;br /&gt;
+// 트리에 새로 추가된 정점의 인접 정점들의 출발 정점으로부터 최단 거리를 갱신한다&lt;/li&gt;
+  &lt;li&gt;  for( v = 0; v &amp;lt; n; v++)&lt;/li&gt;
+  &lt;li&gt;  if(v $\notin$ T and w[u,v]  0 and d[u] &amp;lt; $\infty$ and d[u] + w[u,v] &amp;lt; d[v] ){&lt;/li&gt;
+  &lt;li&gt;  d[v] = d[u] + w[u,v]&lt;/li&gt;
+  &lt;li&gt;   p[v] = u }&lt;br /&gt;
+}&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;시간복잡도&lt;br /&gt;
+    +  기본 연산: 10번 조건 확인
+    +  9 ~ 12번의 반복문내에서 기본 연산의 수행 횟수 = n
+    +  트리에 모든 정점이 포함되어야 하므로 $\theta$($n^2$)&lt;/p&gt;
 
 &lt;hr /&gt;</content>
 
