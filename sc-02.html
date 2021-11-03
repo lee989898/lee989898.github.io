@@ -11,7 +11,7 @@
 
 
 
-    <title>signature</title>
+    <title>Cryptograpghy</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -53,23 +53,48 @@
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
     
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$'] ],
+    processEscapes: true,
+  }
+});
+MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+    
 
 
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="signature" />
-    <meta property="og:description" content="signature 서명 자기의 동일성을 표시하고 책임을 분명하기 하기 위하여 문서 따위에 자기 이름을 써넣음​ 전자서명의 기본 아이디어 송신자(alice)는 자신의 비밀키로 암호화​ 수신자는 송신자의 공개키로 복호화 시나리오: + Bob은 public key를 공개된 장소에 두고, private key는 자신이 가지고 있다 + Alice는 Bob의 public key를 가져와, 메시지를 암호화해서 전송​ + 이 메시지는" />
+    <meta property="og:title" content="Cryptograpghy" />
+    <meta property="og:description" content="Cryptography Cryptography? Cryptography: 안전한 암호 만드는 학문 Cryptoanalysis: 암호 해독 Cryptology: 암호학 Steganography: 메시지 존재자체를 숨기는 것 암호(Encrypt/Decrypt)란? 암호(cryptography) 비밀정보의 교환을 위해 생겨남 처음에는 군사용으로 주로 사용 현재 전자상거래, 전자우편, 무선통신 등에 널리 쓰임 4차산업혁명시대: 정보의 관리, 보호의 중요성 증대 국가, 회사, 단체, 개인에 막대한 영향 암호체계의 효용성 및 안전성" />
     <meta property="og:url" content="https://lee989898.github.io/sc-02" />
     <meta property="og:image" content="https://lee989898.github.io/assets/built/images/security-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2021-10-31T01:06:00+09:00" />
-    <meta property="article:modified_time" content="2021-10-31T01:06:00+09:00" />
+    <meta property="article:published_time" content="2021-09-09T01:06:00+09:00" />
+    <meta property="article:modified_time" content="2021-09-09T01:06:00+09:00" />
     <meta property="article:tag" content="Security" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="signature" />
-    <meta name="twitter:description" content="signature 서명 자기의 동일성을 표시하고 책임을 분명하기 하기 위하여 문서 따위에 자기 이름을 써넣음​ 전자서명의 기본 아이디어 송신자(alice)는 자신의 비밀키로 암호화​ 수신자는 송신자의 공개키로 복호화 시나리오: + Bob은 public key를 공개된 장소에 두고, private key는 자신이 가지고 있다 + Alice는 Bob의 public key를 가져와, 메시지를 암호화해서 전송​ + 이 메시지는" />
+    <meta name="twitter:title" content="Cryptograpghy" />
+    <meta name="twitter:description" content="Cryptography Cryptography? Cryptography: 안전한 암호 만드는 학문 Cryptoanalysis: 암호 해독 Cryptology: 암호학 Steganography: 메시지 존재자체를 숨기는 것 암호(Encrypt/Decrypt)란? 암호(cryptography) 비밀정보의 교환을 위해 생겨남 처음에는 군사용으로 주로 사용 현재 전자상거래, 전자우편, 무선통신 등에 널리 쓰임 4차산업혁명시대: 정보의 관리, 보호의 중요성 증대 국가, 회사, 단체, 개인에 막대한 영향 암호체계의 효용성 및 안전성" />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
     <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/security-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -101,7 +126,7 @@
         "@type": "WebPage",
         "@id": "https://lee989898.github.io/sc-02"
     },
-    "description": "signature 서명 자기의 동일성을 표시하고 책임을 분명하기 하기 위하여 문서 따위에 자기 이름을 써넣음​ 전자서명의 기본 아이디어 송신자(alice)는 자신의 비밀키로 암호화​ 수신자는 송신자의 공개키로 복호화 시나리오: + Bob은 public key를 공개된 장소에 두고, private key는 자신이 가지고 있다 + Alice는 Bob의 public key를 가져와, 메시지를 암호화해서 전송​ + 이 메시지는"
+    "description": "Cryptography Cryptography? Cryptography: 안전한 암호 만드는 학문 Cryptoanalysis: 암호 해독 Cryptology: 암호학 Steganography: 메시지 존재자체를 숨기는 것 암호(Encrypt/Decrypt)란? 암호(cryptography) 비밀정보의 교환을 위해 생겨남 처음에는 군사용으로 주로 사용 현재 전자상거래, 전자우편, 무선통신 등에 널리 쓰임 4차산업혁명시대: 정보의 관리, 보호의 중요성 증대 국가, 회사, 단체, 개인에 막대한 영향 암호체계의 효용성 및 안전성"
 }
     </script>
 
@@ -114,7 +139,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="signature" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Cryptograpghy" href="/feed.xml" />
 
 
 </head>
@@ -186,7 +211,7 @@ into the {body} of the default.hbs template -->
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="31 October 2021">31 October 2021</time>
+                    <time class="post-full-meta-date" datetime=" 9 September 2021"> 9 September 2021</time>
                     
                         <span class="date-divider">/</span>
                         
@@ -196,7 +221,7 @@ into the {body} of the default.hbs template -->
                         
                     
                 </section>
-                <h1 class="post-full-title">signature</h1>
+                <h1 class="post-full-title">Cryptograpghy</h1>
             </header>
 
             <!--
@@ -207,79 +232,175 @@ into the {body} of the default.hbs template -->
             -->
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <h3 id="signature"><strong>signature</strong></h3>
+                    <h3 id="cryptography"><strong>Cryptography</strong></h3>
 
 <hr />
 
 <blockquote>
-  <p>서명</p>
+  <p>Cryptography?</p>
 </blockquote>
 
 <ul>
-  <li>자기의 동일성을 표시하고 책임을 분명하기 하기 위하여 문서 따위에 자기 이름을 써넣음​</li>
-</ul>
-
-<hr />
-
-<blockquote>
-  <p>전자서명의 기본 아이디어</p>
-</blockquote>
-
-<ul>
-  <li>송신자(alice)는 자신의 비밀키로 암호화​</li>
-  <li>수신자는 송신자의 공개키로 복호화</li>
+  <li>Cryptography: 안전한 암호 만드는 학문</li>
+  <li>Cryptoanalysis: 암호 해독</li>
+  <li>
+    <p>Cryptology: 암호학</p>
+  </li>
+  <li>Steganography: 메시지 존재자체를 숨기는 것</li>
 </ul>
 
 <hr />
 
 <blockquote>
-  <p>시나리오:</p>
-</blockquote>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+ Bob은 public key를 공개된 장소에 두고, private key는 자신이 가지고 있다
-+ Alice는 Bob의 public key를 가져와, 메시지를 암호화해서 전송​
-+ 이 메시지는 다른 사람이 보더라도 풀 수 없다. 메시지를 복호화하려면 Bob의 private key가 필요하기 때문-&gt;기밀성보장​
-</code></pre></div></div>
-
-<ul>
-  <li>문제점1. Bob은 Alice가 메시지를 작성했다는것을 확신할 수 있을까? NO​</li>
-  <li>문제점2. Bob은 메시지가 중간에 변경되지않았다는것을 확신할 수 있을까? NO​</li>
-</ul>
-
-<blockquote>
-  <p>해결법</p>
+  <p>암호(Encrypt/Decrypt)란?</p>
 </blockquote>
 
 <ul>
-  <li>Alice는 메시지로 MAC을 만들고, 이것을 Alice가 자신의 private key로 암호화 한다</li>
-</ul>
-
-<p>​   <img src="/assets/built/images/sc/sc05.png" width="50%" height="25%" title="제목" alt="컴퓨터보안" /></p>
-
-<ul>
-  <li>만들어진 것을 본래 메시지에 붙인다 -&gt; 서명</li>
-</ul>
-
-<p>​   <img src="/assets/built/images/sc/sc06.png" width="50%" height="25%" title="제목" alt="컴퓨터보안" /></p>
-
-<ul>
-  <li>이것을 Bob의 public key로 암호화 해서 전송</li>
+  <li>암호(cryptography)</li>
+  <li>비밀정보의 교환을 위해 생겨남
+    <ul>
+      <li>처음에는 군사용으로 주로 사용</li>
+      <li>현재 전자상거래, 전자우편, 무선통신 등에 널리 쓰임</li>
+    </ul>
+  </li>
+  <li>4차산업혁명시대: 정보의 관리, 보호의 중요성 증대
+    <ul>
+      <li>국가, 회사, 단체, 개인에 막대한 영향</li>
+    </ul>
+  </li>
+  <li>암호체계의 효용성 및 안전성 분석
+    <ul>
+      <li>고급 수학이론에 기반</li>
+    </ul>
+  </li>
 </ul>
 
 <hr />
 
-<ul>
-  <li>다른 사람은 Bob의 private key가 없으므로 볼수없다 -&gt; 기밀성​</li>
-  <li>Bob은 자신의 private key로 열면 평문과 시그니쳐가 나온다</li>
-</ul>
-
-<p>​   <img src="/assets/built/images/sc/sc07.png" width="50%" height="25%" title="제목" alt="컴퓨터보안" /></p>
+<blockquote>
+  <p>용어 및 등장인물</p>
+</blockquote>
 
 <ul>
-  <li>Bob은 다음과 같이 무결성,인증을 한다</li>
+  <li>인터넷은 공개망이다</li>
+  <li>등장인물: Alice,Bob,hacker</li>
+  <li>평문(plaintext): 암호화전 문장</li>
+  <li>암호문(ciphertext): 암호화된 문장</li>
+  <li>암호화(encryption): 평문을 암호문으로 바꾸는 과정</li>
+  <li>복호화(decryption): 암호문을 평문으로 바꾸는 과정</li>
+  <li>암호 알고리즘: 암호와 알고리즘과 복호화 알고리즘</li>
+  <li>키(key): 암호 알고리즘에 사용되는 정보</li>
 </ul>
 
-<p>​   <img src="/assets/built/images/sc/sc08.png" width="50%" height="25%" title="제목" alt="컴퓨터보안" /></p>
+<hr />
+
+<blockquote>
+  <p>History of Cryptography</p>
+</blockquote>
+
+<ul>
+  <li>제1세대 암호
+    <ul>
+      <li>고대 그리스 ~ 19세기 말</li>
+    </ul>
+  </li>
+  <li>제2세대 암호
+    <ul>
+      <li>20세기 전반부(전신의 발명 ~ 제2차 세계대전 이전)</li>
+    </ul>
+  </li>
+  <li>제3세대 암호 - 현대암호
+    <ul>
+      <li>제2차 세계대전 종전 이후 ~ 현재</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>Shift Cipher</p>
+</blockquote>
+
+<blockquote>
+  <p>Substitution Cipher</p>
+</blockquote>
+
+<ul>
+  <li>대치, 치환</li>
+  <li>각 글자를 다른 글자로 대치</li>
+  <li>키 space는 26!</li>
+  <li>초당 10<sup>10</sup> 개 키 계산해도 10<sup>11</sup> 년 소요</li>
+</ul>
+
+<blockquote>
+  <p>Vigenere Cipher</p>
+</blockquote>
+
+<ul>
+  <li>
+    <p>비게네르 암호
+  암호화 키를 선택: 키 = (5,22,3,14)
+  평문: (crypto) = (2,17,24,15,19,14)</p>
+  </li>
+  <li>암호화: (2,17,24,15,19,14) + (5,22,3,14,5,22) ≡ (7,13,1,3,24,10) = (hnbdyk)​</li>
+  <li>복호화: (7,13,1,3,24,10) - (5,22,3,14,5,22) ≡ (2,17,24,15,19,14) = (crypto)​</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>Alan Turing</p>
+</blockquote>
+
+<ul>
+  <li>Enigma 해독</li>
+  <li>최초의 컴퓨터 colossus 제작</li>
+  <li>인공지능 시조</li>
+  <li>컴퓨터 이론 확립</li>
+  <li>튜링테스트, 튜링머신</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>현대암호의 분류</p>
+</blockquote>
+
+<hr />
+
+<p>​<img src="/assets/built/images/ag/ag10.png" width="50%" height="25%" title="제목" alt="알고리즘" /></p>
+
+<hr />
+
+<blockquote>
+  <p>Symmetric vs public key</p>
+</blockquote>
+
+<ul>
+  <li>Encryption key와 decryption key 동일 여부</li>
+  <li>같으면 symmetric, 다르면 public key</li>
+</ul>
+
+<blockquote>
+  <p>Block vs Stream cypher</p>
+</blockquote>
+
+<ul>
+  <li>Block
+    <ul>
+      <li>긴 평문을 일정한 길이의 블록으로 나누어 블록단위 암호화하는 방식​</li>
+      <li>DES, AES 등</li>
+    </ul>
+  </li>
+  <li>Stream
+    <ul>
+      <li>Bit 혹은 byte 단위로 암호화​</li>
+      <li>키를 키스트림 생성기라는 알고리즘에 입력하여 발생되는 1비트 키의 무한수열로 평문을 암호화​</li>
+      <li>eStream, RC4 등​</li>
+    </ul>
+  </li>
+</ul>
 
 <hr />
 
@@ -350,7 +471,7 @@ into the {body} of the default.hbs template -->
                         var disqus_config = function () {
                             var this_page_url = 'https://lee989898.github.io/sc-02';
                             var this_page_identifier = '/sc-02';
-                            var this_page_title = 'signature';
+                            var this_page_title = 'Cryptograpghy';
                         };
                         (function() {
                             var d = document, s = d.createElement('script');
@@ -401,24 +522,16 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
-                                            <li><a href="/sc-03">이메일 보안</a></li>
+                                            <li><a href="/sc-11">이메일 보안</a></li>
                                         
                                     
                                   
                                 
                                   
                                     
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                    
                                         
                                         
-                                            <li><a href="/sc-01">Hash</a></li>
+                                            <li><a href="/sc-10">signature</a></li>
                                         
                                     
                                   
@@ -428,7 +541,12 @@ into the {body} of the default.hbs template -->
                                   
                                 
                                   
-                                
+                                    
+                                        
+                                        
+                                            <li><a href="/sc-09">Hash</a></li>
+                                        
+                                    
                                   
                                 
                                   
@@ -459,6 +577,25 @@ into the {body} of the default.hbs template -->
                                 
                                   
                                 
+                                  
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
                                   
                                 
                                   
@@ -516,7 +653,7 @@ into the {body} of the default.hbs template -->
                         <footer class="read-next-card-footer">
                             <a href="/tag/security/">
                                 
-                                    See all 2 posts  →
+                                    See all 4 posts  →
                                 
                             </a>
                         </footer>
@@ -530,26 +667,80 @@ into the {body} of the default.hbs template -->
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/sc-03">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/security-logo.png)"></div>
+            <a class="post-card-image-link" href="/pl-04">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/pl-background-frontend.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/sc-03">
+            <a class="post-card-content-link" href="/pl-04">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Security</span>
+                                <span class="post-card-tags">Pl</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">이메일 보안</h2>
+                    <h2 class="post-card-title">언어 평가 기준과 언어 설계시 기준 간의 균형</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>이메일 보안
+                        <p>언어 평가 기준과 언어 설계시 기준 간의 균형
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="lee989898" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/lee989898/">lee989898</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      2 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/pl-03">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/pl-background-frontend.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/pl-03">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Pl</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">프로그래밍 언어가 프로그램 설계 방법에 준 영향</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>프로그래밍 언어가 프로그램 설계 방법에 준 영향
 
 </p>
                     
@@ -578,60 +769,6 @@ into the {body} of the default.hbs template -->
 
             
 
-            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
-            
-                
-
-    <article class="post-card post-template">
-        
-            <a class="post-card-image-link" href="/pl-16">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/pl-background-frontend.png)"></div>
-            </a>
-        
-        <div class="post-card-content">
-            <a class="post-card-content-link" href="/pl-16">
-                <header class="post-card-header">
-                    
-                        
-                            
-                                <span class="post-card-tags">Pl</span>
-                            
-                        
-                    
-
-                    <h2 class="post-card-title">서브프로그램</h2>
-                </header>
-                <section class="post-card-excerpt">
-                    
-                        <p>서브프로그램
-
-</p>
-                    
-                </section>
-            </a>
-            <footer class="post-card-meta">
-                
-                    
-                        
-                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="lee989898" />
-                        
-                        <span class="post-card-author">
-                            <a href="/author/lee989898/">lee989898</a>
-                        </span>
-                    
-                
-                <span class="reading-time">
-                    
-                    
-                      7 min read
-                    
-                </span>
-            </footer>
-        </div>
-    </article>
-
-            
-
         </div>
     </div>
 </aside>
@@ -645,13 +782,13 @@ into the {body} of the default.hbs template -->
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">signature</div>
+    <div class="floating-header-title">Cryptograpghy</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=signature&amp;url=https://lee989898.github.io/sc-02"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Cryptograpghy&amp;url=https://lee989898.github.io/sc-02"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 

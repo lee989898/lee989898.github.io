@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/security/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-11-02T11:34:43+09:00</updated>
+  <updated>2021-11-03T19:45:04+09:00</updated>
   <id>https://lee989898.github.io/tag/security/feed.xml</id>
 
   
@@ -33,11 +33,11 @@
   
     <entry>
       <title type="html">signature</title>
-      <link href="https://lee989898.github.io/sc-02" rel="alternate" type="text/html" title="signature" />
+      <link href="https://lee989898.github.io/sc-10" rel="alternate" type="text/html" title="signature" />
       <published>2021-10-31T01:06:00+09:00</published>
       <updated>2021-10-31T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/sc-02</id>
-      <content type="html" xml:base="https://lee989898.github.io/sc-02">&lt;h3 id=&quot;signature&quot;&gt;&lt;strong&gt;signature&lt;/strong&gt;&lt;/h3&gt;
+      <id>https://lee989898.github.io/sc-10</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-10">&lt;h3 id=&quot;signature&quot;&gt;&lt;strong&gt;signature&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
 
@@ -141,11 +141,11 @@
   
     <entry>
       <title type="html">이메일 보안</title>
-      <link href="https://lee989898.github.io/sc-03" rel="alternate" type="text/html" title="이메일 보안" />
+      <link href="https://lee989898.github.io/sc-11" rel="alternate" type="text/html" title="이메일 보안" />
       <published>2021-10-31T01:06:00+09:00</published>
       <updated>2021-10-31T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/sc-03</id>
-      <content type="html" xml:base="https://lee989898.github.io/sc-03">&lt;h3 id=&quot;이메일-보안&quot;&gt;&lt;strong&gt;이메일 보안&lt;/strong&gt;&lt;/h3&gt;
+      <id>https://lee989898.github.io/sc-11</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-11">&lt;h3 id=&quot;이메일-보안&quot;&gt;&lt;strong&gt;이메일 보안&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
 
@@ -279,11 +279,11 @@
   
     <entry>
       <title type="html">Hash</title>
-      <link href="https://lee989898.github.io/sc-01" rel="alternate" type="text/html" title="Hash" />
+      <link href="https://lee989898.github.io/sc-09" rel="alternate" type="text/html" title="Hash" />
       <published>2021-10-23T01:06:00+09:00</published>
       <updated>2021-10-23T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/sc-01</id>
-      <content type="html" xml:base="https://lee989898.github.io/sc-01">&lt;h3 id=&quot;hash&quot;&gt;&lt;strong&gt;Hash&lt;/strong&gt;&lt;/h3&gt;
+      <id>https://lee989898.github.io/sc-09</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-09">&lt;h3 id=&quot;hash&quot;&gt;&lt;strong&gt;Hash&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
 
@@ -485,6 +485,305 @@ Message를 block으로 나누어서 고정된 길이의 입력값을 받아들�
 
       
         <summary type="html">Hash</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Cryptograpghy</title>
+      <link href="https://lee989898.github.io/sc-02" rel="alternate" type="text/html" title="Cryptograpghy" />
+      <published>2021-09-09T01:06:00+09:00</published>
+      <updated>2021-09-09T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc-02</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-02">&lt;h3 id=&quot;cryptography&quot;&gt;&lt;strong&gt;Cryptography&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Cryptography?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Cryptography: 안전한 암호 만드는 학문&lt;/li&gt;
+  &lt;li&gt;Cryptoanalysis: 암호 해독&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Cryptology: 암호학&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Steganography: 메시지 존재자체를 숨기는 것&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;암호(Encrypt/Decrypt)란?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;암호(cryptography)&lt;/li&gt;
+  &lt;li&gt;비밀정보의 교환을 위해 생겨남
+    &lt;ul&gt;
+      &lt;li&gt;처음에는 군사용으로 주로 사용&lt;/li&gt;
+      &lt;li&gt;현재 전자상거래, 전자우편, 무선통신 등에 널리 쓰임&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;4차산업혁명시대: 정보의 관리, 보호의 중요성 증대
+    &lt;ul&gt;
+      &lt;li&gt;국가, 회사, 단체, 개인에 막대한 영향&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;암호체계의 효용성 및 안전성 분석
+    &lt;ul&gt;
+      &lt;li&gt;고급 수학이론에 기반&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;용어 및 등장인물&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;인터넷은 공개망이다&lt;/li&gt;
+  &lt;li&gt;등장인물: Alice,Bob,hacker&lt;/li&gt;
+  &lt;li&gt;평문(plaintext): 암호화전 문장&lt;/li&gt;
+  &lt;li&gt;암호문(ciphertext): 암호화된 문장&lt;/li&gt;
+  &lt;li&gt;암호화(encryption): 평문을 암호문으로 바꾸는 과정&lt;/li&gt;
+  &lt;li&gt;복호화(decryption): 암호문을 평문으로 바꾸는 과정&lt;/li&gt;
+  &lt;li&gt;암호 알고리즘: 암호와 알고리즘과 복호화 알고리즘&lt;/li&gt;
+  &lt;li&gt;키(key): 암호 알고리즘에 사용되는 정보&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;History of Cryptography&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;제1세대 암호
+    &lt;ul&gt;
+      &lt;li&gt;고대 그리스 ~ 19세기 말&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;제2세대 암호
+    &lt;ul&gt;
+      &lt;li&gt;20세기 전반부(전신의 발명 ~ 제2차 세계대전 이전)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;제3세대 암호 - 현대암호
+    &lt;ul&gt;
+      &lt;li&gt;제2차 세계대전 종전 이후 ~ 현재&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Shift Cipher&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Substitution Cipher&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;대치, 치환&lt;/li&gt;
+  &lt;li&gt;각 글자를 다른 글자로 대치&lt;/li&gt;
+  &lt;li&gt;키 space는 26!&lt;/li&gt;
+  &lt;li&gt;초당 10&lt;sup&gt;10&lt;/sup&gt; 개 키 계산해도 10&lt;sup&gt;11&lt;/sup&gt; 년 소요&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Vigenere Cipher&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;비게네르 암호
+  암호화 키를 선택: 키 = (5,22,3,14)
+  평문: (crypto) = (2,17,24,15,19,14)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;암호화: (2,17,24,15,19,14) + (5,22,3,14,5,22) ≡ (7,13,1,3,24,10) = (hnbdyk)​&lt;/li&gt;
+  &lt;li&gt;복호화: (7,13,1,3,24,10) - (5,22,3,14,5,22) ≡ (2,17,24,15,19,14) = (crypto)​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Alan Turing&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Enigma 해독&lt;/li&gt;
+  &lt;li&gt;최초의 컴퓨터 colossus 제작&lt;/li&gt;
+  &lt;li&gt;인공지능 시조&lt;/li&gt;
+  &lt;li&gt;컴퓨터 이론 확립&lt;/li&gt;
+  &lt;li&gt;튜링테스트, 튜링머신&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;현대암호의 분류&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag10.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Symmetric vs public key&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Encryption key와 decryption key 동일 여부&lt;/li&gt;
+  &lt;li&gt;같으면 symmetric, 다르면 public key&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Block vs Stream cypher&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Block
+    &lt;ul&gt;
+      &lt;li&gt;긴 평문을 일정한 길이의 블록으로 나누어 블록단위 암호화하는 방식​&lt;/li&gt;
+      &lt;li&gt;DES, AES 등&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Stream
+    &lt;ul&gt;
+      &lt;li&gt;Bit 혹은 byte 단위로 암호화​&lt;/li&gt;
+      &lt;li&gt;키를 키스트림 생성기라는 알고리즘에 입력하여 발생되는 1비트 키의 무한수열로 평문을 암호화​&lt;/li&gt;
+      &lt;li&gt;eStream, RC4 등​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="security" />
+      
+
+      
+        <summary type="html">Cryptography</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Intro</title>
+      <link href="https://lee989898.github.io/sc-01" rel="alternate" type="text/html" title="Intro" />
+      <published>2021-09-02T01:06:00+09:00</published>
+      <updated>2021-09-02T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc-01</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-01">&lt;h3 id=&quot;intro&quot;&gt;&lt;strong&gt;Intro&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;컴퓨터 보안이란?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;컴퓨터 hw,sw, 데이터의 도난이나 손상, 컴퓨터가 제공하는 서비스의 중단 또는 오용으로부터 컴퓨터 시스템을 보호&lt;/p&gt;
+
+&lt;p&gt;보안의 대상: information system resource (hardware, software,data,communication facilities and network)&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;보안의 목표: CIA Triad + Authentication&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Key Concepts 1: Confidentiality&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Secrecy이라고도 함&lt;/li&gt;
+  &lt;li&gt;기밀성,비밀성&lt;/li&gt;
+  &lt;li&gt;송신자와 수신자만이 내용을 알 수 있게 하는 것&lt;/li&gt;
+  &lt;li&gt;허가된 사용자, 장비만이 data 내용을 알 수 있도록 하는 것&lt;/li&gt;
+  &lt;li&gt;주요 공격: eavesdrop(도청), interception&lt;/li&gt;
+  &lt;li&gt;Confidentiality를 지키기 위한 Solution : Encrypt,decrypt&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Key Concepts 2: Integrity&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;무결성&lt;/li&gt;
+  &lt;li&gt;원본 그대로임을 보장. 변조가 없다는 것 혹은 변경이 있었음을 알게 됨&lt;/li&gt;
+  &lt;li&gt;주요 공격: modification&lt;/li&gt;
+  &lt;li&gt;Integrity를 지키기 위한 Solution: hash&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Key Concepts 3: Availablilty&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;가용성&lt;/li&gt;
+  &lt;li&gt;합법적인 사용자가 허가된 시간에 데이터나 서비스에 access 가능하게 하는것&lt;/li&gt;
+  &lt;li&gt;주요공격: interruption, DDos attack&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Key Concepts 4: Authentication&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;인증&lt;/li&gt;
+  &lt;li&gt;송수신자 서로간의 신원확인&lt;/li&gt;
+  &lt;li&gt;주요공격: impersonation&lt;/li&gt;
+  &lt;li&gt;Authentication을 지키기 위한 Solution: 전자서명, 공인인증서&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="security" />
+      
+
+      
+        <summary type="html">Intro</summary>
       
 
       

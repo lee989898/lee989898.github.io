@@ -278,8 +278,8 @@ into the {body} of the default.hbs template -->
 
 <ul>
   <li>액면가가 다른 m(&gt;=1)개의 동전들이 있다.</li>
-  <li>동전 i,1&lt;=i&lt;=m,의 액면가는 d<sub>i</sub> 이고 d<sub>1</sub> &gt; 
-d<sub>2</sub> &gt; … &gt; d<sub>m</sub> = 1이다.</li>
+  <li>동전 i,1&lt;=i&lt;=m,의 액면가는 $d_i$ 이고 $d_1$ &gt; 
+$d_2$ &gt; … &gt; $d_m$ = 1이다.</li>
   <li>액면가가 같은 동전들의 개수는 무한히 많이 있다.</li>
   <li>거스름돈 n(&gt;=1)을 최소 개수의 동전들을 사용하여 주어야 한다.</li>
 </ul>
@@ -394,8 +394,8 @@ d<sub>2</sub> &gt; … &gt; d<sub>m</sub> = 1이다.</li>
 </blockquote>
 
 <ol>
-  <li>처음 시작할 때 한 정점 v<sub>0</sub>를 선택한다.</li>
-  <li>v<sub>0</sub> 에서 나가는 가장 가중치가 작은 간선 (v<sub>0</sub>, x)를 선택한다. 그 간선을 최소 비용 신장 트리 T에 추가하고 v<sub>0</sub>와 x를 합친다. 모든 정점이 T에 포함될 때까지 이 과정을 반복한다.</li>
+  <li>처음 시작할 때 한 정점 $v_0$를 선택한다.</li>
+  <li>$v_0$ 에서 나가는 가장 가중치가 작은 간선 ($v_0$, x)를 선택한다. 그 간선을 최소 비용 신장 트리 T에 추가하고 $v_0$와 x를 합친다. 모든 정점이 T에 포함될 때까지 이 과정을 반복한다.</li>
 </ol>
 
 <blockquote>
@@ -403,7 +403,7 @@ d<sub>2</sub> &gt; … &gt; d<sub>m</sub> = 1이다.</li>
 </blockquote>
 
 <ul>
-  <li>적색 정점: 처음에 선택된 정점 v<sub>0</sub>와 합쳐진 정점</li>
+  <li>적색 정점: 처음에 선택된 정점 $v_0$와 합쳐진 정점</li>
   <li>
     <p>청색 정점: 그 외 다른 정점</p>
   </li>
@@ -422,8 +422,8 @@ V: 그래프내의 모든 정점들의 집합<br />
 T: 트리 내에 포함되는 간선들의 집합</p>
 
 <ol>
-  <li>  R = {v<sub>0</sub>}</li>
-  <li>  B = V - {v<sub>0</sub>}</li>
+  <li>  R = {$v_0$}</li>
+  <li>  B = V - {$v_0$}</li>
   <li> T = $\emptyset${공집합}</li>
   <li> for(i = 1; i &lt; n; i++) {</li>
   <li> 　　w[ r,b ]가 최소인 $r \in R$과 $b \in B$를 선택한다.</li>
@@ -439,7 +439,7 @@ T: 트리 내에 포함되는 간선들의 집합</p>
 </blockquote>
 
 <p>이 알고리즘은 중복 계산을 많이 한다. 매번 반복할 때마다 최소 간선을 거의 같은 집합에서 찾는다.<br />
-$\theta$(n<sup>3</sup>)</p>
+$\theta$($n^3$)</p>
 
 <blockquote>
   <p>개선된 프림 알고리즘</p>
@@ -478,7 +478,7 @@ T: 트리 내에 포함되는 간선들의 집합</p>
   <li>참조 횟수
     <ul>
       <li>각 i, 1&lt;= i &lt; n, 에 대해 항상 n이다.</li>
-      <li>따라서 총 참조 횟수 = (n-1) x n $\in$ $\theta$(n<sup>2</sup>)</li>
+      <li>따라서 총 참조 횟수 = (n-1) x n $\in$ $\theta$($n^2$)</li>
     </ul>
   </li>
 </ul>
@@ -532,14 +532,14 @@ T: 트리 내에 포함되는 간선들의 집합</p>
 </blockquote>
 
 <ul>
-  <li>아이디어: 출방 정점 v<sub>0</sub>로 부터 가까운 순서로 다른 정점들까지의 최단 경로를 찾는다.</li>
+  <li>아이디어: 출방 정점 $v_0$로 부터 가까운 순서로 다른 정점들까지의 최단 경로를 찾는다.</li>
   <li>진행 과정
     <ul>
-      <li>i번째 반복이 시작되기 전에 v<sub>0</sub>에 가장 가까운 (i - 1)개의 정점들까지의 최단 경로들을 찾았다.</li>
-      <li>v<sub>0</sub>, 이 정점들과 최단 경로들 상의 간선들은 주어진 그래프의 부분 트리 T<sub>i</sub>를 형성한다.</li>
-      <li>T<sub>i</sub>내에 있는 정덤들에 인접한 ‘가장자리 정점’들 중에서 찾는다.</li>
-      <li>T<sub>i</sub>내에 있는 정점들에 인접한 ‘가장자리 정접’들 중에서 찾는다.</li>
-      <li>모든 가장자리 정점 u에 대해서 u에 인접한 트리내의 정점 v까지의 거리, W(u,v)와 출발 정점에서 v까지의 최단 경로의 길이, d<sub>v</sub>의 합을 계산한다.</li>
+      <li>i번째 반복이 시작되기 전에 $v_0$에 가장 가까운 (i - 1)개의 정점들까지의 최단 경로들을 찾았다.</li>
+      <li>$v_0$, 이 정점들과 최단 경로들 상의 간선들은 주어진 그래프의 부분 트리 $T_i$를 형성한다.</li>
+      <li>$T_i$내에 있는 정덤들에 인접한 ‘가장자리 정점’들 중에서 찾는다.</li>
+      <li>$T_i$내에 있는 정점들에 인접한 ‘가장자리 정접’들 중에서 찾는다.</li>
+      <li>모든 가장자리 정점 u에 대해서 u에 인접한 트리내의 정점 v까지의 거리, W(u,v)와 출발 정점에서 v까지의 최단 경로의 길이, $d_v$의 합을 계산한다.</li>
       <li>u에 인접한 트리 내의 정점들이 2개 이상인 경우에는 각 인접 정점에 대해 합을 계산한다. 그러한 합들 중 가장 작은 합을 갖는 가장자리 정점을 트리에 추가할 다음 정점으로 선택한다.</li>
     </ul>
   </li>
@@ -574,16 +574,16 @@ T: 트리 내에 포함되는 간선들의 집합</p>
 </ul>
 
 <blockquote>
-  <p>트리에 추가할 정점 u<sup>*</sup>를 선택한 후의 연산</p>
+  <p>트리에 추가할 정점 $u^*$를 선택한 후의 연산</p>
 </blockquote>
 
 <ol>
-  <li>u<sup>*</sup>를 가장자리 정점에서 트리내에 포함되는 정점으로 바꾼다.</li>
-  <li>u<sup>*</sup>에 인접한 트리에 포함되지 않은 각 가장자리 정점 v에 대해 다음 조건을 확인한다.<br />
-d[u<sup> * </sup>]  + w( u<sup> * </sup> ,v) &lt; d[v]<br />
+  <li>$u^*$를 가장자리 정점에서 트리내에 포함되는 정점으로 바꾼다.</li>
+  <li>$u^<em>$에 인접한 트리에 포함되지 않은 각 가장자리 정점 v에 대해 다음 조건을 확인한다.<br />
+d[$u^</em>$]  + w($u^<em>$ ,v) &lt; d[v]<br />
 위 조건이 만족된다면 다음을 수행한다<br />
-d[v] = d[ u<sup> * </sup> ] + w( u<sup> * </sup>, v)<br />
-p[v] = u<sup> * </sup></li>
+d[v] = d[$u^</em>$] + w($u^<em>$, v)<br />
+p[v] = $u^</em>$</li>
 </ol>
 
 <blockquote>
@@ -591,11 +591,11 @@ p[v] = u<sup> * </sup></li>
 </blockquote>
 
 <ol>
-  <li>  T = $\emptyset$ //트리에 포함된 정점들의 집합을 공집합으로 초기화한다</li>
+  <li>  T = $\emptyset$    //트리에 포함된 정점들의 집합을 공집합으로 초기화한다</li>
   <li>  for( i = 0; i &lt; n; i++){</li>
-  <li>  d[i] = $\infty$ //정점 i의 최단 거리를 $\infty$ 로 초기화 한다</li>
-  <li>  p[i] = -1 } //정점 i의 부모 노드를 -1(없음)으로 초기화한다</li>
-  <li>  d[0] = 0 //출발 정점 0의 최단 거리를 0으로 한다</li>
+  <li>  d[i] = $\infty$    //정점 i의 최단 거리를 $\infty$ 로 초기화 한다</li>
+  <li>  p[i] = -1 }    //정점 i의 부모 노드를 -1(없음)으로 초기화한다</li>
+  <li>  d[0] = 0    //출발 정점 0의 최단 거리를 0으로 한다</li>
   <li>
     <table>
       <tbody>
@@ -608,7 +608,7 @@ p[v] = u<sup> * </sup></li>
     </table>
   </li>
   <li>  T에 포함되지 않은 정점들 중에서 배열 d의 요소값이 가장 작은 정점 u를 선택한다</li>
-  <li>  T = T U { u} //선택된 정점을 트리에 추가한다<br />
+  <li>  T = T U { u}    //선택된 정점을 트리에 추가한다<br />
 // 트리에 새로 추가된 정점의 인접 정점들의 출발 정점으로부터 최단 거리를 갱신한다</li>
   <li>  for( v = 0; v &lt; n; v++)</li>
   <li>  if(v $\notin$ T and w[u,v]  0 and d[u] &lt; $\infty$ and d[u] + w[u,v] &lt; d[v] ){</li>
@@ -808,10 +808,14 @@ p[v] = u<sup> * </sup></li>
                                   
                                 
                                   
+                                
+                                  
                                     
                                         
                                         
                                     
+                                  
+                                
                                   
                                 
                                   
@@ -937,12 +941,12 @@ p[v] = u<sup> * </sup></li>
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/sc-01">
+            <a class="post-card-image-link" href="/sc-09">
                 <div class="post-card-image" style="background-image: url(/assets/built/images/security-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/sc-01">
+            <a class="post-card-content-link" href="/sc-09">
                 <header class="post-card-header">
                     
                         

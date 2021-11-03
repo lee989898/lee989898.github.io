@@ -271,7 +271,7 @@ into the {body} of the default.hbs template -->
 <ul>
   <li>막대의 길이는 n(양의 정수)이다.</li>
   <li>막대의 길이가 i(양의 정수), 1 &lt;= i &lt;= n-1,인 조각막대로 자를 수 있다.</li>
-  <li>길이가 i, 1 &lt;= i &lt;= n, 인 (조각) 막대의 판매 가격은 pi이다.</li>
+  <li>길이가 i, 1 &lt;= i &lt;= n, 인 (조각) 막대의 판매 가격은 $p_i$이다.</li>
   <li>
     <p>길이가 n인 막대를 여러 개의 양의 정수 길이의 조각 막대들로
 잘라서 판매할 때 얻을 수 있는 최대 판매 금액을 구해야 한다.
@@ -294,7 +294,7 @@ into the {body} of the default.hbs template -->
 
 <p>위 그림은 막대를 자르는 모든 방법들과 판매 금액이다.</p>
 
-<p>시간 복잡도: $\theta$(2<sup>n</sup>)</p>
+<p>시간 복잡도: $\theta$($2^n$)</p>
 
 <ul>
   <li>분할 정복 알고리즘
@@ -311,10 +311,10 @@ into the {body} of the default.hbs template -->
 <p>R(n): 길이가 n인 막대를 판매할 때 얻을 수 있는 최대 판매금액</p>
 <ul>
   <li>
-    <p>R(n) = MAX(p<sub>i</sub>, R(n-i))
+    <p>R(n) = MAX($p_i$, R(n-i))
           1 &lt;= i &lt;= n
        R(0) = 0<br />
-p<sub>i</sub>: 길이가 i인 막대의 판매 가격<br />
+$p_i$: 길이가 i인 막대의 판매 가격<br />
 R(n-i): 길이 (n - i)의 막대를 판매할 때 얻을 수 있는 최대 판매 금액</p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cutRod_DC(p[], i)
@@ -342,7 +342,7 @@ else{
 
 <p>위 그림은 cutRod_DC(p,4) 호출시 실행 트리 이다.</p>
 
-<p>시간 복잡도: $\theta$(2<sup>n</sup>)</p>
+<p>시간 복잡도: $\theta$($2^n$)</p>
 
 <hr />
 
@@ -367,7 +367,7 @@ else{
   </li>
 </ul>
 
-<p>시간복잡도: $\theta$(n<sup>2</sup>)</p>
+<p>시간복잡도: $\theta$($n^2$)</p>
 
 <hr />
 
@@ -401,7 +401,7 @@ else{
 최단 경로는 L 내에 있는 정점(들)만을 이용한다.</li>
   <li>L에 정점들을 한 번에 하나씩 정점의 번호 순서대로 추가한다.</li>
   <li>최단 거리 행렬들을 다음과 같은 순서대로 계산한다.
-     D<sub>0</sub>,D<sub>1</sub>,D<sub>2</sub>, …, D<sub>n</sub></li>
+     $D_0$,$D_1$,$D_2$, …, $D_n$</li>
 </ol>
 
 <hr />
@@ -418,11 +418,11 @@ else{
 
 <p>AllPairShortestPath(W[])
 //입력: 가중치 행렬 W [1..n, 1..n]
-//출력: D<sup>(i)</sup> [1..n, 1..n], 0&lt;=i&lt;=n</p>
+//출력: $D^(i)$ [1..n, 1..n], 0&lt;=i&lt;=n</p>
 <ol>
-  <li>   D<sup>0</sup> = W</li>
+  <li>   $D^0$ = W</li>
   <li>   for(k = 1; k &lt;= n; k++){</li>
-  <li>       n x n 행렬 D<sup>(k)</sup> = (d<sub>ij</sub><sup>(k)</sup>)를 선언한다</li>
+  <li>       n x n 행렬 $D^(k)$ = (d<sub>ij</sub><sup>(k)</sup>)를 선언한다</li>
   <li>       for(i = 1; i &lt;= n; i++)</li>
   <li>         for(j = 1; j &lt;=n; j++)</li>
   <li>           d<sub>ij</sub><sup>(k)</sup> = MIN(d<sub>ij</sub><sup>(k-1)</sup>,d<sub>i,k</sub><sup>(k-1)</sup>+d<sub>k,j</sub><sup>(k-1)</sup>
@@ -616,10 +616,14 @@ else{
                                   
                                 
                                   
+                                
+                                  
                                     
                                         
                                         
                                     
+                                  
+                                
                                   
                                 
                                   

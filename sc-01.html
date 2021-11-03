@@ -11,7 +11,7 @@
 
 
 
-    <title>Hash</title>
+    <title>Intro</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -53,23 +53,48 @@
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
     
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$'] ],
+    processEscapes: true,
+  }
+});
+MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+    
 
 
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Hash" />
-    <meta property="og:description" content="Hash Hash와 관련된 Key Concepts인 Integrity와 Authentication을 살펴보자 Integrity 무결성 원본 그대로임을 보장 변조가 없다는 것 혹은 변경이 있었음을 알게 됨 주요 공격: modification Integrity를 지키기 위한 Solution : hash Authentication 인증 송수신자 서로간의 신원 확인 주요 공격 : impersonation Authentication을 지키기 위환 solution : 전자서명, 공인인증서 Hash Functions 임의의" />
+    <meta property="og:title" content="Intro" />
+    <meta property="og:description" content="Intro 컴퓨터 보안이란? 컴퓨터 hw,sw, 데이터의 도난이나 손상, 컴퓨터가 제공하는 서비스의 중단 또는 오용으로부터 컴퓨터 시스템을 보호 보안의 대상: information system resource (hardware, software,data,communication facilities and network) 보안의 목표: CIA Triad + Authentication Key Concepts 1: Confidentiality Secrecy이라고도 함 기밀성,비밀성 송신자와 수신자만이 내용을 알 수 있게 하는 것 허가된 사용자," />
     <meta property="og:url" content="https://lee989898.github.io/sc-01" />
     <meta property="og:image" content="https://lee989898.github.io/assets/built/images/security-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2021-10-23T01:06:00+09:00" />
-    <meta property="article:modified_time" content="2021-10-23T01:06:00+09:00" />
+    <meta property="article:published_time" content="2021-09-02T01:06:00+09:00" />
+    <meta property="article:modified_time" content="2021-09-02T01:06:00+09:00" />
     <meta property="article:tag" content="Security" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Hash" />
-    <meta name="twitter:description" content="Hash Hash와 관련된 Key Concepts인 Integrity와 Authentication을 살펴보자 Integrity 무결성 원본 그대로임을 보장 변조가 없다는 것 혹은 변경이 있었음을 알게 됨 주요 공격: modification Integrity를 지키기 위한 Solution : hash Authentication 인증 송수신자 서로간의 신원 확인 주요 공격 : impersonation Authentication을 지키기 위환 solution : 전자서명, 공인인증서 Hash Functions 임의의" />
+    <meta name="twitter:title" content="Intro" />
+    <meta name="twitter:description" content="Intro 컴퓨터 보안이란? 컴퓨터 hw,sw, 데이터의 도난이나 손상, 컴퓨터가 제공하는 서비스의 중단 또는 오용으로부터 컴퓨터 시스템을 보호 보안의 대상: information system resource (hardware, software,data,communication facilities and network) 보안의 목표: CIA Triad + Authentication Key Concepts 1: Confidentiality Secrecy이라고도 함 기밀성,비밀성 송신자와 수신자만이 내용을 알 수 있게 하는 것 허가된 사용자," />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
     <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/security-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -101,7 +126,7 @@
         "@type": "WebPage",
         "@id": "https://lee989898.github.io/sc-01"
     },
-    "description": "Hash Hash와 관련된 Key Concepts인 Integrity와 Authentication을 살펴보자 Integrity 무결성 원본 그대로임을 보장 변조가 없다는 것 혹은 변경이 있었음을 알게 됨 주요 공격: modification Integrity를 지키기 위한 Solution : hash Authentication 인증 송수신자 서로간의 신원 확인 주요 공격 : impersonation Authentication을 지키기 위환 solution : 전자서명, 공인인증서 Hash Functions 임의의"
+    "description": "Intro 컴퓨터 보안이란? 컴퓨터 hw,sw, 데이터의 도난이나 손상, 컴퓨터가 제공하는 서비스의 중단 또는 오용으로부터 컴퓨터 시스템을 보호 보안의 대상: information system resource (hardware, software,data,communication facilities and network) 보안의 목표: CIA Triad + Authentication Key Concepts 1: Confidentiality Secrecy이라고도 함 기밀성,비밀성 송신자와 수신자만이 내용을 알 수 있게 하는 것 허가된 사용자,"
 }
     </script>
 
@@ -114,7 +139,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="Hash" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Intro" href="/feed.xml" />
 
 
 </head>
@@ -186,7 +211,7 @@ into the {body} of the default.hbs template -->
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="23 October 2021">23 October 2021</time>
+                    <time class="post-full-meta-date" datetime=" 2 September 2021"> 2 September 2021</time>
                     
                         <span class="date-divider">/</span>
                         
@@ -196,7 +221,7 @@ into the {body} of the default.hbs template -->
                         
                     
                 </section>
-                <h1 class="post-full-title">Hash</h1>
+                <h1 class="post-full-title">Intro</h1>
             </header>
 
             <!--
@@ -207,187 +232,69 @@ into the {body} of the default.hbs template -->
             -->
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <h3 id="hash"><strong>Hash</strong></h3>
+                    <h3 id="intro"><strong>Intro</strong></h3>
 
 <hr />
 
-<p>Hash와 관련된 Key Concepts인 Integrity와 Authentication을 살펴보자</p>
+<ul>
+  <li>컴퓨터 보안이란?</li>
+</ul>
+
+<p>컴퓨터 hw,sw, 데이터의 도난이나 손상, 컴퓨터가 제공하는 서비스의 중단 또는 오용으로부터 컴퓨터 시스템을 보호</p>
+
+<p>보안의 대상: information system resource (hardware, software,data,communication facilities and network)</p>
+
+<hr />
+
+<p>보안의 목표: CIA Triad + Authentication</p>
 
 <blockquote>
-  <p>Integrity</p>
+  <p>Key Concepts 1: Confidentiality</p>
+</blockquote>
+
+<ul>
+  <li>Secrecy이라고도 함</li>
+  <li>기밀성,비밀성</li>
+  <li>송신자와 수신자만이 내용을 알 수 있게 하는 것</li>
+  <li>허가된 사용자, 장비만이 data 내용을 알 수 있도록 하는 것</li>
+  <li>주요 공격: eavesdrop(도청), interception</li>
+  <li>Confidentiality를 지키기 위한 Solution : Encrypt,decrypt</li>
+</ul>
+
+<blockquote>
+  <p>Key Concepts 2: Integrity</p>
 </blockquote>
 
 <ul>
   <li>무결성</li>
-  <li>원본 그대로임을 보장</li>
-  <li>변조가 없다는 것 혹은 변경이 있었음을 알게 됨</li>
+  <li>원본 그대로임을 보장. 변조가 없다는 것 혹은 변경이 있었음을 알게 됨</li>
   <li>주요 공격: modification</li>
-  <li>Integrity를 지키기 위한 Solution : hash</li>
+  <li>Integrity를 지키기 위한 Solution: hash</li>
 </ul>
 
 <blockquote>
-  <p>Authentication</p>
+  <p>Key Concepts 3: Availablilty</p>
+</blockquote>
+
+<ul>
+  <li>가용성</li>
+  <li>합법적인 사용자가 허가된 시간에 데이터나 서비스에 access 가능하게 하는것</li>
+  <li>주요공격: interruption, DDos attack</li>
+</ul>
+
+<blockquote>
+  <p>Key Concepts 4: Authentication</p>
 </blockquote>
 
 <ul>
   <li>인증</li>
-  <li>송수신자 서로간의 신원 확인</li>
-  <li>주요 공격 : impersonation</li>
-  <li>Authentication을 지키기 위환 solution : 전자서명, 공인인증서</li>
+  <li>송수신자 서로간의 신원확인</li>
+  <li>주요공격: impersonation</li>
+  <li>Authentication을 지키기 위한 Solution: 전자서명, 공인인증서</li>
 </ul>
 
 <hr />
 
-<blockquote>
-  <p>Hash Functions</p>
-</blockquote>
-
-<ul>
-  <li>임의의 긴 입력 값을 적절하게 처리하여 고정된 길이의 짧은 값을 출력하는 함수</li>
-  <li>Message Authentication Code로 무결성 제공</li>
-  <li>전자 서명으로 sender authentication 제공</li>
-  <li>공인인증서, 가상화폐 등에 사용</li>
-  <li>컴퓨터보안에서 대표적인 hash function은 MD2,4,5 SHA1, HAS160</li>
-</ul>
-
-<blockquote>
-  <p><a href="http://www.miraclesalad.com/webtools/md5.php">http://www.miraclesalad.com/webtools/md5.php</a><br />
-위 사이트에서 임의의ㅣ 입력값에 대한 해쉬값을 관찰할 수 있다.</p>
-</blockquote>
-
-<p>해쉬의 특징으로는 대표적으로 3가지가 있다.</p>
-<ol>
-  <li>입력길이에 상관없이 출력길이가 일정</li>
-  <li>조금이라도 입력값이 다르면 출력값은 완전히 다름</li>
-  <li>revers가 어렵다(일방향성)</li>
-</ol>
-
-<p>위 성질중 integrity는 2번에 의해서 보장된다.<br />
-Encrypt/decrypt와의 차이점은 3번이다. 복호화가 어렵기 때문이다.</p>
-
-<p>예를 들어보자 h(x): x/23해서 소수점 7~10자리 수를 추출<br />
-h(345689) = xx.95652177391<br />
-출력값은 일정하나, reverse는 불가능하다.</p>
-
-<p>그러나 h(232.8395049993) = 7391 처럼 다른 값을 넣었음에도 값이 같은 일명 collision이 일어날 수 있다.<br />
-Collison은 서로 다른 입력값이 같은 해시값을 계산하는 것을 의미한다.<br />
-충동저항성은 collision이 일어날 확률이 작음을 의미한다.</p>
-
-<hr />
-
-<blockquote>
-  <p>MAC</p>
-</blockquote>
-
-<ul>
-  <li>메시지 무결성: 변경되지 않은 원본이 맞음</li>
-</ul>
-
-<hr />
-
-<p>​   <img src="/assets/built/images/sc/sc01.png" width="50%" height="25%" title="제목" alt="컴퓨터보안" /></p>
-
-<hr />
-
-<p>메시지와 해쉬값을 붙어서 보낸다.<br />
-받는사람은 비교해서 같으면 원본 다르면 원본이 아닌걸 알 수 있다.<br />
-하지만 여기서 sender authenticationd은 제공되지 않는다.<br />
-Digital Signature에서 이문제를 해결한다.</p>
-
-<hr />
-
-<blockquote>
-  <p>Digital Signature</p>
-</blockquote>
-
-<ul>
-  <li>무결성과 인증을 동시에 제공</li>
-  <li>키를 사용한다(키를 모르는 사용자는 생성불가)</li>
-</ul>
-
-<hr />
-
-<p>​   <img src="/assets/built/images/sc/sc02.png" width="50%" height="25%" title="제목" alt="컴퓨터보안" /></p>
-
-<hr />
-
-<p>비교하여 같으면 변조되지 않고 보낸사람을 인증해준다.<br />
-하지만 mac도 한계가 있는데 제 3자에 대한 sender authentication이 불가능 하다.<br />
-키를 모르면 인증을 못하기 때문이다.</p>
-
-<hr />
-
-<blockquote>
-  <p>Replay Attack</p>
-</blockquote>
-
-<hr />
-
-<p>​   <img src="/assets/built/images/sc/sc03.png" width="50%" height="25%" title="제목" alt="컴퓨터보안" /></p>
-
-<hr />
-
-<p>위 그림은 MAC 공격방법이다.<br />
-Attacker는 고객이 보낸 똑같은 패킷을 복사하여 고객으로 위장하는 공격 방법이다.<br />
-이러한 공격을 막는 방법은 패킷에 추가정보로 시간을 알려주는 time stamp를 넣어 해결할 수 있다.</p>
-
-<hr />
-
-<p>대표적인 해쉬 함수로는 두가지 계열이 있는데 MD와 SHA 계열이다.</p>
-
-<blockquote>
-  <p>MD (Message Digest)</p>
-</blockquote>
-
-<ul>
-  <li>MD2,4,5,6​</li>
-  <li>Ron Rivest (RSA), 1990~92​</li>
-  <li>Merkle structure기반​</li>
-  <li>128bit hash 값​</li>
-  <li>512 bit block size ​</li>
-  <li>MD4는 32bit CPU 전용 (MS)​</li>
-  <li>MD5는 SHA1등 최신 해시들의 기초가됨​</li>
-  <li>2005 강한 충돌 내성 깨짐</li>
-</ul>
-
-<blockquote>
-  <p>SHA (Secure Hash Algorithm)</p>
-</blockquote>
-
-<ul>
-  <li>NIST 1993​</li>
-  <li>Merkle structure기반​</li>
-  <li>SHA0,1은 160bit hash 값, SHA2는 224~512bit​</li>
-  <li>512 bit block size ​</li>
-  <li>최대 2^64-1 bit 메시지처리​</li>
-  <li>가장 많이 사용​</li>
-  <li>2005 강한 충돌 내성 깨짐</li>
-</ul>
-
-<hr />
-
-<p>​   <img src="/assets/built/images/sc/sc04.png" width="50%" height="25%" title="제목" alt="컴퓨터보안" /></p>
-
-<hr />
-
-<p>위 그림은 Merkle structure의 예시이다.<br />
-MD, SHA 두가지 모두 Merkle structure기반인데 이것은
-Message를 block으로 나누어서 고정된 길이의 입력값을 받아들여 고정된 길이로 출력하는 압축함수를 반복 사용하여 긴 길이의 입력을 처리할 수 있는 해쉬 함수로 학대하여 설계하는 방식이다.</p>
-
-<hr />
-
-<blockquote>
-  <p>Hash attack</p>
-</blockquote>
-
-<ul>
-  <li>같은 해시값을 갖는 다른 입력값을 찾아낸다​</li>
-  <li>예를 들면, (ID, PWD)값은 해시값으로 저장되어 있다.​</li>
-  <li>만일 같은 해시값을 갖는 (ID2, PWD2)를 찾는다면, (ID, PWD)로 로그인 가능​하다</li>
-  <li>(ID, PWD), (ID2, PWD2)를 충돌쌍(collision pairs)라 한다​</li>
-</ul>
-
-<hr />
 
                 </div>
             </section>
@@ -456,7 +363,7 @@ Message를 block으로 나누어서 고정된 길이의 입력값을 받아들�
                         var disqus_config = function () {
                             var this_page_url = 'https://lee989898.github.io/sc-01';
                             var this_page_identifier = '/sc-01';
-                            var this_page_title = 'Hash';
+                            var this_page_title = 'Intro';
                         };
                         (function() {
                             var d = document, s = d.createElement('script');
@@ -507,7 +414,7 @@ Message를 block으로 나누어서 고정된 길이의 입력값을 받아들�
                                     
                                         
                                         
-                                            <li><a href="/sc-03">이메일 보안</a></li>
+                                            <li><a href="/sc-11">이메일 보안</a></li>
                                         
                                     
                                   
@@ -516,7 +423,7 @@ Message를 block으로 나누어서 고정된 길이의 입력값을 받아들�
                                     
                                         
                                         
-                                            <li><a href="/sc-02">signature</a></li>
+                                            <li><a href="/sc-10">signature</a></li>
                                         
                                     
                                   
@@ -527,6 +434,11 @@ Message를 block으로 나누어서 고정된 길이의 입력값을 받아들�
                                 
                                   
                                     
+                                        
+                                        
+                                            <li><a href="/sc-09">Hash</a></li>
+                                        
+                                    
                                   
                                 
                                   
@@ -560,11 +472,22 @@ Message를 block으로 나누어서 고정된 길이의 입력값을 받아들�
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
                                 
                                   
                                 
                                   
                                 
+                                  
+                                
+                                  
+                                    
                                   
                                 
                                   
@@ -622,7 +545,7 @@ Message를 block으로 나누어서 고정된 길이의 입력값을 받아들�
                         <footer class="read-next-card-footer">
                             <a href="/tag/security/">
                                 
-                                    See all 2 posts  →
+                                    See all 4 posts  →
                                 
                             </a>
                         </footer>
@@ -636,12 +559,12 @@ Message를 block으로 나누어서 고정된 길이의 입력값을 받아들�
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/algorithm-05">
+            <a class="post-card-image-link" href="/algorithm-01">
                 <div class="post-card-image" style="background-image: url(/assets/built/images/algorithm-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/algorithm-05">
+            <a class="post-card-content-link" href="/algorithm-01">
                 <header class="post-card-header">
                     
                         
@@ -651,11 +574,11 @@ Message를 block으로 나누어서 고정된 길이의 입력값을 받아들�
                         
                     
 
-                    <h2 class="post-card-title">탐욕 기법</h2>
+                    <h2 class="post-card-title">알고리즘</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>탐욕 기법
+                        <p>알고리즘
 
 </p>
                     
@@ -675,7 +598,7 @@ Message를 block으로 나누어서 고정된 길이의 입력값을 받아들�
                 <span class="reading-time">
                     
                     
-                      6 min read
+                      1 min read
                     
                 </span>
             </footer>
@@ -690,26 +613,26 @@ Message를 block으로 나누어서 고정된 길이의 입력값을 받아들�
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/pl-15">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/pl-background-frontend.png)"></div>
+            <a class="post-card-image-link" href="/kotlin-23">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/kotlin-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/pl-15">
+            <a class="post-card-content-link" href="/kotlin-23">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Pl</span>
+                                <span class="post-card-tags">Kotlin</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">컨트롤 스트럭처</h2>
+                    <h2 class="post-card-title">코루틴</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>컨트롤 스트럭처
+                        <p>코루틴
 
 </p>
                     
@@ -729,7 +652,7 @@ Message를 block으로 나누어서 고정된 길이의 입력값을 받아들�
                 <span class="reading-time">
                     
                     
-                      3 min read
+                      1 min read
                     
                 </span>
             </footer>
@@ -751,13 +674,13 @@ Message를 block으로 나누어서 고정된 길이의 입력값을 받아들�
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">Hash</div>
+    <div class="floating-header-title">Intro</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Hash&amp;url=https://lee989898.github.io/sc-01"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Intro&amp;url=https://lee989898.github.io/sc-01"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
