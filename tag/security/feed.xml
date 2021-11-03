@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/security/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-11-03T19:45:04+09:00</updated>
+  <updated>2021-11-03T20:41:03+09:00</updated>
   <id>https://lee989898.github.io/tag/security/feed.xml</id>
 
   
@@ -492,6 +492,247 @@ Message를 block으로 나누어서 고정된 길이의 입력값을 받아들�
     </entry>
   
     <entry>
+      <title type="html">Symmetric Key Cipher</title>
+      <link href="https://lee989898.github.io/sc-03" rel="alternate" type="text/html" title="Symmetric Key Cipher" />
+      <published>2021-09-09T01:06:00+09:00</published>
+      <updated>2021-09-09T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc-03</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-03">&lt;h3 id=&quot;symmetric-key-cipher&quot;&gt;&lt;strong&gt;Symmetric Key Cipher&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;현대암호의 분류&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/sc/sc13.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Symmetric vs public key&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Encryption key와 decryption key 동일 여부&lt;/li&gt;
+  &lt;li&gt;같으면 symmetric, 다르면 public key&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Block vs Stream cypher&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Block
+    &lt;ul&gt;
+      &lt;li&gt;긴 평문을 일정한 길이의 블록으로 나누어 블록단위 암호화하는 방식​&lt;/li&gt;
+      &lt;li&gt;DES, AES 등&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Stream
+    &lt;ul&gt;
+      &lt;li&gt;Bit 혹은 byte 단위로 암호화​&lt;/li&gt;
+      &lt;li&gt;키를 키스트림 생성기라는 알고리즘에 입력하여 발생되는 1비트 키의 무한수열로 평문을 암호화​&lt;/li&gt;
+      &lt;li&gt;eStream, RC4 등​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Block vs Stream&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;암호화할 데이터 type&lt;/li&gt;
+  &lt;li&gt;다음 상황의 데이터 특징은?&lt;/li&gt;
+  &lt;li&gt;영화 파일 다운로드(Block) vs 실시간 방송, 카카오 채팅(Stream)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Block Cipher&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;긴 평문을 일정한 길이의 블록으로 나누어 블록단위로 암호화하는 방식&lt;/li&gt;
+  &lt;li&gt;SW 구현이 쉽다&lt;/li&gt;
+  &lt;li&gt;Round를 사용하여 반복적으로 암호화하므로 안전&lt;/li&gt;
+  &lt;li&gt;대부분 Feistel cipher structure에 기반&lt;/li&gt;
+  &lt;li&gt;DES, AES, SEED, ARIA, Bluefish, Serpent 등​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/sc/sc14.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Feistel Cipher Structure란&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;대부분 Block cipher에 사용&lt;/li&gt;
+  &lt;li&gt;입력 block을 반으로 나눈다&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;왼,오른쪽 바꿔가며 여러 round수행&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Feistel cipher parameters
+    &lt;ul&gt;
+      &lt;li&gt;Block size: 크면 안전해지나 느려짐&lt;/li&gt;
+      &lt;li&gt;Key size: 크면 안전해지나 느려짐&lt;/li&gt;
+      &lt;li&gt;Round 회수: 크면 안전해지나 느려짐&lt;/li&gt;
+      &lt;li&gt;Function으 복잡도: 크면 안전해지나 느려짐&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;DES (Data Encryprtion Standard)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;가장 많이 쓰임&lt;/li&gt;
+  &lt;li&gt;1972 NIST cipher 곰모&lt;/li&gt;
+  &lt;li&gt;1974 IBM Lucifer 선정&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;1977 미정부 사용결정&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Feistel cipher structure&lt;/li&gt;
+  &lt;li&gt;Block size 64bit, key size 56bit&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;16round&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Declared insecure in 1998&lt;/li&gt;
+  &lt;li&gt;변형버전 - 2DES, 3DES(2~3개 key로 3회 암복호화)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;AES (Advanced Encryption Standard)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1997 NIST 공모&lt;/li&gt;
+  &lt;li&gt;Rijndael, 2001 NIST 표준선정&lt;/li&gt;
+  &lt;li&gt;Block size 128bit, key size 128,192,256bit&lt;/li&gt;
+  &lt;li&gt;각 키 크기에 따라 10,12,14 rounds&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Block Operation Mode&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Idea: Block 들을 어떻게 운용하느냐로 안전성 향상&lt;/li&gt;
+  &lt;li&gt;4가지 mode
+    &lt;ul&gt;
+      &lt;li&gt;ECB(Electronic Code Block)&lt;/li&gt;
+      &lt;li&gt;CBC(Cipher Block Chaining)&lt;/li&gt;
+      &lt;li&gt;CFB(Cipher Feedback)&lt;/li&gt;
+      &lt;li&gt;OFB(Output Feedback)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ECB(Electronic Code Block)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;각 block이 서로 독립적&lt;/li&gt;
+  &lt;li&gt;+simple&lt;/li&gt;
+  &lt;li&gt;+병렬처리용이&lt;/li&gt;
+  &lt;li&gt;-같은 평문에 대해 동일한 암호문 생성&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;CBC(Cipher Block Chaining)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Chain: 뒤에 것을 앞에 연결&lt;/li&gt;
+  &lt;li&gt;최초의 평문 blk은 IV와 XOR&lt;/li&gt;
+  &lt;li&gt;결과는 다음 평문 blk와 XOR해서 암호화한다&lt;/li&gt;
+  &lt;li&gt;+같은 평문 blk라도 다른 암호문 blk생성&lt;/li&gt;
+  &lt;li&gt;-Error propagation&lt;/li&gt;
+  &lt;li&gt;Ipsec,Kerberos5 등에서 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;CFB(Cipher Feedback)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Feddback: 출력을 입력으로&lt;/li&gt;
+  &lt;li&gt;초기 blk을 암호화하여 결과를 평문 blk와 XOR&lt;/li&gt;
+  &lt;li&gt;결과는 다음 encrypt시에 입력으로 사용&lt;/li&gt;
+  &lt;li&gt;평문을 직접 암호화하는것이 아니다&lt;/li&gt;
+  &lt;li&gt;+같은 plaintext blk라도 다른 cipher blk생성&lt;/li&gt;
+  &lt;li&gt;-Error propagation&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;OFB(Output Feedback)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;장단점은 CFB와 동일&lt;/li&gt;
+  &lt;li&gt;CFB에 비해 빠름&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;스트림 암호&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;stream: 시내,냇가,흐름&lt;/li&gt;
+  &lt;li&gt;Block을 만들 수 없는 경우&lt;/li&gt;
+  &lt;li&gt;평문을 1 bit(or byte, word)씩 순차적으로 암호화하는 방식&lt;/li&gt;
+  &lt;li&gt;평문과 난수 키 스트림을 1bit씩 단순 XOR&lt;/li&gt;
+  &lt;li&gt;빠름 (XOR 연산)&lt;/li&gt;
+  &lt;li&gt;일반적으로 block cipher에 비해 보안성 낮다&lt;/li&gt;
+  &lt;li&gt;무선통신, 실시간 음성, 영상 스트림 서비스&lt;/li&gt;
+  &lt;li&gt;RC4, ChCha, A5/1, SEAL, SOBER 등&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="security" />
+      
+
+      
+        <summary type="html">Symmetric Key Cipher</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">Cryptograpghy</title>
       <link href="https://lee989898.github.io/sc-02" rel="alternate" type="text/html" title="Cryptograpghy" />
       <published>2021-09-09T01:06:00+09:00</published>
@@ -626,15 +867,41 @@ Message를 block으로 나누어서 고정된 길이의 입력값을 받아들�
   &lt;li&gt;튜링테스트, 튜링머신&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;hr /&gt;
+&lt;hr /&gt;</content>
 
-&lt;blockquote&gt;
-  &lt;p&gt;현대암호의 분류&lt;/p&gt;
-&lt;/blockquote&gt;
+      
+      
+      
+      
+      
 
-&lt;hr /&gt;
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag10.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
+      
+
+      
+        <category term="security" />
+      
+
+      
+        <summary type="html">Cryptography</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Public Key Cipher</title>
+      <link href="https://lee989898.github.io/sc-04" rel="alternate" type="text/html" title="Public Key Cipher" />
+      <published>2021-09-09T01:06:00+09:00</published>
+      <updated>2021-09-09T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc-04</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-04">&lt;h3 id=&quot;public-key-cipher&quot;&gt;&lt;strong&gt;Public Key Cipher&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
 
@@ -648,23 +915,23 @@ Message를 block으로 나누어서 고정된 길이의 입력값을 받아들�
 &lt;/ul&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;Block vs Stream cypher&lt;/p&gt;
+  &lt;p&gt;Why no Symmetric key?&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Block
-    &lt;ul&gt;
-      &lt;li&gt;긴 평문을 일정한 길이의 블록으로 나누어 블록단위 암호화하는 방식​&lt;/li&gt;
-      &lt;li&gt;DES, AES 등&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Stream
-    &lt;ul&gt;
-      &lt;li&gt;Bit 혹은 byte 단위로 암호화​&lt;/li&gt;
-      &lt;li&gt;키를 키스트림 생성기라는 알고리즘에 입력하여 발생되는 1비트 키의 무한수열로 평문을 암호화​&lt;/li&gt;
-      &lt;li&gt;eStream, RC4 등​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
+  &lt;li&gt;Symmetric은 빠르고, 안전하다&lt;/li&gt;
+  &lt;li&gt;동일한 키를 나눠 갖기 어렵다&lt;/li&gt;
+  &lt;li&gt;인터넷에서 키를 나눠 갖기 어렵다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Public key Cipher&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;송신자, 수신자가 키를 나누어 가지 필요가 없다&lt;/li&gt;
+  &lt;li&gt;private,public키 2가지를 나눠 갖는다&lt;/li&gt;
+  &lt;li&gt;Public key로 잠그면 private key로 열고, private key로 잠그면 public key로 열린다&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;</content>
@@ -688,7 +955,7 @@ Message를 block으로 나누어서 고정된 길이의 입력값을 받아들�
       
 
       
-        <summary type="html">Cryptography</summary>
+        <summary type="html">Public Key Cipher</summary>
       
 
       

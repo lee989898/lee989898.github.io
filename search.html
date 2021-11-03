@@ -398,11 +398,29 @@ into the {body} of the default.hbs template -->
     }
     ,
     
+    "sc-04": {
+        "title": "Public Key Cipher",
+            "author": "lee989898",
+            "category": "",
+            "content": "Public Key Cipher  Symmetric vs public key  Encryption key와 decryption key 동일 여부  같으면 symmetric, 다르면 public key  Why no Symmetric key?  Symmetric은 빠르고, 안전하다  동일한 키를 나눠 갖기 어렵다  인터넷에서 키를 나눠 갖기 어렵다  Public key Cipher  송신자, 수신자가 키를 나누어 가지 필요가 없다  private,public키 2가지를 나눠 갖는다  Public key로 잠그면 private key로 열고, private key로 잠그면 public key로 열린다",
+        "url": "/sc-04"
+    }
+    ,
+    
+    "sc-03": {
+        "title": "Symmetric Key Cipher",
+            "author": "lee989898",
+            "category": "",
+            "content": "Symmetric Key Cipher  현대암호의 분류​  Symmetric vs public key  Encryption key와 decryption key 동일 여부  같으면 symmetric, 다르면 public key  Block vs Stream cypher  Block          긴 평문을 일정한 길이의 블록으로 나누어 블록단위 암호화하는 방식​      DES, AES 등        Stream          Bit 혹은 byte 단위로 암호화​      키를 키스트림 생성기라는 알고리즘에 입력하여 발생되는 1비트 키의 무한수열로 평문을 암호화​      eStream, RC4 등​        Block vs Stream  암호화할 데이터 type  다음 상황의 데이터 특징은?  영화 파일 다운로드(Block) vs 실시간 방송, 카카오 채팅(Stream)  Block Cipher  긴 평문을 일정한 길이의 블록으로 나누어 블록단위로 암호화하는 방식  SW 구현이 쉽다  Round를 사용하여 반복적으로 암호화하므로 안전  대부분 Feistel cipher structure에 기반  DES, AES, SEED, ARIA, Bluefish, Serpent 등​​  Feistel Cipher Structure란  대부분 Block cipher에 사용  입력 block을 반으로 나눈다      왼,오른쪽 바꿔가며 여러 round수행    Feistel cipher parameters          Block size: 크면 안전해지나 느려짐      Key size: 크면 안전해지나 느려짐      Round 회수: 크면 안전해지나 느려짐      Function으 복잡도: 크면 안전해지나 느려짐        DES (Data Encryprtion Standard)  가장 많이 쓰임  1972 NIST cipher 곰모  1974 IBM Lucifer 선정      1977 미정부 사용결정    Feistel cipher structure  Block size 64bit, key size 56bit      16round    Declared insecure in 1998  변형버전 - 2DES, 3DES(2~3개 key로 3회 암복호화)  AES (Advanced Encryption Standard)  1997 NIST 공모  Rijndael, 2001 NIST 표준선정  Block size 128bit, key size 128,192,256bit  각 키 크기에 따라 10,12,14 rounds  Block Operation Mode  Idea: Block 들을 어떻게 운용하느냐로 안전성 향상  4가지 mode          ECB(Electronic Code Block)      CBC(Cipher Block Chaining)      CFB(Cipher Feedback)      OFB(Output Feedback)        ECB(Electronic Code Block)  각 block이 서로 독립적  +simple  +병렬처리용이  -같은 평문에 대해 동일한 암호문 생성  CBC(Cipher Block Chaining)  Chain: 뒤에 것을 앞에 연결  최초의 평문 blk은 IV와 XOR  결과는 다음 평문 blk와 XOR해서 암호화한다  +같은 평문 blk라도 다른 암호문 blk생성  -Error propagation  Ipsec,Kerberos5 등에서 사용  CFB(Cipher Feedback)  Feddback: 출력을 입력으로  초기 blk을 암호화하여 결과를 평문 blk와 XOR  결과는 다음 encrypt시에 입력으로 사용  평문을 직접 암호화하는것이 아니다  +같은 plaintext blk라도 다른 cipher blk생성  -Error propagation  OFB(Output Feedback)  장단점은 CFB와 동일  CFB에 비해 빠름  스트림 암호  stream: 시내,냇가,흐름  Block을 만들 수 없는 경우  평문을 1 bit(or byte, word)씩 순차적으로 암호화하는 방식  평문과 난수 키 스트림을 1bit씩 단순 XOR  빠름 (XOR 연산)  일반적으로 block cipher에 비해 보안성 낮다  무선통신, 실시간 음성, 영상 스트림 서비스  RC4, ChCha, A5/1, SEAL, SOBER 등",
+        "url": "/sc-03"
+    }
+    ,
+    
     "sc-02": {
         "title": "Cryptograpghy",
             "author": "lee989898",
             "category": "",
-            "content": "Cryptography  Cryptography?  Cryptography: 안전한 암호 만드는 학문  Cryptoanalysis: 암호 해독      Cryptology: 암호학    Steganography: 메시지 존재자체를 숨기는 것  암호(Encrypt/Decrypt)란?  암호(cryptography)  비밀정보의 교환을 위해 생겨남          처음에는 군사용으로 주로 사용      현재 전자상거래, 전자우편, 무선통신 등에 널리 쓰임        4차산업혁명시대: 정보의 관리, 보호의 중요성 증대          국가, 회사, 단체, 개인에 막대한 영향        암호체계의 효용성 및 안전성 분석          고급 수학이론에 기반        용어 및 등장인물  인터넷은 공개망이다  등장인물: Alice,Bob,hacker  평문(plaintext): 암호화전 문장  암호문(ciphertext): 암호화된 문장  암호화(encryption): 평문을 암호문으로 바꾸는 과정  복호화(decryption): 암호문을 평문으로 바꾸는 과정  암호 알고리즘: 암호와 알고리즘과 복호화 알고리즘  키(key): 암호 알고리즘에 사용되는 정보  History of Cryptography  제1세대 암호          고대 그리스 ~ 19세기 말        제2세대 암호          20세기 전반부(전신의 발명 ~ 제2차 세계대전 이전)        제3세대 암호 - 현대암호          제2차 세계대전 종전 이후 ~ 현재        Shift Cipher  Substitution Cipher  대치, 치환  각 글자를 다른 글자로 대치  키 space는 26!  초당 1010 개 키 계산해도 1011 년 소요  Vigenere Cipher      비게네르 암호  암호화 키를 선택: 키 = (5,22,3,14)  평문: (crypto) = (2,17,24,15,19,14)    암호화: (2,17,24,15,19,14) + (5,22,3,14,5,22) ≡ (7,13,1,3,24,10) = (hnbdyk)​  복호화: (7,13,1,3,24,10) - (5,22,3,14,5,22) ≡ (2,17,24,15,19,14) = (crypto)​  Alan Turing  Enigma 해독  최초의 컴퓨터 colossus 제작  인공지능 시조  컴퓨터 이론 확립  튜링테스트, 튜링머신  현대암호의 분류​  Symmetric vs public key  Encryption key와 decryption key 동일 여부  같으면 symmetric, 다르면 public key  Block vs Stream cypher  Block          긴 평문을 일정한 길이의 블록으로 나누어 블록단위 암호화하는 방식​      DES, AES 등        Stream          Bit 혹은 byte 단위로 암호화​      키를 키스트림 생성기라는 알고리즘에 입력하여 발생되는 1비트 키의 무한수열로 평문을 암호화​      eStream, RC4 등​      ",
+            "content": "Cryptography  Cryptography?  Cryptography: 안전한 암호 만드는 학문  Cryptoanalysis: 암호 해독      Cryptology: 암호학    Steganography: 메시지 존재자체를 숨기는 것  암호(Encrypt/Decrypt)란?  암호(cryptography)  비밀정보의 교환을 위해 생겨남          처음에는 군사용으로 주로 사용      현재 전자상거래, 전자우편, 무선통신 등에 널리 쓰임        4차산업혁명시대: 정보의 관리, 보호의 중요성 증대          국가, 회사, 단체, 개인에 막대한 영향        암호체계의 효용성 및 안전성 분석          고급 수학이론에 기반        용어 및 등장인물  인터넷은 공개망이다  등장인물: Alice,Bob,hacker  평문(plaintext): 암호화전 문장  암호문(ciphertext): 암호화된 문장  암호화(encryption): 평문을 암호문으로 바꾸는 과정  복호화(decryption): 암호문을 평문으로 바꾸는 과정  암호 알고리즘: 암호와 알고리즘과 복호화 알고리즘  키(key): 암호 알고리즘에 사용되는 정보  History of Cryptography  제1세대 암호          고대 그리스 ~ 19세기 말        제2세대 암호          20세기 전반부(전신의 발명 ~ 제2차 세계대전 이전)        제3세대 암호 - 현대암호          제2차 세계대전 종전 이후 ~ 현재        Shift Cipher  Substitution Cipher  대치, 치환  각 글자를 다른 글자로 대치  키 space는 26!  초당 1010 개 키 계산해도 1011 년 소요  Vigenere Cipher      비게네르 암호  암호화 키를 선택: 키 = (5,22,3,14)  평문: (crypto) = (2,17,24,15,19,14)    암호화: (2,17,24,15,19,14) + (5,22,3,14,5,22) ≡ (7,13,1,3,24,10) = (hnbdyk)​  복호화: (7,13,1,3,24,10) - (5,22,3,14,5,22) ≡ (2,17,24,15,19,14) = (crypto)​  Alan Turing  Enigma 해독  최초의 컴퓨터 colossus 제작  인공지능 시조  컴퓨터 이론 확립  튜링테스트, 튜링머신",
         "url": "/sc-02"
     }
     ,
