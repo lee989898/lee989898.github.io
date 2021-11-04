@@ -137,7 +137,7 @@ into the {body} of the default.hbs template -->
     <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
     <li class="nav-android" role="menuitem"><a href="/tag/android/">안드</a></li>
     <li class="nav-kotlin" role="menuitem"><a href="/tag/kotlin/">코틀린</a></li>
-    <li class="nav-git" role="menuitem"><a href="/tag/git/">팁</a></li>
+    <li class="nav-python" role="menuitem"><a href="/tag/python/">파이썬</a></li>
     <li class="nav-algorithm" role="menuitem"><a href="/tag/algorithm/">알고리즘</a></li>
     <li class="nav-pl" role="menuitem"><a href="/tag/pl/">프언</a></li>
     <li class="nav-security" role="menuitem"><a href="/tag/security/">컴퓨터보안</a></li>
@@ -303,7 +303,7 @@ into the {body} of the default.hbs template -->
         "title": "ElGamal",
             "author": "lee989898",
             "category": "",
-            "content": "ElGamal  ElGamal  Taher Elgamal, 1985 NSF  이산대수의 어려움을 이용  RSA보다 안전성향상  A = $B^c$, c찾기  Key genetation  큰 소수 p, p보다 작은 임의의 g,x 선택  Y = $g^x$ mod p를 계산  공개키: Y,p,g  비밀키: x  Encryptin/decryption  공개키: Y,p,g  비밀키: x  Encrypt: p-1과 relative prime인 임의의 k(1&lt; k &lt; p-1)a = $g^k$  mod p, b = $Y^k$ M mod p 를 계산          여기서, k를 임의로 선택하기 때문에 동일한 M에 대해서 매번 다르게 암호화된다. (RSA와 차이점)      Ciphertext는 dnjsfo M 길이의 2배가 된다.        Decrypt: b/$a^x$ mod p = $y^k$ M / $a^x$ mod = M  ElGamal 서명 기법  RSA와 달리 서명만을 위해 설계됨  ElGamal 서명기법은 약간 변형된 형태로 NIST의 디지털 서명 표준(DSS)으로 채택",
+            "content": "ElGamal  ElGamal  Taher Elgamal, 1985 NSF  이산대수의 어려움을 이용  RSA보다 안전성향상  A = $B^c$, c찾기  Key genetation  큰 소수 p, p보다 작은 임의의 g,x 선택  Y = $g^x$ mod p를 계산  공개키: Y,p,g  비밀키: x  Encryptin/decryption  공개키: Y,p,g  비밀키: x  Encrypt: p-1과 relative prime인 임의의 k(1&lt; k &lt; p-1)a = $g^k$  mod p, b = $Y^k$ M mod p 를 계산          여기서, k를 임의로 선택하기 때문에 동일한 M에 대해서 매번 다르게 암호화된다. (RSA와 차이점)      Ciphertext는 dnjsfo M 길이의 2배가 된다.        Decrypt: b/$a^x$ mod p = $y^k$ M / $a^x$ mod p = M  ElGamal 서명 기법  RSA와 달리 서명만을 위해 설계됨  ElGamal 서명기법은 약간 변형된 형태로 NIST의 디지털 서명 표준(DSS)으로 채택",
         "url": "/sc-07"
     }
     ,
@@ -713,12 +713,12 @@ into the {body} of the default.hbs template -->
     }
     ,
     
-    "git-01": {
+    "python-01": {
         "title": "Git 기초 명령어",
             "author": "lee989898",
             "category": "",
             "content": "  git –version결과  git config –global init.defaultBranch main  git config –global user.name “name” 앞으로 이컴퓨터에서 깃으로 관리하는 프로젝트는 모두 다 이유저네임으로 한다는 뜻이다.  git config –global user.email “email”  git config –list제대로 되었는지 확인  git init .git 폴더 생성.git 폴더가 생성된 폴더는 git이 관리하기 시작함.최초 1회만 해주면 된다.  git add .모든 파일 스테이징(말이 어렵지만 추적을 시작한다라고 보시면 됩니다.)  git commit -m “message”message 이름으로 현재 추적하고 있는 코드들을 ‘찰칵’  git log커밋 로그를 확인  git status현재 git 상태 보여줌  git reset – hard 커밋코드커밋 번호에 해당하는 커밋으로 코드를 롤백  git remote add origin 리포지토리 주소리포지토리와 내 로컬 폴더를 연결한다. (이게 없으면 깃과 깃허브는 만ㅇ날 수 없다)  git push origin main깃허브 리포지토리 메인 브랜치에 현재 커밋들을 넣는다.  git clone 리포지토리 주소깃허브 리포지토리에서 모든 커밋들을 내 로커로 가져온다  git pull origin main서버에서 변경사항이 일어난 것을 로컬로 동기화한다.git init -&gt;gid add -&gt; git commit -&gt; 리포지토리만들기 -&gt; git remote add origin 리포지토리 주소 -&gt; git push origin main리포지토리만들기 -&gt; git clone 리포지토리주소 -&gt; 필요한 폴더 넣기-&gt; git add . -&gt; git commit -&gt;  -&gt; git push origin maijn  .gitingnoretxt 파일로 만들어서 확장자 없애기 *.exe 로 하면 exe는 커밋 및 올리지마하지만 매번 하면 귀찮gitignore.io사이트에서 활용하면 좋음  git branch현재 생성되어있는 브랜치의 목록을 본다.  git branch newFeaturenew Fragute이라는 새로운 브랜치를 만든다.  git checkout newFeaute이라는 브랜치로 이동한다  git branch -D newfraure이라는 브랜치를 삭제한다.  git push origin 브랜치이름특정 브랜치를 깃허브에 푸시한다  git pull origin 브랜치이름브랜치를 깃허브에서 가져와서 최신화한다.",
-        "url": "/git-01"
+        "url": "/python-01"
     }
     ,
     

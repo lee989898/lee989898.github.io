@@ -2,10 +2,10 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom" >
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
-  <link href="https://lee989898.github.io/tag/git/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="https://lee989898.github.io/tag/python/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-11-04T17:52:06+09:00</updated>
-  <id>https://lee989898.github.io/tag/git/feed.xml</id>
+  <updated>2021-11-04T19:48:17+09:00</updated>
+  <id>https://lee989898.github.io/tag/python/feed.xml</id>
 
   
   
@@ -33,11 +33,11 @@
   
     <entry>
       <title type="html">Git 기초 명령어</title>
-      <link href="https://lee989898.github.io/git-01" rel="alternate" type="text/html" title="Git 기초 명령어" />
+      <link href="https://lee989898.github.io/python-01" rel="alternate" type="text/html" title="Git 기초 명령어" />
       <published>2021-08-02T01:06:00+09:00</published>
       <updated>2021-08-02T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/git-01</id>
-      <content type="html" xml:base="https://lee989898.github.io/git-01">&lt;blockquote&gt;
+      <id>https://lee989898.github.io/python-01</id>
+      <content type="html" xml:base="https://lee989898.github.io/python-01">&lt;blockquote&gt;
   &lt;p&gt;git –version&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -173,7 +173,7 @@ new Fragute이라는 새로운 브랜치를 만든다.&lt;/p&gt;
       
 
       
-        <category term="git" />
+        <category term="python" />
       
 
       
