@@ -11,7 +11,7 @@
 
 
 
-    <title>컬렉션 함수</title>
+    <title>Number Theory for RSA</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -49,8 +49,33 @@
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="공부 블로그" />
     <link rel="shortcut icon" href="https://lee989898.github.io/assets/built/images/favicon.jpg" type="image/png" />
-    <link rel="canonical" href="https://lee989898.github.io/kotlin-21" />
+    <link rel="canonical" href="https://lee989898.github.io/sc-05" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
+
+    
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$'] ],
+    processEscapes: true,
+  }
+});
+MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 
     
 
@@ -58,24 +83,24 @@
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="컬렉션 함수" />
-    <meta property="og:description" content="컬렉션 함수 컬렉션 함수란 list나 set,map과 같은 컬렉션 또는 배열에 일반 함수 또는 람다 함수 형태를 사용하여 for문 없이도 아이템을 순회하며 참조하거나 조건을 걸고, 구조의 변경까지 가능한 여러가지 함수를 지칭합니다. 컬렉션 함수 forEach: 리스트에 있는 모든 객체를 순서대로 출력합니다. collection.forEach{ println(it) } filter: 조건에 맞는 객체만 다시 컬렉션으로 만들어서 반환합니다." />
-    <meta property="og:url" content="https://lee989898.github.io/kotlin-21" />
-    <meta property="og:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
+    <meta property="og:title" content="Number Theory for RSA" />
+    <meta property="og:description" content="Number Theory for RSA – Introduction number theory = 정수론 a branch of pure mathematics devoted primarily to the study of the integers 숫자의 성질을 탐구 수학은 과학의 여왕, 정수론은 수학의 여왕(여기서는 양의 정수만 다룬다) 약수 어던 수 m에 대해서 a = mb 라면 b $\neq$ 0 일때 b는 a를" />
+    <meta property="og:url" content="https://lee989898.github.io/sc-05" />
+    <meta property="og:image" content="https://lee989898.github.io/assets/built/images/security-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2021-08-09T01:07:00+09:00" />
-    <meta property="article:modified_time" content="2021-08-09T01:07:00+09:00" />
-    <meta property="article:tag" content="Kotlin" />
+    <meta property="article:published_time" content="2021-09-23T01:06:00+09:00" />
+    <meta property="article:modified_time" content="2021-09-23T01:06:00+09:00" />
+    <meta property="article:tag" content="Security" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="컬렉션 함수" />
-    <meta name="twitter:description" content="컬렉션 함수 컬렉션 함수란 list나 set,map과 같은 컬렉션 또는 배열에 일반 함수 또는 람다 함수 형태를 사용하여 for문 없이도 아이템을 순회하며 참조하거나 조건을 걸고, 구조의 변경까지 가능한 여러가지 함수를 지칭합니다. 컬렉션 함수 forEach: 리스트에 있는 모든 객체를 순서대로 출력합니다. collection.forEach{ println(it) } filter: 조건에 맞는 객체만 다시 컬렉션으로 만들어서 반환합니다." />
+    <meta name="twitter:title" content="Number Theory for RSA" />
+    <meta name="twitter:description" content="Number Theory for RSA – Introduction number theory = 정수론 a branch of pure mathematics devoted primarily to the study of the integers 숫자의 성질을 탐구 수학은 과학의 여왕, 정수론은 수학의 여왕(여기서는 양의 정수만 다룬다) 약수 어던 수 m에 대해서 a = mb 라면 b $\neq$ 0 일때 b는 a를" />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
-    <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
+    <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/security-logo.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="LEE" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Kotlin" />
+    <meta name="twitter:data2" content="Security" />
     <meta name="twitter:site" content="@" />
     <meta name="twitter:creator" content="@" />
     <meta property="og:image:width" content="1400" />
@@ -90,18 +115,18 @@
         "name": "LEE",
         "logo": "https://lee989898.github.io/"
     },
-    "url": "https://lee989898.github.io/kotlin-21",
+    "url": "https://lee989898.github.io/sc-05",
     "image": {
         "@type": "ImageObject",
-        "url": "https://lee989898.github.io/assets/built/images/kotlin-logo.png",
+        "url": "https://lee989898.github.io/assets/built/images/security-logo.png",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://lee989898.github.io/kotlin-21"
+        "@id": "https://lee989898.github.io/sc-05"
     },
-    "description": "컬렉션 함수 컬렉션 함수란 list나 set,map과 같은 컬렉션 또는 배열에 일반 함수 또는 람다 함수 형태를 사용하여 for문 없이도 아이템을 순회하며 참조하거나 조건을 걸고, 구조의 변경까지 가능한 여러가지 함수를 지칭합니다. 컬렉션 함수 forEach: 리스트에 있는 모든 객체를 순서대로 출력합니다. collection.forEach{ println(it) } filter: 조건에 맞는 객체만 다시 컬렉션으로 만들어서 반환합니다."
+    "description": "Number Theory for RSA – Introduction number theory = 정수론 a branch of pure mathematics devoted primarily to the study of the integers 숫자의 성질을 탐구 수학은 과학의 여왕, 정수론은 수학의 여왕(여기서는 양의 정수만 다룬다) 약수 어던 수 m에 대해서 a = mb 라면 b $\neq$ 0 일때 b는 a를"
 }
     </script>
 
@@ -114,7 +139,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="컬렉션 함수" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Number Theory for RSA" href="/feed.xml" />
 
 
 </head>
@@ -182,155 +207,263 @@ into the {body} of the default.hbs template -->
 <main id="site-main" class="site-main outer" role="main">
     <div class="inner">
 
-        <article class="post-full  tag-kotlin post tag-kotlin ">
+        <article class="post-full  tag-security post tag-security ">
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime=" 9 August 2021"> 9 August 2021</time>
+                    <time class="post-full-meta-date" datetime="23 September 2021">23 September 2021</time>
                     
                         <span class="date-divider">/</span>
                         
                             
-                               <a href='/tag/kotlin/'>KOTLIN</a>
+                               <a href='/tag/security/'>SECURITY</a>
                             
                         
                     
                 </section>
-                <h1 class="post-full-title">컬렉션 함수</h1>
+                <h1 class="post-full-title">Number Theory for RSA</h1>
             </header>
 
             <!--
             
-            <figure class="post-full-image" style="background-image: url(/assets/built/images/kotlin-logo.png)">
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/security-logo.png)">
             </figure>
             
             -->
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <h3 id="컬렉션-함수"><strong>컬렉션 함수</strong></h3>
+                    <h3 id="number-theory-for-rsa"><strong>Number Theory for RSA</strong></h3>
 
-<hr />
-
-<p>컬렉션 함수란 list나 set,map과 같은 컬렉션 또는 배열에 일반 함수 또는 람다 함수 형태를 사용하여 for문 없이도 아이템을 
-순회하며 참조하거나 조건을 걸고, 구조의 변경까지 가능한 여러가지 함수를 지칭합니다.</p>
+<p>–</p>
 
 <blockquote>
-  <p>컬렉션 함수</p>
+  <p>Introduction</p>
 </blockquote>
 
 <ul>
-  <li>
-    <p>forEach: 리스트에 있는 모든 객체를 순서대로 출력합니다.</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> collection.forEach{
-     println(it)
- }
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>filter: 조건에 맞는 객체만 다시 컬렉션으로 만들어서 반환합니다.</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>collection.filter{
-    it &lt; 4
-}
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>map: 값을 변경하여 다시 컬렉션으로 만들어서 반환합니다.</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>collection.map{
-    it * 2
-}
-</code></pre></div>    </div>
-  </li>
-  <li>any: 하나라도 조건에 맞으면 true ex) collection.any{it == 0}</li>
-  <li>all: 모두 조건에 맞으면 true ex) collection.all{it == 0}</li>
-  <li>none: 하나도 조건에 맞지 않으면 true ex) collection.none{it == 0}</li>
-  <li>collection.first(): 컬렉션의 첫번째 아이템 반환</li>
-  <li>collection.first{it &gt; 3} 조건에 맞는 첫번째 아이템을 반환</li>
-  <li>collection.last{it &gt; 3} 조건에 맞는 마지막 아이템을 반환<br />
-first는 find로 대체 가능하고 last는 findLast로 대체 가능합니다.<br />
-first와 last함수를 사용할 때 조건에 맞는 객체가 없는 경우 NoSuchElementException이 발생할 수 있습니다.<br />
-이럴때 firstOrNull이나 lastOrNull을 사용하면 객체가 없는 경우 null을 반환해 줍니다.</li>
-  <li>collection.count(): 컬렉션의 모든 아이템의 개수 반환</li>
-  <li>collection.count(it &gt; 7): 조건에 맞는 아이템의 개수 반환</li>
+  <li>number theory = 정수론</li>
+  <li>a branch of pure mathematics devoted primarily to the study of the integers</li>
+  <li>숫자의 성질을 탐구</li>
+  <li>수학은 과학의 여왕, 정수론은 수학의 여왕(여기서는 양의 정수만 다룬다)</li>
 </ul>
 
 <hr />
 
-<noscript><pre>fun main(){
- 
-    val nameList= listOf(&quot;박수영&quot;, &quot;김지수&quot;, &quot;김다현&quot;, &quot;신유나&quot;, &quot;김지우&quot;)
-    
-    nameList.forEach{print(it + &quot; &quot;)}
-    println()
-    
-    println(nameList.filter{it.startsWith(&quot;김&quot;)})
-    
-    println(nameList.map{&quot;이름 : &quot; + it})
-    
-    println(nameList.any{it == &quot;김지연&quot;})
-    println(nameList.all{it.length == 3})
-    println(nameList.none{it.startsWith(&quot;이&quot;)})
-    
-    println(nameList.first{it.startsWith(&quot;김&quot;)})
-    println(nameList.last{it.startsWith(&quot;김&quot;)})
-    println(nameList.count{it.contains(&quot;지&quot;)})
-}</pre></noscript>
-<script src="https://gist.github.com/lee989898/fb28957e210d6627f609769d5dea1400.js"> </script>
-
-<hr />
+<blockquote>
+  <p>약수</p>
+</blockquote>
 
 <ul>
-  <li>collection.associateBy{it.name}: 아이템에서 key를 추출하여 map으로 변환하는 함수</li>
-  <li>collection.groupBy: key가 같은 아이템 끼리 배열로 묶어 map으로 만드는 함수</li>
-  <li>collection.partition{it.birthYear &gt; 2002}: 두 컬렉션으로 나누어줍니다.</li>
+  <li>어던 수 m에 대해서 a = mb 라면
+    <ul>
+      <li>b $\neq$ 0 일때 b는 a를 나눈다 =&gt; 약수</li>
+      <li>여기서 a,b,m은 정수</li>
+      <li>나눗셈에서 나머지가 없을 때 약수라고 함</li>
+    </ul>
+  </li>
+  <li>예) 24의 양의 약수
+    <ul>
+      <li>1,2,3,4,6,8,12,24</li>
+    </ul>
+  </li>
 </ul>
 
-<hr />
-
-<noscript><pre>fun main(){
-    
-    data class Person(val name: String, val birthYear: Int)
-    
-    val personList = listOf(Person(&quot;유나&quot;, 1992),
-                           Person(&quot;조이&quot;, 1996),
-                           Person(&quot;츄&quot;, 1999),
-                           Person(&quot;유나&quot;, 2003))
-    
-    println(personList.associateBy{it.birthYear})
-    println(personList.groupBy{it.name})
-    
-    val (over98, under98) = personList.partition{it.birthYear &gt; 1998}
-    println(over98)
-    println(under98)
-}</pre></noscript>
-<script src="https://gist.github.com/lee989898/46b6fe5d0c80b0c9272e72276b25c384.js"> </script>
-
-<hr />
+<blockquote>
+  <p>소수 (Prime numbers)</p>
+</blockquote>
 
 <ul>
-  <li>collection.flatMap{listOf(it*3, it+3)}: 아이템마다 만들어진 컬렉션을 합쳐서 반환하는 함수</li>
-  <li>collection.getOrElse(1){50}: 인덱스 위취에 아이템이 있으면 아이템을 반환하고 아닌 경우 지정한 기본값을 반환하는 함수</li>
-  <li>collectionAzipcollectionB: 컬렉션 두 개의 아이템을 1:1로 매칭하여 새 컬렉션을 만들어 줌</li>
+  <li>어떤 수 p의 약수가 $\pm$ 1과 $\pm$ p만을 가진다면 p는 소수이다.</li>
+  <li>1과 자신이외의 자연수로 나눌수 없는 1보다 큰 자연수</li>
+  <li>고대 이집트 파피루스에도 기록</li>
+</ul>
+
+<blockquote>
+  <p>소수 찾기</p>
+</blockquote>
+
+<ul>
+  <li>어떤 자연수 n이 소수인지는 root(n)까지의 수 중 1을 제외한 약수가 있는지 확인</li>
+</ul>
+
+<p>소수의 분포에 규칙성이 있을까? (리만의 가설)</p>
+
+<blockquote>
+  <p>소인수 분해</p>
+</blockquote>
+
+<ul>
+  <li>어떠한 정수 a&gt;1은 다음과 같이 유일하게 소수의 곱으로 표현가능
+    <ul>
+      <li>a = $p_1^{a1}$ $p_2^{a2}$ … $p_t^{at}$</li>
+      <li>$p_t$ &gt; $p_{t-1}$ &gt; … $p_1$ 는 소수, $a_1$ &gt; 0</li>
+      <li>예) 91 = 7x13, 3600 = $2^4$ x $3^2$ x $5^2$ , 10164 = 7 x $11^2$ x 12</li>
+      <li>하지만, 여기서 7 x $11^2$ x 12 -&gt; 10164는 쉽지만 역은 어렵다</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>서로소 (relatively prime number)</p>
+</blockquote>
+
+<ul>
+  <li>어떤 두 수가 공통적인 소인수를 갖지 못할 때 두 수는 서로소</li>
+  <li>두 수의 최대 공약수가 1이면 서로소</li>
+  <li>8과 15는 서로소인가? 서로소이다</li>
+  <li>모든 정수의 솟수 표현법을 이용하면 최대 공약수 결정이 쉬워짐
+    <ul>
+      <li>300 = $2^2$ x $3^1$ x $5^2$, 18 = $2^1$ x $3^2$</li>
+      <li>GCD(300,18) = $2^1$ x $3^1$ x $5^0$ = 6</li>
+    </ul>
+  </li>
 </ul>
 
 <hr />
 
-<noscript><pre>fun main(){
-    
-    val numbers = listOf(-3,7,2,-10,1)
-    
-    println(numbers.flatMap{listOf(it*10, it+10)})
-    
-    println(numbers.getOrElse(1){50})
-    println(numbers.getOrElse(10){50})
-    
-    val names = listOf(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;D&quot;)
-    
-    println(names zip numbers)
-}</pre></noscript>
-<script src="https://gist.github.com/lee989898/9d5ccd3bcdde957f8d69308504c5d01e.js"> </script>
+<blockquote>
+  <p>모듈러 연산 (mod)</p>
+</blockquote>
+
+<ul>
+  <li>나머지 연산</li>
+  <li>a mod b: a를 b로 나눈 나머지</li>
+  <li>어떤 양의 정수 n과 a가 주어지고, 만약 a를 n으로 나눈다면 다음과 같은 관계를 가지고 몫 q와 나머지 r을 얻는다
+    <ul>
+      <li>a = qn + r</li>
+      <li>a = r mod n</li>
+    </ul>
+  </li>
+  <li>example: a =11, n = 7
+    <ul>
+      <li>11 = 1 x 7 + 4 = 4 mod 7</li>
+      <li>11 = 4 mod 7</li>
+    </ul>
+  </li>
+  <li>모듈러 연산자 특성
+    <ul>
+      <li>[(a mod n) + (b mod n)] mod n = (a+b) mod n</li>
+      <li>[(a mod n) x (b mod n)] mod n = (axb) mod n</li>
+      <li>(w + x) mod n = (x+w) mod n (교환법칙)</li>
+      <li>(w * x) mod n = (x * w) mod n (교환법칙)</li>
+      <li>[ (w+x)+y ] mod n = [ w + (x+y) ] mod n (결합법칙)</li>
+      <li>[ (w * x) * y ] mod n = [ w * (x * y) ] mod n (결합법칙)</li>
+      <li>[ w *  (x + y) ] mod n = [( w * x) + (w * y)] mod n (분배법칙)</li>
+      <li>(0 + w) mod n = w mod n</li>
+      <li>(1 * w) mod n = w mod n</li>
+    </ul>
+  </li>
+  <li>모듈러 연산의 항등원과 역원
+    <ul>
+      <li>항등원
+        <ul>
+          <li>어떤 원소와 연산을 해도 자기 자신이 되게 하는 원소</li>
+          <li>항등원을 만들어 주는 유일한 원소가 역원</li>
+          <li>모듈러 연산의 역원은?</li>
+          <li>mod 5 연산, 3의 곱셉의 역원은?
+            <ul>
+              <li>(3 * ?) mod 5 = 1 ?는 mod 5 연산에 대한 3의 곱셉의  역원</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>합동 (Congruent)</p>
+</blockquote>
+
+<ul>
+  <li>(a mod n) = (b mod n), e두 정수 a와 b는 modulo n에 대해 합동</li>
+  <li>a $\equiv$ b mod n으로 표기</li>
+  <li>예를 들어, 14와 20은 mod 6에 대하여 합동</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>페르마 정리 (Fermat Theorem)</p>
+</blockquote>
+
+<ul>
+  <li>만약 p가 소수라면 a는 p에 의해 나누어지지 않는 양의 정수이면, 다음이 성립한다
+    <ul>
+      <li>$a^{p-1}$ $\equiv$ 1 mod p</li>
+    </ul>
+  </li>
+  <li>페르마 정리의 다른 유용한 형태
+    <ul>
+      <li>만약 p가 소수이고 a가 양의 정수라면 $a^p$ $\equiv$ a mod p가 성립한다</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>오일러 정리 (Euler Theorem)</p>
+</blockquote>
+
+<ul>
+  <li>오일러의 Totient 함수
+    <ul>
+      <li>정수론에서 오일러의 totient 함수는 φ(n)라고 표기된다</li>
+      <li>φ(n): n보다 작고 n과 서로 소인 양의 정수의 개수</li>
+    </ul>
+  </li>
+  <li>오일러 함수의 특성
+    <ul>
+      <li>φ(1) = 1</li>
+      <li>소수n에 대해서 φ(n) = n - 1</li>
+      <li>소수 p와 q에 대해서 n = pq
+        <ul>
+          <li>φ(n) = φ(pq) = φ(p) * φ(q) = (p-1)(q-1)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>오일러 정리
+    <ul>
+      <li>서로소인 모든 a와 n에 대한 관계를 나타낸다ㅏ
+        <ul>
+          <li>$a^{φ(n)}$ $\equiv$ 1 mod n</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>오일러 정리의 추가적인 특성
+    <ul>
+      <li>$a^{φ(n)+1}$ $\equiv$ a mod n</li>
+    </ul>
+  </li>
+  <li>이러한 속성은 RSA 알고리즘의 유용성을 증명할 수 있음</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>확장된 유클리드 알고리즘</p>
+</blockquote>
+
+<ul>
+  <li>유클리드 알고리즘
+    <ul>
+      <li>두 양의 정수들에 대한 최대 공약수 찾기</li>
+    </ul>
+  </li>
+  <li>확장된 유클리드 알고리즘
+    <ul>
+      <li>한 수에 대한 곱셈의 역원 결정</li>
+      <li>만약 GCD(d,f)=1이라면 그때 d는 modulo f 상에서 곱셉에 대한 역원을 갖는다</li>
+      <li>양의 정수 d &lt; f에 대해, d $d^{-1}$ = 1 mod f인 $d^{-1}$ &lt; f가 유일하게 존재</li>
+      <li>알고리즘은 $d^{-1}$를 찾아주는 것이다</li>
+    </ul>
+  </li>
+</ul>
 
 <hr />
 
@@ -399,9 +532,9 @@ first와 last함수를 사용할 때 조건에 맞는 객체가 없는 경우 No
                     <div id="disqus_thread"></div>
                     <script>
                         var disqus_config = function () {
-                            var this_page_url = 'https://lee989898.github.io/kotlin-21';
-                            var this_page_identifier = '/kotlin-21';
-                            var this_page_title = '컬렉션 함수';
+                            var this_page_url = 'https://lee989898.github.io/sc-05';
+                            var this_page_identifier = '/sc-05';
+                            var this_page_title = 'Number Theory for RSA';
                         };
                         (function() {
                             var d = document, s = d.createElement('script');
@@ -435,7 +568,7 @@ first와 last함수를 사용할 때 조건에 맞는 객체가 없는 경우 No
                         <header class="read-next-card-header">
                             <small class="read-next-card-header-sitetitle">&mdash; LEE &mdash;</small>
                             
-                                <h3 class="read-next-card-header-title"><a href="/tag/kotlin/">Kotlin</a></h3>
+                                <h3 class="read-next-card-header-title"><a href="/tag/security/">Security</a></h3>
                             
                         </header>
                         <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
@@ -449,63 +582,21 @@ first와 last함수를 사용할 때 조건에 맞는 객체가 없는 경우 No
                                   
                                 
                                   
-                                
+                                    
+                                        
+                                        
+                                            <li><a href="/sc-11">이메일 보안</a></li>
+                                        
+                                    
                                   
                                 
                                   
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
+                                    
+                                        
+                                        
+                                            <li><a href="/sc-10">signature</a></li>
+                                        
+                                    
                                   
                                 
                                   
@@ -516,143 +607,15 @@ first와 last함수를 사용할 때 조건에 맞는 객체가 없는 경우 No
                                     
                                         
                                         
-                                            <li><a href="/kotlin-23">코루틴</a></li>
+                                            <li><a href="/sc-09">Hash</a></li>
                                         
                                     
                                   
                                 
                                   
-                                    
-                                        
-                                        
-                                            <li><a href="/kotlin-22">변수의 고급 기술</a></li>
-                                        
-                                    
-                                  
                                 
                                   
-                                    
-                                  
                                 
-                                  
-                                    
-                                        
-                                        
-                                            <li><a href="/kotlin-20">Set과 Map</a></li>
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
                                   
@@ -674,18 +637,128 @@ first와 last함수를 사용할 때 조건에 맞는 객체가 없는 경우 No
                                   
                                 
                                   
+                                
+                                  
                                     
                                         
                                         
                                     
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
                                   
                                 
                             </ul>
                         </div>
                         <footer class="read-next-card-footer">
-                            <a href="/tag/kotlin/">
+                            <a href="/tag/security/">
                                 
-                                    See all 22 posts  →
+                                    See all 10 posts  →
                                 
                             </a>
                         </footer>
@@ -699,26 +772,26 @@ first와 last함수를 사용할 때 조건에 맞는 객체가 없는 경우 No
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/kotlin-22">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/kotlin-logo.png)"></div>
+            <a class="post-card-image-link" href="/pl-09">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/pl-background-frontend.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/kotlin-22">
+            <a class="post-card-content-link" href="/pl-09">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Kotlin</span>
+                                <span class="post-card-tags">Pl</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">변수의 고급 기술</h2>
+                    <h2 class="post-card-title">정적 시맨틱과 동적 시맨틱</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>상수, lateinit, lazy
+                        <p>정적 시맨틱과 동적 시맨틱
 
 </p>
                     
@@ -738,7 +811,7 @@ first와 last함수를 사용할 때 조건에 맞는 객체가 없는 경우 No
                 <span class="reading-time">
                     
                     
-                      1 min read
+                      3 min read
                     
                 </span>
             </footer>
@@ -753,26 +826,26 @@ first와 last함수를 사용할 때 조건에 맞는 객체가 없는 경우 No
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/kotlin-20">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/kotlin-logo.png)"></div>
+            <a class="post-card-image-link" href="/sc-04">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/security-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/kotlin-20">
+            <a class="post-card-content-link" href="/sc-04">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Kotlin</span>
+                                <span class="post-card-tags">Security</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">Set과 Map</h2>
+                    <h2 class="post-card-title">Public Key Cipher</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>Set과 Map
+                        <p>Public Key Cipher
 
 </p>
                     
@@ -814,18 +887,18 @@ first와 last함수를 사용할 때 조건에 맞는 객체가 없는 경우 No
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">컬렉션 함수</div>
+    <div class="floating-header-title">Number Theory for RSA</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%EC%BB%AC%EB%A0%89%EC%85%98+%ED%95%A8%EC%88%98&amp;url=https://lee989898.github.io/kotlin-21"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Number+Theory+for+RSA&amp;url=https://lee989898.github.io/sc-05"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://lee989898.github.io/kotlin-21"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://lee989898.github.io/sc-05"
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
 

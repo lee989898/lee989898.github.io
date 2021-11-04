@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lee989898.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lee989898.github.io/" rel="alternate" type="text/html" /><updated>2021-11-03T20:41:03+09:00</updated><id>https://lee989898.github.io/feed.xml</id><title type="html">LEE</title><subtitle>공부 블로그</subtitle><entry><title type="html">signature</title><link href="https://lee989898.github.io/sc-10" rel="alternate" type="text/html" title="signature" /><published>2021-10-31T01:06:00+09:00</published><updated>2021-10-31T01:06:00+09:00</updated><id>https://lee989898.github.io/sc-10</id><content type="html" xml:base="https://lee989898.github.io/sc-10">&lt;h3 id=&quot;signature&quot;&gt;&lt;strong&gt;signature&lt;/strong&gt;&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lee989898.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lee989898.github.io/" rel="alternate" type="text/html" /><updated>2021-11-04T17:52:06+09:00</updated><id>https://lee989898.github.io/feed.xml</id><title type="html">LEE</title><subtitle>공부 블로그</subtitle><entry><title type="html">signature</title><link href="https://lee989898.github.io/sc-10" rel="alternate" type="text/html" title="signature" /><published>2021-10-31T01:06:00+09:00</published><updated>2021-10-31T01:06:00+09:00</updated><id>https://lee989898.github.io/sc-10</id><content type="html" xml:base="https://lee989898.github.io/sc-10">&lt;h3 id=&quot;signature&quot;&gt;&lt;strong&gt;signature&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
 
@@ -1147,7 +1147,7 @@ p[v] = $u^&lt;/em&gt;$&lt;/li&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;Hash와 관련된 Key Concepts인 Integrity와 Authentication을 살펴보자&lt;/p&gt;
+&lt;p&gt;Hash와 관련된 Key Concepts인 Integrity와 Authentication을 다시 한번 살펴보자&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Integrity&lt;/p&gt;

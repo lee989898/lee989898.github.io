@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/security/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-11-03T20:41:03+09:00</updated>
+  <updated>2021-11-04T17:52:06+09:00</updated>
   <id>https://lee989898.github.io/tag/security/feed.xml</id>
 
   
@@ -287,7 +287,7 @@
 
 &lt;hr /&gt;
 
-&lt;p&gt;Hash와 관련된 Key Concepts인 Integrity와 Authentication을 살펴보자&lt;/p&gt;
+&lt;p&gt;Hash와 관련된 Key Concepts인 Integrity와 Authentication을 다시 한번 살펴보자&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Integrity&lt;/p&gt;
@@ -492,10 +492,665 @@ Message를 block으로 나누어서 고정된 길이의 입력값을 받아들�
     </entry>
   
     <entry>
+      <title type="html">ElGamal</title>
+      <link href="https://lee989898.github.io/sc-07" rel="alternate" type="text/html" title="ElGamal" />
+      <published>2021-10-14T01:06:00+09:00</published>
+      <updated>2021-10-14T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc-07</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-07">&lt;h3 id=&quot;elgamal&quot;&gt;&lt;strong&gt;ElGamal&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ElGamal&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Taher Elgamal, 1985 NSF&lt;/li&gt;
+  &lt;li&gt;이산대수의 어려움을 이용&lt;/li&gt;
+  &lt;li&gt;RSA보다 안전성향상&lt;/li&gt;
+  &lt;li&gt;A = $B^c$, c찾기&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Key genetation&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;큰 소수 p, p보다 작은 임의의 g,x 선택&lt;/li&gt;
+  &lt;li&gt;Y = $g^x$ mod p를 계산&lt;/li&gt;
+  &lt;li&gt;공개키: Y,p,g&lt;/li&gt;
+  &lt;li&gt;비밀키: x&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Encryptin/decryption&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;공개키: Y,p,g&lt;/li&gt;
+  &lt;li&gt;비밀키: x&lt;/li&gt;
+  &lt;li&gt;Encrypt: p-1과 relative prime인 임의의 k(1&amp;lt; k &amp;lt; p-1)&lt;br /&gt;
+a = $g^k$  mod p, b = $Y^k$ M mod p 를 계산
+    &lt;ul&gt;
+      &lt;li&gt;여기서, k를 임의로 선택하기 때문에 동일한 M에 대해서 매번 다르게 암호화된다. (RSA와 차이점)&lt;/li&gt;
+      &lt;li&gt;Ciphertext는 dnjsfo M 길이의 2배가 된다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Decrypt: b/$a^x$ mod p = $y^k$ M / $a^x$ mod = M&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ElGamal 서명 기법&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;RSA와 달리 서명만을 위해 설계됨&lt;/li&gt;
+  &lt;li&gt;ElGamal 서명기법은 약간 변형된 형태로 NIST의 디지털 서명 표준(DSS)으로 채택&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="security" />
+      
+
+      
+        <summary type="html">ElGamal</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">ECC</title>
+      <link href="https://lee989898.github.io/sc-08" rel="alternate" type="text/html" title="ECC" />
+      <published>2021-10-14T01:06:00+09:00</published>
+      <updated>2021-10-14T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc-08</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-08">&lt;h3 id=&quot;ecc&quot;&gt;&lt;strong&gt;ECC&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ECC&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Public key&lt;/li&gt;
+  &lt;li&gt;RSA의 대안&lt;/li&gt;
+  &lt;li&gt;암호화는 잘 안 쓰인다 대신 전자서명과 키교환에서 주로 사용&lt;/li&gt;
+  &lt;li&gt;회의적 시각 많다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ECC vs RSA&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ECC는 이산대수문제 기반&lt;/li&gt;
+  &lt;li&gt;A = $B^c$, c 찾기문제&lt;/li&gt;
+  &lt;li&gt;RSA보다 작은 길이의 키로 비슷한 보안 제공&lt;/li&gt;
+  &lt;li&gt;RSA보다 작은 키를 사용하지만 수학적 계산량 많다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;타원곡선&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;타원곡선은 타원이 아니다&lt;/li&gt;
+  &lt;li&gt;타원곡선 방정식을 만족하는 점들의 집합
+    &lt;ul&gt;
+      &lt;li&gt;$y^2$ = $x^3$ + ax + b&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;타원 곡선 모양&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/sc/sc15.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;타원곡선의 덧셈
+    &lt;ul&gt;
+      &lt;li&gt;곡선상의 두점 P,Q&lt;/li&gt;
+      &lt;li&gt;P + Q는 두 점을 잇는 직선과 타원곡서의 접점을 x축에 대칭&lt;/li&gt;
+      &lt;li&gt;여기에 mod p를 한다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/sc/sc16.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;EC Discrete Log Problem&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;주어진 조건 ​
+    &lt;ul&gt;
+      &lt;li&gt;E: an EC over (field of modulo p), p:prime​&lt;/li&gt;
+      &lt;li&gt;P: a point in E(Fp), and suppose that P has prime order n​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;키 생성(Key generation)​
+    &lt;ul&gt;
+      &lt;li&gt;Private key d: selected in random in [1,n-1]​&lt;/li&gt;
+      &lt;li&gt;Public key Q =dP, 소수 p, P​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;ECDLP: The problem of finding d given the domain parameters and Q  (Q = dP일때, P, Q, p를 알더라도 d를 구하기 어렵다)​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ElGamal EC Encryption&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Input​
+    &lt;ul&gt;
+      &lt;li&gt;EC domain para (p,E,P,n), Public key Q,  Plaintext m​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;OutPut
+    &lt;ul&gt;
+      &lt;li&gt;Ciphertext (C1, C2)​
+        &lt;ul&gt;
+          &lt;li&gt;Represent the message m as a point M in E​&lt;/li&gt;
+          &lt;li&gt;Select k in [1,n-1],  ​&lt;/li&gt;
+          &lt;li&gt;Compute C1 = kP, ​&lt;/li&gt;
+          &lt;li&gt;Compute   C2 = M + kQ​&lt;/li&gt;
+          &lt;li&gt;Return(C1, C2)​&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Q = dp일때, P,Q를 알더라도 d를 구하기 어렵다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="security" />
+      
+
+      
+        <summary type="html">ECC</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">RSA</title>
+      <link href="https://lee989898.github.io/sc-06" rel="alternate" type="text/html" title="RSA" />
+      <published>2021-09-29T01:06:00+09:00</published>
+      <updated>2021-09-29T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc-06</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-06">&lt;h3 id=&quot;rsa&quot;&gt;&lt;strong&gt;RSA&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;RSA&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1978, MIT&lt;/li&gt;
+  &lt;li&gt;가장 널리 사용 (공인인증서 등)&lt;/li&gt;
+  &lt;li&gt;Key size = 1024 ~ 4096 bits&lt;/li&gt;
+  &lt;li&gt;DES is 100 times faster in S/W and 10000 times faster in H/W&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;RSA Algorithm&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;키 생성 부분과 암/복호화 부분으로 구성&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Part 1. 키생성
+    &lt;ul&gt;
+      &lt;li&gt;Public key : e, n&lt;/li&gt;
+      &lt;li&gt;Private key: d&lt;/li&gt;
+      &lt;li&gt;2개 큰 소수 p,q 선정 n = p * q , p , q는 secret, n은 공개&lt;/li&gt;
+      &lt;li&gt;Public key e는 φ(n) = (p-1)(q-1)과 relative prime하게 선정(유클리드 algorithm), e는 공개&lt;/li&gt;
+      &lt;li&gt;e * d mod φ(n) = 1 인 private key d를 계산(extended euclid algorithm) d는 secret&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Part 2. 암호화/복호화&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Encryption&lt;/li&gt;
+  &lt;li&gt;Receiver의 public key (e,n)을 받는다&lt;/li&gt;
+  &lt;li&gt;Message M을 정수로 전환하여&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;E(M) = $M^e$(mod n) = C를 계산&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Decryption&lt;/li&gt;
+  &lt;li&gt;D(c) = $C^d$ (mod n) = M (fermat, ouler)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;RSA 안정성&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;해커는 공개키(E,N), 암호문 C를 쉽게 얻을 수 있음&lt;/li&gt;
+  &lt;li&gt;비밀키 D를 얻으려면 N을 인수분해하여 φ(N)를 구해야함&lt;/li&gt;
+  &lt;li&gt;큰 수에 대한 인수분해는 매무 많은 수행시간 요구 (현재 brute force외에 방법없음)&lt;/li&gt;
+  &lt;li&gt;양자 컴퓨터&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="security" />
+      
+
+      
+        <summary type="html">RSA</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Public Key Cipher</title>
+      <link href="https://lee989898.github.io/sc-04" rel="alternate" type="text/html" title="Public Key Cipher" />
+      <published>2021-09-23T01:06:00+09:00</published>
+      <updated>2021-09-23T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc-04</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-04">&lt;h3 id=&quot;public-key-cipher&quot;&gt;&lt;strong&gt;Public Key Cipher&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Symmetric vs public key&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Encryption key와 decryption key 동일 여부&lt;/li&gt;
+  &lt;li&gt;같으면 symmetric, 다르면 public key&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Why no Symmetric key?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Symmetric은 빠르고, 안전하다&lt;/li&gt;
+  &lt;li&gt;동일한 키를 나눠 갖기 어렵다&lt;/li&gt;
+  &lt;li&gt;인터넷에서 키를 나눠 갖기 어렵다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Public key Cipher&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;송신자, 수신자가 키를 나누어 가지 필요가 없다&lt;/li&gt;
+  &lt;li&gt;private,public키 2가지를 나눠 갖는다&lt;/li&gt;
+  &lt;li&gt;Public key로 잠그면 private key로 열고, private key로 잠그면 public key로 열린다&lt;/li&gt;
+  &lt;li&gt;Internet환경에서 대표적으로 사용&lt;/li&gt;
+  &lt;li&gt;RSA(99%), ECC, El Gammal&lt;/li&gt;
+  &lt;li&gt;주로 수학적 이론에 바탕 -&amp;gt; 정수론 필요&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="security" />
+      
+
+      
+        <summary type="html">Public Key Cipher</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Number Theory for RSA</title>
+      <link href="https://lee989898.github.io/sc-05" rel="alternate" type="text/html" title="Number Theory for RSA" />
+      <published>2021-09-23T01:06:00+09:00</published>
+      <updated>2021-09-23T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc-05</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-05">&lt;h3 id=&quot;number-theory-for-rsa&quot;&gt;&lt;strong&gt;Number Theory for RSA&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;–&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Introduction&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;number theory = 정수론&lt;/li&gt;
+  &lt;li&gt;a branch of pure mathematics devoted primarily to the study of the integers&lt;/li&gt;
+  &lt;li&gt;숫자의 성질을 탐구&lt;/li&gt;
+  &lt;li&gt;수학은 과학의 여왕, 정수론은 수학의 여왕(여기서는 양의 정수만 다룬다)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;약수&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;어던 수 m에 대해서 a = mb 라면
+    &lt;ul&gt;
+      &lt;li&gt;b $\neq$ 0 일때 b는 a를 나눈다 =&amp;gt; 약수&lt;/li&gt;
+      &lt;li&gt;여기서 a,b,m은 정수&lt;/li&gt;
+      &lt;li&gt;나눗셈에서 나머지가 없을 때 약수라고 함&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;예) 24의 양의 약수
+    &lt;ul&gt;
+      &lt;li&gt;1,2,3,4,6,8,12,24&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;소수 (Prime numbers)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;어떤 수 p의 약수가 $\pm$ 1과 $\pm$ p만을 가진다면 p는 소수이다.&lt;/li&gt;
+  &lt;li&gt;1과 자신이외의 자연수로 나눌수 없는 1보다 큰 자연수&lt;/li&gt;
+  &lt;li&gt;고대 이집트 파피루스에도 기록&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;소수 찾기&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;어떤 자연수 n이 소수인지는 root(n)까지의 수 중 1을 제외한 약수가 있는지 확인&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;소수의 분포에 규칙성이 있을까? (리만의 가설)&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;소인수 분해&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;어떠한 정수 a&amp;gt;1은 다음과 같이 유일하게 소수의 곱으로 표현가능
+    &lt;ul&gt;
+      &lt;li&gt;a = $p_1^{a1}$ $p_2^{a2}$ … $p_t^{at}$&lt;/li&gt;
+      &lt;li&gt;$p_t$ &amp;gt; $p_{t-1}$ &amp;gt; … $p_1$ 는 소수, $a_1$ &amp;gt; 0&lt;/li&gt;
+      &lt;li&gt;예) 91 = 7x13, 3600 = $2^4$ x $3^2$ x $5^2$ , 10164 = 7 x $11^2$ x 12&lt;/li&gt;
+      &lt;li&gt;하지만, 여기서 7 x $11^2$ x 12 -&amp;gt; 10164는 쉽지만 역은 어렵다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;서로소 (relatively prime number)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;어떤 두 수가 공통적인 소인수를 갖지 못할 때 두 수는 서로소&lt;/li&gt;
+  &lt;li&gt;두 수의 최대 공약수가 1이면 서로소&lt;/li&gt;
+  &lt;li&gt;8과 15는 서로소인가? 서로소이다&lt;/li&gt;
+  &lt;li&gt;모든 정수의 솟수 표현법을 이용하면 최대 공약수 결정이 쉬워짐
+    &lt;ul&gt;
+      &lt;li&gt;300 = $2^2$ x $3^1$ x $5^2$, 18 = $2^1$ x $3^2$&lt;/li&gt;
+      &lt;li&gt;GCD(300,18) = $2^1$ x $3^1$ x $5^0$ = 6&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;모듈러 연산 (mod)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;나머지 연산&lt;/li&gt;
+  &lt;li&gt;a mod b: a를 b로 나눈 나머지&lt;/li&gt;
+  &lt;li&gt;어떤 양의 정수 n과 a가 주어지고, 만약 a를 n으로 나눈다면 다음과 같은 관계를 가지고 몫 q와 나머지 r을 얻는다
+    &lt;ul&gt;
+      &lt;li&gt;a = qn + r&lt;/li&gt;
+      &lt;li&gt;a = r mod n&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;example: a =11, n = 7
+    &lt;ul&gt;
+      &lt;li&gt;11 = 1 x 7 + 4 = 4 mod 7&lt;/li&gt;
+      &lt;li&gt;11 = 4 mod 7&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;모듈러 연산자 특성
+    &lt;ul&gt;
+      &lt;li&gt;[(a mod n) + (b mod n)] mod n = (a+b) mod n&lt;/li&gt;
+      &lt;li&gt;[(a mod n) x (b mod n)] mod n = (axb) mod n&lt;/li&gt;
+      &lt;li&gt;(w + x) mod n = (x+w) mod n (교환법칙)&lt;/li&gt;
+      &lt;li&gt;(w * x) mod n = (x * w) mod n (교환법칙)&lt;/li&gt;
+      &lt;li&gt;[ (w+x)+y ] mod n = [ w + (x+y) ] mod n (결합법칙)&lt;/li&gt;
+      &lt;li&gt;[ (w * x) * y ] mod n = [ w * (x * y) ] mod n (결합법칙)&lt;/li&gt;
+      &lt;li&gt;[ w *  (x + y) ] mod n = [( w * x) + (w * y)] mod n (분배법칙)&lt;/li&gt;
+      &lt;li&gt;(0 + w) mod n = w mod n&lt;/li&gt;
+      &lt;li&gt;(1 * w) mod n = w mod n&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;모듈러 연산의 항등원과 역원
+    &lt;ul&gt;
+      &lt;li&gt;항등원
+        &lt;ul&gt;
+          &lt;li&gt;어떤 원소와 연산을 해도 자기 자신이 되게 하는 원소&lt;/li&gt;
+          &lt;li&gt;항등원을 만들어 주는 유일한 원소가 역원&lt;/li&gt;
+          &lt;li&gt;모듈러 연산의 역원은?&lt;/li&gt;
+          &lt;li&gt;mod 5 연산, 3의 곱셉의 역원은?
+            &lt;ul&gt;
+              &lt;li&gt;(3 * ?) mod 5 = 1 ?는 mod 5 연산에 대한 3의 곱셉의  역원&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;합동 (Congruent)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;(a mod n) = (b mod n), e두 정수 a와 b는 modulo n에 대해 합동&lt;/li&gt;
+  &lt;li&gt;a $\equiv$ b mod n으로 표기&lt;/li&gt;
+  &lt;li&gt;예를 들어, 14와 20은 mod 6에 대하여 합동&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;페르마 정리 (Fermat Theorem)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;만약 p가 소수라면 a는 p에 의해 나누어지지 않는 양의 정수이면, 다음이 성립한다
+    &lt;ul&gt;
+      &lt;li&gt;$a^{p-1}$ $\equiv$ 1 mod p&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;페르마 정리의 다른 유용한 형태
+    &lt;ul&gt;
+      &lt;li&gt;만약 p가 소수이고 a가 양의 정수라면 $a^p$ $\equiv$ a mod p가 성립한다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;오일러 정리 (Euler Theorem)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;오일러의 Totient 함수
+    &lt;ul&gt;
+      &lt;li&gt;정수론에서 오일러의 totient 함수는 φ(n)라고 표기된다&lt;/li&gt;
+      &lt;li&gt;φ(n): n보다 작고 n과 서로 소인 양의 정수의 개수&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;오일러 함수의 특성
+    &lt;ul&gt;
+      &lt;li&gt;φ(1) = 1&lt;/li&gt;
+      &lt;li&gt;소수n에 대해서 φ(n) = n - 1&lt;/li&gt;
+      &lt;li&gt;소수 p와 q에 대해서 n = pq
+        &lt;ul&gt;
+          &lt;li&gt;φ(n) = φ(pq) = φ(p) * φ(q) = (p-1)(q-1)&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;오일러 정리
+    &lt;ul&gt;
+      &lt;li&gt;서로소인 모든 a와 n에 대한 관계를 나타낸다ㅏ
+        &lt;ul&gt;
+          &lt;li&gt;$a^{φ(n)}$ $\equiv$ 1 mod n&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;오일러 정리의 추가적인 특성
+    &lt;ul&gt;
+      &lt;li&gt;$a^{φ(n)+1}$ $\equiv$ a mod n&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;이러한 속성은 RSA 알고리즘의 유용성을 증명할 수 있음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;확장된 유클리드 알고리즘&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;유클리드 알고리즘
+    &lt;ul&gt;
+      &lt;li&gt;두 양의 정수들에 대한 최대 공약수 찾기&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;확장된 유클리드 알고리즘
+    &lt;ul&gt;
+      &lt;li&gt;한 수에 대한 곱셈의 역원 결정&lt;/li&gt;
+      &lt;li&gt;만약 GCD(d,f)=1이라면 그때 d는 modulo f 상에서 곱셉에 대한 역원을 갖는다&lt;/li&gt;
+      &lt;li&gt;양의 정수 d &amp;lt; f에 대해, d $d^{-1}$ = 1 mod f인 $d^{-1}$ &amp;lt; f가 유일하게 존재&lt;/li&gt;
+      &lt;li&gt;알고리즘은 $d^{-1}$를 찾아주는 것이다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="security" />
+      
+
+      
+        <summary type="html">Number Theory for RSA</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">Symmetric Key Cipher</title>
       <link href="https://lee989898.github.io/sc-03" rel="alternate" type="text/html" title="Symmetric Key Cipher" />
-      <published>2021-09-09T01:06:00+09:00</published>
-      <updated>2021-09-09T01:06:00+09:00</updated>
+      <published>2021-09-16T01:06:00+09:00</published>
+      <updated>2021-09-16T01:06:00+09:00</updated>
       <id>https://lee989898.github.io/sc-03</id>
       <content type="html" xml:base="https://lee989898.github.io/sc-03">&lt;h3 id=&quot;symmetric-key-cipher&quot;&gt;&lt;strong&gt;Symmetric Key Cipher&lt;/strong&gt;&lt;/h3&gt;
 
@@ -889,168 +1544,6 @@ Message를 block으로 나누어서 고정된 길이의 입력값을 받아들�
 
       
         <summary type="html">Cryptography</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">Public Key Cipher</title>
-      <link href="https://lee989898.github.io/sc-04" rel="alternate" type="text/html" title="Public Key Cipher" />
-      <published>2021-09-09T01:06:00+09:00</published>
-      <updated>2021-09-09T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/sc-04</id>
-      <content type="html" xml:base="https://lee989898.github.io/sc-04">&lt;h3 id=&quot;public-key-cipher&quot;&gt;&lt;strong&gt;Public Key Cipher&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Symmetric vs public key&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Encryption key와 decryption key 동일 여부&lt;/li&gt;
-  &lt;li&gt;같으면 symmetric, 다르면 public key&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Why no Symmetric key?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Symmetric은 빠르고, 안전하다&lt;/li&gt;
-  &lt;li&gt;동일한 키를 나눠 갖기 어렵다&lt;/li&gt;
-  &lt;li&gt;인터넷에서 키를 나눠 갖기 어렵다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Public key Cipher&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;송신자, 수신자가 키를 나누어 가지 필요가 없다&lt;/li&gt;
-  &lt;li&gt;private,public키 2가지를 나눠 갖는다&lt;/li&gt;
-  &lt;li&gt;Public key로 잠그면 private key로 열고, private key로 잠그면 public key로 열린다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="security" />
-      
-
-      
-        <summary type="html">Public Key Cipher</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">Intro</title>
-      <link href="https://lee989898.github.io/sc-01" rel="alternate" type="text/html" title="Intro" />
-      <published>2021-09-02T01:06:00+09:00</published>
-      <updated>2021-09-02T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/sc-01</id>
-      <content type="html" xml:base="https://lee989898.github.io/sc-01">&lt;h3 id=&quot;intro&quot;&gt;&lt;strong&gt;Intro&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;컴퓨터 보안이란?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;컴퓨터 hw,sw, 데이터의 도난이나 손상, 컴퓨터가 제공하는 서비스의 중단 또는 오용으로부터 컴퓨터 시스템을 보호&lt;/p&gt;
-
-&lt;p&gt;보안의 대상: information system resource (hardware, software,data,communication facilities and network)&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;보안의 목표: CIA Triad + Authentication&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Key Concepts 1: Confidentiality&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Secrecy이라고도 함&lt;/li&gt;
-  &lt;li&gt;기밀성,비밀성&lt;/li&gt;
-  &lt;li&gt;송신자와 수신자만이 내용을 알 수 있게 하는 것&lt;/li&gt;
-  &lt;li&gt;허가된 사용자, 장비만이 data 내용을 알 수 있도록 하는 것&lt;/li&gt;
-  &lt;li&gt;주요 공격: eavesdrop(도청), interception&lt;/li&gt;
-  &lt;li&gt;Confidentiality를 지키기 위한 Solution : Encrypt,decrypt&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Key Concepts 2: Integrity&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;무결성&lt;/li&gt;
-  &lt;li&gt;원본 그대로임을 보장. 변조가 없다는 것 혹은 변경이 있었음을 알게 됨&lt;/li&gt;
-  &lt;li&gt;주요 공격: modification&lt;/li&gt;
-  &lt;li&gt;Integrity를 지키기 위한 Solution: hash&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Key Concepts 3: Availablilty&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;가용성&lt;/li&gt;
-  &lt;li&gt;합법적인 사용자가 허가된 시간에 데이터나 서비스에 access 가능하게 하는것&lt;/li&gt;
-  &lt;li&gt;주요공격: interruption, DDos attack&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Key Concepts 4: Authentication&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;인증&lt;/li&gt;
-  &lt;li&gt;송수신자 서로간의 신원확인&lt;/li&gt;
-  &lt;li&gt;주요공격: impersonation&lt;/li&gt;
-  &lt;li&gt;Authentication을 지키기 위한 Solution: 전자서명, 공인인증서&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="security" />
-      
-
-      
-        <summary type="html">Intro</summary>
       
 
       
