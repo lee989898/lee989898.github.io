@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/security/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-11-04T19:48:17+09:00</updated>
+  <updated>2021-11-05T23:39:59+09:00</updated>
   <id>https://lee989898.github.io/tag/security/feed.xml</id>
 
   
@@ -30,6 +30,269 @@
   
   
 
+  
+    <entry>
+      <title type="html">접근 제어</title>
+      <link href="https://lee989898.github.io/sc-12" rel="alternate" type="text/html" title="접근 제어" />
+      <published>2021-11-04T01:06:00+09:00</published>
+      <updated>2021-11-04T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc-12</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-12">&lt;h3 id=&quot;접근-제어&quot;&gt;&lt;strong&gt;접근 제어&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Access Control&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;허가되지 않은 사용자의 자원 접근 막고&lt;/li&gt;
+  &lt;li&gt;정당한 사용자라도 허가되지 않은 방법으로 자원사용 막고&lt;/li&gt;
+  &lt;li&gt;정당한 사용자가 허가된 방식으로만 자원에 접근하도록&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Access control components&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc17.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Authentication function: 사용자가 시스템에 접근할 수 있는지 결정&lt;/li&gt;
+  &lt;li&gt;Access control function: 사용자의 요청이 허용되는지 결정&lt;/li&gt;
+  &lt;li&gt;Security admin: 사용자의 요청이 자원에 어떻게 접근하는지를 명시한 권한 DB를 관리&lt;/li&gt;
+  &lt;li&gt;Audit: 사용자가 시스템 자원에 접근하는 것을 기록, 감시&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Access control architecture&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc18.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Access Control Policy&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;접근 제어 정책&lt;/li&gt;
+  &lt;li&gt;어떤 상황에서, 누구에게 어떤 종류의 접근이 허용되는지를 결정&lt;/li&gt;
+  &lt;li&gt;권한 DB에 저장되며 보안 admin이 관리&lt;/li&gt;
+  &lt;li&gt;종류 (동시에 사용가능)
+    &lt;ul&gt;
+      &lt;li&gt;Discretinoary access control(DAC)&lt;/li&gt;
+      &lt;li&gt;Mandatory access control(MAC)&lt;/li&gt;
+      &lt;li&gt;Role-based access control(RBAC)&lt;/li&gt;
+      &lt;li&gt;Attribute-based access control(ABAC)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Discretinoary access control(DAC)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;임의 접근 제어&lt;/li&gt;
+  &lt;li&gt;요청자의 신분에 따라 무엇을 할 수 있는지 정의&lt;/li&gt;
+  &lt;li&gt;Window, unix 등 컴퓨터 시스템 널리 사용&lt;/li&gt;
+  &lt;li&gt;Access Matrix 사용
+    &lt;ul&gt;
+      &lt;li&gt;주체와 객체, 권한을 행렬로 표현&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Access matrix
+    &lt;ul&gt;
+      &lt;li&gt;행: 자원접근 주체, subject&lt;/li&gt;
+      &lt;li&gt;열: subject가 접근하는 대상자원, object&lt;/li&gt;
+      &lt;li&gt;Entry: 허용되는 접근&lt;/li&gt;
+      &lt;li&gt;-Matrix가 커질 수 있고, 희박해지면 메모리 낭비&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc19.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;방법1. ACL - Access control lists
+    &lt;ul&gt;
+      &lt;li&gt;Access matrix를 열로 분리&lt;/li&gt;
+      &lt;li&gt;객체에 대한 권한을 가진 주체 파악에 유리&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc20.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;방법2. Capablility tickets
+    &lt;ul&gt;
+      &lt;li&gt;Access matrix 행으로 분리&lt;/li&gt;
+      &lt;li&gt;특정 주체에 대해 승인된 객체와 권한 명시&lt;/li&gt;
+      &lt;li&gt;특정 사용자에 허가된 객체/권한들을 정리하기 쉬움&lt;/li&gt;
+      &lt;li&gt;다른 주체에서 티켓을 빌려 주거나 양도 -&amp;gt; 보안문제 발생&lt;/li&gt;
+      &lt;li&gt;티켓 무결성, 기밀성, 인증성&lt;/li&gt;
+      &lt;li&gt;OS가 관리&lt;/li&gt;
+      &lt;li&gt;분산, Cloud 환경에 적합&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc21.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;방법 3. authorization table
+    &lt;ul&gt;
+      &lt;li&gt;한 행에 한 주제의 한 자원에 대한 권한명시&lt;/li&gt;
+      &lt;li&gt;RDB로 구현 용이&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc22.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;DAC 장단점 분석
+    &lt;ul&gt;
+      &lt;li&gt;장점
+        &lt;ul&gt;
+          &lt;li&gt;객체별 세분화된 접근 제어가능&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;단점
+        &lt;ul&gt;
+          &lt;li&gt;Access Matrix 사용에 따른 메모리 낭비&lt;/li&gt;
+          &lt;li&gt;주체나 객체별로 제어하기 때문에, 전체 자원의 일관성 있는 제어 어려움&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Role-based access control (RBAC)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;각 사용자 대신에 역할에 접근 권할을 할당&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;상업적으로 회사,기관,조직에서 많이 쓰임&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;사용자 vs 역할 vs 자원의 관계는 다대다&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;관계는 동적이다&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;RBAC 장단점 분석
+    &lt;ul&gt;
+      &lt;li&gt;장점
+        &lt;ul&gt;
+          &lt;li&gt;전체적으로 일관성있는 제어정책가능&lt;/li&gt;
+          &lt;li&gt;직무분석 용이&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;단점
+        &lt;ul&gt;
+          &lt;li&gt;각 주체, 객체별 유연하게 하기 어려움&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Attribute-based access control(ABAC)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;가장 최근&lt;/li&gt;
+  &lt;li&gt;주체와 자원의 속성을 표현&lt;/li&gt;
+  &lt;li&gt;DAC, RBAC의 기본개념 실형가능&lt;/li&gt;
+  &lt;li&gt;유연성과 표현력이 우수&lt;/li&gt;
+  &lt;li&gt;3요소 - 속성, 정책 모델, 아키텍처 모델&lt;/li&gt;
+  &lt;li&gt;+유연하고 세분화 보안정책 설계&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;-설계자 과다업무, 비용&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;속성
+    &lt;ul&gt;
+      &lt;li&gt;주체, 객체, 환경, 권한에 의해 미리 정의되고 할당된 요구되는 동작의 특정 측면을 정의하는 성질​&lt;/li&gt;
+      &lt;li&gt;주체 속성​
+        &lt;ul&gt;
+          &lt;li&gt;주체는 정보가 객체사이에 이동하거나 시스템 상태를 변경하는 능동적 존재(User, application, process, device)​&lt;/li&gt;
+          &lt;li&gt;주체의 이름, 소속, 직책 등​&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;객체 속성​
+        &lt;ul&gt;
+          &lt;li&gt;정보를 포함하거나 받는 수동적 시스템 존재 (file, device, table, record, process, program, network)​&lt;/li&gt;
+          &lt;li&gt;MS Word문서는 이름, 저자, 날짜 등을 속성으로 가짐​&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;환경 속성​
+        &lt;ul&gt;
+          &lt;li&gt;운영, 기술, 상황, 환경 기술​&lt;/li&gt;
+          &lt;li&gt;현재 날짜, 시간, 네트워크 보안 레벨&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="security" />
+      
+
+      
+        <summary type="html">접근 제어</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">signature</title>
@@ -1381,169 +1644,6 @@ a = $g^k$  mod p, b = $Y^k$ M mod p 를 계산
 
       
         <summary type="html">Symmetric Key Cipher</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">Cryptograpghy</title>
-      <link href="https://lee989898.github.io/sc-02" rel="alternate" type="text/html" title="Cryptograpghy" />
-      <published>2021-09-09T01:06:00+09:00</published>
-      <updated>2021-09-09T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/sc-02</id>
-      <content type="html" xml:base="https://lee989898.github.io/sc-02">&lt;h3 id=&quot;cryptography&quot;&gt;&lt;strong&gt;Cryptography&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Cryptography?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Cryptography: 안전한 암호 만드는 학문&lt;/li&gt;
-  &lt;li&gt;Cryptoanalysis: 암호 해독&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Cryptology: 암호학&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Steganography: 메시지 존재자체를 숨기는 것&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;암호(Encrypt/Decrypt)란?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;암호(cryptography)&lt;/li&gt;
-  &lt;li&gt;비밀정보의 교환을 위해 생겨남
-    &lt;ul&gt;
-      &lt;li&gt;처음에는 군사용으로 주로 사용&lt;/li&gt;
-      &lt;li&gt;현재 전자상거래, 전자우편, 무선통신 등에 널리 쓰임&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;4차산업혁명시대: 정보의 관리, 보호의 중요성 증대
-    &lt;ul&gt;
-      &lt;li&gt;국가, 회사, 단체, 개인에 막대한 영향&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;암호체계의 효용성 및 안전성 분석
-    &lt;ul&gt;
-      &lt;li&gt;고급 수학이론에 기반&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;용어 및 등장인물&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;인터넷은 공개망이다&lt;/li&gt;
-  &lt;li&gt;등장인물: Alice,Bob,hacker&lt;/li&gt;
-  &lt;li&gt;평문(plaintext): 암호화전 문장&lt;/li&gt;
-  &lt;li&gt;암호문(ciphertext): 암호화된 문장&lt;/li&gt;
-  &lt;li&gt;암호화(encryption): 평문을 암호문으로 바꾸는 과정&lt;/li&gt;
-  &lt;li&gt;복호화(decryption): 암호문을 평문으로 바꾸는 과정&lt;/li&gt;
-  &lt;li&gt;암호 알고리즘: 암호와 알고리즘과 복호화 알고리즘&lt;/li&gt;
-  &lt;li&gt;키(key): 암호 알고리즘에 사용되는 정보&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;History of Cryptography&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;제1세대 암호
-    &lt;ul&gt;
-      &lt;li&gt;고대 그리스 ~ 19세기 말&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;제2세대 암호
-    &lt;ul&gt;
-      &lt;li&gt;20세기 전반부(전신의 발명 ~ 제2차 세계대전 이전)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;제3세대 암호 - 현대암호
-    &lt;ul&gt;
-      &lt;li&gt;제2차 세계대전 종전 이후 ~ 현재&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Shift Cipher&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Substitution Cipher&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;대치, 치환&lt;/li&gt;
-  &lt;li&gt;각 글자를 다른 글자로 대치&lt;/li&gt;
-  &lt;li&gt;키 space는 26!&lt;/li&gt;
-  &lt;li&gt;초당 10&lt;sup&gt;10&lt;/sup&gt; 개 키 계산해도 10&lt;sup&gt;11&lt;/sup&gt; 년 소요&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Vigenere Cipher&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;비게네르 암호
-  암호화 키를 선택: 키 = (5,22,3,14)
-  평문: (crypto) = (2,17,24,15,19,14)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;암호화: (2,17,24,15,19,14) + (5,22,3,14,5,22) ≡ (7,13,1,3,24,10) = (hnbdyk)​&lt;/li&gt;
-  &lt;li&gt;복호화: (7,13,1,3,24,10) - (5,22,3,14,5,22) ≡ (2,17,24,15,19,14) = (crypto)​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Alan Turing&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Enigma 해독&lt;/li&gt;
-  &lt;li&gt;최초의 컴퓨터 colossus 제작&lt;/li&gt;
-  &lt;li&gt;인공지능 시조&lt;/li&gt;
-  &lt;li&gt;컴퓨터 이론 확립&lt;/li&gt;
-  &lt;li&gt;튜링테스트, 튜링머신&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="security" />
-      
-
-      
-        <summary type="html">Cryptography</summary>
       
 
       

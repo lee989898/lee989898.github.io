@@ -200,6 +200,24 @@ into the {body} of the default.hbs template -->
 <script>
     window.store = {
     
+    "sc-12": {
+        "title": "접근 제어",
+            "author": "lee989898",
+            "category": "",
+            "content": "접근 제어  Access Control  허가되지 않은 사용자의 자원 접근 막고  정당한 사용자라도 허가되지 않은 방법으로 자원사용 막고  정당한 사용자가 허가된 방식으로만 자원에 접근하도록  Access control components  Authentication function: 사용자가 시스템에 접근할 수 있는지 결정  Access control function: 사용자의 요청이 허용되는지 결정  Security admin: 사용자의 요청이 자원에 어떻게 접근하는지를 명시한 권한 DB를 관리  Audit: 사용자가 시스템 자원에 접근하는 것을 기록, 감시  Access control architecture  Access Control Policy  접근 제어 정책  어떤 상황에서, 누구에게 어떤 종류의 접근이 허용되는지를 결정  권한 DB에 저장되며 보안 admin이 관리  종류 (동시에 사용가능)          Discretinoary access control(DAC)      Mandatory access control(MAC)      Role-based access control(RBAC)      Attribute-based access control(ABAC)        Discretinoary access control(DAC)  임의 접근 제어  요청자의 신분에 따라 무엇을 할 수 있는지 정의  Window, unix 등 컴퓨터 시스템 널리 사용  Access Matrix 사용          주체와 객체, 권한을 행렬로 표현        Access matrix          행: 자원접근 주체, subject      열: subject가 접근하는 대상자원, object      Entry: 허용되는 접근      -Matrix가 커질 수 있고, 희박해지면 메모리 낭비        방법1. ACL - Access control lists          Access matrix를 열로 분리      객체에 대한 권한을 가진 주체 파악에 유리        방법2. Capablility tickets          Access matrix 행으로 분리      특정 주체에 대해 승인된 객체와 권한 명시      특정 사용자에 허가된 객체/권한들을 정리하기 쉬움      다른 주체에서 티켓을 빌려 주거나 양도 -&gt; 보안문제 발생      티켓 무결성, 기밀성, 인증성      OS가 관리      분산, Cloud 환경에 적합        방법 3. authorization table          한 행에 한 주제의 한 자원에 대한 권한명시      RDB로 구현 용이        DAC 장단점 분석          장점                  객체별 세분화된 접근 제어가능                    단점                  Access Matrix 사용에 따른 메모리 낭비          주체나 객체별로 제어하기 때문에, 전체 자원의 일관성 있는 제어 어려움                      Role-based access control (RBAC)  각 사용자 대신에 역할에 접근 권할을 할당      상업적으로 회사,기관,조직에서 많이 쓰임    사용자 vs 역할 vs 자원의 관계는 다대다      관계는 동적이다    RBAC 장단점 분석          장점                  전체적으로 일관성있는 제어정책가능          직무분석 용이                    단점                  각 주체, 객체별 유연하게 하기 어려움                      Attribute-based access control(ABAC)  가장 최근  주체와 자원의 속성을 표현  DAC, RBAC의 기본개념 실형가능  유연성과 표현력이 우수  3요소 - 속성, 정책 모델, 아키텍처 모델  +유연하고 세분화 보안정책 설계      -설계자 과다업무, 비용    속성          주체, 객체, 환경, 권한에 의해 미리 정의되고 할당된 요구되는 동작의 특정 측면을 정의하는 성질​      주체 속성​                  주체는 정보가 객체사이에 이동하거나 시스템 상태를 변경하는 능동적 존재(User, application, process, device)​          주체의 이름, 소속, 직책 등​                    객체 속성​                  정보를 포함하거나 받는 수동적 시스템 존재 (file, device, table, record, process, program, network)​          MS Word문서는 이름, 저자, 날짜 등을 속성으로 가짐​                    환경 속성​                  운영, 기술, 상황, 환경 기술​          현재 날짜, 시간, 네트워크 보안 레벨                    ",
+        "url": "/sc-12"
+    }
+    ,
+    
+    "pl-17": {
+        "title": "ImplementSubprogram",
+            "author": "lee989898",
+            "category": "",
+            "content": "ImplementSubprogram서브프로그램 호출과 반환의 구현, 이것을 서브프로그램 링키지(linkage)라고 합니다.​  Semantics of Calls and Returns서브프로그램 링키지는 호출과 반환에 관련된 액션들의 실행으로 구성된다. ​이러한 액션들을 호출 및 반환 시맨틱이라고 한다. ​일반적인 서브프로그램 호출 시맨틱은 다음을 포함한다. ​  파라미터 패싱 방법의 구현, ​  로컬 변수에 대한 스토리지 할당 및 바인딩 (로컬 변수가 정적 변수가 아닐 경우) ​  콜러의 실행 상태 저장: ​          실행상태는 콜러의 재실행(resume)에 필요한 레지스터 값, CPU 상태 비트, 환경 포인터(EP)를 포함하며,​      EP는 콜리의 실행 중에, 로컬 변수 및 파라미터를 접근하는데 사용된다.  ​        콘트롤을 콜리에게 이전​  콜리에 나타나는 난로컬 변수의 접근 메커니즘의 생성서브프로그램의 반환 시맨틱은 다음을 포함한다. ​  포말 파라미터의 로컬 값을 액추얼 파라미터에게 인아웃 또는 아웃 모드로 카피​  로컬 변수의 스토리지를 해제​  콜러 실행 상태의 재저장​  콜러에게 콘트롤 이전  Implementing “Simple” Subprograms단순 서브프로그램의 호출 및 반환을 어떻게 구현하는지 보자.  단순 서브프로그램에서는 ​서브프로그램의 중첩을 허용하지 않고, 모든 로컬 변수가 정적이다. ​  호출과 반환에 필요한 스토리지는 다음의 데이터를 포함한다. ​          콜러의 상태 정보, 파라미터, 복귀 주소, 함수의 반환값​        단순 서브프로그램은 서브프로그램 코드와 데이터로 구성되는데, ​          데이터 파트는 로컬 변수, 호출과 반환에 필요한 데이터(위에 언급된)를 포함한다.      단순 서브프로그램의 호출 시맨틱스(액션과 그 순서)은 다음과 같다. ​  현재 수행중인 프로그램(콜러)의 실행 상태를 저장 ​  파라미터의 계산 및 패스​  콜리에게 복귀 주소를 패스​  콜리에게 컨트롤을 이전단순 프로그램의 반환 시맨틱스(액션과 그 순서)는 다음과 같다. ​  포말 파라미터의 현재 값을 대응하는 액추얼 파라미터에게 카피 (만일 pass-by-value-result나 pass-by-value라면) ​  함수 값을 콜러에게 카피(만일 콜리가 함수라면) ​  콜러의 실행 상태를 재저장​  콜러에게 컨트롤을 재이전(되돌려줌)실행중인 서브프로그램의 데이터 파트를 위한 데이터 구조로 액티베이션 레코드를 정의한다.액티베이션 레코드는 로컬 변수, 파라미터, 복귀 주소로 구성된다.단순 서브프로그램의 액티베이션 레코드(AR)는 크기가 고정되어 있고, ​정적으로 할당된다.따라서 스택에 저장되지 않는다. ​이러한 액티베이션 레코드는 recursion을 지원할 수 없다.​위 그림은 단순 서브프로그램의 액티베이션 레코드의 예이다.예에서 단순 서브프로그램은 A, B, C이고, 이들의 코드와 액티베이션 레코드는 오른쪽 그림과 같이 메모리에 할당된다.메모리에 할당되는 A, B, C의 코드와 데이터의 위치는 ​정적으로 할당되기 때문에 호출되는 순서와 무관하다.A, B, C 모두 별개로 컴파일될 수 있으며, ​이 경우 링커에 의해 그림과 같이 모아진다.  Implementing Subprograms with Stack-Dynamic Local Variables서브프로그램의 로컬 변수가 스택-동적일 경우, ​서브프로그램의 호출 및 반환 구현에 대해 알아보자.스택 동적 로컬 변수는 런타임 스택에 할당된다. ​장점은 recursion의 지원이다.  ​스택-동적 로컬 변수가 있는 서브프로그램의 호출과 반환을 구현하려면 ​액티베이션 레코드가 더욱 복잡해진다.  ​  컴파일러는 ‘스택에서 로컬 변수의 암묵적인 할당과 해제’를 지원하기 위한 코드를 생성해야 한다.  ​      Recursion은 하나의 서브프로그램에 대해 여러 개의 액티베이션 레코드를 추가할 가능성이 있다. ​즉, 액티베이션 레코드 여러 개가 스택에 생성된다.    int AddTwo(int x,y){  int sum;  sum = x + y;  return sum;}      위 함수를 실행하려면 어떤 데이터가 필요할까?파라미터 x, y, 로컬 변수 sum, AddTwo 종료후 복귀할 return address이와 같이, 액티베이션 레코드는 함수를 한번 실행하는데 필요한 데이터로 구성된다. ​그러면… 스택에 저장된 이들 변수를 어떻게 접근할까? ​Caller의 스택 포인터를 이용하면 가능한가? 아니다.SP는 액티베이션 레코드를 스택에 저장하고자 할 때, ​스택 메모리를 할당하고(나중에 해제하는) ‘시스템이 사용하는’ 레지스터이다.따라서 서브프로그램이 사용할 수 있는 레지스터가 아니다.​액티베이션 레코드에 저장된 파라미터나 로컬 변수에 접근하려면, ​      액티베이션 레코드에 접근할 때, ​BP(베이스 포인터)를 사용한다.BP는 AR의 맨앞의 주소를 말하며, ​서브프로그램의 실행 중에 변경되지 않는다.BP는 지정된 레지스터에 저장되는데, 그림에서 이것을 BP라고 표시하자. ​        파라미터나 로컬 변수에 접근하려면, ​BP+옵셋을 계산하여 스택에 저장된 파라미터나 로컬 변수에 접근한다. ​        서브프로그램이 종료되어 반환될 때, ​BP는 ‘caller의 액티베이션 레코드의 BP’로 재저장된다.여기서 return addr는 복귀 주소로, ​서브프로그램의 종료후 되돌아갈 caller의 위치를 나타낸다.  BP는 항상 현재 실행 중인 프로그램의 액티베이션 레코드의 시작 주소를 가리킨다.서브 프로그램이 호출되면, 현재 BP는 callee의 액티베이션 레코드(dynamic link)에 저장되고 ​BP는 새로 생성된 callee의 액티베이션 레코드의 시작 주소를 가리키도록 새롭게 설정된다.즉, callee로부터 반환되자마자, BP는 callee의 액티베이션 레코드(dynamic link)의 값으로 재저장된다.​​위 그림은 코드와 데이터, 서브프로그램 링키지 코드(AddTwo PROC),그리고 액티베이션 레코드가 저장된 스택을 보여준다.esp, ebp는 각각 스택포인터, 베이스 포인터이며, eax는 반환값을 저장하는 장소이다AddTwo PROC은 스택에 할당된 액티베이션 레코드에 접근하여, ​스택에 저장된 두 수를 더하여 eax에 저장하여 반환하고, 반환후 5와 6이 저장되었던 8 바이트를 청소하고 종료하는 과정을 보여준다.이때 EBP, ESP를 caller의 것으로 변경한다.​Recursion이 없이, 여러 서브프로그램으로 구성된 프로그램에서, ​메인이 B를 호출하고, ​B가 C를 호출하고, ​A가 C를 호출한다고 하자. 그렇게 되면, 위와 같이 액티베이션 레코드가 스택 메모리에 할당된다.동적 링크는 바로 아래(caller)의 액티베이션 레코드를 가리킨다.이와 같이, 스택에 스택-동적 액티베이션 레코드가 연속적으로 쌓여진 것을 동적 체인(dynamic chain)이라고 한다.로컬 변수의 접근은 BP와 옵셋을 계산에 의하며, 이러한 옵셋을 로컬 옵셋이라고 한다.로컬 변수의 로컬 옵셋은 컴파일러에 의해 컴파일 타임에 결정된다.​​​Recursion이 있을 때, ​액티베이션 레코드는  위의 그림과 같다. ​여기서 파라미터는 n이다.첫째, 둘째, 셋째 recursion을 호출했을 때 function value가 모두 ?셋째 recursion을 종료되었을 때 둘째 호출이 종료되었을 때 function value가 모두 ?이 아니다.",
+        "url": "/pl-17"
+    }
+    ,
+    
     "st-02": {
         "title": "Signal",
             "author": "lee989898",
@@ -695,6 +713,105 @@ into the {body} of the default.hbs template -->
     }
     ,
     
+    "python-13": {
+        "title": "PYTHON",
+            "author": "lee989898",
+            "category": "",
+            "content": "",
+        "url": "/python-13"
+    }
+    ,
+    
+    "python-12": {
+        "title": "PYTHON",
+            "author": "lee989898",
+            "category": "",
+            "content": "",
+        "url": "/python-12"
+    }
+    ,
+    
+    "python-11": {
+        "title": "PYTHON",
+            "author": "lee989898",
+            "category": "",
+            "content": "",
+        "url": "/python-11"
+    }
+    ,
+    
+    "python-10": {
+        "title": "PYTHON",
+            "author": "lee989898",
+            "category": "",
+            "content": "",
+        "url": "/python-10"
+    }
+    ,
+    
+    "python-09": {
+        "title": "PYTHON",
+            "author": "lee989898",
+            "category": "",
+            "content": "",
+        "url": "/python-09"
+    }
+    ,
+    
+    "python-08": {
+        "title": "PYTHON",
+            "author": "lee989898",
+            "category": "",
+            "content": "",
+        "url": "/python-08"
+    }
+    ,
+    
+    "python-07": {
+        "title": "PYTHON",
+            "author": "lee989898",
+            "category": "",
+            "content": "",
+        "url": "/python-07"
+    }
+    ,
+    
+    "python-06": {
+        "title": "PYTHON",
+            "author": "lee989898",
+            "category": "",
+            "content": "",
+        "url": "/python-06"
+    }
+    ,
+    
+    "python-05": {
+        "title": "PYTHON",
+            "author": "lee989898",
+            "category": "",
+            "content": "",
+        "url": "/python-05"
+    }
+    ,
+    
+    "python-04": {
+        "title": "PYTHON",
+            "author": "lee989898",
+            "category": "",
+            "content": "",
+        "url": "/python-04"
+    }
+    ,
+    
+    "python-03": {
+        "title": "PYTHON",
+            "author": "lee989898",
+            "category": "",
+            "content": "",
+        "url": "/python-03"
+    }
+    ,
+    
     "kotlin-02": {
         "title": "변수와 자료형",
             "author": "lee989898",
@@ -713,11 +830,20 @@ into the {body} of the default.hbs template -->
     }
     ,
     
-    "python-01": {
-        "title": "Git 기초 명령어",
+    "python-02": {
+        "title": "PYTHON",
             "author": "lee989898",
             "category": "",
-            "content": "  git –version결과  git config –global init.defaultBranch main  git config –global user.name “name” 앞으로 이컴퓨터에서 깃으로 관리하는 프로젝트는 모두 다 이유저네임으로 한다는 뜻이다.  git config –global user.email “email”  git config –list제대로 되었는지 확인  git init .git 폴더 생성.git 폴더가 생성된 폴더는 git이 관리하기 시작함.최초 1회만 해주면 된다.  git add .모든 파일 스테이징(말이 어렵지만 추적을 시작한다라고 보시면 됩니다.)  git commit -m “message”message 이름으로 현재 추적하고 있는 코드들을 ‘찰칵’  git log커밋 로그를 확인  git status현재 git 상태 보여줌  git reset – hard 커밋코드커밋 번호에 해당하는 커밋으로 코드를 롤백  git remote add origin 리포지토리 주소리포지토리와 내 로컬 폴더를 연결한다. (이게 없으면 깃과 깃허브는 만ㅇ날 수 없다)  git push origin main깃허브 리포지토리 메인 브랜치에 현재 커밋들을 넣는다.  git clone 리포지토리 주소깃허브 리포지토리에서 모든 커밋들을 내 로커로 가져온다  git pull origin main서버에서 변경사항이 일어난 것을 로컬로 동기화한다.git init -&gt;gid add -&gt; git commit -&gt; 리포지토리만들기 -&gt; git remote add origin 리포지토리 주소 -&gt; git push origin main리포지토리만들기 -&gt; git clone 리포지토리주소 -&gt; 필요한 폴더 넣기-&gt; git add . -&gt; git commit -&gt;  -&gt; git push origin maijn  .gitingnoretxt 파일로 만들어서 확장자 없애기 *.exe 로 하면 exe는 커밋 및 올리지마하지만 매번 하면 귀찮gitignore.io사이트에서 활용하면 좋음  git branch현재 생성되어있는 브랜치의 목록을 본다.  git branch newFeaturenew Fragute이라는 새로운 브랜치를 만든다.  git checkout newFeaute이라는 브랜치로 이동한다  git branch -D newfraure이라는 브랜치를 삭제한다.  git push origin 브랜치이름특정 브랜치를 깃허브에 푸시한다  git pull origin 브랜치이름브랜치를 깃허브에서 가져와서 최신화한다.",
+            "content": "",
+        "url": "/python-02"
+    }
+    ,
+    
+    "python-01": {
+        "title": "PYTHON",
+            "author": "lee989898",
+            "category": "",
+            "content": "",
         "url": "/python-01"
     }
     ,
