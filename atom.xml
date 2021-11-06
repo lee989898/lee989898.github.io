@@ -38,31 +38,16 @@
     
       
       <item>
-        <title>Signal</title>
+        <title>프로세스통신-pipe</title>
         
-          <description>&lt;h3 id=&quot;signal&quot;&gt;&lt;strong&gt;Signal&lt;/strong&gt;&lt;/h3&gt;
+          <description>&lt;h3 id=&quot;프로세스통신-pipe&quot;&gt;&lt;strong&gt;프로세스통신-pipe&lt;/strong&gt;&lt;/h3&gt;
 
 </description>
         
         <pubDate>Sun, 31 Oct 2021 01:06:00 +0900</pubDate>
         <link>
-        https://lee989898.github.io/st-02</link>
-        <guid isPermaLink="true">https://lee989898.github.io/st-02</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>Process_Control</title>
-        
-          <description>&lt;h3 id=&quot;process-control&quot;&gt;&lt;strong&gt;Process Control&lt;/strong&gt;&lt;/h3&gt;
-
-</description>
-        
-        <pubDate>Sun, 31 Oct 2021 01:06:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/st-01</link>
-        <guid isPermaLink="true">https://lee989898.github.io/st-01</guid>
+        https://lee989898.github.io/st-08</link>
+        <guid isPermaLink="true">https://lee989898.github.io/st-08</guid>
       </item>
       
     
@@ -113,6 +98,21 @@
     
       
       <item>
+        <title>Signal</title>
+        
+          <description>&lt;h3 id=&quot;signal&quot;&gt;&lt;strong&gt;Signal&lt;/strong&gt;&lt;/h3&gt;
+
+</description>
+        
+        <pubDate>Wed, 27 Oct 2021 01:06:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/st-07</link>
+        <guid isPermaLink="true">https://lee989898.github.io/st-07</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>탐욕 기법</title>
         
           <description>&lt;h3 id=&quot;탐욕-기법&quot;&gt;&lt;strong&gt;탐욕 기법&lt;/strong&gt;&lt;/h3&gt;
@@ -153,6 +153,21 @@
         <link>
         https://lee989898.github.io/pl-15</link>
         <guid isPermaLink="true">https://lee989898.github.io/pl-15</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Process_Control</title>
+        
+          <description>&lt;h3 id=&quot;process-control&quot;&gt;&lt;strong&gt;Process Control&lt;/strong&gt;&lt;/h3&gt;
+
+</description>
+        
+        <pubDate>Wed, 20 Oct 2021 01:06:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/st-06</link>
+        <guid isPermaLink="true">https://lee989898.github.io/st-06</guid>
       </item>
       
     
@@ -233,6 +248,21 @@
     
       
       <item>
+        <title>Process</title>
+        
+          <description>&lt;h3 id=&quot;process&quot;&gt;&lt;strong&gt;Process&lt;/strong&gt;&lt;/h3&gt;
+
+</description>
+        
+        <pubDate>Wed, 06 Oct 2021 01:06:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/st-05</link>
+        <guid isPermaLink="true">https://lee989898.github.io/st-05</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>동적 계획</title>
         
           <description>&lt;h3 id=&quot;동적-계획&quot;&gt;&lt;strong&gt;동적 계획&lt;/strong&gt;&lt;/h3&gt;
@@ -273,6 +303,21 @@
         <link>
         https://lee989898.github.io/sc-06</link>
         <guid isPermaLink="true">https://lee989898.github.io/sc-06</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>File 조작</title>
+        
+          <description>&lt;h3 id=&quot;file-조작&quot;&gt;&lt;strong&gt;File 조작&lt;/strong&gt;&lt;/h3&gt;
+
+</description>
+        
+        <pubDate>Fri, 24 Sep 2021 01:06:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/st-04</link>
+        <guid isPermaLink="true">https://lee989898.github.io/st-04</guid>
       </item>
       
     
@@ -398,6 +443,21 @@
     
       
       <item>
+        <title>File IO</title>
+        
+          <description>&lt;h3 id=&quot;file-io&quot;&gt;&lt;strong&gt;File IO&lt;/strong&gt;&lt;/h3&gt;
+
+</description>
+        
+        <pubDate>Wed, 15 Sep 2021 01:06:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/st-03</link>
+        <guid isPermaLink="true">https://lee989898.github.io/st-03</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>알고리즘의 효율성 분석</title>
         
           <description>&lt;h3 id=&quot;알고리즘-분석-체계&quot;&gt;&lt;strong&gt;알고리즘 분석 체계&lt;/strong&gt;&lt;/h3&gt;
@@ -473,6 +533,21 @@
     
       
       <item>
+        <title>File</title>
+        
+          <description>&lt;h3 id=&quot;file&quot;&gt;&lt;strong&gt;File&lt;/strong&gt;&lt;/h3&gt;
+
+</description>
+        
+        <pubDate>Wed, 08 Sep 2021 01:06:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/st-02</link>
+        <guid isPermaLink="true">https://lee989898.github.io/st-02</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>프로그래밍 언어가 프로그램 설계 방법에 준 영향</title>
         
           <description>&lt;h3 id=&quot;프로그래밍-언어가-프로그램-설계-방법에-준-영향&quot;&gt;&lt;strong&gt;프로그래밍 언어가 프로그램 설계 방법에 준 영향&lt;/strong&gt;&lt;/h3&gt;
@@ -528,6 +603,21 @@
         <link>
         https://lee989898.github.io/algorithm-01</link>
         <guid isPermaLink="true">https://lee989898.github.io/algorithm-01</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>System Call</title>
+        
+          <description>&lt;h3 id=&quot;system-call&quot;&gt;&lt;strong&gt;System Call&lt;/strong&gt;&lt;/h3&gt;
+
+</description>
+        
+        <pubDate>Thu, 02 Sep 2021 01:06:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/st-01</link>
+        <guid isPermaLink="true">https://lee989898.github.io/st-01</guid>
       </item>
       
     

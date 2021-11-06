@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/pl/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-11-05T23:39:59+09:00</updated>
+  <updated>2021-11-06T16:27:18+09:00</updated>
   <id>https://lee989898.github.io/tag/pl/feed.xml</id>
 
   
@@ -227,6 +227,80 @@ esp, ebp는 각각 스택포인터, 베이스 포인터이며, eax는 반환값�
 
 &lt;p&gt;첫째, 둘째, 셋째 recursion을 호출했을 때 function value가 모두 ?
 셋째 recursion을 종료되었을 때 둘째 호출이 종료되었을 때 function value가 모두 ?이 아니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Nested Subprograms&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;중첩 서브프로그램의 호출과 반환 구현 방법을 살펴 보자.&lt;/p&gt;
+
+&lt;p&gt;서브프로그램이 그 안에 다른 서브프로그램을 포함하는 경우, 이것을 중첩 서브프로그램이라고 부른다.&lt;/p&gt;
+
+&lt;p&gt;중첩 서브프로그램에서, 난로컬 변수에 어떻게 접근할 것인가?&lt;br /&gt;
+이들 변수는 스택의 액티베이션 레코드에 있다. ​&lt;/p&gt;
+
+&lt;p&gt;난로컬 변수에 접근하려면, ​먼저 스택에서 올바른 액티베이션 레코드를 찾아야 한다.&lt;br /&gt;
+다음, 액티베이션 레코드 내에서 그 변수의 옵셋을 찾아야 한다. ​&lt;/p&gt;
+
+&lt;p&gt;정적 스코프일 경우, ​&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;정적 조상 스코프에 선언된 변수가 나타나고 접근될 수 있다. ​&lt;/li&gt;
+  &lt;li&gt;언급된 모든 난로컬 변수는 스택의 다른 액티베이션 레코드에 할당되어 있다. ​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;올바른 액티베이션 레코드를 찾으려면, ​정적 조상의 액티베이션 레코드를 체인으로 연결하라.&lt;/p&gt;
+
+&lt;p&gt;정적 링크는 정적 부모의 시작 주소를 가리키는 포인터이다.&lt;br /&gt;
+정적 체인은 실행 중인 서브프로그램의 정적 부모를 포함해서 모든 정적 조상을 연결한다. ​&lt;/p&gt;
+
+&lt;p&gt;체인을 따라가면, 올바른 액티베이션 레코드를 찾을 수 있다. ​&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;스코프의 중첩은 정적이기 때문에 컴파일 타임에 미리 알려진다. ​&lt;/li&gt;
+  &lt;li&gt;따라서 쉽게 찾아갈 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;정적 체인을 따라가는데 필요한 정보는&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;static_depth: 정적 스크프의 중첩 깊이​&lt;/li&gt;
+  &lt;li&gt;Chain_offset(또는 nesting_depth): 난로컬 변수를 언급한 서브프로그램의 staic_depth 와 난로컬 변수를 선언한 서브프로그램의 static_depth 간의 차이 ​변수의 언급은 (chain_offset, local_offset)으로 표현되며, local_offset 은 액티베이션 레코드 내에서 언급된 변수의 옵셋이다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;호출할 때, 액티베이션 레코드를 생성한다.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;동적 링크는 스택의 olld 탑 포인터이다​&lt;/li&gt;
+  &lt;li&gt;정적 링크는 ‘가장 최근의 정적 부모’의 액티베이트 레코드를 가리킨다.​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;액티베이션 레코드를 생성한 후, 정적 체인을 생성하는 방법은 두가지가 있다.  ​&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;동적 체인을 따라가면서 부모 스코프를 찾는다. ​&lt;/li&gt;
+  &lt;li&gt;컴파일러가 서브프로그램 호출을 만나면, 호출된 서브프로그램의 정적 부모를 찾아서 그 부모로부터의 nesting_depth를 기록한다. 그 서브프로그램이 호출될 때, 콜러의 정적 링크에 있는 값과 nesting_depth의 수로부터 callee의 정적 링크를 찾을 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;정적 체인은 다음과 같은 문제를 내포하고 있다.&lt;br /&gt;
+중첩 깊이가 크면, 난로컬 변수에 대한 참조(레퍼런스)가 늦다.&lt;br /&gt;
+난로컬 참조의 비용 산출이 어렵다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Implementing Dynamic Scoping&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Deep Access
+딥액세스는 동적 체인에서 액티베이션 레코드를 검색하여 난로컬 참조를 찾는다.&lt;/li&gt;
+  &lt;li&gt;체인의 길이를 정적으로 결정할 수 없다. ​&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;모든 액티베이션 레코드는 검색 과정을 위해 변수명을 가져야 한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Shallo Access
+쉘로우 액세스는 각 변수명마다 하나의 스택을 유지하고, 중앙 테이블에 각 변수명에 대해 하나의 엔트리를 할당한다.  ​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​&lt;/p&gt;
 
 &lt;hr /&gt;</content>
 

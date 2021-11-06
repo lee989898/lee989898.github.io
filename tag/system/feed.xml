@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/system/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-11-05T23:39:59+09:00</updated>
+  <updated>2021-11-06T16:27:18+09:00</updated>
   <id>https://lee989898.github.io/tag/system/feed.xml</id>
 
   
@@ -32,12 +32,84 @@
 
   
     <entry>
-      <title type="html">Process_Control</title>
-      <link href="https://lee989898.github.io/st-01" rel="alternate" type="text/html" title="Process_Control" />
+      <title type="html">프로세스통신-pipe</title>
+      <link href="https://lee989898.github.io/st-08" rel="alternate" type="text/html" title="프로세스통신-pipe" />
       <published>2021-10-31T01:06:00+09:00</published>
       <updated>2021-10-31T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/st-01</id>
-      <content type="html" xml:base="https://lee989898.github.io/st-01">&lt;h3 id=&quot;process-control&quot;&gt;&lt;strong&gt;Process Control&lt;/strong&gt;&lt;/h3&gt;
+      <id>https://lee989898.github.io/st-08</id>
+      <content type="html" xml:base="https://lee989898.github.io/st-08">&lt;h3 id=&quot;프로세스통신-pipe&quot;&gt;&lt;strong&gt;프로세스통신-pipe&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="system" />
+      
+
+      
+        <summary type="html">프로세스통신-pipe</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Signal</title>
+      <link href="https://lee989898.github.io/st-07" rel="alternate" type="text/html" title="Signal" />
+      <published>2021-10-27T01:06:00+09:00</published>
+      <updated>2021-10-27T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/st-07</id>
+      <content type="html" xml:base="https://lee989898.github.io/st-07">&lt;h3 id=&quot;signal&quot;&gt;&lt;strong&gt;Signal&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="system" />
+      
+
+      
+        <summary type="html">Signal</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Process_Control</title>
+      <link href="https://lee989898.github.io/st-06" rel="alternate" type="text/html" title="Process_Control" />
+      <published>2021-10-20T01:06:00+09:00</published>
+      <updated>2021-10-20T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/st-06</id>
+      <content type="html" xml:base="https://lee989898.github.io/st-06">&lt;h3 id=&quot;process-control&quot;&gt;&lt;strong&gt;Process Control&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
 
@@ -305,12 +377,12 @@ struct tms(
     </entry>
   
     <entry>
-      <title type="html">Signal</title>
-      <link href="https://lee989898.github.io/st-02" rel="alternate" type="text/html" title="Signal" />
-      <published>2021-10-31T01:06:00+09:00</published>
-      <updated>2021-10-31T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/st-02</id>
-      <content type="html" xml:base="https://lee989898.github.io/st-02">&lt;h3 id=&quot;signal&quot;&gt;&lt;strong&gt;Signal&lt;/strong&gt;&lt;/h3&gt;
+      <title type="html">Process</title>
+      <link href="https://lee989898.github.io/st-05" rel="alternate" type="text/html" title="Process" />
+      <published>2021-10-06T01:06:00+09:00</published>
+      <updated>2021-10-06T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/st-05</id>
+      <content type="html" xml:base="https://lee989898.github.io/st-05">&lt;h3 id=&quot;process&quot;&gt;&lt;strong&gt;Process&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;</content>
 
@@ -333,7 +405,566 @@ struct tms(
       
 
       
-        <summary type="html">Signal</summary>
+        <summary type="html">Process</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">File 조작</title>
+      <link href="https://lee989898.github.io/st-04" rel="alternate" type="text/html" title="File 조작" />
+      <published>2021-09-24T01:06:00+09:00</published>
+      <updated>2021-09-24T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/st-04</id>
+      <content type="html" xml:base="https://lee989898.github.io/st-04">&lt;h3 id=&quot;file-조작&quot;&gt;&lt;strong&gt;File 조작&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="system" />
+      
+
+      
+        <summary type="html">File 조작</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">File IO</title>
+      <link href="https://lee989898.github.io/st-03" rel="alternate" type="text/html" title="File IO" />
+      <published>2021-09-15T01:06:00+09:00</published>
+      <updated>2021-09-15T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/st-03</id>
+      <content type="html" xml:base="https://lee989898.github.io/st-03">&lt;h3 id=&quot;file-io&quot;&gt;&lt;strong&gt;File IO&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;open()&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;open()은 버퍼 공간을 확보하여 파일을 읽거나 쓸 때 사용한다&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;파일이 존재하지 않을 경우 open()에 의해 새로운 파일이 만들어지기도 한다&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt;
+#include &amp;lt;sys/stat.h&amp;gt;
+#include &amp;lt;fcntl.h&amp;gt;
+
+int open(const char *pathname, int flags);
+int open(const char *pathname, int flags, mode_t mode);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;pathname: 경로(path)명을 포함한 파일의 이름 또는 장치 이름&lt;/li&gt;
+  &lt;li&gt;flag: 파일 상태 플래그
+    &lt;ul&gt;
+      &lt;li&gt;파일을 열 때 취해지는 구체적 행동을 기술한다&lt;/li&gt;
+      &lt;li&gt;파일 액세스 flag와 선택적인 flag의 OR 연산으로 나타낸다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;파일 액세스 flag: 다음 중 하나만 사용할 수 있다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;모드(값,8진수)&lt;/th&gt;
+      &lt;th&gt;설명&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;O_RDONLY(00)&lt;/td&gt;
+      &lt;td&gt;읽기 전용으로 열기&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;O_WRONLY(01)&lt;/td&gt;
+      &lt;td&gt;쓰기 전용으로 열기&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;O_RDWR(02)&lt;/td&gt;
+      &lt;td&gt;읽기/쓰기용으로 열기&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;선택적인 flag:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;제목&lt;/th&gt;
+      &lt;th&gt;내용&lt;/th&gt;
+      &lt;th&gt;설명&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;테스트1&lt;/td&gt;
+      &lt;td&gt;테스트2&lt;/td&gt;
+      &lt;td&gt;테스트3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;테스트1&lt;/td&gt;
+      &lt;td&gt;테스트2&lt;/td&gt;
+      &lt;td&gt;테스트3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;테스트1&lt;/td&gt;
+      &lt;td&gt;테스트2&lt;/td&gt;
+      &lt;td&gt;테스트3&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;mode:
+    &lt;ul&gt;
+      &lt;li&gt;mode_t 타입(unsigned int)&lt;/li&gt;
+      &lt;li&gt;새로운 파일을 만들 대만 필요&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;리턴 값: 파일 디스크립터 값 또는 -1(open()이 실패할 경우)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;close()&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;creat()&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="system" />
+      
+
+      
+        <summary type="html">File IO</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">File</title>
+      <link href="https://lee989898.github.io/st-02" rel="alternate" type="text/html" title="File" />
+      <published>2021-09-08T01:06:00+09:00</published>
+      <updated>2021-09-08T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/st-02</id>
+      <content type="html" xml:base="https://lee989898.github.io/st-02">&lt;h3 id=&quot;file&quot;&gt;&lt;strong&gt;File&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;File Structure&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Tree 구조&lt;/li&gt;
+  &lt;li&gt;계층 구조&lt;/li&gt;
+  &lt;li&gt;Three types: 일반 file(네모), directory file(동그라미), divice file(역삼각형) &lt;img src=&quot;/assets/built/images/st/st03.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;시스템프러그래밍&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;File Types&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;일반 파일
+    &lt;ul&gt;
+      &lt;li&gt;데이터를 포함하고 있는 텍스트 또는 이진 파일&lt;/li&gt;
+      &lt;li&gt;트리 구조의 잎에 해당&lt;/li&gt;
+      &lt;li&gt;Stream file (collection of bytes)임&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;디렉토리 파일
+    &lt;ul&gt;
+      &lt;li&gt;자기 자신도 하나의 파일&lt;/li&gt;
+      &lt;li&gt;상위 디렉토리에 등록되어 있음(트리 구조를 이룸)&lt;/li&gt;
+      &lt;li&gt;파일의 이름들과 파일 정보에 대한 포인터들을 포함&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;디바이스 파일
+    &lt;ul&gt;
+      &lt;li&gt;시스템에 접속하는 주변 기기나 메모리, 등의 장치 각각에 대응하는 특수 파일&lt;/li&gt;
+      &lt;li&gt;/dev 디렉토리에서 관리&lt;/li&gt;
+      &lt;li&gt;Special file 이라고 부름
+        &lt;ul&gt;
+          &lt;li&gt;Character special file과 block special file로 나뉨&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Stream file임
+        &lt;ul&gt;
+          &lt;li&gt;사용자 프로그램 내에서 일반 파일과 같은 입출력 명령으로 처리&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;디바이스 파일의 종류
+        &lt;ul&gt;
+          &lt;li&gt;문자 특수 파일(Character special file)
+            &lt;ul&gt;
+              &lt;li&gt;문자 단위로 데이터를 처리하는 장치에 해당하는 파일&lt;/li&gt;
+              &lt;li&gt;Treminal, printer, …&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;블럭 특수 파일(block special file)
+            &lt;ul&gt;
+              &lt;li&gt;블럭 단위로 데이터를 처리하는 장치에 해당하는 파일&lt;/li&gt;
+              &lt;li&gt;Disk, magnetic tape&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;File Name&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;File name
+    &lt;ul&gt;
+      &lt;li&gt;같은 이름의 파일은 다른 디렉토리에 존재한다&lt;/li&gt;
+      &lt;li&gt;구별하기 위해서 “path” 이름이 필요하다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Path name
+    &lt;ul&gt;
+      &lt;li&gt;Relative path: from .&lt;/li&gt;
+      &lt;li&gt;Absolute path: from /&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Home directory: ~&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;File Info&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;%ls -la&lt;br /&gt;
+합계 180&lt;br /&gt;
+drwx——    4 mhlee    mhlee        4096  3월 23 14:19 C2​&lt;br /&gt;
+drwx——    4 mhlee    mhlee        4096  3월 25 17:10 SUBMIT​&lt;br /&gt;
+-rwxrwxr-x   1 mhlee    mhlee      11888   9월  5 10:35 a.out&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;u&gt;d&lt;/u&gt; &lt;u&gt;rwx&lt;/u&gt; &lt;u&gt;rwx&lt;/u&gt; &lt;u&gt;rwx&lt;/u&gt;​
+    &lt;ul&gt;
+      &lt;li&gt;d: directory file​&lt;/li&gt;
+      &lt;li&gt;-: 일반 file​&lt;/li&gt;
+      &lt;li&gt;l: symbolic link​&lt;/li&gt;
+      &lt;li&gt;b: block device file​&lt;/li&gt;
+      &lt;li&gt;c: char device file​&lt;/li&gt;
+      &lt;li&gt;p: named pipe (FIFO)​&lt;/li&gt;
+      &lt;li&gt;s: socket​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;rwx
+    &lt;ul&gt;
+      &lt;li&gt;Read&lt;/li&gt;
+      &lt;li&gt;Write&lt;/li&gt;
+      &lt;li&gt;Execute&lt;/li&gt;
+      &lt;li&gt;-: no permission&lt;/li&gt;
+      &lt;li&gt;Owner
+        &lt;ul&gt;
+          &lt;li&gt;User, Group, Other&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;chmod
+    &lt;ul&gt;
+      &lt;li&gt;Whom: u,g,o,a&lt;/li&gt;
+      &lt;li&gt;What: r,w,x&lt;/li&gt;
+      &lt;li&gt;How: +,-&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;chown&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;chgrp&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;File System 소개&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Disk
+    &lt;ul&gt;
+      &lt;li&gt;Collection of contiguous block&lt;/li&gt;
+      &lt;li&gt;Sector, track, cylinder&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;논리적인 디스크로 나누어서 사용한다&lt;/li&gt;
+  &lt;li&gt;각각의 파티션에 대응되는 디바이스 파일이 있다 &lt;img src=&quot;/assets/built/images/st/st04.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;시스템프러그래밍&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Root file system
+    &lt;ul&gt;
+      &lt;li&gt;OS가 동작하는데 필요한 최소한의 file과 directory들로 이루어짐&lt;/li&gt;
+      &lt;li&gt;Kernel system file, /bin,/etc,/lib,/dev&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Swap file system
+    &lt;ul&gt;
+      &lt;li&gt;적어도 DRAM사이즈에 두배 이상이다&lt;/li&gt;
+      &lt;li&gt;데이터를 메모리에 저장하기 위해서 사용한다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Usr file system
+    &lt;ul&gt;
+      &lt;li&gt;Utilty files&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Home file system
+    &lt;ul&gt;
+      &lt;li&gt;User area&lt;/li&gt;
+      &lt;li&gt;Login directories, etc&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;File System Structure&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;각각의 파일 시스템은 4개 영역으로 나뉜다.
+    &lt;ul&gt;
+      &lt;li&gt;Boot block
+        &lt;ul&gt;
+          &lt;li&gt;파일 시스템의 첫번째 블록&lt;/li&gt;
+          &lt;li&gt;파일 시스템을 구동하기 위한 시스템이 위치&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Super block
+        &lt;ul&gt;
+          &lt;li&gt;Boot block 바로 다음의 영역&lt;/li&gt;
+          &lt;li&gt;File system을 관리하는 정보가 저장됨&lt;/li&gt;
+          &lt;li&gt;DRAM,disk에서 카피가 있다&lt;/li&gt;
+          &lt;li&gt;관리자 유저가 “sync”를 사용할 수 있다&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;i-node block list
+        &lt;ul&gt;
+          &lt;li&gt;Super block 다음의 영역&lt;/li&gt;
+          &lt;li&gt;각 파일당 하나의 i-node가 대응한다&lt;/li&gt;
+          &lt;li&gt;File 관리에 필요한 정보 저장&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Data block
+        &lt;ul&gt;
+          &lt;li&gt;마지막 영역&lt;/li&gt;
+          &lt;li&gt;파일들의 실제 내용이 저장&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;File System Mount/Unmount&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;각각의 파일 시스템은 트리 형태로 표현가능하다&lt;/li&gt;
+  &lt;li&gt;파일 시스템이 여러개면 파일 트리도 여러개 일 것이다&lt;/li&gt;
+  &lt;li&gt;두개 이상의 파일 시스템을 합치는 것을 mount라고 하고 반대를 unmount라고 한다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="system" />
+      
+
+      
+        <summary type="html">File</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">System Call</title>
+      <link href="https://lee989898.github.io/st-01" rel="alternate" type="text/html" title="System Call" />
+      <published>2021-09-02T01:06:00+09:00</published>
+      <updated>2021-09-02T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/st-01</id>
+      <content type="html" xml:base="https://lee989898.github.io/st-01">&lt;h3 id=&quot;system-call&quot;&gt;&lt;strong&gt;System Call&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;System Calls and Library Functions&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;System Call: 운영체제의 커널(kernal) 서비스를 받기 위한 일종의 함수 호출&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;​System Call의 구조 &lt;img src=&quot;/assets/built/images/st/st01.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;시스템프러그래밍&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Library Functions
+    &lt;ul&gt;
+      &lt;li&gt;ex) printf(), scanf(), fopen(), fclose(), gets(), puts(), getw(), fread(), fseek()&lt;/li&gt;
+      &lt;li&gt;대게 system calls을 호출합니다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;System Calls
+    &lt;ul&gt;
+      &lt;li&gt;ex) open(), create(), close(), read(), write(), lseek(), unlink()&lt;/li&gt;
+      &lt;li&gt;user’s program에서 호출할 수 있다&lt;/li&gt;
+      &lt;li&gt;커널 함수를 호출하는 C 함수처럼 보인다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;System Call Structure&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;user 프로그램이 system call을 사용하면 커널 서비스를 호출한다&lt;/li&gt;
+  &lt;li&gt;Two phases
+    &lt;ul&gt;
+      &lt;li&gt;User code 실행 -&amp;gt; user space/mode&lt;/li&gt;
+      &lt;li&gt;Kernel code 실행 -&amp;gt; kernel space/mode&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Kernel mode
+    &lt;ul&gt;
+      &lt;li&gt;일반적으로 interrupts와 같은 예외에 의해 활성화된다&lt;/li&gt;
+      &lt;li&gt;trap(SW interrupts)에 의한 시스템 호출 내에서 활성화된다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;System Call Table entries
+    &lt;ul&gt;
+      &lt;li&gt;System call no: 3,4&lt;/li&gt;
+      &lt;li&gt;No of parameters: 3,3&lt;/li&gt;
+      &lt;li&gt;Routine name: read, write &lt;img src=&quot;/assets/built/images/st/st02.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;시스템프러그래밍&quot; /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;System Calls: No &amp;amp; Name&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Exit&lt;/li&gt;
+  &lt;li&gt;Fork&lt;/li&gt;
+  &lt;li&gt;Read&lt;/li&gt;
+  &lt;li&gt;Write&lt;/li&gt;
+  &lt;li&gt;Open&lt;/li&gt;
+  &lt;li&gt;Close&lt;/li&gt;
+  &lt;li&gt;Wait&lt;/li&gt;
+  &lt;li&gt;Create&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="system" />
+      
+
+      
+        <summary type="html">System Call</summary>
       
 
       
