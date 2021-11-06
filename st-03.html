@@ -59,7 +59,7 @@
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="File IO" />
-    <meta property="og:description" content="File IO open() open()은 버퍼 공간을 확보하여 파일을 읽거나 쓸 때 사용한다 파일이 존재하지 않을 경우 open()에 의해 새로운 파일이 만들어지기도 한다 #include &lt;sys/types.h&gt; #include &lt;sys/stat.h&gt; #include &lt;fcntl.h&gt; int open(const char *pathname, int flags); int open(const char *pathname, int flags, mode_t mode); pathname: 경로(path)명을 포함한 파일의 이름 또는 장치 이름" />
+    <meta property="og:description" content="File IO open() : 열기 open()은 버퍼 공간을 확보하여 파일을 읽거나 쓸 때 사용한다 파일이 존재하지 않을 경우 open()에 의해 새로운 파일이 만들어지기도 한다 #include &lt;sys/types.h&gt; #include &lt;sys/stat.h&gt; #include &lt;fcntl.h&gt; int open(const char *pathname, int flags); int open(const char *pathname, int flags, mode_t mode); pathname: 경로(path)명을 포함한 파일의 이름 또는" />
     <meta property="og:url" content="https://lee989898.github.io/st-03" />
     <meta property="og:image" content="https://lee989898.github.io/assets/built/images/system-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -69,7 +69,7 @@
     <meta property="article:tag" content="System" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="File IO" />
-    <meta name="twitter:description" content="File IO open() open()은 버퍼 공간을 확보하여 파일을 읽거나 쓸 때 사용한다 파일이 존재하지 않을 경우 open()에 의해 새로운 파일이 만들어지기도 한다 #include &lt;sys/types.h&gt; #include &lt;sys/stat.h&gt; #include &lt;fcntl.h&gt; int open(const char *pathname, int flags); int open(const char *pathname, int flags, mode_t mode); pathname: 경로(path)명을 포함한 파일의 이름 또는 장치 이름" />
+    <meta name="twitter:description" content="File IO open() : 열기 open()은 버퍼 공간을 확보하여 파일을 읽거나 쓸 때 사용한다 파일이 존재하지 않을 경우 open()에 의해 새로운 파일이 만들어지기도 한다 #include &lt;sys/types.h&gt; #include &lt;sys/stat.h&gt; #include &lt;fcntl.h&gt; int open(const char *pathname, int flags); int open(const char *pathname, int flags, mode_t mode); pathname: 경로(path)명을 포함한 파일의 이름 또는" />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
     <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/system-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -101,7 +101,7 @@
         "@type": "WebPage",
         "@id": "https://lee989898.github.io/st-03"
     },
-    "description": "File IO open() open()은 버퍼 공간을 확보하여 파일을 읽거나 쓸 때 사용한다 파일이 존재하지 않을 경우 open()에 의해 새로운 파일이 만들어지기도 한다 #include &lt;sys/types.h&gt; #include &lt;sys/stat.h&gt; #include &lt;fcntl.h&gt; int open(const char *pathname, int flags); int open(const char *pathname, int flags, mode_t mode); pathname: 경로(path)명을 포함한 파일의 이름 또는 장치 이름"
+    "description": "File IO open() : 열기 open()은 버퍼 공간을 확보하여 파일을 읽거나 쓸 때 사용한다 파일이 존재하지 않을 경우 open()에 의해 새로운 파일이 만들어지기도 한다 #include &lt;sys/types.h&gt; #include &lt;sys/stat.h&gt; #include &lt;fcntl.h&gt; int open(const char *pathname, int flags); int open(const char *pathname, int flags, mode_t mode); pathname: 경로(path)명을 포함한 파일의 이름 또는"
 }
     </script>
 
@@ -212,7 +212,7 @@ into the {body} of the default.hbs template -->
 <hr />
 
 <blockquote>
-  <p>open()</p>
+  <p>open() : 열기</p>
 </blockquote>
 
 <ul>
@@ -229,6 +229,11 @@ int open(const char *pathname, int flags, mode_t mode);
 </code></pre></div>    </div>
   </li>
   <li>pathname: 경로(path)명을 포함한 파일의 이름 또는 장치 이름</li>
+</ul>
+
+<hr />
+
+<ul>
   <li>flag: 파일 상태 플래그
     <ul>
       <li>파일을 열 때 취해지는 구체적 행동을 기술한다</li>
@@ -268,51 +273,497 @@ int open(const char *pathname, int flags, mode_t mode);
 <table>
   <thead>
     <tr>
-      <th>제목</th>
-      <th>내용</th>
+      <th>모드(값,8진수)</th>
       <th>설명</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>테스트1</td>
-      <td>테스트2</td>
-      <td>테스트3</td>
+      <td>O_APPEND(02000)</td>
+      <td>파일의 끝에서부터 데이터를 추가하여 쓴다</td>
     </tr>
     <tr>
-      <td>테스트1</td>
-      <td>테스트2</td>
-      <td>테스트3</td>
+      <td>O_TRUNC(01000)</td>
+      <td>파일의 크기를 0으로 만든다(내용삭제)</td>
     </tr>
     <tr>
-      <td>테스트1</td>
-      <td>테스트2</td>
-      <td>테스트3</td>
+      <td>O_CREAT(0100)</td>
+      <td>파일이 존재하지 않을 경우 생성한다</td>
     </tr>
   </tbody>
 </table>
+
+<hr />
 
 <ul>
   <li>mode:
     <ul>
       <li>mode_t 타입(unsigned int)</li>
       <li>새로운 파일을 만들 대만 필요</li>
+      <li>Flag에 O_CREAT를 지정한 경우에만 필요 <img src="/assets/built/images/st/st05.png" width="50%" height="25%" title="제목" alt="시스템프러그래밍" /></li>
+      <li>0~8비트 : 파일의 보호 모드</li>
+      <li>sticky 비트(공유모드)
+        <ul>
+          <li>여러 사용자들이 이용하는 실행파일에 설정</li>
+          <li>실행 후 텍스트 이미지를 메모리에 보관함으로써 다음 번에 실행될 떄 빠르게 실행하도록 하기 위해 지정</li>
+        </ul>
+      </li>
+      <li>setuid 비트 : 1로 셋트 되면 일반사용자가 해당 파일의 소유자 권한으로 파일을 실행할 수 있도록 해준다</li>
+      <li>setgid 비트 : 1로 셋트 되면 일반그룹이 해당 그룹의 소유자  권한으로 파일을 실행 할 수 있도록 해준다​</li>
+      <li>setuid , setgid 비트를 설정하면, 그 파일을 실행하고 있는 동안만 그 프로세스의 실효 사용자 ID와 실효 그룹 ID를 그 실행파일의 소유자 ID와  그룹 ID로 변경할 수 있다 ​</li>
+      <li>예 : root 사용자만이 실행할 수 있는 프로그램을 setuid/setgid 비트를 설정하여 일반 사용자가 실행할 수 있도록 해 준다</li>
+      <li>O_CREAT flag를 사용하여 파일 생성시, 다음의 매개인자를 사용한다</li>
     </ul>
   </li>
-  <li>리턴 값: 파일 디스크립터 값 또는 -1(open()이 실패할 경우)</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>매크로</th>
+      <th>의미</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>S_IRUSR</td>
+      <td>소유자에게 읽기 권한</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>S_IWUSR</td>
+      <td>소유자에게 쓰기 권한</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>S_IXUSR</td>
+      <td>소유자에게 실행 권한</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>S_IRGRP</td>
+      <td>소유그룹에게 읽기권한​</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>S_IWGRP</td>
+      <td>소유그룹에게 쓰기권한​</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>S_IXGRP</td>
+      <td>소유그룹에게 실행권한</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>S_IROTH​</td>
+      <td>other에게 읽기권한​</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>S_IWOTH​</td>
+      <td>other에게 쓰기권한​</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>S_IXOTH</td>
+      <td>other에게 실행권한</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>S_IRWXU​</td>
+      <td>소유자에게 읽기, 쓰기, 실행권한</td>
+      <td>​</td>
+    </tr>
+    <tr>
+      <td>S_IRWXG​</td>
+      <td>소유그룹에게 읽기, 쓰기, 실행권한</td>
+      <td>​</td>
+    </tr>
+    <tr>
+      <td>S_IRWXO​</td>
+      <td>other에게 읽기, 쓰기, 실행권한​</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>S_ISUID​</td>
+      <td>셋 사용자 ID 비트를 설정​</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>S_ISGID​</td>
+      <td>셋 그룹 ID 비트를 설정</td>
+      <td>​</td>
+    </tr>
+    <tr>
+      <td>S_ISVTX​</td>
+      <td>STICKY 비트를 설정</td>
+      <td>​</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>
+    <p>세번째 인자인 mode는 sys/stat.h에서 정의된 플래그의 OR연산으로 만들어진다</p>
+  </li>
+  <li>
+    <p>리턴 값: 파일 디스크립터 값 또는 -1(open()이 실패할 경우)</p>
+  </li>
+</ul>
+
+<p>ex) int fd;<br />
+fd = open(“afile”, O_RDWR);<br />
+ex) int fd;<br />
+fd = open(“afile”, O_RDWR|O_CREAT,S_IRUSR|S_IWUSR);</p>
+
+<hr />
+
+<ul>
+  <li>File descriptor table: ​
+    <ul>
+      <li>열려진 모든 파일들은 각각 _IO_FILE 이라는 구조체(/usr/include/libio.h 에 정의 됨)에 정보가 저장됨 ​</li>
+      <li>한 프로세스에 의해 열려진 모든 파일들의 _IO_FILE  타입의 구조체들은 연결 리스트로 결합되어지며, 이것을 file descriptor table이라고 부른다 ​</li>
+    </ul>
+  </li>
+  <li>File descriptor table에서 특정 파일의 위치를 가리키는 index 값(int 타입)을 file descriptor 라고 부른다 ​</li>
+  <li>File descriptor 값들 중 0, 1, 2는 특별한 파일들을 위하여 사용된다​
+    <ul>
+      <li>0은 stdin, 1은 stdout, 그리고 2는 stderr 파일을 지칭한다</li>
+    </ul>
+  </li>
 </ul>
 
 <hr />
 
 <blockquote>
-  <p>close()</p>
+  <p>close(): 닫기</p>
 </blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;unistd.h&gt;
+
+int close(int fd);
+</code></pre></div></div>
+
+<ul>
+  <li>close()는 작업을 종료하기 위해 사용된다​</li>
+  <li>리턴 값 : 성공이면 0, 에러 발생시 -1을 반환​</li>
+  <li>fd : 닫고자 하는 파일의 파일 디스크립터​</li>
+  <li>한 프로세스에서 열 수 있는 최대 파일 수는 limits.h 내의 상수 OPEN_MAX에서 정의됨(/usr/include/bits/posix1_lim.h)​</li>
+  <li>이 제한은 시스템에 따라 다르지만, POSIX에서는 적어도 20이 되도록 정해져 있다​</li>
+  <li>한꺼번에 열려진 파일의 개수가 OPEN_MAX가 넘지 않도록 close()를 적절히 사용하여야 한다 ​</li>
+  <li>파일을 닫지 않더라도 프로세스가 종료하면 모든 열려진 파일들은 자동적으로 닫힌다​</li>
+</ul>
 
 <hr />
 
 <blockquote>
-  <p>creat()</p>
+  <p>creat(): 파일 생성</p>
 </blockquote>
+
+<ul>
+  <li>새로운 파일을 만들거나, 이미 존재하고 있는 파일의 내용을 모두 무시하고 다시 쓸 때 사용한다​</li>
+  <li>pathname : 경로명​</li>
+  <li>mode : open()의 mode와 동일​</li>
+  <li>리턴 값 : 파일 디스크립터, 실패하면 -1</li>
+  <li>다음의 두 함수 호출은 기능이 동일하다​
+    <ul>
+      <li>creat( pathname, mode ); ​</li>
+      <li>
+        <table>
+          <tbody>
+            <tr>
+              <td>open ( pathname, O_WRONLY</td>
+              <td>O_CREAT</td>
+              <td>O_TRUNC, mode);​</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+    </ul>
+  </li>
+  <li>creat()에서는 그 파일의 크기를 0으로 만든다 ​</li>
+  <li>이때 소유자 모드는 변경하지 않는다​</li>
+  <li>creat()는 open()이 있기 때문에 많이 쓰이지 않는다</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>read(): 읽기</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;unistd.h&gt;
+
+ssize_t read(int filedes, void *buf, size_t nbytes);
+</code></pre></div></div>
+
+<ul>
+  <li>파일에서 원하는 크기의 데이터를 읽는다​</li>
+  <li>리턴 값 :​
+    <ul>
+      <li>성공하면 읽은 byte 수​</li>
+      <li>파일의 끝을 만나면 0  읽기 종료​</li>
+      <li>실패하면 -1​</li>
+    </ul>
+  </li>
+  <li>buf : 읽은 데이터를 저장할 메모리의 시작 주소​</li>
+  <li>nbytes : 읽을 바이트 수​</li>
+  <li>buf는 임의의 type의 포인터(generic 포인터)가 될 수 있도록 void 타입으로 지정한다​</li>
+  <li>읽을 데이터가 충분하면 한 번에 nbytes 만큼 읽는다​</li>
+  <li>읽을 데이터가 nbytes 보다 적은 경우 더 적게 읽기도 한다​</li>
+</ul>
+
+<p>ssize_t  read (int filedes,  void *buf, size_t nbytes);​</p>
+<ul>
+  <li>size_t  : unsigned integer (unistd.h에서 정의)​</li>
+  <li>ssize_t : signed integer (unistd.h에서 정의)</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>write(): 쓰기</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;unistd.h&gt;
+
+ssize_t write(int filedes, void *buf, size_t nbytes);
+</code></pre></div></div>
+
+<ul>
+  <li>파일에 데이터를 쓴다​</li>
+  <li>리턴 값​
+    <ul>
+      <li>성공하면 파일에 쓰여진 데이터의 바이트 수​</li>
+      <li>실패하면 -1​</li>
+    </ul>
+  </li>
+  <li>buf : 쓸 데이터를 저장하고 있는 메모리 공간​</li>
+  <li>nbytes : 쓸 데이터의 바이트 수</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>lseek(): 파일의 현재 위치 이동</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt;
+#include &lt;unistd.h&gt;
+
+off_t lseek (int filedes, off_t offset, int whence);
+</code></pre></div></div>
+
+<ul>
+  <li>lseek는 파일에 대한 임의접근을 가능하게 한다​</li>
+  <li>파일의 현재 위치(current file offset)를 이동시킨다. 즉 읽기-쓰기 포인터의 위치, 다음에 읽거나 쓸 바이트의 위치를 변경할 수 있다​</li>
+  <li>파일의 현재 위치(current file offset)​
+    <ul>
+      <li>파일에 대한 읽기/쓰기는 파일의 현재 위치에서 실행된다​</li>
+      <li>파일을 처음 열면 현재 위치는 0, 즉 파일의 시작이다​</li>
+      <li>읽기/쓰기 후 파일의 현재 위치는 읽기/쓰기 한 byte 수 만큼 저절로 뒤로 이동된다​</li>
+      <li>lseek()를 사용하여  임의의 위치로 파일의 현재 위치를 이동할 수 있다​</li>
+      <li>offset은 음수가 될 수도 있다​</li>
+    </ul>
+  </li>
+  <li>리턴 값: 성공하면 현재의 읽기/쓰기 포인터의 위치를 리턴, 실패하면 -1</li>
+  <li>offset : 기준점에 더해질 바이트의 수 (byte 단위)​
+    <ul>
+      <li>SEEK_CUR, SEEK_END 와 같이 쓰일 때는 음수도 가능​</li>
+      <li>off_t는 long int와 같은 의미를 나타낸다​</li>
+    </ul>
+  </li>
+  <li>whence : 시작위치 정하는 방법으로, 다음 중 하나를 사용한다</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>매크로 이름</th>
+      <th>값</th>
+      <th>포인터 위치 지정 방법</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SEEK_SET</td>
+      <td>0</td>
+      <td>offset이 파일의 맨 앞에서부터 더해져 이동</td>
+    </tr>
+    <tr>
+      <td>SEEK_CUR</td>
+      <td>1</td>
+      <td>현재위치에 offset이 더해져 이동</td>
+    </tr>
+    <tr>
+      <td>SEEK_END</td>
+      <td>2</td>
+      <td>파일의 마지막 바이트 번호에 더해 이동</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<blockquote>
+  <p>Disk</p>
+</blockquote>
+
+<p><img src="/assets/built/images/st/st06.png" width="50%" height="25%" title="제목" alt="시스템프러그래밍" /></p>
+
+<ul>
+  <li>Disk들은 platters들로 구성되어 있으며, 각 platter는 두개의 표면(surface)을 갖는다.​
+    <ul>
+      <li>각 surface는 동심원 모양의 track들로 구성​</li>
+      <li>각 track은 sectors들로 구성되는데, sector들은 gap으로 구분된다</li>
+      <li>정렬된 track들은 cylinder를 이룬다</li>
+    </ul>
+  </li>
+  <li>최근의 disk는 track들을 recording zone들로 분할한다 ​
+    <ul>
+      <li>같은 zone 내부의 track들은 같은 개수의 sector들을 갖는다.</li>
+      <li>Zone마다 track 당 sector의 개수(sectors/track )가 달라진다. 바깥 쪽 zone은 track당 sector의 개수가 더 많아진다.   ​</li>
+      <li>따라서, disk의 용량을 계산할 때  track당 평균 sector의 개수를 사용한다. ​</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>I/O efficiency</p>
+</blockquote>
+
+<ul>
+  <li>디스크는 mechanical device로서 메모리 (DRAM) 에 비해서 상대적으로 성능이 매우 느린 장치​</li>
+  <li>성능을 위해서는 디스크 I/O의 횟수를 줄이는 것이 바람직(seek time + rotational delay)​
+    <ul>
+      <li>작은 양을 여러번 I/O 하는 것 보다​</li>
+      <li>많은 양을 한꺼번에 I/O 하여 횟수를 줄이는 것이 좋다​<br />
+  ​
+—</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>dup(), dup2(): 파일 디스크립터 복제</p>
+</blockquote>
+
+<ul>
+  <li>사용 중인 파일 디스크립터의 복사본을 제공​</li>
+  <li>Oldfd가 가리키는 사용자 파일 디스크립터 표의 구조체를 새로운 파일 디스크립터가 가리키도록 한다 ​</li>
+  <li>리턴 값: 성공하면 복사된 새 파일 디스크립터, 실패하면 -1​
+    <ul>
+      <li>dup() 함수는 할당 가능한 가장 작은 번호를 리턴한다​</li>
+      <li>dup2() 함수는 newfd를 리턴한다​</li>
+    </ul>
+  </li>
+</ul>
+
+<p>fdin = open(“in-file”, O_RDONLY);​<br />
+close(0);​<br />
+dup(fdin);​<br />
+close(fdin);</p>
+
+<p><img src="/assets/built/images/st/st07.png" width="50%" height="25%" title="제목" alt="시스템프러그래밍" /></p>
+
+<hr />
+
+<blockquote>
+  <p>stat(), fstat(), lstat(): 파일 조작</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt;
+#include &lt;sys/stat.h&gt;
+
+int stat(const char * pathname, struct stat *buf);
+int fstat(int fd, struct stat *buf);
+int lstat(const char * pathname, struct stat * buf);
+</code></pre></div></div>
+
+<ul>
+  <li>파일 조작 시스템 호출은 파일 상태에 대한 정보를 stat 구조체에 가져온다​</li>
+  <li>리턴값: 성공시 0,  실패시 -1​</li>
+  <li>pathname: 파일의 경로명​</li>
+  <li>buf: stat 구조체(파일정보)를 저장하는 구조체​</li>
+  <li>stat()가 경로명으로 파일을 지정하는 반면, fstat()는 파일 디스크립터를 지정한다​</li>
+  <li>
+    <p>lstat()는 대상 파일이 심볼릭 링크(symbolic link)인 경우에 링크가 나타내는 파일이 아니라 링크 자신의 상태를 가져온다​</p>
+  </li>
+  <li>
+    <p>stat 구조체 내용</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  struct  stat {​
+    mode_t   st_mode; 파일 모드에 대한 정보​
+    ino_t      st_ino; 파일의 I-node 번호​
+    dev_t      st_dev; I-node가 있는 디바이스의 디바이스번호​
+    dev_t st_rdev; 디바이스번호(디바이스 파일의 경우)​
+    nlink_t st_nlink;  파일에 관련된 링크의 수​
+    uid_t st_uid;    소유자의 사용자 ID​
+    gid_t st_gid;    소유자의 그룹 ID​
+    off_t st_size;   파일크기(바이트 수)​
+    time_t st_atime;  최종 엑세스 시각​
+    time_t st_mtime; 최종 변경 시각​
+    time_t st_ctime;  최종 상태 변경 시각​
+    blksize_t st_blksize; 파일 시스템의 블록 크기​
+    blkcnt_t st_blocks; 할당된 블록수​
+    };
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>access(): 파일에 대한 액세스 권한 검사</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;unistd.h&gt;
+
+int access(const char * pathname, int mode);
+</code></pre></div></div>
+
+<ul>
+  <li>파일에 대하여 mode로 전해준 액세스 권한이 있는지 없는지 확인한다​</li>
+  <li>pathname : 경로명​</li>
+  <li>mode : 모드​</li>
+  <li>리턴값 : 성공시 0, 에러시 -1</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>매크로 이름</th>
+      <th>비트패턴</th>
+      <th>액세스 권한</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>R_OK</td>
+      <td>100</td>
+      <td>읽기</td>
+    </tr>
+    <tr>
+      <td>W_OK</td>
+      <td>010</td>
+      <td>쓰기</td>
+    </tr>
+    <tr>
+      <td>X_OK</td>
+      <td>001</td>
+      <td>실행</td>
+    </tr>
+    <tr>
+      <td>F_OK</td>
+      <td>000</td>
+      <td>파일이 존재하는지 아닌지</td>
+    </tr>
+  </tbody>
+</table>
 
 <hr />
 

@@ -59,10 +59,7 @@
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="File 조작" />
-    <meta property="og:description" content="File 조작
-
-
-" />
+    <meta property="og:description" content="File 조작 File system structure ​ i-node 인덱스 노드의 준말 파일의 메타 데이터 저장되어있는 영역 하드디스크에 저장되어 있다 실제 내용 file type​ access permission bits​ file size​ pointers to data blocks for the file Stat 구조체의 field들은 i-node에서 읽어온다 directory block directory block에는 파일 목록이 있다​ 파일 이름 파일의 i-노드" />
     <meta property="og:url" content="https://lee989898.github.io/st-04" />
     <meta property="og:image" content="https://lee989898.github.io/assets/built/images/system-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -72,10 +69,7 @@
     <meta property="article:tag" content="System" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="File 조작" />
-    <meta name="twitter:description" content="File 조작
-
-
-" />
+    <meta name="twitter:description" content="File 조작 File system structure ​ i-node 인덱스 노드의 준말 파일의 메타 데이터 저장되어있는 영역 하드디스크에 저장되어 있다 실제 내용 file type​ access permission bits​ file size​ pointers to data blocks for the file Stat 구조체의 field들은 i-node에서 읽어온다 directory block directory block에는 파일 목록이 있다​ 파일 이름 파일의 i-노드" />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
     <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/system-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -107,10 +101,7 @@
         "@type": "WebPage",
         "@id": "https://lee989898.github.io/st-04"
     },
-    "description": "File 조작
-
-
-"
+    "description": "File 조작 File system structure ​ i-node 인덱스 노드의 준말 파일의 메타 데이터 저장되어있는 영역 하드디스크에 저장되어 있다 실제 내용 file type​ access permission bits​ file size​ pointers to data blocks for the file Stat 구조체의 field들은 i-node에서 읽어온다 directory block directory block에는 파일 목록이 있다​ 파일 이름 파일의 i-노드"
 }
     </script>
 
@@ -217,6 +208,603 @@ into the {body} of the default.hbs template -->
             <section class="post-full-content">
                 <div class="kg-card-markdown">
                     <h3 id="file-조작"><strong>File 조작</strong></h3>
+
+<hr />
+
+<blockquote>
+  <p>File system structure ​</p>
+</blockquote>
+
+<hr />
+
+<p><img src="/assets/built/images/st/st08.png" width="50%" height="25%" title="제목" alt="시스템프로그래밍" /></p>
+
+<hr />
+
+<ul>
+  <li>i-node
+    <ul>
+      <li>인덱스 노드의 준말</li>
+      <li>파일의 메타 데이터 저장되어있는 영역</li>
+      <li>하드디스크에 저장되어 있다</li>
+      <li>실제 내용
+        <ul>
+          <li>file type​</li>
+          <li>access permission bits​</li>
+          <li>file size​</li>
+          <li>pointers to data blocks for the file</li>
+        </ul>
+      </li>
+      <li>Stat 구조체의 field들은 i-node에서 읽어온다</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/built/images/st/st09.png" width="50%" height="25%" title="제목" alt="시스템프로그래밍" /></p>
+
+<hr />
+
+<ul>
+  <li>directory block
+    <ul>
+      <li>directory block에는 파일 목록이 있다​
+        <ul>
+          <li>파일 이름</li>
+          <li>파일의 i-노드 번호​</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>hard link​
+    <ul>
+      <li>디렉토리 블록에서 i-node로 링크</li>
+      <li>i-노드 번호를 사용하여 링크 만들기​</li>
+      <li>Hard link는 같은 file system 내부에서만 연결 가능​</li>
+    </ul>
+  </li>
+  <li>i-노드의 링크 수
+    <ul>
+      <li>i-노드를 가리키는 디렉토리 항목 수</li>
+      <li>Stat 구조체의 st_link</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/built/images/st/st10.png" width="50%" height="25%" title="제목" alt="시스템프로그래밍" /></p>
+
+<ul>
+  <li>Directory file의 data block 내용으로는  (i-node no, file name) entry 들이 기록된다.</li>
+</ul>
+
+<hr />
+
+<ul>
+  <li>Symbolic link​
+    <ul>
+      <li>Linux 명령 ‘% ln –s /usr/lib lib’​</li>
+      <li>ex) lrwxrwxrwx 1 root   7   Sep 25  07:14   lib -&gt; /usr/lib​
+        <ul>
+          <li>파일 이름: lib​</li>
+          <li>파일 내용: /usr/lib​</li>
+          <li>파일 크기: 7 bytes​</li>
+        </ul>
+      </li>
+      <li>파일(데이터 블록)의 내용은 대상 링크의 경로 이름이다.</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<ul>
+  <li>파일 삭제
+    <ul>
+      <li>디렉토리 블록에서 파일이 삭제되면 i-node의 링크 수가 감소한다</li>
+      <li>링크 수가 0이 되면 파일의 i-node와 데이터 블록이 모두 삭제된다</li>
+    </ul>
+  </li>
+  <li>파일 이동
+    <ul>
+      <li>리눅스 명령어: mv​</li>
+      <li>파일의 i-node 및 데이터 블록을 변경하지 않고 디렉토리 항목 변경</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>link() / unlink()</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;unistd.h&gt;
+
+int link(const char * cur_path, const cbar * new_path)
+</code></pre></div></div>
+
+<ul>
+  <li>이 호출은 기존 파일(cur_path)에 대한 새 링크/디렉토리 항목(new_path)을 만든다
+    <ul>
+      <li>같은 i-node를 가리키는 directory entry가 하나 더 만들어짐​</li>
+      <li>해당 i-node의 link count가 하나 증가​</li>
+    </ul>
+  </li>
+  <li>반환 값
+    <ul>
+      <li>성공: 0, 링크 수 증가</li>
+      <li>오류: -1</li>
+    </ul>
+  </li>
+  <li>매개변수
+    <ul>
+      <li>cur_path: 현재 하드 링크(또는 pathname)</li>
+      <li>new_path: 새로운 하드 링크(또는 pathname)</li>
+    </ul>
+  </li>
+  <li>보통 link count가 0이 되면 해당 파일은 삭제됨​</li>
+  <li>다른 프로세스가 사용중인 파일이 삭제되는 것을 방지하기 위해 link count가 0에 도달했더라도 그 파일을 open 한 프로세스의 수가 0 이상이면 삭제하지 않는다​</li>
+  <li>파일이 close 될 때 kernel은 그 파일을 open 한 프로세스 수가 0 인지 확인하고, 0 일 경우 link count가 0 인지 확인하고 삭제한다</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>remove()</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;unistd.h&gt;
+
+int remove(const char *pathname);
+</code></pre></div></div>
+
+<ul>
+  <li>remove()는 파일의 링크 수를 줄이기 때문에 unlink()와 유사하다</li>
+  <li>반환 값
+    <ul>
+      <li>성공 : 0</li>
+      <li>오류: -1</li>
+    </ul>
+  </li>
+  <li>매개변수
+    <ul>
+      <li>Pathname: 디렉토리 파일의 경로명이 있는 문자열</li>
+      <li>pathname이 파일이면 remove() = unlink()</li>
+      <li>pathname이 디렉토리이면 remove() = rmdir()</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>rename()</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;stdio.h&gt;
+
+int rename(const char *oldname, const char *newname);
+</code></pre></div></div>
+
+<ul>
+  <li>파일 또는 디렉토리 이름 지정</li>
+  <li>반환 값
+    <ul>
+      <li>성공: 0</li>
+      <li>오류: -1</li>
+    </ul>
+  </li>
+  <li>매개변수
+    <ul>
+      <li>oldname: 현재 하드 링크</li>
+      <li>newname: 새로운 하드 링크</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>umask()​</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt;
+#include &lt;sys/stat.h&gt;
+
+mode_t umask(mode_t newmask);
+</code></pre></div></div>
+
+<ul>
+  <li>새 파일의 mask 값 설정</li>
+  <li>umask()는 이전 마스크 값을 반환한다</li>
+  <li>매개변수
+    <ul>
+      <li>newmask: bitwise OR
+        <ul>
+          <li>S_IRUSR, S_IWUSR, S_IXUSR</li>
+          <li>S_IRGRP, S_IWGRP, S_IXGRP</li>
+          <li>S_IROTH, S_IWOTH, S_IXOTH</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>umask : 파일 모드 작성 mask (8진수로 표시)​
+    <ul>
+      <li>(예) root user의 umask 값 : 0022​</li>
+      <li>일반 user의 mask 값 : 0002​</li>
+      <li>umask –S 커맨드를 사용하면 symbolic 값을 볼 수 있음​</li>
+    </ul>
+  </li>
+  <li>파일의 실제 허가(protection) mode​
+    <ul>
+      <li>현재의 umask값에 NOT 연산을 수행한 값과 파일이 생성될 때의 모드 값을 AND (논리 연산)시킨 값 : AND(mode, NOT(umask))​</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>chmod() / fchmod()​</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt;
+#include &lt;sys/stat.h&gt;
+#include &lt;unistd.h&gt;
+
+int chmod(const char *pathname, mode_t mode);
+int fchmod(int fd, mode_t mode);
+</code></pre></div></div>
+
+<ul>
+  <li>이 호출은 파일의 액세스 권한을 변경하는 데 사용된다.
+    <ul>
+      <li>Stat 구조체의 st_mode 변경</li>
+    </ul>
+  </li>
+  <li>반환 값
+    <ul>
+      <li>성공 : 0</li>
+      <li>오류: -1, 변수를 설정합니다.</li>
+    </ul>
+  </li>
+  <li>매개변수
+    <ul>
+      <li>pathname: pathname이 있는 문자열</li>
+      <li>fd: 파일 디스크립터</li>
+      <li>mode: 파일 보호 모드</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>truncate() / ftruncate()​</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt;
+#include &lt;unistd.h&gt;
+
+int truncate(const char *pathname, size_t length);
+int ftruncate(int fd, size_t length);
+</code></pre></div></div>
+
+<ul>
+  <li>이러한 호출은 파일 디스크립터 또는 pathname에서 참조하는 파일을 길이로 지정된 길이로 자른다.</li>
+  <li>반환 값
+    <ul>
+      <li>성공: 0</li>
+      <li>오류: -1, 변수 설정</li>
+    </ul>
+  </li>
+  <li>매개변수
+    <ul>
+      <li>pathname: pathname이 있는 문자열</li>
+      <li>fd: 파일 디스크립터</li>
+      <li>길이: 크기</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>utime()​</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt;​
+#include &lt;unistd.h&gt;​
+#include &lt;utime.h&gt;​
+
+int utime(const char *pathname, struct utimebuf *times);
+</code></pre></div></div>
+
+<ul>
+  <li>utime()은 타임스탬프를 수정한다</li>
+  <li>반환 값
+    <ul>
+      <li>성공: 0</li>
+      <li>오류: -1 및 변수 ‘errno’ 설정</li>
+    </ul>
+  </li>
+  <li>매개변수
+    <ul>
+      <li>pathname: 파일의 경로명</li>
+      <li>시간: 마지막 액세스 시간 및 수정 시간</li>
+    </ul>
+
+    <p>struct utimebuf​{​
+  time_t    actime;        /* access time <em>/​
+  time_t    modtime;       /</em> modify time */​
+  };</p>
+  </li>
+  <li>각 필드는 1970-1-1 00:00 부터 현재까지의 경과 시간을 초로 환산한 값​</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>Directory​</p>
+</blockquote>
+
+<ul>
+  <li>디렉토리는 일종의 파일이다
+    <ul>
+      <li>디렉토리에는 소유자, 그룹 및 권한도 있다.</li>
+      <li>디렉토리에 대해 open, read, fstat, close를 사용할 수 있다</li>
+      <li>차이 creat() 및 open()을 사용하여 디렉토리를 생성할 수 없음 -&gt; 그렇게 하려면 mkdir() 필요</li>
+    </ul>
+  </li>
+  <li>
+    <p>각 디렉토리 항목에는 i-노드 번호와 파일 이름이 있다.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;dirent.h&gt; ​
+
+struct dirent {​
+ino_t d_ino;          /* i-node number */​
+char  d_name[ ];  /* filename */​
+}
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>mkdir()</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/stat.h&gt;
+#include &lt;unistd.h&gt;
+
+int mkdir(const char *pathname, mode_t mode);
+</code></pre></div></div>
+
+<ul>
+  <li>mkdir()은 디렉토리를 만드는 데 사용된다</li>
+  <li>매개변수
+    <ul>
+      <li>pathname: 새 디렉토리의 경로명</li>
+      <li>mode: 디렉토리 권한</li>
+    </ul>
+  </li>
+  <li>반환 값
+    <ul>
+      <li>성공: 0</li>
+      <li>오류: -1</li>
+    </ul>
+  </li>
+  <li>. 과 .. 을 새로 생성된 디렉토리에 넣는다</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>opendir() / readdir() / closedir() / rewinddir()</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt;​
+#include &lt;dirent.h&gt;​
+typedef struct dirent Dirent;​
+
+DIR *opendir(const char *pathname);​
+
+dirent *readdir(DIR *dir_fd);​
+
+int closedir(DIR *dir_fd);​
+
+void rewinddir (DIR *dir_fd); 
+</code></pre></div></div>
+
+<ul>
+  <li>DIR 구조체​
+    <ul>
+      <li>open된 디렉토리를 다루는데 사용되는 구조체​</li>
+    </ul>
+  </li>
+  <li>opendir() 함수는 open()과 유사하다</li>
+  <li>opendir()은 디렉토리 파일을 읽기 전용으로 연다</li>
+  <li>opendir()은 열린 디렉토리의 파일 포인터를 반환한다</li>
+  <li>closedir()은 dir_fd가 가리키는 디렉토리 파일을 닫는다</li>
+  <li>readdir()
+    <ul>
+      <li>첫 번째 호출이 성공하면 디렉토리의 첫 번째 항목을 struct dirent에서 읽는다</li>
+      <li>그런 다음 자동으로 디렉토리 포인터가 다음 항목으로 이동한다</li>
+    </ul>
+  </li>
+  <li>rewinddir()은 디렉토리 포인터를 디렉토리의 첫 번째 항목으로 이동한다</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>rmdir()</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;unistd.h&gt;​
+
+int rmdir(const char *pathname);
+</code></pre></div></div>
+
+<ul>
+  <li>디렉토리 파일 제거</li>
+  <li>성공하려면 디렉토리가 비어 있어야 합니다</li>
+  <li>반환 값
+    <ul>
+      <li>성공: 0</li>
+      <li>오류: -1</li>
+    </ul>
+  </li>
+  <li>매개변수
+    <ul>
+      <li>경로명: 디렉토리의 경로명</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>chdir()</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;unistd.h&gt;​​
+
+int chdir(const char *pathname);
+</code></pre></div></div>
+
+<ul>
+  <li>디렉토리 변경</li>
+  <li>반환 값
+    <ul>
+      <li>성공: 0</li>
+      <li>오류: -1</li>
+    </ul>
+  </li>
+  <li>매개변수
+    <ul>
+      <li>pathname: 디렉토리의 전체 또는 상대 경로 이름이 있는 문자열</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>getcwd()​</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;unistd.h&gt;​
+
+char *getcwd(char *buf, size_t size);​
+</code></pre></div></div>
+
+<ul>
+  <li>현재 작업 디렉토리의 경로 이름을 가져온다</li>
+  <li>매개변수
+    <ul>
+      <li>buf: 현재 디렉토리의 경로명을 저장할 버퍼</li>
+      <li>크기: buf의 크기</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>Symbolic link​</p>
+</blockquote>
+
+<ul>
+  <li>하드 링크의 한계
+    <ul>
+      <li>디렉토리에 대한 링크를 생성할 수 없다
+        <ul>
+          <li>루트유저만 가능성</li>
+        </ul>
+      </li>
+      <li>다른 파일 시스템에 있는 파일에 대한 링크를 생성할 수 없다</li>
+    </ul>
+  </li>
+  <li>하드링크의 한계 해결</li>
+  <li>파일에 대한 간접 포인터
+    <ul>
+      <li>실제 파일에 대한 경로를 저장하고 있다</li>
+    </ul>
+  </li>
+  <li>파일을 다루는 함수를 사용할 때 심볼릭 링크를 자체를 다루는지 아니면 링크된 대상 파일을 다루는지​</li>
+  <li>심볼릭 링크 자체를 다루는 함수​
+    <ul>
+      <li>lchown, lstat, readlink, remove, rename, unlink 등​</li>
+    </ul>
+  </li>
+  <li>링크된 대상 파일을 다루는 함수​
+    <ul>
+      <li>access, chdir, chmod, chown, creat, exec, link, mkdir, mkfifo, open, opendir, pathconf, stat, truncate 등​</li>
+    </ul>
+  </li>
+  <li>
+    <p>symlink()</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  #include &lt;unistd.h&gt;​
+
+  int symlink(const char *realname, const char *symname);
+</code></pre></div>    </div>
+  </li>
+  <li>반환 값
+    <ul>
+      <li>성공 : 0</li>
+      <li>오류: -1</li>
+    </ul>
+  </li>
+  <li>매개변수
+    <ul>
+      <li>realname : 현재 파일의 경로명</li>
+      <li>symname : 심볼릭 링크의 경로명</li>
+    </ul>
+  </li>
+  <li>
+    <p>readlink()</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  #include &lt;unistd.h&gt;​
+
+  int readlink(const char *pathname, char *buf, int bufsize);​
+</code></pre></div>    </div>
+  </li>
+  <li>심볼릭 링크 파일의 내용을 읽는 함수​
+    <ul>
+      <li>symlink() 에서 저장된 actualpath 가 buf에 채워진다​</li>
+      <li>null 문자는 채워지지 않는다​</li>
+    </ul>
+  </li>
+  <li>Return values​
+    <ul>
+      <li>Success : length of string read​</li>
+      <li>Error : -1​</li>
+    </ul>
+  </li>
+  <li>심볼릭 링크를 open 으로 열면 링크된 대상 파일이 열린다​</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>sync() / fsync()​</p>
+</blockquote>
+
+<ul>
+  <li>버퍼에 있는 내용을 디스크에 쓰도록 한다</li>
+  <li>sync()는 시스템 데몬 프로세스에 의해서 30초마다 호출된다
+    <ul>
+      <li>I/O 작업이 끝나기 전에 리턴한다​</li>
+    </ul>
+  </li>
+  <li>fsync()는 지정된 파일에 대해서만 I/O 작업을 수행하도록 한다
+    <ul>
+      <li>I/O 작업이 끝난 후 리턴한다​</li>
+    </ul>
+  </li>
+</ul>
 
 <hr />
 
