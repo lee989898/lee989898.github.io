@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/author/lee989898/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-11-06T23:12:32+09:00</updated>
+  <updated>2021-11-07T19:22:16+09:00</updated>
   <id>https://lee989898.github.io/author/lee989898/feed.xml</id>
 
   
@@ -1252,6 +1252,30 @@ B가 A를 재시작하고 나서 스스로 중지했다가, ​
       <updated>2021-10-27T01:06:00+09:00</updated>
       <id>https://lee989898.github.io/st-07</id>
       <content type="html" xml:base="https://lee989898.github.io/st-07">&lt;h3 id=&quot;signal&quot;&gt;&lt;strong&gt;Signal&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Signal Concepts​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;​—&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Sending a Signal ​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;​&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Receiving a Signal​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;​—&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Linux Signals / Linux Signal List&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;hr /&gt;</content>
 

@@ -59,10 +59,7 @@
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Process" />
-    <meta property="og:description" content="Process
-
-
-" />
+    <meta property="og:description" content="Process Definition of Process 실행 중인 프로그램 프로그램 데이터와 instructions로 구성된 파일 프로그램은 수동적이다 프로그램을 실행시키기 위해서는 커널 루틴, 리소스(cpu,메모리 등)으로부터 지원을 받아야 한다 프로세스는 다음과 같이 다르게 정의될 수 있다 프로그램 + HW/SW 실행에 필요한 프로그램 프로그램을 실행할 수 있는 환경 Environment ​ 이미지 또는 컨텍스트라고도 함 프로그램 텍스트," />
     <meta property="og:url" content="https://lee989898.github.io/st-05" />
     <meta property="og:image" content="https://lee989898.github.io/assets/built/images/system-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -72,10 +69,7 @@
     <meta property="article:tag" content="System" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Process" />
-    <meta name="twitter:description" content="Process
-
-
-" />
+    <meta name="twitter:description" content="Process Definition of Process 실행 중인 프로그램 프로그램 데이터와 instructions로 구성된 파일 프로그램은 수동적이다 프로그램을 실행시키기 위해서는 커널 루틴, 리소스(cpu,메모리 등)으로부터 지원을 받아야 한다 프로세스는 다음과 같이 다르게 정의될 수 있다 프로그램 + HW/SW 실행에 필요한 프로그램 프로그램을 실행할 수 있는 환경 Environment ​ 이미지 또는 컨텍스트라고도 함 프로그램 텍스트," />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
     <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/system-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -107,10 +101,7 @@
         "@type": "WebPage",
         "@id": "https://lee989898.github.io/st-05"
     },
-    "description": "Process
-
-
-"
+    "description": "Process Definition of Process 실행 중인 프로그램 프로그램 데이터와 instructions로 구성된 파일 프로그램은 수동적이다 프로그램을 실행시키기 위해서는 커널 루틴, 리소스(cpu,메모리 등)으로부터 지원을 받아야 한다 프로세스는 다음과 같이 다르게 정의될 수 있다 프로그램 + HW/SW 실행에 필요한 프로그램 프로그램을 실행할 수 있는 환경 Environment ​ 이미지 또는 컨텍스트라고도 함 프로그램 텍스트,"
 }
     </script>
 
@@ -217,6 +208,605 @@ into the {body} of the default.hbs template -->
             <section class="post-full-content">
                 <div class="kg-card-markdown">
                     <h3 id="process"><strong>Process</strong></h3>
+
+<hr />
+
+<blockquote>
+  <p>Definition of Process</p>
+</blockquote>
+
+<ul>
+  <li>실행 중인 프로그램</li>
+  <li>프로그램
+    <ul>
+      <li>데이터와 instructions로 구성된 파일</li>
+      <li>프로그램은 수동적이다</li>
+    </ul>
+  </li>
+  <li>프로그램을 실행시키기 위해서는 커널 루틴, 리소스(cpu,메모리 등)으로부터 지원을 받아야 한다</li>
+  <li>프로세스는 다음과 같이 다르게 정의될 수 있다
+    <ul>
+      <li>프로그램 + HW/SW 실행에 필요한 프로그램</li>
+      <li>프로그램을 실행할 수 있는 환경</li>
+    </ul>
+  </li>
+  <li>Environment ​
+    <ul>
+      <li>이미지 또는 컨텍스트라고도 함</li>
+      <li>프로그램 텍스트, 힙, 스택, 레지스터 값, 시스템 데이터(현재 디렉토리, open 파일 디스크립터, 누적 CPU 시간 등)로 구성</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>Modes of Process</p>
+</blockquote>
+
+<ul>
+  <li>사용자 프로세스는 호출될 커널 프로세스를 트리거하는 시스템 호출을 사용할 수 있다</li>
+  <li>User process / kernel process
+    <ul>
+      <li>트랩 명령(또는 인터럽트)은 사용자 프로세스(모드)에서 커널 프로세스(모드)로의 전환을 할 수 있다</li>
+      <li>커널 프로세스에서 사용자 프로세스로 복귀</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>Process Level</p>
+</blockquote>
+
+<ul>
+  <li>Level 0: swapper (scheduler)​</li>
+  <li>Level 1: kernel process​</li>
+  <li>Level 2: system process​</li>
+  <li>
+    <p>Level 3: cmd process</p>
+  </li>
+  <li>Swapper (scheduler) process​
+    <ul>
+      <li>스스로 프로세스가 되어 실행을 시작하는 커널 프로그램</li>
+    </ul>
+  </li>
+  <li>fork() system call​
+    <ul>
+      <li>부모 프로세스는 fork()를 호출하여 자식 프로세스를 생성한다</li>
+      <li>자식 프로세스는 부모 프로세스의 모든 환경을 상속한다</li>
+    </ul>
+  </li>
+  <li>각 프로세스가 생성될 때 고유 번호(프로세스 ID)가 할당된다</li>
+  <li>ID가 0인 프로세스는 특별한 커널 프로세스이다</li>
+  <li>프로세스 0 forks()하면 init라고 하는 다른 프로세스(ID 1)생긴다</li>
+  <li>fork init 후 프로세스 0은 스와퍼(또는 스케줄러)가 된다.</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>Process Tree</p>
+</blockquote>
+
+<ul>
+  <li>Init 프로세스는 시스템에서 생성된 모든 프로세스의 조상이 된다</li>
+  <li>Init​
+    <ul>
+      <li>sendmail, crom, etc. ​</li>
+      <li>사용자 ID/암호를 묻는 프로세스 -&gt; Shell​</li>
+    </ul>
+  </li>
+  <li>따라서 init 프로세스를 루트로 하여 “프로세스 트리”가 형성된다</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>Process: State</p>
+</blockquote>
+
+<ul>
+  <li>New: 프로세스 생성 중</li>
+  <li>Running: 명령이 실행되고 있다</li>
+  <li>Waiting: 프로세스가 어떤 이벤트가 발생하기를 기다리고 있다</li>
+  <li>Ready: 프로세스가 프로세서에 할당되기를 기다리고 있다</li>
+  <li>Terminated: 프로세스가 실행을 완료했다</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>Process Group</p>
+</blockquote>
+
+<ul>
+  <li>동일한 로그인 셸(상위 프로세스)에서 생성된 프로세스를 프로세스 그룹이라고 한다</li>
+  <li>프로세스 그룹 ID로 식별한다</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>Process Priority</p>
+</blockquote>
+
+<ul>
+  <li>각 프로세스에는 우선 순위가 지정된다</li>
+  <li>Swapper는 우선 순위가 가장 높은 프로세스를 선택한다</li>
+  <li>우선 순위 범위는 0(최고) ~ 127(최저)
+    <ul>
+      <li>프로세스의 우선 순위를 확인하려면 “%ps -ef” 및 “%ps -el”을 사용하면 된다</li>
+    </ul>
+  </li>
+  <li>모든 프로세스에 동등한 기회를 제공하기 위해 우선 순위가 동적으로 변경된다</li>
+  <li>“nice” 명령(nice() 시스템 호출)은 자발적으로 프로세스의 우선 순위를 낮추는 데 사용된다 ​</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>Process ID</p>
+</blockquote>
+
+<ul>
+  <li>User ID​
+    <ul>
+      <li>Real user ID​</li>
+      <li>Effective user ID​</li>
+    </ul>
+  </li>
+  <li>Group ID​
+    <ul>
+      <li>Real user ID​</li>
+      <li>Effective user ID​</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>Signal</p>
+</blockquote>
+
+<ul>
+  <li>실행중인 프로세스를 외부에서 제어하는 수단​</li>
+  <li>프로세스간에 동기화를 얻는 수단​</li>
+  <li>SW interrupt 로 구현됨​</li>
+  <li>kill() system call 을 이용하여 process 간에 signal 들을 보냄​</li>
+  <li>signal() system call specifies “what to do” when a process receives a signal​</li>
+  <li>Try “% kill –l”</li>
+</ul>
+
+<hr />
+
+<ul>
+  <li>Process: Creation
+    <ul>
+      <li>프로세스는 여러 개의 새로운 프로세스를 생성할 수 있다</li>
+      <li>생성 프로세스: parent 프로세스</li>
+      <li>새로 생성된 프로세스: child 프로세스
+        <ul>
+          <li>fork() 시스템 호출은 새로운 프로세스를 생성한다</li>
+        </ul>
+      </li>
+      <li>리소스 공유
+        <ul>
+          <li>자식은 부모의 일부 리소스를 공유합니다</li>
+        </ul>
+      </li>
+      <li>Execution​
+        <ul>
+          <li>부모와 자식이 함께 실행</li>
+          <li>부모는 자식이 끝날 때까지 기다린다</li>
+          <li>wait() 시스템 호출은 자식이 종료될 때까지 기다린다</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>Process: Exit</p>
+</blockquote>
+
+<ul>
+  <li>프로세스는 최종 명령 실행을 마치면 종료된다</li>
+  <li>exit() 시스템 호출을 사용하여 운영 체제에 자신을 삭제하도록 요청한다
+    <ul>
+      <li>프로세스는 데이터를 부모 프로세스로 반환할 수 있다(wait() 시스템 호출을 통해)</li>
+      <li>프로세스의 모든 리소스(물리적 및 가상 메모리, open 파일 및 I/O 버퍼 포함)는 운영 체제에 의해 할당 해제된다.</li>
+    </ul>
+  </li>
+  <li>프로세스는 적절한 시스템 호출(예: abort())을 통해 다른 프로세스를 종료할 수 있다.</li>
+  <li>사용자가 임의로 프로세스를 종료(kill)</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>Process Start</p>
+</blockquote>
+
+<ul>
+  <li>int main(int argc, char *argv[]);​
+    <ul>
+      <li>arc :     command-line arguments의 수​</li>
+      <li>argv[] :  arguments​에 대한 포인터 배열</li>
+    </ul>
+  </li>
+  <li>C start-up routine​
+    <ul>
+      <li>커널에 의해 시작됨(by the exec system call)​</li>
+      <li>커널에서 command-line arguments와 environment 가져오기</li>
+      <li>Call main</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>Process Termination</p>
+</blockquote>
+
+<ul>
+  <li>Normal termination
+    <ul>
+      <li>return from main()​</li>
+      <li>calling exit() : ​</li>
+      <li>calling _exit() ​</li>
+    </ul>
+  </li>
+  <li>Abnormal termination
+    <ul>
+      <li>calling abort()​</li>
+      <li>terminated by a signal</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>exit()</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    #include &lt;stdlib.h&gt;
+
+    void exit(int status);
+</code></pre></div></div>
+
+<ul>
+  <li>정상적인 프로세스 종료</li>
+  <li>Execution of clean-up processing​
+    <ul>
+      <li>열려 있는 모든 스트림 닫기</li>
+      <li>출력 버퍼의 내용을 디스크에 쓰기</li>
+    </ul>
+  </li>
+  <li>상태
+    <ul>
+      <li>프로세스의 종료 상태</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>_exit()</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    #include &lt;unistd.h&gt;
+
+    void _exit(int status);
+</code></pre></div></div>
+
+<ul>
+  <li>정상적인 프로세스 종료</li>
+  <li>즉시 커널로 돌아가기</li>
+</ul>
+
+<blockquote>
+  <p>atexit()</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    #include &lt;stdlib.h&gt;
+
+    void atexit(void (*func)(void));
+</code></pre></div></div>
+
+<ul>
+  <li>사용자가 정의한 종료 핸들러를 등록한다
+    <ul>
+      <li>프로세스당 최대 32개</li>
+    </ul>
+  </li>
+  <li>기능
+    <ul>
+      <li>종료 핸들러</li>
+      <li>함수 포인터</li>
+    </ul>
+  </li>
+  <li>exit()는 등록의 역순으로 exit 핸들러를 호출한다</li>
+  <li>비정상 종료(abort) 시 atexit에 등록된 기능이 실행되지 않음</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>Command-Line Arguments</p>
+</blockquote>
+
+<ul>
+  <li>exec() 및 C-start-up 루틴은 새 프로그램에 command-line arguments를 전달한다</li>
+  <li>Linux 셸의 정상 작동의 일부</li>
+  <li>argv[argc]는 NULL 문자(ANSI, POSIX.1)이다</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>Environment Variable</p>
+</blockquote>
+
+<ul>
+  <li>환경 변수는 부모 프로세스에서 자식 프로세스로 전송된다</li>
+  <li>파일(.login 또는 .cshrc)에 설정된 환경 변수</li>
+  <li>환경 변수: 이름 = 값</li>
+  <li>전역 변수 “environ”을 사용하여 환경 변수에 액세스한다
+    <ul>
+      <li>#include <stdlib.h></stdlib.h></li>
+      <li>extern char ** environ;</li>
+    </ul>
+  </li>
+  <li>각 환경 변수는 “name=value” 형식의 문자열로 구성된다
+    <ul>
+      <li>각 문자열은 ‘\0’으로 끝난다</li>
+      <li>마지막 환경 변수 목록은 널 포인터이다.</li>
+    </ul>
+  </li>
+  <li>argv와 같은 구조</li>
+</ul>
+
+<blockquote>
+  <p>getenv()</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    #include &lt;stdlib.h&gt;
+
+    char *getenv(const char *name);
+        반환값: 이름과 관련된 값에 대한 포인터, 찾을 수 없으면 NULL
+</code></pre></div></div>
+
+<ul>
+  <li>주어진 이름의 문자열에 대한 환경 목록 검색</li>
+  <li>일치하는 항목이 발견되면 해당 이름과 관련된 값을 반환한다.</li>
+  <li>요청한 변수가 존재하지 않으면 null을 반환한다</li>
+</ul>
+
+<blockquote>
+  <p>putenv()</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    #include &lt;stdlib.h&gt;
+
+    int putenv(const char *str);
+        반환값: 정상이면 0, 오류 시 0이 아닌 값
+</code></pre></div></div>
+
+<ul>
+  <li>“name=value” 형식의 문자열을 취한다.</li>
+  <li>현재 환경 목록에 추가</li>
+</ul>
+
+<blockquote>
+  <p>setenv() / unsetenv()</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    #include &lt;stdlib.h&gt;​
+
+    int setenv(const char *name, const char *value, int rewrite);                                                                반환값: 정상이면 0, 오류 시 0이 아님
+
+    void unsetenv(const char *name);​ 
+</code></pre></div></div>
+
+<ul>
+  <li>etenv 등록 환경 변수 이름 = 값</li>
+  <li>같은 이름의 환경변수가 존재하는 경우
+    <ul>
+      <li>rewrite != 0 -&gt; change new value​</li>
+      <li>rewrite = 0 -&gt; not change</li>
+    </ul>
+  </li>
+  <li>unsetenv는 환경 변수 이름을 제거한다</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>Memory Layout of a program​</p>
+</blockquote>
+
+<p><img src="/assets/built/images/st/st11.png" width="50%" height="25%" title="제목" alt="시스템프러그래밍" /></p>
+
+<ul>
+  <li>텍스트 세그먼트: 기계 instructions(읽기 전용, 공유 가능)</li>
+  <li>초기화된 데이터 세그먼트:​
+    <ul>
+      <li>e.g. int maxcount = 99; (initialized)​</li>
+    </ul>
+  </li>
+  <li>초기화되지 않은 데이터 세그먼트 또는 bss (block started by symbol)​
+    <ul>
+      <li>e.g. long sum[1000];​</li>
+      <li>프로그램이 실행되기 전에 exec에 의해 0 또는 널 포인터로 초기화됨</li>
+    </ul>
+  </li>
+</ul>
+
+<p>(Use “size” command: % size a.out)​</p>
+
+<ul>
+  <li>Heap: ​
+    <ul>
+      <li>동적 메모리 할당 (malloc, etc.)​</li>
+    </ul>
+  </li>
+  <li>Stack: ​
+    <ul>
+      <li>자동 변수, 임시 변수, 반환 주소, 호출자 환경(레지스터)</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>Shared library</p>
+</blockquote>
+
+<ul>
+  <li>Static linking library​
+    <ul>
+      <li>라이브러리 루틴이 실행 파일에 추가된다</li>
+      <li>실행 파일 크기 증가</li>
+    </ul>
+  </li>
+  <li>Shared library​
+    <ul>
+      <li>파일 실행을 위한 라이브러리 루틴 포함</li>
+      <li>라이브러리 루틴은 공유 메모리에 로드되고 실행 중에 공유된다</li>
+      <li>프로그램 크기는 증가하지 않는다</li>
+      <li>처음 실행할 때 오버헤드가 발생한다</li>
+    </ul>
+  </li>
+  <li>Static libraries as .a (archive files)​
+    <ul>
+      <li>관련된 재배치 가능한 개체 파일을 인덱스(아카이브라고 함)가 있는 단일 파일로 연결한다</li>
+      <li>아카이브 구성원 파일이 참조를 확인하는 경우 실행 파일에 링크한다</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/built/images/st/st12.png" width="50%" height="25%" title="제목" alt="시스템프러그래밍" /></p>
+
+<ul>
+  <li>libc.a (the C standard library)​
+    <ul>
+      <li>1392개 개체 파일의 8MB 아카이브.</li>
+      <li>I/O, memory allocation, signal handling, string handling, data and time, random numbers, integer math​</li>
+    </ul>
+  </li>
+  <li>libm.a (the C math library)​
+    <ul>
+      <li>401개 개체 파일의 1MB 아카이브.​</li>
+      <li>floating point math (sin, cos, tan, log, exp, sqrt, …) ​</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>Shared Libraries</p>
+</blockquote>
+
+<ul>
+  <li>정적 라이브러리에는 저장된 실행 파일이 중복된다는 단점이 있다(모든 기능에는 std libc가 필요함)</li>
+  <li>최신 솔루션: 공유 라이브러리​
+    <ul>
+      <li>응용 프로그램에 동적으로 로드 및 연결,​
+        <ul>
+          <li>로드 타임 또는 런타임 시</li>
+        </ul>
+      </li>
+      <li>동적 링크 라이브러리, DLL, .so 파일이라고도 함</li>
+      <li>일반적으로 동적으로 연결되는 표준 C 라이브러리(libc.so)</li>
+    </ul>
+  </li>
+  <li>동적 연결은 프로그램이 시작된 후에도 발생할 수 있다 (런타임 링크)</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>Memory Allocation​</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;stdlib.h&gt;​
+
+void *malloc(size_t size);​
+void *calloc(size_t nobj, size_t size);​
+void *realloc(void *ptr, size_t newsize);​
+            반환: 정상이면 널이 아닌 포인터, 오류 시 NULL
+void free(void *ptr);
+</code></pre></div></div>
+
+<ul>
+  <li>힙에 동적 메모리 할당</li>
+  <li>적절한 정렬 제공
+    <ul>
+      <li>ex) double은 8의 배수인 주소에서 시작해야 한다</li>
+    </ul>
+  </li>
+  <li>
+    <p>라이브러리는 메모리 풀을 관리한다</p>
+  </li>
+  <li>malloc(): ​
+    <ul>
+      <li>지정된 바이트 수 할당</li>
+      <li>메모리의 초기 값이 결정되지 않음</li>
+    </ul>
+  </li>
+  <li>calloc(): ​
+    <ul>
+      <li>지정된 크기의 지정된 수의 개체 할당​</li>
+      <li>모두 0비트로 초기화</li>
+    </ul>
+  </li>
+  <li>realloc(): ​
+    <ul>
+      <li>이전에 할당된 메모리의 크기를 변경합니다.</li>
+      <li>새로운 영역의 초기 값이 결정되지 않음</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>setjmp() / longjmp() ​</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;setjmp.h&gt;​
+
+int setjmp(jmp_buf env);​
+               반환값 : 0, 직접 호출된 경우
+                없음 0, longjmp 호출에서 반환하는 경우
+void longjmp(jmp_buf env, int val);​
+</code></pre></div></div>
+
+<ul>
+  <li>함수 호출 건너뛰기(nonlocal goto)</li>
+  <li>깊이 중첩된 함수 호출에서 오류 조건을 처리하는 데 유용하다
+    <ul>
+      <li>오류가 발생했을 때 빠르게 main()으로 돌아가고 싶은 경우</li>
+      <li>많은 수의 수준 각 오류에 대해 각 수준에서 반환 처리</li>
+      <li>Direct nonlocal goto: setjmp, longjmp​</li>
+    </ul>
+  </li>
+  <li>env: setjmp 및 longjmp에 사용되는 전역 변수​</li>
+  <li>setjmp: env의 setjmp 지점으로 돌아가기 위한 정보 저장
+    <ul>
+      <li>직접 호출하면 0 반환</li>
+      <li>longjmp에 대한 호출에서 반환하는 경우 0이 아닌 값을 반환한다</li>
+    </ul>
+  </li>
+  <li>longjmp: env를 사용하여 setjmp 지점으로 이동하고 val을 반환 값으로 사용
+    <ul>
+      <li>여러 longjmp가 다른 val로 동일한 setjmp 위치를 사용할 수 있다</li>
+    </ul>
+  </li>
+  <li>env는 다른 함수에서 참조할 수 있다</li>
+</ul>
 
 <hr />
 

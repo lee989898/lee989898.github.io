@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lee989898.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lee989898.github.io/" rel="alternate" type="text/html" /><updated>2021-11-06T23:12:32+09:00</updated><id>https://lee989898.github.io/feed.xml</id><title type="html">LEE</title><subtitle>공부 블로그</subtitle><entry><title type="html">접근 제어</title><link href="https://lee989898.github.io/sc-12" rel="alternate" type="text/html" title="접근 제어" /><published>2021-11-04T01:06:00+09:00</published><updated>2021-11-04T01:06:00+09:00</updated><id>https://lee989898.github.io/sc-12</id><content type="html" xml:base="https://lee989898.github.io/sc-12">&lt;h3 id=&quot;접근-제어&quot;&gt;&lt;strong&gt;접근 제어&lt;/strong&gt;&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lee989898.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lee989898.github.io/" rel="alternate" type="text/html" /><updated>2021-11-07T19:22:16+09:00</updated><id>https://lee989898.github.io/feed.xml</id><title type="html">LEE</title><subtitle>공부 블로그</subtitle><entry><title type="html">접근 제어</title><link href="https://lee989898.github.io/sc-12" rel="alternate" type="text/html" title="접근 제어" /><published>2021-11-04T01:06:00+09:00</published><updated>2021-11-04T01:06:00+09:00</updated><id>https://lee989898.github.io/sc-12</id><content type="html" xml:base="https://lee989898.github.io/sc-12">&lt;h3 id=&quot;접근-제어&quot;&gt;&lt;strong&gt;접근 제어&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
 
@@ -1009,6 +1009,30 @@ B가 A를 재시작하고 나서 스스로 중지했다가, ​
 &lt;p&gt;위그림은 룹에서 서로 중지하고 상대방을 재시작하는 것을 반복함&lt;/p&gt;
 
 &lt;hr /&gt;</content><author><name>lee989898</name></author><category term="pl" /><summary type="html">서브프로그램</summary></entry><entry><title type="html">Signal</title><link href="https://lee989898.github.io/st-07" rel="alternate" type="text/html" title="Signal" /><published>2021-10-27T01:06:00+09:00</published><updated>2021-10-27T01:06:00+09:00</updated><id>https://lee989898.github.io/st-07</id><content type="html" xml:base="https://lee989898.github.io/st-07">&lt;h3 id=&quot;signal&quot;&gt;&lt;strong&gt;Signal&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Signal Concepts​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;​—&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Sending a Signal ​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;​&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Receiving a Signal​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;​—&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Linux Signals / Linux Signal List&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;hr /&gt;</content><author><name>lee989898</name></author><category term="system" /><summary type="html">Signal</summary></entry><entry><title type="html">탐욕 기법</title><link href="https://lee989898.github.io/algorithm-05" rel="alternate" type="text/html" title="탐욕 기법" /><published>2021-10-26T01:09:00+09:00</published><updated>2021-10-26T01:09:00+09:00</updated><id>https://lee989898.github.io/algorithm-05</id><content type="html" xml:base="https://lee989898.github.io/algorithm-05">&lt;h3 id=&quot;탐욕-기법&quot;&gt;&lt;strong&gt;탐욕 기법&lt;/strong&gt;&lt;/h3&gt;
 
