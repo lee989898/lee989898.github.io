@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/algorithm/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-11-07T19:22:16+09:00</updated>
+  <updated>2021-11-09T21:31:37+09:00</updated>
   <id>https://lee989898.github.io/tag/algorithm/feed.xml</id>
 
   
@@ -30,6 +30,284 @@
   
   
 
+  
+    <entry>
+      <title type="html">NP-완전</title>
+      <link href="https://lee989898.github.io/algorithm-06" rel="alternate" type="text/html" title="NP-완전" />
+      <published>2021-11-09T01:09:00+09:00</published>
+      <updated>2021-11-09T01:09:00+09:00</updated>
+      <id>https://lee989898.github.io/algorithm-06</id>
+      <content type="html" xml:base="https://lee989898.github.io/algorithm-06">&lt;h3 id=&quot;np-완전&quot;&gt;&lt;strong&gt;NP-완전&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;문제의 분류&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;풀 수 있는(solvable) 문제​
+    &lt;ul&gt;
+      &lt;li&gt;P 문제: 다항 시간 내에 풀 수 있는 문제 ​&lt;/li&gt;
+      &lt;li&gt;NP 문제: 다항 시간 내에 풀 수 없는 문제​
+        &lt;ul&gt;
+          &lt;li&gt;비결정론적 다항 시간 알고리즘으로 해결할 수 있는 문제​&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;NP-완전 문제: 지수 시간 내에 풀 수 있는 문제​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;풀 수 없는(unsolvable) 문제​
+    &lt;ul&gt;
+      &lt;li&gt;예: 정지 문제(Halting Problem)​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag14.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;결정 문제​
+    &lt;ul&gt;
+      &lt;li&gt;Yes 혹은 No의 해를 요구하는 문제​&lt;/li&gt;
+      &lt;li&gt;예: 무방향그래프의 정점 s 에서 정점 f 까지 가는 경로의 거리가 K(상수) 이하인 경로가 있는가?​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;최적화 문제​
+    &lt;ul&gt;
+      &lt;li&gt;최적의 해를 요구하는 문제​&lt;/li&gt;
+      &lt;li&gt;예: 무방향그래프의 정점 s 에서 정점 f 까지 가는 최단 경로의 거리는 얼마인가?​&lt;/li&gt;
+      &lt;li&gt;최적화 문제는 모두 대응하는 결정 문제로 바꾼 다음 해결한다.​&lt;/li&gt;
+      &lt;li&gt;최적화 문제는 대응하는 결정 문제보다 풀기가 쉽지 않다. ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;NP&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;비결정론적 다항 시간 알고리즘에 의해 해결할 수 있는 결정 문제들의 집합​&lt;/li&gt;
+  &lt;li&gt;비결정론적 다항 시간 알고리즘이란?​
+    &lt;ul&gt;
+      &lt;li&gt;한 결정 문제의 사례 I를 입력으로 받아 다음을 수행하는 2 단계 알고리즘​&lt;/li&gt;
+      &lt;li&gt;비결정론적 ‘추측’ 단계: 주어진 사례 I에 대한 해 S를 ‘추측’한다.​&lt;/li&gt;
+      &lt;li&gt;결정론적 ‘확인’ 단계: 사례 I와 해 S를 입력으로 받아 S가 I에  대한 해임을 결정론적 다항 시간에 확인하고 그 해가 맞으면 ‘Yes’ 라고 답하고 해가 아니라면 ‘No’ 라고 답하거나 알고리즘이 종료되지 않게 한다. ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;NP 문제는 해가 Yes 라는 근거가 주어졌을 때 그 해가 옳은 근거임을 다항 시간에 확인해 줄 수 있다. ​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;NP-완전 문제&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;NP에 속하는 문제​&lt;/li&gt;
+  &lt;li&gt;어떤 NP-완전 문제를 다항 시간 알고리즘에 의해 풀 수 있다면 나머지 모든 NP-완전 문제들도 다항 시간 알고리즘에 의해 풀 수 있다.​&lt;/li&gt;
+  &lt;li&gt;NP-완전 문제는 결정 문제만으로 국한한다. ​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;NP-완전 문제의 핵심 원리&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;결정 문제의 변환을 이용한 해결 과정​
+    &lt;ul&gt;
+      &lt;li&gt;결정 문제 A를 다항 시간에 해결할 수 있는지 알고 싶다.​&lt;/li&gt;
+      &lt;li&gt;가정​
+        &lt;ul&gt;
+          &lt;li&gt;다항 시간에 해결 가능한 결정 문제 B를 이미 알고 있다.​&lt;/li&gt;
+          &lt;li&gt;문제 A를 다항 시간에 문제 B로 변환할 수 있고 문제 B의 해(Yes 혹은 No)가 문제 A의 해와 항상 일치한다.​
+            &lt;ol&gt;
+              &lt;li&gt;문제 A의 사례를 문제 B의 사례로 변환한다. ​&lt;/li&gt;
+              &lt;li&gt;변환된 문제 B의 사례를 문제 B의 알고리즘을 이용하여 해결한다.&lt;br /&gt;
+주: 문제 A도 다항 시간에 해결할 수 있다.​&lt;/li&gt;
+            &lt;/ol&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;다항 시간에 해결할 수 있는 결정 문제가 아직까지 발견되지   않았다. 따라서 문제 A를 다항 시간에 해결할 수 있는지는 알 수 없다. ​&lt;/li&gt;
+  &lt;li&gt;NP-완전 문제들은 서로 다항 시간에 변환 가능하다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;NP-완전 정의&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;결정 문제 D는 다음 조건들을 만족시켜야 한다. ​
+    &lt;ol&gt;
+      &lt;li&gt;문제 D는 NP에 속한다.​&lt;/li&gt;
+      &lt;li&gt;NP에 속한 모든 문제는 다항 시간에 문제 D로  변환 가능하다.​&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;NP-hard&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;NP-완전보다 넓은 범위의 문제를 포함한다. ​&lt;/li&gt;
+  &lt;li&gt;문제 A가 다음 조건을 만족하면 NP-hard이다.​
+    &lt;ul&gt;
+      &lt;li&gt;NP에 속한 모든 문제는 다항 시간에 문제 A로 변환 가능하다. ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;NP-완전 문제는 NP-hard에 속한다. ​&lt;/li&gt;
+  &lt;li&gt;NP-hard 문제는 반드시 NP 문제일 필요는 없다.​&lt;/li&gt;
+  &lt;li&gt;NP-hard는 최적화 문제도 포함한다.​&lt;/li&gt;
+  &lt;li&gt;문제 A가 다음 조건들을 만족하면 NP-완전이다. ​
+    &lt;ol&gt;
+      &lt;li&gt;A는 NP에 속한다.​&lt;/li&gt;
+      &lt;li&gt;A는 NP-hard이다. ​&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag15.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;한 문제가 NP-hard에 속한다는 것을 증명하는 것은 매우 어렵다. 왜냐하면 NP에 속한 모든 문제를 다항 시간에 그 문제로 변환 가능함을 보여야 하기 때문이다. ​&lt;/li&gt;
+  &lt;li&gt;정리: 한 NP-hard 문제를 다항 시간에 주어진 문제로 변환 가능하다면 그 문제는 NP-hard에 속한다. ​&lt;/li&gt;
+  &lt;li&gt;한 문제가 NP-hard에 속한다는 증명은 이 정리를 이용한다.​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;문제 A의 NP-완전 증명 방법​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;문제 A가 NP에 속함을 보인다.​&lt;/li&gt;
+  &lt;li&gt;한 NP-hard 문제 C의 사례를 다항 시간에 문제 A의 사례로 변환하는 알고리즘을 작성한다.​&lt;/li&gt;
+  &lt;li&gt;2의 알고리즘을 수행하여 얻은 결과 사례 C와 사례 A의 Yes/No 해가 일치함을 보인다.​&lt;br /&gt;
+주: 어떤 문제가 NP-완전 문제임을 증명하는 것은 쉽지 않다. ​&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;NP-완전 문제​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;논리곱 정규형-만족​&lt;/li&gt;
+  &lt;li&gt;완전 부분 그래프​&lt;/li&gt;
+  &lt;li&gt;정점 커버​&lt;/li&gt;
+  &lt;li&gt;부분 집합의 합​&lt;/li&gt;
+  &lt;li&gt;그래프 색칠하기​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;논리곱 정규형-만족 문제&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;부울 연산식은 논리곱 정규형으로 표현될 수 있다.&lt;/li&gt;
+  &lt;li&gt;문제: 논리곱 정규형의 주어진 부울 연산식의 값이 true가 되도록 부울 연산식의 변수들에 true나 false 값을 할당할 수 있는가?&lt;/li&gt;
+  &lt;li&gt;예: a,b,c -부울 변수,$\bar{a}$, $\bar{b}$ , $\bar{c}$ : a,b,c의 역&lt;br /&gt;
+부울 연산삭: ($\bar{a}$ $\lor$ $\bar{b}$ $\lor$ c) $\land$ ($\bar{a}$ $\lor$ b) $\land$ (a $\lor$ $\bar{b}$ $\lor$ $\bar{c}$ )
+해: a = true, b = true, c = true&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;완전 부분 그래프​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;무방향 그래프 내에 있는 최대 크기의 완전 부분 그래프를 찾아라&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/ag/ag16.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;정점 커버​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;무방향 그래프 내에 있는 최소 크기의 정점 커버를 찾아라&lt;/li&gt;
+  &lt;li&gt;정점 커버: 무방향 그래프에서 각 간선의 양쪽 끝의 두 정점들 중에서 적어도 1개의 정점을 포함하는 정점들의 집합&lt;/li&gt;
+  &lt;li&gt;예: 아래 그래프에서 최소 크기의 정점 커버 C = {a,c,e}&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/ag/ag17.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;부분 집합의 합 문제&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;정수들의 집합 S의 요소들의 합이 K가 되는 S의 부분 집합을 찾아라.&lt;/li&gt;
+  &lt;li&gt;예: S = {10,20,40,70,80}, K = 160
+    &lt;ul&gt;
+      &lt;li&gt;부분 집합{10,70,80}&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;그래프 색칠하기 문제&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;무방향 그래프에서 인접한 정점들을 서로 다른색으로 가장 적은 수의 색을 사용하여 색칠하라&lt;/li&gt;
+  &lt;li&gt;예: 아래 그래프에서 a,c: 빨강, b,d: 초록, e: 파랑&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/ag/ag18.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="algorithm" />
+      
+
+      
+        <summary type="html">NP-완전</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">탐욕 기법</title>

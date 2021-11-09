@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/author/lee989898/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-11-07T19:22:16+09:00</updated>
+  <updated>2021-11-09T21:31:37+09:00</updated>
   <id>https://lee989898.github.io/author/lee989898/feed.xml</id>
 
   
@@ -30,6 +30,284 @@
   
   
 
+  
+    <entry>
+      <title type="html">NP-완전</title>
+      <link href="https://lee989898.github.io/algorithm-06" rel="alternate" type="text/html" title="NP-완전" />
+      <published>2021-11-09T01:09:00+09:00</published>
+      <updated>2021-11-09T01:09:00+09:00</updated>
+      <id>https://lee989898.github.io/algorithm-06</id>
+      <content type="html" xml:base="https://lee989898.github.io/algorithm-06">&lt;h3 id=&quot;np-완전&quot;&gt;&lt;strong&gt;NP-완전&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;문제의 분류&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;풀 수 있는(solvable) 문제​
+    &lt;ul&gt;
+      &lt;li&gt;P 문제: 다항 시간 내에 풀 수 있는 문제 ​&lt;/li&gt;
+      &lt;li&gt;NP 문제: 다항 시간 내에 풀 수 없는 문제​
+        &lt;ul&gt;
+          &lt;li&gt;비결정론적 다항 시간 알고리즘으로 해결할 수 있는 문제​&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;NP-완전 문제: 지수 시간 내에 풀 수 있는 문제​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;풀 수 없는(unsolvable) 문제​
+    &lt;ul&gt;
+      &lt;li&gt;예: 정지 문제(Halting Problem)​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag14.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;결정 문제​
+    &lt;ul&gt;
+      &lt;li&gt;Yes 혹은 No의 해를 요구하는 문제​&lt;/li&gt;
+      &lt;li&gt;예: 무방향그래프의 정점 s 에서 정점 f 까지 가는 경로의 거리가 K(상수) 이하인 경로가 있는가?​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;최적화 문제​
+    &lt;ul&gt;
+      &lt;li&gt;최적의 해를 요구하는 문제​&lt;/li&gt;
+      &lt;li&gt;예: 무방향그래프의 정점 s 에서 정점 f 까지 가는 최단 경로의 거리는 얼마인가?​&lt;/li&gt;
+      &lt;li&gt;최적화 문제는 모두 대응하는 결정 문제로 바꾼 다음 해결한다.​&lt;/li&gt;
+      &lt;li&gt;최적화 문제는 대응하는 결정 문제보다 풀기가 쉽지 않다. ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;NP&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;비결정론적 다항 시간 알고리즘에 의해 해결할 수 있는 결정 문제들의 집합​&lt;/li&gt;
+  &lt;li&gt;비결정론적 다항 시간 알고리즘이란?​
+    &lt;ul&gt;
+      &lt;li&gt;한 결정 문제의 사례 I를 입력으로 받아 다음을 수행하는 2 단계 알고리즘​&lt;/li&gt;
+      &lt;li&gt;비결정론적 ‘추측’ 단계: 주어진 사례 I에 대한 해 S를 ‘추측’한다.​&lt;/li&gt;
+      &lt;li&gt;결정론적 ‘확인’ 단계: 사례 I와 해 S를 입력으로 받아 S가 I에  대한 해임을 결정론적 다항 시간에 확인하고 그 해가 맞으면 ‘Yes’ 라고 답하고 해가 아니라면 ‘No’ 라고 답하거나 알고리즘이 종료되지 않게 한다. ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;NP 문제는 해가 Yes 라는 근거가 주어졌을 때 그 해가 옳은 근거임을 다항 시간에 확인해 줄 수 있다. ​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;NP-완전 문제&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;NP에 속하는 문제​&lt;/li&gt;
+  &lt;li&gt;어떤 NP-완전 문제를 다항 시간 알고리즘에 의해 풀 수 있다면 나머지 모든 NP-완전 문제들도 다항 시간 알고리즘에 의해 풀 수 있다.​&lt;/li&gt;
+  &lt;li&gt;NP-완전 문제는 결정 문제만으로 국한한다. ​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;NP-완전 문제의 핵심 원리&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;결정 문제의 변환을 이용한 해결 과정​
+    &lt;ul&gt;
+      &lt;li&gt;결정 문제 A를 다항 시간에 해결할 수 있는지 알고 싶다.​&lt;/li&gt;
+      &lt;li&gt;가정​
+        &lt;ul&gt;
+          &lt;li&gt;다항 시간에 해결 가능한 결정 문제 B를 이미 알고 있다.​&lt;/li&gt;
+          &lt;li&gt;문제 A를 다항 시간에 문제 B로 변환할 수 있고 문제 B의 해(Yes 혹은 No)가 문제 A의 해와 항상 일치한다.​
+            &lt;ol&gt;
+              &lt;li&gt;문제 A의 사례를 문제 B의 사례로 변환한다. ​&lt;/li&gt;
+              &lt;li&gt;변환된 문제 B의 사례를 문제 B의 알고리즘을 이용하여 해결한다.&lt;br /&gt;
+주: 문제 A도 다항 시간에 해결할 수 있다.​&lt;/li&gt;
+            &lt;/ol&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;다항 시간에 해결할 수 있는 결정 문제가 아직까지 발견되지   않았다. 따라서 문제 A를 다항 시간에 해결할 수 있는지는 알 수 없다. ​&lt;/li&gt;
+  &lt;li&gt;NP-완전 문제들은 서로 다항 시간에 변환 가능하다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;NP-완전 정의&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;결정 문제 D는 다음 조건들을 만족시켜야 한다. ​
+    &lt;ol&gt;
+      &lt;li&gt;문제 D는 NP에 속한다.​&lt;/li&gt;
+      &lt;li&gt;NP에 속한 모든 문제는 다항 시간에 문제 D로  변환 가능하다.​&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;NP-hard&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;NP-완전보다 넓은 범위의 문제를 포함한다. ​&lt;/li&gt;
+  &lt;li&gt;문제 A가 다음 조건을 만족하면 NP-hard이다.​
+    &lt;ul&gt;
+      &lt;li&gt;NP에 속한 모든 문제는 다항 시간에 문제 A로 변환 가능하다. ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;NP-완전 문제는 NP-hard에 속한다. ​&lt;/li&gt;
+  &lt;li&gt;NP-hard 문제는 반드시 NP 문제일 필요는 없다.​&lt;/li&gt;
+  &lt;li&gt;NP-hard는 최적화 문제도 포함한다.​&lt;/li&gt;
+  &lt;li&gt;문제 A가 다음 조건들을 만족하면 NP-완전이다. ​
+    &lt;ol&gt;
+      &lt;li&gt;A는 NP에 속한다.​&lt;/li&gt;
+      &lt;li&gt;A는 NP-hard이다. ​&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag15.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;한 문제가 NP-hard에 속한다는 것을 증명하는 것은 매우 어렵다. 왜냐하면 NP에 속한 모든 문제를 다항 시간에 그 문제로 변환 가능함을 보여야 하기 때문이다. ​&lt;/li&gt;
+  &lt;li&gt;정리: 한 NP-hard 문제를 다항 시간에 주어진 문제로 변환 가능하다면 그 문제는 NP-hard에 속한다. ​&lt;/li&gt;
+  &lt;li&gt;한 문제가 NP-hard에 속한다는 증명은 이 정리를 이용한다.​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;문제 A의 NP-완전 증명 방법​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;문제 A가 NP에 속함을 보인다.​&lt;/li&gt;
+  &lt;li&gt;한 NP-hard 문제 C의 사례를 다항 시간에 문제 A의 사례로 변환하는 알고리즘을 작성한다.​&lt;/li&gt;
+  &lt;li&gt;2의 알고리즘을 수행하여 얻은 결과 사례 C와 사례 A의 Yes/No 해가 일치함을 보인다.​&lt;br /&gt;
+주: 어떤 문제가 NP-완전 문제임을 증명하는 것은 쉽지 않다. ​&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;NP-완전 문제​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;논리곱 정규형-만족​&lt;/li&gt;
+  &lt;li&gt;완전 부분 그래프​&lt;/li&gt;
+  &lt;li&gt;정점 커버​&lt;/li&gt;
+  &lt;li&gt;부분 집합의 합​&lt;/li&gt;
+  &lt;li&gt;그래프 색칠하기​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;논리곱 정규형-만족 문제&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;부울 연산식은 논리곱 정규형으로 표현될 수 있다.&lt;/li&gt;
+  &lt;li&gt;문제: 논리곱 정규형의 주어진 부울 연산식의 값이 true가 되도록 부울 연산식의 변수들에 true나 false 값을 할당할 수 있는가?&lt;/li&gt;
+  &lt;li&gt;예: a,b,c -부울 변수,$\bar{a}$, $\bar{b}$ , $\bar{c}$ : a,b,c의 역&lt;br /&gt;
+부울 연산삭: ($\bar{a}$ $\lor$ $\bar{b}$ $\lor$ c) $\land$ ($\bar{a}$ $\lor$ b) $\land$ (a $\lor$ $\bar{b}$ $\lor$ $\bar{c}$ )
+해: a = true, b = true, c = true&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;완전 부분 그래프​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;무방향 그래프 내에 있는 최대 크기의 완전 부분 그래프를 찾아라&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/ag/ag16.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;정점 커버​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;무방향 그래프 내에 있는 최소 크기의 정점 커버를 찾아라&lt;/li&gt;
+  &lt;li&gt;정점 커버: 무방향 그래프에서 각 간선의 양쪽 끝의 두 정점들 중에서 적어도 1개의 정점을 포함하는 정점들의 집합&lt;/li&gt;
+  &lt;li&gt;예: 아래 그래프에서 최소 크기의 정점 커버 C = {a,c,e}&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/ag/ag17.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;부분 집합의 합 문제&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;정수들의 집합 S의 요소들의 합이 K가 되는 S의 부분 집합을 찾아라.&lt;/li&gt;
+  &lt;li&gt;예: S = {10,20,40,70,80}, K = 160
+    &lt;ul&gt;
+      &lt;li&gt;부분 집합{10,70,80}&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;그래프 색칠하기 문제&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;무방향 그래프에서 인접한 정점들을 서로 다른색으로 가장 적은 수의 색을 사용하여 색칠하라&lt;/li&gt;
+  &lt;li&gt;예: 아래 그래프에서 a,c: 빨강, b,d: 초록, e: 파랑&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/ag/ag18.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="algorithm" />
+      
+
+      
+        <summary type="html">NP-완전</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">접근 제어</title>
@@ -1259,11 +1537,36 @@ B가 A를 재시작하고 나서 스스로 중지했다가, ​
   &lt;p&gt;Signal Concepts​&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;​—&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Signal은 프로세스에 보내는 메시지이다. signal은 시스템에서 어떤 유형의 이벤트가 발생했음을 알려준다
+    &lt;ul&gt;
+      &lt;li&gt;Signal은 커널에서 프로세스로 보내진다​&lt;/li&gt;
+      &lt;li&gt;때로는 다른 프로세스의 요청으로 전송된다​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Signal은 exceptions,interrupts​과 유사하다&lt;/li&gt;
+  &lt;li&gt;Signal은 일종의 IPC(Inter-Process Communication)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;Sending a Signal ​&lt;/p&gt;
+  &lt;p&gt;Sending a Signal&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;커널은 다음과 같은 이유로 신호를 보낸다​
+    &lt;ul&gt;
+      &lt;li&gt;커널이 0으로 나누기(SIGFPE), 잘못된 메모리 참조(SIGSEGV), child 프로세스 종료(SIGCHLD)와 같은 시스템 이벤트를 감지했다&lt;/li&gt;
+      &lt;li&gt;다른 프로세스가 대상 프로세스에 signal를 보내도록 커널을 명시적으로 요청하기 위해 kill 시스템 호출을 호출했다
+        &lt;ul&gt;
+          &lt;li&gt;보낼 수 있는 신호를 표시하려면 “% kill -l”을 시도하자&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;터미널에서 CTRL-C를 입력하여 실행 중인 프로세스(SIGINT) 중지&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;hr /&gt;
 &lt;p&gt;​&lt;/p&gt;
@@ -1271,11 +1574,187 @@ B가 A를 재시작하고 나서 스스로 중지했다가, ​
   &lt;p&gt;Receiving a Signal​&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;​—&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;대상 프로세스는 커널에서 신호를 수신하고 세 가지 가능한 방법 중 하나로 반응한다
+    &lt;ul&gt;
+      &lt;li&gt;Signal 무시(아무것도 하지 않음)
+        &lt;ul&gt;
+          &lt;li&gt;SIGKILL 및 SIGSTOP을 제외한 모든 신호는 무시할 수 있다&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;프로세스 종료(선택적 코어 덤프 사용) -&amp;gt; default action&lt;/li&gt;
+      &lt;li&gt;시그널 핸들러라는 user-level 함수를 실행하여 Catch the signal
+        &lt;ul&gt;
+          &lt;li&gt;비동기 인터럽트에 대한 응답으로 호출될 때 하드웨어 예외 핸들러와 유사&lt;/li&gt;
+          &lt;li&gt;신호 처리기는 signal() 시스템 호출을 호출하여 실행된다&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;프로세스는 커널에게 “이 신호가 발생하면 위의 세 가지 중 하나를 수행하십시오”라고 알려야 한다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Linux Signals / Linux Signal List&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Every signal has a name​
+    &lt;ul&gt;
+      &lt;li&gt;Begins with ‘SIG’​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Signals are all defined by positive integers (signal numbers) in the header &lt;signal.h&gt; and &lt;siglist.h&gt;​&lt;/siglist.h&gt;&lt;/signal.h&gt;&lt;/li&gt;
+  &lt;li&gt;SVR4 and 4.3+BSD both have 31 different signals&lt;/li&gt;
+  &lt;li&gt;SIGABRT​
+    &lt;ul&gt;
+      &lt;li&gt;Generated by calling the abort() system call​&lt;/li&gt;
+      &lt;li&gt;Process terminates abnormally​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;SIGFPE​
+    &lt;ul&gt;
+      &lt;li&gt;Floating-Point Exception Signal​&lt;/li&gt;
+      &lt;li&gt;Signals an arithmetic exception, such as divide-by-0, floating point overflow, 등등&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;SIGILL​
+    &lt;ul&gt;
+      &lt;li&gt;Illegal Instruction Signal: illegal HW instruction executed​&lt;/li&gt;
+      &lt;li&gt;Can’t be caught or ignored​&lt;/li&gt;
+      &lt;li&gt;A sure way to kill any process​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;SIGINT​
+    &lt;ul&gt;
+      &lt;li&gt;Interrupt Signal​&lt;/li&gt;
+      &lt;li&gt;Generated by the terminal driver when we type the interrupt key (Ctrl C)​&lt;/li&gt;
+      &lt;li&gt;Sent to all processes in the foreground process group​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;SIGKILL​
+    &lt;ul&gt;
+      &lt;li&gt;Kill Signal​&lt;/li&gt;
+      &lt;li&gt;Can’t be caught or ignored​&lt;/li&gt;
+      &lt;li&gt;A sure way to kill any process​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;​SIGPIPE​
+    &lt;ul&gt;
+      &lt;li&gt;Generated when writing on a pipe with no process to read: reader has already terminated​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;SIGQUIT​
+    &lt;ul&gt;
+      &lt;li&gt;Quit Signal​&lt;/li&gt;
+      &lt;li&gt;Generated by the terminal driver when we type terminal quit key (Control + Backslash) and sent to all processes in the foreground process group​&lt;/li&gt;
+      &lt;li&gt;Usually core file is generated​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;SIGSEGV​
+    &lt;ul&gt;
+      &lt;li&gt;Indicates that the process has made an invalid memory reference​&lt;/li&gt;
+      &lt;li&gt;SEGV means “segment violation” ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;SIGTRAP​
+    &lt;ul&gt;
+      &lt;li&gt;Special signal used to transfer control to the debugger (like sdb, adb) ​&lt;/li&gt;
+      &lt;li&gt;Usually ptrace system call is used to invoke SIGTRAP​&lt;/li&gt;
+      &lt;li&gt;It is not usually used except for debugging​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;SIGUSR1 &amp;amp; SIGUSR2​
+    &lt;ul&gt;
+      &lt;li&gt;User-defined signals, for use in application programs​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Linux Signal List&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/st/st13.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;시스템프러그래밍&quot; /&gt; 
+&lt;img src=&quot;/assets/built/images/st/st14.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;시스템프러그래밍&quot; /&gt; 
+&lt;img src=&quot;/assets/built/images/st/st15.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;시스템프러그래밍&quot; /&gt; 
+&lt;img src=&quot;/assets/built/images/st/st16.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;시스템프러그래밍&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;signal()&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;signal.h&amp;gt;​
+
+void (*signal(int signo, void(*func)(int))) (int)​
+    반환: 정상이면 신호의 이전 처리, 오류 시 SIG_ERR ​ + signal function은 signal &quot;signo&quot; 수신과 관련된 기본 동작을 수정한다
++ signo: signal number를 나타낸다​
++ func:​
+    + 신호 수신 시 사용자 정의 함수(signal handler) 호출
+    + SIG_IGN: signal를 무시
+    + SIG_DFL: default action을 취한다 + signal handler에 단일 정수 인수(signal number)가 전달되고 아무 것도 반환하지 않습니다
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;kill()&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt;​
+#include &amp;lt;signal.h&amp;gt;​
+
+int kill(pid_t pid, int signo);​
+    반환: 정상이면 0, 오류시 1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Kill : 프로세스 또는 프로세스 그룹에 신호를 보낸다&lt;/li&gt;
+  &lt;li&gt;super user는  모든 프로세스에 신호를 보낼 수 있다​&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;발신자의 실제 또는 유효 사용자 ID는 수신자의 실제 또는 유효 사용자 ID와 같아야 한다&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Pid &amp;gt; 0​
+    &lt;ul&gt;
+      &lt;li&gt;Signal to the process whose process ID is pid​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Pid == 0​
+    &lt;ul&gt;
+      &lt;li&gt;Signal to the processes whose process group ID equals that of sender​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Pid &amp;lt; 0​
+    &lt;ul&gt;
+      &lt;li&gt;Signal to the processes whose process group ID equals abs. of pid​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Pid == -1​
+    &lt;ul&gt;
+      &lt;li&gt;POSIX.1 leaves this condition unspecified (used as a broadcast signal in SVR4, 4.3+BSD)​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;killpg()&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;signal.h&amp;gt;​
+
+int killpg(int pgrp, int sig)​
+
+// int pgrp -&amp;gt; 프로세스 그룹 ID​
+// int  sig -&amp;gt; 시그널 번호​
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;프로세스 그룹으로 시그널을 보냄​&lt;/li&gt;
+  &lt;li&gt;반환값 : 정상 종료시에는 0, 에러 발생시 -1​&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;hr /&gt;</content>
 
@@ -1937,273 +2416,6 @@ Message를 block으로 나누어서 고정된 길이의 입력값을 받아들�
 
       
         <summary type="html">Hash</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">컨트롤 스트럭처</title>
-      <link href="https://lee989898.github.io/pl-15" rel="alternate" type="text/html" title="컨트롤 스트럭처" />
-      <published>2021-10-22T19:18:00+09:00</published>
-      <updated>2021-10-22T19:18:00+09:00</updated>
-      <id>https://lee989898.github.io/pl-15</id>
-      <content type="html" xml:base="https://lee989898.github.io/pl-15">&lt;h3 id=&quot;컨트롤-스트럭처&quot;&gt;&lt;strong&gt;컨트롤 스트럭처&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;프로그램의 컨트롤 스트럭처에는 3가지가 있다.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;sequence(begin-end)&lt;/li&gt;
-  &lt;li&gt;selection(if-else, case)&lt;/li&gt;
-  &lt;li&gt;iteration(loop)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;각 컨트롤 스트럭처는 여러 개의 문장으로 구성된다. ​&lt;/p&gt;
-
-&lt;p&gt;스트럭처는 여러 문장의 묶음으로, ​
-실행 제어 방법에 따라 각각 키워드(begin, if, while,…)를 포함한다&lt;/p&gt;
-
-&lt;p&gt;여기서 컨트롤 스트럭처의 if, while 문을 제어문이라고 하고, ​
-제어문의 실행 결과에 따라 실행되는 문장을 실행문이라고 한다. ​&lt;/p&gt;
-
-&lt;p&gt;시퀀스는 순차적으로 실행되는 문장들의 연속을 말하며, ​
-실행 제어가 순차적이라서 시작과 끝만 명시하면 된다.&lt;/p&gt;
-
-&lt;p&gt;Selection은 제어문이 참이냐 거짓이냐에 따라 실행문이 다르며,&lt;br /&gt;
-하나의 selection 스트럭처에 제어문과 실행문을 여럿 포함하기도 한다. ​&lt;/p&gt;
-
-&lt;p&gt;Iteration도 제어문과 실행문의 반복으로 구성되는데,&lt;br /&gt;
-for, while, repeat 등 목적에 따라 그 신택스와 시맨틱스가 다양하다. ​&lt;/p&gt;
-
-&lt;p&gt;프로그래머는 이들 컨트롤 스트럭처를 사용하여 쉽게 프로그램을 구조화한다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;프로그램은 나름의 로직을 갖고 있어서, 이에 따른 실행 제어(flow control)가 필요하다. ​&lt;/p&gt;
-
-&lt;p&gt;명령형 프로그램에서 계산은 다음과 같이 진행된다.&lt;br /&gt;
-변수를 읽고 연산자를 실행하여 표현식을 계산하여, ​
-변수에 결과 값을 부여한다.&lt;br /&gt;
-또, 여러 경로 중에서 선택하여 실행을 제어하거나, ​반복 실행한다. ​&lt;/p&gt;
-
-&lt;p&gt;컨트롤 스트럭처는 제어문과 실행문으로 구성된다. ​
-이 표현은 문제가 있다. 시퀀스는 제어문이 없다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;selection-statements&quot;&gt;&lt;strong&gt;Selection Statements&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Selection문은 2개 이상의 실행 경로 중에서 선택하는 것이다. ​&lt;/p&gt;
-
-&lt;p&gt;두가지 범주가 있는데, 둘 중에 하나 선택하는 것과 여럿 중에 선택하는 것이 있다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;If Statements&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;If문의 일반적 형식은 if 제어 표현식 then 실행문1 else 실행문2 이다. ​&lt;/p&gt;
-
-&lt;p&gt;제어 표현식은 산술식이거나 부울식이다. ​&lt;/p&gt;
-
-&lt;p&gt;프로그래밍 언어에서 실행문1과 실행문2는 단순문이거나 복합문이다. ​&lt;/p&gt;
-
-&lt;p&gt;C, C++에서 복합문을 { }로 둘러싼다.&lt;br /&gt;
-펄에서 모든 실행문을 { }로 구분하고, 파이썬에서는 indentation으로 구분한다.&lt;/p&gt;
-
-&lt;p&gt;자바에서는 중첩 if문을 허용한다.&lt;br /&gt;
-dangling else 문제가 발생할 수 있으니 If에 대응되는 else가 어느 것인지 살펴가며 신중하게 써야 한다.&lt;br /&gt;
-자바를 비롯한 대부분의 언어에서는 else를 가장 가까운 if에 대응시킨다.  ​&lt;/p&gt;
-
-&lt;p&gt;C, C++에서는 가장 가까운 if에 else를 대응시키는 것의 대안으로서,&lt;br /&gt;
-{}로 둘러싼 복합문을 사용할 수도 있다. ​&lt;/p&gt;
-
-&lt;p&gt;​복합문 대신에 end를 사용하기도 한다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Switch Statements&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;​Switch는 여러 대안 중에 하나 선택하여 실행할 경우이다. ​&lt;/p&gt;
-
-&lt;p&gt;전형적인 형식은 아래와 같다 ​&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Switch 표현식 {​
-
-case 상수 표현식1 : 실행문1   ​
-
-…​
-
-default … }이다. 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;스위치문의 case는 동시에 상수 표현식을 비교하는 것이 아니라 상수 표현식을 순차적으로 비교하여 끝까지 실행한다. 
- ​이것을 피하려면, break 사용해야 한다.&lt;/p&gt;
-
-&lt;p&gt;C에서는 스위치문의 제어 표현식으로 정수 타입만 허용한다.&lt;br /&gt;
- 실행문은 시퀀스, 블록, 복합문을 모두 허용한다.&lt;br /&gt;
- 조건이 맞으면 여러 case가 실행가능하다.&lt;br /&gt;
- 디폴트시에, ​If문에 의한 제어가 가능하다.&lt;/p&gt;
-
-&lt;p&gt;파이썬에서는 스위치 대신에 if elif를 사용할 수 있다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;iterative-statements&quot;&gt;&lt;strong&gt;Iterative Statements&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Iteration, recursion은 문장이나 복합문의 반복 실행한다.​ &lt;br /&gt;
- 카운터로 제어하는 counter-controlled loop은 반복문의 실행 횟수를 세는 변수를 갖는다. ​초기값, 종료값, 증분(반복할 때마다 더해지는 값)&lt;/p&gt;
-
-&lt;p&gt;설계할 때 고려사항은 Loop 변수의 유형과 스코프를 정의해야 하며,&lt;br /&gt;
-Loop에서 변화하는 Loop변수의 값이 룹 제어에 영향을 미치는지 확인해야 한다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;for Statenebts&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;C의 for 반복문을 보면, ​&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;for ([expr_1] ; [expr_2] ; [expr_3]) ​
-
-loop body… 와 같습니다. ​
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;다음과 같이 카운터 변수가 여럿일 수 있고, ​
-부울식을 포함할 수 있다. ​&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;For (count1 = 0, count2 = 1.0;​
-     count1 &amp;lt;= 10 &amp;amp;&amp;amp; count2 &amp;lt;= 100.0;​
-    sum = ++count1 + count2, count2 *= 2); ​
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;자바에서 컨트롤 표현식은 부울식이어야 한다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;while Loops&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;​While Loop은 부울식에 의해 제어된다.&lt;br /&gt;
-Ctrl_expr는 부울식으로, Loop의 맨앞에 또는 맨뒤에 위치한다. ​&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;while (ctrl_expr) ​
-loop body… ​
-
-do ​
-loop body ​
-while (ctrl_expr) ​ ​ 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;User-Located Loop Control&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Break 처럼 loop 컨트롤이 loop body의 중간에 위치하기도 한다.&lt;br /&gt;
-이것을 user-located loop control이라고 부른다.&lt;br /&gt;
-Break 외에도 continue가 있다.&lt;/p&gt;
-
-&lt;p&gt;자료구조를 구성하는 요소에 의해 제어되는 반복 처리가 있다. ​
-Iterator를 호출하면, 자료구조에서 다음 요소를 반환해준다. ​
-이밖에 for에서도 자료구조에 의한 반복처리를 제어할 수 있다.  ​&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Unconditional Branching&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;앞에서 언급했듯이 goto는 가독성 문제를 일으킨다.&lt;br /&gt;
-자바는 goto가 없다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;guarded-commands&quot;&gt;&lt;strong&gt;Guarded Commands&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;각 문장 앞에 부울식이 있는 것을 가디드 코멘드라고 한다. &lt;br /&gt;
-즉 가디드 코멘드는 ​selection 문장의 각 라인이 ​부울식과 ‘하나의 문장 또는 문장의 시퀀스＇로 구성된다. ​&lt;/p&gt;
-
-&lt;p&gt;이렇게 하는 목적은 ​프로그램 개발 중에도 프로그램의 correctness(올바름)를 증명하기 위한 것으로, ​Concurrent 프로그래밍의 기초가 된다. ​&lt;/p&gt;
-
-&lt;p&gt;기존의 언어는 개발(코딩)을 마치고 테스트를 통해 프로그램의 올바름을 확인한다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Selection Guarded Command&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Selection의 가디드 코멘드는 ​If 안의 각 문장마다 부울식이 있다. ​&lt;/p&gt;
-
-&lt;p&gt;이 가디드 코멘드의 시맨틱은 다음과 같다.&lt;br /&gt;
-부울식을 계산해서, ​나 이상이 참이면, 그 중에 아무거나 선택한다.&lt;br /&gt;
-아무것도 참이 아니면, 실행 오류로 처리한다.​&lt;br /&gt;
-프로그램의 correctness는 선택된 문장에 종속되지 않는다.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;if x &amp;gt;= y -&amp;gt; max := x​
-[] y &amp;gt;= x =&amp;gt; max := y​
-fi
-
-if (x &amp;gt;= y)​  
-    max = x;​
-else​
-    max = y;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;X, y가 같을 때, 전자는 아무거나 선택되어 수행되나, ​
-후자는 max=x가 수행됨.&lt;br /&gt;
-따라서, non-deterministic vs. deterministic&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Loop Guarded Command&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;do &amp;lt;Boolean&amp;gt; -&amp;gt; &amp;lt;statement&amp;gt;​
-[] &amp;lt;Boolean&amp;gt; -&amp;gt; &amp;lt;statement&amp;gt;​
-...​
-[] &amp;lt;Boolean&amp;gt; -&amp;gt; &amp;lt;statement&amp;gt;​
-od​
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Loop 가디드 코멘드에서, ​Do 다음에 나오는 모든 문장의 앞에 부울식이 있다. ​
-​
-룹 가디드 코멘드의 시맥틱스는 다음과 같다.&lt;br /&gt;
-부울식을 계산하고, ​
-하나 이상이 참이면, ​
-아무거나 선택하여 룹을 시작한다.&lt;br /&gt;
-아무것도 참이 아니면, 룹에서 나온다.&lt;/p&gt;
-
-&lt;hr /&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="pl" />
-      
-
-      
-        <summary type="html">컨트롤 스트럭처</summary>
       
 
       

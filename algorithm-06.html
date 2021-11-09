@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>NP-완전</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Styles'n'Scripts -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.edited.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+    <!-- highlight.js -->
+
+    <!-- custom.css -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/custom.css" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- 웹 폰트 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!-- syntax.css -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <style>.hljs { background: none; }</style>
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="공부 블로그" />
+    <link rel="shortcut icon" href="https://lee989898.github.io/assets/built/images/favicon.jpg" type="image/png" />
+    <link rel="canonical" href="https://lee989898.github.io/algorithm-06" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+    
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$'] ],
+    processEscapes: true,
+  }
+});
+MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+    
+
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="LEE" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="NP-완전" />
+    <meta property="og:description" content="NP-완전 문제의 분류 풀 수 있는(solvable) 문제​ P 문제: 다항 시간 내에 풀 수 있는 문제 ​ NP 문제: 다항 시간 내에 풀 수 없는 문제​ 비결정론적 다항 시간 알고리즘으로 해결할 수 있는 문제​ NP-완전 문제: 지수 시간 내에 풀 수 있는 문제​ 풀 수 없는(unsolvable) 문제​ 예: 정지 문제(Halting" />
+    <meta property="og:url" content="https://lee989898.github.io/algorithm-06" />
+    <meta property="og:image" content="https://lee989898.github.io/assets/built/images/algorithm-logo.png" />
+    <meta property="article:publisher" content="https://www.facebook.com/" />
+    <meta property="article:author" content="https://www.facebook.com/" />
+    <meta property="article:published_time" content="2021-11-09T01:09:00+09:00" />
+    <meta property="article:modified_time" content="2021-11-09T01:09:00+09:00" />
+    <meta property="article:tag" content="Algorithm" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="NP-완전" />
+    <meta name="twitter:description" content="NP-완전 문제의 분류 풀 수 있는(solvable) 문제​ P 문제: 다항 시간 내에 풀 수 있는 문제 ​ NP 문제: 다항 시간 내에 풀 수 없는 문제​ 비결정론적 다항 시간 알고리즘으로 해결할 수 있는 문제​ NP-완전 문제: 지수 시간 내에 풀 수 있는 문제​ 풀 수 없는(unsolvable) 문제​ 예: 정지 문제(Halting" />
+    <meta name="twitter:url" content="https://lee989898.github.io/" />
+    <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/algorithm-logo.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="LEE" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Algorithm" />
+    <meta name="twitter:site" content="@" />
+    <meta name="twitter:creator" content="@" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="933" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "LEE",
+        "logo": "https://lee989898.github.io/"
+    },
+    "url": "https://lee989898.github.io/algorithm-06",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://lee989898.github.io/assets/built/images/algorithm-logo.png",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://lee989898.github.io/algorithm-06"
+    },
+    "description": "NP-완전 문제의 분류 풀 수 있는(solvable) 문제​ P 문제: 다항 시간 내에 풀 수 있는 문제 ​ NP 문제: 다항 시간 내에 풀 수 없는 문제​ 비결정론적 다항 시간 알고리즘으로 해결할 수 있는 문제​ NP-완전 문제: 지수 시간 내에 풀 수 있는 문제​ 풀 수 없는(unsolvable) 문제​ 예: 정지 문제(Halting"
+}
+    </script>
+
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="NP-완전" href="/feed.xml" />
+
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <a class="site-nav-logo" href="https://lee989898.github.io/">LEE</a>
+            
+        
+        
+            
+<ul class="nav" role="menu">
+    <li class="nav-home" role="menuitem"><a href="/">Home</a></li>
+    <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
+    <li class="nav-android" role="menuitem"><a href="/tag/android/">안드</a></li>
+    <li class="nav-kotlin" role="menuitem"><a href="/tag/kotlin/">코틀린</a></li>
+    <li class="nav-python" role="menuitem"><a href="/tag/python/">파이썬</a></li>
+    <li class="nav-algorithm" role="menuitem"><a href="/tag/algorithm/">알고리즘</a></li>
+    <li class="nav-pl" role="menuitem"><a href="/tag/pl/">프언</a></li>
+    <li class="nav-security" role="menuitem"><a href="/tag/security/">컴퓨터보안</a></li>
+    <li class="nav-system" role="menuitem"><a href="/tag/system/">시프</a></li>
+    <li class="nav-archive" role="menuitem">
+        <a href="/archive.html">All Posts</a>
+    </li>
+    <li class="nav-archive" role="menuitem">
+        <a href="/author_archive.html">Tag별 Posts</a>
+    </li>
+
+
+</ul>
+
+
+
+        
+    </div>
+    <div class="site-nav-right">
+        <div class="social-links">
+            
+            
+        </div>
+        
+            <a class="subscribe-button" href="#subscribe">Search</a>
+        
+    </div>
+</nav>
+
+    </div>
+</header>
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full  tag-algorithm post tag-algorithm ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime=" 9 November 2021"> 9 November 2021</time>
+                    
+                        <span class="date-divider">/</span>
+                        
+                            
+                               <a href='/tag/algorithm/'>ALGORITHM</a>
+                            
+                        
+                    
+                </section>
+                <h1 class="post-full-title">NP-완전</h1>
+            </header>
+
+            <!--
+            
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/algorithm-logo.png)">
+            </figure>
+            
+            -->
+            <section class="post-full-content">
+                <div class="kg-card-markdown">
+                    <h3 id="np-완전"><strong>NP-완전</strong></h3>
+
+<hr />
+
+<blockquote>
+  <p>문제의 분류</p>
+</blockquote>
+
+<ul>
+  <li>풀 수 있는(solvable) 문제​
+    <ul>
+      <li>P 문제: 다항 시간 내에 풀 수 있는 문제 ​</li>
+      <li>NP 문제: 다항 시간 내에 풀 수 없는 문제​
+        <ul>
+          <li>비결정론적 다항 시간 알고리즘으로 해결할 수 있는 문제​</li>
+        </ul>
+      </li>
+      <li>NP-완전 문제: 지수 시간 내에 풀 수 있는 문제​</li>
+    </ul>
+  </li>
+  <li>풀 수 없는(unsolvable) 문제​
+    <ul>
+      <li>예: 정지 문제(Halting Problem)​</li>
+    </ul>
+  </li>
+</ul>
+
+<p>​<img src="/assets/built/images/ag/ag14.png" width="50%" height="25%" title="제목" alt="알고리즘" /></p>
+
+<ul>
+  <li>결정 문제​
+    <ul>
+      <li>Yes 혹은 No의 해를 요구하는 문제​</li>
+      <li>예: 무방향그래프의 정점 s 에서 정점 f 까지 가는 경로의 거리가 K(상수) 이하인 경로가 있는가?​</li>
+    </ul>
+  </li>
+  <li>최적화 문제​
+    <ul>
+      <li>최적의 해를 요구하는 문제​</li>
+      <li>예: 무방향그래프의 정점 s 에서 정점 f 까지 가는 최단 경로의 거리는 얼마인가?​</li>
+      <li>최적화 문제는 모두 대응하는 결정 문제로 바꾼 다음 해결한다.​</li>
+      <li>최적화 문제는 대응하는 결정 문제보다 풀기가 쉽지 않다. ​</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>NP</p>
+</blockquote>
+
+<ul>
+  <li>비결정론적 다항 시간 알고리즘에 의해 해결할 수 있는 결정 문제들의 집합​</li>
+  <li>비결정론적 다항 시간 알고리즘이란?​
+    <ul>
+      <li>한 결정 문제의 사례 I를 입력으로 받아 다음을 수행하는 2 단계 알고리즘​</li>
+      <li>비결정론적 ‘추측’ 단계: 주어진 사례 I에 대한 해 S를 ‘추측’한다.​</li>
+      <li>결정론적 ‘확인’ 단계: 사례 I와 해 S를 입력으로 받아 S가 I에  대한 해임을 결정론적 다항 시간에 확인하고 그 해가 맞으면 ‘Yes’ 라고 답하고 해가 아니라면 ‘No’ 라고 답하거나 알고리즘이 종료되지 않게 한다. ​</li>
+    </ul>
+  </li>
+  <li>NP 문제는 해가 Yes 라는 근거가 주어졌을 때 그 해가 옳은 근거임을 다항 시간에 확인해 줄 수 있다. ​</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>NP-완전 문제</p>
+</blockquote>
+
+<ul>
+  <li>NP에 속하는 문제​</li>
+  <li>어떤 NP-완전 문제를 다항 시간 알고리즘에 의해 풀 수 있다면 나머지 모든 NP-완전 문제들도 다항 시간 알고리즘에 의해 풀 수 있다.​</li>
+  <li>NP-완전 문제는 결정 문제만으로 국한한다. ​</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>NP-완전 문제의 핵심 원리</p>
+</blockquote>
+
+<ul>
+  <li>결정 문제의 변환을 이용한 해결 과정​
+    <ul>
+      <li>결정 문제 A를 다항 시간에 해결할 수 있는지 알고 싶다.​</li>
+      <li>가정​
+        <ul>
+          <li>다항 시간에 해결 가능한 결정 문제 B를 이미 알고 있다.​</li>
+          <li>문제 A를 다항 시간에 문제 B로 변환할 수 있고 문제 B의 해(Yes 혹은 No)가 문제 A의 해와 항상 일치한다.​
+            <ol>
+              <li>문제 A의 사례를 문제 B의 사례로 변환한다. ​</li>
+              <li>변환된 문제 B의 사례를 문제 B의 알고리즘을 이용하여 해결한다.<br />
+주: 문제 A도 다항 시간에 해결할 수 있다.​</li>
+            </ol>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>다항 시간에 해결할 수 있는 결정 문제가 아직까지 발견되지   않았다. 따라서 문제 A를 다항 시간에 해결할 수 있는지는 알 수 없다. ​</li>
+  <li>NP-완전 문제들은 서로 다항 시간에 변환 가능하다.</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>NP-완전 정의</p>
+</blockquote>
+
+<ul>
+  <li>결정 문제 D는 다음 조건들을 만족시켜야 한다. ​
+    <ol>
+      <li>문제 D는 NP에 속한다.​</li>
+      <li>NP에 속한 모든 문제는 다항 시간에 문제 D로  변환 가능하다.​</li>
+    </ol>
+  </li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>NP-hard</p>
+</blockquote>
+
+<ul>
+  <li>NP-완전보다 넓은 범위의 문제를 포함한다. ​</li>
+  <li>문제 A가 다음 조건을 만족하면 NP-hard이다.​
+    <ul>
+      <li>NP에 속한 모든 문제는 다항 시간에 문제 A로 변환 가능하다. ​</li>
+    </ul>
+  </li>
+  <li>NP-완전 문제는 NP-hard에 속한다. ​</li>
+  <li>NP-hard 문제는 반드시 NP 문제일 필요는 없다.​</li>
+  <li>NP-hard는 최적화 문제도 포함한다.​</li>
+  <li>문제 A가 다음 조건들을 만족하면 NP-완전이다. ​
+    <ol>
+      <li>A는 NP에 속한다.​</li>
+      <li>A는 NP-hard이다. ​</li>
+    </ol>
+  </li>
+</ul>
+
+<p>​<img src="/assets/built/images/ag/ag15.png" width="50%" height="25%" title="제목" alt="알고리즘" /></p>
+
+<ul>
+  <li>한 문제가 NP-hard에 속한다는 것을 증명하는 것은 매우 어렵다. 왜냐하면 NP에 속한 모든 문제를 다항 시간에 그 문제로 변환 가능함을 보여야 하기 때문이다. ​</li>
+  <li>정리: 한 NP-hard 문제를 다항 시간에 주어진 문제로 변환 가능하다면 그 문제는 NP-hard에 속한다. ​</li>
+  <li>한 문제가 NP-hard에 속한다는 증명은 이 정리를 이용한다.​</li>
+</ul>
+
+<blockquote>
+  <p>문제 A의 NP-완전 증명 방법​</p>
+</blockquote>
+
+<ol>
+  <li>문제 A가 NP에 속함을 보인다.​</li>
+  <li>한 NP-hard 문제 C의 사례를 다항 시간에 문제 A의 사례로 변환하는 알고리즘을 작성한다.​</li>
+  <li>2의 알고리즘을 수행하여 얻은 결과 사례 C와 사례 A의 Yes/No 해가 일치함을 보인다.​<br />
+주: 어떤 문제가 NP-완전 문제임을 증명하는 것은 쉽지 않다. ​</li>
+</ol>
+
+<hr />
+
+<blockquote>
+  <p>NP-완전 문제​</p>
+</blockquote>
+
+<ul>
+  <li>논리곱 정규형-만족​</li>
+  <li>완전 부분 그래프​</li>
+  <li>정점 커버​</li>
+  <li>부분 집합의 합​</li>
+  <li>그래프 색칠하기​</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>논리곱 정규형-만족 문제</p>
+</blockquote>
+
+<ul>
+  <li>부울 연산식은 논리곱 정규형으로 표현될 수 있다.</li>
+  <li>문제: 논리곱 정규형의 주어진 부울 연산식의 값이 true가 되도록 부울 연산식의 변수들에 true나 false 값을 할당할 수 있는가?</li>
+  <li>예: a,b,c -부울 변수,$\bar{a}$, $\bar{b}$ , $\bar{c}$ : a,b,c의 역<br />
+부울 연산삭: ($\bar{a}$ $\lor$ $\bar{b}$ $\lor$ c) $\land$ ($\bar{a}$ $\lor$ b) $\land$ (a $\lor$ $\bar{b}$ $\lor$ $\bar{c}$ )
+해: a = true, b = true, c = true</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>완전 부분 그래프​</p>
+</blockquote>
+
+<ul>
+  <li>무방향 그래프 내에 있는 최대 크기의 완전 부분 그래프를 찾아라</li>
+</ul>
+
+<p><img src="/assets/built/images/ag/ag16.png" width="50%" height="25%" title="제목" alt="알고리즘" /></p>
+
+<hr />
+
+<blockquote>
+  <p>정점 커버​</p>
+</blockquote>
+
+<ul>
+  <li>무방향 그래프 내에 있는 최소 크기의 정점 커버를 찾아라</li>
+  <li>정점 커버: 무방향 그래프에서 각 간선의 양쪽 끝의 두 정점들 중에서 적어도 1개의 정점을 포함하는 정점들의 집합</li>
+  <li>예: 아래 그래프에서 최소 크기의 정점 커버 C = {a,c,e}</li>
+</ul>
+
+<p><img src="/assets/built/images/ag/ag17.png" width="50%" height="25%" title="제목" alt="알고리즘" /></p>
+
+<hr />
+
+<blockquote>
+  <p>부분 집합의 합 문제</p>
+</blockquote>
+
+<ul>
+  <li>정수들의 집합 S의 요소들의 합이 K가 되는 S의 부분 집합을 찾아라.</li>
+  <li>예: S = {10,20,40,70,80}, K = 160
+    <ul>
+      <li>부분 집합{10,70,80}</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>그래프 색칠하기 문제</p>
+</blockquote>
+
+<ul>
+  <li>무방향 그래프에서 인접한 정점들을 서로 다른색으로 가장 적은 수의 색을 사용하여 색칠하라</li>
+  <li>예: 아래 그래프에서 a,c: 빨강, b,d: 초록, e: 파랑</li>
+</ul>
+
+<p><img src="/assets/built/images/ag/ag18.png" width="50%" height="25%" title="제목" alt="알고리즘" /></p>
+
+<hr />
+
+                </div>
+            </section>
+
+            <!-- Email subscribe form at the bottom of the page -->
+            <!--
+            
+                <section class="subscribe-form">
+                    <h3 class="subscribe-form-title">Subscribe to LEE</h3>
+                    <p>Get the latest posts delivered right to your inbox</p>
+                    <span id="searchform" method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  />
+    <input class="location" type="hidden" name="location"  />
+    <input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" onkeyup="myFunc()"
+               id="searchtext" type="text" name="searchtext"
+               placeholder="Search..." />
+    </div>
+    <script type="text/javascript">
+        function myFunc() {
+            if(event.keyCode == 13) {
+                var url = encodeURIComponent($("#searchtext").val());
+                location.href = "/search.html?query=" + url;
+            }
+        }
+    </script>
+</span>
+                </section>
+            
+            -->
+
+
+            <footer class="post-full-footer">
+                <!-- Everything inside the #author tags pulls data from the author -->
+                <!-- #author-->
+                
+                    
+                        <section class="author-card">
+                            
+                                <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="lee989898" />
+                            
+                            <section class="author-card-content">
+                                <h4 class="author-card-name"><a href="/author/lee989898">lee989898</a></h4>
+                                
+                                    <p><a href="https://github.com/lee989898">깃허브</a></p>
+                                
+                            </section>
+                        </section>
+                        <div class="post-full-footer-right">
+                            <a class="author-card-button" href="/author/lee989898">Read More</a>
+                        </div>
+                    
+                
+                <!-- /author  -->
+            </footer>
+
+            <!-- If you use Disqus comments, just uncomment this block.
+            The only thing you need to change is "test-apkdzgmqhj" - which
+            should be replaced with your own Disqus site-id. -->
+            
+                <section class="post-full-comments">
+                    <div id="disqus_thread"></div>
+                    <script>
+                        var disqus_config = function () {
+                            var this_page_url = 'https://lee989898.github.io/algorithm-06';
+                            var this_page_identifier = '/algorithm-06';
+                            var this_page_title = 'NP-완전';
+                        };
+                        (function() {
+                            var d = document, s = d.createElement('script');
+                            s.src = 'https://xxxxxxxx.disqus.com/embed.js';
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
+                </section>
+            
+
+        </article>
+
+    </div>
+</main>
+
+<!-- Links to Previous/Next posts -->
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+                
+                
+                
+                
+                    <article class="read-next-card"
+                        
+                            style="background-image: url(/assets/built/images/blog-cover1.png)"
+                        
+                    >
+                        <header class="read-next-card-header">
+                            <small class="read-next-card-header-sitetitle">&mdash; LEE &mdash;</small>
+                            
+                                <h3 class="read-next-card-header-title"><a href="/tag/algorithm/">Algorithm</a></h3>
+                            
+                        </header>
+                        <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                        <div class="read-next-card-content">
+                            <ul>
+                                
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/algorithm-05">탐욕 기법</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/algorithm-04">동적 계획</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/algorithm-03">분할 정복</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                            </ul>
+                        </div>
+                        <footer class="read-next-card-footer">
+                            <a href="/tag/algorithm/">
+                                
+                                    See all 5 posts  →
+                                
+                            </a>
+                        </footer>
+                    </article>
+                
+            
+
+            <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/sc-12">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/security-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/sc-12">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Security</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">접근 제어</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>접근 제어
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="lee989898" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/lee989898/">lee989898</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      1 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+        </div>
+    </div>
+</aside>
+
+<!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://lee989898.github.io/">
+            
+            <span>LEE</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">NP-완전</div>
+    <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=NP-%EC%99%84%EC%A0%84&amp;url=https://lee989898.github.io/algorithm-06"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://lee989898.github.io/algorithm-06"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+        </a>
+    </div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+<!-- /post -->
+
+<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://lee989898.github.io/">LEE</a> &copy; 2021</section>
+                <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> &
+                    <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> using
+                    <a href="https://github.com/jekyllt/jasper2" target="_blank" rel="noopener">Jasper2</a></section>
+                <nav class="site-footer-nav">
+                    <a href="/">Latest Posts</a>
+                    
+                    
+                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+    <div id="subscribe" class="subscribe-overlay">
+        <a class="subscribe-overlay-close" href="#"></a>
+        <div class="subscribe-overlay-content">
+            
+            <h1 class="subscribe-overlay-title">Search LEE</h1>
+            <p class="subscribe-overlay-description">
+                lunr.js를 이용한 posts 검색 </p>
+            <span id="searchform" method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  />
+    <input class="location" type="hidden" name="location"  />
+    <input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" onkeyup="myFunc()"
+               id="searchtext" type="text" name="searchtext"
+               placeholder="Search..." />
+    </div>
+    <script type="text/javascript">
+        function myFunc() {
+            if(event.keyCode == 13) {
+                var url = encodeURIComponent($("#searchtext").val());
+                location.href = "/search.html?query=" + url;
+            }
+        }
+    </script>
+</span>
+        </div>
+    </div>
+    
+
+    <!-- highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-abap.min.js"></script>
+    <script>$(document).ready(function() {
+      $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+      });
+    });</script>
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script>
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('');
+    </script>
+    <script src="/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-xxxxxxxx-x', 'auto');
+  ga('send', 'pageview');
+
+ </script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+        <script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+$(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>
