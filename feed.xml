@@ -1,4 +1,223 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lee989898.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lee989898.github.io/" rel="alternate" type="text/html" /><updated>2021-11-09T21:31:37+09:00</updated><id>https://lee989898.github.io/feed.xml</id><title type="html">LEE</title><subtitle>공부 블로그</subtitle><entry><title type="html">NP-완전</title><link href="https://lee989898.github.io/algorithm-06" rel="alternate" type="text/html" title="NP-완전" /><published>2021-11-09T01:09:00+09:00</published><updated>2021-11-09T01:09:00+09:00</updated><id>https://lee989898.github.io/algorithm-06</id><content type="html" xml:base="https://lee989898.github.io/algorithm-06">&lt;h3 id=&quot;np-완전&quot;&gt;&lt;strong&gt;NP-완전&lt;/strong&gt;&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lee989898.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lee989898.github.io/" rel="alternate" type="text/html" /><updated>2021-11-11T18:30:14+09:00</updated><id>https://lee989898.github.io/feed.xml</id><title type="html">LEE</title><subtitle>공부 블로그</subtitle><entry><title type="html">Key Management (KDC &amp;amp; CA)</title><link href="https://lee989898.github.io/sc-13" rel="alternate" type="text/html" title="Key Management (KDC &amp;amp; CA)" /><published>2021-11-11T01:06:00+09:00</published><updated>2021-11-11T01:06:00+09:00</updated><id>https://lee989898.github.io/sc-13</id><content type="html" xml:base="https://lee989898.github.io/sc-13">&lt;h3 id=&quot;key-management-kdc--ca&quot;&gt;&lt;strong&gt;Key Management (KDC &amp;amp; CA)&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Session Key&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Session: 회기, 입회기간&lt;/li&gt;
+  &lt;li&gt;통신 seesion이 시작될 때 생성되서 종료될때 폐기되는 동적 대칭키&lt;/li&gt;
+  &lt;li&gt;통신 session마다 다른 키를 사용하면 안전&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;다중사용자가 세션키사용 할 경우&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;2명의 사용자 간에 1개의 비밀키 사용&lt;/li&gt;
+  &lt;li&gt;3명의 사용자 간에 3개의 비밀키 사용&lt;/li&gt;
+  &lt;li&gt;사용자 1명 추가 시 3개의 비밀키가 추가로 필요&lt;/li&gt;
+  &lt;li&gt;n명이면 n(n-1)/2 만큼의 키가 필요&lt;/li&gt;
+  &lt;li&gt;대칭키 유지 및 관리 부하&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;KDC (Key Distribution Centre)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;중앙의 신뢰할 수 있는 키관리, 분배 책임주체&lt;/li&gt;
+  &lt;li&gt;사용자들은 KDC 등록신청하면, KDC가 각 사용자들과 비밀키를 공유&lt;/li&gt;
+  &lt;li&gt;각 사용자는 이 키를 사용하여 KDC와 통신한다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc23.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Operation&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Alice와 Bob은 KDC와의 통신을 위한 $K_{A-KDC}$, $K_{B-KDC}$ 를 알고 있다. Alice는 KDC와 통신하여 세션키 R1 과 $K_{B-KDC}$(A,R1)을 얻는다.
+Alice는 Bob에게 $K_{B-KDC}$(A,R1)을 보내고 Bob은 R1을 추출해낸다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;KDC 장단점&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;KDC의 장점
+    &lt;ul&gt;
+      &lt;li&gt;비밀키 방식은 비교적 속도가 빠름&lt;/li&gt;
+      &lt;li&gt;서버를 사용하지 않는 경우보다 키 관리를 쉽게 해줌&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;KDC의 단점
+    &lt;ul&gt;
+      &lt;li&gt;단일 실패 지점 (SPoF, Single Point of Failure)
+        &lt;ul&gt;
+          &lt;li&gt;KDC가 고장나면 전혀 서비스를 할 수 없음&lt;/li&gt;
+          &lt;li&gt;해결책: 미러 서버 가동
+            &lt;ul&gt;
+              &lt;li&gt;서버와 미러간의 일관성 문제 발생 가능&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;+KDC가 공격되면 모든 비밀키가 노출될 수 있음&lt;/li&gt;
+      &lt;li&gt;KDC의 신뢰성이 매우 중요함&lt;/li&gt;
+      &lt;li&gt;KDC에 대한 병목현상 발생&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Hierarchical Key Control&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;단일 KDC는 대규모 네트워크에서 비효율적&lt;/li&gt;
+  &lt;li&gt;KDC를 계층화
+    &lt;ul&gt;
+      &lt;li&gt;local KDC
+        &lt;ul&gt;
+          &lt;li&gt;single LAN or building&lt;/li&gt;
+          &lt;li&gt;같은 domain 에서의 통신시 키 분배&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;global KDC
+        &lt;ul&gt;
+          &lt;li&gt;다른 domain 간의 통신시 키 선택&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;KDC의 손상시 지역에 한정&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;CA (Certification Authorities)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;for public key cryptography&lt;/li&gt;
+  &lt;li&gt;전자서명을 위해선 신뢰성 있는 공개키 보관장소 필요 해커가 다른 사용자의 공개키를 자기것인 척 하는 것을 방지&lt;/li&gt;
+  &lt;li&gt;공인인증서의 발급과 관리하는 기관&lt;/li&gt;
+  &lt;li&gt;Role
+    &lt;ul&gt;
+      &lt;li&gt;사용자들의 공개키를 저장하고 관리&lt;/li&gt;
+      &lt;li&gt;사용자들이 요청시 해당 공개키를 서명해서 전송(public key certificate, 공개키 인증서)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Operation&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bob은 CA에 공개 키를 등록한다
+    &lt;ul&gt;
+      &lt;li&gt;Bob은 CA에 신원증멸 을 제공한다&lt;/li&gt;
+      &lt;li&gt;CA는 Bob을 공개 키에 바인딩하는 인증서를 생성한다&lt;/li&gt;
+      &lt;li&gt;CA가 디지털 서명한 Bob의 공개 키를 포함하는 인증서: CA는 “이것은 B의 공개 키이다”&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Alice가 Bob의 공개 키를 원할 때:
+    &lt;ul&gt;
+      &lt;li&gt;Bob의 인증서를 얻는다.&lt;/li&gt;
+      &lt;li&gt;CA의 공개 키를 Bob의 인증서에 적용하고 Bob의 공개 키를 가져온다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;공개키 인증서 (공인인증서, Public Key Certificate)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;특정 공개키가 해당 사용자의 공개키임을 신뢰할수있는 기관에서 보증하는 문서 -&amp;gt; 사용자 인증&lt;/li&gt;
+  &lt;li&gt;사용자 공개키에 공인인증기관의 전자서명을 첨부한 것&lt;/li&gt;
+  &lt;li&gt;4요소
+    &lt;ul&gt;
+      &lt;li&gt;공개키인증서: 공개키가 누구것인지, 대칭되는 비밀키는 누가 갖고있는지&lt;/li&gt;
+      &lt;li&gt;인증서정책: 인증서 사용방식&lt;/li&gt;
+      &lt;li&gt;인증서경로: 인증서를 연결하는 방식&lt;/li&gt;
+      &lt;li&gt;인증서 철회리스트: 유효성확인&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;공개키 기반구조 (PKI, Public key Infrastructure)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;정의​
+    &lt;ul&gt;
+      &lt;li&gt;공개키 방식을 통해 암호화 및 전자서명/인증서의 사용을 가능하도록 해주는 기반구조로 X.509(표준), PGP, AADS/X9.59 등 있다​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;​구성 요소​
+    &lt;ul&gt;
+      &lt;li&gt;사용자 : 개인이나 기관 또는 응용 서비스​&lt;/li&gt;
+      &lt;li&gt;인증기관(CA) : 공개키 인증서발급 및 관리​&lt;/li&gt;
+      &lt;li&gt;등록기관(registration authority: RA): 사용자 인증서 신청시 인증기관대신 신분확인​&lt;/li&gt;
+      &lt;li&gt;저장소(repository): 인증서,사용자정보,인증서취소,상호인증서 등을 저장 검색​&lt;/li&gt;
+      &lt;li&gt;인증서정책(policy): 권한, 사용범위 정의​&lt;/li&gt;
+      &lt;li&gt;공개키인증서​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;국내 인증기관(CA)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;전자서명법​
+    &lt;ul&gt;
+      &lt;li&gt;공인인증서: 전자서명을 생성하기 위하여 이용된 정보가 가입자에게 유일하게 속한다는 사실등을 확인하고 증명하는 전자정보. 이름, 유효기관, 발급기관, 전자서명방식, 인증번호등 포함​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;공인인증기관(CA) : 공인인증서의 발급과 관리를 담당하는 기관으로 금융결제원, 한국정보인증, 한국증권전산, 한국전자인증, 한국전산원, 한국무역정보통신, 코스콤​&lt;/li&gt;
+  &lt;li&gt;주요역할​
+    &lt;ul&gt;
+      &lt;li&gt;공개키와 비밀키 생성, 인증서 발급/폐지​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;등록기관(RA, Registration Authority)​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;인증기관의 위임을 받아 사용자가 신청시 신원확인 및 공개키 생성/등록을 수행&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;국내 공인 인증서 발급절차​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;발급기관(CA or RA)에 공인인증서 발급신청(직접방문, 신분증제출)​&lt;/li&gt;
+  &lt;li&gt;발급기관에서 등록확인서 발급 (참조번호, 인가코드)​&lt;/li&gt;
+  &lt;li&gt;발급기관 홈페이지접속해서 공인인증서 발급 신청​&lt;/li&gt;
+  &lt;li&gt;공인인증서 파일이 발급​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="security" /><summary type="html">Key Management (KDC &amp;amp; CA)</summary></entry><entry><title type="html">NP-완전</title><link href="https://lee989898.github.io/algorithm-06" rel="alternate" type="text/html" title="NP-완전" /><published>2021-11-09T01:09:00+09:00</published><updated>2021-11-09T01:09:00+09:00</updated><id>https://lee989898.github.io/algorithm-06</id><content type="html" xml:base="https://lee989898.github.io/algorithm-06">&lt;h3 id=&quot;np-완전&quot;&gt;&lt;strong&gt;NP-완전&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
 
@@ -736,7 +955,81 @@ esp, ebp는 각각 스택포인터, 베이스 포인터이며, eax는 반환값�
 
 &lt;p&gt;​&lt;/p&gt;
 
-&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="pl" /><summary type="html">ImplementSubprogram</summary></entry><entry><title type="html">프로세스통신-pipe</title><link href="https://lee989898.github.io/st-08" rel="alternate" type="text/html" title="프로세스통신-pipe" /><published>2021-10-31T01:06:00+09:00</published><updated>2021-10-31T01:06:00+09:00</updated><id>https://lee989898.github.io/st-08</id><content type="html" xml:base="https://lee989898.github.io/st-08">&lt;h3 id=&quot;프로세스통신-pipe&quot;&gt;&lt;strong&gt;프로세스통신-pipe&lt;/strong&gt;&lt;/h3&gt;
+&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="pl" /><summary type="html">ImplementSubprogram</summary></entry><entry><title type="html">signature</title><link href="https://lee989898.github.io/sc-10" rel="alternate" type="text/html" title="signature" /><published>2021-10-31T01:06:00+09:00</published><updated>2021-10-31T01:06:00+09:00</updated><id>https://lee989898.github.io/sc-10</id><content type="html" xml:base="https://lee989898.github.io/sc-10">&lt;h3 id=&quot;signature&quot;&gt;&lt;strong&gt;signature&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;서명&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;자기의 동일성을 표시하고 책임을 분명하기 하기 위하여 문서 따위에 자기 이름을 써넣음​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;전자서명의 기본 아이디어&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;송신자(alice)는 자신의 비밀키로 암호화​&lt;/li&gt;
+  &lt;li&gt;수신자는 송신자의 공개키로 복호화&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;시나리오:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;+ Bob은 public key를 공개된 장소에 두고, private key는 자신이 가지고 있다
++ Alice는 Bob의 public key를 가져와, 메시지를 암호화해서 전송​
++ 이 메시지는 다른 사람이 보더라도 풀 수 없다. 메시지를 복호화하려면 Bob의 private key가 필요하기 때문-&amp;gt;기밀성보장​
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;문제점1. Bob은 Alice가 메시지를 작성했다는것을 확신할 수 있을까? NO​&lt;/li&gt;
+  &lt;li&gt;문제점2. Bob은 메시지가 중간에 변경되지않았다는것을 확신할 수 있을까? NO​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;해결법&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Alice는 메시지로 MAC을 만들고, 이것을 Alice가 자신의 private key로 암호화 한다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc05.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;만들어진 것을 본래 메시지에 붙인다 -&amp;gt; 서명&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc06.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;이것을 Bob의 public key로 암호화 해서 전송&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;다른 사람은 Bob의 private key가 없으므로 볼수없다 -&amp;gt; 기밀성​&lt;/li&gt;
+  &lt;li&gt;Bob은 자신의 private key로 열면 평문과 시그니쳐가 나온다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc07.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bob은 다음과 같이 무결성,인증을 한다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc08.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="security" /><summary type="html">signature</summary></entry><entry><title type="html">프로세스통신-pipe</title><link href="https://lee989898.github.io/st-08" rel="alternate" type="text/html" title="프로세스통신-pipe" /><published>2021-10-31T01:06:00+09:00</published><updated>2021-10-31T01:06:00+09:00</updated><id>https://lee989898.github.io/st-08</id><content type="html" xml:base="https://lee989898.github.io/st-08">&lt;h3 id=&quot;프로세스통신-pipe&quot;&gt;&lt;strong&gt;프로세스통신-pipe&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;</content><author><name>lee989898</name></author><category term="system" /><summary type="html">프로세스통신-pipe</summary></entry><entry><title type="html">이메일 보안</title><link href="https://lee989898.github.io/sc-11" rel="alternate" type="text/html" title="이메일 보안" /><published>2021-10-31T01:06:00+09:00</published><updated>2021-10-31T01:06:00+09:00</updated><id>https://lee989898.github.io/sc-11</id><content type="html" xml:base="https://lee989898.github.io/sc-11">&lt;h3 id=&quot;이메일-보안&quot;&gt;&lt;strong&gt;이메일 보안&lt;/strong&gt;&lt;/h3&gt;
 
@@ -842,81 +1135,7 @@ esp, ebp는 각각 스택포인터, 베이스 포인터이며, eax는 반환값�
 
 &lt;hr /&gt;
 
-&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="security" /><summary type="html">이메일 보안</summary></entry><entry><title type="html">signature</title><link href="https://lee989898.github.io/sc-10" rel="alternate" type="text/html" title="signature" /><published>2021-10-31T01:06:00+09:00</published><updated>2021-10-31T01:06:00+09:00</updated><id>https://lee989898.github.io/sc-10</id><content type="html" xml:base="https://lee989898.github.io/sc-10">&lt;h3 id=&quot;signature&quot;&gt;&lt;strong&gt;signature&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;서명&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;자기의 동일성을 표시하고 책임을 분명하기 하기 위하여 문서 따위에 자기 이름을 써넣음​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;전자서명의 기본 아이디어&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;송신자(alice)는 자신의 비밀키로 암호화​&lt;/li&gt;
-  &lt;li&gt;수신자는 송신자의 공개키로 복호화&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;시나리오:&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;+ Bob은 public key를 공개된 장소에 두고, private key는 자신이 가지고 있다
-+ Alice는 Bob의 public key를 가져와, 메시지를 암호화해서 전송​
-+ 이 메시지는 다른 사람이 보더라도 풀 수 없다. 메시지를 복호화하려면 Bob의 private key가 필요하기 때문-&amp;gt;기밀성보장​
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;문제점1. Bob은 Alice가 메시지를 작성했다는것을 확신할 수 있을까? NO​&lt;/li&gt;
-  &lt;li&gt;문제점2. Bob은 메시지가 중간에 변경되지않았다는것을 확신할 수 있을까? NO​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;해결법&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Alice는 메시지로 MAC을 만들고, 이것을 Alice가 자신의 private key로 암호화 한다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc05.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;만들어진 것을 본래 메시지에 붙인다 -&amp;gt; 서명&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc06.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;이것을 Bob의 public key로 암호화 해서 전송&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;다른 사람은 Bob의 private key가 없으므로 볼수없다 -&amp;gt; 기밀성​&lt;/li&gt;
-  &lt;li&gt;Bob은 자신의 private key로 열면 평문과 시그니쳐가 나온다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc07.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Bob은 다음과 같이 무결성,인증을 한다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc08.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="security" /><summary type="html">signature</summary></entry><entry><title type="html">서브프로그램</title><link href="https://lee989898.github.io/pl-16" rel="alternate" type="text/html" title="서브프로그램" /><published>2021-10-29T19:18:00+09:00</published><updated>2021-10-29T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-16</id><content type="html" xml:base="https://lee989898.github.io/pl-16">&lt;h3 id=&quot;서브프로그램&quot;&gt;&lt;strong&gt;서브프로그램&lt;/strong&gt;&lt;/h3&gt;
+&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="security" /><summary type="html">이메일 보안</summary></entry><entry><title type="html">서브프로그램</title><link href="https://lee989898.github.io/pl-16" rel="alternate" type="text/html" title="서브프로그램" /><published>2021-10-29T19:18:00+09:00</published><updated>2021-10-29T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-16</id><content type="html" xml:base="https://lee989898.github.io/pl-16">&lt;h3 id=&quot;서브프로그램&quot;&gt;&lt;strong&gt;서브프로그램&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
 
@@ -1869,184 +2088,4 @@ p[v] = $u^&lt;/em&gt;$&lt;/li&gt;
     +  9 ~ 12번의 반복문내에서 기본 연산의 수행 횟수 = n
     +  트리에 모든 정점이 포함되어야 하므로 $\theta$($n^2$)&lt;/p&gt;
 
-&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="algorithm" /><summary type="html">탐욕 기법</summary></entry><entry><title type="html">Hash</title><link href="https://lee989898.github.io/sc-09" rel="alternate" type="text/html" title="Hash" /><published>2021-10-23T01:06:00+09:00</published><updated>2021-10-23T01:06:00+09:00</updated><id>https://lee989898.github.io/sc-09</id><content type="html" xml:base="https://lee989898.github.io/sc-09">&lt;h3 id=&quot;hash&quot;&gt;&lt;strong&gt;Hash&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Hash와 관련된 Key Concepts인 Integrity와 Authentication을 다시 한번 살펴보자&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Integrity&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;무결성&lt;/li&gt;
-  &lt;li&gt;원본 그대로임을 보장&lt;/li&gt;
-  &lt;li&gt;변조가 없다는 것 혹은 변경이 있었음을 알게 됨&lt;/li&gt;
-  &lt;li&gt;주요 공격: modification&lt;/li&gt;
-  &lt;li&gt;Integrity를 지키기 위한 Solution : hash&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Authentication&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;인증&lt;/li&gt;
-  &lt;li&gt;송수신자 서로간의 신원 확인&lt;/li&gt;
-  &lt;li&gt;주요 공격 : impersonation&lt;/li&gt;
-  &lt;li&gt;Authentication을 지키기 위환 solution : 전자서명, 공인인증서&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Hash Functions&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;임의의 긴 입력 값을 적절하게 처리하여 고정된 길이의 짧은 값을 출력하는 함수&lt;/li&gt;
-  &lt;li&gt;Message Authentication Code로 무결성 제공&lt;/li&gt;
-  &lt;li&gt;전자 서명으로 sender authentication 제공&lt;/li&gt;
-  &lt;li&gt;공인인증서, 가상화폐 등에 사용&lt;/li&gt;
-  &lt;li&gt;컴퓨터보안에서 대표적인 hash function은 MD2,4,5 SHA1, HAS160&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;a href=&quot;http://www.miraclesalad.com/webtools/md5.php&quot;&gt;http://www.miraclesalad.com/webtools/md5.php&lt;/a&gt;&lt;br /&gt;
-위 사이트에서 임의의ㅣ 입력값에 대한 해쉬값을 관찰할 수 있다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;해쉬의 특징으로는 대표적으로 3가지가 있다.&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;입력길이에 상관없이 출력길이가 일정&lt;/li&gt;
-  &lt;li&gt;조금이라도 입력값이 다르면 출력값은 완전히 다름&lt;/li&gt;
-  &lt;li&gt;revers가 어렵다(일방향성)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;위 성질중 integrity는 2번에 의해서 보장된다.&lt;br /&gt;
-Encrypt/decrypt와의 차이점은 3번이다. 복호화가 어렵기 때문이다.&lt;/p&gt;
-
-&lt;p&gt;예를 들어보자 h(x): x/23해서 소수점 7~10자리 수를 추출&lt;br /&gt;
-h(345689) = xx.95652177391&lt;br /&gt;
-출력값은 일정하나, reverse는 불가능하다.&lt;/p&gt;
-
-&lt;p&gt;그러나 h(232.8395049993) = 7391 처럼 다른 값을 넣었음에도 값이 같은 일명 collision이 일어날 수 있다.&lt;br /&gt;
-Collison은 서로 다른 입력값이 같은 해시값을 계산하는 것을 의미한다.&lt;br /&gt;
-충동저항성은 collision이 일어날 확률이 작음을 의미한다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;MAC&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;메시지 무결성: 변경되지 않은 원본이 맞음&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc01.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;메시지와 해쉬값을 붙어서 보낸다.&lt;br /&gt;
-받는사람은 비교해서 같으면 원본 다르면 원본이 아닌걸 알 수 있다.&lt;br /&gt;
-하지만 여기서 sender authenticationd은 제공되지 않는다.&lt;br /&gt;
-Digital Signature에서 이문제를 해결한다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Digital Signature&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;무결성과 인증을 동시에 제공&lt;/li&gt;
-  &lt;li&gt;키를 사용한다(키를 모르는 사용자는 생성불가)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc02.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;비교하여 같으면 변조되지 않고 보낸사람을 인증해준다.&lt;br /&gt;
-하지만 mac도 한계가 있는데 제 3자에 대한 sender authentication이 불가능 하다.&lt;br /&gt;
-키를 모르면 인증을 못하기 때문이다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Replay Attack&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc03.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;위 그림은 MAC 공격방법이다.&lt;br /&gt;
-Attacker는 고객이 보낸 똑같은 패킷을 복사하여 고객으로 위장하는 공격 방법이다.&lt;br /&gt;
-이러한 공격을 막는 방법은 패킷에 추가정보로 시간을 알려주는 time stamp를 넣어 해결할 수 있다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;대표적인 해쉬 함수로는 두가지 계열이 있는데 MD와 SHA 계열이다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;MD (Message Digest)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;MD2,4,5,6​&lt;/li&gt;
-  &lt;li&gt;Ron Rivest (RSA), 1990~92​&lt;/li&gt;
-  &lt;li&gt;Merkle structure기반​&lt;/li&gt;
-  &lt;li&gt;128bit hash 값​&lt;/li&gt;
-  &lt;li&gt;512 bit block size ​&lt;/li&gt;
-  &lt;li&gt;MD4는 32bit CPU 전용 (MS)​&lt;/li&gt;
-  &lt;li&gt;MD5는 SHA1등 최신 해시들의 기초가됨​&lt;/li&gt;
-  &lt;li&gt;2005 강한 충돌 내성 깨짐&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;SHA (Secure Hash Algorithm)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;NIST 1993​&lt;/li&gt;
-  &lt;li&gt;Merkle structure기반​&lt;/li&gt;
-  &lt;li&gt;SHA0,1은 160bit hash 값, SHA2는 224~512bit​&lt;/li&gt;
-  &lt;li&gt;512 bit block size ​&lt;/li&gt;
-  &lt;li&gt;최대 2^64-1 bit 메시지처리​&lt;/li&gt;
-  &lt;li&gt;가장 많이 사용​&lt;/li&gt;
-  &lt;li&gt;2005 강한 충돌 내성 깨짐&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc04.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;위 그림은 Merkle structure의 예시이다.&lt;br /&gt;
-MD, SHA 두가지 모두 Merkle structure기반인데 이것은
-Message를 block으로 나누어서 고정된 길이의 입력값을 받아들여 고정된 길이로 출력하는 압축함수를 반복 사용하여 긴 길이의 입력을 처리할 수 있는 해쉬 함수로 학대하여 설계하는 방식이다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Hash attack&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;같은 해시값을 갖는 다른 입력값을 찾아낸다​&lt;/li&gt;
-  &lt;li&gt;예를 들면, (ID, PWD)값은 해시값으로 저장되어 있다.​&lt;/li&gt;
-  &lt;li&gt;만일 같은 해시값을 갖는 (ID2, PWD2)를 찾는다면, (ID, PWD)로 로그인 가능​하다&lt;/li&gt;
-  &lt;li&gt;(ID, PWD), (ID2, PWD2)를 충돌쌍(collision pairs)라 한다​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="security" /><summary type="html">Hash</summary></entry></feed>
+&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="algorithm" /><summary type="html">탐욕 기법</summary></entry></feed>

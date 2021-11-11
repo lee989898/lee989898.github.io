@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/security/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-11-09T21:31:37+09:00</updated>
+  <updated>2021-11-11T18:30:14+09:00</updated>
   <id>https://lee989898.github.io/tag/security/feed.xml</id>
 
   
@@ -30,6 +30,259 @@
   
   
 
+  
+    <entry>
+      <title type="html">Key Management (KDC &amp;amp; CA)</title>
+      <link href="https://lee989898.github.io/sc-13" rel="alternate" type="text/html" title="Key Management (KDC &amp; CA)" />
+      <published>2021-11-11T01:06:00+09:00</published>
+      <updated>2021-11-11T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc-13</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-13">&lt;h3 id=&quot;key-management-kdc--ca&quot;&gt;&lt;strong&gt;Key Management (KDC &amp;amp; CA)&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Session Key&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Session: 회기, 입회기간&lt;/li&gt;
+  &lt;li&gt;통신 seesion이 시작될 때 생성되서 종료될때 폐기되는 동적 대칭키&lt;/li&gt;
+  &lt;li&gt;통신 session마다 다른 키를 사용하면 안전&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;다중사용자가 세션키사용 할 경우&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;2명의 사용자 간에 1개의 비밀키 사용&lt;/li&gt;
+  &lt;li&gt;3명의 사용자 간에 3개의 비밀키 사용&lt;/li&gt;
+  &lt;li&gt;사용자 1명 추가 시 3개의 비밀키가 추가로 필요&lt;/li&gt;
+  &lt;li&gt;n명이면 n(n-1)/2 만큼의 키가 필요&lt;/li&gt;
+  &lt;li&gt;대칭키 유지 및 관리 부하&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;KDC (Key Distribution Centre)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;중앙의 신뢰할 수 있는 키관리, 분배 책임주체&lt;/li&gt;
+  &lt;li&gt;사용자들은 KDC 등록신청하면, KDC가 각 사용자들과 비밀키를 공유&lt;/li&gt;
+  &lt;li&gt;각 사용자는 이 키를 사용하여 KDC와 통신한다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc23.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Operation&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Alice와 Bob은 KDC와의 통신을 위한 $K_{A-KDC}$, $K_{B-KDC}$ 를 알고 있다. Alice는 KDC와 통신하여 세션키 R1 과 $K_{B-KDC}$(A,R1)을 얻는다.
+Alice는 Bob에게 $K_{B-KDC}$(A,R1)을 보내고 Bob은 R1을 추출해낸다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;KDC 장단점&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;KDC의 장점
+    &lt;ul&gt;
+      &lt;li&gt;비밀키 방식은 비교적 속도가 빠름&lt;/li&gt;
+      &lt;li&gt;서버를 사용하지 않는 경우보다 키 관리를 쉽게 해줌&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;KDC의 단점
+    &lt;ul&gt;
+      &lt;li&gt;단일 실패 지점 (SPoF, Single Point of Failure)
+        &lt;ul&gt;
+          &lt;li&gt;KDC가 고장나면 전혀 서비스를 할 수 없음&lt;/li&gt;
+          &lt;li&gt;해결책: 미러 서버 가동
+            &lt;ul&gt;
+              &lt;li&gt;서버와 미러간의 일관성 문제 발생 가능&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;+KDC가 공격되면 모든 비밀키가 노출될 수 있음&lt;/li&gt;
+      &lt;li&gt;KDC의 신뢰성이 매우 중요함&lt;/li&gt;
+      &lt;li&gt;KDC에 대한 병목현상 발생&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Hierarchical Key Control&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;단일 KDC는 대규모 네트워크에서 비효율적&lt;/li&gt;
+  &lt;li&gt;KDC를 계층화
+    &lt;ul&gt;
+      &lt;li&gt;local KDC
+        &lt;ul&gt;
+          &lt;li&gt;single LAN or building&lt;/li&gt;
+          &lt;li&gt;같은 domain 에서의 통신시 키 분배&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;global KDC
+        &lt;ul&gt;
+          &lt;li&gt;다른 domain 간의 통신시 키 선택&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;KDC의 손상시 지역에 한정&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;CA (Certification Authorities)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;for public key cryptography&lt;/li&gt;
+  &lt;li&gt;전자서명을 위해선 신뢰성 있는 공개키 보관장소 필요 해커가 다른 사용자의 공개키를 자기것인 척 하는 것을 방지&lt;/li&gt;
+  &lt;li&gt;공인인증서의 발급과 관리하는 기관&lt;/li&gt;
+  &lt;li&gt;Role
+    &lt;ul&gt;
+      &lt;li&gt;사용자들의 공개키를 저장하고 관리&lt;/li&gt;
+      &lt;li&gt;사용자들이 요청시 해당 공개키를 서명해서 전송(public key certificate, 공개키 인증서)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Operation&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bob은 CA에 공개 키를 등록한다
+    &lt;ul&gt;
+      &lt;li&gt;Bob은 CA에 신원증멸 을 제공한다&lt;/li&gt;
+      &lt;li&gt;CA는 Bob을 공개 키에 바인딩하는 인증서를 생성한다&lt;/li&gt;
+      &lt;li&gt;CA가 디지털 서명한 Bob의 공개 키를 포함하는 인증서: CA는 “이것은 B의 공개 키이다”&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Alice가 Bob의 공개 키를 원할 때:
+    &lt;ul&gt;
+      &lt;li&gt;Bob의 인증서를 얻는다.&lt;/li&gt;
+      &lt;li&gt;CA의 공개 키를 Bob의 인증서에 적용하고 Bob의 공개 키를 가져온다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;공개키 인증서 (공인인증서, Public Key Certificate)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;특정 공개키가 해당 사용자의 공개키임을 신뢰할수있는 기관에서 보증하는 문서 -&amp;gt; 사용자 인증&lt;/li&gt;
+  &lt;li&gt;사용자 공개키에 공인인증기관의 전자서명을 첨부한 것&lt;/li&gt;
+  &lt;li&gt;4요소
+    &lt;ul&gt;
+      &lt;li&gt;공개키인증서: 공개키가 누구것인지, 대칭되는 비밀키는 누가 갖고있는지&lt;/li&gt;
+      &lt;li&gt;인증서정책: 인증서 사용방식&lt;/li&gt;
+      &lt;li&gt;인증서경로: 인증서를 연결하는 방식&lt;/li&gt;
+      &lt;li&gt;인증서 철회리스트: 유효성확인&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;공개키 기반구조 (PKI, Public key Infrastructure)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;정의​
+    &lt;ul&gt;
+      &lt;li&gt;공개키 방식을 통해 암호화 및 전자서명/인증서의 사용을 가능하도록 해주는 기반구조로 X.509(표준), PGP, AADS/X9.59 등 있다​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;​구성 요소​
+    &lt;ul&gt;
+      &lt;li&gt;사용자 : 개인이나 기관 또는 응용 서비스​&lt;/li&gt;
+      &lt;li&gt;인증기관(CA) : 공개키 인증서발급 및 관리​&lt;/li&gt;
+      &lt;li&gt;등록기관(registration authority: RA): 사용자 인증서 신청시 인증기관대신 신분확인​&lt;/li&gt;
+      &lt;li&gt;저장소(repository): 인증서,사용자정보,인증서취소,상호인증서 등을 저장 검색​&lt;/li&gt;
+      &lt;li&gt;인증서정책(policy): 권한, 사용범위 정의​&lt;/li&gt;
+      &lt;li&gt;공개키인증서​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;국내 인증기관(CA)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;전자서명법​
+    &lt;ul&gt;
+      &lt;li&gt;공인인증서: 전자서명을 생성하기 위하여 이용된 정보가 가입자에게 유일하게 속한다는 사실등을 확인하고 증명하는 전자정보. 이름, 유효기관, 발급기관, 전자서명방식, 인증번호등 포함​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;공인인증기관(CA) : 공인인증서의 발급과 관리를 담당하는 기관으로 금융결제원, 한국정보인증, 한국증권전산, 한국전자인증, 한국전산원, 한국무역정보통신, 코스콤​&lt;/li&gt;
+  &lt;li&gt;주요역할​
+    &lt;ul&gt;
+      &lt;li&gt;공개키와 비밀키 생성, 인증서 발급/폐지​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;등록기관(RA, Registration Authority)​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;인증기관의 위임을 받아 사용자가 신청시 신원확인 및 공개키 생성/등록을 수행&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;국내 공인 인증서 발급절차​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;발급기관(CA or RA)에 공인인증서 발급신청(직접방문, 신분증제출)​&lt;/li&gt;
+  &lt;li&gt;발급기관에서 등록확인서 발급 (참조번호, 인가코드)​&lt;/li&gt;
+  &lt;li&gt;발급기관 홈페이지접속해서 공인인증서 발급 신청​&lt;/li&gt;
+  &lt;li&gt;공인인증서 파일이 발급​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="security" />
+      
+
+      
+        <summary type="html">Key Management (KDC &amp;amp; CA)</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">접근 제어</title>
@@ -755,92 +1008,6 @@ Message를 block으로 나누어서 고정된 길이의 입력값을 받아들�
     </entry>
   
     <entry>
-      <title type="html">ElGamal</title>
-      <link href="https://lee989898.github.io/sc-07" rel="alternate" type="text/html" title="ElGamal" />
-      <published>2021-10-14T01:06:00+09:00</published>
-      <updated>2021-10-14T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/sc-07</id>
-      <content type="html" xml:base="https://lee989898.github.io/sc-07">&lt;h3 id=&quot;elgamal&quot;&gt;&lt;strong&gt;ElGamal&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;ElGamal&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Taher Elgamal, 1985 NSF&lt;/li&gt;
-  &lt;li&gt;이산대수의 어려움을 이용&lt;/li&gt;
-  &lt;li&gt;RSA보다 안전성향상&lt;/li&gt;
-  &lt;li&gt;A = $B^c$, c찾기&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Key genetation&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;큰 소수 p, p보다 작은 임의의 g,x 선택&lt;/li&gt;
-  &lt;li&gt;Y = $g^x$ mod p를 계산&lt;/li&gt;
-  &lt;li&gt;공개키: Y,p,g&lt;/li&gt;
-  &lt;li&gt;비밀키: x&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Encryptin/decryption&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;공개키: Y,p,g&lt;/li&gt;
-  &lt;li&gt;비밀키: x&lt;/li&gt;
-  &lt;li&gt;Encrypt: p-1과 relative prime인 임의의 k(1&amp;lt; k &amp;lt; p-1)&lt;br /&gt;
-a = $g^k$  mod p, b = $Y^k$ M mod p 를 계산
-    &lt;ul&gt;
-      &lt;li&gt;여기서, k를 임의로 선택하기 때문에 동일한 M에 대해서 매번 다르게 암호화된다. (RSA와 차이점)&lt;/li&gt;
-      &lt;li&gt;Ciphertext는 dnjsfo M 길이의 2배가 된다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Decrypt: b/$a^x$ mod p = $y^k$ M / $a^x$ mod p = M&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;ElGamal 서명 기법&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;RSA와 달리 서명만을 위해 설계됨&lt;/li&gt;
-  &lt;li&gt;ElGamal 서명기법은 약간 변형된 형태로 NIST의 디지털 서명 표준(DSS)으로 채택&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="security" />
-      
-
-      
-        <summary type="html">ElGamal</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
       <title type="html">ECC</title>
       <link href="https://lee989898.github.io/sc-08" rel="alternate" type="text/html" title="ECC" />
       <published>2021-10-14T01:06:00+09:00</published>
@@ -976,6 +1143,92 @@ a = $g^k$  mod p, b = $Y^k$ M mod p 를 계산
 
       
         <summary type="html">ECC</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">ElGamal</title>
+      <link href="https://lee989898.github.io/sc-07" rel="alternate" type="text/html" title="ElGamal" />
+      <published>2021-10-14T01:06:00+09:00</published>
+      <updated>2021-10-14T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc-07</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-07">&lt;h3 id=&quot;elgamal&quot;&gt;&lt;strong&gt;ElGamal&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ElGamal&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Taher Elgamal, 1985 NSF&lt;/li&gt;
+  &lt;li&gt;이산대수의 어려움을 이용&lt;/li&gt;
+  &lt;li&gt;RSA보다 안전성향상&lt;/li&gt;
+  &lt;li&gt;A = $B^c$, c찾기&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Key genetation&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;큰 소수 p, p보다 작은 임의의 g,x 선택&lt;/li&gt;
+  &lt;li&gt;Y = $g^x$ mod p를 계산&lt;/li&gt;
+  &lt;li&gt;공개키: Y,p,g&lt;/li&gt;
+  &lt;li&gt;비밀키: x&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Encryptin/decryption&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;공개키: Y,p,g&lt;/li&gt;
+  &lt;li&gt;비밀키: x&lt;/li&gt;
+  &lt;li&gt;Encrypt: p-1과 relative prime인 임의의 k(1&amp;lt; k &amp;lt; p-1)&lt;br /&gt;
+a = $g^k$  mod p, b = $Y^k$ M mod p 를 계산
+    &lt;ul&gt;
+      &lt;li&gt;여기서, k를 임의로 선택하기 때문에 동일한 M에 대해서 매번 다르게 암호화된다. (RSA와 차이점)&lt;/li&gt;
+      &lt;li&gt;Ciphertext는 dnjsfo M 길이의 2배가 된다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Decrypt: b/$a^x$ mod p = $y^k$ M / $a^x$ mod p = M&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ElGamal 서명 기법&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;RSA와 달리 서명만을 위해 설계됨&lt;/li&gt;
+  &lt;li&gt;ElGamal 서명기법은 약간 변형된 형태로 NIST의 디지털 서명 표준(DSS)으로 채택&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="security" />
+      
+
+      
+        <summary type="html">ElGamal</summary>
       
 
       
@@ -1403,247 +1656,6 @@ a = $g^k$  mod p, b = $Y^k$ M mod p 를 계산
 
       
         <summary type="html">Number Theory for RSA</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">Symmetric Key Cipher</title>
-      <link href="https://lee989898.github.io/sc-03" rel="alternate" type="text/html" title="Symmetric Key Cipher" />
-      <published>2021-09-16T01:06:00+09:00</published>
-      <updated>2021-09-16T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/sc-03</id>
-      <content type="html" xml:base="https://lee989898.github.io/sc-03">&lt;h3 id=&quot;symmetric-key-cipher&quot;&gt;&lt;strong&gt;Symmetric Key Cipher&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;현대암호의 분류&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/sc/sc13.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Symmetric vs public key&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Encryption key와 decryption key 동일 여부&lt;/li&gt;
-  &lt;li&gt;같으면 symmetric, 다르면 public key&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Block vs Stream cypher&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Block
-    &lt;ul&gt;
-      &lt;li&gt;긴 평문을 일정한 길이의 블록으로 나누어 블록단위 암호화하는 방식​&lt;/li&gt;
-      &lt;li&gt;DES, AES 등&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Stream
-    &lt;ul&gt;
-      &lt;li&gt;Bit 혹은 byte 단위로 암호화​&lt;/li&gt;
-      &lt;li&gt;키를 키스트림 생성기라는 알고리즘에 입력하여 발생되는 1비트 키의 무한수열로 평문을 암호화​&lt;/li&gt;
-      &lt;li&gt;eStream, RC4 등​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Block vs Stream&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;암호화할 데이터 type&lt;/li&gt;
-  &lt;li&gt;다음 상황의 데이터 특징은?&lt;/li&gt;
-  &lt;li&gt;영화 파일 다운로드(Block) vs 실시간 방송, 카카오 채팅(Stream)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Block Cipher&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;긴 평문을 일정한 길이의 블록으로 나누어 블록단위로 암호화하는 방식&lt;/li&gt;
-  &lt;li&gt;SW 구현이 쉽다&lt;/li&gt;
-  &lt;li&gt;Round를 사용하여 반복적으로 암호화하므로 안전&lt;/li&gt;
-  &lt;li&gt;대부분 Feistel cipher structure에 기반&lt;/li&gt;
-  &lt;li&gt;DES, AES, SEED, ARIA, Bluefish, Serpent 등​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/sc/sc14.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Feistel Cipher Structure란&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;대부분 Block cipher에 사용&lt;/li&gt;
-  &lt;li&gt;입력 block을 반으로 나눈다&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;왼,오른쪽 바꿔가며 여러 round수행&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Feistel cipher parameters
-    &lt;ul&gt;
-      &lt;li&gt;Block size: 크면 안전해지나 느려짐&lt;/li&gt;
-      &lt;li&gt;Key size: 크면 안전해지나 느려짐&lt;/li&gt;
-      &lt;li&gt;Round 회수: 크면 안전해지나 느려짐&lt;/li&gt;
-      &lt;li&gt;Function으 복잡도: 크면 안전해지나 느려짐&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;DES (Data Encryprtion Standard)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;가장 많이 쓰임&lt;/li&gt;
-  &lt;li&gt;1972 NIST cipher 곰모&lt;/li&gt;
-  &lt;li&gt;1974 IBM Lucifer 선정&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;1977 미정부 사용결정&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Feistel cipher structure&lt;/li&gt;
-  &lt;li&gt;Block size 64bit, key size 56bit&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;16round&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Declared insecure in 1998&lt;/li&gt;
-  &lt;li&gt;변형버전 - 2DES, 3DES(2~3개 key로 3회 암복호화)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;AES (Advanced Encryption Standard)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;1997 NIST 공모&lt;/li&gt;
-  &lt;li&gt;Rijndael, 2001 NIST 표준선정&lt;/li&gt;
-  &lt;li&gt;Block size 128bit, key size 128,192,256bit&lt;/li&gt;
-  &lt;li&gt;각 키 크기에 따라 10,12,14 rounds&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Block Operation Mode&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Idea: Block 들을 어떻게 운용하느냐로 안전성 향상&lt;/li&gt;
-  &lt;li&gt;4가지 mode
-    &lt;ul&gt;
-      &lt;li&gt;ECB(Electronic Code Block)&lt;/li&gt;
-      &lt;li&gt;CBC(Cipher Block Chaining)&lt;/li&gt;
-      &lt;li&gt;CFB(Cipher Feedback)&lt;/li&gt;
-      &lt;li&gt;OFB(Output Feedback)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;ECB(Electronic Code Block)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;각 block이 서로 독립적&lt;/li&gt;
-  &lt;li&gt;+simple&lt;/li&gt;
-  &lt;li&gt;+병렬처리용이&lt;/li&gt;
-  &lt;li&gt;-같은 평문에 대해 동일한 암호문 생성&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;CBC(Cipher Block Chaining)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Chain: 뒤에 것을 앞에 연결&lt;/li&gt;
-  &lt;li&gt;최초의 평문 blk은 IV와 XOR&lt;/li&gt;
-  &lt;li&gt;결과는 다음 평문 blk와 XOR해서 암호화한다&lt;/li&gt;
-  &lt;li&gt;+같은 평문 blk라도 다른 암호문 blk생성&lt;/li&gt;
-  &lt;li&gt;-Error propagation&lt;/li&gt;
-  &lt;li&gt;Ipsec,Kerberos5 등에서 사용&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;CFB(Cipher Feedback)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Feddback: 출력을 입력으로&lt;/li&gt;
-  &lt;li&gt;초기 blk을 암호화하여 결과를 평문 blk와 XOR&lt;/li&gt;
-  &lt;li&gt;결과는 다음 encrypt시에 입력으로 사용&lt;/li&gt;
-  &lt;li&gt;평문을 직접 암호화하는것이 아니다&lt;/li&gt;
-  &lt;li&gt;+같은 plaintext blk라도 다른 cipher blk생성&lt;/li&gt;
-  &lt;li&gt;-Error propagation&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;OFB(Output Feedback)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;장단점은 CFB와 동일&lt;/li&gt;
-  &lt;li&gt;CFB에 비해 빠름&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;스트림 암호&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;stream: 시내,냇가,흐름&lt;/li&gt;
-  &lt;li&gt;Block을 만들 수 없는 경우&lt;/li&gt;
-  &lt;li&gt;평문을 1 bit(or byte, word)씩 순차적으로 암호화하는 방식&lt;/li&gt;
-  &lt;li&gt;평문과 난수 키 스트림을 1bit씩 단순 XOR&lt;/li&gt;
-  &lt;li&gt;빠름 (XOR 연산)&lt;/li&gt;
-  &lt;li&gt;일반적으로 block cipher에 비해 보안성 낮다&lt;/li&gt;
-  &lt;li&gt;무선통신, 실시간 음성, 영상 스트림 서비스&lt;/li&gt;
-  &lt;li&gt;RC4, ChCha, A5/1, SEAL, SOBER 등&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="security" />
-      
-
-      
-        <summary type="html">Symmetric Key Cipher</summary>
       
 
       
