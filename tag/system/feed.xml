@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/system/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-11-11T18:30:14+09:00</updated>
+  <updated>2021-11-11T23:08:24+09:00</updated>
   <id>https://lee989898.github.io/tag/system/feed.xml</id>
 
   
@@ -38,6 +38,276 @@
       <updated>2021-10-31T01:06:00+09:00</updated>
       <id>https://lee989898.github.io/st-08</id>
       <content type="html" xml:base="https://lee989898.github.io/st-08">&lt;h3 id=&quot;프로세스통신-pipe&quot;&gt;&lt;strong&gt;프로세스통신-pipe&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Inter-Process Communication (IPC)​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;프로세스들끼리 데이터를 주고 받는 기능 수행&lt;/li&gt;
+  &lt;li&gt;예: Client/Serve 응용 프로그램, 등&lt;/li&gt;
+  &lt;li&gt;Pipe/Socket: 파일 디스크립터를 사용하여 접근 가능한 IPC방법들&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Pipe&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;리눅스에서 가장 오래된 IPC이다&lt;/li&gt;
+  &lt;li&gt;Pipe은 메모리 버퍼 영역을 가리킴​
+    &lt;ul&gt;
+      &lt;li&gt;읽기용 입구 하나, 쓰기용 입구 하나를 가짐​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;파일 디스크립터로 접근(access)​
+    &lt;ul&gt;
+      &lt;li&gt;읽기용 입구와 쓰기용 입구에 각각 다른 파일 디스크립터가 할당됨​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;통신을 하게 될 프로세스들이 파일 디스크립터 들을 공유해야 : (예) 부모, 자식 관계​
+    &lt;ul&gt;
+      &lt;li&gt;프로세스는 pipe() system call을 사용하여 파이프를 생성한다&lt;/li&gt;
+      &lt;li&gt;동일한 프로세스가 fork()를 호출하여 자식 프로세스를 생성한다&lt;/li&gt;
+      &lt;li&gt;그러면 파이프는 parent 프로세스와 child 프로세스 간에 사용된다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;파이프의 한계
+    &lt;ul&gt;
+      &lt;li&gt;Half duplex: 데이터는 한 방향으로만 흐른다&lt;/li&gt;
+      &lt;li&gt;공통 조상이 있는 프로세스 사이에서만 사용할 수 있다​
+        &lt;ul&gt;
+          &lt;li&gt;일반적으로 parent 프로세스와 child 프로세스 사이에 사용&lt;/li&gt;
+          &lt;li&gt;프로세스가 파이프를 생성하면 모든 자식이 파이프를 상속할 수 있다&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;휘발성: 파이프를 생성한 프로세스가 종료되면 사라진다&lt;/li&gt;
+      &lt;li&gt;process는 파이프를 전달할 수 없으며 parent로부터 상속해야 한다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Linux 셸에서 파이프 기호는 “&lt;/td&gt;
+          &lt;td&gt;“이다&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;table&gt;
+          &lt;tbody&gt;
+            &lt;tr&gt;
+              &lt;td&gt;% ls -alg&lt;/td&gt;
+              &lt;td&gt;more​&lt;/td&gt;
+            &lt;/tr&gt;
+          &lt;/tbody&gt;
+        &lt;/table&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;table&gt;
+          &lt;tbody&gt;
+            &lt;tr&gt;
+              &lt;td&gt;%  cmd1&lt;/td&gt;
+              &lt;td&gt;cmd2​&lt;/td&gt;
+            &lt;/tr&gt;
+          &lt;/tbody&gt;
+        &lt;/table&gt;
+      &lt;/li&gt;
+      &lt;li&gt;터미널에서 cmd1 입력&lt;/li&gt;
+      &lt;li&gt;cmd1의 출력은 cmd2의 입력&lt;/li&gt;
+      &lt;li&gt;cmd2의 출력은 터미널 화면에 연결한다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/st/st17.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;시스템프로그래밍&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Long pipes:​
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;table&gt;
+          &lt;tbody&gt;
+            &lt;tr&gt;
+              &lt;td&gt;$ pic paper.ms&lt;/td&gt;
+              &lt;td&gt;tbl&lt;/td&gt;
+              &lt;td&gt;eqn&lt;/td&gt;
+              &lt;td&gt;ditroff -ms​&lt;/td&gt;
+            &lt;/tr&gt;
+          &lt;/tbody&gt;
+        &lt;/table&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Pipe을 이용하여 두 개의 프로세스 들이 통신을 할 경우, producer가 write한 순서대로 consumer가 read하게 된다​
+    &lt;ul&gt;
+      &lt;li&gt;선입선출(First-In First-Out)관계​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;단방향 pipe : ​
+    &lt;ul&gt;
+      &lt;li&gt;Producer 프로세스는 pipe에 대한 write용 입구만 사용​&lt;/li&gt;
+      &lt;li&gt;Consumer 프로세스는 pipe에 대한 read용 입구만 사용​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;쌍방향 pipe : ​
+    &lt;ul&gt;
+      &lt;li&gt;Pipe을 두 개 열어 사용​&lt;/li&gt;
+      &lt;li&gt;하나의 pipe는 한쪽 방향의 통신에만 사용됨​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Pipe: pipe() system call&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;unistd.h&amp;gt;
+int pipe(int fd[2]) // int fd[2]; 파일 디스크립터
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;정상 종료하면 0을 반환, 에러 발생시에는 -1을 반환​&lt;/li&gt;
+  &lt;li&gt;pipe() system call은 인자로 넘겨 받은 fd[0], fd[1]에 파일 디스크립터를 저장해서 반환​&lt;/li&gt;
+  &lt;li&gt;fd[0]: 읽기 모드에서 연 파일 디스크립터(읽기용 입구)​&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;fd[1]: 쓰기 모드에서 연 파일 디스크립터(쓰기용 출구)​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Pipe(), fork() 시스템 호출에 의해 부모/자식 프로세스가 fd[0], fd[1]를 공유한다고 가정​&lt;/li&gt;
+  &lt;li&gt;쓰는 쪽(write() system call) 프로세스에서는 읽기용 파일 디스크립터(fd[0])를 닫아 놓음(close() system call)​&lt;/li&gt;
+  &lt;li&gt;읽는 쪽(read() system call) 프로세스에서는 쓰기용 파일 디스크립터(fd[1])를 닫아 놓음(close() system call) ​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Pipe: popen()&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;stdio.h&amp;gt;
+
+FILE *popen(const char *cmdstring, const char *type);
+    반환값: 정상이면 파일 포인터, 오류 시 NULL
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;popen은 “cmdstring”을 실행하기 위해 fork() 및 exec()를 수행한다​&lt;/li&gt;
+  &lt;li&gt;popen의 유형은 “r” 또는 “w”이다​
+    &lt;ul&gt;
+      &lt;li&gt;type이 “r”이면 반환된 파일 포인터는 “cmdstring”의 stdout에 연결된다&lt;/li&gt;
+      &lt;li&gt;type이 “w”인 경우 반환된 파일 포인터는 “cmdstring”의 표준 입력에 연결된다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Pipe: pclose()&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;stdio.h&amp;gt;
+
+int pclose(FILE *fp);
+    반환값: cmdstring의 종료 상태 또는 오류 시 -1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;“pclose”는 std I/O 스트림을 닫고 명령이 종료될 때까지 기다렸다가 셸의 종료 상태를 반환한다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;FIFO&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;파이프와 비슷하다, “named pipe” 라고 불리운다​&lt;/li&gt;
+  &lt;li&gt;파일의 종류&lt;/li&gt;
+  &lt;li&gt;FIFO는 파이프의 한계를 극복한다​&lt;/li&gt;
+  &lt;li&gt;관련 없는 프로세스 간에 사용 가능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt;    
+#include &amp;lt;sys/stat.h&amp;gt;
+
+int mkfifo(const char *filename, mode_t mode);
+정상이면 0, 오류시 -1을 반환한다
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;FIFO 생성은 파일 생성과 유사하다
+    &lt;ul&gt;
+      &lt;li&gt;Mode: open() 함수와 동일한 권한&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;FIFO를 사용하는 것은 파일을 사용하는 것과 유사하다
+    &lt;ul&gt;
+      &lt;li&gt;생성되면 FIFO에 대한 열기, 닫기, 읽기, 쓰기, 연결 해제 등을 사용할 수 있다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;파이프와 마찬가지로 읽기를 위해 열려 있는 프로세스가 없는 FIFO에 쓰면 SIGPIPE 신호가 생성된다&lt;/li&gt;
+  &lt;li&gt;FIFO의 마지막 작성자가 FIFO를 닫으면 FIFO의 판독기에 대해 파일 끝이 생성된다&lt;/li&gt;
+  &lt;li&gt;PIPE_BUF(커널의 파이프 버퍼 크기)는 FIFO에 원자적으로 쓸 수 있는 최대 데이터 양을 지정한다
+    &lt;ul&gt;
+      &lt;li&gt;여러 프로세스의 데이터 쓰기 &amp;lt;= PIPE_BUF는 인터리브되지 않는다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;FIFO 사용 예
+    &lt;ul&gt;
+      &lt;li&gt;셸 명령에서 중간 파일을 생성하지 않고 한 셸 파이프라인에서 다른 셸 파이프라인으로 데이터를 전달하는 데 사용​&lt;/li&gt;
+      &lt;li&gt;클라이언트와 서버 간에 데이터를 전달하기 위해 클라이언트-서버 애플리케이션에서 사용&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;FIFO : 출력 스트림 복제&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;입력 스트림을 두 번 처리하는 절차 작성&lt;/li&gt;
+  &lt;li&gt;tee(1)은 표준 입력을 표준 출력과 명령줄에 명명된 파일 모두에 복사한다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ mkfifo fifo1​
+$ prog3 &amp;lt; fifo1 &amp;amp;​
+$ prog1 &amp;lt; infile | tee fifo1 | prog2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/st/st18.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;시스템프로그래밍&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;FIFO : 클라이언트-서버 통신&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;서버는 클라이언트와 통신하기 위해 “well-known” FIFO를 생성한다(well-known: FIFO의 경로 이름은 서버에 접속해야 하는 모든 클라이언트에게 알려져 있음)&lt;/li&gt;
+  &lt;li&gt;클라이언트 데이터의 interleaving을 피하기 위해 클라이언트는 한 번에 최대 PIPE_BUF 바이트를 써야 하다​&lt;/li&gt;
+  &lt;li&gt;문제: 서버가 단일 “well-known” FIFO를 사용하여 클라이언트에 응답할 수 없음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/st/st19.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;시스템프로그래밍&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;서버는 클라이언트별 FIFO를 사용하여 응답할 수 있도록 각 클라이언트에 대해 FIFO를 생성한다
+    &lt;ul&gt;
+      &lt;li&gt;e.g.: /tmp/serv1.XXXX, where XXXXX is client’s process ID ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;서버는 SIGPIPE를 잡아야 함(1개의 작성자가 있는 FIFO, 판독기 없음)​
+    &lt;ul&gt;
+      &lt;li&gt;클라이언트는 서버에서 응답을 읽기 전에 요청을 보내고 종료하여 클라이언트별 FIFO를 하나의 작성자(서버)와 리더 없이 남겨둔다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/st/st20.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;시스템프로그래밍&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;</content>
 
