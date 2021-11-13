@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/author/lee989898/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-11-11T23:08:24+09:00</updated>
+  <updated>2021-11-13T19:52:06+09:00</updated>
   <id>https://lee989898.github.io/author/lee989898/feed.xml</id>
 
   
@@ -278,6 +278,383 @@ Alice는 Bob에게 $K_{B-KDC}$(A,R1)을 보내고 Bob은 R1을 추출해낸다&l
 
       
         <summary type="html">Key Management (KDC &amp;amp; CA)</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Concurrency</title>
+      <link href="https://lee989898.github.io/pl-18" rel="alternate" type="text/html" title="Concurrency" />
+      <published>2021-11-10T19:18:00+09:00</published>
+      <updated>2021-11-10T19:18:00+09:00</updated>
+      <id>https://lee989898.github.io/pl-18</id>
+      <content type="html" xml:base="https://lee989898.github.io/pl-18">&lt;h3 id=&quot;comcurrency&quot;&gt;&lt;strong&gt;Comcurrency&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Concurrency&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;동시 실행은
+    &lt;ul&gt;
+      &lt;li&gt;인스트럭션 수준&lt;/li&gt;
+      &lt;li&gt;문장 수준&lt;/li&gt;
+      &lt;li&gt;서브프로그램 수준&lt;/li&gt;
+      &lt;li&gt;프로그램 수준​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;이렇게 4개 수준에서 이루어 질 수 있다.&lt;br /&gt;
+인스트럭션 수준에서는 두개 이상의 머신 인스트럭션을 동시에 실행한다. ​
+문장 수준에서는 두개 이상의 고급언어 문장을 동시에 실행한다. ​&lt;br /&gt;
+서브프로그램 수준에서는 두개 이산의 서브프로그램을 동시에 실행한다.&lt;br /&gt;
+프로그램 수준에서는 두개 이상의 프로그램을 동시에 실행한다. ​&lt;/p&gt;
+
+&lt;p&gt;동시 실행 통제 메커니즘은 프로그래밍의 유연성을 증가시킨다.&lt;br /&gt;
+동시 실행 통제 메커니즘은 원래 운영체제의 문제를 풀기 위해 발명되었으나, ​다양한 응용 프로그램에서도 요구된다.&lt;/p&gt;
+
+&lt;p&gt;프로그램 수준의 동시 실행 사례는 웹에서 볼 수 있다.&lt;br /&gt;
+웹 브라우저는 다음과 같은 여러가지 기능을 동시에 실행해야 한다. ​&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;웹 서버에게 데이터를 주고 받기 ​&lt;/li&gt;
+  &lt;li&gt;텍스트와 이미지를 스크린에 렌더링하기​&lt;/li&gt;
+  &lt;li&gt;마우스와 키보드에 의한 사용자 액션에 대응하기&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;IE9는 별도의 코어를 사용하여 클라이언트 측의 스크립트 코드를 인터프러터 방식으로 처리한다.  ​&lt;/p&gt;
+
+&lt;p&gt;문장 수준의 동시 실행은 프로그램 수준의 경우와 매우 다르다.&lt;br /&gt;
+언어 설계자는 문장 수준의 동시 실행을 위해 다음에 대해 중점을 둔다&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;데이터를 다수의 메모리에 어떻게 분산시킬 것인가? ​&lt;/li&gt;
+  &lt;li&gt;어느 문장을 동시 실행할 것인가?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;동시 실행 알고리즘은 확장성이 있어야 한다.&lt;br /&gt;
+사용하는 프로세서의 수를 증가시킬수록 실행 속도가 증가하면, ​ 확장성이 있다고 말한다.&lt;/p&gt;
+
+&lt;p&gt;알고리즘은 이식성이 있어야 한다.&lt;br /&gt;
+알고리듬이 다른 아키텍처의 기계에서 효율적으로 실행된다면, ​ 
+이 알고리듬은 이식성이 있다고 말한다.&lt;br /&gt;
+이식성은 하드웨어의 수명이 비교적 짧아지고 있어서, 매우 중요하다.&lt;/p&gt;
+
+&lt;p&gt;플린은 컴퓨터를 다음과 같이 분류하였다. ​&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;SISD는 하나의 인스트럭션이 하나의 데이터를 처리하는 것으로, ​
+프로세서가 하나인 컴퓨터가 이에 속한다. ​&lt;/li&gt;
+  &lt;li&gt;SIMD는 하나의 인스트럭션으로 여러 데이터를 처리한다. ​
+벡터 프로세서가 이에 속하며, 벡터 프로세서는 ​
+벡터 연산자의 여러 오퍼랜드를 저장하는 여러 개의 레지스터를 갖고 있어서, ​
+이들 여러 오퍼랜드에 대해 하나의 인스트럭션을 실행한다.  ​&lt;/li&gt;
+  &lt;li&gt;MISD는 하나의 데이터에 대해 다수의 인스트럭션을 차례로 동시 실행한다. ​마치 파이프라인처럼… 파이프라인 컴퓨터가 이에 속한다. ​&lt;/li&gt;
+  &lt;li&gt;MIMD는 다수의 인스트럭션이 다수의 데이터를 동시 실행한다. ​
+MIMD는 여러 개의 프로세서로 구성되며, 각 프로세서는 자신의 인스트럭션 스트림을 처리한다. ​MIMD 컴퓨터에는 분산형과 공유 메모리형, 두가지 유형이 있다. ​
+분산 MIMD 머신은 하나의 랙에 구성되거나 각 지역에 분산되어 구성되며, ​각 프로세서는 자신의 고유 메모리를 갖는다. ​
+공유메모리 MIMD 머신은 여러 프로세서가 하나의 메모리를 공유하며, ​
+메모리 액세스의 충돌을 방지하기 위한 동기화 수단을 제공해야 한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;플린의 분류에 따라, 각각의 머신을 그림으로 표현하면 이 아래 그림과 같다. PU는 프로세싱 유닛으로 싱글 코어 및 멀티코어 프로세서이다.&lt;/p&gt;
+
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl48.png&quot; width=&quot;25%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;동시 실행을 필요로 하는 이유는 다음과 같다. ​&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;프로그램이 하드웨어를 동시에 사용하도록 설계되었다면, ​
+멀티 프로세서 머신에서 프로그램의 실행 속도는 빠르다.  ​&lt;/li&gt;
+  &lt;li&gt;프로그램이 컴퓨트 바운드가 아니라면, ​
+싱글 프로세서 머신에서 실행하더라도, ​
+동시 실행하도록 짜여진 프로그램은 순차 실행하도록 짜여진 프로그램보다 빠르다. ​&lt;/li&gt;
+  &lt;li&gt;동시 실행은 문제 해결책에 대한 다른 방식의 개념화 방법을 제공한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;문제의 해결책을 설계할 때 Recursion이 자연스러운 방법인 경우가 있는 것처럼, ​동시 실행이 자연스러운 문제가 많이 있다. ​
+예를 들어 시뮬레이션은 여러 개의 엔티티를 포함하고, ​
+여러 엔티티가 자신에게 주어진 역할을 수행한다. ​
+이때 각 엔티티는 서로 종속되어 있지 않기 때문에 동시 실행이 가능하다.  ​
+이와 같이 문제에 따라서 동시 실행이 자연스러운 경우가 있다. ​&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;어플리케이션 프로그램을 여러 머신에 분산시켜야 하는 경우가 있다.  ​이때, 각 머신은 특정 타스크(동시 실행 통제 메커니즘)를 실행하면서, 프로그램 실행을 동기화해야 한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Semaphore&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;프로그램이 여러 서브프로그램으로 구성되어 있을 때, ​
+동일 프로그램 내의 다른 서브프로그램과 동시 실행되는 서브프로그램을 
+Task 또는 Process라고 한다. ​&lt;/p&gt;
+
+&lt;p&gt;자바에서는 특정 메소드, 즉 run method가 Task의 역할을 하며, ​
+이 메소드는 쓰레드라고 불리는 객체 내에서 실행된다.  ​
+​
+동시 실행되는 Task들 간에 실행 순서를 통제하는 것을 동기화라고 한다.&lt;br /&gt;
+협력적 동기화는 타스크 A가 Task B의 종료를 기다렸다가, Task B의 종료 후 Task A가 실행하는 방식으로, 실행 순서를 통제한다.&lt;br /&gt;
+경쟁적 동기화는 Task A, B가 공유 변수(데이터 위치) x를 접근할 필요가 있다면, ​Task B가 x를 접근하고 있는 동안, ​&lt;/p&gt;
+
+&lt;p&gt;Task A는 Task B가 x의 접근을 종료하기를 기다리는 방식으로 실행 순서를 통제한다.&lt;/p&gt;
+
+&lt;p&gt;가장 단순한 형태의 협력적 동기화의 예로 생산자-소비자 문제를 들 수 있다. ​&lt;/p&gt;
+
+&lt;p&gt;하나의 서브 프로그램(생산자)이 데이터를 생산하고, ​다른 서브프로그램(소비자)이 그것을 소비한다.&lt;br /&gt;
+생산된 데이터는 보통 스토리지 버퍼에 저장된다. ​&lt;/p&gt;
+
+&lt;p&gt;경쟁적 동기화는 두 Task가 정확히 동시에 공유 변수에 대한 접근을 방지해야 한다.​&lt;/p&gt;
+
+&lt;p&gt;만일 TOTAL이 공유 변수이고, ​
+Task A가 TOTAL+1, Task B가 TOTAL*2라면, ​
+Task A, B가 동시에 TOTAL을 변경하고자 한다면, ​
+이들 간에 공유 변수에 대한 레이스 컨디션이 발생한다.&lt;br /&gt;
+이를 해결하기 위해 상호배제를 보장해 줘야 하는데, ​이때 데드락이 발생할 수 있다. 따라서 데드락 방지책도 함께 제공해야한다&lt;/p&gt;
+
+&lt;p&gt;동시 실행을 위한 언어 설계 시, 고려사항은 다음과 같다. ​&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;경쟁 및 협업 동기화​&lt;/li&gt;
+  &lt;li&gt;Task 스케줄링​&lt;/li&gt;
+  &lt;li&gt;Task를 언제 어떻게 생성하고, Task의 실행을 언제 어떻게 시작 및 종료시킬 것인가?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;세마포어는 Task 동기화에 사용되는 단순한 메커니즘이다.&lt;br /&gt;
+세마포어는 카운터(정수)와 Task 서술자를 저장하는 큐로 구성되며, ​
+Task 서술자는 Task 실행 상태에 관한 모든 관련 정보를 저장한다.&lt;br /&gt;
+연산자는 wait, release가 있다.&lt;/p&gt;
+
+&lt;p&gt;협력 동기화를 위한 세마포어 변수는 다음과 같다.&lt;br /&gt;
+엠티스팟 세마포어는 엠티스팟 카운터와 엠티스팟 큐로 구성되며, ​&lt;/p&gt;
+
+&lt;p&gt;풀스팟 세마포어는 풀스팟 카운터와 풀스팟 튜로 구성된다.&lt;br /&gt;
+엠티스팟 카운터는 버퍼의 비어있는 칸의 수를 나타내고,​
+풀 카운터는 버퍼의 채워진 칸의 수를 나타낸다. ​
+ ​
+엠티스팟 큐는 버퍼에 빈칸이 생기기(즉, 아이템이 나가기)를 기다리는 생산자의 Task를 저장하고, 풀스팟 큐는 버퍼에 아이템이 채워지기를 기다리는 소비자의 Task를 저장한다.&lt;/p&gt;
+
+&lt;p&gt;협력 동기화를 위해 필요한 공유 버퍼에 대한 연산자는 ​
+디파짓과 펫치가 있다. ​&lt;/p&gt;
+
+&lt;p&gt;먼저 디파짓을 살펴 보면, ​
+디파짓은 공유 버퍼에 데이터를 넣기 위한 생산자의 액션으로 다음과 같이 진행된다. ​&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;버퍼에 빈칸이 있는지 엠티스팟 세마포어를 검사한다. ​&lt;/li&gt;
+  &lt;li&gt;만일 적어도 하나 있으면, 디파짓을 실행하고, 엠티스팟의 카운터를 -1 하고, 풀스팟의 카운터를 +1한다. (버퍼에 채워진 칸이 하나 이상 있다는 것을 나타냄)​&lt;/li&gt;
+  &lt;li&gt;만일 버퍼가 꽉차면, 엠티스팟 큐에 생산자의 타스크 서술자를 넣고, 버퍼에 빈칸이 생길 때까지 기다린다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;다음, 펫치를 살펴 보자.&lt;br /&gt;
+펫치는 버퍼로부터 데이터를 빼내기 위한 소비자의 액션으로 다음과 같이 진행된다.&lt;br /&gt;
+버퍼가 비어있지 않은지 풀스팟 세마포어를 검사한다.&lt;br /&gt;
+만일 비어있지 않다면, 펫치를 실행하고(버퍼로부터 데이터를 빼내고), 엠티스팟 카운터를 -1하고, 풀스팟 카운터를 +1한다.&lt;br /&gt;
+만일 버퍼가 비어있다면, 풀스팟 큐에 소비자의 타스크 서술자를 넣고, 데이터가 생길 때까지 기다린다.&lt;/p&gt;
+
+&lt;p&gt;앞의 버퍼에 대한 연산에서 보았듯이, 디파짓과 펫치는 ​
+세마포어의 카운터와 버퍼에 대한 조작(+, -, 디파짓, 펫치)을 수반한다. ​
+ ​
+디파짓과 펫치는, ​
+이 연산을 세마포어에 대해 직접 수행할 수 있지만, ​
+세마포어에 대한 ‘연산’을 별도로 정의하고,  ​
+이를 통해 세마포어 조작을 간접적으로 수행하기도 한다. ​&lt;/p&gt;
+
+&lt;p&gt;이때 세마포어에 대한 연산은 wait(빨간불)과 release(초록불)이다. ​
+wait에서, 카운터가 0보다 크면 카운터 -1한다. ​
+만일 카운터가 0보다 크지 않으면, 큐에 Task 서술자를 넣고 기다린다. ​
+release에서, 큐가 비어 있으면, 카운터를 +1한다. ​
+만일 큐가 비어 있지 않으면, 큐에서 Task를 빼서 실행한다.&lt;/p&gt;
+
+&lt;p&gt;컴피티션이 언제 어디에서 일어나는가? ​
+Shared variable을 서로 갱신하겠다고 동시에 요청할 때 발생한다.&lt;br /&gt;
+이때 shared variable에 대한 mutual exclusion(상호배제)를 위해 ​
+별도의 세마포어가 필요하다.&lt;br /&gt;
+그런데 이 세마포어는 카운터가 필요없다.&lt;br /&gt;
+이러한 이유로 이진 세마포어로 정의한다. ​&lt;/p&gt;
+
+&lt;p&gt;만일 앞의 shared buffer의 협력적 동기화 문제에서, ​
+한번에 하나의 타스크만 버퍼에 접근할 수 있다고 제한한다면, ​
+Shared buffer에 대한 별도의 이진 세마포어가 필요하다. ​&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Monitor&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;세마포어의 사용은 동기화의 신뢰성 문제를 야기한다.&lt;/p&gt;
+
+&lt;p&gt;모니터는 이와 같이 동기화의 신뢰성 문제를 해결하기 위한 방법으로, ​&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;공유 데이터 구조를 연산자로 캡슐화하여 ​&lt;/li&gt;
+  &lt;li&gt;프로그래머로부터 공유 데이터구조의 상세 사항을 숨긴다.&lt;br /&gt;
+이렇게 하여 동기화에 대한 책임을 런타임 시스템으로 돌린다. ​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;모니터는 class로 구현될 수 있다. ​&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;공유 데이터 타입을 갖는 추상 데이터 타입으로 표현 ​&lt;/li&gt;
+  &lt;li&gt;이 클래스의 객체에 대한 접근은 액세스 메소드에 동기화 modifier를 추가하여 통제한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;모니터는 concurrent pascal, ada, java 등에서 지원된다.&lt;/p&gt;
+
+&lt;p&gt;사용자 프로그램은 모니터를 사용하여 공유 버퍼에 접근한다.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;공유 데이터는 사용자 프로그램 안에 없고, 모니터 안에 있다. ​&lt;/li&gt;
+  &lt;li&gt;액세스 메커니즘은 모니터(런타임 시스템)의 일부분으로, 상호 배제를 보장한다. 즉, 모니터가 바쁠 땐, 모니터에 대한 호출이 block되고 큐에 들어가서 기다린다. ​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl49.png&quot; width=&quot;25%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위 그림은 모니터를 표현한 것이다. ​
+모니터는 상호배제만을 제공하기 때문에, ​
+협력 동기화에서 요구되는 프로세스 간의 협력은 프로그래머가 코딩해야 한다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;자바 쓰레드&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;쓰레드는 run 메소드를 실행하는 프로세스이다.&lt;br /&gt;
+즉, run 메소드는 쓰레드에 할당되어야 실행된다.&lt;br /&gt;
+쓰레드 클라스는 쓰레드가 아닌 다른 클라스의 부모가 될 수 없고, ​쓰레드의 서브 클래스에게 서비스를 제공한다. ​&lt;/p&gt;
+
+&lt;p&gt;Run method는 자바에서 동시 실행 단위로서, ​
+Run 메소드 코드는 main 메소드, 다른 run 메소드 등과 동시 실행 된다. ​&lt;/p&gt;
+
+&lt;p&gt;Run 메소드로 클라스를 정의하는 방법은 두 가지가 있다. ​&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;첫째 방법은, 쓰레드 클래스의 서브클래스를 정의하여 서브 클라스의 run 메소드로 오버라이드하는 방법이다. 만일 새로운 서브 클래스가 다른 부모를 갖고 있으면, 이 방법은 동작하지 않는다. ​&lt;/li&gt;
+  &lt;li&gt;둘째 방법은, 다른 부모로부터 상속된 서브 클래스를 정의하고 runnable 인터페이스를 구현하는 방법이다. Runnable은 run 메소드 프로토콜을 제공하기 때문에, runnable로 구현된 어떤 클래스도 run 메소드를 정의한다. ​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;정리하면, 쓰레드 클래스는 다른 클라스의 부모가 될 수 없기 때문에, ​
+어플리케이션 클라스의 메소드를 쓰레드로 실행하려면 runnable로 실행해야 한다. ​&lt;/p&gt;
+
+&lt;p&gt;​쓰레드 클라스는 동시 실행 자바 프로그램을 생성한다.&lt;br /&gt;
+쓰레드 클라스는 컨스트럭트, 메소드 등으로 구성된다. ​&lt;/p&gt;
+
+&lt;p&gt;쓰레드 클라스의 메소드는 ​&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Run 메소드는 쓰레드의 액션을 서술한다. ​&lt;/li&gt;
+  &lt;li&gt;Start 메소드는 run 메소드를 호출하여, 그 쓰레드의 동시 실행을 시작한다.​&lt;/li&gt;
+  &lt;li&gt;setPriority 메소드는 쓰레드의 우선순위를 변경하고 ​&lt;/li&gt;
+  &lt;li&gt;getPriority 메소드는 쓰레드의 현재 우선순위를 반환한다. ​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​아래 코드는 run 메소드로 쓰레드의 액션을 서술하고, ​
+Start 메소드로 그 쓰레드의 동시 실행을 시작하는 것을 보여준다.&lt;/p&gt;
+
+&lt;p&gt;Yield 메소드는 동시 실행중인 쓰레드로부터 프로세서의 자발적인 포기를 요구한다.&lt;br /&gt;
+이 쓰레드는 즉시 프로세서를 포기하고 ready 큐로 들어 간다.&lt;br /&gt;
+Sleep 메소드는 쓰레드가 지정된 시간이 지난 후에 block되기를 원한다.&lt;br /&gt;
+이 쓰레드는 ready 큐에 들어간다. ​
+Join 메소드는 메소드에게, ​다른 쓰레드의 run 메소드가 종료될 때까지, ​실행을 msec 단위로 지연시킬 것을 강요한다.  ​
+아래 코드는 join 메소드의 사용 예를 보여준다.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public void run() {​
+
+ 
+ Thread myTh = new Thread();​
+
+ myTh.start();​
+
+ // do part of the computation of this thread​
+
+ myTh.join(); // Wait for myTh to complete​
+
+ // do the rest of the computation of this thread​
+
+}​
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;세마포어 클라스는 카운팅 세마포어를 구현한다.&lt;br /&gt;
+객체는 카운터만 있고, 큐는 없다.&lt;br /&gt;
+메소드는 acquire 메소드(wait)와 release(release) 메소드가 있다.&lt;br /&gt;
+아래 코드는 이들 메소드의 사용 예를 보여주고 있다.&lt;br /&gt;
+디파짓과 펫치의 앞뒤에 이들 메소드가 있음을 주의하라. ​&lt;/p&gt;
+
+&lt;p&gt;acquire()는 세마포어 -1 한다. ​
+release()는 세마포어 +1 한다.&lt;br /&gt;
+여기서 세마포어는 fullspot, emptyspot이다.&lt;/p&gt;
+
+&lt;p&gt;자바 쓰레드에서 상호배제는 모니터 개념으로 구현한다.&lt;br /&gt;
+이때 메소드는 synchronize로 지정된다.&lt;br /&gt;
+ManageBuf에서 디파짓과 펫치를 synchronize로 정의하여, ​
+동일한 객체에 대해 실행할 때 서로 방해하는 것을 방지한다. ​&lt;/p&gt;
+
+&lt;p&gt;아래 코드는 모니터 개념으로 구현된 ManageBuf에서 ​
+메소드가 synchronized로 지정된 예를 보여준다.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class ManageBuf {​
+
+  private int [100] buf;​
+
+   . . .​
+
+  public synchronized void deposit(int item) { . . . }​
+
+  public synchronized int fetch() { . . . }​
+
+   . . .​
+
+}​
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;모니터는 상호배제를 구현하므로, 프로세스 간의 협력적 동기화를 구현하지 못한다.&lt;br /&gt;
+따라서 프로세스 간의 협력 동기화의 구현을 위해, ​쓰레드 대기 리스트(wait list of threads)와 wait, notify, notifyAll을 구현한다.&lt;br /&gt;
+각각의 객체(P-C 문제에서 producer, consumer가 객체)는 쓰레드 대기 리스트를 가지며, ​대기 리스트에 있는 쓰레드들은 이 객체로부터 자신의 실행에 필요한 ​이벤트를 기다리고 있는 것이다.&lt;br /&gt;
+wait 메소드는 쓰레드를 대기 리스트에 넣고 기다리게 한다.&lt;br /&gt;
+Notify 메소드는 어떤 대기 쓰레드에게 ‘기다리고 있는 이벤트가 발생했음’을 알린다. ​ 
+Notify 메소드가 특정 쓰레드를 깨울 수는 없고, ​JVM이 쓰레드 대기 리스트에서 무작위로 하나를 선택한다.&lt;br /&gt;
+NotifyAll 메소드는 ‘객체에서 발생된 이벤트’를 기다리고 있는 쓰레드를 ​모두 깨워서 task-ready queue에 넣는다.&lt;br /&gt;
+이렇게 하는 이유는 대기 리스트에 있는 쓰레드들이 기다리고 있는 조건이 ​모두 다를 수 있기 때문이다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;자바 쓰레드: Lock&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;자바 쓰레드는 lock을 지원한다.&lt;br /&gt;
+자바 쓰레드에 미리 정의된 ReentrantLock 클라스는 ​Lock 인터페이스를 구현하는 데 사용되며, ​lock 인터페이스는 lock, unlock, tryLock 메소드를 선언한다.&lt;br /&gt;
+lock 메소드는 try 블록을 사용하여 크리티칼 코드(크리티칼 섹션)를 둘러싼다.&lt;br /&gt;
+unlock 메소드의 호출은 finally 절 안에 있어야 하며, lock의 해제를 보장한다.  ​&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Statement-Level Concurrency&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;고성능 포트란에서 두 개의 리스트에서 ​서로 대응되는 요소 간의 연산을 병렬 처리하고자 할 때 다음과 같은 문장이 추가된다.&lt;br /&gt;
+PROCESSOR proc(n) -&amp;gt; 배열 처리 문장을 동시 실행(병렬 처리)하기 위해 프로세서 n개를 할당 ​DISTRIBUTE (BLOCK vs. CYCLIC) -&amp;gt; 같은 크기의 블록으로 나누어져 프로세서에 할당, 돌아가면서 하나씩 프로세서에 할당 ​ALIGN array1_elt WITH array2_elt -&amp;gt; 배열1에 배열2를 대응시킴&lt;/p&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="pl" />
+      
+
+      
+        <summary type="html">Comcurrency</summary>
       
 
       
@@ -1125,6 +1502,252 @@ esp, ebp는 각각 스택포인터, 베이스 포인터이며, eax는 반환값�
     </entry>
   
     <entry>
+      <title type="html">이메일 보안</title>
+      <link href="https://lee989898.github.io/sc-11" rel="alternate" type="text/html" title="이메일 보안" />
+      <published>2021-10-31T01:06:00+09:00</published>
+      <updated>2021-10-31T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc-11</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-11">&lt;h3 id=&quot;이메일-보안&quot;&gt;&lt;strong&gt;이메일 보안&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;PGP&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;운영체제에 상관없이 확정성이 뛰어나다&lt;/li&gt;
+  &lt;li&gt;S/MIME&lt;/li&gt;
+  &lt;li&gt;공개키 기반의 프로토콜이다&lt;/li&gt;
+  &lt;li&gt;RSA, El Gamel을 사용한다&lt;/li&gt;
+  &lt;li&gt;대칭키 방식과도 연동된다(3DES)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Requirements of secure E-mail&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;기밀성&lt;/li&gt;
+  &lt;li&gt;송신자 인증&lt;/li&gt;
+  &lt;li&gt;메시지 무결성&lt;/li&gt;
+  &lt;li&gt;수신자 인증&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Secure e-mail: 기밀성&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc10.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;앨리스는 기밀성을 입증한 e-mail, m을 밥에게 보내고 싶다&lt;/li&gt;
+  &lt;li&gt;랜덤 대칭키를 생성한다, K&lt;sub&gt;S&lt;/sub&gt;&lt;/li&gt;
+  &lt;li&gt;메시지를  K&lt;sub&gt;S&lt;/sub&gt;로 encrypt한다&lt;/li&gt;
+  &lt;li&gt;또한 K&lt;sub&gt;S&lt;/sub&gt;를 밥의 공개키로 encrypt한다&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;밥에게 K&lt;sub&gt;S&lt;/sub&gt;(m)과 K&lt;sub&gt;B&lt;/sub&gt;(K&lt;sub&gt;S&lt;/sub&gt;)를 보낸다&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;밥은 그의 private키로 decrypt하여 K&lt;sub&gt;S&lt;/sub&gt;를 찾아낸다&lt;/li&gt;
+  &lt;li&gt;K&lt;sub&gt;S&lt;/sub&gt;로 K&lt;sub&gt;S&lt;/sub&gt;(m)을 decrypt하여 m을 찾아낸다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Secure e-mail: 송신자 인증, 무결성&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc11.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;앨리스는 송신자 인증과 메시지 무결성을 지키고 싶다&lt;/li&gt;
+  &lt;li&gt;앨리스는 메세지를 digitally 사인한다&lt;/li&gt;
+  &lt;li&gt;메시지와 디지털 시그니처 모두 보낸다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Secure e-mail: all together&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc12.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;앨리스는 보안,송신자 인증,메시지 무결성을 지키고 싶다&lt;/li&gt;
+  &lt;li&gt;앨리스는 3가지 키를 사용한다
+    &lt;ul&gt;
+      &lt;li&gt;그녀의 private key&lt;/li&gt;
+      &lt;li&gt;밥의 public key&lt;/li&gt;
+      &lt;li&gt;새로 만들어진 대칭키&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Email 보안 표준&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;PGP&lt;/li&gt;
+  &lt;li&gt;S/MIME
+    &lt;ul&gt;
+      &lt;li&gt;이메일을 위해 MIME에 보안서비스 제공 표준&lt;/li&gt;
+      &lt;li&gt;인증,무결성,부인방지,기밀성 제공&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc09.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="security" />
+      
+
+      
+        <summary type="html">이메일 보안</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">signature</title>
+      <link href="https://lee989898.github.io/sc-10" rel="alternate" type="text/html" title="signature" />
+      <published>2021-10-31T01:06:00+09:00</published>
+      <updated>2021-10-31T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc-10</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-10">&lt;h3 id=&quot;signature&quot;&gt;&lt;strong&gt;signature&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;서명&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;자기의 동일성을 표시하고 책임을 분명하기 하기 위하여 문서 따위에 자기 이름을 써넣음​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;전자서명의 기본 아이디어&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;송신자(alice)는 자신의 비밀키로 암호화​&lt;/li&gt;
+  &lt;li&gt;수신자는 송신자의 공개키로 복호화&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;시나리오:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;+ Bob은 public key를 공개된 장소에 두고, private key는 자신이 가지고 있다
++ Alice는 Bob의 public key를 가져와, 메시지를 암호화해서 전송​
++ 이 메시지는 다른 사람이 보더라도 풀 수 없다. 메시지를 복호화하려면 Bob의 private key가 필요하기 때문-&amp;gt;기밀성보장​
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;문제점1. Bob은 Alice가 메시지를 작성했다는것을 확신할 수 있을까? NO​&lt;/li&gt;
+  &lt;li&gt;문제점2. Bob은 메시지가 중간에 변경되지않았다는것을 확신할 수 있을까? NO​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;해결법&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Alice는 메시지로 MAC을 만들고, 이것을 Alice가 자신의 private key로 암호화 한다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc05.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;만들어진 것을 본래 메시지에 붙인다 -&amp;gt; 서명&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc06.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;이것을 Bob의 public key로 암호화 해서 전송&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;다른 사람은 Bob의 private key가 없으므로 볼수없다 -&amp;gt; 기밀성​&lt;/li&gt;
+  &lt;li&gt;Bob은 자신의 private key로 열면 평문과 시그니쳐가 나온다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc07.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bob은 다음과 같이 무결성,인증을 한다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc08.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="security" />
+      
+
+      
+        <summary type="html">signature</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">프로세스통신-pipe</title>
       <link href="https://lee989898.github.io/st-08" rel="alternate" type="text/html" title="프로세스통신-pipe" />
       <published>2021-10-31T01:06:00+09:00</published>
@@ -1424,252 +2047,6 @@ $ prog1 &amp;lt; infile | tee fifo1 | prog2
 
       
         <summary type="html">프로세스통신-pipe</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">이메일 보안</title>
-      <link href="https://lee989898.github.io/sc-11" rel="alternate" type="text/html" title="이메일 보안" />
-      <published>2021-10-31T01:06:00+09:00</published>
-      <updated>2021-10-31T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/sc-11</id>
-      <content type="html" xml:base="https://lee989898.github.io/sc-11">&lt;h3 id=&quot;이메일-보안&quot;&gt;&lt;strong&gt;이메일 보안&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;PGP&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;운영체제에 상관없이 확정성이 뛰어나다&lt;/li&gt;
-  &lt;li&gt;S/MIME&lt;/li&gt;
-  &lt;li&gt;공개키 기반의 프로토콜이다&lt;/li&gt;
-  &lt;li&gt;RSA, El Gamel을 사용한다&lt;/li&gt;
-  &lt;li&gt;대칭키 방식과도 연동된다(3DES)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Requirements of secure E-mail&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;기밀성&lt;/li&gt;
-  &lt;li&gt;송신자 인증&lt;/li&gt;
-  &lt;li&gt;메시지 무결성&lt;/li&gt;
-  &lt;li&gt;수신자 인증&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Secure e-mail: 기밀성&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc10.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;앨리스는 기밀성을 입증한 e-mail, m을 밥에게 보내고 싶다&lt;/li&gt;
-  &lt;li&gt;랜덤 대칭키를 생성한다, K&lt;sub&gt;S&lt;/sub&gt;&lt;/li&gt;
-  &lt;li&gt;메시지를  K&lt;sub&gt;S&lt;/sub&gt;로 encrypt한다&lt;/li&gt;
-  &lt;li&gt;또한 K&lt;sub&gt;S&lt;/sub&gt;를 밥의 공개키로 encrypt한다&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;밥에게 K&lt;sub&gt;S&lt;/sub&gt;(m)과 K&lt;sub&gt;B&lt;/sub&gt;(K&lt;sub&gt;S&lt;/sub&gt;)를 보낸다&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;밥은 그의 private키로 decrypt하여 K&lt;sub&gt;S&lt;/sub&gt;를 찾아낸다&lt;/li&gt;
-  &lt;li&gt;K&lt;sub&gt;S&lt;/sub&gt;로 K&lt;sub&gt;S&lt;/sub&gt;(m)을 decrypt하여 m을 찾아낸다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Secure e-mail: 송신자 인증, 무결성&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc11.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;앨리스는 송신자 인증과 메시지 무결성을 지키고 싶다&lt;/li&gt;
-  &lt;li&gt;앨리스는 메세지를 digitally 사인한다&lt;/li&gt;
-  &lt;li&gt;메시지와 디지털 시그니처 모두 보낸다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Secure e-mail: all together&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc12.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;앨리스는 보안,송신자 인증,메시지 무결성을 지키고 싶다&lt;/li&gt;
-  &lt;li&gt;앨리스는 3가지 키를 사용한다
-    &lt;ul&gt;
-      &lt;li&gt;그녀의 private key&lt;/li&gt;
-      &lt;li&gt;밥의 public key&lt;/li&gt;
-      &lt;li&gt;새로 만들어진 대칭키&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Email 보안 표준&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;PGP&lt;/li&gt;
-  &lt;li&gt;S/MIME
-    &lt;ul&gt;
-      &lt;li&gt;이메일을 위해 MIME에 보안서비스 제공 표준&lt;/li&gt;
-      &lt;li&gt;인증,무결성,부인방지,기밀성 제공&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc09.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;hr /&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="security" />
-      
-
-      
-        <summary type="html">이메일 보안</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">signature</title>
-      <link href="https://lee989898.github.io/sc-10" rel="alternate" type="text/html" title="signature" />
-      <published>2021-10-31T01:06:00+09:00</published>
-      <updated>2021-10-31T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/sc-10</id>
-      <content type="html" xml:base="https://lee989898.github.io/sc-10">&lt;h3 id=&quot;signature&quot;&gt;&lt;strong&gt;signature&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;서명&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;자기의 동일성을 표시하고 책임을 분명하기 하기 위하여 문서 따위에 자기 이름을 써넣음​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;전자서명의 기본 아이디어&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;송신자(alice)는 자신의 비밀키로 암호화​&lt;/li&gt;
-  &lt;li&gt;수신자는 송신자의 공개키로 복호화&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;시나리오:&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;+ Bob은 public key를 공개된 장소에 두고, private key는 자신이 가지고 있다
-+ Alice는 Bob의 public key를 가져와, 메시지를 암호화해서 전송​
-+ 이 메시지는 다른 사람이 보더라도 풀 수 없다. 메시지를 복호화하려면 Bob의 private key가 필요하기 때문-&amp;gt;기밀성보장​
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;문제점1. Bob은 Alice가 메시지를 작성했다는것을 확신할 수 있을까? NO​&lt;/li&gt;
-  &lt;li&gt;문제점2. Bob은 메시지가 중간에 변경되지않았다는것을 확신할 수 있을까? NO​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;해결법&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Alice는 메시지로 MAC을 만들고, 이것을 Alice가 자신의 private key로 암호화 한다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc05.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;만들어진 것을 본래 메시지에 붙인다 -&amp;gt; 서명&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc06.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;이것을 Bob의 public key로 암호화 해서 전송&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;다른 사람은 Bob의 private key가 없으므로 볼수없다 -&amp;gt; 기밀성​&lt;/li&gt;
-  &lt;li&gt;Bob은 자신의 private key로 열면 평문과 시그니쳐가 나온다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc07.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Bob은 다음과 같이 무결성,인증을 한다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc08.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="security" />
-      
-
-      
-        <summary type="html">signature</summary>
       
 
       
@@ -2301,430 +2678,6 @@ int killpg(int pgrp, int sig)​
 
       
         <summary type="html">Signal</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">탐욕 기법</title>
-      <link href="https://lee989898.github.io/algorithm-05" rel="alternate" type="text/html" title="탐욕 기법" />
-      <published>2021-10-26T01:09:00+09:00</published>
-      <updated>2021-10-26T01:09:00+09:00</updated>
-      <id>https://lee989898.github.io/algorithm-05</id>
-      <content type="html" xml:base="https://lee989898.github.io/algorithm-05">&lt;h3 id=&quot;탐욕-기법&quot;&gt;&lt;strong&gt;탐욕 기법&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;탐욕 기법&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;매 번 선택할 때 마다 그 순간에 좋은 선택을 함으로써 최종적인 해에 도달한다.&lt;/li&gt;
-  &lt;li&gt;최적인 해들을 모아서 최종 해를 만들었다고 해서, 그 해가 궁극 적으로 최적이라는 보장이 없다.&lt;/li&gt;
-  &lt;li&gt;따라서 탐욕 기법은 항상 최적의 해를 만들어내는 지를 반드시 검증해야 한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;선택 기준&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;선택이 실현 가능해야 한다.&lt;/li&gt;
-  &lt;li&gt;모든 선택들 중에서 최적이라고 여겨지는 선택을 해야 한다.&lt;/li&gt;
-  &lt;li&gt;한 번 선택하면 나중에 되돌릴 수 없다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;설계 전략&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;비어 있는 해 모음으로 시작한다.&lt;/li&gt;
-  &lt;li&gt;탐욕적인 기준에 따라 해 모음에 추가할 다음 해를 선택한다.&lt;/li&gt;
-  &lt;li&gt;새 해 모음이 실형 가능한지를 확인한다.
-실현 가능하다면 새 해 모음을 확정하고 아니면 선택한 해를 버린다.&lt;/li&gt;
-  &lt;li&gt;새 해 모음이 최종 해라면 종료한다. 아니면 2번으로 간다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;거스름돈 주기&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;거스름돈을 동전들의 수가 최소가 되도록 주어야 한다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;액면가가 다른 m(&amp;gt;=1)개의 동전들이 있다.&lt;/li&gt;
-  &lt;li&gt;동전 i,1&amp;lt;=i&amp;lt;=m,의 액면가는 $d_i$ 이고 $d_1$ &amp;gt; 
-$d_2$ &amp;gt; … &amp;gt; $d_m$ = 1이다.&lt;/li&gt;
-  &lt;li&gt;액면가가 같은 동전들의 개수는 무한히 많이 있다.&lt;/li&gt;
-  &lt;li&gt;거스름돈 n(&amp;gt;=1)을 최소 개수의 동전들을 사용하여 주어야 한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;탐욕 알고리즘의 아이디어&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;주어야 할 거스름돈이 남아 있는 동안 다음을 반복한다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;남은 동전들 중 액면가가 가장 큰 동전을 선택한다.&lt;/li&gt;
-  &lt;li&gt;선택한 동전을 거스름돈에 추가하면 거스름돈이 주어야 할 금액을 
-초과한다면 그 동전을 버린다. 아니면 그 동전을 거스름돈에 추가하고 주어야 할 거스름돈을 추가한 동전의 액면가만큼 감소시킨다.&lt;br /&gt;
-주: 최적의 알고리즘&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;탐욕적인 알고리즘&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;coinChange(d[],m,n)
-//거스름돈에 포함되는 동전들의 수를 최소화한다.&lt;br /&gt;
-//입력: m - 액면가가 다른 동전들의 수&lt;br /&gt;
-//     d[1..m] - 동전들의 액면가를 저장하는 배열&lt;br /&gt;
-//     n - 거스름돈&lt;br /&gt;
-//출력(반환 값): 거스름돈에 포함된 동전들의 최소 개수&lt;br /&gt;
-1  count = 0&lt;br /&gt;
-2  i = 1&lt;br /&gt;
-3  while(n &amp;gt; 0 &amp;amp;&amp;amp; i &amp;lt;=m){&lt;br /&gt;
-4    count = count + $\frac{n}{d[i]}$ 　//가치가 가장 큰 동전들을 최대한 많이 선택&lt;br /&gt;
-5    n = n mod d[i] 　　　 //남은 거스름돈을 계산&lt;br /&gt;
-6    i = i + 1 　　　　　　 //다음으로 가치가 큰 동전을 선택&lt;br /&gt;
-    }&lt;br /&gt;
-7  return count&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;시간 복잡도&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;입력의 크기: m(액면가가 다른 동전들의 수)&lt;/li&gt;
-  &lt;li&gt;기본 연산: 4번의 배정문&lt;/li&gt;
-  &lt;li&gt;기본 연산의 수행 횟수: 최대 m&lt;/li&gt;
-  &lt;li&gt;시간 복잡도: m = $\theta$(m)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;최소 비용 신장 트리 찾기&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;n(&amp;gt;1)개의 도시들을 최소한의 비용으로 연결하는 철도망을 새로 구축하려고 한다.&lt;/li&gt;
-  &lt;li&gt;모든 도시들을 서로 연결하기 위해 도시간 철도를 최소한(n-1)개 깔아야 한다.&lt;/li&gt;
-  &lt;li&gt;각 철도는 두 도시를 연결한다.&lt;/li&gt;
-  &lt;li&gt;이 철도망들 중에서 철도 노선들의 총 길이가 최소가 되도록 철도망을 구축해야 한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;최소 비용 신장 트리&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;신장트리: 연결된, 무방향 그래프 안에 있는 모든 정점을 다 포함하면서 트리가 되는 연결된 부분 그래프&lt;/li&gt;
-  &lt;li&gt;산장트리는 순환을 포함하지 않으며 그래프 안에 있는 모든 정점들을 연결시칸다.&lt;/li&gt;
-  &lt;li&gt;신장트리의 가중치: 모든 간선들의 가중치들의 합&lt;/li&gt;
-  &lt;li&gt;최소 비용 신장 트리: 최소 가중치를 가진 신장트리&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag12.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;억지 기법 알고리즘&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;모든 신장 트리를 찾은 후 그 중에서 최소 비용 신장 트리를 선택한다.&lt;/li&gt;
-  &lt;li&gt;시간 복잡도 분석
-    &lt;ul&gt;
-      &lt;li&gt;최악의 경우, 지수 시간보다도 나쁘다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;탐욕적인 전략&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;신장 트리에 추가할 최선의 간선들을 반복적으로 한 번에 하나씩 선택한다. 선택 시점에서 추가할 최선의 간선을 쉽게 알 수 있다고 가정한다.&lt;/li&gt;
-  &lt;li&gt;(n-1)개의 간선들이 신장 트리에 포함된다면 종료한다.&lt;/li&gt;
-  &lt;li&gt;한 간선이 선택되면 그 간선의 정점들을 합친다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;적절한 이유&lt;br /&gt;
-정점 a와 b가 연결된다면 정점a에 연결하는 것은 정점 b에 연결하는 것과 같다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;명제. n(&amp;gt;0)개의 정점들을 가진 그래프 G는 (n-1)개의 간선들을 가지고 순환이 없으면 트리이다. 또한 G가 트리이면 (n-1)개의 간선들이 있고 비순환 그래프이다.&lt;/p&gt;
-
-&lt;p&gt;정리. 간선 e가 정점 v에 접합한 가장 가중치가 작은 간선이라면 e를 포함하는 최소 비용 신장 트리가 있다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;최소 비용 신장트리 찾기 - 정점지향 전략&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;처음 시작할 때 한 정점 $v_0$를 선택한다.&lt;/li&gt;
-  &lt;li&gt;$v_0$ 에서 나가는 가장 가중치가 작은 간선 ($v_0$, x)를 선택한다. 그 간선을 최소 비용 신장 트리 T에 추가하고 $v_0$와 x를 합친다. 모든 정점이 T에 포함될 때까지 이 과정을 반복한다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;프림 알고리즘&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;적색 정점: 처음에 선택된 정점 $v_0$와 합쳐진 정점&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;청색 정점: 그 외 다른 정점&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;아이디어&lt;br /&gt;
-다음을 (n-1)번 반복한다:
-    &lt;ol&gt;
-      &lt;li&gt;한 적색 정점과 한 청색 정점을 연결하는 가장 가중치가 작은 간선을 선택한다.&lt;/li&gt;
-      &lt;li&gt;선택된 간선의 청색 정점을 적색으로 바꾸고 그 간선을 트리에 추가한다.&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;그래프의 표현: 비용 행렬 W&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;R: 적색 정점들의 집합, B: 청색 정점들의 집합&lt;br /&gt;
-V: 그래프내의 모든 정점들의 집합&lt;br /&gt;
-T: 트리 내에 포함되는 간선들의 집합&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;  R = {$v_0$}&lt;/li&gt;
-  &lt;li&gt;  B = V - {$v_0$}&lt;/li&gt;
-  &lt;li&gt; T = $\emptyset${공집합}&lt;/li&gt;
-  &lt;li&gt; for(i = 1; i &amp;lt; n; i++) {&lt;/li&gt;
-  &lt;li&gt; 　　w[ r,b ]가 최소인 $r \in R$과 $b \in B$를 선택한다.&lt;/li&gt;
-  &lt;li&gt; 　　T = T U {(r,b)}　　// 간선 (r,b)를 트리에 추가한다.&lt;/li&gt;
-  &lt;li&gt; 　　B = B - {b}&lt;/li&gt;
-  &lt;li&gt; 　　R = R U {b}　　　//정점 b를 적색으로 바꾼다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;명확하게 청색 정점의 관점을 취해야 한다. 단순히 어느 적색 정점이 자신에게 가장 가까운지만 기억한다. 이는 한 정점이 적색이 될 때 쉽게 갱신될 수 있다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;시간 복잡도&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;이 알고리즘은 중복 계산을 많이 한다. 매번 반복할 때마다 최소 간선을 거의 같은 집합에서 찾는다.&lt;br /&gt;
-$\theta$($n^3$)&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;개선된 프림 알고리즘&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;near[0 .. n - 1]: 각 청색 정점에 가장 가까운 적생 정점을 저장하는 배열&lt;br /&gt;
-isblue[0 .. n - 1]: 각 정점이 청색이면 true를 아니면 false를 저장하는 배열&lt;br /&gt;
-T: 트리 내에 포함되는 간선들의 집합&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt; isblue[0] = false 　　　　//정점 0은 적색이다&lt;/li&gt;
-  &lt;li&gt; T = $\emptyset$&lt;/li&gt;
-  &lt;li&gt; for(i = 1; i &amp;lt; n; i++){&lt;/li&gt;
-  &lt;li&gt; 　　isblue[i] = true 　　　　//다른 정점들은 청색이다&lt;/li&gt;
-  &lt;li&gt; 　　near[i] = 0 } 　　　　　 // 가장 가까운 적색 정점은 0이다&lt;/li&gt;
-  &lt;li&gt; for(i = 1; i &amp;lt; n; i++){&lt;/li&gt;
-  &lt;li&gt; 　　minval = $\infty$&lt;/li&gt;
-  &lt;li&gt; 　　for(b = 0; b &amp;lt; n; b++)　//적색 정점들에 가장 가까운 청색 정점을 찾는다&lt;/li&gt;
-  &lt;li&gt; 　　　if(isblue[b] &amp;amp;&amp;amp; W[b,near[b]]&amp;lt; minval){&lt;/li&gt;
-  &lt;li&gt; 　　　　minval = W[b,near[b]]&lt;/li&gt;
-  &lt;li&gt; 　　　　newred = b }&lt;/li&gt;
-  &lt;li&gt; 　isblue[newred] = fasle 　　　//정점 newred를 적색으로 바꾼다&lt;/li&gt;
-  &lt;li&gt; 　T = T $\cup$ { (newred, near[newred])}　//가장 가중치가 작은 간선을 T에 추가한다&lt;/li&gt;
-  &lt;li&gt; 　for(b = 0; b &amp;lt; n; b++)&lt;/li&gt;
-  &lt;li&gt; 　　　if(isblue[b] &amp;amp;&amp;amp; W[b,newred] &amp;lt; W[b,near[b]])near[b] = newred&lt;br /&gt;
-　　}&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;시간 복잡도&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;입력 크기: n(정점들의 수)&lt;/li&gt;
-  &lt;li&gt;기본 연산: isblue의 요소들에 대한 참조 횟수&lt;/li&gt;
-  &lt;li&gt;참조 횟수
-    &lt;ul&gt;
-      &lt;li&gt;각 i, 1&amp;lt;= i &amp;lt; n, 에 대해 항상 n이다.&lt;/li&gt;
-      &lt;li&gt;따라서 총 참조 횟수 = (n-1) x n $\in$ $\theta$($n^2$)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;최소 비용 신장 트리 찾기 - 간선 지향 전략&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;그래프에 남아 있는 가장 가중치가 작은 간선을 선택한다.&lt;/li&gt;
-  &lt;li&gt;선택된 간선이 합쳐진 두 개의 정덤들 사이에 있다면 그 간선을 버리고 아니면 최소 비용 신장 트리에 추가한다.&lt;/li&gt;
-  &lt;li&gt;(n - 1)개의 간선들이 추가될 때까지 과정 1과 2를 반복한다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;크루스칼 알고리즘&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;//e: 간선들의 수&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;  간선들을 가중치 순서로 오름차순으로 정렬하여 배열 EDGELIST[1 .. e]에 저장한다&lt;/li&gt;
-  &lt;li&gt;  T = $\emptyset$&lt;/li&gt;
-  &lt;li&gt;  ecount = 0  　 　 　 　//최소 비용 신장 트리에 추가된 간선들의 수&lt;/li&gt;
-  &lt;li&gt;  k = 0  　 　 　 　 　 　 　//처리된 간선들의 수&lt;/li&gt;
-  &lt;li&gt;  while (ecount &amp;lt; n - 1){&lt;/li&gt;
-  &lt;li&gt;  　k = k + 1&lt;/li&gt;
-  &lt;li&gt;  　(v, w) = EDGELIST[k]&lt;/li&gt;
-  &lt;li&gt;  　if(! together(v,w)){&lt;/li&gt;
-  &lt;li&gt;  　　T = T U {(v,W)}&lt;/li&gt;
-  &lt;li&gt;  　　v와 w를 합친다&lt;/li&gt;
-  &lt;li&gt;  　  ecount = ecount + 1 }&lt;br /&gt;
-} &lt;br /&gt;
-주: together(v,w) : v와 w가 이미 합쳐졌으면 true이다.&lt;br /&gt;
-분삭: (n-1)번의 통합과 최대 e번의 together를 수행한다.&lt;br /&gt;
-정렬시간 = $\theta$( e log e)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;단일 출발점 최단 경로 찾기&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;연결된 가중 그래프에서 한 특정 정점에서 다른 모든 정점으로 가는 최단 경로를 찾아라.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;다익스트라 알고리즘&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;아이디어: 출방 정점 $v_0$로 부터 가까운 순서로 다른 정점들까지의 최단 경로를 찾는다.&lt;/li&gt;
-  &lt;li&gt;진행 과정
-    &lt;ul&gt;
-      &lt;li&gt;i번째 반복이 시작되기 전에 $v_0$에 가장 가까운 (i - 1)개의 정점들까지의 최단 경로들을 찾았다.&lt;/li&gt;
-      &lt;li&gt;$v_0$, 이 정점들과 최단 경로들 상의 간선들은 주어진 그래프의 부분 트리 $T_i$를 형성한다.&lt;/li&gt;
-      &lt;li&gt;$T_i$내에 있는 정덤들에 인접한 ‘가장자리 정점’들 중에서 찾는다.&lt;/li&gt;
-      &lt;li&gt;$T_i$내에 있는 정점들에 인접한 ‘가장자리 정접’들 중에서 찾는다.&lt;/li&gt;
-      &lt;li&gt;모든 가장자리 정점 u에 대해서 u에 인접한 트리내의 정점 v까지의 거리, W(u,v)와 출발 정점에서 v까지의 최단 경로의 길이, $d_v$의 합을 계산한다.&lt;/li&gt;
-      &lt;li&gt;u에 인접한 트리 내의 정점들이 2개 이상인 경우에는 각 인접 정점에 대해 합을 계산한다. 그러한 합들 중 가장 작은 합을 갖는 가장자리 정점을 트리에 추가할 다음 정점으로 선택한다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag13.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;위 그림은 트리 $T_i$이다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;n( &amp;gt; 0): 정점들의 수&lt;/li&gt;
-  &lt;li&gt;i, 0 &amp;lt;= i &amp;lt; n: 정덤의 번호&lt;/li&gt;
-  &lt;li&gt;출발 정점: 0&lt;/li&gt;
-  &lt;li&gt;정점 i에 d[i]와 p[i]를 저장한다.
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;d[i]: 출발 정점에서 각 정점까지의 최단 겅로의 거리
-  d[0] = 0&lt;br /&gt;
-  d[i] = $\infty$ ,i는 최단 경로 트리 내에 포함되지 않은 정점&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;p[i]: 출발 정점에서 각 정점까지의 최단 경로 상의 마지막에서 두 번째 정점(트리에서 부모 노드)의 번호&lt;br /&gt;
-  i = 0혹은 트리안에 포함되지 않은 정점이면 p[i] = -1&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;주어진 그래프는 인접 행렬 w로 나타낸다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;트리에 추가할 정점 $u^*$를 선택한 후의 연산&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;$u^*$를 가장자리 정점에서 트리내에 포함되는 정점으로 바꾼다.&lt;/li&gt;
-  &lt;li&gt;$u^&lt;em&gt;$에 인접한 트리에 포함되지 않은 각 가장자리 정점 v에 대해 다음 조건을 확인한다.&lt;br /&gt;
-d[$u^&lt;/em&gt;$]  + w($u^&lt;em&gt;$ ,v) &amp;lt; d[v]&lt;br /&gt;
-위 조건이 만족된다면 다음을 수행한다&lt;br /&gt;
-d[v] = d[$u^&lt;/em&gt;$] + w($u^&lt;em&gt;$, v)&lt;br /&gt;
-p[v] = $u^&lt;/em&gt;$&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;다익스트라 알고리즘&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;  T = $\emptyset$    //트리에 포함된 정점들의 집합을 공집합으로 초기화한다&lt;/li&gt;
-  &lt;li&gt;  for( i = 0; i &amp;lt; n; i++){&lt;/li&gt;
-  &lt;li&gt;  d[i] = $\infty$    //정점 i의 최단 거리를 $\infty$ 로 초기화 한다&lt;/li&gt;
-  &lt;li&gt;  p[i] = -1 }    //정점 i의 부모 노드를 -1(없음)으로 초기화한다&lt;/li&gt;
-  &lt;li&gt;  d[0] = 0    //출발 정점 0의 최단 거리를 0으로 한다&lt;/li&gt;
-  &lt;li&gt;
-    &lt;table&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;  while(&lt;/td&gt;
-          &lt;td&gt;T&lt;/td&gt;
-          &lt;td&gt;&amp;lt; n){}&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-  &lt;/li&gt;
-  &lt;li&gt;  T에 포함되지 않은 정점들 중에서 배열 d의 요소값이 가장 작은 정점 u를 선택한다&lt;/li&gt;
-  &lt;li&gt;  T = T U { u}    //선택된 정점을 트리에 추가한다&lt;br /&gt;
-// 트리에 새로 추가된 정점의 인접 정점들의 출발 정점으로부터 최단 거리를 갱신한다&lt;/li&gt;
-  &lt;li&gt;  for( v = 0; v &amp;lt; n; v++)&lt;/li&gt;
-  &lt;li&gt;  if(v $\notin$ T and w[u,v]  0 and d[u] &amp;lt; $\infty$ and d[u] + w[u,v] &amp;lt; d[v] ){&lt;/li&gt;
-  &lt;li&gt;  d[v] = d[u] + w[u,v]&lt;/li&gt;
-  &lt;li&gt;   p[v] = u }&lt;br /&gt;
-}&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;시간복잡도&lt;br /&gt;
-    +  기본 연산: 10번 조건 확인
-    +  9 ~ 12번의 반복문내에서 기본 연산의 수행 횟수 = n
-    +  트리에 모든 정점이 포함되어야 하므로 $\theta$($n^2$)&lt;/p&gt;
-
-&lt;hr /&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="algorithm" />
-      
-
-      
-        <summary type="html">탐욕 기법</summary>
       
 
       
