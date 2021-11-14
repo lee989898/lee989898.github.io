@@ -310,29 +310,27 @@ into the {body} of the default.hbs template -->
 
 <p>R(n): 길이가 n인 막대를 판매할 때 얻을 수 있는 최대 판매금액</p>
 <ul>
-  <li>
-    <p>R(n) = MAX($p_i$, R(n-i))
+  <li>R(n) = MAX($p_i$, R(n-i))
           1 &lt;= i &lt;= n
        R(0) = 0<br />
 $p_i$: 길이가 i인 막대의 판매 가격<br />
-R(n-i): 길이 (n - i)의 막대를 판매할 때 얻을 수 있는 최대 판매 금액</p>
+R(n-i): 길이 (n - i)의 막대를 판매할 때 얻을 수 있는 최대 판매 금액</li>
+</ul>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cutRod_DC(p[], i)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cutRod_DC(p[], i)
 //길이 i의 막대를 판매할 때 얻을 수 있는 최대 판매 금액, R[i]를 계산한다.
 //입력: p[i..n] - 막대들의 판매 가격
-        i - 막대의 길이
+    i - 막대의 길이
 //출력(반환값): 최대 판매 금액
 if(i = 0) return 0
 else{
-      maxSell = 0
-      for(j = 1; j &lt;= i; j++)
-          maxSell = MAX(maxSell, p[j] + cutRod_DC(p,i-j))
-      return maxSell
+    maxSell = 0
+    for(j = 1; j &lt;= i; j++)
+    maxSell = MAX(maxSell, p[j] + cutRod_DC(p,i-j))
+    return maxSell
 }
 최초 호출 maxSellValue = cutRod_DC(p,n)
-</code></pre></div>    </div>
-  </li>
-</ul>
+</code></pre></div></div>
 
 <hr />
 
@@ -347,27 +345,25 @@ else{
 <hr />
 
 <ul>
-  <li>
-    <p>동적 계획 알고리즘 설계 과정</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> cutRod_DP(p[], n)
- // 길이 n의 막대를 판매할 때 얻을 수 있는 최대 판매 금액을 계산
- // 입력: p[1 .. n] - 막대들의 판매 가격, n: 막대의 길이
- // 출력(반환값): 최대 판매 금액
- 배열 maxSell[0 .. n]을 선언한다.
- maxSell[0] = 0
- for(j = 1; j&lt;=n; j++){
-      maxVal = 0
-      for(k = 1; k &lt;= j; k++)
-          maxVal = MAX(maxVal, p[k] + maxSell[j - k])
-      maxSell[j] = maxVal
-  }
-  return maxSell[n]
-</code></pre></div>    </div>
-  </li>
+  <li>동적 계획 알고리즘 설계 과정</li>
 </ul>
 
-<p>시간복잡도: $\theta$($n^2$)</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cutRod_DP(p[], n)
+// 길이 n의 막대를 판매할 때 얻을 수 있는 최대 판매 금액을 계산
+// 입력: p[1 .. n] - 막대들의 판매 가격, n: 막대의 길이
+// 출력(반환값): 최대 판매 금액
+배열 maxSell[0 .. n]을 선언한다.
+maxSell[0] = 0
+for(j = 1; j&lt;=n; j++){
+    maxVal = 0
+    for(k = 1; k &lt;= j; k++)
+     maxVal = MAX(maxVal, p[k] + maxSell[j - k])
+    maxSell[j] = maxVal
+}
+return maxSell[n]
+
+시간복잡도: $\theta$($n^2$)
+</code></pre></div></div>
 
 <hr />
 
