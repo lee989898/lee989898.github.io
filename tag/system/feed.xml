@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/system/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-11-15T21:05:41+09:00</updated>
+  <updated>2021-11-17T11:20:07+09:00</updated>
   <id>https://lee989898.github.io/tag/system/feed.xml</id>
 
   
@@ -32,10 +32,400 @@
 
   
     <entry>
+      <title type="html">프로세스통신-socket</title>
+      <link href="https://lee989898.github.io/st-09" rel="alternate" type="text/html" title="프로세스통신-socket" />
+      <published>2021-11-16T01:06:00+09:00</published>
+      <updated>2021-11-16T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/st-09</id>
+      <content type="html" xml:base="https://lee989898.github.io/st-09">&lt;h3 id=&quot;프로세스통신-socket&quot;&gt;&lt;strong&gt;프로세스통신-socket&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Socket&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Pipe는 통신하는 프로세스들을 하나의 시스템 내부로 한정 ​&lt;/li&gt;
+  &lt;li&gt;Socket은 같은 시스템에 속한 프로세스들 뿐만 아니라, 서로 다른 시스템들에 속한 프로세스들 간의 통신을 가능케 함​
+    &lt;ul&gt;
+      &lt;li&gt;socket() 시스템 호출에 의해 만들어 짐 ​&lt;/li&gt;
+      &lt;li&gt;응용 프로그램의 관점에서는 pipe와 마찬가지로 파일 디스크립터를 통해 접근(read, write, 등) 가능​&lt;/li&gt;
+      &lt;li&gt;Kernel의 관점에서 socket은 IPC를 위한 통신의 끝점(또는 출입구)에 해당함​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;전혀 관계없는 프로세스간에 통신을 위해 socket을 식별할 목적으로 이름을 붙임​
+    &lt;ul&gt;
+      &lt;li&gt;파일 이름 또는 번호​&lt;/li&gt;
+      &lt;li&gt;bind() 시스템 호출 사용​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;이름 붙이기&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Linux 도메인에서는 socket 이름으로 파일 이름 사용 (경로명 포함)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;INET(Internet) 도메인에서는 socket 이름으로 포트번호 사용​&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Well-known port: ftp는 21번, telnet은 23번, 등등. ​&lt;/li&gt;
+      &lt;li&gt;통신 상대 프로세스가 속한 컴퓨터 시스템 이름(IP address) + 
+  포트 번호&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/st/st21.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;시스템프로그래밍&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Stream Socket을 이용한 IPC&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Virtual circuit​
+    &lt;ul&gt;
+      &lt;li&gt;통신 대상에 연결(논리적 접속)을 설정​&lt;/li&gt;
+      &lt;li&gt;그 연결을 통하여 데이터를 송수신​&lt;/li&gt;
+      &lt;li&gt;송수신이 끝나면 연결 해제​&lt;/li&gt;
+      &lt;li&gt;연결형 통신이라고 부름 : 전화에 비유​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Stream socket​
+    &lt;ul&gt;
+      &lt;li&gt;Virtual circuit 기능을 이용하여 구현한 socket​&lt;/li&gt;
+      &lt;li&gt;프로세스간에 대량의 데이터를 송수신하는 경우 이용 ​&lt;/li&gt;
+      &lt;li&gt;통신의 신뢰성 보증​&lt;/li&gt;
+      &lt;li&gt;송신한 정보가 없어지거나 바뀌지 않음​&lt;/li&gt;
+      &lt;li&gt;올바른 순서로 수신됨​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;연결형 프로토콜의 예 : TCP (Transmission Control Protocol)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Client :​
+    &lt;ul&gt;
+      &lt;li&gt;Socket 작성 : socket() 시스템 호출​&lt;/li&gt;
+      &lt;li&gt;Socket에 이름 붙임 : bind()  생략 가능​&lt;/li&gt;
+      &lt;li&gt;Server에 접속 요구 : connect()​&lt;/li&gt;
+      &lt;li&gt;데이터 송수신 : read()/write()  socket이 파일 디스크립터로 접근 가능하므로​&lt;/li&gt;
+      &lt;li&gt;Socket 제거 : close()​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Server : ​
+    &lt;ul&gt;
+      &lt;li&gt;Socket 작성 : socket() 시스템 호출​&lt;/li&gt;
+      &lt;li&gt;Socket에 이름 붙임 : bind()​&lt;/li&gt;
+      &lt;li&gt;Client의 접속 요구 받을 준비 : listen()​&lt;/li&gt;
+      &lt;li&gt;접속 요구 허가 : accept()​&lt;/li&gt;
+      &lt;li&gt;데이터 송수신 : read()/write()​&lt;/li&gt;
+      &lt;li&gt;Socket 제거 : close()&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/st/st22.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;시스템프로그래밍&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Datagram Socket을 이용한 IPC&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Datagram​
+    &lt;ul&gt;
+      &lt;li&gt;통신 대상에 연결(논리적 접속)을 설정할 필요 없음​&lt;/li&gt;
+      &lt;li&gt;개개의 데이터를 그때 그때 상대방에게 보냄​&lt;/li&gt;
+      &lt;li&gt;비 연결형 통신이라고 부름 : 편지에 비유​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Datagram socket​
+    &lt;ul&gt;
+      &lt;li&gt;Datagram 기능을 이용하여 구현한 socket​&lt;/li&gt;
+      &lt;li&gt;프로세스간에 작은 데이터를 계속해서 보내는 통신​&lt;/li&gt;
+      &lt;li&gt;매번 데이터를 보낼 때마다 상대방을 지정 ​&lt;/li&gt;
+      &lt;li&gt;전송 데이터의 신뢰성이 보증되지 않음 : 시간, 순서, 등​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;비 연결형 프로토콜의 예 : UDP (User Datagram Protocol)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Client :​
+    &lt;ul&gt;
+      &lt;li&gt;Socket 작성 : socket() 시스템 호출​&lt;/li&gt;
+      &lt;li&gt;Socket에 이름 붙임 : bind()  생략 가능​&lt;/li&gt;
+      &lt;li&gt;데이터 송신 : sendto() ​&lt;/li&gt;
+      &lt;li&gt;데이터 수신 : recvfrom()​&lt;/li&gt;
+      &lt;li&gt;Socket 제거 : close()​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Server : ​
+    &lt;ul&gt;
+      &lt;li&gt;Socket 작성 : socket() 시스템 호출​&lt;/li&gt;
+      &lt;li&gt;Socket에 이름 붙임 : bind()​&lt;/li&gt;
+      &lt;li&gt;데이터 수신 : recvfrom()​&lt;/li&gt;
+      &lt;li&gt;데이터 송신 : sendto()​&lt;/li&gt;
+      &lt;li&gt;Socket 제거 : close()&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;socket() system call&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt;​
+#include &amp;lt;sys/socket.h&amp;gt;​
+
+int socket(int domain, int type, int protocol)
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;소켓을 생성​
+    &lt;ul&gt;
+      &lt;li&gt;int domain :  사용하는 도메인의 종류​&lt;/li&gt;
+      &lt;li&gt;int type :      사용하는 소켓 타입​&lt;/li&gt;
+      &lt;li&gt;int protocol : 사용하는 프로토콜의 종류​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;정상 종료시 생성된 소켓에 대한 파일 디스크립터 반환, 에러시 -1 반환&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Domain의 종류 ​
+    &lt;ul&gt;
+      &lt;li&gt;PF_UNIX : unix domain ​&lt;/li&gt;
+      &lt;li&gt;PF_INET : inet domain​&lt;/li&gt;
+      &lt;li&gt;그 이외​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Socket type의 종류​
+    &lt;ul&gt;
+      &lt;li&gt;Sock_stream : stream socket​&lt;/li&gt;
+      &lt;li&gt;Sock_dgram : datagram socket​&lt;/li&gt;
+      &lt;li&gt;그 이외​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;사용되는 고유의 protocol 지정. 대부분 0을 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;bind() system call​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt;​
+#include &amp;lt;sys/socket.h&amp;gt;​
+
+int bind(int sockfd, struct sockaddr *my_addr, int len)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;int sockfd : socket() 시스템 호출에서 돌려 받은 socket 파일 디스크립터를 지정​&lt;/li&gt;
+  &lt;li&gt;struct sockaddr *my_addr : 이름을 붙일 구조체​
+    &lt;ul&gt;
+      &lt;li&gt;struct sockaddr *my_addr 에는 다음을 지정​
+        &lt;ul&gt;
+          &lt;li&gt;Unix domain 또는 Inet domain 중 어느 쪽을 사용할 지​&lt;/li&gt;
+          &lt;li&gt;Socket 이름​&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;int len :  이름이 붙여진 구조체(*my_addr)의 길이​&lt;/li&gt;
+  &lt;li&gt;Unix Domain에서 socket의 주소 정보는 socketaddr_un 구조체에서 정의​
+```
+#include &amp;lt;sys/un.h&amp;gt;​
+#define UNIX_PATH_MAX 108​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;struct sockaddr_un {​
+    sa_family_t   sun_family;     /* sa_family_t는 short과 같은 타입&lt;em&gt;/​
+     /&lt;/em&gt; PF_UNIX 설정 &lt;em&gt;/​
+    char sun_path[UNIX_PATH_MAX];   /&lt;/em&gt; 경로명 */​&lt;/p&gt;
+
+&lt;p&gt;};&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;+ Inet Domain에서 socket의 주소 정보는 socketaddr_in 구조체에서 정의​
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;#include &amp;lt;netinet/in.h&amp;gt;​&lt;/p&gt;
+
+&lt;p&gt;struct sockaddr_in {​
+    sa_family_t     sin_family;   /* PF_INET 설정 &lt;em&gt;/
+    u_int16_t        sin_port;      /&lt;/em&gt; 포트 번호 &lt;em&gt;/​
+    struct in_addr   sin_addr;    /&lt;/em&gt; IP 주소 */​&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;}; ​ struct in_addr { u_int32_t  s_addr; };  /* IP 주소 */ ```
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;connect() system call&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;netinet/in.h&amp;gt;​
+#include &amp;lt;sys/types.h&amp;gt;​
+#include &amp;lt;sys/socket.h&amp;gt;​
+
+int connect(int sockfd, const struct socketaddr *serv_addr, socklen_t addr_len)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;스트림 소켓 이용시 client에서 호출 (서버에 접속 요청)​&lt;/li&gt;
+  &lt;li&gt;정상 종료시 0을 반환, 에러시 -1 반환​
+    &lt;ul&gt;
+      &lt;li&gt;int sockfd : socket 파일 디스크립터를 지정​&lt;/li&gt;
+      &lt;li&gt;struct sockaddr *serv_addr : 접속하고 싶은 서버의 소켓 주소 정보 ​&lt;/li&gt;
+      &lt;li&gt;socklen_t addr_len : 서버의 소켓 주소 정보 구조체의 길이​
+​
+        &lt;blockquote&gt;
+          &lt;p&gt;listen() system call&lt;/p&gt;
+        &lt;/blockquote&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/socket.h&amp;gt;​
+
+int listen(int sockfd, int backlog)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;스트림 소켓 이용시 server에서 호출 정상 종료시 0을 반환, 에러시 -1 반환​&lt;/li&gt;
+  &lt;li&gt;int sockfd : socket 파일 디스크립터를 지정​&lt;/li&gt;
+  &lt;li&gt;int backlog : 연결 요청에 대한 대기열의 최대 길이(대개 5)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;accept() system call&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt;​
+#include &amp;lt;sys/socket.h&amp;gt;​
+
+int accept(int sockfd, struct sockaddr *client_addr, socklen_t *addrlen)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;스트림 소켓 이용시 server에서 호출​&lt;/li&gt;
+  &lt;li&gt;정상 종료시 소켓에 대한 새로운 파일 디스크립터를 반환, 에러시 -1 반환​&lt;/li&gt;
+  &lt;li&gt;int sockfd : socket 파일 디스크립터를 지정​&lt;/li&gt;
+  &lt;li&gt;struct sockaddr *client_addr : client의 socket 주소 정보 구조체를 가리키는 포인터​&lt;/li&gt;
+  &lt;li&gt;socklen_t *addrlen : client의 socket 주소 정보 구조체의 길이&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;send() system call&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt;​
+#include &amp;lt;sys/socket.h&amp;gt;​
+
+int send(int sockfd, const void *buf, size_t len, int flags)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Send() : 소켓으로 데이터 보냄&lt;/li&gt;
+  &lt;li&gt;정상 종료시 실제 보낸 바이트 수를 반환, 에러시 -1 반환​&lt;/li&gt;
+  &lt;li&gt;int sockfd : accept로 반환된 파일 디스크립터를 지정​&lt;/li&gt;
+  &lt;li&gt;const void *buf : 송신 버퍼의 시작 주소​&lt;/li&gt;
+  &lt;li&gt;size_t len : 송신 데이터의 길이​&lt;/li&gt;
+  &lt;li&gt;int flags : 송신 옵션&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;recv() system call&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt;​
+#include &amp;lt;sys/socket.h&amp;gt;​
+
+int recv(int sockfd, void *buf, size_t len, int flags)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Recv() : 소켓으로부터 데이터 받음&lt;/li&gt;
+  &lt;li&gt;정상 종료시 실제 받은 바이트 수를 반환, 에러시 -1 반환​&lt;/li&gt;
+  &lt;li&gt;int sockfd : accept로 반환된 파일 디스크립터를 지정​&lt;/li&gt;
+  &lt;li&gt;void *buf : 수신 버퍼의 시작 주소​&lt;/li&gt;
+  &lt;li&gt;size_t len : 수신 데이터의 길이​&lt;/li&gt;
+  &lt;li&gt;int flags : 수신 옵션&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;sendto() system call​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt;
+#include &amp;lt;sys/socket.h&amp;gt;​
+
+int sendto(int sockfd, const void *buf, size_t len, int flags, const struct sockaddr *to, socklen_t tolen)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;정상 종료시 실제 보낸 바이트 수를 반환, 에러시 -1 반환​&lt;/li&gt;
+  &lt;li&gt;int sockfd : 파일 디스크립터를 지정​&lt;/li&gt;
+  &lt;li&gt;const void *buf : 송신 버퍼의 시작 주소​&lt;/li&gt;
+  &lt;li&gt;size_t len : 송신 데이터의 길이​&lt;/li&gt;
+  &lt;li&gt;int flags : 송신 옵션 ​&lt;/li&gt;
+  &lt;li&gt;const struct sockaddr *to : 받을 곳의 소켓 주소 정보 구조체를 가리키는 포인터​&lt;/li&gt;
+  &lt;li&gt;socklen_t tolen : 받을 곳의 소켓 주소 정보 구조체의 길이​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;recvfrom() system call&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt;​
+#include &amp;lt;sys/socket.h&amp;gt;​
+
+int recvfrom(int sockfd, void *buf, size_t len, int flags, struct sockaddr *from, socklen_t *fromlen)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;정상 종료시 실제 받은 바이트 수를 반환, 에러시 -1 반환​&lt;/li&gt;
+  &lt;li&gt;int sockfd : 파일 디스크립터를 지정​&lt;/li&gt;
+  &lt;li&gt;void *buf : 수신 버퍼의 시작 주소​&lt;/li&gt;
+  &lt;li&gt;size_t len : 수신 데이터의 길이​&lt;/li&gt;
+  &lt;li&gt;int flags : 수신 옵션​&lt;/li&gt;
+  &lt;li&gt;struct sockaddr *from : 보내는 곳의 소켓 주소 정보 구조체를 가리키는 포인터​&lt;/li&gt;
+  &lt;li&gt;socklen_t tolen : 보내는 곳의 소켓 주소 정보 구조체의 길이&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="system" />
+      
+
+      
+        <summary type="html">프로세스통신-socket</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">프로세스통신-pipe</title>
       <link href="https://lee989898.github.io/st-08" rel="alternate" type="text/html" title="프로세스통신-pipe" />
-      <published>2021-10-31T01:06:00+09:00</published>
-      <updated>2021-10-31T01:06:00+09:00</updated>
+      <published>2021-11-03T01:06:00+09:00</published>
+      <updated>2021-11-03T01:06:00+09:00</updated>
       <id>https://lee989898.github.io/st-08</id>
       <content type="html" xml:base="https://lee989898.github.io/st-08">&lt;h3 id=&quot;프로세스통신-pipe&quot;&gt;&lt;strong&gt;프로세스통신-pipe&lt;/strong&gt;&lt;/h3&gt;
 

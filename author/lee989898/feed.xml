@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/author/lee989898/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-11-15T21:05:41+09:00</updated>
+  <updated>2021-11-17T11:20:07+09:00</updated>
   <id>https://lee989898.github.io/author/lee989898/feed.xml</id>
 
   
@@ -30,6 +30,396 @@
   
   
 
+  
+    <entry>
+      <title type="html">프로세스통신-socket</title>
+      <link href="https://lee989898.github.io/st-09" rel="alternate" type="text/html" title="프로세스통신-socket" />
+      <published>2021-11-16T01:06:00+09:00</published>
+      <updated>2021-11-16T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/st-09</id>
+      <content type="html" xml:base="https://lee989898.github.io/st-09">&lt;h3 id=&quot;프로세스통신-socket&quot;&gt;&lt;strong&gt;프로세스통신-socket&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Socket&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Pipe는 통신하는 프로세스들을 하나의 시스템 내부로 한정 ​&lt;/li&gt;
+  &lt;li&gt;Socket은 같은 시스템에 속한 프로세스들 뿐만 아니라, 서로 다른 시스템들에 속한 프로세스들 간의 통신을 가능케 함​
+    &lt;ul&gt;
+      &lt;li&gt;socket() 시스템 호출에 의해 만들어 짐 ​&lt;/li&gt;
+      &lt;li&gt;응용 프로그램의 관점에서는 pipe와 마찬가지로 파일 디스크립터를 통해 접근(read, write, 등) 가능​&lt;/li&gt;
+      &lt;li&gt;Kernel의 관점에서 socket은 IPC를 위한 통신의 끝점(또는 출입구)에 해당함​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;전혀 관계없는 프로세스간에 통신을 위해 socket을 식별할 목적으로 이름을 붙임​
+    &lt;ul&gt;
+      &lt;li&gt;파일 이름 또는 번호​&lt;/li&gt;
+      &lt;li&gt;bind() 시스템 호출 사용​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;이름 붙이기&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Linux 도메인에서는 socket 이름으로 파일 이름 사용 (경로명 포함)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;INET(Internet) 도메인에서는 socket 이름으로 포트번호 사용​&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Well-known port: ftp는 21번, telnet은 23번, 등등. ​&lt;/li&gt;
+      &lt;li&gt;통신 상대 프로세스가 속한 컴퓨터 시스템 이름(IP address) + 
+  포트 번호&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/st/st21.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;시스템프로그래밍&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Stream Socket을 이용한 IPC&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Virtual circuit​
+    &lt;ul&gt;
+      &lt;li&gt;통신 대상에 연결(논리적 접속)을 설정​&lt;/li&gt;
+      &lt;li&gt;그 연결을 통하여 데이터를 송수신​&lt;/li&gt;
+      &lt;li&gt;송수신이 끝나면 연결 해제​&lt;/li&gt;
+      &lt;li&gt;연결형 통신이라고 부름 : 전화에 비유​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Stream socket​
+    &lt;ul&gt;
+      &lt;li&gt;Virtual circuit 기능을 이용하여 구현한 socket​&lt;/li&gt;
+      &lt;li&gt;프로세스간에 대량의 데이터를 송수신하는 경우 이용 ​&lt;/li&gt;
+      &lt;li&gt;통신의 신뢰성 보증​&lt;/li&gt;
+      &lt;li&gt;송신한 정보가 없어지거나 바뀌지 않음​&lt;/li&gt;
+      &lt;li&gt;올바른 순서로 수신됨​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;연결형 프로토콜의 예 : TCP (Transmission Control Protocol)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Client :​
+    &lt;ul&gt;
+      &lt;li&gt;Socket 작성 : socket() 시스템 호출​&lt;/li&gt;
+      &lt;li&gt;Socket에 이름 붙임 : bind()  생략 가능​&lt;/li&gt;
+      &lt;li&gt;Server에 접속 요구 : connect()​&lt;/li&gt;
+      &lt;li&gt;데이터 송수신 : read()/write()  socket이 파일 디스크립터로 접근 가능하므로​&lt;/li&gt;
+      &lt;li&gt;Socket 제거 : close()​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Server : ​
+    &lt;ul&gt;
+      &lt;li&gt;Socket 작성 : socket() 시스템 호출​&lt;/li&gt;
+      &lt;li&gt;Socket에 이름 붙임 : bind()​&lt;/li&gt;
+      &lt;li&gt;Client의 접속 요구 받을 준비 : listen()​&lt;/li&gt;
+      &lt;li&gt;접속 요구 허가 : accept()​&lt;/li&gt;
+      &lt;li&gt;데이터 송수신 : read()/write()​&lt;/li&gt;
+      &lt;li&gt;Socket 제거 : close()&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/st/st22.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;시스템프로그래밍&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Datagram Socket을 이용한 IPC&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Datagram​
+    &lt;ul&gt;
+      &lt;li&gt;통신 대상에 연결(논리적 접속)을 설정할 필요 없음​&lt;/li&gt;
+      &lt;li&gt;개개의 데이터를 그때 그때 상대방에게 보냄​&lt;/li&gt;
+      &lt;li&gt;비 연결형 통신이라고 부름 : 편지에 비유​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Datagram socket​
+    &lt;ul&gt;
+      &lt;li&gt;Datagram 기능을 이용하여 구현한 socket​&lt;/li&gt;
+      &lt;li&gt;프로세스간에 작은 데이터를 계속해서 보내는 통신​&lt;/li&gt;
+      &lt;li&gt;매번 데이터를 보낼 때마다 상대방을 지정 ​&lt;/li&gt;
+      &lt;li&gt;전송 데이터의 신뢰성이 보증되지 않음 : 시간, 순서, 등​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;비 연결형 프로토콜의 예 : UDP (User Datagram Protocol)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Client :​
+    &lt;ul&gt;
+      &lt;li&gt;Socket 작성 : socket() 시스템 호출​&lt;/li&gt;
+      &lt;li&gt;Socket에 이름 붙임 : bind()  생략 가능​&lt;/li&gt;
+      &lt;li&gt;데이터 송신 : sendto() ​&lt;/li&gt;
+      &lt;li&gt;데이터 수신 : recvfrom()​&lt;/li&gt;
+      &lt;li&gt;Socket 제거 : close()​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Server : ​
+    &lt;ul&gt;
+      &lt;li&gt;Socket 작성 : socket() 시스템 호출​&lt;/li&gt;
+      &lt;li&gt;Socket에 이름 붙임 : bind()​&lt;/li&gt;
+      &lt;li&gt;데이터 수신 : recvfrom()​&lt;/li&gt;
+      &lt;li&gt;데이터 송신 : sendto()​&lt;/li&gt;
+      &lt;li&gt;Socket 제거 : close()&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;socket() system call&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt;​
+#include &amp;lt;sys/socket.h&amp;gt;​
+
+int socket(int domain, int type, int protocol)
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;소켓을 생성​
+    &lt;ul&gt;
+      &lt;li&gt;int domain :  사용하는 도메인의 종류​&lt;/li&gt;
+      &lt;li&gt;int type :      사용하는 소켓 타입​&lt;/li&gt;
+      &lt;li&gt;int protocol : 사용하는 프로토콜의 종류​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;정상 종료시 생성된 소켓에 대한 파일 디스크립터 반환, 에러시 -1 반환&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Domain의 종류 ​
+    &lt;ul&gt;
+      &lt;li&gt;PF_UNIX : unix domain ​&lt;/li&gt;
+      &lt;li&gt;PF_INET : inet domain​&lt;/li&gt;
+      &lt;li&gt;그 이외​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Socket type의 종류​
+    &lt;ul&gt;
+      &lt;li&gt;Sock_stream : stream socket​&lt;/li&gt;
+      &lt;li&gt;Sock_dgram : datagram socket​&lt;/li&gt;
+      &lt;li&gt;그 이외​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;사용되는 고유의 protocol 지정. 대부분 0을 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;bind() system call​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt;​
+#include &amp;lt;sys/socket.h&amp;gt;​
+
+int bind(int sockfd, struct sockaddr *my_addr, int len)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;int sockfd : socket() 시스템 호출에서 돌려 받은 socket 파일 디스크립터를 지정​&lt;/li&gt;
+  &lt;li&gt;struct sockaddr *my_addr : 이름을 붙일 구조체​
+    &lt;ul&gt;
+      &lt;li&gt;struct sockaddr *my_addr 에는 다음을 지정​
+        &lt;ul&gt;
+          &lt;li&gt;Unix domain 또는 Inet domain 중 어느 쪽을 사용할 지​&lt;/li&gt;
+          &lt;li&gt;Socket 이름​&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;int len :  이름이 붙여진 구조체(*my_addr)의 길이​&lt;/li&gt;
+  &lt;li&gt;Unix Domain에서 socket의 주소 정보는 socketaddr_un 구조체에서 정의​
+```
+#include &amp;lt;sys/un.h&amp;gt;​
+#define UNIX_PATH_MAX 108​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;struct sockaddr_un {​
+    sa_family_t   sun_family;     /* sa_family_t는 short과 같은 타입&lt;em&gt;/​
+     /&lt;/em&gt; PF_UNIX 설정 &lt;em&gt;/​
+    char sun_path[UNIX_PATH_MAX];   /&lt;/em&gt; 경로명 */​&lt;/p&gt;
+
+&lt;p&gt;};&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;+ Inet Domain에서 socket의 주소 정보는 socketaddr_in 구조체에서 정의​
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;#include &amp;lt;netinet/in.h&amp;gt;​&lt;/p&gt;
+
+&lt;p&gt;struct sockaddr_in {​
+    sa_family_t     sin_family;   /* PF_INET 설정 &lt;em&gt;/
+    u_int16_t        sin_port;      /&lt;/em&gt; 포트 번호 &lt;em&gt;/​
+    struct in_addr   sin_addr;    /&lt;/em&gt; IP 주소 */​&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;}; ​ struct in_addr { u_int32_t  s_addr; };  /* IP 주소 */ ```
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;connect() system call&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;netinet/in.h&amp;gt;​
+#include &amp;lt;sys/types.h&amp;gt;​
+#include &amp;lt;sys/socket.h&amp;gt;​
+
+int connect(int sockfd, const struct socketaddr *serv_addr, socklen_t addr_len)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;스트림 소켓 이용시 client에서 호출 (서버에 접속 요청)​&lt;/li&gt;
+  &lt;li&gt;정상 종료시 0을 반환, 에러시 -1 반환​
+    &lt;ul&gt;
+      &lt;li&gt;int sockfd : socket 파일 디스크립터를 지정​&lt;/li&gt;
+      &lt;li&gt;struct sockaddr *serv_addr : 접속하고 싶은 서버의 소켓 주소 정보 ​&lt;/li&gt;
+      &lt;li&gt;socklen_t addr_len : 서버의 소켓 주소 정보 구조체의 길이​
+​
+        &lt;blockquote&gt;
+          &lt;p&gt;listen() system call&lt;/p&gt;
+        &lt;/blockquote&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/socket.h&amp;gt;​
+
+int listen(int sockfd, int backlog)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;스트림 소켓 이용시 server에서 호출 정상 종료시 0을 반환, 에러시 -1 반환​&lt;/li&gt;
+  &lt;li&gt;int sockfd : socket 파일 디스크립터를 지정​&lt;/li&gt;
+  &lt;li&gt;int backlog : 연결 요청에 대한 대기열의 최대 길이(대개 5)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;accept() system call&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt;​
+#include &amp;lt;sys/socket.h&amp;gt;​
+
+int accept(int sockfd, struct sockaddr *client_addr, socklen_t *addrlen)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;스트림 소켓 이용시 server에서 호출​&lt;/li&gt;
+  &lt;li&gt;정상 종료시 소켓에 대한 새로운 파일 디스크립터를 반환, 에러시 -1 반환​&lt;/li&gt;
+  &lt;li&gt;int sockfd : socket 파일 디스크립터를 지정​&lt;/li&gt;
+  &lt;li&gt;struct sockaddr *client_addr : client의 socket 주소 정보 구조체를 가리키는 포인터​&lt;/li&gt;
+  &lt;li&gt;socklen_t *addrlen : client의 socket 주소 정보 구조체의 길이&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;send() system call&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt;​
+#include &amp;lt;sys/socket.h&amp;gt;​
+
+int send(int sockfd, const void *buf, size_t len, int flags)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Send() : 소켓으로 데이터 보냄&lt;/li&gt;
+  &lt;li&gt;정상 종료시 실제 보낸 바이트 수를 반환, 에러시 -1 반환​&lt;/li&gt;
+  &lt;li&gt;int sockfd : accept로 반환된 파일 디스크립터를 지정​&lt;/li&gt;
+  &lt;li&gt;const void *buf : 송신 버퍼의 시작 주소​&lt;/li&gt;
+  &lt;li&gt;size_t len : 송신 데이터의 길이​&lt;/li&gt;
+  &lt;li&gt;int flags : 송신 옵션&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;recv() system call&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt;​
+#include &amp;lt;sys/socket.h&amp;gt;​
+
+int recv(int sockfd, void *buf, size_t len, int flags)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Recv() : 소켓으로부터 데이터 받음&lt;/li&gt;
+  &lt;li&gt;정상 종료시 실제 받은 바이트 수를 반환, 에러시 -1 반환​&lt;/li&gt;
+  &lt;li&gt;int sockfd : accept로 반환된 파일 디스크립터를 지정​&lt;/li&gt;
+  &lt;li&gt;void *buf : 수신 버퍼의 시작 주소​&lt;/li&gt;
+  &lt;li&gt;size_t len : 수신 데이터의 길이​&lt;/li&gt;
+  &lt;li&gt;int flags : 수신 옵션&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;sendto() system call​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt;
+#include &amp;lt;sys/socket.h&amp;gt;​
+
+int sendto(int sockfd, const void *buf, size_t len, int flags, const struct sockaddr *to, socklen_t tolen)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;정상 종료시 실제 보낸 바이트 수를 반환, 에러시 -1 반환​&lt;/li&gt;
+  &lt;li&gt;int sockfd : 파일 디스크립터를 지정​&lt;/li&gt;
+  &lt;li&gt;const void *buf : 송신 버퍼의 시작 주소​&lt;/li&gt;
+  &lt;li&gt;size_t len : 송신 데이터의 길이​&lt;/li&gt;
+  &lt;li&gt;int flags : 송신 옵션 ​&lt;/li&gt;
+  &lt;li&gt;const struct sockaddr *to : 받을 곳의 소켓 주소 정보 구조체를 가리키는 포인터​&lt;/li&gt;
+  &lt;li&gt;socklen_t tolen : 받을 곳의 소켓 주소 정보 구조체의 길이​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;recvfrom() system call&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt;​
+#include &amp;lt;sys/socket.h&amp;gt;​
+
+int recvfrom(int sockfd, void *buf, size_t len, int flags, struct sockaddr *from, socklen_t *fromlen)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;정상 종료시 실제 받은 바이트 수를 반환, 에러시 -1 반환​&lt;/li&gt;
+  &lt;li&gt;int sockfd : 파일 디스크립터를 지정​&lt;/li&gt;
+  &lt;li&gt;void *buf : 수신 버퍼의 시작 주소​&lt;/li&gt;
+  &lt;li&gt;size_t len : 수신 데이터의 길이​&lt;/li&gt;
+  &lt;li&gt;int flags : 수신 옵션​&lt;/li&gt;
+  &lt;li&gt;struct sockaddr *from : 보내는 곳의 소켓 주소 정보 구조체를 가리키는 포인터​&lt;/li&gt;
+  &lt;li&gt;socklen_t tolen : 보내는 곳의 소켓 주소 정보 구조체의 길이&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="system" />
+      
+
+      
+        <summary type="html">프로세스통신-socket</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">되추적</title>
@@ -1809,256 +2199,10 @@ esp, ebp는 각각 스택포인터, 베이스 포인터이며, eax는 반환값�
     </entry>
   
     <entry>
-      <title type="html">이메일 보안</title>
-      <link href="https://lee989898.github.io/sc-11" rel="alternate" type="text/html" title="이메일 보안" />
-      <published>2021-10-31T01:06:00+09:00</published>
-      <updated>2021-10-31T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/sc-11</id>
-      <content type="html" xml:base="https://lee989898.github.io/sc-11">&lt;h3 id=&quot;이메일-보안&quot;&gt;&lt;strong&gt;이메일 보안&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;PGP&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;운영체제에 상관없이 확정성이 뛰어나다&lt;/li&gt;
-  &lt;li&gt;S/MIME&lt;/li&gt;
-  &lt;li&gt;공개키 기반의 프로토콜이다&lt;/li&gt;
-  &lt;li&gt;RSA, El Gamel을 사용한다&lt;/li&gt;
-  &lt;li&gt;대칭키 방식과도 연동된다(3DES)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Requirements of secure E-mail&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;기밀성&lt;/li&gt;
-  &lt;li&gt;송신자 인증&lt;/li&gt;
-  &lt;li&gt;메시지 무결성&lt;/li&gt;
-  &lt;li&gt;수신자 인증&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Secure e-mail: 기밀성&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc10.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;앨리스는 기밀성을 입증한 e-mail, m을 밥에게 보내고 싶다&lt;/li&gt;
-  &lt;li&gt;랜덤 대칭키를 생성한다, K&lt;sub&gt;S&lt;/sub&gt;&lt;/li&gt;
-  &lt;li&gt;메시지를  K&lt;sub&gt;S&lt;/sub&gt;로 encrypt한다&lt;/li&gt;
-  &lt;li&gt;또한 K&lt;sub&gt;S&lt;/sub&gt;를 밥의 공개키로 encrypt한다&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;밥에게 K&lt;sub&gt;S&lt;/sub&gt;(m)과 K&lt;sub&gt;B&lt;/sub&gt;(K&lt;sub&gt;S&lt;/sub&gt;)를 보낸다&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;밥은 그의 private키로 decrypt하여 K&lt;sub&gt;S&lt;/sub&gt;를 찾아낸다&lt;/li&gt;
-  &lt;li&gt;K&lt;sub&gt;S&lt;/sub&gt;로 K&lt;sub&gt;S&lt;/sub&gt;(m)을 decrypt하여 m을 찾아낸다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Secure e-mail: 송신자 인증, 무결성&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc11.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;앨리스는 송신자 인증과 메시지 무결성을 지키고 싶다&lt;/li&gt;
-  &lt;li&gt;앨리스는 메세지를 digitally 사인한다&lt;/li&gt;
-  &lt;li&gt;메시지와 디지털 시그니처 모두 보낸다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Secure e-mail: all together&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc12.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;앨리스는 보안,송신자 인증,메시지 무결성을 지키고 싶다&lt;/li&gt;
-  &lt;li&gt;앨리스는 3가지 키를 사용한다
-    &lt;ul&gt;
-      &lt;li&gt;그녀의 private key&lt;/li&gt;
-      &lt;li&gt;밥의 public key&lt;/li&gt;
-      &lt;li&gt;새로 만들어진 대칭키&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Email 보안 표준&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;PGP&lt;/li&gt;
-  &lt;li&gt;S/MIME
-    &lt;ul&gt;
-      &lt;li&gt;이메일을 위해 MIME에 보안서비스 제공 표준&lt;/li&gt;
-      &lt;li&gt;인증,무결성,부인방지,기밀성 제공&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc09.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;hr /&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="security" />
-      
-
-      
-        <summary type="html">이메일 보안</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">signature</title>
-      <link href="https://lee989898.github.io/sc-10" rel="alternate" type="text/html" title="signature" />
-      <published>2021-10-31T01:06:00+09:00</published>
-      <updated>2021-10-31T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/sc-10</id>
-      <content type="html" xml:base="https://lee989898.github.io/sc-10">&lt;h3 id=&quot;signature&quot;&gt;&lt;strong&gt;signature&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;서명&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;자기의 동일성을 표시하고 책임을 분명하기 하기 위하여 문서 따위에 자기 이름을 써넣음​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;전자서명의 기본 아이디어&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;송신자(alice)는 자신의 비밀키로 암호화​&lt;/li&gt;
-  &lt;li&gt;수신자는 송신자의 공개키로 복호화&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;시나리오:&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;+ Bob은 public key를 공개된 장소에 두고, private key는 자신이 가지고 있다
-+ Alice는 Bob의 public key를 가져와, 메시지를 암호화해서 전송​
-+ 이 메시지는 다른 사람이 보더라도 풀 수 없다. 메시지를 복호화하려면 Bob의 private key가 필요하기 때문-&amp;gt;기밀성보장​
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;문제점1. Bob은 Alice가 메시지를 작성했다는것을 확신할 수 있을까? NO​&lt;/li&gt;
-  &lt;li&gt;문제점2. Bob은 메시지가 중간에 변경되지않았다는것을 확신할 수 있을까? NO​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;해결법&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Alice는 메시지로 MAC을 만들고, 이것을 Alice가 자신의 private key로 암호화 한다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc05.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;만들어진 것을 본래 메시지에 붙인다 -&amp;gt; 서명&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc06.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;이것을 Bob의 public key로 암호화 해서 전송&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;다른 사람은 Bob의 private key가 없으므로 볼수없다 -&amp;gt; 기밀성​&lt;/li&gt;
-  &lt;li&gt;Bob은 자신의 private key로 열면 평문과 시그니쳐가 나온다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc07.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Bob은 다음과 같이 무결성,인증을 한다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc08.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="security" />
-      
-
-      
-        <summary type="html">signature</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
       <title type="html">프로세스통신-pipe</title>
       <link href="https://lee989898.github.io/st-08" rel="alternate" type="text/html" title="프로세스통신-pipe" />
-      <published>2021-10-31T01:06:00+09:00</published>
-      <updated>2021-10-31T01:06:00+09:00</updated>
+      <published>2021-11-03T01:06:00+09:00</published>
+      <updated>2021-11-03T01:06:00+09:00</updated>
       <id>https://lee989898.github.io/st-08</id>
       <content type="html" xml:base="https://lee989898.github.io/st-08">&lt;h3 id=&quot;프로세스통신-pipe&quot;&gt;&lt;strong&gt;프로세스통신-pipe&lt;/strong&gt;&lt;/h3&gt;
 
@@ -2361,346 +2505,84 @@ $ prog1 &amp;lt; infile | tee fifo1 | prog2
     </entry>
   
     <entry>
-      <title type="html">서브프로그램</title>
-      <link href="https://lee989898.github.io/pl-16" rel="alternate" type="text/html" title="서브프로그램" />
-      <published>2021-10-29T19:18:00+09:00</published>
-      <updated>2021-10-29T19:18:00+09:00</updated>
-      <id>https://lee989898.github.io/pl-16</id>
-      <content type="html" xml:base="https://lee989898.github.io/pl-16">&lt;h3 id=&quot;서브프로그램&quot;&gt;&lt;strong&gt;서브프로그램&lt;/strong&gt;&lt;/h3&gt;
+      <title type="html">signature</title>
+      <link href="https://lee989898.github.io/sc-10" rel="alternate" type="text/html" title="signature" />
+      <published>2021-10-31T01:06:00+09:00</published>
+      <updated>2021-10-31T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc-10</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-10">&lt;h3 id=&quot;signature&quot;&gt;&lt;strong&gt;signature&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Fundamentals of Subprograms&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;서브프로그램이 무엇인지 왜 필요한지 살펴 보자.&lt;br /&gt;
-동일한 코드 부분(segment)이 프로그램의 여러 곳에서 나타난다고 하면, 이 코드를 여러 곳에 중복해서 코딩하기보다는,​
-한번만 코딩하고, 필요할 때마다 그 코드 부분으로 점프했다가 끝나면 되돌아 오는 방식으로, 프로그램을 짤 수 있다.&lt;br /&gt;
-이러한 코드 부분을 서브프로그램이라고 한다.&lt;br /&gt;
-동일한 코드 부분이 프로그램의 여러 곳에 나타나고, ​나타나는 곳마다 사용되는 변수가 다르다고 가정해 보자.&lt;br /&gt;
-이때 파라미터를 갖는 서브프로그램을 사용할 수 있다.&lt;br /&gt;
-서브프로그램의 개념은 쓰레드와 같은 것으로 발전하고 있다.&lt;/p&gt;
-
 &lt;blockquote&gt;
-  &lt;p&gt;서브프로그램은 다음과 같은 특징을 갖는다. ​&lt;/p&gt;
+  &lt;p&gt;서명&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;각 서브 프로그램은 단하나의 진입점을 갖는다. ​&lt;/li&gt;
-  &lt;li&gt;호출한 서브프로그램(caller)는 호출된 서브프로그램(callee)의 실행 중에는 중지된다. ​&lt;/li&gt;
-  &lt;li&gt;Callee가 종료되면, 컨트롤을 항상 caller에게 되돌려준다.  ​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;서브프로그램은 정의부와 선언부로 구성된다.&lt;br /&gt;
-서브프로그램 정의부는 서브프로그램의 인터페이스와 액션을 서술하고, ​정의부의 맨앞에는 서브프로그램의 헤더가 있다.&lt;br /&gt;
-헤더는 void adder(parameter) 처럼 서브프로그램 이름, 유형, 포말 파라미터 등을 포함한다. &lt;br /&gt;
-포말 파라미터의 개수, 순서, 타입을 파라미터의 프로파일(시그니처, 요약)이라고 부른다. ​&lt;/p&gt;
-
-&lt;p&gt;서브프로그램 선언부는 파라미터 프로파일과 반환 타입을 선언한다.&lt;br /&gt;
-서브프로그램 호출(call)은 서브프로그램으로 점프한다. ​&lt;/p&gt;
-
-&lt;p&gt;서브프로그램에서 데이터에 접근하는 방법은 두가지가 있다.
- ​&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;난로컬 변수에 직접 접근하는 경우 ​&lt;/li&gt;
-  &lt;li&gt;파라미터 패싱을 사용하는 경우 ​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;파라미터 패싱을 사용하여 데이터를 접근할 때에는 ​로컬 변수명을 사용한다.&lt;br /&gt;
-난로컬 변수에 직접 접근하는 것보다 융통성이 높아 파라미터화에 의한 계산이 가능하다.&lt;br /&gt;
-난로컬 변수에 대한 광범위한 접근은 부작용으로 인해 신뢰성을 감소시킨다. ​&lt;br /&gt;
-순수 함수 언어는 수정 가능한 데이터를 허용하지 않으며, 메모리 내용을 변경할 수 없도록 제한한다. ​&lt;/p&gt;
-
-&lt;p&gt;포말 파라미터는 callee의 헤더에 있는 파라미터를 말한다.&lt;br /&gt;
-서브프로그램이 호출될 때만 메모리에 바인딩되고, ​액추얼 파라미터를 통해서 바인딩되기 때문에, ​종종 더미 변수로 취급되기도 한다.&lt;br /&gt;
-액추얼 파라미터는 caller에서 사용되는 값이나 주소를 나타낸다.&lt;/p&gt;
-
-&lt;p&gt;액추얼 파라미터를 포말 파라미터에 바인딩하는 방법은 두 가지가 있다. ​&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;위치 파라미터: 파라미터의 순서가 중요 ​&lt;/li&gt;
-  &lt;li&gt;키워드 파라미터: 파라미터의 이름이 중요, 순서는 중요하지 않음&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;파이썬에서 sumer(my_length, list=my_array, sum = my_sum),  ​
-포말 파라미터는 length, list, sum이고, ​
-액추얼 파라미터는 my_length, my_array, my_sum 이라면, ​
-첫번째 파라미터는 위치 파라미터이고, ​
-두번째 세번째는 키워드 파라미터이다.  ​&lt;/p&gt;
-
-&lt;p&gt;키워드 파라미터의 장점은 순서에 얽매이지 않는다는 것이고, ​
-단점은 사용자가 포말 파라미터의 이름을 알고 있어야 한다는 것이다.&lt;/p&gt;
-
-&lt;p&gt;C++, 파이썬 등에서는 액추얼 파라미터가 모두 다 패스되지 않을 경우, ​포말 파라미터는 대응되지 않는 나머지 파라미터에 대해 디폴트 값을 가질 수 있다. ​&lt;/p&gt;
-
-&lt;p&gt;C++에서 파라미터는 위치에 연관되기 때문에 ​
-디폴트 파라미터는 마지막에 나타나야 하며, ​
-디폴트값은 서브프로그램 헤더에 있다. ​&lt;/p&gt;
-
-&lt;p&gt;서브프로그램 내에 정의된 변수는 모두 로컬이며, ​
-그들의 스코프는 항상 서브프로그램 안이다.&lt;br /&gt;
-로컬 변수는 정적 또는 스택-동적으로 바인딩된다. ​
-로컬 변수가 스택-동적이라면, ​
-서브프로그램의 실행이 시작될 때 메모리에 바인딩되고, ​
-실행이 끝나면 메모리에서 떨어진다. ​&lt;/p&gt;
-
-&lt;p&gt;스택-동적 변수의 장점은, ​&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Recursive 서브프로그램이 스택-동적 로컬 변수를 갖는다 -&amp;gt; recursion 처리가 가능​&lt;/li&gt;
-  &lt;li&gt;액티브 서브 프로그램의 로컬 변수가 ​
-액티브하지 않은 서브프로그램이 해제한 로컬 변수의 메모리를 사용할 수 있다. ​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;프로그램이 시작되고나서 아직 끝나지 않은 상태에서는 ​
-자주 호출되는 서브프로그램의 실행이 끝났다고 해도 ​
-그 서브 프로그램의 변수는 아직 메모리를 차지하고 있을 수 있다.&lt;br /&gt;
-이때 서브프로그램의 상태를 액티브라고 한다. ​&lt;/p&gt;
-
-&lt;p&gt;현대 언어에서, 서브프로그램의 로컬 변수는 디폴트로서 스택-동적으로 바인딩된다. ​&lt;/p&gt;
-
-&lt;p&gt;C, C++ 함수에서, 로컬 변수는 정적이라고 명시되어 있지 않으면 스택-동적이다. ​&lt;/p&gt;
-
-&lt;p&gt;서브프로그램이 다른 서브프로그램안에만 있어야 한다면, ​
-이것을 중첩 서브프로그램이라고 한다. ​&lt;/p&gt;
-
-&lt;p&gt;다른 서브프로그램 안에서 숨어서(hide) 다른 프로그램이 호출할 수 없게 만든다. ​&lt;/p&gt;
-
-&lt;p&gt;서브프로그램의 중첩으로 처리 논리와 스코프의 계층구조를 생성할 수 있다. ​&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;정적 스코핑의 사용 ​&lt;/li&gt;
-  &lt;li&gt;알골, 파스칼에서 허용 ​&lt;/li&gt;
-  &lt;li&gt;C 계열 언어는 서브프로그램의 중첩을 허용하지 않음​&lt;/li&gt;
-  &lt;li&gt;자바스크립트, 파이썬 등은 중첩 허용&lt;/li&gt;
+  &lt;li&gt;자기의 동일성을 표시하고 책임을 분명하기 하기 위하여 문서 따위에 자기 이름을 써넣음​&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;Parameter-Passing Methods&lt;/p&gt;
+  &lt;p&gt;전자서명의 기본 아이디어&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;파라미터 패싱에 대한 시맨틱 모델은 3가지가 있다. ​&lt;/p&gt;
-
 &lt;ul&gt;
-  &lt;li&gt;포말 파라미터가 대응하는 액추얼 파라미터로부터 데이터를 받는 것이다. 이것을 in mode라고 한다. ​&lt;/li&gt;
-  &lt;li&gt;포말 파라미터가 액추얼 파라미터에게 데이터를 보내는 것이다. 이것을 out mode라고 한다. ​&lt;/li&gt;
-  &lt;li&gt;포말 파라미터가 대응하는 액추얼 파라미터로부터 데이터를 받고, 액추얼 파라미터에게 데이터를 보내는 것이다. 이것을 inout mode라고 한다.  ​&lt;/li&gt;
+  &lt;li&gt;송신자(alice)는 자신의 비밀키로 암호화​&lt;/li&gt;
+  &lt;li&gt;수신자는 송신자의 공개키로 복호화&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;파라미터간에 데이터를 주고 받는 방법은 두가지가 있다.&lt;br /&gt;
-실제 값을 카피하여 주고 받는 방법과 액세스 패스(접근 경로)를 주고 받는 방법이다.&lt;/p&gt;
-
-&lt;p&gt;파라미터 패싱 구현 모델에는 ​pass by value(in mode), pass by result(out mode), ​pass by value result(inout mode), pass by reference(inout mode)가 있다. ​&lt;/p&gt;
-
-&lt;p&gt;Caller의 액추얼 파라미터를 Pass by value 모델로 callee에게 보낼때, 액추얼 파라미터의 값은 copy를 통해, ​대응되는 포말 파라미터의 초기화에 사용된다. ​&lt;/p&gt;
-
-&lt;p&gt;단점은 다음과 같다. ​&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;copy 하면, ​  추가적인 메모리를 필요로하고, 실제 이동 비용이 발생한다. ​&lt;/li&gt;
-  &lt;li&gt;만일 접근 경로(access path)에 의한다면, callee에서 쓰기 보호를 해야하는 동시에, ​간접 주소방식에 의한 접근 비용이 추가된다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Callee의 파라미터를 pass by result 모델로 caller에게 보낼 때, ​&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;대응되는 포말 파라미터는 로컬 변수처럼 행동한다. ​&lt;/li&gt;
-  &lt;li&gt;Callee가 종료되어 컨트롤을 caller에게 돌려주면, 포말 파라미터의 값을 caller의 액추얼 파라미터로 전달한다. ​&lt;/li&gt;
-  &lt;li&gt;추가적인 메모리 위치와 copy 연산이 필요하다. ​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Pass by result에 내재하는 문제는 다음과 같다. ​&lt;/p&gt;
-
-&lt;p&gt;Caller와 callee가 ​Caller: sub(p1, p1) actual parameter p1, p1​ Callee: sub(x, y) formal parameter x, y 라고 하자 액추얼 파라미터 두개가 p1으로 같고, ​대응하는 포말 파라미터 두개의 이름이 x, y로 다르다. ​&lt;/p&gt;
-
-&lt;p&gt;Caller가 callee를 호출해서 callee가 실행 후 종료되고, ​
-Callee가 calle에게 결과값을 반환할 때, ​
-X, y 중 어느 것이 p1에 마지막으로 copy 되느냐에 따라, ​
-p1의 값이 달라진다. ​
-x거나 y이다. ​&lt;/p&gt;
-
-&lt;p&gt;이것이 pass by result에 내재하는 문제이다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Pass by value result는 ​pass by value와 pass by result의 결합으로 ​pass by copy라고도 부른다. ​&lt;br /&gt;
-액추얼 파라미터의 값은 대응하는 포말 파라미터의 초기화에 쓰이고, ​포말 파라미터는 로컬 변수처럼 행동한다. ​&lt;br /&gt;
-포말 파라미터의 값은 액추얼 파라미터에게 반환된다. ​
-단점은 in, out 모두 카피에 의존. ​&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Pass by reference 모델은 접근 통로의 패스를 통해, ​
-파라미터를 패스한다. ​&lt;br /&gt;
-즉, callee에게 caller의 액추얼 파라미터를 접근하도록 허용한다. &lt;br /&gt;
-따라서 pass by sharing이라고도 한다. ​&lt;/p&gt;
-
-&lt;p&gt;장점은 패싱 프로세스가 효율적이다. ​&lt;br /&gt;
-Copy 연산, 메모리 모두 필요없다. ​&lt;br /&gt;
-단점은 느리고, 예기치 않았던 난로컬 변수를 접근할 수도 있다. ​&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;대부분 언어에서, 파라미터 패싱의 구현은 런타임 스택을 통해 일어난다. ​&lt;br /&gt;
-C에서 파라미터 패싱은 pass by value를 지원한다.&lt;br /&gt;
-포인터를 사용하면, Pass by reference를 구현할 수 있다.&lt;br /&gt;
-자바는 모든 파라미터에 대해 pass by value를 지원하며,&lt;br /&gt;
-객체 파라미터에 대해 pass by reference를 지원한다.&lt;/p&gt;
-
-&lt;p&gt;파라미터에 대한 타입 검사는 ​액추얼 파라미터와 포말 파라미터 간에 타입의 일관성을 검사하는 것이다. ​&lt;br /&gt;
-파라미터의 타입 검사는 소프트웨어의 신뢰성을 위해 매우 중요하다. ​&lt;br /&gt;
-포트란 77, 원시 C에는 파라미터 타입 검사가 없다.&lt;br /&gt;
-ANSI C, C++에는 선택적이며, ​파이썬, 루비에서는 변수가 타입을 갖지 않기 때문에 ​파라미터 타입 검사가 없다.&lt;/p&gt;
-
-&lt;p&gt;파라미터의 타입이 다차원 배열일 경우, ​서브프로그램이 따로 컴파일되어 있고, ​다차원 배열이 서브프로그램으로 패스된다고 가정하자. ​&lt;br /&gt;
-컴파일러는 메모리 매핑을 위해, ​선언된 배열의 크기를 알 필요가 있다.  ​&lt;/p&gt;
-
-&lt;p&gt;Row-major 매트릭스의 메모리 매핑 함수는 ​&lt;/p&gt;
-
-&lt;p&gt;address(mat[i,j]) = address(mat[0,0]) + i * #_columns + j 이다. ​&lt;/p&gt;
-
-&lt;p&gt;즉, 컬럼의 길이만 알면 전체 크기를 알 수 있다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;현대 프로그래밍 언어에서 다차원 배열 파라미터를 어떻게 패스하는지 살펴 보자.​&lt;/p&gt;
-
-&lt;p&gt;C, C++에서,&lt;br /&gt;
-1) 프로그래머가 액추얼 파라미터의 첫번째 서브스크립트를 제외하고, ​나머지 서브스크립트의 크기를 선언하는 방법. ​&lt;/p&gt;
-
-&lt;p&gt;슬라이드의 프로그램에서 mat은 2차원 배열이고, ​
-함수 fun(mat)은 mat을 파라미터로 하는 함수이다.&lt;br /&gt;
-이와 같은 방식은 서브프로그램의 유연성을 불허한다는 것이다. ​&lt;/p&gt;
-
-&lt;p&gt;2) 이에 대한 해결책으로, ​&lt;/p&gt;
-
-&lt;p&gt;배열에 대한 포인터, 차원 크기를 파라미터로 패스하는 방법이 있다.&lt;br /&gt;
-다만, 배열 처리를 위해 ​사용자는 메모리 매핑 함수를 포함해야 하는 불편함이 있다.&lt;/p&gt;
-
-&lt;p&gt;자바에서는 배열을 객체로 취급한다.&lt;br /&gt;
-이들은 모두 일차원 배열이지만 ​배열의 각 요소가 배열일 수 있어서 ​다차원 배열을 파라미터로 쓸 수 있다.&lt;br /&gt;
-자바에서 각 배열은 named constant(length와 같은)를 상속받는다.&lt;/p&gt;
-
-&lt;p&gt;파라미터 패싱 방법의 구현시, 다음 두가지를 고려해야 한다. ​&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;효율성, ​&lt;/li&gt;
-  &lt;li&gt;일방(in, out) 또는 쌍방(inout) 데이터 이동:caller-callee간에  ​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;그러나 이들 고려사항은 서로 상충된다. ​&lt;/p&gt;
-
-&lt;p&gt;프로그래밍을 잘하려면, 변수에 대한 접근을 가능한한 일방(in, out)으로 제한하는 것이 좋다.&lt;br /&gt;
-pass by reference(inout)는 크기가 큰 데이터 스트럭처를 패스하는데 더욱 효율적인 반면, ​변수에 대한 접근을 제한하는데 문제를 일으킬 수 있다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;Parameters That Are Subprograms&lt;/p&gt;
+  &lt;p&gt;시나리오:&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;이번엔 서브프로그램 이름을 파라미터로 패스하는 경우를 살펴보자. &lt;br /&gt;
-종종 서브프로그램 이름을 파라미터로 패스하는 것이 편리할 때도 있다.&lt;br /&gt;
-​즉, 계산을 서브프로그램으로 패스하는 것이다.&lt;/p&gt;
-
-&lt;p&gt;파라미터 타입 검사? ​&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;C, C++ 함수 포인터로 패스함. ​-&amp;gt; 함수 포인터의 타입은 파라미터 타입을 포함하므로 파라미터 타입 검사는 가능함 ​&lt;/li&gt;
-  &lt;li&gt;자바는 메소드 이름을 파라미터로 패스하는 것을 불허함&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;서브프로그램 중첩을 허용하는 언어에서, ​어떤 바인딩 방식에 의한 레퍼런싱 환경을 사용하는가? ​&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;쉘로우 바인딩: 패스된 서브프로그램을 실행시킨 call문(호출문)의 환경 ​&lt;/li&gt;
-  &lt;li&gt;딥바인딩: 패스된 서브프로그램에 정의된 환경​&lt;/li&gt;
-  &lt;li&gt;즉흥(ad hoc) 바인딩: 서브프로그램을 액추얼 파라미터로 패스한 호출문의 환경&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; function sub1() {​
-  var x;​
-  function sub2() { alert(x); };​
-  function sub3() {​
-    var x; x = 3;​
-    sub4(sub2); }​
-  function sub4(subx) {​
-    var x; x = 4;​
-    subx(); }​
-  x = 1;​
-  sub3(); }
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;+ Bob은 public key를 공개된 장소에 두고, private key는 자신이 가지고 있다
++ Alice는 Bob의 public key를 가져와, 메시지를 암호화해서 전송​
++ 이 메시지는 다른 사람이 보더라도 풀 수 없다. 메시지를 복호화하려면 Bob의 private key가 필요하기 때문-&amp;gt;기밀성보장​
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Sub4의 sub에 대해​&lt;/p&gt;
-
-&lt;p&gt;쉘로우 바인딩을 했을 경우 ​
-실행시킨 call문의 환경은 sub4가 되고, ​
-sub4에서 x는 4이다. ​&lt;/p&gt;
-
-&lt;p&gt;딥 바인딩을 했을 경우​
-Sub2가 정의된 환경은 sub2가 되고,  ​
-Sub2에서 x는 난로컬로서 sub1에 따른다. ​
-따라서 x는 1이다. ​&lt;/p&gt;
-
-&lt;p&gt;즉흥 바인딩일 경우, ​
-Sub2를 파라미터로 넘긴 call문의 환경은 sub3가 되고, ​
-Sub3에서 x는 3이다. ​&lt;/p&gt;
-
-&lt;hr /&gt;
+&lt;ul&gt;
+  &lt;li&gt;문제점1. Bob은 Alice가 메시지를 작성했다는것을 확신할 수 있을까? NO​&lt;/li&gt;
+  &lt;li&gt;문제점2. Bob은 메시지가 중간에 변경되지않았다는것을 확신할 수 있을까? NO​&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;Design Issues for Functions&lt;/p&gt;
+  &lt;p&gt;해결법&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;언어 설계시 고려사항은&lt;/p&gt;
-
-&lt;p&gt;부작용 허용 여부? 부작용을 줄이려면 파라미터는 항상 in mode가 좋다. ​&lt;/p&gt;
-
-&lt;p&gt;반환 값의 타입은? 대부분의 명령형 언어가 반환값의 타입을 제한함. ​&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;C는 배열과 함수를 제외하고 모든 타입을 허용함. ​&lt;/li&gt;
-  &lt;li&gt;C++은 C와 유사하나 사용자 정의 타입을 허용​&lt;/li&gt;
-  &lt;li&gt;자바는 모든 타입 허용. ​&lt;/li&gt;
-  &lt;li&gt;파이썬, 루비는 반환값 타입으로 객체도 허용&lt;/li&gt;
+  &lt;li&gt;Alice는 메시지로 MAC을 만들고, 이것을 Alice가 자신의 private key로 암호화 한다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc05.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;만들어진 것을 본래 메시지에 붙인다 -&amp;gt; 서명&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc06.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;이것을 Bob의 public key로 암호화 해서 전송&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;Coroutines&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;ul&gt;
+  &lt;li&gt;다른 사람은 Bob의 private key가 없으므로 볼수없다 -&amp;gt; 기밀성​&lt;/li&gt;
+  &lt;li&gt;Bob은 자신의 private key로 열면 평문과 시그니쳐가 나온다&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;코루틴에서 중요한 것은 재시작(resume) 명령.&lt;br /&gt;
-프로그램 단위의 유사 동시 실행 기능을 제공함. 인터리빙.&lt;/p&gt;
+&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc07.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
 
-&lt;hr /&gt;
+&lt;ul&gt;
+  &lt;li&gt;Bob은 다음과 같이 무결성,인증을 한다&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl38.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;위그림은 A가 먼저 시작하고, B를 재시작하고나서 스스로 중지했다가, ​
-B가 A를 재시작하고 나서 스스로 중지했다가, ​
-번갈아 가며 실행되는 형태를 보여주고 있습니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl39.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;위 그림은 B가 먼저 시작하고, A를 재시작하면서 스스로 중지하고, ​
-번갈아가며 실행되는 형태를 보이고 있습니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl40.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;위그림은 룹에서 서로 중지하고 상대방을 재시작하는 것을 반복함&lt;/p&gt;
+&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc08.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;</content>
 
@@ -2719,11 +2601,149 @@ B가 A를 재시작하고 나서 스스로 중지했다가, ​
       
 
       
-        <category term="pl" />
+        <category term="security" />
       
 
       
-        <summary type="html">서브프로그램</summary>
+        <summary type="html">signature</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">이메일 보안</title>
+      <link href="https://lee989898.github.io/sc-11" rel="alternate" type="text/html" title="이메일 보안" />
+      <published>2021-10-31T01:06:00+09:00</published>
+      <updated>2021-10-31T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc-11</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-11">&lt;h3 id=&quot;이메일-보안&quot;&gt;&lt;strong&gt;이메일 보안&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;PGP&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;운영체제에 상관없이 확정성이 뛰어나다&lt;/li&gt;
+  &lt;li&gt;S/MIME&lt;/li&gt;
+  &lt;li&gt;공개키 기반의 프로토콜이다&lt;/li&gt;
+  &lt;li&gt;RSA, El Gamel을 사용한다&lt;/li&gt;
+  &lt;li&gt;대칭키 방식과도 연동된다(3DES)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Requirements of secure E-mail&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;기밀성&lt;/li&gt;
+  &lt;li&gt;송신자 인증&lt;/li&gt;
+  &lt;li&gt;메시지 무결성&lt;/li&gt;
+  &lt;li&gt;수신자 인증&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Secure e-mail: 기밀성&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc10.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;앨리스는 기밀성을 입증한 e-mail, m을 밥에게 보내고 싶다&lt;/li&gt;
+  &lt;li&gt;랜덤 대칭키를 생성한다, K&lt;sub&gt;S&lt;/sub&gt;&lt;/li&gt;
+  &lt;li&gt;메시지를  K&lt;sub&gt;S&lt;/sub&gt;로 encrypt한다&lt;/li&gt;
+  &lt;li&gt;또한 K&lt;sub&gt;S&lt;/sub&gt;를 밥의 공개키로 encrypt한다&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;밥에게 K&lt;sub&gt;S&lt;/sub&gt;(m)과 K&lt;sub&gt;B&lt;/sub&gt;(K&lt;sub&gt;S&lt;/sub&gt;)를 보낸다&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;밥은 그의 private키로 decrypt하여 K&lt;sub&gt;S&lt;/sub&gt;를 찾아낸다&lt;/li&gt;
+  &lt;li&gt;K&lt;sub&gt;S&lt;/sub&gt;로 K&lt;sub&gt;S&lt;/sub&gt;(m)을 decrypt하여 m을 찾아낸다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Secure e-mail: 송신자 인증, 무결성&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc11.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;앨리스는 송신자 인증과 메시지 무결성을 지키고 싶다&lt;/li&gt;
+  &lt;li&gt;앨리스는 메세지를 digitally 사인한다&lt;/li&gt;
+  &lt;li&gt;메시지와 디지털 시그니처 모두 보낸다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Secure e-mail: all together&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc12.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;앨리스는 보안,송신자 인증,메시지 무결성을 지키고 싶다&lt;/li&gt;
+  &lt;li&gt;앨리스는 3가지 키를 사용한다
+    &lt;ul&gt;
+      &lt;li&gt;그녀의 private key&lt;/li&gt;
+      &lt;li&gt;밥의 public key&lt;/li&gt;
+      &lt;li&gt;새로 만들어진 대칭키&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Email 보안 표준&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;PGP&lt;/li&gt;
+  &lt;li&gt;S/MIME
+    &lt;ul&gt;
+      &lt;li&gt;이메일을 위해 MIME에 보안서비스 제공 표준&lt;/li&gt;
+      &lt;li&gt;인증,무결성,부인방지,기밀성 제공&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc09.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="security" />
+      
+
+      
+        <summary type="html">이메일 보안</summary>
       
 
       
