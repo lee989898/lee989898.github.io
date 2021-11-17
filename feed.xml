@@ -1,4 +1,139 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lee989898.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lee989898.github.io/" rel="alternate" type="text/html" /><updated>2021-11-17T11:20:07+09:00</updated><id>https://lee989898.github.io/feed.xml</id><title type="html">LEE</title><subtitle>공부 블로그</subtitle><entry><title type="html">프로세스통신-socket</title><link href="https://lee989898.github.io/st-09" rel="alternate" type="text/html" title="프로세스통신-socket" /><published>2021-11-16T01:06:00+09:00</published><updated>2021-11-16T01:06:00+09:00</updated><id>https://lee989898.github.io/st-09</id><content type="html" xml:base="https://lee989898.github.io/st-09">&lt;h3 id=&quot;프로세스통신-socket&quot;&gt;&lt;strong&gt;프로세스통신-socket&lt;/strong&gt;&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lee989898.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lee989898.github.io/" rel="alternate" type="text/html" /><updated>2021-11-17T13:19:55+09:00</updated><id>https://lee989898.github.io/feed.xml</id><title type="html">LEE</title><subtitle>공부 블로그</subtitle><entry><title type="html">__Diffie-Hellman__</title><link href="https://lee989898.github.io/sc-14" rel="alternate" type="text/html" title="__Diffie-Hellman__" /><published>2021-11-17T01:06:00+09:00</published><updated>2021-11-17T01:06:00+09:00</updated><id>https://lee989898.github.io/sc-14</id><content type="html" xml:base="https://lee989898.github.io/sc-14">&lt;h3 id=&quot;diffie-hellman&quot;&gt;&lt;strong&gt;Diffie-Hellman&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Diffie-Hellman&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;보안성 없는 매체를 통한 Symmetric key 공유&lt;/li&gt;
+  &lt;li&gt;송/수신자를 위한 일회용 Secret/shared session key agreement protocol&lt;/li&gt;
+  &lt;li&gt;이산대수문제&lt;/li&gt;
+  &lt;li&gt;IPSEC, 상용sw에 자주 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Steps&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;p,g: 큰 정수, 1 &amp;lt; q &amp;lt; p, 모든 사용자에 공개&lt;/li&gt;
+  &lt;li&gt;Alice는 임의로 a 생성, A = $g^a$ mod p 계산&lt;/li&gt;
+  &lt;li&gt;Bob은 임의로 b 생성, B = $g^b$ mod p 계산&lt;/li&gt;
+  &lt;li&gt;A,B를 서로 교환&lt;/li&gt;
+  &lt;li&gt;Alice와 Bob은 K=$g^{ab}$ mod p&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Deiffie-Hellman의 취약성: 중간자 공격&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Man in the middle attack: Trudy poses as Alice and as Bob
+    &lt;ul&gt;
+      &lt;li&gt;Diffe-Hellman은 매우 복잡한 프로토콜이지만, 제 3자가 x 또는 y 값을 알아내지 않아도 되기 때문에 중간에서 밥과 앨리스를 속이는 것이 가능하다.​&lt;/li&gt;
+      &lt;li&gt;중간자 공격 절차​
+        &lt;ol&gt;
+          &lt;li&gt;앨리스가 x를 선택한 후 R1=Gx를 계산하여 R1을 밥에게 전송​&lt;/li&gt;
+          &lt;li&gt;제 3자가 R1을 가로챈 후, z를 선택한 다음 R2=Gz mod N을 계산하여 R2를 앨리스와 밥에게 전송​&lt;/li&gt;
+          &lt;li&gt;밥이 y를 선택한 다음 R3=Gy mod N을 계산해서 R3을 앨리스에게 전송, R3을 제 3자가 가로챔​&lt;/li&gt;
+          &lt;li&gt;앨리스와 제 3자가 공유한 키 K1=Gxz mod N을 계산​&lt;/li&gt;
+          &lt;li&gt;제 3자와 밥은 공유한 키 K2=Gzy mod N을 계산​&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;경우 앨리스와 밥은 제 3자와 공유한 키를 서로간의 공유한 키로 생각​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;사용자 인증을 하지 않아서 발생하는 문제 -&amp;gt; 전자서명, 인증서&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="security" /><summary type="html">Diffie-Hellman</summary></entry><entry><title type="html">__DRM(Digital Right Managemment__</title><link href="https://lee989898.github.io/sc-15" rel="alternate" type="text/html" title="__DRM(Digital Right Managemment__" /><published>2021-11-17T01:06:00+09:00</published><updated>2021-11-17T01:06:00+09:00</updated><id>https://lee989898.github.io/sc-15</id><content type="html" xml:base="https://lee989898.github.io/sc-15">&lt;h3 id=&quot;drmdigital-right-managemment&quot;&gt;&lt;strong&gt;DRM(Digital Right Managemment&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;DRM&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;digital 저작권 관리&lt;/li&gt;
+  &lt;li&gt;Digital contents의 불법 사용을 제한/방지하고, 저작권을 보고하기 위한 기술 및 서비스&lt;/li&gt;
+  &lt;li&gt;Digital contents
+    &lt;ul&gt;
+      &lt;li&gt;audio,video,image,text,multimedia,sw 등&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;저작권이란&lt;/li&gt;
+  &lt;li&gt;Copyright​&lt;/li&gt;
+  &lt;li&gt;저작자가 자신이 창작한 저작물에 대해 갖는 권리(저작권법)​
+    &lt;ol&gt;
+      &lt;li&gt;복제권: 저작자는 저작물을 복제할 권리를 갖는다​&lt;/li&gt;
+      &lt;li&gt;공연권​&lt;/li&gt;
+      &lt;li&gt;공중송신권​&lt;/li&gt;
+      &lt;li&gt;전시권: 원본이나 복제물을 전시할 권리​&lt;/li&gt;
+      &lt;li&gt;배포권: 원본이나 복제물을 배포. 다만, 저작자의 허락을 받아 판매등의 방법으로 거래에 제공된 경우는 제외​&lt;/li&gt;
+      &lt;li&gt;대여권: 영리를 목적으로 대여할 권리​&lt;/li&gt;
+      &lt;li&gt;2차적 저작물작성권: 원저작물로 하는 2차적저작물을 작성하여 이용할 권리​&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Common DRM business model&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Provider​
+    &lt;ul&gt;
+      &lt;li&gt;저자물(권) 소유​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Distributor​
+    &lt;ul&gt;
+      &lt;li&gt;유통을 담당하는 배급자​&lt;/li&gt;
+      &lt;li&gt;합법적인 소비자에게만 제공해야​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Clearinghouse​
+    &lt;ul&gt;
+      &lt;li&gt;디지털 상품에 대한 권리발급​&lt;/li&gt;
+      &lt;li&gt;배급료, 사용료 처리 (Log기록)​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Consumer​
+    &lt;ul&gt;
+      &lt;li&gt;Clearinghouse에 사용료지급하고  distributor로부터 컨텐츠제공받음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;주요기술 1: Stegano graphy(숨겨진 글)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;평범해 보이는 미디어에 내용을 아는 수신자만 알아볼 수 있도록 은밀히 정보를 숨기는 기술​&lt;/li&gt;
+  &lt;li&gt;암호화알고리즘이 안전하지 않을 때 유용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;주요기술 2: Watermark&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;빛을 비출때나 반사될 때 더 밝게 보이는, 인지할 수 있는 종이의 무늬나 그림​&lt;/li&gt;
+  &lt;li&gt;지폐, 상표, 문서 등의 위조 방지에 많이 사용된다&lt;/li&gt;
+  &lt;li&gt;Digital watermarking​
+    &lt;ul&gt;
+      &lt;li&gt;Text, image, video, audio 등의 원본 데이터에 본래 소유주만이 아는 mark를 사람의 감각으로 식별할 수 없게 삽입하는 기술​&lt;/li&gt;
+      &lt;li&gt;일부 digital data가 손상되더라도 인간은 감지할 수 없음​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;복제방지, 원본여부, 재생횟수제한, 유효기간설정, 시간제한 등에 활용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="security" /><summary type="html">DRM(Digital Right Managemment</summary></entry><entry><title type="html">프로세스통신-socket</title><link href="https://lee989898.github.io/st-09" rel="alternate" type="text/html" title="프로세스통신-socket" /><published>2021-11-16T01:06:00+09:00</published><updated>2021-11-16T01:06:00+09:00</updated><id>https://lee989898.github.io/st-09</id><content type="html" xml:base="https://lee989898.github.io/st-09">&lt;h3 id=&quot;프로세스통신-socket&quot;&gt;&lt;strong&gt;프로세스통신-socket&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
 
@@ -325,6 +460,7 @@ int sendto(int sockfd, const void *buf, size_t len, int flags, const struct sock
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
+  &lt;li&gt;Sendto() : 데이터그램 소켓으로 데이터 보냄​&lt;/li&gt;
   &lt;li&gt;정상 종료시 실제 보낸 바이트 수를 반환, 에러시 -1 반환​&lt;/li&gt;
   &lt;li&gt;int sockfd : 파일 디스크립터를 지정​&lt;/li&gt;
   &lt;li&gt;const void *buf : 송신 버퍼의 시작 주소​&lt;/li&gt;
@@ -343,8 +479,8 @@ int sendto(int sockfd, const void *buf, size_t len, int flags, const struct sock
 
 int recvfrom(int sockfd, void *buf, size_t len, int flags, struct sockaddr *from, socklen_t *fromlen)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
 &lt;ul&gt;
+  &lt;li&gt;Recvfrom() : 데이터그램 소켓에서 데이터 받음​&lt;/li&gt;
   &lt;li&gt;정상 종료시 실제 받은 바이트 수를 반환, 에러시 -1 반환​&lt;/li&gt;
   &lt;li&gt;int sockfd : 파일 디스크립터를 지정​&lt;/li&gt;
   &lt;li&gt;void *buf : 수신 버퍼의 시작 주소​&lt;/li&gt;
@@ -2199,182 +2335,4 @@ $ prog1 &amp;lt; infile | tee fifo1 | prog2
 
 &lt;p&gt;&lt;img src=&quot;/assets/built/images/st/st20.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;시스템프로그래밍&quot; /&gt;&lt;/p&gt;
 
-&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="system" /><summary type="html">프로세스통신-pipe</summary></entry><entry><title type="html">이메일 보안</title><link href="https://lee989898.github.io/sc-11" rel="alternate" type="text/html" title="이메일 보안" /><published>2021-10-31T01:06:00+09:00</published><updated>2021-10-31T01:06:00+09:00</updated><id>https://lee989898.github.io/sc-11</id><content type="html" xml:base="https://lee989898.github.io/sc-11">&lt;h3 id=&quot;이메일-보안&quot;&gt;&lt;strong&gt;이메일 보안&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;PGP&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;운영체제에 상관없이 확정성이 뛰어나다&lt;/li&gt;
-  &lt;li&gt;S/MIME&lt;/li&gt;
-  &lt;li&gt;공개키 기반의 프로토콜이다&lt;/li&gt;
-  &lt;li&gt;RSA, El Gamel을 사용한다&lt;/li&gt;
-  &lt;li&gt;대칭키 방식과도 연동된다(3DES)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Requirements of secure E-mail&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;기밀성&lt;/li&gt;
-  &lt;li&gt;송신자 인증&lt;/li&gt;
-  &lt;li&gt;메시지 무결성&lt;/li&gt;
-  &lt;li&gt;수신자 인증&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Secure e-mail: 기밀성&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc10.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;앨리스는 기밀성을 입증한 e-mail, m을 밥에게 보내고 싶다&lt;/li&gt;
-  &lt;li&gt;랜덤 대칭키를 생성한다, K&lt;sub&gt;S&lt;/sub&gt;&lt;/li&gt;
-  &lt;li&gt;메시지를  K&lt;sub&gt;S&lt;/sub&gt;로 encrypt한다&lt;/li&gt;
-  &lt;li&gt;또한 K&lt;sub&gt;S&lt;/sub&gt;를 밥의 공개키로 encrypt한다&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;밥에게 K&lt;sub&gt;S&lt;/sub&gt;(m)과 K&lt;sub&gt;B&lt;/sub&gt;(K&lt;sub&gt;S&lt;/sub&gt;)를 보낸다&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;밥은 그의 private키로 decrypt하여 K&lt;sub&gt;S&lt;/sub&gt;를 찾아낸다&lt;/li&gt;
-  &lt;li&gt;K&lt;sub&gt;S&lt;/sub&gt;로 K&lt;sub&gt;S&lt;/sub&gt;(m)을 decrypt하여 m을 찾아낸다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Secure e-mail: 송신자 인증, 무결성&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc11.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;앨리스는 송신자 인증과 메시지 무결성을 지키고 싶다&lt;/li&gt;
-  &lt;li&gt;앨리스는 메세지를 digitally 사인한다&lt;/li&gt;
-  &lt;li&gt;메시지와 디지털 시그니처 모두 보낸다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Secure e-mail: all together&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc12.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;앨리스는 보안,송신자 인증,메시지 무결성을 지키고 싶다&lt;/li&gt;
-  &lt;li&gt;앨리스는 3가지 키를 사용한다
-    &lt;ul&gt;
-      &lt;li&gt;그녀의 private key&lt;/li&gt;
-      &lt;li&gt;밥의 public key&lt;/li&gt;
-      &lt;li&gt;새로 만들어진 대칭키&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Email 보안 표준&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;PGP&lt;/li&gt;
-  &lt;li&gt;S/MIME
-    &lt;ul&gt;
-      &lt;li&gt;이메일을 위해 MIME에 보안서비스 제공 표준&lt;/li&gt;
-      &lt;li&gt;인증,무결성,부인방지,기밀성 제공&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc09.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="security" /><summary type="html">이메일 보안</summary></entry><entry><title type="html">signature</title><link href="https://lee989898.github.io/sc-10" rel="alternate" type="text/html" title="signature" /><published>2021-10-31T01:06:00+09:00</published><updated>2021-10-31T01:06:00+09:00</updated><id>https://lee989898.github.io/sc-10</id><content type="html" xml:base="https://lee989898.github.io/sc-10">&lt;h3 id=&quot;signature&quot;&gt;&lt;strong&gt;signature&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;서명&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;자기의 동일성을 표시하고 책임을 분명하기 하기 위하여 문서 따위에 자기 이름을 써넣음​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;전자서명의 기본 아이디어&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;송신자(alice)는 자신의 비밀키로 암호화​&lt;/li&gt;
-  &lt;li&gt;수신자는 송신자의 공개키로 복호화&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;시나리오:&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;+ Bob은 public key를 공개된 장소에 두고, private key는 자신이 가지고 있다
-+ Alice는 Bob의 public key를 가져와, 메시지를 암호화해서 전송​
-+ 이 메시지는 다른 사람이 보더라도 풀 수 없다. 메시지를 복호화하려면 Bob의 private key가 필요하기 때문-&amp;gt;기밀성보장​
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;문제점1. Bob은 Alice가 메시지를 작성했다는것을 확신할 수 있을까? NO​&lt;/li&gt;
-  &lt;li&gt;문제점2. Bob은 메시지가 중간에 변경되지않았다는것을 확신할 수 있을까? NO​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;해결법&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Alice는 메시지로 MAC을 만들고, 이것을 Alice가 자신의 private key로 암호화 한다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc05.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;만들어진 것을 본래 메시지에 붙인다 -&amp;gt; 서명&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc06.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;이것을 Bob의 public key로 암호화 해서 전송&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;다른 사람은 Bob의 private key가 없으므로 볼수없다 -&amp;gt; 기밀성​&lt;/li&gt;
-  &lt;li&gt;Bob은 자신의 private key로 열면 평문과 시그니쳐가 나온다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc07.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Bob은 다음과 같이 무결성,인증을 한다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc08.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="security" /><summary type="html">signature</summary></entry></feed>
+&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="system" /><summary type="html">프로세스통신-pipe</summary></entry></feed>

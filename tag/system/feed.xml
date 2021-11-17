@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/system/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-11-17T11:20:07+09:00</updated>
+  <updated>2021-11-17T13:19:55+09:00</updated>
   <id>https://lee989898.github.io/tag/system/feed.xml</id>
 
   
@@ -364,6 +364,7 @@ int sendto(int sockfd, const void *buf, size_t len, int flags, const struct sock
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
+  &lt;li&gt;Sendto() : 데이터그램 소켓으로 데이터 보냄​&lt;/li&gt;
   &lt;li&gt;정상 종료시 실제 보낸 바이트 수를 반환, 에러시 -1 반환​&lt;/li&gt;
   &lt;li&gt;int sockfd : 파일 디스크립터를 지정​&lt;/li&gt;
   &lt;li&gt;const void *buf : 송신 버퍼의 시작 주소​&lt;/li&gt;
@@ -382,8 +383,8 @@ int sendto(int sockfd, const void *buf, size_t len, int flags, const struct sock
 
 int recvfrom(int sockfd, void *buf, size_t len, int flags, struct sockaddr *from, socklen_t *fromlen)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
 &lt;ul&gt;
+  &lt;li&gt;Recvfrom() : 데이터그램 소켓에서 데이터 받음​&lt;/li&gt;
   &lt;li&gt;정상 종료시 실제 받은 바이트 수를 반환, 에러시 -1 반환​&lt;/li&gt;
   &lt;li&gt;int sockfd : 파일 디스크립터를 지정​&lt;/li&gt;
   &lt;li&gt;void *buf : 수신 버퍼의 시작 주소​&lt;/li&gt;

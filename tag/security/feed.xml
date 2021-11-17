@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/security/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-11-17T11:20:07+09:00</updated>
+  <updated>2021-11-17T13:19:55+09:00</updated>
   <id>https://lee989898.github.io/tag/security/feed.xml</id>
 
   
@@ -30,6 +30,209 @@
   
   
 
+  
+    <entry>
+      <title type="html">__Diffie-Hellman__</title>
+      <link href="https://lee989898.github.io/sc-14" rel="alternate" type="text/html" title="__Diffie-Hellman__" />
+      <published>2021-11-17T01:06:00+09:00</published>
+      <updated>2021-11-17T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc-14</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-14">&lt;h3 id=&quot;diffie-hellman&quot;&gt;&lt;strong&gt;Diffie-Hellman&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Diffie-Hellman&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;보안성 없는 매체를 통한 Symmetric key 공유&lt;/li&gt;
+  &lt;li&gt;송/수신자를 위한 일회용 Secret/shared session key agreement protocol&lt;/li&gt;
+  &lt;li&gt;이산대수문제&lt;/li&gt;
+  &lt;li&gt;IPSEC, 상용sw에 자주 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Steps&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;p,g: 큰 정수, 1 &amp;lt; q &amp;lt; p, 모든 사용자에 공개&lt;/li&gt;
+  &lt;li&gt;Alice는 임의로 a 생성, A = $g^a$ mod p 계산&lt;/li&gt;
+  &lt;li&gt;Bob은 임의로 b 생성, B = $g^b$ mod p 계산&lt;/li&gt;
+  &lt;li&gt;A,B를 서로 교환&lt;/li&gt;
+  &lt;li&gt;Alice와 Bob은 K=$g^{ab}$ mod p&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Deiffie-Hellman의 취약성: 중간자 공격&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Man in the middle attack: Trudy poses as Alice and as Bob
+    &lt;ul&gt;
+      &lt;li&gt;Diffe-Hellman은 매우 복잡한 프로토콜이지만, 제 3자가 x 또는 y 값을 알아내지 않아도 되기 때문에 중간에서 밥과 앨리스를 속이는 것이 가능하다.​&lt;/li&gt;
+      &lt;li&gt;중간자 공격 절차​
+        &lt;ol&gt;
+          &lt;li&gt;앨리스가 x를 선택한 후 R1=Gx를 계산하여 R1을 밥에게 전송​&lt;/li&gt;
+          &lt;li&gt;제 3자가 R1을 가로챈 후, z를 선택한 다음 R2=Gz mod N을 계산하여 R2를 앨리스와 밥에게 전송​&lt;/li&gt;
+          &lt;li&gt;밥이 y를 선택한 다음 R3=Gy mod N을 계산해서 R3을 앨리스에게 전송, R3을 제 3자가 가로챔​&lt;/li&gt;
+          &lt;li&gt;앨리스와 제 3자가 공유한 키 K1=Gxz mod N을 계산​&lt;/li&gt;
+          &lt;li&gt;제 3자와 밥은 공유한 키 K2=Gzy mod N을 계산​&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;경우 앨리스와 밥은 제 3자와 공유한 키를 서로간의 공유한 키로 생각​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;사용자 인증을 하지 않아서 발생하는 문제 -&amp;gt; 전자서명, 인증서&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="security" />
+      
+
+      
+        <summary type="html">Diffie-Hellman</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">__DRM(Digital Right Managemment__</title>
+      <link href="https://lee989898.github.io/sc-15" rel="alternate" type="text/html" title="__DRM(Digital Right Managemment__" />
+      <published>2021-11-17T01:06:00+09:00</published>
+      <updated>2021-11-17T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc-15</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-15">&lt;h3 id=&quot;drmdigital-right-managemment&quot;&gt;&lt;strong&gt;DRM(Digital Right Managemment&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;DRM&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;digital 저작권 관리&lt;/li&gt;
+  &lt;li&gt;Digital contents의 불법 사용을 제한/방지하고, 저작권을 보고하기 위한 기술 및 서비스&lt;/li&gt;
+  &lt;li&gt;Digital contents
+    &lt;ul&gt;
+      &lt;li&gt;audio,video,image,text,multimedia,sw 등&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;저작권이란&lt;/li&gt;
+  &lt;li&gt;Copyright​&lt;/li&gt;
+  &lt;li&gt;저작자가 자신이 창작한 저작물에 대해 갖는 권리(저작권법)​
+    &lt;ol&gt;
+      &lt;li&gt;복제권: 저작자는 저작물을 복제할 권리를 갖는다​&lt;/li&gt;
+      &lt;li&gt;공연권​&lt;/li&gt;
+      &lt;li&gt;공중송신권​&lt;/li&gt;
+      &lt;li&gt;전시권: 원본이나 복제물을 전시할 권리​&lt;/li&gt;
+      &lt;li&gt;배포권: 원본이나 복제물을 배포. 다만, 저작자의 허락을 받아 판매등의 방법으로 거래에 제공된 경우는 제외​&lt;/li&gt;
+      &lt;li&gt;대여권: 영리를 목적으로 대여할 권리​&lt;/li&gt;
+      &lt;li&gt;2차적 저작물작성권: 원저작물로 하는 2차적저작물을 작성하여 이용할 권리​&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Common DRM business model&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Provider​
+    &lt;ul&gt;
+      &lt;li&gt;저자물(권) 소유​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Distributor​
+    &lt;ul&gt;
+      &lt;li&gt;유통을 담당하는 배급자​&lt;/li&gt;
+      &lt;li&gt;합법적인 소비자에게만 제공해야​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Clearinghouse​
+    &lt;ul&gt;
+      &lt;li&gt;디지털 상품에 대한 권리발급​&lt;/li&gt;
+      &lt;li&gt;배급료, 사용료 처리 (Log기록)​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Consumer​
+    &lt;ul&gt;
+      &lt;li&gt;Clearinghouse에 사용료지급하고  distributor로부터 컨텐츠제공받음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;주요기술 1: Stegano graphy(숨겨진 글)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;평범해 보이는 미디어에 내용을 아는 수신자만 알아볼 수 있도록 은밀히 정보를 숨기는 기술​&lt;/li&gt;
+  &lt;li&gt;암호화알고리즘이 안전하지 않을 때 유용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;주요기술 2: Watermark&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;빛을 비출때나 반사될 때 더 밝게 보이는, 인지할 수 있는 종이의 무늬나 그림​&lt;/li&gt;
+  &lt;li&gt;지폐, 상표, 문서 등의 위조 방지에 많이 사용된다&lt;/li&gt;
+  &lt;li&gt;Digital watermarking​
+    &lt;ul&gt;
+      &lt;li&gt;Text, image, video, audio 등의 원본 데이터에 본래 소유주만이 아는 mark를 사람의 감각으로 식별할 수 없게 삽입하는 기술​&lt;/li&gt;
+      &lt;li&gt;일부 digital data가 손상되더라도 인간은 감지할 수 없음​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;복제방지, 원본여부, 재생횟수제한, 유효기간설정, 시간제한 등에 활용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="security" />
+      
+
+      
+        <summary type="html">DRM(Digital Right Managemment</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">Key Management (KDC &amp;amp; CA)</title>
@@ -1319,343 +1522,6 @@ a = $g^k$  mod p, b = $Y^k$ M mod p 를 계산
 
       
         <summary type="html">RSA</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">Public Key Cipher</title>
-      <link href="https://lee989898.github.io/sc-04" rel="alternate" type="text/html" title="Public Key Cipher" />
-      <published>2021-09-23T01:06:00+09:00</published>
-      <updated>2021-09-23T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/sc-04</id>
-      <content type="html" xml:base="https://lee989898.github.io/sc-04">&lt;h3 id=&quot;public-key-cipher&quot;&gt;&lt;strong&gt;Public Key Cipher&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Symmetric vs public key&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Encryption key와 decryption key 동일 여부&lt;/li&gt;
-  &lt;li&gt;같으면 symmetric, 다르면 public key&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Why no Symmetric key?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Symmetric은 빠르고, 안전하다&lt;/li&gt;
-  &lt;li&gt;동일한 키를 나눠 갖기 어렵다&lt;/li&gt;
-  &lt;li&gt;인터넷에서 키를 나눠 갖기 어렵다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Public key Cipher&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;송신자, 수신자가 키를 나누어 가지 필요가 없다&lt;/li&gt;
-  &lt;li&gt;private,public키 2가지를 나눠 갖는다&lt;/li&gt;
-  &lt;li&gt;Public key로 잠그면 private key로 열고, private key로 잠그면 public key로 열린다&lt;/li&gt;
-  &lt;li&gt;Internet환경에서 대표적으로 사용&lt;/li&gt;
-  &lt;li&gt;RSA(99%), ECC, El Gammal&lt;/li&gt;
-  &lt;li&gt;주로 수학적 이론에 바탕 -&amp;gt; 정수론 필요&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="security" />
-      
-
-      
-        <summary type="html">Public Key Cipher</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">Number Theory for RSA</title>
-      <link href="https://lee989898.github.io/sc-05" rel="alternate" type="text/html" title="Number Theory for RSA" />
-      <published>2021-09-23T01:06:00+09:00</published>
-      <updated>2021-09-23T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/sc-05</id>
-      <content type="html" xml:base="https://lee989898.github.io/sc-05">&lt;h3 id=&quot;number-theory-for-rsa&quot;&gt;&lt;strong&gt;Number Theory for RSA&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;p&gt;–&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Introduction&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;number theory = 정수론&lt;/li&gt;
-  &lt;li&gt;a branch of pure mathematics devoted primarily to the study of the integers&lt;/li&gt;
-  &lt;li&gt;숫자의 성질을 탐구&lt;/li&gt;
-  &lt;li&gt;수학은 과학의 여왕, 정수론은 수학의 여왕(여기서는 양의 정수만 다룬다)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;약수&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;어던 수 m에 대해서 a = mb 라면
-    &lt;ul&gt;
-      &lt;li&gt;b $\neq$ 0 일때 b는 a를 나눈다 =&amp;gt; 약수&lt;/li&gt;
-      &lt;li&gt;여기서 a,b,m은 정수&lt;/li&gt;
-      &lt;li&gt;나눗셈에서 나머지가 없을 때 약수라고 함&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;예) 24의 양의 약수
-    &lt;ul&gt;
-      &lt;li&gt;1,2,3,4,6,8,12,24&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;소수 (Prime numbers)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;어떤 수 p의 약수가 $\pm$ 1과 $\pm$ p만을 가진다면 p는 소수이다.&lt;/li&gt;
-  &lt;li&gt;1과 자신이외의 자연수로 나눌수 없는 1보다 큰 자연수&lt;/li&gt;
-  &lt;li&gt;고대 이집트 파피루스에도 기록&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;소수 찾기&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;어떤 자연수 n이 소수인지는 root(n)까지의 수 중 1을 제외한 약수가 있는지 확인&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;소수의 분포에 규칙성이 있을까? (리만의 가설)&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;소인수 분해&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;어떠한 정수 a&amp;gt;1은 다음과 같이 유일하게 소수의 곱으로 표현가능
-    &lt;ul&gt;
-      &lt;li&gt;a = $p_1^{a1}$ $p_2^{a2}$ … $p_t^{at}$&lt;/li&gt;
-      &lt;li&gt;$p_t$ &amp;gt; $p_{t-1}$ &amp;gt; … $p_1$ 는 소수, $a_1$ &amp;gt; 0&lt;/li&gt;
-      &lt;li&gt;예) 91 = 7x13, 3600 = $2^4$ x $3^2$ x $5^2$ , 10164 = 7 x $11^2$ x 12&lt;/li&gt;
-      &lt;li&gt;하지만, 여기서 7 x $11^2$ x 12 -&amp;gt; 10164는 쉽지만 역은 어렵다&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;서로소 (relatively prime number)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;어떤 두 수가 공통적인 소인수를 갖지 못할 때 두 수는 서로소&lt;/li&gt;
-  &lt;li&gt;두 수의 최대 공약수가 1이면 서로소&lt;/li&gt;
-  &lt;li&gt;8과 15는 서로소인가? 서로소이다&lt;/li&gt;
-  &lt;li&gt;모든 정수의 솟수 표현법을 이용하면 최대 공약수 결정이 쉬워짐
-    &lt;ul&gt;
-      &lt;li&gt;300 = $2^2$ x $3^1$ x $5^2$, 18 = $2^1$ x $3^2$&lt;/li&gt;
-      &lt;li&gt;GCD(300,18) = $2^1$ x $3^1$ x $5^0$ = 6&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;모듈러 연산 (mod)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;나머지 연산&lt;/li&gt;
-  &lt;li&gt;a mod b: a를 b로 나눈 나머지&lt;/li&gt;
-  &lt;li&gt;어떤 양의 정수 n과 a가 주어지고, 만약 a를 n으로 나눈다면 다음과 같은 관계를 가지고 몫 q와 나머지 r을 얻는다
-    &lt;ul&gt;
-      &lt;li&gt;a = qn + r&lt;/li&gt;
-      &lt;li&gt;a = r mod n&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;example: a =11, n = 7
-    &lt;ul&gt;
-      &lt;li&gt;11 = 1 x 7 + 4 = 4 mod 7&lt;/li&gt;
-      &lt;li&gt;11 = 4 mod 7&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;모듈러 연산자 특성
-    &lt;ul&gt;
-      &lt;li&gt;[(a mod n) + (b mod n)] mod n = (a+b) mod n&lt;/li&gt;
-      &lt;li&gt;[(a mod n) x (b mod n)] mod n = (axb) mod n&lt;/li&gt;
-      &lt;li&gt;(w + x) mod n = (x+w) mod n (교환법칙)&lt;/li&gt;
-      &lt;li&gt;(w * x) mod n = (x * w) mod n (교환법칙)&lt;/li&gt;
-      &lt;li&gt;[ (w+x)+y ] mod n = [ w + (x+y) ] mod n (결합법칙)&lt;/li&gt;
-      &lt;li&gt;[ (w * x) * y ] mod n = [ w * (x * y) ] mod n (결합법칙)&lt;/li&gt;
-      &lt;li&gt;[ w *  (x + y) ] mod n = [( w * x) + (w * y)] mod n (분배법칙)&lt;/li&gt;
-      &lt;li&gt;(0 + w) mod n = w mod n&lt;/li&gt;
-      &lt;li&gt;(1 * w) mod n = w mod n&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;모듈러 연산의 항등원과 역원
-    &lt;ul&gt;
-      &lt;li&gt;항등원
-        &lt;ul&gt;
-          &lt;li&gt;어떤 원소와 연산을 해도 자기 자신이 되게 하는 원소&lt;/li&gt;
-          &lt;li&gt;항등원을 만들어 주는 유일한 원소가 역원&lt;/li&gt;
-          &lt;li&gt;모듈러 연산의 역원은?&lt;/li&gt;
-          &lt;li&gt;mod 5 연산, 3의 곱셉의 역원은?
-            &lt;ul&gt;
-              &lt;li&gt;(3 * ?) mod 5 = 1 ?는 mod 5 연산에 대한 3의 곱셉의  역원&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;합동 (Congruent)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;(a mod n) = (b mod n), e두 정수 a와 b는 modulo n에 대해 합동&lt;/li&gt;
-  &lt;li&gt;a $\equiv$ b mod n으로 표기&lt;/li&gt;
-  &lt;li&gt;예를 들어, 14와 20은 mod 6에 대하여 합동&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;페르마 정리 (Fermat Theorem)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;만약 p가 소수라면 a는 p에 의해 나누어지지 않는 양의 정수이면, 다음이 성립한다
-    &lt;ul&gt;
-      &lt;li&gt;$a^{p-1}$ $\equiv$ 1 mod p&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;페르마 정리의 다른 유용한 형태
-    &lt;ul&gt;
-      &lt;li&gt;만약 p가 소수이고 a가 양의 정수라면 $a^p$ $\equiv$ a mod p가 성립한다&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;오일러 정리 (Euler Theorem)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;오일러의 Totient 함수
-    &lt;ul&gt;
-      &lt;li&gt;정수론에서 오일러의 totient 함수는 φ(n)라고 표기된다&lt;/li&gt;
-      &lt;li&gt;φ(n): n보다 작고 n과 서로 소인 양의 정수의 개수&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;오일러 함수의 특성
-    &lt;ul&gt;
-      &lt;li&gt;φ(1) = 1&lt;/li&gt;
-      &lt;li&gt;소수n에 대해서 φ(n) = n - 1&lt;/li&gt;
-      &lt;li&gt;소수 p와 q에 대해서 n = pq
-        &lt;ul&gt;
-          &lt;li&gt;φ(n) = φ(pq) = φ(p) * φ(q) = (p-1)(q-1)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;오일러 정리
-    &lt;ul&gt;
-      &lt;li&gt;서로소인 모든 a와 n에 대한 관계를 나타낸다ㅏ
-        &lt;ul&gt;
-          &lt;li&gt;$a^{φ(n)}$ $\equiv$ 1 mod n&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;오일러 정리의 추가적인 특성
-    &lt;ul&gt;
-      &lt;li&gt;$a^{φ(n)+1}$ $\equiv$ a mod n&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;이러한 속성은 RSA 알고리즘의 유용성을 증명할 수 있음&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;확장된 유클리드 알고리즘&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;유클리드 알고리즘
-    &lt;ul&gt;
-      &lt;li&gt;두 양의 정수들에 대한 최대 공약수 찾기&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;확장된 유클리드 알고리즘
-    &lt;ul&gt;
-      &lt;li&gt;한 수에 대한 곱셈의 역원 결정&lt;/li&gt;
-      &lt;li&gt;만약 GCD(d,f)=1이라면 그때 d는 modulo f 상에서 곱셉에 대한 역원을 갖는다&lt;/li&gt;
-      &lt;li&gt;양의 정수 d &amp;lt; f에 대해, d $d^{-1}$ = 1 mod f인 $d^{-1}$ &amp;lt; f가 유일하게 존재&lt;/li&gt;
-      &lt;li&gt;알고리즘은 $d^{-1}$를 찾아주는 것이다&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="security" />
-      
-
-      
-        <summary type="html">Number Theory for RSA</summary>
       
 
       

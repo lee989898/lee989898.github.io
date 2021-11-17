@@ -11,7 +11,7 @@
 
 
 
-    <title>프로그래밍 언어의 구현 시스템</title>
+    <title>__DRM(Digital Right Managemment__</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -49,8 +49,33 @@
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="공부 블로그" />
     <link rel="shortcut icon" href="https://lee989898.github.io/assets/built/images/favicon.jpg" type="image/png" />
-    <link rel="canonical" href="https://lee989898.github.io/pl-05" />
+    <link rel="canonical" href="https://lee989898.github.io/sc-15" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
+
+    
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$'] ],
+    processEscapes: true,
+  }
+});
+MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 
     
 
@@ -58,24 +83,24 @@
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="프로그래밍 언어의 구현 시스템" />
-    <meta property="og:description" content="프로그래밍 언어의 구현 시스템 프로그래밍 언어의 각 특징과 컨스트럭트들이 ​ 어떻게 구현되는지 이해하는 것은 매우 중요하다. PL 컨스트럭트의 구현은 고급 언어를 어셈블리 언어와 같은 하위 언어로 번역한다. 프로그램의 문장을 번역하는 것을 컴파일이라고 하고, ​ 문장을 의미에 적합하게 매핑하는 것을 인터프리테이션이라고 한다. ​ 이와 같은 구현 시스템에 대해 왜 알아야 할까?" />
-    <meta property="og:url" content="https://lee989898.github.io/pl-05" />
-    <meta property="og:image" content="https://lee989898.github.io/assets/built/images/pl-background-frontend.png" />
+    <meta property="og:title" content="__DRM(Digital Right Managemment__" />
+    <meta property="og:description" content="DRM(Digital Right Managemment DRM digital 저작권 관리 Digital contents의 불법 사용을 제한/방지하고, 저작권을 보고하기 위한 기술 및 서비스 Digital contents audio,video,image,text,multimedia,sw 등 저작권이란 Copyright​ 저작자가 자신이 창작한 저작물에 대해 갖는 권리(저작권법)​ 복제권: 저작자는 저작물을 복제할 권리를 갖는다​ 공연권​ 공중송신권​ 전시권: 원본이나 복제물을 전시할 권리​ 배포권: 원본이나 복제물을 배포. 다만, 저작자의" />
+    <meta property="og:url" content="https://lee989898.github.io/sc-15" />
+    <meta property="og:image" content="https://lee989898.github.io/assets/built/images/security-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2021-09-09T19:18:00+09:00" />
-    <meta property="article:modified_time" content="2021-09-09T19:18:00+09:00" />
-    <meta property="article:tag" content="Pl" />
+    <meta property="article:published_time" content="2021-11-17T01:06:00+09:00" />
+    <meta property="article:modified_time" content="2021-11-17T01:06:00+09:00" />
+    <meta property="article:tag" content="Security" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="프로그래밍 언어의 구현 시스템" />
-    <meta name="twitter:description" content="프로그래밍 언어의 구현 시스템 프로그래밍 언어의 각 특징과 컨스트럭트들이 ​ 어떻게 구현되는지 이해하는 것은 매우 중요하다. PL 컨스트럭트의 구현은 고급 언어를 어셈블리 언어와 같은 하위 언어로 번역한다. 프로그램의 문장을 번역하는 것을 컴파일이라고 하고, ​ 문장을 의미에 적합하게 매핑하는 것을 인터프리테이션이라고 한다. ​ 이와 같은 구현 시스템에 대해 왜 알아야 할까?" />
+    <meta name="twitter:title" content="__DRM(Digital Right Managemment__" />
+    <meta name="twitter:description" content="DRM(Digital Right Managemment DRM digital 저작권 관리 Digital contents의 불법 사용을 제한/방지하고, 저작권을 보고하기 위한 기술 및 서비스 Digital contents audio,video,image,text,multimedia,sw 등 저작권이란 Copyright​ 저작자가 자신이 창작한 저작물에 대해 갖는 권리(저작권법)​ 복제권: 저작자는 저작물을 복제할 권리를 갖는다​ 공연권​ 공중송신권​ 전시권: 원본이나 복제물을 전시할 권리​ 배포권: 원본이나 복제물을 배포. 다만, 저작자의" />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
-    <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/pl-background-frontend.png" />
+    <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/security-logo.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="LEE" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Pl" />
+    <meta name="twitter:data2" content="Security" />
     <meta name="twitter:site" content="@" />
     <meta name="twitter:creator" content="@" />
     <meta property="og:image:width" content="1400" />
@@ -90,18 +115,18 @@
         "name": "LEE",
         "logo": "https://lee989898.github.io/"
     },
-    "url": "https://lee989898.github.io/pl-05",
+    "url": "https://lee989898.github.io/sc-15",
     "image": {
         "@type": "ImageObject",
-        "url": "https://lee989898.github.io/assets/built/images/pl-background-frontend.png",
+        "url": "https://lee989898.github.io/assets/built/images/security-logo.png",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://lee989898.github.io/pl-05"
+        "@id": "https://lee989898.github.io/sc-15"
     },
-    "description": "프로그래밍 언어의 구현 시스템 프로그래밍 언어의 각 특징과 컨스트럭트들이 ​ 어떻게 구현되는지 이해하는 것은 매우 중요하다. PL 컨스트럭트의 구현은 고급 언어를 어셈블리 언어와 같은 하위 언어로 번역한다. 프로그램의 문장을 번역하는 것을 컴파일이라고 하고, ​ 문장을 의미에 적합하게 매핑하는 것을 인터프리테이션이라고 한다. ​ 이와 같은 구현 시스템에 대해 왜 알아야 할까?"
+    "description": "DRM(Digital Right Managemment DRM digital 저작권 관리 Digital contents의 불법 사용을 제한/방지하고, 저작권을 보고하기 위한 기술 및 서비스 Digital contents audio,video,image,text,multimedia,sw 등 저작권이란 Copyright​ 저작자가 자신이 창작한 저작물에 대해 갖는 권리(저작권법)​ 복제권: 저작자는 저작물을 복제할 권리를 갖는다​ 공연권​ 공중송신권​ 전시권: 원본이나 복제물을 전시할 권리​ 배포권: 원본이나 복제물을 배포. 다만, 저작자의"
 }
     </script>
 
@@ -114,7 +139,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="프로그래밍 언어의 구현 시스템" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="__DRM(Digital Right Managemment__" href="/feed.xml" />
 
 
 </head>
@@ -182,155 +207,117 @@ into the {body} of the default.hbs template -->
 <main id="site-main" class="site-main outer" role="main">
     <div class="inner">
 
-        <article class="post-full  tag-pl post tag-study ">
+        <article class="post-full  tag-security post tag-security ">
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime=" 9 September 2021"> 9 September 2021</time>
+                    <time class="post-full-meta-date" datetime="17 November 2021">17 November 2021</time>
                     
                         <span class="date-divider">/</span>
                         
                             
-                               <a href='/tag/pl/'>PL</a>
+                               <a href='/tag/security/'>SECURITY</a>
                             
                         
                     
                 </section>
-                <h1 class="post-full-title">프로그래밍 언어의 구현 시스템</h1>
+                <h1 class="post-full-title">__DRM(Digital Right Managemment__</h1>
             </header>
 
             <!--
             
-            <figure class="post-full-image" style="background-image: url(/assets/built/images/pl-background-frontend.png)">
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/security-logo.png)">
             </figure>
             
             -->
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <h3 id="프로그래밍-언어의-구현-시스템"><strong>프로그래밍 언어의 구현 시스템</strong></h3>
+                    <h3 id="drmdigital-right-managemment"><strong>DRM(Digital Right Managemment</strong></h3>
 
 <hr />
 
-<p>프로그래밍 언어의 각 특징과 컨스트럭트들이 ​
-어떻게 구현되는지 이해하는 것은 매우 중요하다.<br />
-PL 컨스트럭트의 구현은 고급 언어를 어셈블리 언어와 같은 
-하위 언어로 번역한다.</p>
+<blockquote>
+  <p>DRM</p>
+</blockquote>
 
-<p>프로그램의 문장을 번역하는 것을 컴파일이라고 하고, ​
-문장을 의미에 적합하게 매핑하는 것을 인터프리테이션이라고 한다. ​</p>
+<ul>
+  <li>digital 저작권 관리</li>
+  <li>Digital contents의 불법 사용을 제한/방지하고, 저작권을 보고하기 위한 기술 및 서비스</li>
+  <li>Digital contents
+    <ul>
+      <li>audio,video,image,text,multimedia,sw 등</li>
+    </ul>
+  </li>
+  <li>저작권이란</li>
+  <li>Copyright​</li>
+  <li>저작자가 자신이 창작한 저작물에 대해 갖는 권리(저작권법)​
+    <ol>
+      <li>복제권: 저작자는 저작물을 복제할 권리를 갖는다​</li>
+      <li>공연권​</li>
+      <li>공중송신권​</li>
+      <li>전시권: 원본이나 복제물을 전시할 권리​</li>
+      <li>배포권: 원본이나 복제물을 배포. 다만, 저작자의 허락을 받아 판매등의 방법으로 거래에 제공된 경우는 제외​</li>
+      <li>대여권: 영리를 목적으로 대여할 권리​</li>
+      <li>2차적 저작물작성권: 원저작물로 하는 2차적저작물을 작성하여 이용할 권리​</li>
+    </ol>
+  </li>
+</ul>
 
-<p>이와 같은 구현 시스템에 대해 왜 알아야 할까? ​
-컨스트럭트가 효율적으로 구현되고 있는지, ​
-더 좋은 구현 방법이 있는지, ​
-이들간의 절충점이 있는지 등을 알아내기 위함이다.</p>
+<blockquote>
+  <p>Common DRM business model</p>
+</blockquote>
 
-<p>컴파일 방법은 컴파일러를 써서 고급 언어로 짠 
-프로그램을 기계 언어로 번역한다.<br />
-컴파일 프로세스는 어휘 분석, 구문 분석, 의
-미 분석, 코드 생성, 링크 및 적재 단계로 구성되어 있다.</p>
+<ul>
+  <li>Provider​
+    <ul>
+      <li>저자물(권) 소유​</li>
+    </ul>
+  </li>
+  <li>Distributor​
+    <ul>
+      <li>유통을 담당하는 배급자​</li>
+      <li>합법적인 소비자에게만 제공해야​</li>
+    </ul>
+  </li>
+  <li>Clearinghouse​
+    <ul>
+      <li>디지털 상품에 대한 권리발급​</li>
+      <li>배급료, 사용료 처리 (Log기록)​</li>
+    </ul>
+  </li>
+  <li>Consumer​
+    <ul>
+      <li>Clearinghouse에 사용료지급하고  distributor로부터 컨텐츠제공받음</li>
+    </ul>
+  </li>
+</ul>
 
-<hr />
+<blockquote>
+  <p>주요기술 1: Stegano graphy(숨겨진 글)</p>
+</blockquote>
 
-<p><img src="/assets/built/images/pl/pl04.png" width="50%" height="25%" title="제목" alt="프로그래밍언어" /></p>
+<ul>
+  <li>평범해 보이는 미디어에 내용을 아는 수신자만 알아볼 수 있도록 은밀히 정보를 숨기는 기술​</li>
+  <li>암호화알고리즘이 안전하지 않을 때 유용</li>
+</ul>
 
-<hr />
+<blockquote>
+  <p>주요기술 2: Watermark</p>
+</blockquote>
 
-<p>위 그림은 컴파일러의 구성요소와 이들 요소간의 처
-리 순서에 의한 컴파일 과정을 ​
-플로우 차트로 보여주고 있다. ​</p>
-
-<p>어휘 분석기(lexical analyzer)는 소스 프로그램의 글
-자들을 어휘 단위로 모아 놓는다.<br />
-프로그램의 어휘 단위는 변수, 키워드, 연산자 등을 의미한다.</p>
-
-<p>구문 분석기(syntax analyzer)는 어휘 단위를 받아서 파스 트리를 생성한다.<br />
-파스 트리는 프로그램의 구문 구조를 나타낸다. ​</p>
-
-<p>중간 코드 생성기는 소스 프로그램과 기계 코드
- 사이의 중간 수준의 언어로 작성된 프로그램을 생성한다.<br />
-중간 언어로 어셈블리 어가 쓰이기도 하고, 이보다 
-조금 더 고급 수준의 언어가 사용되기도 한다. ​</p>
-
-<p>의미 분석기(semantic analyzer)는 중간 코드 생성기(intermediate code generator)
-의 일부분으로 통합되어 있으며, ​
-구문 분석시에 탐지되지 않는 타입 오류 등을 검사한다. ​</p>
-
-<p>최적화 단계는 중간 코드의 프로그램을 좀더 작고 빠르게 만든다.<br />
-기계 언어보다 중간 코드를 최적화하는 이유는 기계 코드가 
-바이너리 형태이기 때문에​ 중간코드(알파벳으로 표현된)에 비해 최
-적화가 더 어렵기 때문이다. ​</p>
-
-<p>코드 생성기는 중간 코드를
-받아서 컴퓨터가 직접 실행할 수 있는 기계 언어로 변환한다. ​</p>
-
-<p>심볼 테이블은 소스 프로그램내의 변수의 타입과 속성(길이 
-등)을 저장하고 있다. 이들 정보는 어휘 분석기와 구문
- 분석기에 의해 심볼 테이블에 저장되고, 의미 분석기와 중간 코
- 드 생성기 및 코드 생성기에 의해 사용된다. ​</p>
-
-<p>이렇게 컴파일된 사용자 코드는 실행 시 시스템 코드를 호출하여 ​
-시스템 소프트웨어의 도움을 받는다. ​</p>
-
-<p>이를 위해 실행 직전에 사용자 코드와 시스템 코드를 링크(연결)한다.<br />
-이 과정을 linking 또는 linking and loading이라고 하고, ​
-이러한 역할을 하는 시스템 소프트웨어를 linker라고 한다.<br />
-링킹에 의해 생성된 것을 executable image(실행 이미지)
- 또는 load module(적재 모듈)이라고 한다.</p>
-
-<hr />
-
-<p><img src="/assets/built/images/pl/pl05.png" width="25%" height="25%" title="제목" alt="프로그래밍언어" /></p>
-
-<hr />
-
-<p>인터프리터는 프로그램을 기계 언어로 번역하지 않고, ​
-문장의 의미에 적합하게 시뮬레이션하여 결과를 낸다. ​</p>
-
-<p>따라서 인터프러터는 고급 언어 처리를 위한 시뮬레이터 또는 ​
-고급언어를 기계어처럼 처리하는 가상 머신의 역할을 한다. ​</p>
-
-<p>인터프리터의 장점은, 프로그램의 실행 오류 발생시, ​
-소스 프로그램의 몇번 라인에서 오류가 발생했는지 오류 메시지가 알려주기 때문에 ​
-프로그램 개발에 매우 편리한다. ​</p>
-
-<p>단점은 컴파일 코드에 비해 10-100배 느리다는 것이며, ​
-프로그램의 인터프리테이션 동안에 심볼 테이블이 메모리에
- 적재되어 있어야 하기 때문에 ​
-메모리 공간을 많이 차지한다는 것이다. ​</p>
-
-<p>인터프리터를 이용하는 대표적인 언어
-로 자바스크립트, PHP, 파이썬 등이 있다.</p>
+<ul>
+  <li>빛을 비출때나 반사될 때 더 밝게 보이는, 인지할 수 있는 종이의 무늬나 그림​</li>
+  <li>지폐, 상표, 문서 등의 위조 방지에 많이 사용된다</li>
+  <li>Digital watermarking​
+    <ul>
+      <li>Text, image, video, audio 등의 원본 데이터에 본래 소유주만이 아는 mark를 사람의 감각으로 식별할 수 없게 삽입하는 기술​</li>
+      <li>일부 digital data가 손상되더라도 인간은 감지할 수 없음​</li>
+    </ul>
+  </li>
+  <li>복제방지, 원본여부, 재생횟수제한, 유효기간설정, 시간제한 등에 활용</li>
+</ul>
 
 <hr />
-
-<p><img src="/assets/built/images/pl/pl06.png" width="25%" height="25%" title="제목" alt="프로그래밍언어" /></p>
-
-<hr />
-
-<p>하이브리드 방식은 먼저 컴파일을 해서 중간 코드를 생성한 다음에, ​
-중간 코드를 인터프리터에 의해 실행한다. ​</p>
-
-<p>자바에서는 자바 가상 머신에서 실행되는 바이트 코드를 중간 코드로 생성한다.  ​
-바이트 코드는 이진 코드지만 CPU가 아닌 자바 가상 머신이 이해할 수 
-있는 언어이다.​</p>
-
-<p>자바 가상 머신은 바이트 코드 명령어를 하나씩 읽어 들여 실행한다. ​</p>
-
-<p>이와 같이 중간 코드를 생성하여 자바 가상 머신으로 실행하면, ​
-하드웨어의 특이 사항에 제한을 받지 않아서 portability가 높은 장점이 있다. ​</p>
-
-<hr />
-
-<p>​   <img src="/assets/built/images/pl/pl07.png" width="50%" height="25%" title="제목" alt="프로그래밍언어" /></p>
-
-<hr />
-
-<p>클래스 및 변수를 선언하고 초기화하는 자바 소스 프로그램을 바이트 코드로 번역한 예는 위와 같다.<br />
-빨간색 박스를 눈여겨 보시기 보자.<br />
-메모리에 위치를 잡고, 초기화 함수를 호출하거나 조작하고 반환한다.</p>
-
-<hr />
-<p>​</p>
 
                 </div>
             </section>
@@ -397,9 +384,9 @@ PL 컨스트럭트의 구현은 고급 언어를 어셈블리 언어와 같은
                     <div id="disqus_thread"></div>
                     <script>
                         var disqus_config = function () {
-                            var this_page_url = 'https://lee989898.github.io/pl-05';
-                            var this_page_identifier = '/pl-05';
-                            var this_page_title = '프로그래밍 언어의 구현 시스템';
+                            var this_page_url = 'https://lee989898.github.io/sc-15';
+                            var this_page_identifier = '/sc-15';
+                            var this_page_title = '__DRM(Digital Right Managemment__';
                         };
                         (function() {
                             var d = document, s = d.createElement('script');
@@ -433,7 +420,7 @@ PL 컨스트럭트의 구현은 고급 언어를 어셈블리 언어와 같은
                         <header class="read-next-card-header">
                             <small class="read-next-card-header-sitetitle">&mdash; LEE &mdash;</small>
                             
-                                <h3 class="read-next-card-header-title"><a href="/tag/pl/">Pl</a></h3>
+                                <h3 class="read-next-card-header-title"><a href="/tag/security/">Security</a></h3>
                             
                         </header>
                         <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
@@ -443,20 +430,14 @@ PL 컨스트럭트의 구현은 고급 언어를 어셈블리 언어와 같은
                                 
                                 
                                   
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
+                                    
                                   
                                 
                                   
                                     
                                         
                                         
-                                            <li><a href="/pl-18">Concurrency</a></li>
+                                            <li><a href="/sc-14">__Diffie-Hellman__</a></li>
                                         
                                     
                                   
@@ -469,11 +450,9 @@ PL 컨스트럭트의 구현은 고급 언어를 어셈블리 언어와 같은
                                     
                                         
                                         
-                                            <li><a href="/pl-17">ImplementSubprogram</a></li>
+                                            <li><a href="/sc-13">Key Management (KDC & CA)</a></li>
                                         
                                     
-                                  
-                                
                                   
                                 
                                   
@@ -484,22 +463,11 @@ PL 컨스트럭트의 구현은 고급 언어를 어셈블리 언어와 같은
                                     
                                         
                                         
-                                            <li><a href="/pl-16">서브프로그램</a></li>
+                                            <li><a href="/sc-12">접근 제어</a></li>
                                         
                                     
                                   
                                 
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
                                   
@@ -523,15 +491,6 @@ PL 컨스트럭트의 구현은 고급 언어를 어셈블리 언어와 같은
                                   
                                 
                                   
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                
-                                  
                                 
                                   
                                     
@@ -545,10 +504,29 @@ PL 컨스트럭트의 구현은 고급 언어를 어셈블리 언어와 같은
                                   
                                 
                                   
+                                
+                                  
+                                
+                                  
                                     
                                         
                                         
                                     
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
                                   
                                 
                                   
@@ -592,14 +570,9 @@ PL 컨스트럭트의 구현은 고급 언어를 어셈블리 언어와 같은
                                   
                                 
                                   
-                                    
-                                  
                                 
                                   
-                                    
-                                        
-                                        
-                                    
+                                
                                   
                                 
                                   
@@ -614,23 +587,22 @@ PL 컨스트럭트의 구현은 고급 언어를 어셈블리 언어와 같은
                                   
                                 
                                   
-                                    
-                                        
-                                        
-                                    
+                                
                                   
                                 
                                   
-                                    
-                                        
-                                        
-                                    
+                                
                                   
                                 
                                   
                                 
                                   
                                 
+                                  
+                                    
+                                        
+                                        
+                                    
                                   
                                 
                                   
@@ -710,9 +682,9 @@ PL 컨스트럭트의 구현은 고급 언어를 어셈블리 언어와 같은
                             </ul>
                         </div>
                         <footer class="read-next-card-footer">
-                            <a href="/tag/pl/">
+                            <a href="/tag/security/">
                                 
-                                    See all 17 posts  →
+                                    See all 14 posts  →
                                 
                             </a>
                         </footer>
@@ -722,57 +694,6 @@ PL 컨스트럭트의 구현은 고급 언어를 어셈블리 언어와 같은
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
             
-                
-
-    <article class="post-card post-template">
-        
-            <a class="post-card-image-link" href="/pl-06">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/pl-background-frontend.png)"></div>
-            </a>
-        
-        <div class="post-card-content">
-            <a class="post-card-content-link" href="/pl-06">
-                <header class="post-card-header">
-                    
-                        
-                            
-                                <span class="post-card-tags">Pl</span>
-                            
-                        
-                    
-
-                    <h2 class="post-card-title">프로그래밍 언어의 진화</h2>
-                </header>
-                <section class="post-card-excerpt">
-                    
-                        <p>프로그래밍 언어의 진화
-
-</p>
-                    
-                </section>
-            </a>
-            <footer class="post-card-meta">
-                
-                    
-                        
-                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="lee989898" />
-                        
-                        <span class="post-card-author">
-                            <a href="/author/lee989898/">lee989898</a>
-                        </span>
-                    
-                
-                <span class="reading-time">
-                    
-                    
-                      3 min read
-                    
-                </span>
-            </footer>
-        </div>
-    </article>
-
-            
 
             <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
             
@@ -780,26 +701,26 @@ PL 컨스트럭트의 구현은 고급 언어를 어셈블리 언어와 같은
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/pl-04">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/pl-background-frontend.png)"></div>
+            <a class="post-card-image-link" href="/sc-14">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/security-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/pl-04">
+            <a class="post-card-content-link" href="/sc-14">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Pl</span>
+                                <span class="post-card-tags">Security</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">언어 평가 기준과 언어 설계시 기준 간의 균형</h2>
+                    <h2 class="post-card-title">__Diffie-Hellman__</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>언어 평가 기준과 언어 설계시 기준 간의 균형
+                        <p>Diffie-Hellman
 
 </p>
                     
@@ -819,7 +740,7 @@ PL 컨스트럭트의 구현은 고급 언어를 어셈블리 언어와 같은
                 <span class="reading-time">
                     
                     
-                      2 min read
+                      1 min read
                     
                 </span>
             </footer>
@@ -841,18 +762,18 @@ PL 컨스트럭트의 구현은 고급 언어를 어셈블리 언어와 같은
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">프로그래밍 언어의 구현 시스템</div>
+    <div class="floating-header-title">__DRM(Digital Right Managemment__</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D+%EC%96%B8%EC%96%B4%EC%9D%98+%EA%B5%AC%ED%98%84+%EC%8B%9C%EC%8A%A4%ED%85%9C&amp;url=https://lee989898.github.io/pl-05"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=__DRM%28Digital+Right+Managemment__&amp;url=https://lee989898.github.io/sc-15"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://lee989898.github.io/pl-05"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://lee989898.github.io/sc-15"
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
 

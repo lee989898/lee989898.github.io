@@ -534,6 +534,7 @@ int sendto(int sockfd, const void *buf, size_t len, int flags, const struct sock
 </code></pre></div></div>
 
 <ul>
+  <li>Sendto() : 데이터그램 소켓으로 데이터 보냄​</li>
   <li>정상 종료시 실제 보낸 바이트 수를 반환, 에러시 -1 반환​</li>
   <li>int sockfd : 파일 디스크립터를 지정​</li>
   <li>const void *buf : 송신 버퍼의 시작 주소​</li>
@@ -552,8 +553,8 @@ int sendto(int sockfd, const void *buf, size_t len, int flags, const struct sock
 
 int recvfrom(int sockfd, void *buf, size_t len, int flags, struct sockaddr *from, socklen_t *fromlen)
 </code></pre></div></div>
-
 <ul>
+  <li>Recvfrom() : 데이터그램 소켓에서 데이터 받음​</li>
   <li>정상 종료시 실제 받은 바이트 수를 반환, 에러시 -1 반환​</li>
   <li>int sockfd : 파일 디스크립터를 지정​</li>
   <li>void *buf : 수신 버퍼의 시작 주소​</li>
@@ -675,6 +676,10 @@ int recvfrom(int sockfd, void *buf, size_t len, int flags, struct sockaddr *from
                         <div class="read-next-card-content">
                             <ul>
                                 
+                                
+                                  
+                                
+                                  
                                 
                                   
                                     
@@ -906,6 +911,57 @@ int recvfrom(int sockfd, void *buf, size_t len, int flags, struct sockaddr *from
             
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/sc-14">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/security-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/sc-14">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Security</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">__Diffie-Hellman__</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>Diffie-Hellman
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="lee989898" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/lee989898/">lee989898</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      1 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
             
 
             <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
