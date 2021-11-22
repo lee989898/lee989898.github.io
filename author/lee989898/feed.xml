@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/author/lee989898/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-11-21T22:30:55+09:00</updated>
+  <updated>2021-11-22T19:17:44+09:00</updated>
   <id>https://lee989898.github.io/author/lee989898/feed.xml</id>
 
   
@@ -30,6 +30,376 @@
   
   
 
+  
+    <entry>
+      <title type="html">분기 한정</title>
+      <link href="https://lee989898.github.io/algorithm-08" rel="alternate" type="text/html" title="분기 한정" />
+      <published>2021-11-22T01:09:00+09:00</published>
+      <updated>2021-11-22T01:09:00+09:00</updated>
+      <id>https://lee989898.github.io/algorithm-08</id>
+      <content type="html" xml:base="https://lee989898.github.io/algorithm-08">&lt;h3 id=&quot;분기-한정&quot;&gt;&lt;strong&gt;분기 한정&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;분기 한정&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;안내 표지판과 같은 지표를 활용하여 최종 해를 찾는 기법&lt;/li&gt;
+  &lt;li&gt;상태 공간 트리 이용&lt;/li&gt;
+  &lt;li&gt;최적화 문제에만 적용 가능&lt;/li&gt;
+  &lt;li&gt;최적 해를 구하기 위해 모든 해를 다 고려해야 하므로 트리의 노드를 순회하는 방법과 무관&lt;/li&gt;
+  &lt;li&gt;하지만 최적의 해에 더 빨리 도달하기 위해 가장 좋은 한계값을 가진 노드를 먼저 탐색하는 최선 우선 탐색 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;분기 한정의 핵심 원리&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;상태 공간 트리의 각 노드를 탐색할 때마다, 그 노드가 유망한 지를 알기 위해 한계값(그 노드로부터 확장하여 얻을 수 있는 실현    가능한 해의 한계)을 계산한다.&lt;/li&gt;
+  &lt;li&gt;만약 그 한계값이 그 때까지 찾은 최고 해의 값보다 더 좋으면 그 노드는 유망하다고 판단하고 확장을 하면서 탐색을 계속한다. 그렇지 않으면 그 노드는 유망하지 않다고 판단하고 탐색을 멈춘다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;노드에서 탐색 중단 이유&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;노드의 한계값이 그 때까지 찾은 최고 해의 값보다 못하다&lt;/li&gt;
+  &lt;li&gt;노드는 문제의 제약 사항들을 만족시키지 못하므로 실현 가능한 해가 될 수 없다&lt;/li&gt;
+  &lt;li&gt;노드가 나타내는 실형 가능한 해들의 부분 집합이 더 이상의 추가 선택들을 할 수 없는 경우에 해당한다
+    &lt;ul&gt;
+      &lt;li&gt;세 번째 경우에 실현 가능한 해에 대한 목적 함수의​ 값이 그때까지 찾은 최고 해의 값보다 더 좋다면 ​최고 해의 값을 목적 함수의 값으로 갱신한다.​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;최선 우선 탐색&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;최적의 해에 더 빨리 도달하기 위한 전략&lt;/li&gt;
+  &lt;li&gt;너비 우선 탐색 사용&lt;/li&gt;
+  &lt;li&gt;한 유망한 노드의 모든 자식 노드들을 만든 후 남아 있는 유망하나 확장되지 않은 노드들 중에서 최고의 한계값을 가진 노드를먼저 확장&lt;/li&gt;
+  &lt;li&gt;최고의 한계값을 가진 노드를 우선적으로 선택하기 위해서 우선 순위 대기열 사용&lt;/li&gt;
+  &lt;li&gt;우선 순위 대기열은 힙을 사용하여 효과적으로 구현&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;너비 우선 탐색&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;트리의 노드들을 다음과 같은 순서로 탐색&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;트리의 루트 노드를 먼저 탐색&lt;/li&gt;
+  &lt;li&gt;다음으로 트리의 수준 1에 있는 모든 노드를 왼쪽에서 오른쪽으로 탐색&lt;/li&gt;
+  &lt;li&gt;다음으로 수준 2에 있는 모든 노드들을 왼쪽에서 오른쪽으로 탐색&lt;/li&gt;
+  &lt;li&gt;마지막 수준까지 이 과정을 반복&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;최선 우선 탐색 알고리즘&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;v,u : 트리의 노드&lt;/li&gt;
+  &lt;li&gt;value(v): 노드 v에 대응되는 실현 가능한 해의 값&lt;/li&gt;
+  &lt;li&gt;bound(v): 노드 v의 한계값&lt;/li&gt;
+  &lt;li&gt;best: 현재까지 찾은 최고 해&lt;/li&gt;
+  &lt;li&gt;PQ: 상태 공간 트리를 대신하는 우선 순위 대기열
+    &lt;ul&gt;
+      &lt;li&gt;PQ는 유망하나 확장되지 않은 노드들 포함&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Best-First-Branch-and-Bound(state-space-tree T)​
+// 입력: T – 상태 공간 트리​
+// 출력: 최적 해의 값​
+1  initialize(PQ) // PQ를 빈 대기열로 초기화​
+2  v = T의 루트 노드​
+3  best = value(v)​
+4  insert(PQ, v)           // 노드 v를 PQ에 삽입​
+5  while (not empty(PQ)) { // PQ에 노드들이 남아 있는지 확인​
+6    v = remove(PQ) // PQ에서 최고 한계값을 가진 노드를 제거​
+7    if (bound(v) &amp;gt; best) // 노드 v가 유망한지 확인​
+8       for (each child u of v) {​
+9           if (value(u) &amp;gt; best) best = value(u)​
+10          if (bound(u) &amp;gt; best) insert(PQ, u)  }  }​
+11  return best​
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;배낭 채우기 문제&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;N(&amp;gt;=1)개의 물건들 중에서 배낭의 용량 C를 초과하지 않고 배낭에 넣을 수 있는 물건들의 최대 가치를 구하라&lt;/li&gt;
+  &lt;li&gt;각 물건은 배낭에 넣거나 넣지 않을 수 있더&lt;/li&gt;
+  &lt;li&gt;$w_i$: 물건 i, 1&amp;lt;=i&amp;lt;=N,의 무게&lt;/li&gt;
+  &lt;li&gt;$v_i$: 물건 i, 1&amp;lt;=i&amp;lt;=N, 의 가치&lt;/li&gt;
+  &lt;li&gt;가정: 물건들이 단위 무게당 가치($v_i$ / $w_i$)의 내림차순으로 정렬되어 있다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;배낭 채우기 상태 공간 트리&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;루트 노드: 배낭에 물건들을 넣기 전의 초기 상태&lt;/li&gt;
+  &lt;li&gt;트리의 수준 i, 1&amp;lt;=i&amp;lt;=N, 에 있는 각 노드는 첫 번째 물건부터 i번째까지의 물건들 중에서 배낭에 포함된 물건들의 특정 선택을 나타낸다. 이 특정 선택은 루트 노드부터 그 노드까지의 경로에 의해 유일무이하게 결정된다&lt;/li&gt;
+  &lt;li&gt;한 노드의 왼쪽에 있는 자식 노드는 다음 물건을 배낭에 넣는 경우를 나타내고 오른쪽에 있는 자식 노드는 다음 물건을 배낭에 넣지 않는 경우를 나타낸다. 이 선택의 총 무게 w와 총 가치 v를 해당 노드에 한계값과 같이 저장한다. 그 노드의 한계값은 이 선택 후 남은 물건들 중 일부를 포함시킴으로써 얻을 수 있는 배낭의 물건들의 가치에 대한 상한을 나타낸다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;노드의 한계값 계산 방법&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;배낭에 이미 포함된 물건들의 총 가치 v에 배낭의 남은 용량(C - w)를 전부 다음 물건으로만 채운 경우의 가치를 더한다(w는 배낭에 이미 포함된 물건들의 총 무게). 즉, 트리의 수준 i, 0 &amp;lt;= i &amp;lt; N, 에 있는 노드의 한계값은 다음과 같이 계산된다&lt;/li&gt;
+  &lt;li&gt;한계값 &amp;gt;= 실현 가능한 해의 값&lt;/li&gt;
+  &lt;li&gt;트리의 수준 n에 있는 노드의 한계값 = v&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;최선 우선 탐색 알고리즘&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;상태 공간 트리의 각 노드에 다음 값들을 저장한다.​
+    &lt;ul&gt;
+      &lt;li&gt;level: 트리에서 노드의 수준​&lt;/li&gt;
+      &lt;li&gt;weight: 이미 선택된 물건들의 총 무게​&lt;/li&gt;
+      &lt;li&gt;value: 이미 선택된 물건들의 총 가치​&lt;/li&gt;
+      &lt;li&gt;bound: 한계값​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;root: 루트 노드​&lt;/li&gt;
+  &lt;li&gt;u, v:  노드 ​&lt;/li&gt;
+  &lt;li&gt;maxValue: 지금까지 찾은 최고 해의 값​&lt;/li&gt;
+  &lt;li&gt;PQ: 상태 공간 트리를 대신하는 우선 순위 대기열​
+    &lt;ul&gt;
+      &lt;li&gt;주: PQ는 유망하나 확장되지 않은 노드들 포함&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;KnapsackBandB(N, Wt[0 . . N – 1], Val[0 . . N – 1], C)​
+// 입력: N – 물건들의 수​
+// Wt[0 . . N – 1]– 각 물건의 무게를 저장하는 배열​
+// Val[0 . . N – 1] – 각 물건의 가치를 저장하는 배열​
+// C – 배낭의 용량​
+// 출력: 배낭에 넣을 수 있는 물건들의 최대 가치​
+1  initialize(PQ) // PQ를 빈 대기열로 초기화​
+2  maxValue = 0 // maxValue를 0으로 초기화​
+3  root.level = 0​
+4  root.weight = 0​
+5  root.value = 0
+6  root.bound = computeBound(root) // 루트 노드의 한계값 계산​
+7  insert(PQ, root)          // root를 PQ에 삽입
+8  while (not empty(PQ)) {          // PQ가 비어 있지 않은 동안 반복​
+9    v = remove(PQ)          // PQ에서 최대 한계값을 가진 노드 v를 끄집어 낸다​
+10   if (v.bound &amp;gt; maxValue) {          // 노드 v가 유망하면 확장​
+11      u.level = v.level + 1          // 노드 u를 노드 v의 자식 노드로 만든다​
+12      u.weight = v.weight + Wt[v.level] // u는 다음 물건을 넣는 경우​
+13      u.value = v.value + Val[v.level];​
+14      if (u.weight &amp;lt;= C and u.value &amp;gt; maxValue)​
+15         maxValue = u.value                // maxValue를 더 나은 해의 값으로 바꾼다​
+16      u.bound = computeBound(u) // 자식 노드의 한계값을 계산​
+17      if (u.bound &amp;gt; maxValue)​
+18         insert(PQ, u);  // u가 유망하므로 PQ에 삽입​
+19      w.level = v.level + 1                 // 노드 w는 다음 물건을 넣지 않는 경우​
+20      w.weight = v.weight  ​
+21      w.value = v.value​
+22      w.bound = computeBound(w) // 자식 노드의 한계값 계산​
+23      if (w.bound &amp;gt; maxValue)​
+24         insert(PQ, w);  // w가 유망하므로 PQ에 삽입​
+     }}​
+25  return maxValue 
+
+computeBound(u) // 노드 u의 한계값을 계산
+// 입력: u - 트리의 노드
+// 출력: u의 한계값
+1 if(u.weight &amp;gt;= C) return 0
+2 else if(u.level &amp;lt; N)
+            return u.value + (C - u.wight) x (Val[u.level]/Wt[u.leve])
+3 else return u.value
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;시간 복잡도: O($2^n$)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;일 배정 문제&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;N(&amp;gt;1) 명의 사람에게 N개의 일을 배정&lt;/li&gt;
+  &lt;li&gt;한 사람에게 정확하게 하나의 일만 배정&lt;/li&gt;
+  &lt;li&gt;모든 일은 정확하게 한 사람에게 배정&lt;/li&gt;
+  &lt;li&gt;C[i,j], 1&amp;lt;= i, j&amp;lt;=N: 사람 i를 일 j에 배정하는 비용&lt;/li&gt;
+  &lt;li&gt;총 배정 비용이 최소가 되도록 일을 배정&lt;/li&gt;
+  &lt;li&gt;비용 행렬의 각 행에서 한 요소를 선택하는 문제와 같다&lt;/li&gt;
+  &lt;li&gt;선택된 요소들은 다른 열에 있어야 하고 총 배정 비용이 가장 작아야 한다&lt;/li&gt;
+  &lt;li&gt;가능한 해는 n-짝(n-tuple)($j_1$,$j_2$, … ,$j_n$)으로 나타낼 수 있다. $j_i$, 1 &amp;lt;=i &amp;lt;= n, 는 사람 i에게 배정된 일의 번호&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;완전 탐색 알고리즘&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;아이디어: 가능한 일 배정과 1부터 N사이의 정수들의 순열과 일대일 대응 관계가 있다는 사실을 이용&lt;/li&gt;
+  &lt;li&gt;알고리즘: 1부터 N사이의 정수들의 모든 순열을 생성하고 각 순열에 대응하는 일 배정의 총 비용을 계산한 후 총 비용이 가장 작은 일 배정을 선택한다&lt;/li&gt;
+  &lt;li&gt;시간 복잡도: 1부터 N사이의 정수들의 모든 순열의 수 = N!(&amp;gt;$2^n$)
+    &lt;ul&gt;
+      &lt;li&gt;O(N!)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;분기 한정 알고리즘&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;상태 공간 트리 = N항(N-ary) 트리​&lt;/li&gt;
+  &lt;li&gt;해: 루트 노드로부터 잎까지의 경로​&lt;/li&gt;
+  &lt;li&gt;살아 있는 노드: 아직 가지 치지 않은 유망한 잎​&lt;/li&gt;
+  &lt;li&gt;현재 트리의 살아 있는 노드들중에서 가장 유망한 노드의 모든 자식 노드들을 생성 ​&lt;/li&gt;
+  &lt;li&gt;가장 유망한 노드 = 한계값이 가장 작은 노드​&lt;/li&gt;
+  &lt;li&gt;최선 우선 탐색 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;최선 우선 탐색 알고리즘&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;상태 공간 트리의 각 노드에 다음 값들을 저장한다
+    &lt;ul&gt;
+      &lt;li&gt;personNumber: 사람의 번호​&lt;/li&gt;
+      &lt;li&gt;jobNumber: 일의 번호​&lt;/li&gt;
+      &lt;li&gt;sumAssignedCost: 현재까지 배정된 일들의 비용들의 합​&lt;/li&gt;
+      &lt;li&gt;bound: 한계값​&lt;/li&gt;
+      &lt;li&gt;parent: 부모 노드​&lt;/li&gt;
+      &lt;li&gt;assigned: 사람들에 일들의 배정 여부를 저장하는 배열&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;root: 루트 노드&lt;/li&gt;
+  &lt;li&gt;child: 자식 노드&lt;/li&gt;
+  &lt;li&gt;queue: 살아 있는 노드들을 포함하는 우선 순위 대기열&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;일 배정 분기 한정 알고리즘&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;JobAssignmentBandB(N, C[0 . . N – 1, 0 . . N – 1])​
+// 입력: N – 사람들(일들)의 수​
+//        C[0 . . N – 1, 0 . . N – 1]) – 특정 사람에게 특정 일을 배정하는 비용 배열​
+// 출력: 일 배정 결과와 최소 배정 비용​
+1  Initialize(queue) // queue를 빈 대기열로 초기화​
+// 루트 노드의 값들을 초기화​
+2  root.personNumber = -1​
+3  root.jobNumber = -1​
+4  root.sumAssignedCost = 0​
+5  root.parent = null​
+6  for (i = 0; i &amp;lt; N; i++) root.assigned[i] = false​
+// 루트 노드의 한계값 계산​
+7  root.bound = computeBound(-1, -1, root.assigned)​
+// 루트 노드를 queue에 삽입​
+8  queue.insert(root)
+// queue가 비어 있지 않은 한 한계값이 최소인 살아 있는 노드를 ​
+// 찾아서 그 노드의 자식 노드들을 queue에 추가​
+9  while ( not queue.empty( )) {​
+      // 최소 한계값을 가진 노드를 queue에서 끄집어 낸다​
+10   minNode = queue.remove( )​
+11   i = minNode.personNumber + 1  // i는 일을 배정할 다음 사람​
+12   if (i = N) {​
+13      모든 사람들에게 일들이 배정된 결과를 출력한다​
+14      최소 배정 비용을 반환한다
+      }
+// 사람 i에 배정 가능한 일을 배정하는 모든 자식 노드를 만들어 queue에 추가​
+15  for (j = 0; j &amp;lt; N; j++) {​
+16      if ( not minNode.assigned[j] ) { // 일 j가 배정되지 않았는지 확인 ​
+17         child.personNumber = i​
+18         child.jobNumber = j​
+19         for (k = 0; k &amp;lt; N; k++) child.assigned[k] = minNode.assigned[k]​
+20         child.assigned[j] = true
+21         child.parent = minNode​
+            // 배정된 일들의 총 비용에 새로 배정된 일의 비용을 더한다​
+22         child.sumAssignedCost = minNode.sumAssignedCost + C[i][j]​
+            // 새 자식 노드의 한계값 계산​
+23         child.bound = child.sumAssignedCost + computeBound(i, j, child.assigned)​
+            // 새 자식 노드를 queue에 추가​
+24        queue.insert(child)  }​
+        }​
+     }
+
+computeBound(x,y,assigned)
+// 입력: x - 방금 배정된 사람의 번호
+//      y - 방금 배정된 일의 번호
+//      assigned - 사람들에 일들의 배정 여부를 알려 주는 배열
+// 출력: 남은 사람들에게 남은 일들을 배정하는 데 드는 총 비용의 하한
+1 bound = 0
+2 for (i = x + 1; i &amp;lt; N; i++){
+3       minCost = $\infty$
+4       minIndex = -1
+5       for ( j = 0; j &amp;lt; N; j ++){ // 사람 i에 일을 배정하는 최소 비용을 찾는다
+6           if(not assigned[j] and (j !=y) and C[i][j] &amp;lt; minCost){
+7               minIndex = j
+8               minCost = C[i][j]}}
+            bound = bound + minCost // 다음 사람에게 배정 가능한 일의 최소 비용을
+                                    // 더한다
+            }
+9 return bound
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;시간복잡도: O(N!)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="algorithm" />
+      
+
+      
+        <summary type="html">분기 한정</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">__Diffie-Hellman__</title>
@@ -2396,312 +2766,6 @@ esp, ebp는 각각 스택포인터, 베이스 포인터이며, eax는 반환값�
 
       
         <summary type="html">ImplementSubprogram</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">프로세스통신-pipe</title>
-      <link href="https://lee989898.github.io/st-08" rel="alternate" type="text/html" title="프로세스통신-pipe" />
-      <published>2021-11-03T01:06:00+09:00</published>
-      <updated>2021-11-03T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/st-08</id>
-      <content type="html" xml:base="https://lee989898.github.io/st-08">&lt;h3 id=&quot;프로세스통신-pipe&quot;&gt;&lt;strong&gt;프로세스통신-pipe&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Inter-Process Communication (IPC)​&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;프로세스들끼리 데이터를 주고 받는 기능 수행&lt;/li&gt;
-  &lt;li&gt;예: Client/Serve 응용 프로그램, 등&lt;/li&gt;
-  &lt;li&gt;Pipe/Socket: 파일 디스크립터를 사용하여 접근 가능한 IPC방법들&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Pipe&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;리눅스에서 가장 오래된 IPC이다&lt;/li&gt;
-  &lt;li&gt;Pipe은 메모리 버퍼 영역을 가리킴​
-    &lt;ul&gt;
-      &lt;li&gt;읽기용 입구 하나, 쓰기용 입구 하나를 가짐​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;파일 디스크립터로 접근(access)​
-    &lt;ul&gt;
-      &lt;li&gt;읽기용 입구와 쓰기용 입구에 각각 다른 파일 디스크립터가 할당됨​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;통신을 하게 될 프로세스들이 파일 디스크립터 들을 공유해야 : (예) 부모, 자식 관계​
-    &lt;ul&gt;
-      &lt;li&gt;프로세스는 pipe() system call을 사용하여 파이프를 생성한다&lt;/li&gt;
-      &lt;li&gt;동일한 프로세스가 fork()를 호출하여 자식 프로세스를 생성한다&lt;/li&gt;
-      &lt;li&gt;그러면 파이프는 parent 프로세스와 child 프로세스 간에 사용된다&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;파이프의 한계
-    &lt;ul&gt;
-      &lt;li&gt;Half duplex: 데이터는 한 방향으로만 흐른다&lt;/li&gt;
-      &lt;li&gt;공통 조상이 있는 프로세스 사이에서만 사용할 수 있다​
-        &lt;ul&gt;
-          &lt;li&gt;일반적으로 parent 프로세스와 child 프로세스 사이에 사용&lt;/li&gt;
-          &lt;li&gt;프로세스가 파이프를 생성하면 모든 자식이 파이프를 상속할 수 있다&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;휘발성: 파이프를 생성한 프로세스가 종료되면 사라진다&lt;/li&gt;
-      &lt;li&gt;process는 파이프를 전달할 수 없으며 parent로부터 상속해야 한다&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;table&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;Linux 셸에서 파이프 기호는 “&lt;/td&gt;
-          &lt;td&gt;“이다&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;table&gt;
-          &lt;tbody&gt;
-            &lt;tr&gt;
-              &lt;td&gt;% ls -alg&lt;/td&gt;
-              &lt;td&gt;more​&lt;/td&gt;
-            &lt;/tr&gt;
-          &lt;/tbody&gt;
-        &lt;/table&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;table&gt;
-          &lt;tbody&gt;
-            &lt;tr&gt;
-              &lt;td&gt;%  cmd1&lt;/td&gt;
-              &lt;td&gt;cmd2​&lt;/td&gt;
-            &lt;/tr&gt;
-          &lt;/tbody&gt;
-        &lt;/table&gt;
-      &lt;/li&gt;
-      &lt;li&gt;터미널에서 cmd1 입력&lt;/li&gt;
-      &lt;li&gt;cmd1의 출력은 cmd2의 입력&lt;/li&gt;
-      &lt;li&gt;cmd2의 출력은 터미널 화면에 연결한다&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/st/st17.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;시스템프로그래밍&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Long pipes:​
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;table&gt;
-          &lt;tbody&gt;
-            &lt;tr&gt;
-              &lt;td&gt;$ pic paper.ms&lt;/td&gt;
-              &lt;td&gt;tbl&lt;/td&gt;
-              &lt;td&gt;eqn&lt;/td&gt;
-              &lt;td&gt;ditroff -ms​&lt;/td&gt;
-            &lt;/tr&gt;
-          &lt;/tbody&gt;
-        &lt;/table&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Pipe을 이용하여 두 개의 프로세스 들이 통신을 할 경우, producer가 write한 순서대로 consumer가 read하게 된다​
-    &lt;ul&gt;
-      &lt;li&gt;선입선출(First-In First-Out)관계​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;단방향 pipe : ​
-    &lt;ul&gt;
-      &lt;li&gt;Producer 프로세스는 pipe에 대한 write용 입구만 사용​&lt;/li&gt;
-      &lt;li&gt;Consumer 프로세스는 pipe에 대한 read용 입구만 사용​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;쌍방향 pipe : ​
-    &lt;ul&gt;
-      &lt;li&gt;Pipe을 두 개 열어 사용​&lt;/li&gt;
-      &lt;li&gt;하나의 pipe는 한쪽 방향의 통신에만 사용됨​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Pipe: pipe() system call&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;unistd.h&amp;gt;
-int pipe(int fd[2]) // int fd[2]; 파일 디스크립터
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;정상 종료하면 0을 반환, 에러 발생시에는 -1을 반환​&lt;/li&gt;
-  &lt;li&gt;pipe() system call은 인자로 넘겨 받은 fd[0], fd[1]에 파일 디스크립터를 저장해서 반환​&lt;/li&gt;
-  &lt;li&gt;fd[0]: 읽기 모드에서 연 파일 디스크립터(읽기용 입구)​&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;fd[1]: 쓰기 모드에서 연 파일 디스크립터(쓰기용 출구)​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Pipe(), fork() 시스템 호출에 의해 부모/자식 프로세스가 fd[0], fd[1]를 공유한다고 가정​&lt;/li&gt;
-  &lt;li&gt;쓰는 쪽(write() system call) 프로세스에서는 읽기용 파일 디스크립터(fd[0])를 닫아 놓음(close() system call)​&lt;/li&gt;
-  &lt;li&gt;읽는 쪽(read() system call) 프로세스에서는 쓰기용 파일 디스크립터(fd[1])를 닫아 놓음(close() system call) ​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Pipe: popen()&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;stdio.h&amp;gt;
-
-FILE *popen(const char *cmdstring, const char *type);
-    반환값: 정상이면 파일 포인터, 오류 시 NULL
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;popen은 “cmdstring”을 실행하기 위해 fork() 및 exec()를 수행한다​&lt;/li&gt;
-  &lt;li&gt;popen의 유형은 “r” 또는 “w”이다​
-    &lt;ul&gt;
-      &lt;li&gt;type이 “r”이면 반환된 파일 포인터는 “cmdstring”의 stdout에 연결된다&lt;/li&gt;
-      &lt;li&gt;type이 “w”인 경우 반환된 파일 포인터는 “cmdstring”의 표준 입력에 연결된다&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Pipe: pclose()&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;stdio.h&amp;gt;
-
-int pclose(FILE *fp);
-    반환값: cmdstring의 종료 상태 또는 오류 시 -1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;“pclose”는 std I/O 스트림을 닫고 명령이 종료될 때까지 기다렸다가 셸의 종료 상태를 반환한다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;FIFO&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;파이프와 비슷하다, “named pipe” 라고 불리운다​&lt;/li&gt;
-  &lt;li&gt;파일의 종류&lt;/li&gt;
-  &lt;li&gt;FIFO는 파이프의 한계를 극복한다​&lt;/li&gt;
-  &lt;li&gt;관련 없는 프로세스 간에 사용 가능&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt;    
-#include &amp;lt;sys/stat.h&amp;gt;
-
-int mkfifo(const char *filename, mode_t mode);
-정상이면 0, 오류시 -1을 반환한다
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;FIFO 생성은 파일 생성과 유사하다
-    &lt;ul&gt;
-      &lt;li&gt;Mode: open() 함수와 동일한 권한&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;FIFO를 사용하는 것은 파일을 사용하는 것과 유사하다
-    &lt;ul&gt;
-      &lt;li&gt;생성되면 FIFO에 대한 열기, 닫기, 읽기, 쓰기, 연결 해제 등을 사용할 수 있다&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;파이프와 마찬가지로 읽기를 위해 열려 있는 프로세스가 없는 FIFO에 쓰면 SIGPIPE 신호가 생성된다&lt;/li&gt;
-  &lt;li&gt;FIFO의 마지막 작성자가 FIFO를 닫으면 FIFO의 판독기에 대해 파일 끝이 생성된다&lt;/li&gt;
-  &lt;li&gt;PIPE_BUF(커널의 파이프 버퍼 크기)는 FIFO에 원자적으로 쓸 수 있는 최대 데이터 양을 지정한다
-    &lt;ul&gt;
-      &lt;li&gt;여러 프로세스의 데이터 쓰기 &amp;lt;= PIPE_BUF는 인터리브되지 않는다&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;FIFO 사용 예
-    &lt;ul&gt;
-      &lt;li&gt;셸 명령에서 중간 파일을 생성하지 않고 한 셸 파이프라인에서 다른 셸 파이프라인으로 데이터를 전달하는 데 사용​&lt;/li&gt;
-      &lt;li&gt;클라이언트와 서버 간에 데이터를 전달하기 위해 클라이언트-서버 애플리케이션에서 사용&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;FIFO : 출력 스트림 복제&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;입력 스트림을 두 번 처리하는 절차 작성&lt;/li&gt;
-  &lt;li&gt;tee(1)은 표준 입력을 표준 출력과 명령줄에 명명된 파일 모두에 복사한다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ mkfifo fifo1​
-$ prog3 &amp;lt; fifo1 &amp;amp;​
-$ prog1 &amp;lt; infile | tee fifo1 | prog2
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/st/st18.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;시스템프로그래밍&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;FIFO : 클라이언트-서버 통신&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;서버는 클라이언트와 통신하기 위해 “well-known” FIFO를 생성한다(well-known: FIFO의 경로 이름은 서버에 접속해야 하는 모든 클라이언트에게 알려져 있음)&lt;/li&gt;
-  &lt;li&gt;클라이언트 데이터의 interleaving을 피하기 위해 클라이언트는 한 번에 최대 PIPE_BUF 바이트를 써야 하다​&lt;/li&gt;
-  &lt;li&gt;문제: 서버가 단일 “well-known” FIFO를 사용하여 클라이언트에 응답할 수 없음&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/st/st19.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;시스템프로그래밍&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;서버는 클라이언트별 FIFO를 사용하여 응답할 수 있도록 각 클라이언트에 대해 FIFO를 생성한다
-    &lt;ul&gt;
-      &lt;li&gt;e.g.: /tmp/serv1.XXXX, where XXXXX is client’s process ID ​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;서버는 SIGPIPE를 잡아야 함(1개의 작성자가 있는 FIFO, 판독기 없음)​
-    &lt;ul&gt;
-      &lt;li&gt;클라이언트는 서버에서 응답을 읽기 전에 요청을 보내고 종료하여 클라이언트별 FIFO를 하나의 작성자(서버)와 리더 없이 남겨둔다&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/st/st20.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;시스템프로그래밍&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="system" />
-      
-
-      
-        <summary type="html">프로세스통신-pipe</summary>
       
 
       

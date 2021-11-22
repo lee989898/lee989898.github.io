@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/algorithm/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-11-21T22:30:55+09:00</updated>
+  <updated>2021-11-22T19:17:44+09:00</updated>
   <id>https://lee989898.github.io/tag/algorithm/feed.xml</id>
 
   
@@ -30,6 +30,376 @@
   
   
 
+  
+    <entry>
+      <title type="html">분기 한정</title>
+      <link href="https://lee989898.github.io/algorithm-08" rel="alternate" type="text/html" title="분기 한정" />
+      <published>2021-11-22T01:09:00+09:00</published>
+      <updated>2021-11-22T01:09:00+09:00</updated>
+      <id>https://lee989898.github.io/algorithm-08</id>
+      <content type="html" xml:base="https://lee989898.github.io/algorithm-08">&lt;h3 id=&quot;분기-한정&quot;&gt;&lt;strong&gt;분기 한정&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;분기 한정&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;안내 표지판과 같은 지표를 활용하여 최종 해를 찾는 기법&lt;/li&gt;
+  &lt;li&gt;상태 공간 트리 이용&lt;/li&gt;
+  &lt;li&gt;최적화 문제에만 적용 가능&lt;/li&gt;
+  &lt;li&gt;최적 해를 구하기 위해 모든 해를 다 고려해야 하므로 트리의 노드를 순회하는 방법과 무관&lt;/li&gt;
+  &lt;li&gt;하지만 최적의 해에 더 빨리 도달하기 위해 가장 좋은 한계값을 가진 노드를 먼저 탐색하는 최선 우선 탐색 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;분기 한정의 핵심 원리&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;상태 공간 트리의 각 노드를 탐색할 때마다, 그 노드가 유망한 지를 알기 위해 한계값(그 노드로부터 확장하여 얻을 수 있는 실현    가능한 해의 한계)을 계산한다.&lt;/li&gt;
+  &lt;li&gt;만약 그 한계값이 그 때까지 찾은 최고 해의 값보다 더 좋으면 그 노드는 유망하다고 판단하고 확장을 하면서 탐색을 계속한다. 그렇지 않으면 그 노드는 유망하지 않다고 판단하고 탐색을 멈춘다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;노드에서 탐색 중단 이유&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;노드의 한계값이 그 때까지 찾은 최고 해의 값보다 못하다&lt;/li&gt;
+  &lt;li&gt;노드는 문제의 제약 사항들을 만족시키지 못하므로 실현 가능한 해가 될 수 없다&lt;/li&gt;
+  &lt;li&gt;노드가 나타내는 실형 가능한 해들의 부분 집합이 더 이상의 추가 선택들을 할 수 없는 경우에 해당한다
+    &lt;ul&gt;
+      &lt;li&gt;세 번째 경우에 실현 가능한 해에 대한 목적 함수의​ 값이 그때까지 찾은 최고 해의 값보다 더 좋다면 ​최고 해의 값을 목적 함수의 값으로 갱신한다.​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;최선 우선 탐색&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;최적의 해에 더 빨리 도달하기 위한 전략&lt;/li&gt;
+  &lt;li&gt;너비 우선 탐색 사용&lt;/li&gt;
+  &lt;li&gt;한 유망한 노드의 모든 자식 노드들을 만든 후 남아 있는 유망하나 확장되지 않은 노드들 중에서 최고의 한계값을 가진 노드를먼저 확장&lt;/li&gt;
+  &lt;li&gt;최고의 한계값을 가진 노드를 우선적으로 선택하기 위해서 우선 순위 대기열 사용&lt;/li&gt;
+  &lt;li&gt;우선 순위 대기열은 힙을 사용하여 효과적으로 구현&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;너비 우선 탐색&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;트리의 노드들을 다음과 같은 순서로 탐색&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;트리의 루트 노드를 먼저 탐색&lt;/li&gt;
+  &lt;li&gt;다음으로 트리의 수준 1에 있는 모든 노드를 왼쪽에서 오른쪽으로 탐색&lt;/li&gt;
+  &lt;li&gt;다음으로 수준 2에 있는 모든 노드들을 왼쪽에서 오른쪽으로 탐색&lt;/li&gt;
+  &lt;li&gt;마지막 수준까지 이 과정을 반복&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;최선 우선 탐색 알고리즘&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;v,u : 트리의 노드&lt;/li&gt;
+  &lt;li&gt;value(v): 노드 v에 대응되는 실현 가능한 해의 값&lt;/li&gt;
+  &lt;li&gt;bound(v): 노드 v의 한계값&lt;/li&gt;
+  &lt;li&gt;best: 현재까지 찾은 최고 해&lt;/li&gt;
+  &lt;li&gt;PQ: 상태 공간 트리를 대신하는 우선 순위 대기열
+    &lt;ul&gt;
+      &lt;li&gt;PQ는 유망하나 확장되지 않은 노드들 포함&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Best-First-Branch-and-Bound(state-space-tree T)​
+// 입력: T – 상태 공간 트리​
+// 출력: 최적 해의 값​
+1  initialize(PQ) // PQ를 빈 대기열로 초기화​
+2  v = T의 루트 노드​
+3  best = value(v)​
+4  insert(PQ, v)           // 노드 v를 PQ에 삽입​
+5  while (not empty(PQ)) { // PQ에 노드들이 남아 있는지 확인​
+6    v = remove(PQ) // PQ에서 최고 한계값을 가진 노드를 제거​
+7    if (bound(v) &amp;gt; best) // 노드 v가 유망한지 확인​
+8       for (each child u of v) {​
+9           if (value(u) &amp;gt; best) best = value(u)​
+10          if (bound(u) &amp;gt; best) insert(PQ, u)  }  }​
+11  return best​
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;배낭 채우기 문제&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;N(&amp;gt;=1)개의 물건들 중에서 배낭의 용량 C를 초과하지 않고 배낭에 넣을 수 있는 물건들의 최대 가치를 구하라&lt;/li&gt;
+  &lt;li&gt;각 물건은 배낭에 넣거나 넣지 않을 수 있더&lt;/li&gt;
+  &lt;li&gt;$w_i$: 물건 i, 1&amp;lt;=i&amp;lt;=N,의 무게&lt;/li&gt;
+  &lt;li&gt;$v_i$: 물건 i, 1&amp;lt;=i&amp;lt;=N, 의 가치&lt;/li&gt;
+  &lt;li&gt;가정: 물건들이 단위 무게당 가치($v_i$ / $w_i$)의 내림차순으로 정렬되어 있다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;배낭 채우기 상태 공간 트리&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;루트 노드: 배낭에 물건들을 넣기 전의 초기 상태&lt;/li&gt;
+  &lt;li&gt;트리의 수준 i, 1&amp;lt;=i&amp;lt;=N, 에 있는 각 노드는 첫 번째 물건부터 i번째까지의 물건들 중에서 배낭에 포함된 물건들의 특정 선택을 나타낸다. 이 특정 선택은 루트 노드부터 그 노드까지의 경로에 의해 유일무이하게 결정된다&lt;/li&gt;
+  &lt;li&gt;한 노드의 왼쪽에 있는 자식 노드는 다음 물건을 배낭에 넣는 경우를 나타내고 오른쪽에 있는 자식 노드는 다음 물건을 배낭에 넣지 않는 경우를 나타낸다. 이 선택의 총 무게 w와 총 가치 v를 해당 노드에 한계값과 같이 저장한다. 그 노드의 한계값은 이 선택 후 남은 물건들 중 일부를 포함시킴으로써 얻을 수 있는 배낭의 물건들의 가치에 대한 상한을 나타낸다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;노드의 한계값 계산 방법&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;배낭에 이미 포함된 물건들의 총 가치 v에 배낭의 남은 용량(C - w)를 전부 다음 물건으로만 채운 경우의 가치를 더한다(w는 배낭에 이미 포함된 물건들의 총 무게). 즉, 트리의 수준 i, 0 &amp;lt;= i &amp;lt; N, 에 있는 노드의 한계값은 다음과 같이 계산된다&lt;/li&gt;
+  &lt;li&gt;한계값 &amp;gt;= 실현 가능한 해의 값&lt;/li&gt;
+  &lt;li&gt;트리의 수준 n에 있는 노드의 한계값 = v&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;최선 우선 탐색 알고리즘&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;상태 공간 트리의 각 노드에 다음 값들을 저장한다.​
+    &lt;ul&gt;
+      &lt;li&gt;level: 트리에서 노드의 수준​&lt;/li&gt;
+      &lt;li&gt;weight: 이미 선택된 물건들의 총 무게​&lt;/li&gt;
+      &lt;li&gt;value: 이미 선택된 물건들의 총 가치​&lt;/li&gt;
+      &lt;li&gt;bound: 한계값​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;root: 루트 노드​&lt;/li&gt;
+  &lt;li&gt;u, v:  노드 ​&lt;/li&gt;
+  &lt;li&gt;maxValue: 지금까지 찾은 최고 해의 값​&lt;/li&gt;
+  &lt;li&gt;PQ: 상태 공간 트리를 대신하는 우선 순위 대기열​
+    &lt;ul&gt;
+      &lt;li&gt;주: PQ는 유망하나 확장되지 않은 노드들 포함&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;KnapsackBandB(N, Wt[0 . . N – 1], Val[0 . . N – 1], C)​
+// 입력: N – 물건들의 수​
+// Wt[0 . . N – 1]– 각 물건의 무게를 저장하는 배열​
+// Val[0 . . N – 1] – 각 물건의 가치를 저장하는 배열​
+// C – 배낭의 용량​
+// 출력: 배낭에 넣을 수 있는 물건들의 최대 가치​
+1  initialize(PQ) // PQ를 빈 대기열로 초기화​
+2  maxValue = 0 // maxValue를 0으로 초기화​
+3  root.level = 0​
+4  root.weight = 0​
+5  root.value = 0
+6  root.bound = computeBound(root) // 루트 노드의 한계값 계산​
+7  insert(PQ, root)          // root를 PQ에 삽입
+8  while (not empty(PQ)) {          // PQ가 비어 있지 않은 동안 반복​
+9    v = remove(PQ)          // PQ에서 최대 한계값을 가진 노드 v를 끄집어 낸다​
+10   if (v.bound &amp;gt; maxValue) {          // 노드 v가 유망하면 확장​
+11      u.level = v.level + 1          // 노드 u를 노드 v의 자식 노드로 만든다​
+12      u.weight = v.weight + Wt[v.level] // u는 다음 물건을 넣는 경우​
+13      u.value = v.value + Val[v.level];​
+14      if (u.weight &amp;lt;= C and u.value &amp;gt; maxValue)​
+15         maxValue = u.value                // maxValue를 더 나은 해의 값으로 바꾼다​
+16      u.bound = computeBound(u) // 자식 노드의 한계값을 계산​
+17      if (u.bound &amp;gt; maxValue)​
+18         insert(PQ, u);  // u가 유망하므로 PQ에 삽입​
+19      w.level = v.level + 1                 // 노드 w는 다음 물건을 넣지 않는 경우​
+20      w.weight = v.weight  ​
+21      w.value = v.value​
+22      w.bound = computeBound(w) // 자식 노드의 한계값 계산​
+23      if (w.bound &amp;gt; maxValue)​
+24         insert(PQ, w);  // w가 유망하므로 PQ에 삽입​
+     }}​
+25  return maxValue 
+
+computeBound(u) // 노드 u의 한계값을 계산
+// 입력: u - 트리의 노드
+// 출력: u의 한계값
+1 if(u.weight &amp;gt;= C) return 0
+2 else if(u.level &amp;lt; N)
+            return u.value + (C - u.wight) x (Val[u.level]/Wt[u.leve])
+3 else return u.value
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;시간 복잡도: O($2^n$)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;일 배정 문제&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;N(&amp;gt;1) 명의 사람에게 N개의 일을 배정&lt;/li&gt;
+  &lt;li&gt;한 사람에게 정확하게 하나의 일만 배정&lt;/li&gt;
+  &lt;li&gt;모든 일은 정확하게 한 사람에게 배정&lt;/li&gt;
+  &lt;li&gt;C[i,j], 1&amp;lt;= i, j&amp;lt;=N: 사람 i를 일 j에 배정하는 비용&lt;/li&gt;
+  &lt;li&gt;총 배정 비용이 최소가 되도록 일을 배정&lt;/li&gt;
+  &lt;li&gt;비용 행렬의 각 행에서 한 요소를 선택하는 문제와 같다&lt;/li&gt;
+  &lt;li&gt;선택된 요소들은 다른 열에 있어야 하고 총 배정 비용이 가장 작아야 한다&lt;/li&gt;
+  &lt;li&gt;가능한 해는 n-짝(n-tuple)($j_1$,$j_2$, … ,$j_n$)으로 나타낼 수 있다. $j_i$, 1 &amp;lt;=i &amp;lt;= n, 는 사람 i에게 배정된 일의 번호&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;완전 탐색 알고리즘&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;아이디어: 가능한 일 배정과 1부터 N사이의 정수들의 순열과 일대일 대응 관계가 있다는 사실을 이용&lt;/li&gt;
+  &lt;li&gt;알고리즘: 1부터 N사이의 정수들의 모든 순열을 생성하고 각 순열에 대응하는 일 배정의 총 비용을 계산한 후 총 비용이 가장 작은 일 배정을 선택한다&lt;/li&gt;
+  &lt;li&gt;시간 복잡도: 1부터 N사이의 정수들의 모든 순열의 수 = N!(&amp;gt;$2^n$)
+    &lt;ul&gt;
+      &lt;li&gt;O(N!)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;분기 한정 알고리즘&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;상태 공간 트리 = N항(N-ary) 트리​&lt;/li&gt;
+  &lt;li&gt;해: 루트 노드로부터 잎까지의 경로​&lt;/li&gt;
+  &lt;li&gt;살아 있는 노드: 아직 가지 치지 않은 유망한 잎​&lt;/li&gt;
+  &lt;li&gt;현재 트리의 살아 있는 노드들중에서 가장 유망한 노드의 모든 자식 노드들을 생성 ​&lt;/li&gt;
+  &lt;li&gt;가장 유망한 노드 = 한계값이 가장 작은 노드​&lt;/li&gt;
+  &lt;li&gt;최선 우선 탐색 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;최선 우선 탐색 알고리즘&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;상태 공간 트리의 각 노드에 다음 값들을 저장한다
+    &lt;ul&gt;
+      &lt;li&gt;personNumber: 사람의 번호​&lt;/li&gt;
+      &lt;li&gt;jobNumber: 일의 번호​&lt;/li&gt;
+      &lt;li&gt;sumAssignedCost: 현재까지 배정된 일들의 비용들의 합​&lt;/li&gt;
+      &lt;li&gt;bound: 한계값​&lt;/li&gt;
+      &lt;li&gt;parent: 부모 노드​&lt;/li&gt;
+      &lt;li&gt;assigned: 사람들에 일들의 배정 여부를 저장하는 배열&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;root: 루트 노드&lt;/li&gt;
+  &lt;li&gt;child: 자식 노드&lt;/li&gt;
+  &lt;li&gt;queue: 살아 있는 노드들을 포함하는 우선 순위 대기열&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;일 배정 분기 한정 알고리즘&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;JobAssignmentBandB(N, C[0 . . N – 1, 0 . . N – 1])​
+// 입력: N – 사람들(일들)의 수​
+//        C[0 . . N – 1, 0 . . N – 1]) – 특정 사람에게 특정 일을 배정하는 비용 배열​
+// 출력: 일 배정 결과와 최소 배정 비용​
+1  Initialize(queue) // queue를 빈 대기열로 초기화​
+// 루트 노드의 값들을 초기화​
+2  root.personNumber = -1​
+3  root.jobNumber = -1​
+4  root.sumAssignedCost = 0​
+5  root.parent = null​
+6  for (i = 0; i &amp;lt; N; i++) root.assigned[i] = false​
+// 루트 노드의 한계값 계산​
+7  root.bound = computeBound(-1, -1, root.assigned)​
+// 루트 노드를 queue에 삽입​
+8  queue.insert(root)
+// queue가 비어 있지 않은 한 한계값이 최소인 살아 있는 노드를 ​
+// 찾아서 그 노드의 자식 노드들을 queue에 추가​
+9  while ( not queue.empty( )) {​
+      // 최소 한계값을 가진 노드를 queue에서 끄집어 낸다​
+10   minNode = queue.remove( )​
+11   i = minNode.personNumber + 1  // i는 일을 배정할 다음 사람​
+12   if (i = N) {​
+13      모든 사람들에게 일들이 배정된 결과를 출력한다​
+14      최소 배정 비용을 반환한다
+      }
+// 사람 i에 배정 가능한 일을 배정하는 모든 자식 노드를 만들어 queue에 추가​
+15  for (j = 0; j &amp;lt; N; j++) {​
+16      if ( not minNode.assigned[j] ) { // 일 j가 배정되지 않았는지 확인 ​
+17         child.personNumber = i​
+18         child.jobNumber = j​
+19         for (k = 0; k &amp;lt; N; k++) child.assigned[k] = minNode.assigned[k]​
+20         child.assigned[j] = true
+21         child.parent = minNode​
+            // 배정된 일들의 총 비용에 새로 배정된 일의 비용을 더한다​
+22         child.sumAssignedCost = minNode.sumAssignedCost + C[i][j]​
+            // 새 자식 노드의 한계값 계산​
+23         child.bound = child.sumAssignedCost + computeBound(i, j, child.assigned)​
+            // 새 자식 노드를 queue에 추가​
+24        queue.insert(child)  }​
+        }​
+     }
+
+computeBound(x,y,assigned)
+// 입력: x - 방금 배정된 사람의 번호
+//      y - 방금 배정된 일의 번호
+//      assigned - 사람들에 일들의 배정 여부를 알려 주는 배열
+// 출력: 남은 사람들에게 남은 일들을 배정하는 데 드는 총 비용의 하한
+1 bound = 0
+2 for (i = x + 1; i &amp;lt; N; i++){
+3       minCost = $\infty$
+4       minIndex = -1
+5       for ( j = 0; j &amp;lt; N; j ++){ // 사람 i에 일을 배정하는 최소 비용을 찾는다
+6           if(not assigned[j] and (j !=y) and C[i][j] &amp;lt; minCost){
+7               minIndex = j
+8               minCost = C[i][j]}}
+            bound = bound + minCost // 다음 사람에게 배정 가능한 일의 최소 비용을
+                                    // 더한다
+            }
+9 return bound
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;시간복잡도: O(N!)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="algorithm" />
+      
+
+      
+        <summary type="html">분기 한정</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">되추적</title>
