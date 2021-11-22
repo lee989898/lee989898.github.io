@@ -11,7 +11,7 @@
 
 
 
-    <title>클래스의 기본구조</title>
+    <title>제네릭스</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -58,8 +58,11 @@
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="클래스의 기본구조" />
-    <meta property="og:description" content="클래스 클래스 클래스는 ‘값’과 그 값을 사용하는 ‘기능’들을 묶어놓은 것입니다. 클래스는 고유의 특징값을 담는 속성과 기능을 구현한 함수로 이루어져 있습니다. 또한 클래스는 인스턴스를 만드는 틀입니다. 인스턴스란 클래스를 이용해서 만들어내는 서로 다른 속성의 객체를 지칭하는 용어입니다. fun main(){ var a = Person(&quot;박보영&quot;,1990) var b = Person(&quot;전정국&quot;,1997) var c = Person(&quot;장원영&quot;,2004) a.introduce()" />
+    <meta property="og:title" content="제네릭스" />
+    <meta property="og:description" content="제네릭스
+
+
+" />
     <meta property="og:url" content="https://lee989898.github.io/kotlin-08" />
     <meta property="og:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -68,8 +71,11 @@
     <meta property="article:modified_time" content="2021-08-09T01:07:00+09:00" />
     <meta property="article:tag" content="Kotlin" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="클래스의 기본구조" />
-    <meta name="twitter:description" content="클래스 클래스 클래스는 ‘값’과 그 값을 사용하는 ‘기능’들을 묶어놓은 것입니다. 클래스는 고유의 특징값을 담는 속성과 기능을 구현한 함수로 이루어져 있습니다. 또한 클래스는 인스턴스를 만드는 틀입니다. 인스턴스란 클래스를 이용해서 만들어내는 서로 다른 속성의 객체를 지칭하는 용어입니다. fun main(){ var a = Person(&quot;박보영&quot;,1990) var b = Person(&quot;전정국&quot;,1997) var c = Person(&quot;장원영&quot;,2004) a.introduce()" />
+    <meta name="twitter:title" content="제네릭스" />
+    <meta name="twitter:description" content="제네릭스
+
+
+" />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
     <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -101,7 +107,10 @@
         "@type": "WebPage",
         "@id": "https://lee989898.github.io/kotlin-08"
     },
-    "description": "클래스 클래스 클래스는 ‘값’과 그 값을 사용하는 ‘기능’들을 묶어놓은 것입니다. 클래스는 고유의 특징값을 담는 속성과 기능을 구현한 함수로 이루어져 있습니다. 또한 클래스는 인스턴스를 만드는 틀입니다. 인스턴스란 클래스를 이용해서 만들어내는 서로 다른 속성의 객체를 지칭하는 용어입니다. fun main(){ var a = Person(&quot;박보영&quot;,1990) var b = Person(&quot;전정국&quot;,1997) var c = Person(&quot;장원영&quot;,2004) a.introduce()"
+    "description": "제네릭스
+
+
+"
 }
     </script>
 
@@ -114,7 +123,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="클래스의 기본구조" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="제네릭스" href="/feed.xml" />
 
 
 </head>
@@ -141,13 +150,13 @@ into the {body} of the default.hbs template -->
 <ul class="nav" role="menu">
     <li class="nav-home" role="menuitem"><a href="/">Home</a></li>
     <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
-    <li class="nav-android" role="menuitem"><a href="/tag/android/">안드</a></li>
+    <li class="nav-android" role="menuitem"><a href="/tag/android/">안드로이드</a></li>
     <li class="nav-kotlin" role="menuitem"><a href="/tag/kotlin/">코틀린</a></li>
     <li class="nav-python" role="menuitem"><a href="/tag/python/">파이썬</a></li>
     <li class="nav-algorithm" role="menuitem"><a href="/tag/algorithm/">알고리즘</a></li>
-    <li class="nav-pl" role="menuitem"><a href="/tag/pl/">프언</a></li>
+    <li class="nav-pl" role="menuitem"><a href="/tag/pl/">프로그래밍언어</a></li>
     <li class="nav-security" role="menuitem"><a href="/tag/security/">컴퓨터보안</a></li>
-    <li class="nav-system" role="menuitem"><a href="/tag/system/">시프</a></li>
+    <li class="nav-system" role="menuitem"><a href="/tag/system/">시스템프로그래밍</a></li>
     <li class="nav-archive" role="menuitem">
         <a href="/archive.html">All Posts</a>
     </li>
@@ -196,7 +205,7 @@ into the {body} of the default.hbs template -->
                         
                     
                 </section>
-                <h1 class="post-full-title">클래스의 기본구조</h1>
+                <h1 class="post-full-title">제네릭스</h1>
             </header>
 
             <!--
@@ -207,238 +216,7 @@ into the {body} of the default.hbs template -->
             -->
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <h3 id="클래스"><strong>클래스</strong></h3>
-
-<hr />
-
-<blockquote>
-  <p>클래스</p>
-</blockquote>
-
-<p>클래스는 ‘값’과 그 값을 사용하는 ‘기능’들을 묶어놓은 것입니다.
-클래스는 고유의 특징값을 담는 속성과 기능을 구현한 함수로 이루어져 있습니다.</p>
-
-<p>또한 클래스는 인스턴스를 만드는 틀입니다.
-인스턴스란 클래스를 이용해서 만들어내는 서로 다른 속성의 객체를 지칭하는 용어입니다.</p>
-
-<hr />
-
-<noscript><pre>fun main(){
-    
-    var a = Person(&quot;박보영&quot;,1990)
-    var b = Person(&quot;전정국&quot;,1997)
-    var c = Person(&quot;장원영&quot;,2004)
-    
-    a.introduce()
-    b.introduce()
-    c.introduce()
-    
-    
-}
-
-class Person(var name: String, val birthYear: Int){
-    fun introduce(){
-    println(&quot;안녕하세요, ${birthYear}년생 ${name}입니다.&quot;)
-    }
-}</pre></noscript>
-<script src="https://gist.github.com/lee989898/381b608c1a19be8b32abc6334b9620ae.js"> </script>
-
-<hr />
-
-<blockquote>
-  <p>클래스의 생성자</p>
-</blockquote>
-
-<p>생성자란 새로운 인스턴스를 만들기 위해 호출하는 특수한 함수입니다.
-생성자는 인스턴스의 속성을 초기화 및 인스턴스 생성시 구문을 수행하는 역할을 할 수 있습니다.</p>
-
-<ul>
-  <li>기본 생성자: 클래스를 만들 때 기본으로 선언</li>
-  <li>보조 생성자: 필요에 따라 추가적으로 선언</li>
-</ul>
-
-<hr />
-
-<noscript><pre>fun main(){
-    
-    var a = Person(&quot;박보영&quot;,1990)
-    var b = Person(&quot;전정국&quot;,1997)
-    var c = Person(&quot;장원영&quot;,2004)
-    
-    var d = Person(&quot;이루다&quot;)
-    var e = Person(&quot;차은우&quot;)
-    var f = Person(&quot;류수정&quot;)
- 
-}
-
-class Person(var name: String, val birthYear: Int = 1997){
-    init{
-        println(&quot;${this.birthYear}년생 ${this.name}님이 생성되었습니다.&quot;)
-    }
-    
-    constructor(name:String) : this(name, 1997){
-        println(&quot;보조 생성자가 사용되었습니다.&quot;)
-    }
-}</pre></noscript>
-<script src="https://gist.github.com/lee989898/ed92fc7943d194074a63a5a9b01d0d08.js"> </script>
-
-<hr />
-
-<blockquote>
-  <p>클래스의 상속</p>
-</blockquote>
-
-<ul>
-  <li>수퍼클래스: 속성과 함수를 물려주는 클래스</li>
-  <li>서브클래스: 속성과 함수를 물려받는 클래스</li>
-</ul>
-
-<p>상속시 서브클래스는 수퍼클래스에 존재하는 속성과 같은이름의 속성을 가질 수 없다.<br />
-서브클래스가 생성될때는 반드시 수퍼클래스의 생성자도 호출해야합니다.</p>
-
-<hr />
-
-<noscript><pre>fun main(){
-    
-    var a = Animal(&quot;별이&quot;,5,&quot;개&quot;)
-    var b = Dog(&quot;별이&quot;,5)
-    
-    a.introduce()
-    b.introduce()
-    
-    b.bark()
-    
-    var c = Cat(&quot;루이&quot;, 1)
-    
-    c.introduce()
-    c.meow()
-}
-
-open class Animal(var name: String, var age: Int, var type: String){
-    fun introduce(){
-        println(&quot;저는 ${type} ${name}이고, ${age}살 입니다.&quot;)
-    }
-    
-}
-
-class Dog(name: String, age: Int): Animal(name,age,&quot;개&quot;){
-    fun bark(){
-        println(&quot;멍멍&quot;)
-    }
-}
-
-class Cat(name: String, age: Int): Animal(name,age,&quot;고양이&quot;){
-    fun meow(){
-        println(&quot;냐옹&quot;)
-    }
-}</pre></noscript>
-<script src="https://gist.github.com/lee989898/859d84d0c7f7550567ad728dd8f018fd.js"> </script>
-
-<hr />
-
-<blockquote>
-  <p>오버라이딩</p>
-</blockquote>
-
-<p>수퍼클래스에서 허용해주면 서브클래스에서 같은 이름과 형태로 된 함수의 내용을 구현할 수 있습니다.</p>
-
-<hr />
-
-<noscript><pre>fun main(){
-   
-    var t = Tiger()
-    
-    t.eat()
-    
-}
-
-open class Animal{
-    open fun eat(){
-        println(&quot;음식을 먹습니다&quot;)
-    }
-}
-
-class Tiger: Animal(){
-    override fun eat(){
-        println(&quot;고기를 먹습니다&quot;)
-    }
-}</pre></noscript>
-<script src="https://gist.github.com/lee989898/ac2a3b08052dba20f13dae2a3e78ce9b.js"> </script>
-
-<hr />
-
-<blockquote>
-  <p>추상화</p>
-</blockquote>
-
-<p>선언부만 있고 기능이 구현되지 않은 추상함수와 추상함수를 포함하는 추상클래스</p>
-
-<hr />
-
-<noscript><pre>fun main(){
-   
-    var r = Rabbit()
-    
-    r.eat()
-    r.sniff()
-}
-
-abstract class Animal(){
-    abstract fun eat()
-    fun sniff(){
-        println(&quot;킁킁&quot;)
-    }
-}
-
-class Rabbit : Animal(){
-    override fun eat(){
-        println(&quot;당근을 먹습니다.&quot;)
-    }
-}</pre></noscript>
-<script src="https://gist.github.com/lee989898/02664376392556d4d7f376a670ec6771.js"> </script>
-
-<hr />
-
-<blockquote>
-  <p>인터페이스</p>
-</blockquote>
-
-<p>인터페이스는 추상함수,일반함수,속성을 가집니다.<br />
-인터페이스는 생성자를 가질 수 없습니다.<br />
-인터페이스에서 구현부가 있는 함수는 open함수로 간주하고 구현부가 없는 함수는 abstract 함수로 간주합니다.<br />
-별도의 키워드가 없어도 포함된 모든 함수를 서브클래스에서 구현 및 재정의가 가능합니다.<br />
-또한 여러 인터페이스를 상속 받을 수 있습니다.</p>
-
-<hr />
-
-<noscript><pre>fun main(){
-    var d = Dog()
-    
-    d.run()
-    d.eat()
-    
-}
-
-interface Runner{
-    fun run()
-}
-
-interface Eater{
-    fun eat(){
-        println(&quot;음식을 먹습니다&quot;)
-    }
-}
-
-class Dog: Runner, Eater{
-    override fun run(){
-        println(&quot;우다다다 뜁니다&quot;)
-    }
-    
-    override fun eat(){
-        println(&quot;허겁지겁 먹습니다&quot;)
-    }
-}</pre></noscript>
-<script src="https://gist.github.com/lee989898/cea6ef3920b0a94e931f28c4f8b5e504.js"> </script>
+                    <h3 id="제네릭스"><strong>제네릭스</strong></h3>
 
 <hr />
 
@@ -509,7 +287,7 @@ class Dog: Runner, Eater{
                         var disqus_config = function () {
                             var this_page_url = 'https://lee989898.github.io/kotlin-08';
                             var this_page_identifier = '/kotlin-08';
-                            var this_page_title = '클래스의 기본구조';
+                            var this_page_title = '제네릭스';
                         };
                         (function() {
                             var d = document, s = d.createElement('script');
@@ -656,7 +434,7 @@ class Dog: Runner, Eater{
                                     
                                         
                                         
-                                            <li><a href="/kotlin-23">코루틴</a></li>
+                                            <li><a href="/kotlin-10">DSL 만들기</a></li>
                                         
                                     
                                   
@@ -665,100 +443,7 @@ class Dog: Runner, Eater{
                                     
                                         
                                         
-                                            <li><a href="/kotlin-22">변수의 고급 기술</a></li>
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                            <li><a href="/kotlin-21">컬렉션 함수</a></li>
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
+                                            <li><a href="/kotlin-09">애노테이션과 리플렉션</a></li>
                                         
                                     
                                   
@@ -770,6 +455,8 @@ class Dog: Runner, Eater{
                                   
                                     
                                         
+                                        
+                                            <li><a href="/kotlin-07">고차 함수, 파라미터와 반환 값으로 람다 사용</a></li>
                                         
                                     
                                   
@@ -849,7 +536,7 @@ class Dog: Runner, Eater{
                         <footer class="read-next-card-footer">
                             <a href="/tag/kotlin/">
                                 
-                                    See all 22 posts  →
+                                    See all 9 posts  →
                                 
                             </a>
                         </footer>
@@ -878,11 +565,11 @@ class Dog: Runner, Eater{
                         
                     
 
-                    <h2 class="post-card-title">변수, 함수, 클래스의 접근범위와 접근제한자</h2>
+                    <h2 class="post-card-title">애노테이션과 리플렉션</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>변수, 함수, 클래스의 접근범위와 접근제한자
+                        <p>애노테이션과 리플렉션
 
 </p>
                     
@@ -932,11 +619,11 @@ class Dog: Runner, Eater{
                         
                     
 
-                    <h2 class="post-card-title">흐름제어와 논리연산자</h2>
+                    <h2 class="post-card-title">고차 함수, 파라미터와 반환 값으로 람다 사용</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>흐름제어와 논리연산자
+                        <p>고차 함수, 파라미터와 반환 값으로 람다 사용
 
 </p>
                     
@@ -978,13 +665,13 @@ class Dog: Runner, Eater{
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">클래스의 기본구조</div>
+    <div class="floating-header-title">제네릭스</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%ED%81%B4%EB%9E%98%EC%8A%A4%EC%9D%98+%EA%B8%B0%EB%B3%B8%EA%B5%AC%EC%A1%B0&amp;url=https://lee989898.github.io/kotlin-08"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%EC%A0%9C%EB%84%A4%EB%A6%AD%EC%8A%A4&amp;url=https://lee989898.github.io/kotlin-08"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 

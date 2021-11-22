@@ -11,7 +11,7 @@
 
 
 
-    <title>변수와 자료형</title>
+    <title>함수 정의와 호출</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -58,8 +58,12 @@
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="변수와 자료형" />
-    <meta property="og:description" content="변수와 자료형 변수 var: 일반적으로 통용되는 변수 언제든지 읽기 쓰기가 가능합니다 val: 선언시에만 초기화 가능 중간에 값을 변경할 수 없습니다 runtime시 변경되지 말아야 할 값은 안전하게 val로 선언하는 것이 좋습니다 fun main() { var a: Int = 123 val b: Int = 456 println(a) println(b) } 초기화 하지 않고 null을" />
+    <meta property="og:title" content="함수 정의와 호출" />
+    <meta property="og:description" content="함수 정의와 호출
+
+
+
+" />
     <meta property="og:url" content="https://lee989898.github.io/kotlin-02" />
     <meta property="og:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -68,8 +72,12 @@
     <meta property="article:modified_time" content="2021-08-02T01:07:00+09:00" />
     <meta property="article:tag" content="Kotlin" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="변수와 자료형" />
-    <meta name="twitter:description" content="변수와 자료형 변수 var: 일반적으로 통용되는 변수 언제든지 읽기 쓰기가 가능합니다 val: 선언시에만 초기화 가능 중간에 값을 변경할 수 없습니다 runtime시 변경되지 말아야 할 값은 안전하게 val로 선언하는 것이 좋습니다 fun main() { var a: Int = 123 val b: Int = 456 println(a) println(b) } 초기화 하지 않고 null을" />
+    <meta name="twitter:title" content="함수 정의와 호출" />
+    <meta name="twitter:description" content="함수 정의와 호출
+
+
+
+" />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
     <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -101,7 +109,11 @@
         "@type": "WebPage",
         "@id": "https://lee989898.github.io/kotlin-02"
     },
-    "description": "변수와 자료형 변수 var: 일반적으로 통용되는 변수 언제든지 읽기 쓰기가 가능합니다 val: 선언시에만 초기화 가능 중간에 값을 변경할 수 없습니다 runtime시 변경되지 말아야 할 값은 안전하게 val로 선언하는 것이 좋습니다 fun main() { var a: Int = 123 val b: Int = 456 println(a) println(b) } 초기화 하지 않고 null을"
+    "description": "함수 정의와 호출
+
+
+
+"
 }
     </script>
 
@@ -114,7 +126,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="변수와 자료형" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="함수 정의와 호출" href="/feed.xml" />
 
 
 </head>
@@ -141,13 +153,13 @@ into the {body} of the default.hbs template -->
 <ul class="nav" role="menu">
     <li class="nav-home" role="menuitem"><a href="/">Home</a></li>
     <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
-    <li class="nav-android" role="menuitem"><a href="/tag/android/">안드</a></li>
+    <li class="nav-android" role="menuitem"><a href="/tag/android/">안드로이드</a></li>
     <li class="nav-kotlin" role="menuitem"><a href="/tag/kotlin/">코틀린</a></li>
     <li class="nav-python" role="menuitem"><a href="/tag/python/">파이썬</a></li>
     <li class="nav-algorithm" role="menuitem"><a href="/tag/algorithm/">알고리즘</a></li>
-    <li class="nav-pl" role="menuitem"><a href="/tag/pl/">프언</a></li>
+    <li class="nav-pl" role="menuitem"><a href="/tag/pl/">프로그래밍언어</a></li>
     <li class="nav-security" role="menuitem"><a href="/tag/security/">컴퓨터보안</a></li>
-    <li class="nav-system" role="menuitem"><a href="/tag/system/">시프</a></li>
+    <li class="nav-system" role="menuitem"><a href="/tag/system/">시스템프로그래밍</a></li>
     <li class="nav-archive" role="menuitem">
         <a href="/archive.html">All Posts</a>
     </li>
@@ -196,7 +208,7 @@ into the {body} of the default.hbs template -->
                         
                     
                 </section>
-                <h1 class="post-full-title">변수와 자료형</h1>
+                <h1 class="post-full-title">함수 정의와 호출</h1>
             </header>
 
             <!--
@@ -207,72 +219,10 @@ into the {body} of the default.hbs template -->
             -->
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <h1 id="변수와-자료형"><strong>변수와 자료형</strong></h1>
+                    <h1 id="함수-정의와-호출"><strong>함수 정의와 호출</strong></h1>
 
 <hr />
 
-<h3 id="변수"><strong>변수</strong></h3>
-
-<hr />
-
-<p>var: 일반적으로 통용되는 변수 언제든지 읽기 쓰기가 가능합니다</p>
-
-<p>val: 선언시에만 초기화 가능 중간에 값을 변경할 수 없습니다</p>
-
-<p>runtime시 변경되지 말아야 할 값은 안전하게 val로 선언하는 것이 좋습니다</p>
-
-<noscript><pre>fun main() {
-    var a: Int = 123
-    val b: Int = 456
-    println(a)
-    println(b)
-}</pre></noscript>
-<script src="https://gist.github.com/lee989898/df68e4e45ea2877dd691d7ba89877f15.js"> </script>
-
-<p>초기화 하지 않고 null을 허용하는 nullable 변수로 선언할 수 있습니다<br />
-ex) var a: Int? = null</p>
-
-<hr />
-
-<h3 id="자료형"><strong>자료형</strong></h3>
-
-<hr />
-
-<p>기본 자료형에는 숫자형,실수형,논리형인 8가지가 있습니다.</p>
-<ul>
-  <li>숫자형: Byte Short Int Long</li>
-  <li>실수형: Float Double</li>
-  <li>논리형: Boolean</li>
-</ul>
-
-<p>정수형의 리터럴은 10진수, 16진수, 2진수로 표기 가능합니다</p>
-
-<p>8진수의 표기는 지원하지 않습니다</p>
-
-<noscript><pre>fun main() {
-    var intValue:Int = 1234
-    var LongValue:Long = 1234L
-    var intValueByHex:Int = 0x1af
-    var intValueByBin:Int = 0b10110110
-    
-    var doubleValue:Double = 123.5
-    var doubleValueWithExp: Double = 123.5e10
-    var floatValue:Float = 123.5f
-    
-    var charValue: Char = &#39;a&#39;
-    var koreanCharValue: Char = &#39;가&#39;
-    
-    var booleanValue: Boolean = true
-    
-    var stringValue = &quot;one line string test&quot;
-    
-    val multiLineStringValue = &quot;&quot;&quot;multiline
-    string
-    test&quot;&quot;&quot;
-}</pre></noscript>
-<script src="https://gist.github.com/lee989898/c6ccc4221fdbd96eae8b91fa55199f92.js"> </script>
-
-<hr />
 
                 </div>
             </section>
@@ -341,7 +291,7 @@ ex) var a: Int? = null</p>
                         var disqus_config = function () {
                             var this_page_url = 'https://lee989898.github.io/kotlin-02';
                             var this_page_identifier = '/kotlin-02';
-                            var this_page_title = '변수와 자료형';
+                            var this_page_title = '함수 정의와 호출';
                         };
                         (function() {
                             var d = document, s = d.createElement('script');
@@ -488,7 +438,7 @@ ex) var a: Int? = null</p>
                                     
                                         
                                         
-                                            <li><a href="/kotlin-23">코루틴</a></li>
+                                            <li><a href="/kotlin-10">DSL 만들기</a></li>
                                         
                                     
                                   
@@ -497,7 +447,7 @@ ex) var a: Int? = null</p>
                                     
                                         
                                         
-                                            <li><a href="/kotlin-22">변수의 고급 기술</a></li>
+                                            <li><a href="/kotlin-09">애노테이션과 리플렉션</a></li>
                                         
                                     
                                   
@@ -506,98 +456,7 @@ ex) var a: Int? = null</p>
                                     
                                         
                                         
-                                            <li><a href="/kotlin-21">컬렉션 함수</a></li>
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
+                                            <li><a href="/kotlin-08">제네릭스</a></li>
                                         
                                     
                                   
@@ -681,7 +540,7 @@ ex) var a: Int? = null</p>
                         <footer class="read-next-card-footer">
                             <a href="/tag/kotlin/">
                                 
-                                    See all 22 posts  →
+                                    See all 9 posts  →
                                 
                             </a>
                         </footer>
@@ -808,13 +667,13 @@ ex) var a: Int? = null</p>
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">변수와 자료형</div>
+    <div class="floating-header-title">함수 정의와 호출</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%EB%B3%80%EC%88%98%EC%99%80+%EC%9E%90%EB%A3%8C%ED%98%95&amp;url=https://lee989898.github.io/kotlin-02"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%ED%95%A8%EC%88%98+%EC%A0%95%EC%9D%98%EC%99%80+%ED%98%B8%EC%B6%9C&amp;url=https://lee989898.github.io/kotlin-02"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 

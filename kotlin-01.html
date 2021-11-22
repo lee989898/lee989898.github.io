@@ -11,7 +11,7 @@
 
 
 
-    <title>코틀린 규칙들</title>
+    <title>코틀린 기초</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -58,8 +58,8 @@
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="코틀린 규칙들" />
-    <meta property="og:description" content="Kotlin 공부는 여러 절로 구성되어 있습니다. 코틀린 규칙들 변수와 자료형 형변환과 배열 타입추론과 함수 조건문과 비교연산자 반복문과 증감연산자 흐름제어와 논리연산자 클래스의 기본구조 코틀린 규칙들 한줄 짜리 주석 // 여러 줄 주석 /* */ fun main() { //안녕하세요 /*안 *녕 *하 *세 *요*/ } 구문이 끝날때 세미콜론(;)을 붙이지 않아도 됩니다. 클래스" />
+    <meta property="og:title" content="코틀린 기초" />
+    <meta property="og:description" content="코틀린 테이블 코틀린 기초 함수 정의와 호출 클래스, 객체, 인터페이스 람다로 프로그래밍 코틀린 타입 시스템 연산자 오버로딩과 기타 관례 고차 함수: 파라미터와 반환 값으로 람다 사용 제네릭스 애노테이션과 리플렉션 DSL 만들기 코틀린 기초 함수와 변수 클래스와 프로퍼티 enum과 when while과 for 루프 코틀린의 예외 처리 함수와 변수 클래스와 프로퍼티 enum과" />
     <meta property="og:url" content="https://lee989898.github.io/kotlin-01" />
     <meta property="og:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -68,8 +68,8 @@
     <meta property="article:modified_time" content="2021-08-02T01:05:00+09:00" />
     <meta property="article:tag" content="Kotlin" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="코틀린 규칙들" />
-    <meta name="twitter:description" content="Kotlin 공부는 여러 절로 구성되어 있습니다. 코틀린 규칙들 변수와 자료형 형변환과 배열 타입추론과 함수 조건문과 비교연산자 반복문과 증감연산자 흐름제어와 논리연산자 클래스의 기본구조 코틀린 규칙들 한줄 짜리 주석 // 여러 줄 주석 /* */ fun main() { //안녕하세요 /*안 *녕 *하 *세 *요*/ } 구문이 끝날때 세미콜론(;)을 붙이지 않아도 됩니다. 클래스" />
+    <meta name="twitter:title" content="코틀린 기초" />
+    <meta name="twitter:description" content="코틀린 테이블 코틀린 기초 함수 정의와 호출 클래스, 객체, 인터페이스 람다로 프로그래밍 코틀린 타입 시스템 연산자 오버로딩과 기타 관례 고차 함수: 파라미터와 반환 값으로 람다 사용 제네릭스 애노테이션과 리플렉션 DSL 만들기 코틀린 기초 함수와 변수 클래스와 프로퍼티 enum과 when while과 for 루프 코틀린의 예외 처리 함수와 변수 클래스와 프로퍼티 enum과" />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
     <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -101,7 +101,7 @@
         "@type": "WebPage",
         "@id": "https://lee989898.github.io/kotlin-01"
     },
-    "description": "Kotlin 공부는 여러 절로 구성되어 있습니다. 코틀린 규칙들 변수와 자료형 형변환과 배열 타입추론과 함수 조건문과 비교연산자 반복문과 증감연산자 흐름제어와 논리연산자 클래스의 기본구조 코틀린 규칙들 한줄 짜리 주석 // 여러 줄 주석 /* */ fun main() { //안녕하세요 /*안 *녕 *하 *세 *요*/ } 구문이 끝날때 세미콜론(;)을 붙이지 않아도 됩니다. 클래스"
+    "description": "코틀린 테이블 코틀린 기초 함수 정의와 호출 클래스, 객체, 인터페이스 람다로 프로그래밍 코틀린 타입 시스템 연산자 오버로딩과 기타 관례 고차 함수: 파라미터와 반환 값으로 람다 사용 제네릭스 애노테이션과 리플렉션 DSL 만들기 코틀린 기초 함수와 변수 클래스와 프로퍼티 enum과 when while과 for 루프 코틀린의 예외 처리 함수와 변수 클래스와 프로퍼티 enum과"
 }
     </script>
 
@@ -114,7 +114,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="코틀린 규칙들" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="코틀린 기초" href="/feed.xml" />
 
 
 </head>
@@ -141,13 +141,13 @@ into the {body} of the default.hbs template -->
 <ul class="nav" role="menu">
     <li class="nav-home" role="menuitem"><a href="/">Home</a></li>
     <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
-    <li class="nav-android" role="menuitem"><a href="/tag/android/">안드</a></li>
+    <li class="nav-android" role="menuitem"><a href="/tag/android/">안드로이드</a></li>
     <li class="nav-kotlin" role="menuitem"><a href="/tag/kotlin/">코틀린</a></li>
     <li class="nav-python" role="menuitem"><a href="/tag/python/">파이썬</a></li>
     <li class="nav-algorithm" role="menuitem"><a href="/tag/algorithm/">알고리즘</a></li>
-    <li class="nav-pl" role="menuitem"><a href="/tag/pl/">프언</a></li>
+    <li class="nav-pl" role="menuitem"><a href="/tag/pl/">프로그래밍언어</a></li>
     <li class="nav-security" role="menuitem"><a href="/tag/security/">컴퓨터보안</a></li>
-    <li class="nav-system" role="menuitem"><a href="/tag/system/">시프</a></li>
+    <li class="nav-system" role="menuitem"><a href="/tag/system/">시스템프로그래밍</a></li>
     <li class="nav-archive" role="menuitem">
         <a href="/archive.html">All Posts</a>
     </li>
@@ -196,7 +196,7 @@ into the {body} of the default.hbs template -->
                         
                     
                 </section>
-                <h1 class="post-full-title">코틀린 규칙들</h1>
+                <h1 class="post-full-title">코틀린 기초</h1>
             </header>
 
             <!--
@@ -207,128 +207,56 @@ into the {body} of the default.hbs template -->
             -->
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <p><span class="table-of-contents-list">Kotlin 공부는 여러 절로 구성되어 있습니다. </span></p>
+                    <p><span class="table-of-contents-list">코틀린 테이블</span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./kotlin-01">코틀린 규칙들</a></li>
-    <li><a href="./kotlin-02">변수와 자료형 </a></li>
-    <li><a href="./kotlin-03">형변환과 배열 </a></li>
-    <li><a href="./kotlin-04">타입추론과 함수 </a></li>
-    <li><a href="./kotlin-05">조건문과 비교연산자 </a></li>
-    <li><a href="./kotlin-06">반복문과 증감연산자 </a></li>
-    <li><a href="./kotlin-07">흐름제어와 논리연산자 </a></li>
-    <li><a href="./kotlin-08">클래스의 기본구조 </a></li>
+    <li><a href="./kotlin-01">코틀린 기초</a></li>
+    <li><a href="./kotlin-02">함수 정의와 호출</a></li>
+    <li><a href="./kotlin-03">클래스, 객체, 인터페이스</a></li>
+    <li><a href="./kotlin-04">람다로 프로그래밍</a></li>
+    <li><a href="./kotlin-05">코틀린 타입 시스템</a></li>
+    <li><a href="./kotlin-06">연산자 오버로딩과 기타 관례</a></li>
+    <li><a href="./kotlin-07">고차 함수: 파라미터와 반환 값으로 람다 사용</a></li>
+    <li><a href="./kotlin-08">제네릭스</a></li>
+    <li><a href="./kotlin-09">애노테이션과 리플렉션</a></li>
+    <li><a href="./kotlin-10">DSL 만들기</a></li>
 </ul>
 
 <hr />
 
-<h1 id="코틀린-규칙들">코틀린 규칙들</h1>
+<h1 id="코틀린-기초">코틀린 기초</h1>
 
 <hr />
 
 <ul>
-  <li>
-    <p>한줄 짜리 주석 //<br />
- 여러 줄 주석 /* */</p>
-
-    <noscript><pre>fun main() {
-//안녕하세요
-  
-/*안
- *녕
- *하
- *세
- *요*/
-}</pre></noscript>
-    <script src="https://gist.github.com/lee989898/83354dae381c489de07c898ee9a384eb.js"> </script>
-  </li>
+  <li><a href="#함수와-변수">함수와 변수</a></li>
+  <li><a href="#클래스와-프로퍼티">클래스와 프로퍼티</a></li>
+  <li><a href="#enum과-when">enum과 when</a></li>
+  <li><a href="#while과-for-루프">while과 for 루프</a></li>
+  <li><a href="#코틀린의-예외-처리">코틀린의 예외 처리</a></li>
 </ul>
 
 <hr />
 
-<ul>
-  <li>구문이 끝날때 세미콜론(;)을 붙이지 않아도 됩니다.</li>
-</ul>
+<h2 id="함수와-변수">함수와 변수</h2>
 
 <hr />
 
-<ul>
-  <li>클래스 이름은 파스칼 표기법 ex) ClassName</li>
-  <li>함수나 변수 이름은 카멜 표기법 ex) functionName</li>
-</ul>
+<h2 id="클래스와-프로퍼티">클래스와 프로퍼티</h2>
 
 <hr />
 
-<ul>
-  <li>warning: 불필요한 구문이 있거나 잠재적 문제가 있을 수 있습니다.</li>
-</ul>
+<h2 id="enum과-when">enum과 when</h2>
 
 <hr />
 
-<ul>
-  <li>글자 하나하나가 2bytes의 메모리 공간을 사용합니다.</li>
-</ul>
+<h2 id="while과-for-루프">while과 for 루프</h2>
 
 <hr />
 
-<ul>
-  <li>클래스에 선언된 변수 Property(속성)<br />
- 이 외의 Scope 내에 선언된 변수 Local Variable(로컬변수)</li>
-</ul>
+<h2 id="코틀린의-예외-처리">코틀린의 예외 처리</h2>
 
 <hr />
 
-<blockquote>
-  <p>Any</p>
-</blockquote>
-
-<p>어떤 자료형이든 상관없이 호환되는 코틀린의 최상위 자료형입니다.</p>
-
-<hr />
-
-<blockquote>
-  <p>init</p>
-</blockquote>
-
-<p>init 함수는 패러미터나 반환형이 없는 특수한 함수입니다.</p>
-
-<hr />
-
-<blockquote>
-  <p>open</p>
-</blockquote>
-
-<p>클래스가 상속될 수 있도록 클래스 선언시 붙여주는 키워드입니다.</p>
-
-<hr />
-
-<blockquote>
-  <p>기본 프로젝트 구조</p>
-</blockquote>
-
-<blockquote>
-  <p>물리적인구조</p>
-</blockquote>
-
-<ul>
-  <li>프로젝트: 코틀린으로 어플을 짤때 관련한 모든 내용을 담는 큰틀입니다.</li>
-  <li>모듈: 편리한 기능 단위, 모듈안에는 다양한 폴더와 파일이 들어갈 수 있습니다.</li>
-</ul>
-
-<blockquote>
-  <p>논리적인 구조</p>
-</blockquote>
-
-<ul>
-  <li>
-    <p>패키지: 소스 코드의 소속을 지정하기 위한 단위입니다. ex) package com.youtube.lee
-패키지를 설정하지 않으면 자동으로 default패키지로 묶입니다.</p>
-  </li>
-  <li>
-    <p>import: 사용할 외부 패키지 이름을 쓰면 다른 패키지의 함수,변수,클래스 등을 사용할 수 있습니다.</p>
-  </li>
-</ul>
-
-<hr />
 
                 </div>
             </section>
@@ -397,7 +325,7 @@ into the {body} of the default.hbs template -->
                         var disqus_config = function () {
                             var this_page_url = 'https://lee989898.github.io/kotlin-01';
                             var this_page_identifier = '/kotlin-01';
-                            var this_page_title = '코틀린 규칙들';
+                            var this_page_title = '코틀린 기초';
                         };
                         (function() {
                             var d = document, s = d.createElement('script');
@@ -544,7 +472,7 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
-                                            <li><a href="/kotlin-23">코루틴</a></li>
+                                            <li><a href="/kotlin-10">DSL 만들기</a></li>
                                         
                                     
                                   
@@ -553,7 +481,7 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
-                                            <li><a href="/kotlin-22">변수의 고급 기술</a></li>
+                                            <li><a href="/kotlin-09">애노테이션과 리플렉션</a></li>
                                         
                                     
                                   
@@ -562,98 +490,7 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
-                                            <li><a href="/kotlin-21">컬렉션 함수</a></li>
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
+                                            <li><a href="/kotlin-08">제네릭스</a></li>
                                         
                                     
                                   
@@ -737,7 +574,7 @@ into the {body} of the default.hbs template -->
                         <footer class="read-next-card-footer">
                             <a href="/tag/kotlin/">
                                 
-                                    See all 22 posts  →
+                                    See all 9 posts  →
                                 
                             </a>
                         </footer>
@@ -814,13 +651,13 @@ into the {body} of the default.hbs template -->
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">코틀린 규칙들</div>
+    <div class="floating-header-title">코틀린 기초</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%EC%BD%94%ED%8B%80%EB%A6%B0+%EA%B7%9C%EC%B9%99%EB%93%A4&amp;url=https://lee989898.github.io/kotlin-01"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%EC%BD%94%ED%8B%80%EB%A6%B0+%EA%B8%B0%EC%B4%88&amp;url=https://lee989898.github.io/kotlin-01"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 

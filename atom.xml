@@ -758,204 +758,9 @@
     
       
       <item>
-        <title>코루틴</title>
+        <title>DSL 만들기</title>
         
-          <description>&lt;h3 id=&quot;코루틴&quot;&gt;&lt;strong&gt;코루틴&lt;/strong&gt;&lt;/h3&gt;
-
-</description>
-        
-        <pubDate>Mon, 09 Aug 2021 01:07:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/kotlin-23</link>
-        <guid isPermaLink="true">https://lee989898.github.io/kotlin-23</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>변수의 고급 기술</title>
-        
-          <description>&lt;h3 id=&quot;상수-lateinit-lazy&quot;&gt;&lt;strong&gt;상수, lateinit, lazy&lt;/strong&gt;&lt;/h3&gt;
-
-</description>
-        
-        <pubDate>Mon, 09 Aug 2021 01:07:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/kotlin-22</link>
-        <guid isPermaLink="true">https://lee989898.github.io/kotlin-22</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>컬렉션 함수</title>
-        
-          <description>&lt;h3 id=&quot;컬렉션-함수&quot;&gt;&lt;strong&gt;컬렉션 함수&lt;/strong&gt;&lt;/h3&gt;
-
-</description>
-        
-        <pubDate>Mon, 09 Aug 2021 01:07:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/kotlin-21</link>
-        <guid isPermaLink="true">https://lee989898.github.io/kotlin-21</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>Set과 Map</title>
-        
-          <description>&lt;h3 id=&quot;set과-map&quot;&gt;&lt;strong&gt;Set과 Map&lt;/strong&gt;&lt;/h3&gt;
-
-</description>
-        
-        <pubDate>Mon, 09 Aug 2021 01:07:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/kotlin-20</link>
-        <guid isPermaLink="true">https://lee989898.github.io/kotlin-20</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>Data Class, Enum Class</title>
-        
-          <description>&lt;h3 id=&quot;data-class-enum-class&quot;&gt;&lt;strong&gt;Data class, Enum class&lt;/strong&gt;&lt;/h3&gt;
-
-</description>
-        
-        <pubDate>Mon, 09 Aug 2021 01:07:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/kotlin-19</link>
-        <guid isPermaLink="true">https://lee989898.github.io/kotlin-19</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>중첩클래스와 내부클래스</title>
-        
-          <description>&lt;h3 id=&quot;중첩클래스와-내부클래스&quot;&gt;&lt;strong&gt;중첩클래스와 내부클래스&lt;/strong&gt;&lt;/h3&gt;
-
-</description>
-        
-        <pubDate>Mon, 09 Aug 2021 01:07:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/kotlin-18</link>
-        <guid isPermaLink="true">https://lee989898.github.io/kotlin-18</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>함수의 argument</title>
-        
-          <description>&lt;h3 id=&quot;함수의-argument를-다루는-방법과-infix-함수&quot;&gt;&lt;strong&gt;함수의 argument를 다루는 방법과 infix 함수&lt;/strong&gt;&lt;/h3&gt;
-
-</description>
-        
-        <pubDate>Mon, 09 Aug 2021 01:07:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/kotlin-17</link>
-        <guid isPermaLink="true">https://lee989898.github.io/kotlin-17</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>문자열을 다루는 법</title>
-        
-          <description>&lt;h3 id=&quot;문자열을-다루는-법&quot;&gt;&lt;strong&gt;문자열을 다루는 법&lt;/strong&gt;&lt;/h3&gt;
-
-</description>
-        
-        <pubDate>Mon, 09 Aug 2021 01:07:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/kotlin-16</link>
-        <guid isPermaLink="true">https://lee989898.github.io/kotlin-16</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>리스트</title>
-        
-          <description>&lt;h3 id=&quot;리스트&quot;&gt;&lt;strong&gt;리스트&lt;/strong&gt;&lt;/h3&gt;
-
-</description>
-        
-        <pubDate>Mon, 09 Aug 2021 01:07:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/kotlin-15</link>
-        <guid isPermaLink="true">https://lee989898.github.io/kotlin-15</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>제너릭</title>
-        
-          <description>&lt;h3 id=&quot;제너릭&quot;&gt;&lt;strong&gt;제너릭&lt;/strong&gt;&lt;/h3&gt;
-
-</description>
-        
-        <pubDate>Mon, 09 Aug 2021 01:07:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/kotlin-14</link>
-        <guid isPermaLink="true">https://lee989898.github.io/kotlin-14</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>클래스의 다형성</title>
-        
-          <description>&lt;h3 id=&quot;클래스의-다형성&quot;&gt;&lt;strong&gt;클래스의 다형성&lt;/strong&gt;&lt;/h3&gt;
-
-</description>
-        
-        <pubDate>Mon, 09 Aug 2021 01:07:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/kotlin-13</link>
-        <guid isPermaLink="true">https://lee989898.github.io/kotlin-13</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>익명객체와 옵저버 패턴</title>
-        
-          <description>&lt;h3 id=&quot;익명객체와-옵저버-패턴&quot;&gt;&lt;strong&gt;익명객체와 옵저버 패턴&lt;/strong&gt;&lt;/h3&gt;
-
-</description>
-        
-        <pubDate>Mon, 09 Aug 2021 01:07:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/kotlin-12</link>
-        <guid isPermaLink="true">https://lee989898.github.io/kotlin-12</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>오브젝트</title>
-        
-          <description>&lt;h3 id=&quot;오브젝트&quot;&gt;&lt;strong&gt;오브젝트&lt;/strong&gt;&lt;/h3&gt;
-
-</description>
-        
-        <pubDate>Mon, 09 Aug 2021 01:07:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/kotlin-11</link>
-        <guid isPermaLink="true">https://lee989898.github.io/kotlin-11</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>고차함수와 람다함수</title>
-        
-          <description>&lt;h3 id=&quot;고차함수와-람다함수&quot;&gt;&lt;strong&gt;고차함수와 람다함수&lt;/strong&gt;&lt;/h3&gt;
+          <description>&lt;h3 id=&quot;dsl-만들기&quot;&gt;&lt;strong&gt;DSL 만들기&lt;/strong&gt;&lt;/h3&gt;
 
 </description>
         
@@ -968,9 +773,9 @@
     
       
       <item>
-        <title>변수, 함수, 클래스의 접근범위와 접근제한자</title>
+        <title>애노테이션과 리플렉션</title>
         
-          <description>&lt;h3 id=&quot;변수-함수-클래스의-접근범위와-접근제한자&quot;&gt;&lt;strong&gt;변수, 함수, 클래스의 접근범위와 접근제한자&lt;/strong&gt;&lt;/h3&gt;
+          <description>&lt;h3 id=&quot;애노테이션과-리플렉션&quot;&gt;&lt;strong&gt;애노테이션과 리플렉션&lt;/strong&gt;&lt;/h3&gt;
 
 </description>
         
@@ -983,9 +788,9 @@
     
       
       <item>
-        <title>클래스의 기본구조</title>
+        <title>제네릭스</title>
         
-          <description>&lt;h3 id=&quot;클래스&quot;&gt;&lt;strong&gt;클래스&lt;/strong&gt;&lt;/h3&gt;
+          <description>&lt;h3 id=&quot;제네릭스&quot;&gt;&lt;strong&gt;제네릭스&lt;/strong&gt;&lt;/h3&gt;
 
 </description>
         
@@ -998,9 +803,9 @@
     
       
       <item>
-        <title>흐름제어와 논리연산자</title>
+        <title>고차 함수, 파라미터와 반환 값으로 람다 사용</title>
         
-          <description>&lt;h3 id=&quot;흐름제어와-논리연산자&quot;&gt;&lt;strong&gt;흐름제어와 논리연산자&lt;/strong&gt;&lt;/h3&gt;
+          <description>&lt;h3 id=&quot;고차-함수-파라미터와-반환-값으로-람다-사용&quot;&gt;&lt;strong&gt;고차 함수, 파라미터와 반환 값으로 람다 사용&lt;/strong&gt;&lt;/h3&gt;
 
 </description>
         
@@ -1013,9 +818,9 @@
     
       
       <item>
-        <title>반복문과 증감연산자</title>
+        <title>연산자 오버로딩과 기타 관례</title>
         
-          <description>&lt;h3 id=&quot;반복문과-증감연산자&quot;&gt;&lt;strong&gt;반복문과 증감연산자&lt;/strong&gt;&lt;/h3&gt;
+          <description>&lt;h3 id=&quot;연산자-오버로딩과-기타-관례&quot;&gt;&lt;strong&gt;연산자 오버로딩과 기타 관례&lt;/strong&gt;&lt;/h3&gt;
 
 </description>
         
@@ -1028,9 +833,9 @@
     
       
       <item>
-        <title>조건문과 비교연산자</title>
+        <title>코틀린 타입 시스템</title>
         
-          <description>&lt;h3 id=&quot;조건문과-비교연산자&quot;&gt;&lt;strong&gt;조건문과 비교연산자&lt;/strong&gt;&lt;/h3&gt;
+          <description>&lt;h3 id=&quot;코틀린-타입-시스템&quot;&gt;&lt;strong&gt;코틀린 타입 시스템&lt;/strong&gt;&lt;/h3&gt;
 
 </description>
         
@@ -1043,9 +848,9 @@
     
       
       <item>
-        <title>타입추론과 함수</title>
+        <title>람다로 프로그래밍</title>
         
-          <description>&lt;h1 id=&quot;타입추론과-함수&quot;&gt;&lt;strong&gt;타입추론과 함수&lt;/strong&gt;&lt;/h1&gt;
+          <description>&lt;h1 id=&quot;람다로-프로그래밍&quot;&gt;&lt;strong&gt;람다로 프로그래밍&lt;/strong&gt;&lt;/h1&gt;
 
 </description>
         
@@ -1058,9 +863,9 @@
     
       
       <item>
-        <title>형변환과 배열</title>
+        <title>클래스, 객체, 인터페이스</title>
         
-          <description>&lt;h1 id=&quot;형변환과-배열&quot;&gt;&lt;strong&gt;형변환과 배열&lt;/strong&gt;&lt;/h1&gt;
+          <description>&lt;h1 id=&quot;클래스-객체-인터페이스&quot;&gt;&lt;strong&gt;클래스, 객체, 인터페이스&lt;/strong&gt;&lt;/h1&gt;
 
 </description>
         
@@ -1227,9 +1032,9 @@
     
       
       <item>
-        <title>변수와 자료형</title>
+        <title>함수 정의와 호출</title>
         
-          <description>&lt;h1 id=&quot;변수와-자료형&quot;&gt;&lt;strong&gt;변수와 자료형&lt;/strong&gt;&lt;/h1&gt;
+          <description>&lt;h1 id=&quot;함수-정의와-호출&quot;&gt;&lt;strong&gt;함수 정의와 호출&lt;/strong&gt;&lt;/h1&gt;
 
 </description>
         
@@ -1284,18 +1089,20 @@
     
       
       <item>
-        <title>코틀린 규칙들</title>
+        <title>코틀린 기초</title>
         
-          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Kotlin 공부는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
+          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;코틀린 테이블&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-01&quot;&gt;코틀린 규칙들&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-02&quot;&gt;변수와 자료형 &lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-03&quot;&gt;형변환과 배열 &lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-04&quot;&gt;타입추론과 함수 &lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-05&quot;&gt;조건문과 비교연산자 &lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-06&quot;&gt;반복문과 증감연산자 &lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-07&quot;&gt;흐름제어와 논리연산자 &lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./kotlin-08&quot;&gt;클래스의 기본구조 &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-01&quot;&gt;코틀린 기초&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-02&quot;&gt;함수 정의와 호출&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-03&quot;&gt;클래스, 객체, 인터페이스&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-04&quot;&gt;람다로 프로그래밍&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-05&quot;&gt;코틀린 타입 시스템&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-06&quot;&gt;연산자 오버로딩과 기타 관례&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-07&quot;&gt;고차 함수: 파라미터와 반환 값으로 람다 사용&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-08&quot;&gt;제네릭스&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-09&quot;&gt;애노테이션과 리플렉션&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-10&quot;&gt;DSL 만들기&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
