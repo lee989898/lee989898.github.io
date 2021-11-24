@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/author/lee989898/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-11-22T23:42:36+09:00</updated>
+  <updated>2021-11-24T19:27:29+09:00</updated>
   <id>https://lee989898.github.io/author/lee989898/feed.xml</id>
 
   
@@ -30,6 +30,445 @@
   
   
 
+  
+    <entry>
+      <title type="html">__침입탐지__</title>
+      <link href="https://lee989898.github.io/sc-16" rel="alternate" type="text/html" title="__침입탐지__" />
+      <published>2021-11-24T01:06:00+09:00</published>
+      <updated>2021-11-24T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc-16</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-16">&lt;h3 id=&quot;침입탐지&quot;&gt;&lt;strong&gt;침입탐지&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;IDS(침입탐지 시스템)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;침입탐지시스템​&lt;/li&gt;
+  &lt;li&gt;침입행위에 대한 탐지를 수행하고 탐지시 대응할 수 있도록 지원하는 일련의 시스템​&lt;/li&gt;
+  &lt;li&gt;Intrusion?​
+    &lt;ul&gt;
+      &lt;li&gt;시스템에 허가되지 않은 방법으로 내부 자원에 접근​&lt;/li&gt;
+      &lt;li&gt;Login 시도 (ID, PWD 추측)​&lt;/li&gt;
+      &lt;li&gt;불법적으로 데이터 도용시도 (rootkit)​&lt;/li&gt;
+      &lt;li&gt;Root/관리자 권한 획득시도​&lt;/li&gt;
+      &lt;li&gt;메일발송 실행파일을 숨겨놓고 메일전송시도​&lt;/li&gt;
+      &lt;li&gt;Backdoor 접근시도&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;패킷 필터링
+    &lt;ul&gt;
+      &lt;li&gt;오직 TCP/IP 헤더만 본다&lt;/li&gt;
+      &lt;li&gt;패킷 간의 연관성을 알아 내기 어렵다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;IDS
+    &lt;ul&gt;
+      &lt;li&gt;depp packet inspection: 패킷 콘테츠 까지 검사한다&lt;/li&gt;
+      &lt;li&gt;다수의 패킷을 검사한다
+        &lt;ul&gt;
+          &lt;li&gt;port scanning&lt;/li&gt;
+          &lt;li&gt;network mapping&lt;/li&gt;
+          &lt;li&gt;Dos attack&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Dectection 방법&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Signature-based dectection​
+    &lt;ul&gt;
+      &lt;li&gt;침입사건들을 패턴화(signature)​
+    + Signature example​&lt;/li&gt;
+      &lt;li&gt;실행 파일 첨부 메일 유형​&lt;/li&gt;
+      &lt;li&gt;파일 읽기 시도 유형​&lt;/li&gt;
+      &lt;li&gt;로그인 시도 유형​
+    + 장점​&lt;/li&gt;
+      &lt;li&gt;known attack에 대해 효율적​
+    + 단점​&lt;/li&gt;
+      &lt;li&gt;Unknown attack에 취약​&lt;/li&gt;
+      &lt;li&gt;새로운 공격유형 발견때마다 signature 생성해야​&lt;/li&gt;
+      &lt;li&gt;일반적으로 False negative rate 높음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Anomaly-based dectection​
+    &lt;ul&gt;
+      &lt;li&gt;정상범위를 벗어나는 사건을 탐지​
+    + Anomaly example​&lt;/li&gt;
+      &lt;li&gt;휴일에 traffic 량이 평소보다 20%증가​&lt;/li&gt;
+      &lt;li&gt;일반사용자가 갑자기 1000통 메일발송​&lt;/li&gt;
+      &lt;li&gt;특정 호스트에 단시간 주문요청 100%증가​&lt;/li&gt;
+      &lt;li&gt;국내 사용자 카드가 해외에서 결재​
+    + 장점​&lt;/li&gt;
+      &lt;li&gt;Machine learning 처리​&lt;/li&gt;
+      &lt;li&gt;Unknown attac에 대해 효율적​
+    + 단점​&lt;/li&gt;
+      &lt;li&gt;정상범위 정의 어려움​&lt;/li&gt;
+      &lt;li&gt;비정상탐지까지 기다려야​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;IDS types&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Network-based IDS​&lt;/li&gt;
+  &lt;li&gt;Wireless IDS (wireless IDS)​&lt;/li&gt;
+  &lt;li&gt;Host-based IDS​&lt;/li&gt;
+  &lt;li&gt;Distributed Host-based IDS&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Network-based IDS​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Example​
+    &lt;ul&gt;
+      &lt;li&gt;Network 망에 곳곳에 traffic을 모니터, 분석하여 침입탐지​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Example​
+    &lt;ul&gt;
+      &lt;li&gt;Ddos, worm  ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;장점 ​
+    &lt;ul&gt;
+      &lt;li&gt;Host는 부하적음 (하나의  NIDS로 여러 host보호)​&lt;/li&gt;
+      &lt;li&gt;조기 탐지가능​&lt;/li&gt;
+      &lt;li&gt;취약한 부분의 packet 을 정밀분석하여 다양한 침입탐지 ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;단점​
+    &lt;ul&gt;
+      &lt;li&gt;각 host 내부는 탐지제한​&lt;/li&gt;
+      &lt;li&gt;전체 network 망에 부하&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Wireless IDS (wireless IDS)​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;무선통신 WLAN network망의 traffic 분석​&lt;/li&gt;
+  &lt;li&gt;장점​
+    &lt;ul&gt;
+      &lt;li&gt;무선통신의 취약성위협 탐지​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;단점​
+    &lt;ul&gt;
+      &lt;li&gt;Network 부하, 비용&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Host-based IDS​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;특정 host 컴퓨터내부를 모니터링, 분석하여 탐지​&lt;/li&gt;
+  &lt;li&gt;Example​
+    &lt;ul&gt;
+      &lt;li&gt;로그분석, 파일시스템 기록분석, 실행코드분석 ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;장점​
+    &lt;ul&gt;
+      &lt;li&gt;악성sw 탐지용이​&lt;/li&gt;
+      &lt;li&gt;내부공격자 탐지​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;단점​
+    &lt;ul&gt;
+      &lt;li&gt;각 host마다 다름​&lt;/li&gt;
+      &lt;li&gt;Host 부하&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Distributed Host-based IDS&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;여러 HIDS들이 연계하여 전체적으로 host들을 분석하여 탐지 ​&lt;/li&gt;
+  &lt;li&gt;장점​
+    &lt;ul&gt;
+      &lt;li&gt;효율적이고 정확성​&lt;/li&gt;
+      &lt;li&gt;공격들의 연관관계 파악용이​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;단점​
+    &lt;ul&gt;
+      &lt;li&gt;HIDS보다 복잡, 부담&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Honey Pot&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;꿀단지​&lt;/li&gt;
+  &lt;li&gt;의도적으로 해커의 침입을 유도하는 시스템​&lt;/li&gt;
+  &lt;li&gt;해커 정보수집, 공격유형파악, 대응전략수립, 법적증거 ​&lt;/li&gt;
+  &lt;li&gt;침입자 활동감시, 로그기록&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;IDS 평가 기준&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;False Positive rate​
+    &lt;ul&gt;
+      &lt;li&gt;정상을 침입으로 판단하는 확률​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;False Negative​
+    &lt;ul&gt;
+      &lt;li&gt;침입을 정상으로 판단하는 확률​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;True Positive rate​&lt;/li&gt;
+  &lt;li&gt;True Negative rate​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;IPS (Intrusion Prevention System)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;침입방지시스템​&lt;/li&gt;
+  &lt;li&gt;IDS+침입방지기능​&lt;/li&gt;
+  &lt;li&gt;Example​
+    &lt;ul&gt;
+      &lt;li&gt;IDS로 침입탐지하고 계정, 연결 등 차단​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="security" />
+      
+
+      
+        <summary type="html">침입탐지</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">__방화벽__</title>
+      <link href="https://lee989898.github.io/sc-17" rel="alternate" type="text/html" title="__방화벽__" />
+      <published>2021-11-24T01:06:00+09:00</published>
+      <updated>2021-11-24T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc-17</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-17">&lt;h3 id=&quot;방화벽&quot;&gt;&lt;strong&gt;방화벽&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Firewalls?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;조직의 내부망을 외부 인터넷과 격리시켜 일부 패킷은 통과시키고 나머지는 차단하는 HW와 SW의 조합&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc24.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Firewall 서비스&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Traffic monitoring​&lt;/li&gt;
+  &lt;li&gt;Traffic control​&lt;/li&gt;
+  &lt;li&gt;NAT – 내부 network 보호​&lt;/li&gt;
+  &lt;li&gt;VPN – 내부 traffic 노출차단&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Firewalls을 쓰는 이유&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;서비스 거부 공격 방지:
+    &lt;ul&gt;
+      &lt;li&gt;SYN 플러딩: 공격자가 많은 가짜 TCP 연결을 설정하고 “실제” 연결을 위한 리소스가 남지 않음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;내부 데이터의 불법적인 수정/접근을 방지한다
+    &lt;ul&gt;
+      &lt;li&gt;예: 공격자가 CIA의 홈페이지를 다른 것으로 교체&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;내부 네트워크(인증된 사용자/호스트 집합)에 대한 승인된 액세스만 허용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Firewall types&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Stateless packet filter​&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;지나는 packet에 대해 미리 정의된 규칙에 따라 pass/block 결정​&lt;/li&gt;
+  &lt;li&gt;Packet의 다음 정보를 기반으로 결정​
+    &lt;ul&gt;
+      &lt;li&gt;source IP address, destination IP address​&lt;/li&gt;
+      &lt;li&gt;TCP/UDP source and destination port numbers​&lt;/li&gt;
+      &lt;li&gt;ICMP message type​&lt;/li&gt;
+      &lt;li&gt;TCP SYN and ACK bits​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;example 1: block incoming and outgoing BitTorrent traffic source or dest port = 6881-6889​&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;example 2: Block outbound Web access, port=80.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;ACL: 규칙이 있는 테이블, 들어오는 패킷에 위에서 아래로 적용: (액션, 조건) pair&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;장점​
+    &lt;ul&gt;
+      &lt;li&gt;Simple : 동작방식이 직관적이며 간단, 구현용이​&lt;/li&gt;
+      &lt;li&gt;Fast​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;단점​
+    &lt;ul&gt;
+      &lt;li&gt;application layer protocol의 취약점공격에 차단 불가능​&lt;/li&gt;
+      &lt;li&gt;사용자/application 별 서비스 제공불가능 ​&lt;/li&gt;
+      &lt;li&gt;필터링시 사용 정보가 제한되어서 정교한 필터링 불가능​&lt;/li&gt;
+      &lt;li&gt;IP주소 위변조 여부 판단 불가능&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Statefull packet filter​&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;동일한 상태정보를 가지는 패킷들을(packet flow) 그룹으로 필터링​
+    &lt;ul&gt;
+      &lt;li&gt;상태정보: src IP/port, dst IP/port ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;장점​
+    &lt;ul&gt;
+      &lt;li&gt;정교한 필터링​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;단점​
+    &lt;ul&gt;
+      &lt;li&gt;상태정보 테이블 검사수행에 따른 성능저하​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Application gateway&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;애플리케이션 데이터 및 IP/TCP/UDP 필드에서 패킷을 필터링한다&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;장점​
+    &lt;ul&gt;
+      &lt;li&gt;Application layer protocol 공격 차단​&lt;/li&gt;
+      &lt;li&gt;사용자 인증가능​&lt;/li&gt;
+      &lt;li&gt;정교한 Log, audit 가능​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;단점​
+    &lt;ul&gt;
+      &lt;li&gt;응용 프로그램마다 다른 응용 프로그램 게이트웨이가 필요하다(텔넷, http, ftp, 이메일 …)&lt;/li&gt;
+      &lt;li&gt;모든 데이터가 게이트웨이를 통과하기 때문에 성능이 저하됨&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;방화벽 및 게이트웨이의 한계&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;IP spoofing: 라우터는 데이터가 “실제로” 청구된 소스에서 오는지 알 수 없다&lt;/li&gt;
+  &lt;li&gt;여러 앱의 경우. 특별한 대우가 필요하며 각각의 앱이 있다&lt;/li&gt;
+  &lt;li&gt;클라이언트 소프트웨어는 게이트웨이에 접속하는 방법을 알아야 한다.
+    &lt;ul&gt;
+      &lt;li&gt;예를 들어, 웹 브라우저에서 프록시의 IP 주소를 설정해야 한다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;내부 공격자 방어에 취약​&lt;/li&gt;
+  &lt;li&gt;데이터 내용은 미확인 – 문서 등 내부에 심겨진 악성코드 방어 취약&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="security" />
+      
+
+      
+        <summary type="html">방화벽</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">분기 한정</title>
@@ -402,90 +841,6 @@ computeBound(x,y,assigned)
     </entry>
   
     <entry>
-      <title type="html">__Diffie-Hellman__</title>
-      <link href="https://lee989898.github.io/sc-14" rel="alternate" type="text/html" title="__Diffie-Hellman__" />
-      <published>2021-11-17T01:06:00+09:00</published>
-      <updated>2021-11-17T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/sc-14</id>
-      <content type="html" xml:base="https://lee989898.github.io/sc-14">&lt;h3 id=&quot;diffie-hellman&quot;&gt;&lt;strong&gt;Diffie-Hellman&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Diffie-Hellman&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;보안성 없는 매체를 통한 Symmetric key 공유&lt;/li&gt;
-  &lt;li&gt;송/수신자를 위한 일회용 Secret/shared session key agreement protocol&lt;/li&gt;
-  &lt;li&gt;이산대수문제&lt;/li&gt;
-  &lt;li&gt;IPSEC, 상용sw에 자주 사용&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Steps&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;p,g: 큰 정수, 1 &amp;lt; q &amp;lt; p, 모든 사용자에 공개&lt;/li&gt;
-  &lt;li&gt;Alice는 임의로 a 생성, A = $g^a$ mod p 계산&lt;/li&gt;
-  &lt;li&gt;Bob은 임의로 b 생성, B = $g^b$ mod p 계산&lt;/li&gt;
-  &lt;li&gt;A,B를 서로 교환&lt;/li&gt;
-  &lt;li&gt;Alice와 Bob은 K=$g^{ab}$ mod p&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Deiffie-Hellman의 취약성: 중간자 공격&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Man in the middle attack: Trudy poses as Alice and as Bob
-    &lt;ul&gt;
-      &lt;li&gt;Diffe-Hellman은 매우 복잡한 프로토콜이지만, 제 3자가 x 또는 y 값을 알아내지 않아도 되기 때문에 중간에서 밥과 앨리스를 속이는 것이 가능하다.​&lt;/li&gt;
-      &lt;li&gt;중간자 공격 절차​
-        &lt;ol&gt;
-          &lt;li&gt;앨리스가 x를 선택한 후 R1=Gx를 계산하여 R1을 밥에게 전송​&lt;/li&gt;
-          &lt;li&gt;제 3자가 R1을 가로챈 후, z를 선택한 다음 R2=Gz mod N을 계산하여 R2를 앨리스와 밥에게 전송​&lt;/li&gt;
-          &lt;li&gt;밥이 y를 선택한 다음 R3=Gy mod N을 계산해서 R3을 앨리스에게 전송, R3을 제 3자가 가로챔​&lt;/li&gt;
-          &lt;li&gt;앨리스와 제 3자가 공유한 키 K1=Gxz mod N을 계산​&lt;/li&gt;
-          &lt;li&gt;제 3자와 밥은 공유한 키 K2=Gzy mod N을 계산​&lt;/li&gt;
-        &lt;/ol&gt;
-      &lt;/li&gt;
-      &lt;li&gt;경우 앨리스와 밥은 제 3자와 공유한 키를 서로간의 공유한 키로 생각​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;사용자 인증을 하지 않아서 발생하는 문제 -&amp;gt; 전자서명, 인증서&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="security" />
-      
-
-      
-        <summary type="html">Diffie-Hellman</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
       <title type="html">__DRM(Digital Right Managemment__</title>
       <link href="https://lee989898.github.io/sc-15" rel="alternate" type="text/html" title="__DRM(Digital Right Managemment__" />
       <published>2021-11-17T01:06:00+09:00</published>
@@ -598,6 +953,90 @@ computeBound(x,y,assigned)
 
       
         <summary type="html">DRM(Digital Right Managemment</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">__Diffie-Hellman__</title>
+      <link href="https://lee989898.github.io/sc-14" rel="alternate" type="text/html" title="__Diffie-Hellman__" />
+      <published>2021-11-17T01:06:00+09:00</published>
+      <updated>2021-11-17T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc-14</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-14">&lt;h3 id=&quot;diffie-hellman&quot;&gt;&lt;strong&gt;Diffie-Hellman&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Diffie-Hellman&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;보안성 없는 매체를 통한 Symmetric key 공유&lt;/li&gt;
+  &lt;li&gt;송/수신자를 위한 일회용 Secret/shared session key agreement protocol&lt;/li&gt;
+  &lt;li&gt;이산대수문제&lt;/li&gt;
+  &lt;li&gt;IPSEC, 상용sw에 자주 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Steps&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;p,g: 큰 정수, 1 &amp;lt; q &amp;lt; p, 모든 사용자에 공개&lt;/li&gt;
+  &lt;li&gt;Alice는 임의로 a 생성, A = $g^a$ mod p 계산&lt;/li&gt;
+  &lt;li&gt;Bob은 임의로 b 생성, B = $g^b$ mod p 계산&lt;/li&gt;
+  &lt;li&gt;A,B를 서로 교환&lt;/li&gt;
+  &lt;li&gt;Alice와 Bob은 K=$g^{ab}$ mod p&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Deiffie-Hellman의 취약성: 중간자 공격&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Man in the middle attack: Trudy poses as Alice and as Bob
+    &lt;ul&gt;
+      &lt;li&gt;Diffe-Hellman은 매우 복잡한 프로토콜이지만, 제 3자가 x 또는 y 값을 알아내지 않아도 되기 때문에 중간에서 밥과 앨리스를 속이는 것이 가능하다.​&lt;/li&gt;
+      &lt;li&gt;중간자 공격 절차​
+        &lt;ol&gt;
+          &lt;li&gt;앨리스가 x를 선택한 후 R1=Gx를 계산하여 R1을 밥에게 전송​&lt;/li&gt;
+          &lt;li&gt;제 3자가 R1을 가로챈 후, z를 선택한 다음 R2=Gz mod N을 계산하여 R2를 앨리스와 밥에게 전송​&lt;/li&gt;
+          &lt;li&gt;밥이 y를 선택한 다음 R3=Gy mod N을 계산해서 R3을 앨리스에게 전송, R3을 제 3자가 가로챔​&lt;/li&gt;
+          &lt;li&gt;앨리스와 제 3자가 공유한 키 K1=Gxz mod N을 계산​&lt;/li&gt;
+          &lt;li&gt;제 3자와 밥은 공유한 키 K2=Gzy mod N을 계산​&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;경우 앨리스와 밥은 제 3자와 공유한 키를 서로간의 공유한 키로 생각​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;사용자 인증을 하지 않아서 발생하는 문제 -&amp;gt; 전자서명, 인증서&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="security" />
+      
+
+      
+        <summary type="html">Diffie-Hellman</summary>
       
 
       
@@ -2204,568 +2643,6 @@ PROCESSOR proc(n) -&amp;gt; 배열 처리 문장을 동시 실행(병렬 처리)
 
       
         <summary type="html">NP-완전</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">접근 제어</title>
-      <link href="https://lee989898.github.io/sc-12" rel="alternate" type="text/html" title="접근 제어" />
-      <published>2021-11-04T01:06:00+09:00</published>
-      <updated>2021-11-04T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/sc-12</id>
-      <content type="html" xml:base="https://lee989898.github.io/sc-12">&lt;h3 id=&quot;접근-제어&quot;&gt;&lt;strong&gt;접근 제어&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Access Control&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;허가되지 않은 사용자의 자원 접근 막고&lt;/li&gt;
-  &lt;li&gt;정당한 사용자라도 허가되지 않은 방법으로 자원사용 막고&lt;/li&gt;
-  &lt;li&gt;정당한 사용자가 허가된 방식으로만 자원에 접근하도록&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Access control components&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc17.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Authentication function: 사용자가 시스템에 접근할 수 있는지 결정&lt;/li&gt;
-  &lt;li&gt;Access control function: 사용자의 요청이 허용되는지 결정&lt;/li&gt;
-  &lt;li&gt;Security admin: 사용자의 요청이 자원에 어떻게 접근하는지를 명시한 권한 DB를 관리&lt;/li&gt;
-  &lt;li&gt;Audit: 사용자가 시스템 자원에 접근하는 것을 기록, 감시&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Access control architecture&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc18.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Access Control Policy&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;접근 제어 정책&lt;/li&gt;
-  &lt;li&gt;어떤 상황에서, 누구에게 어떤 종류의 접근이 허용되는지를 결정&lt;/li&gt;
-  &lt;li&gt;권한 DB에 저장되며 보안 admin이 관리&lt;/li&gt;
-  &lt;li&gt;종류 (동시에 사용가능)
-    &lt;ul&gt;
-      &lt;li&gt;Discretinoary access control(DAC)&lt;/li&gt;
-      &lt;li&gt;Mandatory access control(MAC)&lt;/li&gt;
-      &lt;li&gt;Role-based access control(RBAC)&lt;/li&gt;
-      &lt;li&gt;Attribute-based access control(ABAC)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Discretinoary access control(DAC)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;임의 접근 제어&lt;/li&gt;
-  &lt;li&gt;요청자의 신분에 따라 무엇을 할 수 있는지 정의&lt;/li&gt;
-  &lt;li&gt;Window, unix 등 컴퓨터 시스템 널리 사용&lt;/li&gt;
-  &lt;li&gt;Access Matrix 사용
-    &lt;ul&gt;
-      &lt;li&gt;주체와 객체, 권한을 행렬로 표현&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Access matrix
-    &lt;ul&gt;
-      &lt;li&gt;행: 자원접근 주체, subject&lt;/li&gt;
-      &lt;li&gt;열: subject가 접근하는 대상자원, object&lt;/li&gt;
-      &lt;li&gt;Entry: 허용되는 접근&lt;/li&gt;
-      &lt;li&gt;-Matrix가 커질 수 있고, 희박해지면 메모리 낭비&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc19.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;방법1. ACL - Access control lists
-    &lt;ul&gt;
-      &lt;li&gt;Access matrix를 열로 분리&lt;/li&gt;
-      &lt;li&gt;객체에 대한 권한을 가진 주체 파악에 유리&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc20.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;방법2. Capablility tickets
-    &lt;ul&gt;
-      &lt;li&gt;Access matrix 행으로 분리&lt;/li&gt;
-      &lt;li&gt;특정 주체에 대해 승인된 객체와 권한 명시&lt;/li&gt;
-      &lt;li&gt;특정 사용자에 허가된 객체/권한들을 정리하기 쉬움&lt;/li&gt;
-      &lt;li&gt;다른 주체에서 티켓을 빌려 주거나 양도 -&amp;gt; 보안문제 발생&lt;/li&gt;
-      &lt;li&gt;티켓 무결성, 기밀성, 인증성&lt;/li&gt;
-      &lt;li&gt;OS가 관리&lt;/li&gt;
-      &lt;li&gt;분산, Cloud 환경에 적합&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc21.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;방법 3. authorization table
-    &lt;ul&gt;
-      &lt;li&gt;한 행에 한 주제의 한 자원에 대한 권한명시&lt;/li&gt;
-      &lt;li&gt;RDB로 구현 용이&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc22.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;DAC 장단점 분석
-    &lt;ul&gt;
-      &lt;li&gt;장점
-        &lt;ul&gt;
-          &lt;li&gt;객체별 세분화된 접근 제어가능&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;단점
-        &lt;ul&gt;
-          &lt;li&gt;Access Matrix 사용에 따른 메모리 낭비&lt;/li&gt;
-          &lt;li&gt;주체나 객체별로 제어하기 때문에, 전체 자원의 일관성 있는 제어 어려움&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Role-based access control (RBAC)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;각 사용자 대신에 역할에 접근 권할을 할당&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;상업적으로 회사,기관,조직에서 많이 쓰임&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;사용자 vs 역할 vs 자원의 관계는 다대다&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;관계는 동적이다&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;RBAC 장단점 분석
-    &lt;ul&gt;
-      &lt;li&gt;장점
-        &lt;ul&gt;
-          &lt;li&gt;전체적으로 일관성있는 제어정책가능&lt;/li&gt;
-          &lt;li&gt;직무분석 용이&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;단점
-        &lt;ul&gt;
-          &lt;li&gt;각 주체, 객체별 유연하게 하기 어려움&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Attribute-based access control(ABAC)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;가장 최근&lt;/li&gt;
-  &lt;li&gt;주체와 자원의 속성을 표현&lt;/li&gt;
-  &lt;li&gt;DAC, RBAC의 기본개념 실형가능&lt;/li&gt;
-  &lt;li&gt;유연성과 표현력이 우수&lt;/li&gt;
-  &lt;li&gt;3요소 - 속성, 정책 모델, 아키텍처 모델&lt;/li&gt;
-  &lt;li&gt;+유연하고 세분화 보안정책 설계&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;-설계자 과다업무, 비용&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;속성
-    &lt;ul&gt;
-      &lt;li&gt;주체, 객체, 환경, 권한에 의해 미리 정의되고 할당된 요구되는 동작의 특정 측면을 정의하는 성질​&lt;/li&gt;
-      &lt;li&gt;주체 속성​
-        &lt;ul&gt;
-          &lt;li&gt;주체는 정보가 객체사이에 이동하거나 시스템 상태를 변경하는 능동적 존재(User, application, process, device)​&lt;/li&gt;
-          &lt;li&gt;주체의 이름, 소속, 직책 등​&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;객체 속성​
-        &lt;ul&gt;
-          &lt;li&gt;정보를 포함하거나 받는 수동적 시스템 존재 (file, device, table, record, process, program, network)​&lt;/li&gt;
-          &lt;li&gt;MS Word문서는 이름, 저자, 날짜 등을 속성으로 가짐​&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;환경 속성​
-        &lt;ul&gt;
-          &lt;li&gt;운영, 기술, 상황, 환경 기술​&lt;/li&gt;
-          &lt;li&gt;현재 날짜, 시간, 네트워크 보안 레벨&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="security" />
-      
-
-      
-        <summary type="html">접근 제어</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">ImplementSubprogram</title>
-      <link href="https://lee989898.github.io/pl-17" rel="alternate" type="text/html" title="ImplementSubprogram" />
-      <published>2021-11-03T19:18:00+09:00</published>
-      <updated>2021-11-03T19:18:00+09:00</updated>
-      <id>https://lee989898.github.io/pl-17</id>
-      <content type="html" xml:base="https://lee989898.github.io/pl-17">&lt;h3 id=&quot;implementsubprogram&quot;&gt;&lt;strong&gt;ImplementSubprogram&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;서브프로그램 호출과 반환의 구현, 이것을 서브프로그램 링키지(linkage)라고 합니다.​&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Semantics of Calls and Returns&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;서브프로그램 링키지는 호출과 반환에 관련된 액션들의 실행으로 구성된다. ​&lt;br /&gt;
-이러한 액션들을 호출 및 반환 시맨틱이라고 한다. ​&lt;/p&gt;
-
-&lt;p&gt;일반적인 서브프로그램 호출 시맨틱은 다음을 포함한다. ​&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;파라미터 패싱 방법의 구현, ​&lt;/li&gt;
-  &lt;li&gt;로컬 변수에 대한 스토리지 할당 및 바인딩 (로컬 변수가 정적 변수가 아닐 경우) ​&lt;/li&gt;
-  &lt;li&gt;콜러의 실행 상태 저장: ​
-    &lt;ul&gt;
-      &lt;li&gt;실행상태는 콜러의 재실행(resume)에 필요한 레지스터 값, CPU 상태 비트, 환경 포인터(EP)를 포함하며,​&lt;/li&gt;
-      &lt;li&gt;EP는 콜리의 실행 중에, 로컬 변수 및 파라미터를 접근하는데 사용된다.  ​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;콘트롤을 콜리에게 이전​&lt;/li&gt;
-  &lt;li&gt;콜리에 나타나는 난로컬 변수의 접근 메커니즘의 생성&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;서브프로그램의 반환 시맨틱은 다음을 포함한다. ​&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;포말 파라미터의 로컬 값을 액추얼 파라미터에게 인아웃 또는 아웃 모드로 카피​&lt;/li&gt;
-  &lt;li&gt;로컬 변수의 스토리지를 해제​&lt;/li&gt;
-  &lt;li&gt;콜러 실행 상태의 재저장​&lt;/li&gt;
-  &lt;li&gt;콜러에게 콘트롤 이전&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Implementing “Simple” Subprograms&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;단순 서브프로그램의 호출 및 반환을 어떻게 구현하는지 보자.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;단순 서브프로그램에서는 ​서브프로그램의 중첩을 허용하지 않고, 모든 로컬 변수가 정적이다. ​&lt;/li&gt;
-  &lt;li&gt;호출과 반환에 필요한 스토리지는 다음의 데이터를 포함한다. ​
-    &lt;ul&gt;
-      &lt;li&gt;콜러의 상태 정보, 파라미터, 복귀 주소, 함수의 반환값​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;단순 서브프로그램은 서브프로그램 코드와 데이터로 구성되는데, ​
-    &lt;ul&gt;
-      &lt;li&gt;데이터 파트는 로컬 변수, 호출과 반환에 필요한 데이터(위에 언급된)를 포함한다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;단순 서브프로그램의 호출 시맨틱스(액션과 그 순서)은 다음과 같다. ​&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;현재 수행중인 프로그램(콜러)의 실행 상태를 저장 ​&lt;/li&gt;
-  &lt;li&gt;파라미터의 계산 및 패스​&lt;/li&gt;
-  &lt;li&gt;콜리에게 복귀 주소를 패스​&lt;/li&gt;
-  &lt;li&gt;콜리에게 컨트롤을 이전&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;단순 프로그램의 반환 시맨틱스(액션과 그 순서)는 다음과 같다. ​&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;포말 파라미터의 현재 값을 대응하는 액추얼 파라미터에게 카피 (만일 pass-by-value-result나 pass-by-value라면) ​&lt;/li&gt;
-  &lt;li&gt;함수 값을 콜러에게 카피(만일 콜리가 함수라면) ​&lt;/li&gt;
-  &lt;li&gt;콜러의 실행 상태를 재저장​&lt;/li&gt;
-  &lt;li&gt;콜러에게 컨트롤을 재이전(되돌려줌)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;실행중인 서브프로그램의 데이터 파트를 위한 데이터 구조로 액티베이션 레코드를 정의한다.&lt;br /&gt;
-액티베이션 레코드는 로컬 변수, 파라미터, 복귀 주소로 구성된다.&lt;br /&gt;
-단순 서브프로그램의 액티베이션 레코드(AR)는 크기가 고정되어 있고, ​정적으로 할당된다.&lt;br /&gt;
-따라서 스택에 저장되지 않는다. ​이러한 액티베이션 레코드는 recursion을 지원할 수 없다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl41.png&quot; width=&quot;25%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;위 그림은 단순 서브프로그램의 액티베이션 레코드의 예이다.&lt;br /&gt;
-예에서 단순 서브프로그램은 A, B, C이고, 이들의 코드와 액티베이션 레코드는 오른쪽 그림과 같이 메모리에 할당된다.&lt;br /&gt;
-메모리에 할당되는 A, B, C의 코드와 데이터의 위치는 ​정적으로 할당되기 때문에 호출되는 순서와 무관하다.&lt;br /&gt;
-A, B, C 모두 별개로 컴파일될 수 있으며, ​이 경우 링커에 의해 그림과 같이 모아진다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Implementing Subprograms with Stack-Dynamic Local Variables&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;서브프로그램의 로컬 변수가 스택-동적일 경우, ​서브프로그램의 호출 및 반환 구현에 대해 알아보자.&lt;/p&gt;
-
-&lt;p&gt;스택 동적 로컬 변수는 런타임 스택에 할당된다. ​장점은 recursion의 지원이다.  ​&lt;/p&gt;
-
-&lt;p&gt;스택-동적 로컬 변수가 있는 서브프로그램의 호출과 반환을 구현하려면 ​액티베이션 레코드가 더욱 복잡해진다.  ​&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;컴파일러는 ‘스택에서 로컬 변수의 암묵적인 할당과 해제’를 지원하기 위한 코드를 생성해야 한다.  ​&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Recursion은 하나의 서브프로그램에 대해 여러 개의 액티베이션 레코드를 추가할 가능성이 있다. ​즉, 액티베이션 레코드 여러 개가 스택에 생성된다.&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;int AddTwo(int x,y)
-{
-  int sum;
-  sum = x + y;
-  return sum;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;위 함수를 실행하려면 어떤 데이터가 필요할까?&lt;br /&gt;
-파라미터 x, y, 로컬 변수 sum, AddTwo 종료후 복귀할 return address&lt;br /&gt;
-이와 같이, 액티베이션 레코드는 함수를 한번 실행하는데 필요한 데이터로 구성된다. ​&lt;/p&gt;
-
-&lt;p&gt;그러면… 스택에 저장된 이들 변수를 어떻게 접근할까? ​&lt;br /&gt;
-Caller의 스택 포인터를 이용하면 가능한가? 아니다.&lt;br /&gt;
-SP는 액티베이션 레코드를 스택에 저장하고자 할 때, ​스택 메모리를 할당하고(나중에 해제하는) ‘시스템이 사용하는’ 레지스터이다.&lt;br /&gt;
-따라서 서브프로그램이 사용할 수 있는 레지스터가 아니다.&lt;/p&gt;
-
-&lt;p&gt;​액티베이션 레코드에 저장된 파라미터나 로컬 변수에 접근하려면, ​&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;액티베이션 레코드에 접근할 때, ​BP(베이스 포인터)를 사용한다.&lt;br /&gt;
-BP는 AR의 맨앞의 주소를 말하며, ​서브프로그램의 실행 중에 변경되지 않는다.&lt;br /&gt;
-BP는 지정된 레지스터에 저장되는데, 그림에서 이것을 BP라고 표시하자. ​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;파라미터나 로컬 변수에 접근하려면, ​BP+옵셋을 계산하여 스택에 저장된 파라미터나 로컬 변수에 접근한다. ​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;서브프로그램이 종료되어 반환될 때, ​BP는 ‘caller의 액티베이션 레코드의 BP’로 재저장된다.&lt;br /&gt;
-여기서 return addr는 복귀 주소로, ​서브프로그램의 종료후 되돌아갈 caller의 위치를 나타낸다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;BP는 항상 현재 실행 중인 프로그램의 액티베이션 레코드의 시작 주소를 가리킨다.&lt;br /&gt;
-서브 프로그램이 호출되면, 현재 BP는 callee의 액티베이션 레코드(dynamic link)에 저장되고 ​BP는 새로 생성된 callee의 액티베이션 레코드의 시작 주소를 가리키도록 새롭게 설정된다.&lt;br /&gt;
-즉, callee로부터 반환되자마자, BP는 callee의 액티베이션 레코드(dynamic link)의 값으로 재저장된다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl42.png&quot; width=&quot;50%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl43.png&quot; width=&quot;50%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;위 그림은 코드와 데이터, 서브프로그램 링키지 코드(AddTwo PROC),그리고 액티베이션 레코드가 저장된 스택을 보여준다.&lt;br /&gt;
-esp, ebp는 각각 스택포인터, 베이스 포인터이며, eax는 반환값을 저장하는 장소이다&lt;/p&gt;
-
-&lt;p&gt;AddTwo PROC은 스택에 할당된 액티베이션 레코드에 접근하여, ​스택에 저장된 두 수를 더하여 eax에 저장하여 반환하고, 반환후 5와 6이 저장되었던 8 바이트를 청소하고 종료하는 과정을 보여준다.&lt;br /&gt;
-이때 EBP, ESP를 caller의 것으로 변경한다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl44.png&quot; width=&quot;50%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Recursion이 없이, 여러 서브프로그램으로 구성된 프로그램에서, ​메인이 B를 호출하고, ​B가 C를 호출하고, ​A가 C를 호출한다고 하자. &lt;br /&gt;
-그렇게 되면, 위와 같이 액티베이션 레코드가 스택 메모리에 할당된다.&lt;br /&gt;
-동적 링크는 바로 아래(caller)의 액티베이션 레코드를 가리킨다.&lt;/p&gt;
-
-&lt;p&gt;이와 같이, 스택에 스택-동적 액티베이션 레코드가 연속적으로 쌓여진 것을 동적 체인(dynamic chain)이라고 한다.&lt;br /&gt;
-로컬 변수의 접근은 BP와 옵셋을 계산에 의하며, 이러한 옵셋을 로컬 옵셋이라고 한다.&lt;br /&gt;
-로컬 변수의 로컬 옵셋은 컴파일러에 의해 컴파일 타임에 결정된다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl45.png&quot; width=&quot;50%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl46.png&quot; width=&quot;50%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl47.png&quot; width=&quot;50%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Recursion이 있을 때, ​액티베이션 레코드는  위의 그림과 같다. ​
-여기서 파라미터는 n이다.&lt;/p&gt;
-
-&lt;p&gt;첫째, 둘째, 셋째 recursion을 호출했을 때 function value가 모두 ?
-셋째 recursion을 종료되었을 때 둘째 호출이 종료되었을 때 function value가 모두 ?이 아니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Nested Subprograms&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;중첩 서브프로그램의 호출과 반환 구현 방법을 살펴 보자.&lt;/p&gt;
-
-&lt;p&gt;서브프로그램이 그 안에 다른 서브프로그램을 포함하는 경우, 이것을 중첩 서브프로그램이라고 부른다.&lt;/p&gt;
-
-&lt;p&gt;중첩 서브프로그램에서, 난로컬 변수에 어떻게 접근할 것인가?&lt;br /&gt;
-이들 변수는 스택의 액티베이션 레코드에 있다. ​&lt;/p&gt;
-
-&lt;p&gt;난로컬 변수에 접근하려면, ​먼저 스택에서 올바른 액티베이션 레코드를 찾아야 한다.&lt;br /&gt;
-다음, 액티베이션 레코드 내에서 그 변수의 옵셋을 찾아야 한다. ​&lt;/p&gt;
-
-&lt;p&gt;정적 스코프일 경우, ​&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;정적 조상 스코프에 선언된 변수가 나타나고 접근될 수 있다. ​&lt;/li&gt;
-  &lt;li&gt;언급된 모든 난로컬 변수는 스택의 다른 액티베이션 레코드에 할당되어 있다. ​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;올바른 액티베이션 레코드를 찾으려면, ​정적 조상의 액티베이션 레코드를 체인으로 연결하라.&lt;/p&gt;
-
-&lt;p&gt;정적 링크는 정적 부모의 시작 주소를 가리키는 포인터이다.&lt;br /&gt;
-정적 체인은 실행 중인 서브프로그램의 정적 부모를 포함해서 모든 정적 조상을 연결한다. ​&lt;/p&gt;
-
-&lt;p&gt;체인을 따라가면, 올바른 액티베이션 레코드를 찾을 수 있다. ​&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;스코프의 중첩은 정적이기 때문에 컴파일 타임에 미리 알려진다. ​&lt;/li&gt;
-  &lt;li&gt;따라서 쉽게 찾아갈 수 있다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;정적 체인을 따라가는데 필요한 정보는&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;static_depth: 정적 스크프의 중첩 깊이​&lt;/li&gt;
-  &lt;li&gt;Chain_offset(또는 nesting_depth): 난로컬 변수를 언급한 서브프로그램의 staic_depth 와 난로컬 변수를 선언한 서브프로그램의 static_depth 간의 차이 ​변수의 언급은 (chain_offset, local_offset)으로 표현되며, local_offset 은 액티베이션 레코드 내에서 언급된 변수의 옵셋이다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;호출할 때, 액티베이션 레코드를 생성한다.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;동적 링크는 스택의 olld 탑 포인터이다​&lt;/li&gt;
-  &lt;li&gt;정적 링크는 ‘가장 최근의 정적 부모’의 액티베이트 레코드를 가리킨다.​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;액티베이션 레코드를 생성한 후, 정적 체인을 생성하는 방법은 두가지가 있다.  ​&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;동적 체인을 따라가면서 부모 스코프를 찾는다. ​&lt;/li&gt;
-  &lt;li&gt;컴파일러가 서브프로그램 호출을 만나면, 호출된 서브프로그램의 정적 부모를 찾아서 그 부모로부터의 nesting_depth를 기록한다. 그 서브프로그램이 호출될 때, 콜러의 정적 링크에 있는 값과 nesting_depth의 수로부터 callee의 정적 링크를 찾을 수 있다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;정적 체인은 다음과 같은 문제를 내포하고 있다.&lt;br /&gt;
-중첩 깊이가 크면, 난로컬 변수에 대한 참조(레퍼런스)가 늦다.&lt;br /&gt;
-난로컬 참조의 비용 산출이 어렵다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Implementing Dynamic Scoping&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Deep Access
-딥액세스는 동적 체인에서 액티베이션 레코드를 검색하여 난로컬 참조를 찾는다.&lt;/li&gt;
-  &lt;li&gt;체인의 길이를 정적으로 결정할 수 없다. ​&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;모든 액티베이션 레코드는 검색 과정을 위해 변수명을 가져야 한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Shallo Access
-쉘로우 액세스는 각 변수명마다 하나의 스택을 유지하고, 중앙 테이블에 각 변수명에 대해 하나의 엔트리를 할당한다.  ​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;​&lt;/p&gt;
-
-&lt;hr /&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="pl" />
-      
-
-      
-        <summary type="html">ImplementSubprogram</summary>
       
 
       
