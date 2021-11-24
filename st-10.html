@@ -11,7 +11,7 @@
 
 
 
-    <title>프로그래밍 언어의 신택스와 시맨틱스</title>
+    <title>POSIX Thread Programming</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -49,7 +49,7 @@
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="공부 블로그" />
     <link rel="shortcut icon" href="https://lee989898.github.io/assets/built/images/favicon.jpg" type="image/png" />
-    <link rel="canonical" href="https://lee989898.github.io/pl-08" />
+    <link rel="canonical" href="https://lee989898.github.io/st-10" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
     
@@ -58,24 +58,24 @@
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="프로그래밍 언어의 신택스와 시맨틱스" />
-    <meta property="og:description" content="프로그래밍 언어의 신택스와 시맨틱스 프로그래밍 언어의 신택스는 산술식, 문, 프로그램 단위의 형태를 말한다. 문은 statement 또는 sentence를 말한다. ​ 프로그램 단위는 컨스트럭트(컨트롤 스트럭처)를 말하는데, ​ 앞으로 명확한 설명을 위해 프로그램 단위라는 추상적인 말을 쓰지 않고, ​ 가급적 컨스트럭스 또는 컨트롤 스트럭처라는 말을 쓰겠다. ​ 시맨틱스는 신택스에 맞게 작성된 표현식, 문," />
-    <meta property="og:url" content="https://lee989898.github.io/pl-08" />
-    <meta property="og:image" content="https://lee989898.github.io/assets/built/images/pl-background-frontend.png" />
+    <meta property="og:title" content="POSIX Thread Programming" />
+    <meta property="og:description" content="POSIX Thread Programming Thread Overview ​ 프로세스처럼 독립적으로 수행되는 프로그램 코드​ “경량 프로세스(light-weight process)”라고도 함​ “프로세스 내에서 독립적으로, 순차적으로 수행되는 instruction stream 또는 제어의 흐름”이라고도 함​ 여러 스레드는 동시에 실행이 가능​ 스레드들의 실행에 관한 스케쥴링은 OS가 담당​ 싱글 코어에서도 여러 스레드의 실행이 가능 ​ 한 프로세스내의 스레드들은 같은 주소 공간을" />
+    <meta property="og:url" content="https://lee989898.github.io/st-10" />
+    <meta property="og:image" content="https://lee989898.github.io/assets/built/images/system-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2021-09-16T19:18:00+09:00" />
-    <meta property="article:modified_time" content="2021-09-16T19:18:00+09:00" />
-    <meta property="article:tag" content="Pl" />
+    <meta property="article:published_time" content="2021-11-24T01:06:00+09:00" />
+    <meta property="article:modified_time" content="2021-11-24T01:06:00+09:00" />
+    <meta property="article:tag" content="System" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="프로그래밍 언어의 신택스와 시맨틱스" />
-    <meta name="twitter:description" content="프로그래밍 언어의 신택스와 시맨틱스 프로그래밍 언어의 신택스는 산술식, 문, 프로그램 단위의 형태를 말한다. 문은 statement 또는 sentence를 말한다. ​ 프로그램 단위는 컨스트럭트(컨트롤 스트럭처)를 말하는데, ​ 앞으로 명확한 설명을 위해 프로그램 단위라는 추상적인 말을 쓰지 않고, ​ 가급적 컨스트럭스 또는 컨트롤 스트럭처라는 말을 쓰겠다. ​ 시맨틱스는 신택스에 맞게 작성된 표현식, 문," />
+    <meta name="twitter:title" content="POSIX Thread Programming" />
+    <meta name="twitter:description" content="POSIX Thread Programming Thread Overview ​ 프로세스처럼 독립적으로 수행되는 프로그램 코드​ “경량 프로세스(light-weight process)”라고도 함​ “프로세스 내에서 독립적으로, 순차적으로 수행되는 instruction stream 또는 제어의 흐름”이라고도 함​ 여러 스레드는 동시에 실행이 가능​ 스레드들의 실행에 관한 스케쥴링은 OS가 담당​ 싱글 코어에서도 여러 스레드의 실행이 가능 ​ 한 프로세스내의 스레드들은 같은 주소 공간을" />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
-    <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/pl-background-frontend.png" />
+    <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/system-logo.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="LEE" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Pl" />
+    <meta name="twitter:data2" content="System" />
     <meta name="twitter:site" content="@" />
     <meta name="twitter:creator" content="@" />
     <meta property="og:image:width" content="1400" />
@@ -90,18 +90,18 @@
         "name": "LEE",
         "logo": "https://lee989898.github.io/"
     },
-    "url": "https://lee989898.github.io/pl-08",
+    "url": "https://lee989898.github.io/st-10",
     "image": {
         "@type": "ImageObject",
-        "url": "https://lee989898.github.io/assets/built/images/pl-background-frontend.png",
+        "url": "https://lee989898.github.io/assets/built/images/system-logo.png",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://lee989898.github.io/pl-08"
+        "@id": "https://lee989898.github.io/st-10"
     },
-    "description": "프로그래밍 언어의 신택스와 시맨틱스 프로그래밍 언어의 신택스는 산술식, 문, 프로그램 단위의 형태를 말한다. 문은 statement 또는 sentence를 말한다. ​ 프로그램 단위는 컨스트럭트(컨트롤 스트럭처)를 말하는데, ​ 앞으로 명확한 설명을 위해 프로그램 단위라는 추상적인 말을 쓰지 않고, ​ 가급적 컨스트럭스 또는 컨트롤 스트럭처라는 말을 쓰겠다. ​ 시맨틱스는 신택스에 맞게 작성된 표현식, 문,"
+    "description": "POSIX Thread Programming Thread Overview ​ 프로세스처럼 독립적으로 수행되는 프로그램 코드​ “경량 프로세스(light-weight process)”라고도 함​ “프로세스 내에서 독립적으로, 순차적으로 수행되는 instruction stream 또는 제어의 흐름”이라고도 함​ 여러 스레드는 동시에 실행이 가능​ 스레드들의 실행에 관한 스케쥴링은 OS가 담당​ 싱글 코어에서도 여러 스레드의 실행이 가능 ​ 한 프로세스내의 스레드들은 같은 주소 공간을"
 }
     </script>
 
@@ -114,7 +114,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="프로그래밍 언어의 신택스와 시맨틱스" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="POSIX Thread Programming" href="/feed.xml" />
 
 
 </head>
@@ -182,305 +182,359 @@ into the {body} of the default.hbs template -->
 <main id="site-main" class="site-main outer" role="main">
     <div class="inner">
 
-        <article class="post-full  tag-pl post tag-study ">
+        <article class="post-full  tag-system post tag-system ">
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="16 September 2021">16 September 2021</time>
+                    <time class="post-full-meta-date" datetime="24 November 2021">24 November 2021</time>
                     
                         <span class="date-divider">/</span>
                         
                             
-                               <a href='/tag/pl/'>PL</a>
+                               <a href='/tag/system/'>SYSTEM</a>
                             
                         
                     
                 </section>
-                <h1 class="post-full-title">프로그래밍 언어의 신택스와 시맨틱스</h1>
+                <h1 class="post-full-title">POSIX Thread Programming</h1>
             </header>
 
             <!--
             
-            <figure class="post-full-image" style="background-image: url(/assets/built/images/pl-background-frontend.png)">
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/system-logo.png)">
             </figure>
             
             -->
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <h3 id="프로그래밍-언어의-신택스와-시맨틱스"><strong>프로그래밍 언어의 신택스와 시맨틱스</strong></h3>
+                    <h3 id="posix-thread-programming"><strong>POSIX Thread Programming</strong></h3>
 
 <hr />
-
-<p>프로그래밍 언어의 신택스는 산술식, 문, 프로그램 단위의 형태를 말한다.<br />
-문은 statement 또는 sentence를 말한다.   ​</p>
-
-<p>프로그램 단위는 컨스트럭트(컨트롤 스트럭처)를 말하는데, ​
-앞으로 명확한 설명을 위해 프로그램 단위라는 추상적인 말을 쓰지 않고, ​
-가급적 컨스트럭스 또는 컨트롤 스트럭처라는 말을 쓰겠다. ​</p>
-
-<p>시맨틱스는 신택스에 맞게 작성된 표현식, 문, 컨스트럭트의 의미를 말합니다. ​</p>
-
-<p>자바 while 문에 대해, ​
-신택스는 while (Boolean_expr) statement 의 형태를 띄어야 하고, ​
-그 시맨틱스는 부울 표현식이 참일 때, statement를 실행하고, ​
-컨트롤은 부울 표현식으로 되돌아가서 이 프로세스를 반복하는데, ​
-부울 표현식이 거짓이면 ​
-while 컨스트럭트의 실행이 끝난다는 의미이다.​</p>
-
-<p>시맨틱스의 서술 방법은 여러 가지가 있지만, ​
-컴퓨터에서 실행되는 ‘연산의 의미’로 시맨틱스를 서술하는 것을 ​
-operational semantics라고 하는데, ​
-위에 서술된 while문의 시맨틱스는 operational semantics의 예이다.
-​
-잘 설계된 프로그래밍 언어에서, 시맨틱스는 신택스를 따릅니다. ​
-이것은 위에 설명된 자바 while 문의 신택스와 시맨틱스의 예를 
-보면 직관적으로 알 수 있다.</p>
-
-<hr />
-
-<p>그럼 신택스를 어떻게 서술하는지 살펴 보자.</p>
-
-<p>신택스 서술 방법으로 BNF가 널리 사용되고 있다.<br />
-BNF를 메타 언어라고 하는데, 메타 언어란 언어를 
-서술하는데 사용되는 언어라는 뜻이다.</p>
-
-<p>즉, BNF는 프로그래밍 언어의 신택스를 서술하는데 사용되는 메타 언어이다.<br />
-BNF는 신택스 구조를 위한 추상적 개념을 사용하는 규칙 언어이다.<br />
-규칙은 화살표 왼편(LHS)과 오른편(RHS)으로 나누어지는데, ​
-문을 생성하면서, 왼편이 오른편으로 대체된다.</p>
-
-<p>BNF가 사용하는 추상적 개념들에는 무엇이 있는지 ​
-자바의 예를 보면서 알아 보자</p>
-
-<hr />
-
-<p>​<img src="/assets/built/images/pl/pl12.png" width="100%" height="50%" title="제목" alt="프로그래밍언어" /></p>
-
-<hr />
-
-<p>자바의 assign과 if 문은 다음과 같이 서술된다.​</p>
-
-<p>assign, var, expression, 화살표(-&gt;), =(이퀄 사인)​
-if_stmt, logic_expr, stmt, if, (괄호), |(세로줄, 
-or의 뜻) 등을 볼 수 있다.</p>
-
-<p>화살표를 제외하고, 이들은 각각 BNF를 구성하는 non-terminal/terminal 심볼이다.<br />
-꺽쇠 괄호로 싸여 있는 것이 non-terminal이다.</p>
-
-<p>하나의 왼편에 대해 여러 개의 규칙을 가질 수 있는데, ​
-이때 여러 개의 규칙에 대해 |를 사용하여 각각의 오른편을 구분합니다. ​</p>
-
-<p>List를 보면, <ident_list>의 오른편에 두개의 규칙이 있음을 알 수 있는데, ​
-두번째 규칙은 <ident_list>가 identifier와 <ident_list>로 대체하는 것
-입이다. ​</ident_list></ident_list></ident_list></p>
-
-<p>이 규칙의 오른편을 보면, <ident_list>가 또 들어 있는데,  ​
-이러한 규칙을 recursive rule(순환 규칙)이라고 한다.</ident_list></p>
-
-<p>문법은 언어를 정의하기 위한 생성 장치이다.<br />
-문은 문법에 있는 일련의 규칙 적용을 통해 생성되며, ​이러한 일련의 규칙 적용을 유도(derivation)이라고 한다.<br />
-유도에 의해 생성된 결과를 문형식(sentential form)이라고 한다. ​</p>
-
-<p>문형식(sentential form)에서,  ​
-가장 왼쪽의 난터미날을 먼저 대체하는 것을 좌
-선유도(leftmost derivation)이라고 하고, ​
-그 반대를 우선유도(rightmost derivation)이라고 한다.</p>
-
-<hr />
-
-<p>​<img src="/assets/built/images/pl/pl13.png" width="100%" height="50%" title="제목" alt="프로그래밍언어" /></p>
-
-<hr />
-
-<p>위 사례는 덧셈과 뺄셈으로 구성된 산술식을 서술하기 위한 문법과 ​
-그 문법에 의한 산술식의 유도(derivation) 과정을 보여주고 있다.</p>
-
-<p>오른쪽에 나열된 일련의 문형식(sentential form)들은 ​
-program이라는 난터미날 심볼에서 시작하여, ​
-왼쪽의 문법을 적용하여 좌선유도(Leftmost derivation)된 결과이다.  ​
-=&gt;의 오른쪽에 있는 begin stmt_list end, ​
-begin stmt ; stmt_list end, 등은 모두 문형식의 예들이다.<br />
-마지막에 있는 begin A = B + C ; B = C end 은 문(sentence)이다.<br />
-그러니까 문과 문형식의 차이는 난터미날 심볼의 유무에 달려 있다. ​</p>
-
-<hr />
-
-<p>​<img src="/assets/built/images/pl/pl14.png" width="100%" height="50%" title="제목" alt="프로그래밍언어" /></p>
-
-<hr />
-
-<p>위 사례는 Assignment 문을 위한 문법과 ​
-그 문법에 의한 assignment 문의 유도를 보여주고 있다. ​</p>
-
-<p>왼쪽 아래는 난터미날 심볼 <assign>에서 시작하여 leftmost
-derivation을 보여주고 있고,  ​</assign></p>
-
-<p>이것을 트리로 나타내 보면 오른쪽 그림과 같다. ​
-이 트리를 파스(parse) 트리라고 한다. ​</p>
-
-<p>당연한 말이지만 leftmost derivation을 하면, ​
-파스 트리의 가장 왼쪽 노드부터 터미날 심볼로 바뀌
-는 것을 볼 수 있다.</p>
-
-<hr />
-
-<p>​<img src="/assets/built/images/pl/pl15.png" width="100%" height="50%" title="제목" alt="프로그래밍언어" /></p>
-
-<hr />
-
-<p>이 문법을 가지고 expr에서 시작해서 산술식을 유도할 때, ​
-+이 포함된 RHS를 먼저 적용하느냐, <em>이 포함된 RHS를 먼저 적용하느냐에 따라, ​
-A=B+C</em>A를 위한 파스 트리가 두개 생성된다. ​</p>
-
-<p>이와 같이, 문형식에 문법을 적용할 때, ​
-동일한 문형식에 대해 파스 트리가 여러 개 생성되면, ​
-이 문법을 모호한 문법이라고 한다. ​</p>
-
-<p>문법의 모호성은 중대한 문제를 야기한다.<br />
-일반적으로 preorder에 따라 산술식을 계산하는데, ​
-이들 트리는 실행 결과가 서로 다르다. ​</p>
-
-<p>왜냐하면, 왼쪽의 트리는 덧셈이 먼저, 오른쪽의 트리는 곱셈이 
-먼저 계산되기 때문이다.<br />
-즉, 동일한 문에 대해 어떤 규칙을 먼저 적
-용하였느냐에 따라 파스 트리가 다르고, ​
-그 트리의 실행 결과가 항상 같지 않다는 것이다.<br />
-이러한 이유로 문법의 모호성은 제거되어야 한다.</p>
-
-<p>문의 실행 결과가 항상 같지 않을 수 있기 때문에 모호성은 제거되어야 함을 알게 되었다. ​</p>
 
 <blockquote>
-  <p>이러한 모호성을 어떻게 제거할 수 있을까?  ​</p>
+  <p>Thread Overview ​</p>
 </blockquote>
 
 <ul>
-  <li>
-    <p>연산자에 대한 우선순위를 둔다.
-즉, 파스 트리의 가장 아래에 있는 연산자부터 먼저 실행한다.<br />
-따라서, 아래에 있는 연산자가 위의 연산자보다 우선 순위가 높다. ​</p>
+  <li>프로세스처럼 독립적으로 수행되는 프로그램 코드​
+    <ul>
+      <li>“경량 프로세스(light-weight process)”라고도 함​</li>
+      <li>“프로세스 내에서 독립적으로, 순차적으로 수행되는 instruction stream 또는 제어의 흐름”이라고도 함​</li>
+      <li>여러 스레드는 동시에 실행이 가능​</li>
+      <li>스레드들의 실행에 관한 스케쥴링은 OS가 담당​</li>
+      <li>싱글 코어에서도 여러 스레드의 실행이 가능 ​</li>
+    </ul>
   </li>
-  <li>
-    <p>우선순위에 따라 연산자 출현 순서를 지정한다.<br />
-이와 같은 출현 순서의 지정은 별도의 난터미널 심볼을 사용하여 명세할 수 있다.<br />
-난터미널 심볼은 우선순위가 다른 연산자의 오퍼랜드를 표현하기 위해 사용한다. ​</p>
+  <li>한 프로세스내의 스레드들은 같은 주소 공간을 사용 ​
+    <ul>
+      <li>공유 매모리를 이용하여 스레드간의 통신을 이용함으로써 복잡한 프로세스간 통신(IPC) 기능을 사용하지 않아도 됨​</li>
+      <li>스레드간의 통신 비용이 IPC 비용보다 낮음​</li>
+    </ul>
   </li>
 </ul>
 
-<p>모호성 제거 방법을 종합하면, 문법을 서술할 때,  ​
-파스 트리에서 낮은 우선순위의 연산자가 ​
-높은 우선순위의 연산자보다 위에 나타날 수 있도록, ​
-낮은 우선순위의 오른쪽 오퍼랜드를 ​
-새로운 난터미널 심볼로 대체한다.  ​</p>
+<p><img src="/assets/built/images/st/st25.png" width="50%" height="25%" title="제목" alt="시스템프로그래밍" /></p>
 
-<p>예를 들어 살펴 보자.</p>
+<ul>
+  <li>Process는 실행을 위하여 resource들이 필요하며 실행 상태를 메모리에 저장 ​
+    <ul>
+      <li>Process ID, group ID, … ​</li>
+      <li>Program instructions​</li>
+      <li>Registers, Stack​</li>
+      <li>Heap ​</li>
+      <li>File descriptor, …​</li>
+    </ul>
+  </li>
+  <li>Thread는 Process 내부에 존재하면서 resource들을 같이 사용 ​
+    <ul>
+      <li>Registers, stack, 등은 thread 별로 따로 존재  ​</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/built/images/st/st26.png" width="50%" height="25%" title="제목" alt="시스템프로그래밍" /></p>
+
+<ul>
+  <li>공통 스레드 구현​
+    <ul>
+      <li>병렬 소스 코드 내에서 호출되는 서브루틴 라이브러리</li>
+      <li>직렬 또는 병렬 소스 코드에 포함된 컴파일러 지시문 세트</li>
+    </ul>
+  </li>
+  <li>스레드 구현은 컴퓨팅에서 새로운 것이 아니다
+    <ul>
+      <li>역사적으로 하드웨어 공급업체는 고유한 스레드 버전을 구현했다</li>
+      <li>이러한 구현은 서로 상당히 다르다</li>
+      <li>프로그래머가 휴대용 스레드 응용 프로그램을 개발하기 어려움​</li>
+    </ul>
+  </li>
+  <li>관련 없는 표준화 노력으로 인해 두 개의 매우 다른 스레드 구현이 발생했다
+    <ul>
+      <li>POSIX Threads (Pthread)​</li>
+      <li>OpenMP​</li>
+    </ul>
+  </li>
+</ul>
 
 <hr />
 
-<p>​<img src="/assets/built/images/pl/pl16.png" width="100%" height="50%" title="제목" alt="프로그래밍언어" /></p>
+<blockquote>
+  <p>Pthread Introduction ​</p>
+</blockquote>
+
+<ul>
+  <li>IEEE POSIX (Portable Operating System Interface for UNIX) 1003.1c Standard​
+    <ul>
+      <li>과거에 하드웨어 업체별로 각각 제작되어 사용되었던 스레드에 관한 구현을 표준화 ​</li>
+      <li>이 표준에 따라 구현된 스레드를 POSIX Thread 또는 Pthread로 부름​
+        <ul>
+          <li>스레드를 생성하고 동기화하는 system call 들로 구성​</li>
+        </ul>
+      </li>
+      <li>표준화는 계속 진행 중​
+        <ul>
+          <li>가장 최근의  표준은 IEEE Std 1003.1, 2004 Edition​</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>C-프로그래밍 언어의 type과 procedure call의 집합으로 정의 ​
+    <ul>
+      <li>
+        <pthread.h> header 파일 및 thread library로 구현​
+</pthread.h>
+        <ul>
+          <li>libc library의 일부로 구현되기도 함​</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>우수한 성능 : 프로세스와 비교​
+    <ul>
+      <li>스레드 생성에 드는 OS overhead가 프로세스 생성에 비해 현격히 낮음​
+        <ul>
+          <li>50,000번의 프로세스 생성(fork() 사용) vs. 스레드 생성(pthread_create() 사용) ​</li>
+          <li>실행 시간의 단위는 second, time 커맨드에 의해 측정​</li>
+          <li>스레드 관리에 드는 resource도 프로세스에 비해 현격히 적음​</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Pthread에서는 ​
+    <ul>
+      <li>Parallelism 생성​</li>
+      <li>동기화(synchronization)​을 지원함​</li>
+    </ul>
+  </li>
+  <li>Communication에 대한 explicit한 지원은 없음​
+    <ul>
+      <li>Shared-memory 모델이므로 communication은 implicit하게 일어남​
+​</li>
+    </ul>
+  </li>
+  <li>스레드의 상태​
+    <ul>
+      <li>준비(ready) : 스레드가 실행될 수 있는 상태​</li>
+      <li>실행(running) : CPU의 서비스를 받고 있는 상태​</li>
+      <li>블록(block) : sleep(), read(), 세마포어 연산 등으로 기다리는 상태​</li>
+      <li>종료(terminated) : 스레드가 종료 또는 취소된 상태​
+​</li>
+    </ul>
+  </li>
+  <li>준비 상태​
+    <ul>
+      <li>스레드가 처음 생성되면 준비 상태로 감​</li>
+      <li>CPU의 서비스를 받을 수 있는 상태​</li>
+    </ul>
+  </li>
+  <li>실행 상태​
+    <ul>
+      <li>OS의 스케줄러에 의해 CPU의 서비스를 받고 있는 상태​</li>
+      <li>스케줄링에 의해 준비상태로 갈 수 있음​</li>
+    </ul>
+  </li>
+  <li>블록 상태​
+    <ul>
+      <li>실행 상태에서 즉시 처리할 수 없는 작업을 만나는 경우​
+        <ul>
+          <li>read(), wait(), sleep(), 세마포어/뮤텍스/조건변수를 기다리는 경우​</li>
+        </ul>
+      </li>
+      <li>원하는 조건이 만족되면 준비 상태가 됨​</li>
+    </ul>
+  </li>
+  <li>종료 상태​
+    <ul>
+      <li>스레드 시작함수에서 return 또는 pthread_exit()가 호출된 경우​</li>
+      <li>사용하던 자원의 대부분을 시스템에 반납​</li>
+      <li>종료 상태 값을 부모 스레드에게 넘겨주기 위한 자원은 부모 스레드에서 pthread_join()을 통해 읽어가면 완전히 삭제​</li>
+    </ul>
+  </li>
+  <li>Application 프로그램은 하나의 스레드로 시작​
+    <ul>
+      <li>Main 스레드 또는 master 스레드로 불림 ​</li>
+    </ul>
+  </li>
+  <li>pthread_create() 호출에 의해 새로운 child 스레드를 생성​
+    <ul>
+      <li>새로운 child 스레드의 생성은 procedure 호출의 형태를 띔​</li>
+    </ul>
+  </li>
+  <li>pthread_exit() 또는 pthread_join() 호출에 의해 새로 생성되었던 스레드 종료​
+    <ul>
+      <li>Master 스레드만 남게 됨​</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/built/images/st/st27.png" width="50%" height="25%" title="제목" alt="시스템프로그래밍" /></p>
+
+<blockquote>
+  <p>스레드 생성</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int pthread_create (​
+  pthread_t   *thread, // 생성된 스레드의 핸들 ​
+  pthread_attr_t   *attr, // 스레드 속성을 지정하는 인자​
+  void   *(*start_routine) (void *), // 스레드 시작함수(start routine) 주소​
+  void   *arg ) // 스레드 시작 함수의 인자(들)
+</code></pre></div></div>
+
+<ul>
+  <li>thread : 새로운 child 스레드가 성공적으로 생성될 경우 생성된 스레드의 핸들​</li>
+  <li>attr : 생성되는 child 스레드의 속성을 지정(디폴트 값은 NULL)​</li>
+  <li>start_routine : 새로 생성되는 child 스레드를 지정하는 함수의 시작 주소​</li>
+  <li>arg : 시작 함수들의 인자(들)​</li>
+  <li>리턴 값 ​
+    <ul>
+      <li>성공시 0을 리턴​</li>
+      <li>에러 발생시 에러코드의 정수 값(errno)을 리턴​</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>Pthread 프로그램 컴파일</p>
+</blockquote>
+
+<ul>
+  <li>일반적으로 –lpthread 옵션이 필요​
+    <ul>
+      <li>스레드 라이브러리가 다른 라이브러리(예 : libc)에 통합된 경우는 불필요 ​</li>
+    </ul>
+  </li>
+  <li>-D_REENTRANT 옵션​
+    <ul>
+      <li>멀티 스레드 환경에서 싱글 스레드의 경우와 구별된 errno를 사용하도록 함​</li>
+      <li>일반 함수들이 멀티 스레드 환경에 적합하게 동작하도록 함​</li>
+    </ul>
+  </li>
+  <li>컴파일 예제​
+    <ul>
+      <li>Linux/GCC의 경우​
+        <ul>
+          <li>% gcc test.c –lpthread (-lpthread 옵션에 –D_REENTRANT 포함)​</li>
+        </ul>
+      </li>
+      <li>Solaris/Studio 컴파일러의 경우​
+        <ul>
+          <li>% cc –mt test.c (-mt 옵션에 –D_REENTRANT 포함, 스레드 라이브러리는 libc 라이브러리에 포함됨) ​</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>스레드 종료</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void  pthread_exit(void   *retval);​
+</code></pre></div></div>
+
+<ul>
+  <li>생성된 child 스레드의 종료​
+    <ul>
+      <li>프로세스와 마찬가지로 return을 만나면 종료​</li>
+      <li>또는 pthread_exit() 호출시 종료​</li>
+      <li>pthread_exit() 호출에 의해 child 스레드가 종료할 경우 할당되었던 자원들은 반납되지 않음​</li>
+      <li>나중에 pthread_join() 호출에 의해 반납됨 ​</li>
+      <li>Detach 된 스레드는 예외  ​</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int  pthread_join(pthread_t   thrd,   void   **thread_return);
+</code></pre></div></div>
+
+<ul>
+  <li>Parent 스레드에서 호출​
+    <ul>
+      <li>자신이 생성한 child 스레드가 종료할 때까지 기다림​
+        <ul>
+          <li>thrd​
+            <ul>
+              <li>종료를 기다릴 스레드의 핸들​</li>
+            </ul>
+          </li>
+          <li>thread_return​
+            <ul>
+              <li>child 스레드의 종료 상태가 저장됨​</li>
+              <li>NULL로 하면 종료 상태를 받지 않음​</li>
+              <li>child 스레드의 종료값은 return, pthread_exit()로 남길 수 있음​</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Child 스레드가 종료되기 전에 parent 스레드가 먼저 종료되지 않게 할 때 사용​
+    <ul>
+      <li>Parent 스레드가 종료하면 child 스레드가 함께 종료되며​</li>
+      <li>Child 스레드의 작업이 모두 이루어 지지 않은 상태일 수 있음​</li>
+    </ul>
+  </li>
+  <li>Child 스레드의 종료 시점을 정확히 파악하여 어떤 작업을 하고 싶거나 종료 상태 값을 얻기 위해 사용​</li>
+  <li>종료된 child 스레드에 할당되었던 resource 들은 반납됨 ​</li>
+</ul>
+
+<blockquote>
+  <p>스레드 Detach</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int   pthread_detach(pthread_t   thrd);
+</code></pre></div></div>
+
+<ul>
+  <li>Detached 스레드​
+    <ul>
+      <li>Join이 가능한 스레드(pthread_join()을 사용)와 대비​</li>
+      <li>Parent 스레드가 생성한 child 스레드에 대해 pthread_detach()를 호출하면 parent 스레드가 나중에 wait하지 않음​
+        <ul>
+          <li>빠른 스레드의 실행에 도움이 됨​</li>
+        </ul>
+      </li>
+      <li>Detach 된 스레드에 pthread_join()를 호출하면 error 발생​</li>
+      <li>Detach 된 스레드는 pthread_join() 호출 없이 할당되었던 resources 들이 반납됨 
+​</li>
+    </ul>
+  </li>
+</ul>
 
 <hr />
 
-<p>+는 *에 비해 트리의 아래에 위치해야 한다.<br />
-따라서, <expr> -&gt; <expr> + <expr>의 RHS에서 ​오른쪽 오퍼랜드 <expr>를 <term>으로 대체한다.  
-그러면 이제 <expr> -&gt; <expr> * <expr>는 ​</expr></expr></expr></term></expr></expr></expr></expr></p>
-<term> -&gt; <term> * <term>으로 잠정적으로 바뀐다.  
-이 규칙의 RHS에서 오른쪽 오퍼랜드는 ​곱셈 다음에 <id>나 (괄호속의 식)을 나타날 수 있다.  
-(괄호속 식)을 서술할 수 있도록 하기 위해 ​곱셈의 오른쪽 오퍼랜드 <term>을 ​
-난터미날 심볼 <factor>를 사용하여 대체한다.  
-그러면, 잠정적으로 바뀐 <term> -&gt; <term> * <term>은 ​
-<term> -&gt; <term> * <factor>가 된다.
+<blockquote>
+  <p>Synchronization​</p>
+</blockquote>
 
-원래 <factor>는 없었는데, ​
-곱셈의 오른쪽 오퍼랜드로 (괄호속 식) 또는 <id>를 나타낼 수 있도록 하기 위해 ​
-<factor>라는 난터미날을 새로 도입한 것이다. ​
+<hr />
 
-이러한 목적에 의해 <factor>가 (괄호속 식)
- 또는 <id>를 생성하는 규칙을 서술해야 한다.  
- 이 규칙은 <factor> -&gt; (<expr>) | <id>로 쓸 수 있다.
+<blockquote>
+  <p>Semaphore &amp; Conditional Variable​</p>
+</blockquote>
 
-연산자 우선순위와 연산자 출현 순서의 지정에 의해 모호성을 제거하여 ​
-트리를 생성하면 유일하게 생성된다.
+<hr />
 
-그러나 만일 우선순위가 같은 곱셈과 나눗셈이 포함된 산술식을 위한 문법이라면, ​
-모호성을 어떻게 제거해야 할까? ​
-
-이와 긑은 문제는 시맨틱 규칙으로 지정해서 해결해야 한다. ​​
-
-A / B * C와 같이 동일한 우선순위를 가진 곱셈과 나눗셈으
-로 이루어진 식에서, ​
-이들 연산자간의 계산 순서를 정하기 위해 어떤 시맨틱 규칙을 쓸 수 있을까?  
-
-바로 결합 법칙을 이용할 수 있다. ​
-
-그런데 결합 법칙에는, ​
-왼쪽부터 결합하는 방식과 오른쪽부터 결합하는 방식, ​
-두 가지가 있다.
-
-A / B * C 은 어느 방식을 쓰느냐에 따라 계산 결과가 달라진다.  ​
-    
-또한 if-else 문법의 모호성 문제도 있다.  ​
-
----
-
- ​<img src="/assets/built/images/pl/pl17.png" width="100%" height="50%" title="제목" alt="프로그래밍언어" />
-
----
-
-
-if (logic_expr) if (logic_expr) stmt else st
-mt에 대해, 위의 문법은 두개의 파스 트리를 생성한다.  
-따라서 이 문법은 모호성이 있다.  
-
----
-
- ​<img src="/assets/built/images/pl/pl18.png" width="100%" height="50%" title="제목" alt="프로그래밍언어" />
-
----  
-
-If-else의 모호성 제거는 ‘가장 가까운 then에 else를 매치시킨다’는 규칙으로 해소된다.
-If문은 then과 else가 모두 있는 것과 ​
-then만 있고 else는 없는 것으로 구분된다. ​
-
-즉 난터미날 <stmt>는 난터미날 <matche d="">이거나 <unmatched>로 대체된다.
-<matched>는 if… else…를 모두 갖춘 것이고, <unm atched="">는 if… 로 구성되어 있다.
-<unmatched>는 else 다음에 if… els
-e를 허용하기 위해, 규칙에 else <unmatched>를 추가한다. ​
-
-모호성을 제거한 새로운 문법은 오른쪽 아래와 같다.
-
----
-
-&gt; Extended BNF
-
-
- ​<img src="/assets/built/images/pl/pl19.png" width="100%" height="50%" title="제목" alt="프로그래밍언어" />
-
----
-
-&lt;…&gt;는 난터미날 심볼, x, y, z는 터미날 심볼​
-( )는 그룹으로 묶기(일상적인 괄호의 의미), ​
-{ }와 [ ]는 일상적인 의미가 아니고, ​
-{ }는 0번 이상 반복, ​
-[ ]는 생략 가능(이 예제에는 없음), ​
-“ ”는 터미날 심볼을 나타내는 규칙의 표현 기호이며, ​
-( )는 규칙 표기에 사용되는 기호이기 때문에, ​
-산술식의 일부로서 표현되는 소괄호는 “(“  “)”로 표기함  
-
----
-
- ​<img src="/assets/built/images/pl/pl20.png" width="100%" height="50%" title="제목" alt="프로그래밍언어" />  
- 
----
-
-위 그림에서 왼쪽의 BNF를 EBNF로 나타내면 오른쪽과 같다고 되어 있다.  
-그러나 이 문법은 산술식에서 우선순위를 나타낼 때 사용하는 소괄호와
-EBNF로 표기법의 소괄호의 의미를 구분하지 못하고 있다.  
-
-이를 바로 잡으면, 오른쪽 아래의 문법과 같다.  
-EBNF에서 ( )를 산술식의 괄호로 쓰려면, “(“, “)”로 써야 한다.
-
----
-</unmatched></unmatched></unm></matched></unmatched></matche></stmt></id></expr></factor></id></factor></factor></id></factor></factor></term></term></term></term></term></factor></term></id></term></term></term>
 
                 </div>
             </section>
@@ -547,9 +601,9 @@ EBNF에서 ( )를 산술식의 괄호로 쓰려면, “(“, “)”로 써야 �
                     <div id="disqus_thread"></div>
                     <script>
                         var disqus_config = function () {
-                            var this_page_url = 'https://lee989898.github.io/pl-08';
-                            var this_page_identifier = '/pl-08';
-                            var this_page_title = '프로그래밍 언어의 신택스와 시맨틱스';
+                            var this_page_url = 'https://lee989898.github.io/st-10';
+                            var this_page_identifier = '/st-10';
+                            var this_page_title = 'POSIX Thread Programming';
                         };
                         (function() {
                             var d = document, s = d.createElement('script');
@@ -583,7 +637,7 @@ EBNF에서 ( )를 산술식의 괄호로 쓰려면, “(“, “)”로 써야 �
                         <header class="read-next-card-header">
                             <small class="read-next-card-header-sitetitle">&mdash; LEE &mdash;</small>
                             
-                                <h3 class="read-next-card-header-title"><a href="/tag/pl/">Pl</a></h3>
+                                <h3 class="read-next-card-header-title"><a href="/tag/system/">System</a></h3>
                             
                         </header>
                         <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
@@ -593,9 +647,26 @@ EBNF에서 ( )를 산술식의 괄호로 쓰려면, “(“, “)”로 써야 �
                                 
                                 
                                   
+                                    
+                                  
                                 
                                   
                                 
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/st-09">프로세스통신-socket</a></li>
+                                        
+                                    
                                   
                                 
                                   
@@ -614,20 +685,7 @@ EBNF에서 ( )를 산술식의 괄호로 쓰려면, “(“, “)”로 써야 �
                                     
                                         
                                         
-                                            <li><a href="/pl-18">Concurrency</a></li>
-                                        
-                                    
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                            <li><a href="/pl-17">ImplementSubprogram</a></li>
+                                            <li><a href="/st-08">프로세스통신-pipe</a></li>
                                         
                                     
                                   
@@ -642,7 +700,7 @@ EBNF에서 ( )를 산술식의 괄호로 쓰려면, “(“, “)”로 써야 �
                                     
                                         
                                         
-                                            <li><a href="/pl-16">서브프로그램</a></li>
+                                            <li><a href="/st-07">Signal</a></li>
                                         
                                     
                                   
@@ -663,67 +721,11 @@ EBNF에서 ( )를 산술식의 괄호로 쓰려면, “(“, “)”로 써야 �
                                   
                                 
                                   
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
                                 
                                   
                                 
                                   
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                    
                                   
                                 
                                   
@@ -747,17 +749,11 @@ EBNF에서 ( )를 산술식의 괄호로 쓰려면, “(“, “)”로 써야 �
                                   
                                 
                                   
-                                    
-                                        
-                                        
-                                    
+                                
                                   
                                 
                                   
-                                    
-                                        
-                                        
-                                    
+                                
                                   
                                 
                                   
@@ -765,17 +761,7 @@ EBNF에서 ( )를 산술식의 괄호로 쓰려면, “(“, “)”로 써야 �
                                   
                                 
                                   
-                                    
-                                        
-                                        
-                                    
-                                  
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
                                   
@@ -787,6 +773,34 @@ EBNF에서 ( )를 산술식의 괄호로 쓰려면, “(“, “)”로 써야 �
                                 
                                   
                                 
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
                                   
                                 
                                   
@@ -842,9 +856,9 @@ EBNF에서 ( )를 산술식의 괄호로 쓰려면, “(“, “)”로 써야 �
                             </ul>
                         </div>
                         <footer class="read-next-card-footer">
-                            <a href="/tag/pl/">
+                            <a href="/tag/system/">
                                 
-                                    See all 17 posts  →
+                                    See all 9 posts  →
                                 
                             </a>
                         </footer>
@@ -854,30 +868,33 @@ EBNF에서 ( )를 산술식의 괄호로 쓰려면, “(“, “)”로 써야 �
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
             
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
                 
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/algorithm-03">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/algorithm-logo.png)"></div>
+            <a class="post-card-image-link" href="/sc-17">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/security-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/algorithm-03">
+            <a class="post-card-content-link" href="/sc-17">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Algorithm</span>
+                                <span class="post-card-tags">Security</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">분할 정복</h2>
+                    <h2 class="post-card-title">__방화벽__</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>분할 정복
+                        <p>방화벽
 
 </p>
                     
@@ -906,60 +923,6 @@ EBNF에서 ( )를 산술식의 괄호로 쓰려면, “(“, “)”로 써야 �
 
             
 
-            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
-            
-                
-
-    <article class="post-card post-template">
-        
-            <a class="post-card-image-link" href="/pl-07">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/pl-background-frontend.png)"></div>
-            </a>
-        
-        <div class="post-card-content">
-            <a class="post-card-content-link" href="/pl-07">
-                <header class="post-card-header">
-                    
-                        
-                            
-                                <span class="post-card-tags">Pl</span>
-                            
-                        
-                    
-
-                    <h2 class="post-card-title">프로그래밍 언어의 정교화</h2>
-                </header>
-                <section class="post-card-excerpt">
-                    
-                        <p>프로그래밍 언어의 정교화
-
-</p>
-                    
-                </section>
-            </a>
-            <footer class="post-card-meta">
-                
-                    
-                        
-                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="lee989898" />
-                        
-                        <span class="post-card-author">
-                            <a href="/author/lee989898/">lee989898</a>
-                        </span>
-                    
-                
-                <span class="reading-time">
-                    
-                    
-                      6 min read
-                    
-                </span>
-            </footer>
-        </div>
-    </article>
-
-            
-
         </div>
     </div>
 </aside>
@@ -973,18 +936,18 @@ EBNF에서 ( )를 산술식의 괄호로 쓰려면, “(“, “)”로 써야 �
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">프로그래밍 언어의 신택스와 시맨틱스</div>
+    <div class="floating-header-title">POSIX Thread Programming</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D+%EC%96%B8%EC%96%B4%EC%9D%98+%EC%8B%A0%ED%83%9D%EC%8A%A4%EC%99%80+%EC%8B%9C%EB%A7%A8%ED%8B%B1%EC%8A%A4&amp;url=https://lee989898.github.io/pl-08"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=POSIX+Thread+Programming&amp;url=https://lee989898.github.io/st-10"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://lee989898.github.io/pl-08"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://lee989898.github.io/st-10"
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
 

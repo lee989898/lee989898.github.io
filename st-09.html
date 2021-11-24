@@ -566,6 +566,234 @@ int recvfrom(int sockfd, void *buf, size_t len, int flags, struct sockaddr *from
 
 <hr />
 
+<blockquote>
+  <p>System V IPC​</p>
+</blockquote>
+
+<ol>
+  <li>Semaphores​</li>
+  <li>Shared memory​</li>
+  <li>Message queues​</li>
+</ol>
+
+<blockquote>
+  <p>Semaphores</p>
+</blockquote>
+
+<ul>
+  <li>여러 프로세스에 대한 공유 데이터 개체에 대한 액세스를 제공하는 카운터</li>
+  <li>공유 리소스를 얻으려면
+    <ul>
+      <li>
+        <ol>
+          <li>Test semaphore controlling resource​
+            <ul>
+              <li>1-1 If value &gt; 0, value –, grant use​</li>
+              <li>1-2 If value == 0, sleep until value &gt; 0​</li>
+            </ul>
+          </li>
+        </ol>
+      </li>
+      <li>
+        <ol>
+          <li>Release resource, value ++​</li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+  <li>Steps 1-1, 1-2 atomic 연산이어야 한다</li>
+  <li>세마포어는 하나 이상의 세마포어 값의 집합으로 정의되다
+    <ul>
+      <li>세마포어가 생성될 때 집합에 값의 개수도 지정된다</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/built/images/st/st23.png" width="50%" height="25%" title="제목" alt="시스템프로그래밍" /></p>
+
+<blockquote>
+  <p>Functions</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/sem.h&gt;​
+
+int semget(key_t key, int num_sems, int sem_flags);​
+int semctl(int sem_id, int sem_num, int command, …);​
+int semop(int sem_id, struct sembuf *sem_ops, size_t num_sem_ops);
+</code></pre></div></div>
+
+<ul>
+  <li>semget : 세마포어 생성 또는 세마포어 키 반환
+    <ul>
+      <li>Key : 동일한 세마포어에 액세스하기 위한 10진수 값</li>
+      <li>num_sems : 세마포어의 수</li>
+    </ul>
+  </li>
+  <li>semctl : 세마포어 정보 제어
+    <ul>
+      <li>sem_id : 세마포어 ID​</li>
+      <li>sem_num : 세마포어의 수</li>
+      <li>command : 세마포어 명령</li>
+    </ul>
+  </li>
+  <li>semop : 세마포어 값 변경</li>
+  <li>생성(semget)은 초기화(semctl)와 무관하다​</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>Shared memory</p>
+</blockquote>
+
+<ul>
+  <li>가장 빠른 형태의 IPC: 프로세스 간 데이터 복사 불필요</li>
+  <li>공유 메모리 세그먼트에 대한 액세스를 동기화해야 함 -&gt; 세마포어가 사용됨</li>
+</ul>
+
+<p><img src="/assets/built/images/st/st24.png" width="50%" height="25%" title="제목" alt="시스템프로그래밍" /></p>
+
+<blockquote>
+  <p>Functions</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt; ​
+#include &lt;sys/ipc.h&gt; ​
+#include &lt;sys/shm.h&gt; ​
+
+int shmget(key_t key, int size, int flag); ​
+        Returns: shared memory ID if OK, -1 on error
+</code></pre></div></div>
+
+<ul>
+  <li>공유 메모리 식별자 얻기</li>
+  <li>Size : 공유 메모리 세그먼트의 크기</li>
+  <li>Flag : ipc_perm.mode​</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt; ​
+#include &lt;sys/ipc.h&gt; ​
+#include &lt;sys/shm.h&gt; ​
+
+int shmctl(int shmid, int cmd, struct shmid_ds *buf);​
+        Returns: 0 if OK, -1 on error
+</code></pre></div></div>
+
+<ul>
+  <li>다양한 공유 메모리 작업​</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt; ​
+#include &lt;sys/ipc.h&gt; ​
+#include &lt;sys/shm.h&gt; ​
+
+void *shmat (int shmid, void *addr, int flag); ​
+        Returns: pointer to shared memory segment if OK, -1 on error
+</code></pre></div></div>
+
+<ul>
+  <li>주소에 공유 메모리 첨부</li>
+  <li>flag ​
+    <ul>
+      <li>SHM_RDONLY : 세그먼트가 읽기 전용이다​</li>
+    </ul>
+  </li>
+  <li>addr==0: 커널이 선택한 첫 번째 주소에서
+    <ul>
+      <li>recommended​</li>
+    </ul>
+  </li>
+  <li>addr!=0 &amp;&amp; SHM_RND is not specified:​
+    <ul>
+      <li>addr이 제공한 주소에서</li>
+    </ul>
+  </li>
+  <li>addr!=0 &amp;&amp; SHM_RND is specified:​
+    <ul>
+      <li>주어진 주소에서 (addr – (addr modulus SHMLBA))​</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt; ​
+#include &lt;sys/ipc.h&gt; ​
+#include &lt;sys/shm.h&gt; ​
+
+void shmdt (void *addr); ​
+        Returns: 0 if OK, -1 on error
+</code></pre></div></div>
+
+<ul>
+  <li>공유 메모리 세그먼트 분리</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>Message queues</p>
+</blockquote>
+
+<ul>
+  <li>메시지의 연결 목록
+    <ul>
+      <li>커널에 저장</li>
+      <li>메시지 대기열 식별자로 식별</li>
+    </ul>
+  </li>
+  <li>msgget: 새 대기열 생성 또는 기존 대기열 열기</li>
+  <li>msgsnd: 대기열에 새 메시지 추가</li>
+  <li>msgrcv: 대기열에서 메시지 수신</li>
+  <li>Fetching order: based on type</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt; ​
+#include &lt;sys/ipc.h&gt; ​
+#include &lt;sys/msg.h&gt; ​
+
+int msgget(key_t key, int flag); ​
+        Returns: msg queue ID if OK, -1 on error
+</code></pre></div></div>
+
+<ul>
+  <li>새 대기열 생성 또는 기존 대기열 열기</li>
+  <li>Flag : ipc_perm.mode​</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt; ​
+#include &lt;sys/ipc.h&gt; ​
+#include &lt;sys/msg.h&gt; ​
+​
+int msgsnd(int msqid, const void *ptr, size_t nbytes, int flag); ​
+        Returns: 0 if OK, -1 on error
+
+struct mymesg {​
+  long mtype;         /* positive message type */​
+  char mtext[512];    /* message data, of length nbytes */​
+};
+</code></pre></div></div>
+
+<ul>
+  <li>큐의 끝에 메시지 배치</li>
+  <li>ptr은 메시지를 가리킨다</li>
+  <li>nbytes : 메시지 데이터의 길이</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt; ​
+#include &lt;sys/ipc.h&gt; ​
+#include &lt;sys/msg.h&gt; ​
+
+int msgrcv(int msqid, void *ptr, size_t nbytes, long type, int flag); ​
+        Returns: data size in message if OK, -1 on error
+</code></pre></div></div>
+
+<ul>
+  <li>대기열에서 메시지 검색</li>
+  <li>type == 0 : 큐의 첫 번째 메시지가 반환된다</li>
+  <li>type &gt; 0 : 메시지 유형이 유형과 동일한 큐의 첫 번째 메시지가 반환된다</li>
+  <li>type &lt; 0 : 메시지 유형이 유형의 절대값보다 작거나 같은 가장 낮은 값인 큐의 첫 번째 메시지가 반환된다</li>
+</ul>
+
+<hr />
 
                 </div>
             </section>
@@ -678,6 +906,15 @@ int recvfrom(int sockfd, void *buf, size_t len, int flags, struct sockaddr *from
                                 
                                 
                                   
+                                    
+                                        
+                                        
+                                            <li><a href="/st-10">POSIX Thread Programming</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
                                 
                                   
                                 
@@ -736,8 +973,6 @@ int recvfrom(int sockfd, void *buf, size_t len, int flags, struct sockaddr *from
                                   
                                     
                                         
-                                        
-                                            <li><a href="/st-06">Process_Control</a></li>
                                         
                                     
                                   
@@ -882,7 +1117,7 @@ int recvfrom(int sockfd, void *buf, size_t len, int flags, struct sockaddr *from
                         <footer class="read-next-card-footer">
                             <a href="/tag/system/">
                                 
-                                    See all 8 posts  →
+                                    See all 9 posts  →
                                 
                             </a>
                         </footer>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lee989898.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lee989898.github.io/" rel="alternate" type="text/html" /><updated>2021-11-24T19:27:29+09:00</updated><id>https://lee989898.github.io/feed.xml</id><title type="html">LEE</title><subtitle>공부 블로그</subtitle><entry><title type="html">__침입탐지__</title><link href="https://lee989898.github.io/sc-16" rel="alternate" type="text/html" title="__침입탐지__" /><published>2021-11-24T01:06:00+09:00</published><updated>2021-11-24T01:06:00+09:00</updated><id>https://lee989898.github.io/sc-16</id><content type="html" xml:base="https://lee989898.github.io/sc-16">&lt;h3 id=&quot;침입탐지&quot;&gt;&lt;strong&gt;침입탐지&lt;/strong&gt;&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lee989898.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lee989898.github.io/" rel="alternate" type="text/html" /><updated>2021-11-24T22:22:37+09:00</updated><id>https://lee989898.github.io/feed.xml</id><title type="html">LEE</title><subtitle>공부 블로그</subtitle><entry><title type="html">__침입탐지__</title><link href="https://lee989898.github.io/sc-16" rel="alternate" type="text/html" title="__침입탐지__" /><published>2021-11-24T01:06:00+09:00</published><updated>2021-11-24T01:06:00+09:00</updated><id>https://lee989898.github.io/sc-16</id><content type="html" xml:base="https://lee989898.github.io/sc-16">&lt;h3 id=&quot;침입탐지&quot;&gt;&lt;strong&gt;침입탐지&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
 
@@ -224,7 +224,333 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="security" /><summary type="html">침입탐지</summary></entry><entry><title type="html">__방화벽__</title><link href="https://lee989898.github.io/sc-17" rel="alternate" type="text/html" title="__방화벽__" /><published>2021-11-24T01:06:00+09:00</published><updated>2021-11-24T01:06:00+09:00</updated><id>https://lee989898.github.io/sc-17</id><content type="html" xml:base="https://lee989898.github.io/sc-17">&lt;h3 id=&quot;방화벽&quot;&gt;&lt;strong&gt;방화벽&lt;/strong&gt;&lt;/h3&gt;
+&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="security" /><summary type="html">침입탐지</summary></entry><entry><title type="html">POSIX Thread Programming</title><link href="https://lee989898.github.io/st-10" rel="alternate" type="text/html" title="POSIX Thread Programming" /><published>2021-11-24T01:06:00+09:00</published><updated>2021-11-24T01:06:00+09:00</updated><id>https://lee989898.github.io/st-10</id><content type="html" xml:base="https://lee989898.github.io/st-10">&lt;h3 id=&quot;posix-thread-programming&quot;&gt;&lt;strong&gt;POSIX Thread Programming&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Thread Overview ​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;프로세스처럼 독립적으로 수행되는 프로그램 코드​
+    &lt;ul&gt;
+      &lt;li&gt;“경량 프로세스(light-weight process)”라고도 함​&lt;/li&gt;
+      &lt;li&gt;“프로세스 내에서 독립적으로, 순차적으로 수행되는 instruction stream 또는 제어의 흐름”이라고도 함​&lt;/li&gt;
+      &lt;li&gt;여러 스레드는 동시에 실행이 가능​&lt;/li&gt;
+      &lt;li&gt;스레드들의 실행에 관한 스케쥴링은 OS가 담당​&lt;/li&gt;
+      &lt;li&gt;싱글 코어에서도 여러 스레드의 실행이 가능 ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;한 프로세스내의 스레드들은 같은 주소 공간을 사용 ​
+    &lt;ul&gt;
+      &lt;li&gt;공유 매모리를 이용하여 스레드간의 통신을 이용함으로써 복잡한 프로세스간 통신(IPC) 기능을 사용하지 않아도 됨​&lt;/li&gt;
+      &lt;li&gt;스레드간의 통신 비용이 IPC 비용보다 낮음​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/st/st25.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;시스템프로그래밍&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Process는 실행을 위하여 resource들이 필요하며 실행 상태를 메모리에 저장 ​
+    &lt;ul&gt;
+      &lt;li&gt;Process ID, group ID, … ​&lt;/li&gt;
+      &lt;li&gt;Program instructions​&lt;/li&gt;
+      &lt;li&gt;Registers, Stack​&lt;/li&gt;
+      &lt;li&gt;Heap ​&lt;/li&gt;
+      &lt;li&gt;File descriptor, …​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Thread는 Process 내부에 존재하면서 resource들을 같이 사용 ​
+    &lt;ul&gt;
+      &lt;li&gt;Registers, stack, 등은 thread 별로 따로 존재  ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/st/st26.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;시스템프로그래밍&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;공통 스레드 구현​
+    &lt;ul&gt;
+      &lt;li&gt;병렬 소스 코드 내에서 호출되는 서브루틴 라이브러리&lt;/li&gt;
+      &lt;li&gt;직렬 또는 병렬 소스 코드에 포함된 컴파일러 지시문 세트&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;스레드 구현은 컴퓨팅에서 새로운 것이 아니다
+    &lt;ul&gt;
+      &lt;li&gt;역사적으로 하드웨어 공급업체는 고유한 스레드 버전을 구현했다&lt;/li&gt;
+      &lt;li&gt;이러한 구현은 서로 상당히 다르다&lt;/li&gt;
+      &lt;li&gt;프로그래머가 휴대용 스레드 응용 프로그램을 개발하기 어려움​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;관련 없는 표준화 노력으로 인해 두 개의 매우 다른 스레드 구현이 발생했다
+    &lt;ul&gt;
+      &lt;li&gt;POSIX Threads (Pthread)​&lt;/li&gt;
+      &lt;li&gt;OpenMP​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Pthread Introduction ​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;IEEE POSIX (Portable Operating System Interface for UNIX) 1003.1c Standard​
+    &lt;ul&gt;
+      &lt;li&gt;과거에 하드웨어 업체별로 각각 제작되어 사용되었던 스레드에 관한 구현을 표준화 ​&lt;/li&gt;
+      &lt;li&gt;이 표준에 따라 구현된 스레드를 POSIX Thread 또는 Pthread로 부름​
+        &lt;ul&gt;
+          &lt;li&gt;스레드를 생성하고 동기화하는 system call 들로 구성​&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;표준화는 계속 진행 중​
+        &lt;ul&gt;
+          &lt;li&gt;가장 최근의  표준은 IEEE Std 1003.1, 2004 Edition​&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;C-프로그래밍 언어의 type과 procedure call의 집합으로 정의 ​
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;pthread.h&gt; header 파일 및 thread library로 구현​
+&lt;/pthread.h&gt;
+        &lt;ul&gt;
+          &lt;li&gt;libc library의 일부로 구현되기도 함​&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;우수한 성능 : 프로세스와 비교​
+    &lt;ul&gt;
+      &lt;li&gt;스레드 생성에 드는 OS overhead가 프로세스 생성에 비해 현격히 낮음​
+        &lt;ul&gt;
+          &lt;li&gt;50,000번의 프로세스 생성(fork() 사용) vs. 스레드 생성(pthread_create() 사용) ​&lt;/li&gt;
+          &lt;li&gt;실행 시간의 단위는 second, time 커맨드에 의해 측정​&lt;/li&gt;
+          &lt;li&gt;스레드 관리에 드는 resource도 프로세스에 비해 현격히 적음​&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Pthread에서는 ​
+    &lt;ul&gt;
+      &lt;li&gt;Parallelism 생성​&lt;/li&gt;
+      &lt;li&gt;동기화(synchronization)​을 지원함​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Communication에 대한 explicit한 지원은 없음​
+    &lt;ul&gt;
+      &lt;li&gt;Shared-memory 모델이므로 communication은 implicit하게 일어남​
+​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;스레드의 상태​
+    &lt;ul&gt;
+      &lt;li&gt;준비(ready) : 스레드가 실행될 수 있는 상태​&lt;/li&gt;
+      &lt;li&gt;실행(running) : CPU의 서비스를 받고 있는 상태​&lt;/li&gt;
+      &lt;li&gt;블록(block) : sleep(), read(), 세마포어 연산 등으로 기다리는 상태​&lt;/li&gt;
+      &lt;li&gt;종료(terminated) : 스레드가 종료 또는 취소된 상태​
+​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;준비 상태​
+    &lt;ul&gt;
+      &lt;li&gt;스레드가 처음 생성되면 준비 상태로 감​&lt;/li&gt;
+      &lt;li&gt;CPU의 서비스를 받을 수 있는 상태​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;실행 상태​
+    &lt;ul&gt;
+      &lt;li&gt;OS의 스케줄러에 의해 CPU의 서비스를 받고 있는 상태​&lt;/li&gt;
+      &lt;li&gt;스케줄링에 의해 준비상태로 갈 수 있음​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;블록 상태​
+    &lt;ul&gt;
+      &lt;li&gt;실행 상태에서 즉시 처리할 수 없는 작업을 만나는 경우​
+        &lt;ul&gt;
+          &lt;li&gt;read(), wait(), sleep(), 세마포어/뮤텍스/조건변수를 기다리는 경우​&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;원하는 조건이 만족되면 준비 상태가 됨​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;종료 상태​
+    &lt;ul&gt;
+      &lt;li&gt;스레드 시작함수에서 return 또는 pthread_exit()가 호출된 경우​&lt;/li&gt;
+      &lt;li&gt;사용하던 자원의 대부분을 시스템에 반납​&lt;/li&gt;
+      &lt;li&gt;종료 상태 값을 부모 스레드에게 넘겨주기 위한 자원은 부모 스레드에서 pthread_join()을 통해 읽어가면 완전히 삭제​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Application 프로그램은 하나의 스레드로 시작​
+    &lt;ul&gt;
+      &lt;li&gt;Main 스레드 또는 master 스레드로 불림 ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;pthread_create() 호출에 의해 새로운 child 스레드를 생성​
+    &lt;ul&gt;
+      &lt;li&gt;새로운 child 스레드의 생성은 procedure 호출의 형태를 띔​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;pthread_exit() 또는 pthread_join() 호출에 의해 새로 생성되었던 스레드 종료​
+    &lt;ul&gt;
+      &lt;li&gt;Master 스레드만 남게 됨​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/st/st27.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;시스템프로그래밍&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;스레드 생성&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;int pthread_create (​
+  pthread_t   *thread, // 생성된 스레드의 핸들 ​
+  pthread_attr_t   *attr, // 스레드 속성을 지정하는 인자​
+  void   *(*start_routine) (void *), // 스레드 시작함수(start routine) 주소​
+  void   *arg ) // 스레드 시작 함수의 인자(들)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;thread : 새로운 child 스레드가 성공적으로 생성될 경우 생성된 스레드의 핸들​&lt;/li&gt;
+  &lt;li&gt;attr : 생성되는 child 스레드의 속성을 지정(디폴트 값은 NULL)​&lt;/li&gt;
+  &lt;li&gt;start_routine : 새로 생성되는 child 스레드를 지정하는 함수의 시작 주소​&lt;/li&gt;
+  &lt;li&gt;arg : 시작 함수들의 인자(들)​&lt;/li&gt;
+  &lt;li&gt;리턴 값 ​
+    &lt;ul&gt;
+      &lt;li&gt;성공시 0을 리턴​&lt;/li&gt;
+      &lt;li&gt;에러 발생시 에러코드의 정수 값(errno)을 리턴​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Pthread 프로그램 컴파일&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;일반적으로 –lpthread 옵션이 필요​
+    &lt;ul&gt;
+      &lt;li&gt;스레드 라이브러리가 다른 라이브러리(예 : libc)에 통합된 경우는 불필요 ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;-D_REENTRANT 옵션​
+    &lt;ul&gt;
+      &lt;li&gt;멀티 스레드 환경에서 싱글 스레드의 경우와 구별된 errno를 사용하도록 함​&lt;/li&gt;
+      &lt;li&gt;일반 함수들이 멀티 스레드 환경에 적합하게 동작하도록 함​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;컴파일 예제​
+    &lt;ul&gt;
+      &lt;li&gt;Linux/GCC의 경우​
+        &lt;ul&gt;
+          &lt;li&gt;% gcc test.c –lpthread (-lpthread 옵션에 –D_REENTRANT 포함)​&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Solaris/Studio 컴파일러의 경우​
+        &lt;ul&gt;
+          &lt;li&gt;% cc –mt test.c (-mt 옵션에 –D_REENTRANT 포함, 스레드 라이브러리는 libc 라이브러리에 포함됨) ​&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;스레드 종료&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;void  pthread_exit(void   *retval);​
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;생성된 child 스레드의 종료​
+    &lt;ul&gt;
+      &lt;li&gt;프로세스와 마찬가지로 return을 만나면 종료​&lt;/li&gt;
+      &lt;li&gt;또는 pthread_exit() 호출시 종료​&lt;/li&gt;
+      &lt;li&gt;pthread_exit() 호출에 의해 child 스레드가 종료할 경우 할당되었던 자원들은 반납되지 않음​&lt;/li&gt;
+      &lt;li&gt;나중에 pthread_join() 호출에 의해 반납됨 ​&lt;/li&gt;
+      &lt;li&gt;Detach 된 스레드는 예외  ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;int  pthread_join(pthread_t   thrd,   void   **thread_return);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Parent 스레드에서 호출​
+    &lt;ul&gt;
+      &lt;li&gt;자신이 생성한 child 스레드가 종료할 때까지 기다림​
+        &lt;ul&gt;
+          &lt;li&gt;thrd​
+            &lt;ul&gt;
+              &lt;li&gt;종료를 기다릴 스레드의 핸들​&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;thread_return​
+            &lt;ul&gt;
+              &lt;li&gt;child 스레드의 종료 상태가 저장됨​&lt;/li&gt;
+              &lt;li&gt;NULL로 하면 종료 상태를 받지 않음​&lt;/li&gt;
+              &lt;li&gt;child 스레드의 종료값은 return, pthread_exit()로 남길 수 있음​&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Child 스레드가 종료되기 전에 parent 스레드가 먼저 종료되지 않게 할 때 사용​
+    &lt;ul&gt;
+      &lt;li&gt;Parent 스레드가 종료하면 child 스레드가 함께 종료되며​&lt;/li&gt;
+      &lt;li&gt;Child 스레드의 작업이 모두 이루어 지지 않은 상태일 수 있음​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Child 스레드의 종료 시점을 정확히 파악하여 어떤 작업을 하고 싶거나 종료 상태 값을 얻기 위해 사용​&lt;/li&gt;
+  &lt;li&gt;종료된 child 스레드에 할당되었던 resource 들은 반납됨 ​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;스레드 Detach&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;int   pthread_detach(pthread_t   thrd);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Detached 스레드​
+    &lt;ul&gt;
+      &lt;li&gt;Join이 가능한 스레드(pthread_join()을 사용)와 대비​&lt;/li&gt;
+      &lt;li&gt;Parent 스레드가 생성한 child 스레드에 대해 pthread_detach()를 호출하면 parent 스레드가 나중에 wait하지 않음​
+        &lt;ul&gt;
+          &lt;li&gt;빠른 스레드의 실행에 도움이 됨​&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Detach 된 스레드에 pthread_join()를 호출하면 error 발생​&lt;/li&gt;
+      &lt;li&gt;Detach 된 스레드는 pthread_join() 호출 없이 할당되었던 resources 들이 반납됨 
+​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Synchronization​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Semaphore &amp;amp; Conditional Variable​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="system" /><summary type="html">POSIX Thread Programming</summary></entry><entry><title type="html">__방화벽__</title><link href="https://lee989898.github.io/sc-17" rel="alternate" type="text/html" title="__방화벽__" /><published>2021-11-24T01:06:00+09:00</published><updated>2021-11-24T01:06:00+09:00</updated><id>https://lee989898.github.io/sc-17</id><content type="html" xml:base="https://lee989898.github.io/sc-17">&lt;h3 id=&quot;방화벽&quot;&gt;&lt;strong&gt;방화벽&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
 
@@ -1197,6 +1523,235 @@ int recvfrom(int sockfd, void *buf, size_t len, int flags, struct sockaddr *from
   &lt;li&gt;socklen_t tolen : 보내는 곳의 소켓 주소 정보 구조체의 길이&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;System V IPC​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Semaphores​&lt;/li&gt;
+  &lt;li&gt;Shared memory​&lt;/li&gt;
+  &lt;li&gt;Message queues​&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Semaphores&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;여러 프로세스에 대한 공유 데이터 개체에 대한 액세스를 제공하는 카운터&lt;/li&gt;
+  &lt;li&gt;공유 리소스를 얻으려면
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;ol&gt;
+          &lt;li&gt;Test semaphore controlling resource​
+            &lt;ul&gt;
+              &lt;li&gt;1-1 If value &amp;gt; 0, value –, grant use​&lt;/li&gt;
+              &lt;li&gt;1-2 If value == 0, sleep until value &amp;gt; 0​&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;ol&gt;
+          &lt;li&gt;Release resource, value ++​&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Steps 1-1, 1-2 atomic 연산이어야 한다&lt;/li&gt;
+  &lt;li&gt;세마포어는 하나 이상의 세마포어 값의 집합으로 정의되다
+    &lt;ul&gt;
+      &lt;li&gt;세마포어가 생성될 때 집합에 값의 개수도 지정된다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/st/st23.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;시스템프로그래밍&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Functions&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/sem.h&amp;gt;​
+
+int semget(key_t key, int num_sems, int sem_flags);​
+int semctl(int sem_id, int sem_num, int command, …);​
+int semop(int sem_id, struct sembuf *sem_ops, size_t num_sem_ops);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;semget : 세마포어 생성 또는 세마포어 키 반환
+    &lt;ul&gt;
+      &lt;li&gt;Key : 동일한 세마포어에 액세스하기 위한 10진수 값&lt;/li&gt;
+      &lt;li&gt;num_sems : 세마포어의 수&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;semctl : 세마포어 정보 제어
+    &lt;ul&gt;
+      &lt;li&gt;sem_id : 세마포어 ID​&lt;/li&gt;
+      &lt;li&gt;sem_num : 세마포어의 수&lt;/li&gt;
+      &lt;li&gt;command : 세마포어 명령&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;semop : 세마포어 값 변경&lt;/li&gt;
+  &lt;li&gt;생성(semget)은 초기화(semctl)와 무관하다​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Shared memory&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;가장 빠른 형태의 IPC: 프로세스 간 데이터 복사 불필요&lt;/li&gt;
+  &lt;li&gt;공유 메모리 세그먼트에 대한 액세스를 동기화해야 함 -&amp;gt; 세마포어가 사용됨&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/st/st24.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;시스템프로그래밍&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Functions&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt; ​
+#include &amp;lt;sys/ipc.h&amp;gt; ​
+#include &amp;lt;sys/shm.h&amp;gt; ​
+
+int shmget(key_t key, int size, int flag); ​
+        Returns: shared memory ID if OK, -1 on error
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;공유 메모리 식별자 얻기&lt;/li&gt;
+  &lt;li&gt;Size : 공유 메모리 세그먼트의 크기&lt;/li&gt;
+  &lt;li&gt;Flag : ipc_perm.mode​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt; ​
+#include &amp;lt;sys/ipc.h&amp;gt; ​
+#include &amp;lt;sys/shm.h&amp;gt; ​
+
+int shmctl(int shmid, int cmd, struct shmid_ds *buf);​
+        Returns: 0 if OK, -1 on error
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;다양한 공유 메모리 작업​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt; ​
+#include &amp;lt;sys/ipc.h&amp;gt; ​
+#include &amp;lt;sys/shm.h&amp;gt; ​
+
+void *shmat (int shmid, void *addr, int flag); ​
+        Returns: pointer to shared memory segment if OK, -1 on error
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;주소에 공유 메모리 첨부&lt;/li&gt;
+  &lt;li&gt;flag ​
+    &lt;ul&gt;
+      &lt;li&gt;SHM_RDONLY : 세그먼트가 읽기 전용이다​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;addr==0: 커널이 선택한 첫 번째 주소에서
+    &lt;ul&gt;
+      &lt;li&gt;recommended​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;addr!=0 &amp;amp;&amp;amp; SHM_RND is not specified:​
+    &lt;ul&gt;
+      &lt;li&gt;addr이 제공한 주소에서&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;addr!=0 &amp;amp;&amp;amp; SHM_RND is specified:​
+    &lt;ul&gt;
+      &lt;li&gt;주어진 주소에서 (addr – (addr modulus SHMLBA))​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt; ​
+#include &amp;lt;sys/ipc.h&amp;gt; ​
+#include &amp;lt;sys/shm.h&amp;gt; ​
+
+void shmdt (void *addr); ​
+        Returns: 0 if OK, -1 on error
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;공유 메모리 세그먼트 분리&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Message queues&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;메시지의 연결 목록
+    &lt;ul&gt;
+      &lt;li&gt;커널에 저장&lt;/li&gt;
+      &lt;li&gt;메시지 대기열 식별자로 식별&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;msgget: 새 대기열 생성 또는 기존 대기열 열기&lt;/li&gt;
+  &lt;li&gt;msgsnd: 대기열에 새 메시지 추가&lt;/li&gt;
+  &lt;li&gt;msgrcv: 대기열에서 메시지 수신&lt;/li&gt;
+  &lt;li&gt;Fetching order: based on type&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt; ​
+#include &amp;lt;sys/ipc.h&amp;gt; ​
+#include &amp;lt;sys/msg.h&amp;gt; ​
+
+int msgget(key_t key, int flag); ​
+        Returns: msg queue ID if OK, -1 on error
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;새 대기열 생성 또는 기존 대기열 열기&lt;/li&gt;
+  &lt;li&gt;Flag : ipc_perm.mode​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt; ​
+#include &amp;lt;sys/ipc.h&amp;gt; ​
+#include &amp;lt;sys/msg.h&amp;gt; ​
+​
+int msgsnd(int msqid, const void *ptr, size_t nbytes, int flag); ​
+        Returns: 0 if OK, -1 on error
+
+struct mymesg {​
+  long mtype;         /* positive message type */​
+  char mtext[512];    /* message data, of length nbytes */​
+};
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;큐의 끝에 메시지 배치&lt;/li&gt;
+  &lt;li&gt;ptr은 메시지를 가리킨다&lt;/li&gt;
+  &lt;li&gt;nbytes : 메시지 데이터의 길이&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt; ​
+#include &amp;lt;sys/ipc.h&amp;gt; ​
+#include &amp;lt;sys/msg.h&amp;gt; ​
+
+int msgrcv(int msqid, void *ptr, size_t nbytes, long type, int flag); ​
+        Returns: data size in message if OK, -1 on error
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;대기열에서 메시지 검색&lt;/li&gt;
+  &lt;li&gt;type == 0 : 큐의 첫 번째 메시지가 반환된다&lt;/li&gt;
+  &lt;li&gt;type &amp;gt; 0 : 메시지 유형이 유형과 동일한 큐의 첫 번째 메시지가 반환된다&lt;/li&gt;
+  &lt;li&gt;type &amp;lt; 0 : 메시지 유형이 유형의 절대값보다 작거나 같은 가장 낮은 값인 큐의 첫 번째 메시지가 반환된다&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;hr /&gt;</content><author><name>lee989898</name></author><category term="system" /><summary type="html">프로세스통신-socket</summary></entry><entry><title type="html">되추적</title><link href="https://lee989898.github.io/algorithm-07" rel="alternate" type="text/html" title="되추적" /><published>2021-11-15T01:09:00+09:00</published><updated>2021-11-15T01:09:00+09:00</updated><id>https://lee989898.github.io/algorithm-07</id><content type="html" xml:base="https://lee989898.github.io/algorithm-07">&lt;h3 id=&quot;되추적&quot;&gt;&lt;strong&gt;되추적&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
@@ -2032,248 +2587,4 @@ unlock 메소드의 호출은 finally 절 안에 있어야 하며, lock의 해�
 &lt;p&gt;고성능 포트란에서 두 개의 리스트에서 ​서로 대응되는 요소 간의 연산을 병렬 처리하고자 할 때 다음과 같은 문장이 추가된다.&lt;br /&gt;
 PROCESSOR proc(n) -&amp;gt; 배열 처리 문장을 동시 실행(병렬 처리)하기 위해 프로세서 n개를 할당 ​DISTRIBUTE (BLOCK vs. CYCLIC) -&amp;gt; 같은 크기의 블록으로 나누어져 프로세서에 할당, 돌아가면서 하나씩 프로세서에 할당 ​ALIGN array1_elt WITH array2_elt -&amp;gt; 배열1에 배열2를 대응시킴&lt;/p&gt;
 
-&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="pl" /><summary type="html">Comcurrency</summary></entry><entry><title type="html">NP-완전</title><link href="https://lee989898.github.io/algorithm-06" rel="alternate" type="text/html" title="NP-완전" /><published>2021-11-09T01:09:00+09:00</published><updated>2021-11-09T01:09:00+09:00</updated><id>https://lee989898.github.io/algorithm-06</id><content type="html" xml:base="https://lee989898.github.io/algorithm-06">&lt;h3 id=&quot;np-완전&quot;&gt;&lt;strong&gt;NP-완전&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;문제의 분류&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;풀 수 있는(solvable) 문제​
-    &lt;ul&gt;
-      &lt;li&gt;P 문제: 다항 시간 내에 풀 수 있는 문제 ​&lt;/li&gt;
-      &lt;li&gt;NP 문제: 다항 시간 내에 풀 수 없는 문제​
-        &lt;ul&gt;
-          &lt;li&gt;비결정론적 다항 시간 알고리즘으로 해결할 수 있는 문제​&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;NP-완전 문제: 지수 시간 내에 풀 수 있는 문제​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;풀 수 없는(unsolvable) 문제​
-    &lt;ul&gt;
-      &lt;li&gt;예: 정지 문제(Halting Problem)​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag14.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;결정 문제​
-    &lt;ul&gt;
-      &lt;li&gt;Yes 혹은 No의 해를 요구하는 문제​&lt;/li&gt;
-      &lt;li&gt;예: 무방향그래프의 정점 s 에서 정점 f 까지 가는 경로의 거리가 K(상수) 이하인 경로가 있는가?​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;최적화 문제​
-    &lt;ul&gt;
-      &lt;li&gt;최적의 해를 요구하는 문제​&lt;/li&gt;
-      &lt;li&gt;예: 무방향그래프의 정점 s 에서 정점 f 까지 가는 최단 경로의 거리는 얼마인가?​&lt;/li&gt;
-      &lt;li&gt;최적화 문제는 모두 대응하는 결정 문제로 바꾼 다음 해결한다.​&lt;/li&gt;
-      &lt;li&gt;최적화 문제는 대응하는 결정 문제보다 풀기가 쉽지 않다. ​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;NP&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;비결정론적 다항 시간 알고리즘에 의해 해결할 수 있는 결정 문제들의 집합​&lt;/li&gt;
-  &lt;li&gt;비결정론적 다항 시간 알고리즘이란?​
-    &lt;ul&gt;
-      &lt;li&gt;한 결정 문제의 사례 I를 입력으로 받아 다음을 수행하는 2 단계 알고리즘​&lt;/li&gt;
-      &lt;li&gt;비결정론적 ‘추측’ 단계: 주어진 사례 I에 대한 해 S를 ‘추측’한다.​&lt;/li&gt;
-      &lt;li&gt;결정론적 ‘확인’ 단계: 사례 I와 해 S를 입력으로 받아 S가 I에  대한 해임을 결정론적 다항 시간에 확인하고 그 해가 맞으면 ‘Yes’ 라고 답하고 해가 아니라면 ‘No’ 라고 답하거나 알고리즘이 종료되지 않게 한다. ​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;NP 문제는 해가 Yes 라는 근거가 주어졌을 때 그 해가 옳은 근거임을 다항 시간에 확인해 줄 수 있다. ​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;NP-완전 문제&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;NP에 속하는 문제​&lt;/li&gt;
-  &lt;li&gt;어떤 NP-완전 문제를 다항 시간 알고리즘에 의해 풀 수 있다면 나머지 모든 NP-완전 문제들도 다항 시간 알고리즘에 의해 풀 수 있다.​&lt;/li&gt;
-  &lt;li&gt;NP-완전 문제는 결정 문제만으로 국한한다. ​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;NP-완전 문제의 핵심 원리&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;결정 문제의 변환을 이용한 해결 과정​
-    &lt;ul&gt;
-      &lt;li&gt;결정 문제 A를 다항 시간에 해결할 수 있는지 알고 싶다.​&lt;/li&gt;
-      &lt;li&gt;가정​
-        &lt;ul&gt;
-          &lt;li&gt;다항 시간에 해결 가능한 결정 문제 B를 이미 알고 있다.​&lt;/li&gt;
-          &lt;li&gt;문제 A를 다항 시간에 문제 B로 변환할 수 있고 문제 B의 해(Yes 혹은 No)가 문제 A의 해와 항상 일치한다.​
-            &lt;ol&gt;
-              &lt;li&gt;문제 A의 사례를 문제 B의 사례로 변환한다. ​&lt;/li&gt;
-              &lt;li&gt;변환된 문제 B의 사례를 문제 B의 알고리즘을 이용하여 해결한다.&lt;br /&gt;
-주: 문제 A도 다항 시간에 해결할 수 있다.​&lt;/li&gt;
-            &lt;/ol&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;다항 시간에 해결할 수 있는 결정 문제가 아직까지 발견되지   않았다. 따라서 문제 A를 다항 시간에 해결할 수 있는지는 알 수 없다. ​&lt;/li&gt;
-  &lt;li&gt;NP-완전 문제들은 서로 다항 시간에 변환 가능하다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;NP-완전 정의&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;결정 문제 D는 다음 조건들을 만족시켜야 한다. ​
-    &lt;ol&gt;
-      &lt;li&gt;문제 D는 NP에 속한다.​&lt;/li&gt;
-      &lt;li&gt;NP에 속한 모든 문제는 다항 시간에 문제 D로  변환 가능하다.​&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;NP-hard&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;NP-완전보다 넓은 범위의 문제를 포함한다. ​&lt;/li&gt;
-  &lt;li&gt;문제 A가 다음 조건을 만족하면 NP-hard이다.​
-    &lt;ul&gt;
-      &lt;li&gt;NP에 속한 모든 문제는 다항 시간에 문제 A로 변환 가능하다. ​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;NP-완전 문제는 NP-hard에 속한다. ​&lt;/li&gt;
-  &lt;li&gt;NP-hard 문제는 반드시 NP 문제일 필요는 없다.​&lt;/li&gt;
-  &lt;li&gt;NP-hard는 최적화 문제도 포함한다.​&lt;/li&gt;
-  &lt;li&gt;문제 A가 다음 조건들을 만족하면 NP-완전이다. ​
-    &lt;ol&gt;
-      &lt;li&gt;A는 NP에 속한다.​&lt;/li&gt;
-      &lt;li&gt;A는 NP-hard이다. ​&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/ag/ag15.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;한 문제가 NP-hard에 속한다는 것을 증명하는 것은 매우 어렵다. 왜냐하면 NP에 속한 모든 문제를 다항 시간에 그 문제로 변환 가능함을 보여야 하기 때문이다. ​&lt;/li&gt;
-  &lt;li&gt;정리: 한 NP-hard 문제를 다항 시간에 주어진 문제로 변환 가능하다면 그 문제는 NP-hard에 속한다. ​&lt;/li&gt;
-  &lt;li&gt;한 문제가 NP-hard에 속한다는 증명은 이 정리를 이용한다.​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;문제 A의 NP-완전 증명 방법​&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;문제 A가 NP에 속함을 보인다.​&lt;/li&gt;
-  &lt;li&gt;한 NP-hard 문제 C의 사례를 다항 시간에 문제 A의 사례로 변환하는 알고리즘을 작성한다.​&lt;/li&gt;
-  &lt;li&gt;2의 알고리즘을 수행하여 얻은 결과 사례 C와 사례 A의 Yes/No 해가 일치함을 보인다.​&lt;br /&gt;
-주: 어떤 문제가 NP-완전 문제임을 증명하는 것은 쉽지 않다. ​&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;NP-완전 문제​&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;논리곱 정규형-만족​&lt;/li&gt;
-  &lt;li&gt;완전 부분 그래프​&lt;/li&gt;
-  &lt;li&gt;정점 커버​&lt;/li&gt;
-  &lt;li&gt;부분 집합의 합​&lt;/li&gt;
-  &lt;li&gt;그래프 색칠하기​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;논리곱 정규형-만족 문제&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;부울 연산식은 논리곱 정규형으로 표현될 수 있다.&lt;/li&gt;
-  &lt;li&gt;문제: 논리곱 정규형의 주어진 부울 연산식의 값이 true가 되도록 부울 연산식의 변수들에 true나 false 값을 할당할 수 있는가?&lt;/li&gt;
-  &lt;li&gt;예: a,b,c -부울 변수,$\bar{a}$, $\bar{b}$ , $\bar{c}$ : a,b,c의 역&lt;br /&gt;
-부울 연산삭: ($\bar{a}$ $\lor$ $\bar{b}$ $\lor$ c) $\land$ ($\bar{a}$ $\lor$ b) $\land$ (a $\lor$ $\bar{b}$ $\lor$ $\bar{c}$ )
-해: a = true, b = true, c = true&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;완전 부분 그래프​&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;무방향 그래프 내에 있는 최대 크기의 완전 부분 그래프를 찾아라&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/ag/ag16.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;정점 커버​&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;무방향 그래프 내에 있는 최소 크기의 정점 커버를 찾아라&lt;/li&gt;
-  &lt;li&gt;정점 커버: 무방향 그래프에서 각 간선의 양쪽 끝의 두 정점들 중에서 적어도 1개의 정점을 포함하는 정점들의 집합&lt;/li&gt;
-  &lt;li&gt;예: 아래 그래프에서 최소 크기의 정점 커버 C = {a,c,e}&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/ag/ag17.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;부분 집합의 합 문제&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;정수들의 집합 S의 요소들의 합이 K가 되는 S의 부분 집합을 찾아라.&lt;/li&gt;
-  &lt;li&gt;예: S = {10,20,40,70,80}, K = 160
-    &lt;ul&gt;
-      &lt;li&gt;부분 집합{10,70,80}&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;그래프 색칠하기 문제&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;무방향 그래프에서 인접한 정점들을 서로 다른색으로 가장 적은 수의 색을 사용하여 색칠하라&lt;/li&gt;
-  &lt;li&gt;예: 아래 그래프에서 a,c: 빨강, b,d: 초록, e: 파랑&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/ag/ag18.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;알고리즘&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="algorithm" /><summary type="html">NP-완전</summary></entry></feed>
+&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="pl" /><summary type="html">Comcurrency</summary></entry></feed>
