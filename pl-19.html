@@ -11,7 +11,7 @@
 
 
 
-    <title>__침입탐지__</title>
+    <title>Lambda Calculus​</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -49,33 +49,8 @@
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="공부 블로그" />
     <link rel="shortcut icon" href="https://lee989898.github.io/assets/built/images/favicon.jpg" type="image/png" />
-    <link rel="canonical" href="https://lee989898.github.io/sc-16" />
+    <link rel="canonical" href="https://lee989898.github.io/pl-19" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
-
-    
-    <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    TeX: {
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    },
-    tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$'] ],
-    processEscapes: true,
-  }
-});
-MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
-MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
-</script>
-<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
 
     
 
@@ -83,24 +58,80 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="__침입탐지__" />
-    <meta property="og:description" content="침입탐지 IDS(침입탐지 시스템) 침입탐지시스템​ 침입행위에 대한 탐지를 수행하고 탐지시 대응할 수 있도록 지원하는 일련의 시스템​ Intrusion?​ 시스템에 허가되지 않은 방법으로 내부 자원에 접근​ Login 시도 (ID, PWD 추측)​ 불법적으로 데이터 도용시도 (rootkit)​ Root/관리자 권한 획득시도​ 메일발송 실행파일을 숨겨놓고 메일전송시도​ Backdoor 접근시도 패킷 필터링 오직 TCP/IP 헤더만 본다 패킷 간의 연관성을" />
-    <meta property="og:url" content="https://lee989898.github.io/sc-16" />
-    <meta property="og:image" content="https://lee989898.github.io/assets/built/images/security-logo.png" />
+    <meta property="og:title" content="Lambda Calculus​" />
+    <meta property="og:description" content="Lambda Calculus​
+__
+
+
+
+
+  Why functional programming?​
+
+
+
+
+
+  Imperative and Functional programming style​
+
+
+
+
+
+  Functions as programs ​
+
+
+
+
+
+  Functional programs​
+
+
+
+" />
+    <meta property="og:url" content="https://lee989898.github.io/pl-19" />
+    <meta property="og:image" content="https://lee989898.github.io/assets/built/images/pl-background-frontend.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2021-11-24T01:06:00+09:00" />
-    <meta property="article:modified_time" content="2021-11-24T01:06:00+09:00" />
-    <meta property="article:tag" content="Security" />
+    <meta property="article:published_time" content="2021-11-17T19:18:00+09:00" />
+    <meta property="article:modified_time" content="2021-11-17T19:18:00+09:00" />
+    <meta property="article:tag" content="Pl" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="__침입탐지__" />
-    <meta name="twitter:description" content="침입탐지 IDS(침입탐지 시스템) 침입탐지시스템​ 침입행위에 대한 탐지를 수행하고 탐지시 대응할 수 있도록 지원하는 일련의 시스템​ Intrusion?​ 시스템에 허가되지 않은 방법으로 내부 자원에 접근​ Login 시도 (ID, PWD 추측)​ 불법적으로 데이터 도용시도 (rootkit)​ Root/관리자 권한 획득시도​ 메일발송 실행파일을 숨겨놓고 메일전송시도​ Backdoor 접근시도 패킷 필터링 오직 TCP/IP 헤더만 본다 패킷 간의 연관성을" />
+    <meta name="twitter:title" content="Lambda Calculus​" />
+    <meta name="twitter:description" content="Lambda Calculus​
+__
+
+
+
+
+  Why functional programming?​
+
+
+
+
+
+  Imperative and Functional programming style​
+
+
+
+
+
+  Functions as programs ​
+
+
+
+
+
+  Functional programs​
+
+
+
+" />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
-    <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/security-logo.png" />
+    <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/pl-background-frontend.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="LEE" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Security" />
+    <meta name="twitter:data2" content="Pl" />
     <meta name="twitter:site" content="@" />
     <meta name="twitter:creator" content="@" />
     <meta property="og:image:width" content="1400" />
@@ -115,18 +146,46 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
         "name": "LEE",
         "logo": "https://lee989898.github.io/"
     },
-    "url": "https://lee989898.github.io/sc-16",
+    "url": "https://lee989898.github.io/pl-19",
     "image": {
         "@type": "ImageObject",
-        "url": "https://lee989898.github.io/assets/built/images/security-logo.png",
+        "url": "https://lee989898.github.io/assets/built/images/pl-background-frontend.png",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://lee989898.github.io/sc-16"
+        "@id": "https://lee989898.github.io/pl-19"
     },
-    "description": "침입탐지 IDS(침입탐지 시스템) 침입탐지시스템​ 침입행위에 대한 탐지를 수행하고 탐지시 대응할 수 있도록 지원하는 일련의 시스템​ Intrusion?​ 시스템에 허가되지 않은 방법으로 내부 자원에 접근​ Login 시도 (ID, PWD 추측)​ 불법적으로 데이터 도용시도 (rootkit)​ Root/관리자 권한 획득시도​ 메일발송 실행파일을 숨겨놓고 메일전송시도​ Backdoor 접근시도 패킷 필터링 오직 TCP/IP 헤더만 본다 패킷 간의 연관성을"
+    "description": "Lambda Calculus​
+__
+
+
+
+
+  Why functional programming?​
+
+
+
+
+
+  Imperative and Functional programming style​
+
+
+
+
+
+  Functions as programs ​
+
+
+
+
+
+  Functional programs​
+
+
+
+"
 }
     </script>
 
@@ -139,7 +198,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="__침입탐지__" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Lambda Calculus​" href="/feed.xml" />
 
 
 </head>
@@ -207,256 +266,57 @@ into the {body} of the default.hbs template -->
 <main id="site-main" class="site-main outer" role="main">
     <div class="inner">
 
-        <article class="post-full  tag-security post tag-security ">
+        <article class="post-full  tag-pl post tag-study ">
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="24 November 2021">24 November 2021</time>
+                    <time class="post-full-meta-date" datetime="17 November 2021">17 November 2021</time>
                     
                         <span class="date-divider">/</span>
                         
                             
-                               <a href='/tag/security/'>SECURITY</a>
+                               <a href='/tag/pl/'>PL</a>
                             
                         
                     
                 </section>
-                <h1 class="post-full-title">__침입탐지__</h1>
+                <h1 class="post-full-title">Lambda Calculus​</h1>
             </header>
 
             <!--
             
-            <figure class="post-full-image" style="background-image: url(/assets/built/images/security-logo.png)">
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/pl-background-frontend.png)">
             </figure>
             
             -->
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <h3 id="침입탐지"><strong>침입탐지</strong></h3>
+                    <h3 id="lambda-calculus"><strong>Lambda Calculus​</strong></h3>
+<p>__</p>
 
 <hr />
 
 <blockquote>
-  <p>IDS(침입탐지 시스템)</p>
+  <p>Why functional programming?​</p>
 </blockquote>
 
-<ul>
-  <li>침입탐지시스템​</li>
-  <li>침입행위에 대한 탐지를 수행하고 탐지시 대응할 수 있도록 지원하는 일련의 시스템​</li>
-  <li>Intrusion?​
-    <ul>
-      <li>시스템에 허가되지 않은 방법으로 내부 자원에 접근​</li>
-      <li>Login 시도 (ID, PWD 추측)​</li>
-      <li>불법적으로 데이터 도용시도 (rootkit)​</li>
-      <li>Root/관리자 권한 획득시도​</li>
-      <li>메일발송 실행파일을 숨겨놓고 메일전송시도​</li>
-      <li>Backdoor 접근시도</li>
-    </ul>
-  </li>
-  <li>패킷 필터링
-    <ul>
-      <li>오직 TCP/IP 헤더만 본다</li>
-      <li>패킷 간의 연관성을 알아 내기 어렵다</li>
-    </ul>
-  </li>
-  <li>IDS
-    <ul>
-      <li>depp packet inspection: 패킷 콘테츠 까지 검사한다</li>
-      <li>다수의 패킷을 검사한다
-        <ul>
-          <li>port scanning</li>
-          <li>network mapping</li>
-          <li>Dos attack</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+<hr />
 
 <blockquote>
-  <p>Dectection 방법</p>
+  <p>Imperative and Functional programming style​</p>
 </blockquote>
 
-<ol>
-  <li>Signature-based dectection​
-    <ul>
-      <li>침입사건들을 패턴화(signature)​
-    + Signature example​</li>
-      <li>실행 파일 첨부 메일 유형​</li>
-      <li>파일 읽기 시도 유형​</li>
-      <li>로그인 시도 유형​
-    + 장점​</li>
-      <li>known attack에 대해 효율적​
-    + 단점​</li>
-      <li>Unknown attack에 취약​</li>
-      <li>새로운 공격유형 발견때마다 signature 생성해야​</li>
-      <li>일반적으로 False negative rate 높음</li>
-    </ul>
-  </li>
-  <li>Anomaly-based dectection​
-    <ul>
-      <li>정상범위를 벗어나는 사건을 탐지​
-    + Anomaly example​</li>
-      <li>휴일에 traffic 량이 평소보다 20%증가​</li>
-      <li>일반사용자가 갑자기 1000통 메일발송​</li>
-      <li>특정 호스트에 단시간 주문요청 100%증가​</li>
-      <li>국내 사용자 카드가 해외에서 결재​
-    + 장점​</li>
-      <li>Machine learning 처리​</li>
-      <li>Unknown attac에 대해 효율적​
-    + 단점​</li>
-      <li>정상범위 정의 어려움​</li>
-      <li>비정상탐지까지 기다려야​</li>
-    </ul>
-  </li>
-</ol>
+<hr />
 
 <blockquote>
-  <p>IDS types</p>
+  <p>Functions as programs ​</p>
 </blockquote>
 
-<ol>
-  <li>Network-based IDS​</li>
-  <li>Wireless IDS (wireless IDS)​</li>
-  <li>Host-based IDS​</li>
-  <li>Distributed Host-based IDS</li>
-</ol>
+<hr />
 
 <blockquote>
-  <p>Network-based IDS​</p>
+  <p>Functional programs​</p>
 </blockquote>
-
-<ul>
-  <li>Example​
-    <ul>
-      <li>Network 망에 곳곳에 traffic을 모니터, 분석하여 침입탐지​</li>
-    </ul>
-  </li>
-  <li>Example​
-    <ul>
-      <li>Ddos, worm  ​</li>
-    </ul>
-  </li>
-  <li>장점 ​
-    <ul>
-      <li>Host는 부하적음 (하나의  NIDS로 여러 host보호)​</li>
-      <li>조기 탐지가능​</li>
-      <li>취약한 부분의 packet 을 정밀분석하여 다양한 침입탐지 ​</li>
-    </ul>
-  </li>
-  <li>단점​
-    <ul>
-      <li>각 host 내부는 탐지제한​</li>
-      <li>전체 network 망에 부하</li>
-    </ul>
-  </li>
-</ul>
-
-<blockquote>
-  <p>Wireless IDS (wireless IDS)​</p>
-</blockquote>
-
-<ul>
-  <li>무선통신 WLAN network망의 traffic 분석​</li>
-  <li>장점​
-    <ul>
-      <li>무선통신의 취약성위협 탐지​</li>
-    </ul>
-  </li>
-  <li>단점​
-    <ul>
-      <li>Network 부하, 비용</li>
-    </ul>
-  </li>
-</ul>
-
-<blockquote>
-  <p>Host-based IDS​</p>
-</blockquote>
-
-<ul>
-  <li>특정 host 컴퓨터내부를 모니터링, 분석하여 탐지​</li>
-  <li>Example​
-    <ul>
-      <li>로그분석, 파일시스템 기록분석, 실행코드분석 ​</li>
-    </ul>
-  </li>
-  <li>장점​
-    <ul>
-      <li>악성sw 탐지용이​</li>
-      <li>내부공격자 탐지​</li>
-    </ul>
-  </li>
-  <li>단점​
-    <ul>
-      <li>각 host마다 다름​</li>
-      <li>Host 부하</li>
-    </ul>
-  </li>
-</ul>
-
-<blockquote>
-  <p>Distributed Host-based IDS</p>
-</blockquote>
-
-<ul>
-  <li>여러 HIDS들이 연계하여 전체적으로 host들을 분석하여 탐지 ​</li>
-  <li>장점​
-    <ul>
-      <li>효율적이고 정확성​</li>
-      <li>공격들의 연관관계 파악용이​</li>
-    </ul>
-  </li>
-  <li>단점​
-    <ul>
-      <li>HIDS보다 복잡, 부담</li>
-    </ul>
-  </li>
-</ul>
-
-<blockquote>
-  <p>Honey Pot</p>
-</blockquote>
-
-<ul>
-  <li>꿀단지​</li>
-  <li>의도적으로 해커의 침입을 유도하는 시스템​</li>
-  <li>해커 정보수집, 공격유형파악, 대응전략수립, 법적증거 ​</li>
-  <li>침입자 활동감시, 로그기록</li>
-</ul>
-
-<blockquote>
-  <p>IDS 평가 기준</p>
-</blockquote>
-
-<ul>
-  <li>False Positive rate​
-    <ul>
-      <li>정상을 침입으로 판단하는 확률​</li>
-    </ul>
-  </li>
-  <li>False Negative​
-    <ul>
-      <li>침입을 정상으로 판단하는 확률​</li>
-    </ul>
-  </li>
-  <li>True Positive rate​</li>
-  <li>True Negative rate​</li>
-</ul>
-
-<blockquote>
-  <p>IPS (Intrusion Prevention System)</p>
-</blockquote>
-
-<ul>
-  <li>침입방지시스템​</li>
-  <li>IDS+침입방지기능​</li>
-  <li>Example​
-    <ul>
-      <li>IDS로 침입탐지하고 계정, 연결 등 차단​</li>
-    </ul>
-  </li>
-</ul>
 
 <hr />
 
@@ -525,9 +385,9 @@ into the {body} of the default.hbs template -->
                     <div id="disqus_thread"></div>
                     <script>
                         var disqus_config = function () {
-                            var this_page_url = 'https://lee989898.github.io/sc-16';
-                            var this_page_identifier = '/sc-16';
-                            var this_page_title = '__침입탐지__';
+                            var this_page_url = 'https://lee989898.github.io/pl-19';
+                            var this_page_identifier = '/pl-19';
+                            var this_page_title = 'Lambda Calculus​';
                         };
                         (function() {
                             var d = document, s = d.createElement('script');
@@ -561,7 +421,7 @@ into the {body} of the default.hbs template -->
                         <header class="read-next-card-header">
                             <small class="read-next-card-header-sitetitle">&mdash; LEE &mdash;</small>
                             
-                                <h3 class="read-next-card-header-title"><a href="/tag/security/">Security</a></h3>
+                                <h3 class="read-next-card-header-title"><a href="/tag/pl/">Pl</a></h3>
                             
                         </header>
                         <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
@@ -571,40 +431,10 @@ into the {body} of the default.hbs template -->
                                 
                                 
                                   
-                                
-                                  
-                                
-                                  
                                     
                                         
                                         
-                                            <li><a href="/sc-17">__방화벽__</a></li>
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                            <li><a href="/sc-15">__DRM(Digital Right Managemment__</a></li>
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                            <li><a href="/sc-14">__Diffie-Hellman__</a></li>
+                                            <li><a href="/pl-20">Pl 20</a></li>
                                         
                                     
                                   
@@ -614,8 +444,28 @@ into the {body} of the default.hbs template -->
                                   
                                 
                                   
+                                
+                                  
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
                                     
                                         
+                                        
+                                            <li><a href="/pl-18">Concurrency</a></li>
                                         
                                     
                                   
@@ -628,18 +478,15 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
-                                    
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                    
-                                        
+                                            <li><a href="/pl-17">ImplementSubprogram</a></li>
                                         
                                     
+                                  
+                                
+                                  
+                                
+                                  
+                                
                                   
                                 
                                   
@@ -665,12 +512,6 @@ into the {body} of the default.hbs template -->
                                   
                                 
                                   
-                                
-                                  
-                                
-                                  
-                                
-                                  
                                     
                                         
                                         
@@ -689,6 +530,13 @@ into the {body} of the default.hbs template -->
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
                                 
                                   
                                 
@@ -697,8 +545,6 @@ into the {body} of the default.hbs template -->
                                         
                                         
                                     
-                                  
-                                
                                   
                                 
                                   
@@ -733,7 +579,10 @@ into the {body} of the default.hbs template -->
                                   
                                 
                                   
-                                
+                                    
+                                        
+                                        
+                                    
                                   
                                 
                                   
@@ -750,11 +599,17 @@ into the {body} of the default.hbs template -->
                                   
                                 
                                   
-                                
+                                    
+                                        
+                                        
+                                    
                                   
                                 
                                   
-                                
+                                    
+                                        
+                                        
+                                    
                                   
                                 
                                   
@@ -766,6 +621,26 @@ into the {body} of the default.hbs template -->
                                         
                                         
                                     
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
                                   
                                 
                                   
@@ -819,9 +694,9 @@ into the {body} of the default.hbs template -->
                             </ul>
                         </div>
                         <footer class="read-next-card-footer">
-                            <a href="/tag/security/">
+                            <a href="/tag/pl/">
                                 
-                                    See all 16 posts  →
+                                    See all 19 posts  →
                                 
                             </a>
                         </footer>
@@ -830,60 +705,6 @@ into the {body} of the default.hbs template -->
             
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
-            
-                
-
-    <article class="post-card post-template">
-        
-            <a class="post-card-image-link" href="/sc-17">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/security-logo.png)"></div>
-            </a>
-        
-        <div class="post-card-content">
-            <a class="post-card-content-link" href="/sc-17">
-                <header class="post-card-header">
-                    
-                        
-                            
-                                <span class="post-card-tags">Security</span>
-                            
-                        
-                    
-
-                    <h2 class="post-card-title">__방화벽__</h2>
-                </header>
-                <section class="post-card-excerpt">
-                    
-                        <p>방화벽
-
-</p>
-                    
-                </section>
-            </a>
-            <footer class="post-card-meta">
-                
-                    
-                        
-                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="lee989898" />
-                        
-                        <span class="post-card-author">
-                            <a href="/author/lee989898/">lee989898</a>
-                        </span>
-                    
-                
-                <span class="reading-time">
-                    
-                    
-                      1 min read
-                    
-                </span>
-            </footer>
-        </div>
-    </article>
-
-            
-
-            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
             
                 
 
@@ -928,7 +749,61 @@ into the {body} of the default.hbs template -->
                 <span class="reading-time">
                     
                     
-                      8 min read
+                      7 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/sc-15">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/security-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/sc-15">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Security</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">__DRM(Digital Right Managemment__</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>DRM(Digital Right Managemment
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="lee989898" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/lee989898/">lee989898</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      1 min read
                     
                 </span>
             </footer>
@@ -950,18 +825,18 @@ into the {body} of the default.hbs template -->
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">__침입탐지__</div>
+    <div class="floating-header-title">Lambda Calculus​</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=__%EC%B9%A8%EC%9E%85%ED%83%90%EC%A7%80__&amp;url=https://lee989898.github.io/sc-16"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Lambda+Calculus%E2%80%8B&amp;url=https://lee989898.github.io/pl-19"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://lee989898.github.io/sc-16"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://lee989898.github.io/pl-19"
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
 

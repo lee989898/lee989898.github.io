@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/pl/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-11-26T00:23:25+09:00</updated>
+  <updated>2021-11-26T22:04:25+09:00</updated>
   <id>https://lee989898.github.io/tag/pl/feed.xml</id>
 
   
@@ -30,6 +30,109 @@
   
   
 
+  
+    <entry>
+      <title type="html">Pl 20</title>
+      <link href="https://lee989898.github.io/pl-20" rel="alternate" type="text/html" title="Pl 20" />
+      <published>2021-11-24T19:18:00+09:00</published>
+      <updated>2021-11-24T19:18:00+09:00</updated>
+      <id>https://lee989898.github.io/pl-20</id>
+      <content type="html" xml:base="https://lee989898.github.io/pl-20">&lt;h3 id=&quot;__&quot;&gt;&lt;em&gt;__&lt;/em&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="pl" />
+      
+
+      
+        <summary type="html">__</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Lambda Calculus​</title>
+      <link href="https://lee989898.github.io/pl-19" rel="alternate" type="text/html" title="Lambda Calculus​" />
+      <published>2021-11-17T19:18:00+09:00</published>
+      <updated>2021-11-17T19:18:00+09:00</updated>
+      <id>https://lee989898.github.io/pl-19</id>
+      <content type="html" xml:base="https://lee989898.github.io/pl-19">&lt;h3 id=&quot;lambda-calculus&quot;&gt;&lt;strong&gt;Lambda Calculus​&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;__&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Why functional programming?​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Imperative and Functional programming style​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Functions as programs ​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Functional programs​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="pl" />
+      
+
+      
+        <summary type="html">Lambda Calculus​ __</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">Concurrency</title>
@@ -2512,609 +2615,6 @@ C에서도 지원하지 않는다. ​
 
       
         <summary type="html">변수와 시맨틱스</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">신택스 분석방법</title>
-      <link href="https://lee989898.github.io/pl-10" rel="alternate" type="text/html" title="신택스 분석방법" />
-      <published>2021-09-23T19:18:00+09:00</published>
-      <updated>2021-09-23T19:18:00+09:00</updated>
-      <id>https://lee989898.github.io/pl-10</id>
-      <content type="html" xml:base="https://lee989898.github.io/pl-10">&lt;h3 id=&quot;신택스-분석-방법&quot;&gt;&lt;strong&gt;신택스 분석 방법&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;프로그램이 문법에 적합한지 확인하기 위한 신택스 분석 방법에
-대해 알아보자.​&lt;/p&gt;
-
-&lt;p&gt;신택스 분석의 목표는 파스 트리(parse tree)를 생성하는 것이다.&lt;br /&gt;
-신택스 분석은 프로그램의 각 문장을 토큰으로 쪼개는 일부터 시작한다.&lt;br /&gt;
-이렇게 쪼개는 것을 렉시칼 어낼리시스라고 하고, ​
-이것을 수행하는 프로그램을 렉시칼 애널라이저 또는 스캐너라고 한다. ​&lt;/p&gt;
-
-&lt;p&gt;이렇게 쪼갠 후에 문법적으로 타당한지 확인하는데, ​
-이것을 신택스 어낼리시스라고 하고, ​
-이와 같은 일을 수행하는 프로그램을 신택스 애널라이저 또는 파서라고 한다.&lt;/p&gt;
-
-&lt;p&gt;다시 말하지만 렉시칼 어낼리시스와 신택스 어낼리시스
-의 궁극적인 목표는 파스 트리를 생성하는 것이다. ​&lt;/p&gt;
-
-&lt;p&gt;파스 트리로부터 중간 코드가 생성되고, 최적화
-되어, 최종적으로 코드 생성이 이루어지기 때문에  ​
-파스 트리의 생성이 PL 구현 시스템에서 가장 중요한 부분이다. ​&lt;/p&gt;
-
-&lt;p&gt;파스 트리의 생성은 문법에 의존한다.&lt;br /&gt;
-즉, 문법에 적합한 프로그램만 파스 트리로 생성된다. 
-​
-문법은 신택스와 시맨틱스를 표현한 규칙의 집합으로, 프로그램이 PL의 문법에 적합한지 판단하는 기준이 된다. ​&lt;/p&gt;
-
-&lt;p&gt;문장 A=B&lt;em&gt;(A+C)에 대해, 문법(규칙 집합)에 따라 
-Leftmost derivation을 하려면, ​
-문장 A=B&lt;/em&gt;(A+C)가 문법의 규칙 중에서 어느 규칙에 해당되고, ​
-이 문장을 구성하는 A, =, B, (, A, +, C, )가 어
-느 규칙의 어느 심볼에 해당되는지 알 수 있어야 한다.
-이것을 신택스 어낼리시스라고 한다.&lt;br /&gt;
-이를 위해 A=B*(A+C) 문장을 A, =, B, (, A, +, C, )로 잘라내고, ​
-이들이 각각 문법이 허용하는 문장 요소 중의 무엇을 나타내는지(연산자, 
-변수명, assignment 기호 등) 구별해야 하는데, ​
-이것을 렉시칼 어낼리시스라고 한다.&lt;br /&gt;
-잘라낸 A, =, B, (, A, +, ) 각각을 토큰이라고 한다.&lt;/p&gt;
-
-&lt;p&gt;언어의 구현은 컴파일러, 인터프리터, 하이브리드 방식, 세가지 중의 하나이다. ​&lt;/p&gt;
-
-&lt;p&gt;이들 모두 lexical analysis와 syntax analysis를 거친다.&lt;br /&gt;
-렉시칼 애널라이저는 스캐너라고도 하는데, 소스 프로그램을 인풋으로 받아 토큰으로 잘라낸다.&lt;/p&gt;
-
-&lt;p&gt;신택스 애널라이저는 파서라고도 하는데, 토큰을 인풋
-으로 받아 문법에 따라 파스 트리를 만든다.​&lt;/p&gt;
-
-&lt;p&gt;렉시칼 애널라이저는 신택스 애널라이저의 일부분으로 구현된다. ​&lt;/p&gt;
-
-&lt;p&gt;이러한 이유로 모든 토큰을 한꺼번에 생성하지 않고 필요할 
-때마다 토큰을 생성하기도 한다.&lt;br /&gt;
-토큰 중에는 변수에 대한 변수명, 타입 등의 속성이 있는데, 이들은 심볼 테이블 안에 저장된다.&lt;br /&gt;
-이들 정보는 신택스 어낼리시스 동안에 lookup되기도 하고 새로운 속성이 매핑되기도 한다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Lexical analysis&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;렉시칼 애널라이저는 문장에서 각 단어를 추출하고 이들
-이 어느 범주(문장에서 허용되는 개념의 범주)에 해당되는지
-구별하는 것이다.&lt;br /&gt;
-추출된 단어에 대해 범주를 매핑시킨 것을 토큰이라고 한다. ​&lt;/p&gt;
-
-&lt;p&gt;교과서에서는 일반적인 표현보다는 이들 요소를 구분하여 각각 lexe
-me, token이라고 하는데, ​
-일반적인 표현을 쓰면, 이들은 각각 word, cate
-gory이며, 이들을 합친 것을 토큰이라고 한다. ​&lt;/p&gt;
-
-&lt;p&gt;렉시칼 애널라이저는 이와 같은 토큰을 식별하는 패턴 매처로서, ​
-주어진 스트링에서, 주어진 패턴에 매치되는 서브스트링을 찾는다. ​&lt;/p&gt;
-
-&lt;p&gt;이 설명은 매우 정확하지만 매우 까다로와서 렉시칼 애널라이저를
- 잘못 이해할 수도 있다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl24.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;소스 프로그램을 위와 같이 1차원 배열로 표현되어 있다고 치자. ​
-주어진 스트링에 해당한다. ​&lt;/p&gt;
-
-&lt;p&gt;‘주어진 패턴’이란 identifier, reserved word 등에 해당되는 스트링을 의미한다. ​&lt;/p&gt;
-
-&lt;p&gt;Identifier, reserved word 등은 오른쪽 
-아래의 상태 전이 다이어그램으로 정의된다. ​&lt;/p&gt;
-
-&lt;p&gt;렉시칼 어낼리시스가 어떻게 진행되는지 설명하기 전에 ​
-먼저 상태 전이 다이어그램에 대해 알아 보자.&lt;/p&gt;
-
-&lt;p&gt;렉시칼 애널라이저를 구현하려면, 상태 전
-이 다이어그램을 그리는 것부터 시작한다. ​&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl25.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;위의 그림은 상태전이 다이어그램을 나타내고 있다.&lt;br /&gt;
-상태전이 다이어그램은 directed graph로, ​노드는 상태를 나타내며 상태명으로 레이블이 붙어 있다.&lt;br /&gt;
-아크는 상태 전이를 나타내며, 인풋 문자로 레이블이 붙어 있다.&lt;br /&gt;
-아크의 레이블은 상태 전이를 발생시키는 인풋 문자로서, ​
-아크의 이전 상태에서 해당 인풋 글자가 들어오면 아
-크의 다음 상태로 전이한다는 의미이다.&lt;br /&gt;
-아크는 전이가 일어날 때 수행되어야 할 액션을 포함하기도 한다.&lt;br /&gt;
-그림에서 아크의 위에 있는 Letter, Digit 등은 상태 전이
-를 일으키는 문자를 나타내고, ​
-아래쪽의 addChar, getChar 등은 액션을 나타낸다.  ​&lt;/p&gt;
-
-&lt;p&gt;상태 다이어그램을 단순화하기 위해, reserved wor
-d나 identifier을 별도로 인식하기보다 함께 인식할 수 있다.&lt;br /&gt;
-그림에서 두겹의 타원은 identifier와 integer를 인식하기 위한 상태이다. ​&lt;/p&gt;
-
-&lt;p&gt;identifie가 변수명으로서의 identifi
-er인지 reserved word인지 구별하기 위해 ​
-심볼 테이블 lookup을 통해 결정한다.&lt;/p&gt;
-
-&lt;p&gt;상태 전이 다이어그램을 규칙으로 표
-현할 수도 있는데 이것을 regular grammar라고 한다.&lt;/p&gt;
-
-&lt;p&gt;그렇다면 ‘주어진 패턴’이란 상태 전이 다이어그램으로 정의되는 것이다.
-​
-그러니까 렉시칼 애널라이저는 input file을 하나의 긴 스트링
-으로 간주하고, ​한글자씩 읽어 들여 상태 전이 다이어그램을 따라 가면서, ​
-reserved word, identifier 등의 토큰을 긴 스트링 중의 서
-브 스트링으로서 인식하는 것이다.&lt;/p&gt;
-
-&lt;p&gt;위 그리에서 Input file을 읽어 들여 코멘트를 무시하고, 
-렉시칼 어낼리시스를 하면, ​오른쪽의 토큰들을 얻게 된다.&lt;/p&gt;
-
-&lt;p&gt;정리하면, 주어진 스트링에서, 주어진 패턴에 매치되
-는 서브스트링을 찾는 역할을 하는 것이 ​
-바로 상태 전이 다이어그램이고, ​
-이것을 프로그래밍하면 렉시칼 애널라이저가 된다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl26.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;A=B*(A+C)와 같은 간단한 산술식에서 토큰을 추출하는 렉시칼 
-애널라이저를 구현하기 위해, ​
-먼저 상태 전이 다이어그램을 그리면 위 그림과 같다. ​
-unknown은 identifier와 integer 이외의 것을 인식하는데, ​
-이들은 주로 산술식을 구성하는 연산자나 괄호 등에 해당된다.​&lt;/p&gt;
-
-&lt;p&gt;이들은 하나의 문자로 구성되어 있기 때문에 싱글 캐릭터 토큰이라고 하는데, ​
-이들이 산술식의 연산자나 괄호인지 아닌지 결정하기 위해 심볼 
-테이블을 lookup한다.&lt;/p&gt;
-
-&lt;p&gt;아크 아래의 액션을 나타내는 함수의 역할에 대해 알아 보자.&lt;br /&gt;
-getChar는 인풋 스트링에서 다음 글자를 가져와서 변수 nextChar에 넣고 ​
-그 유형을 판단해서 변수 charClass에 그 유형을 넣는다. ​&lt;/p&gt;
-
-&lt;p&gt;addChar는 nextChar의 글자를 배열 lexeme에 넣는다. ​&lt;/p&gt;
-
-&lt;p&gt;Lookup은 배열 lexeme에 있는 스트링이 reserved word인지 아닌
-지 결정한다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Syntax Analysis&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;우선 신택스 어낼리시스 즉, 파싱이 뭔지, 파서가 뭘하는지 알아보자.&lt;/p&gt;
-
-&lt;p&gt;파서는 주어진 프로그램에 대해 파스 트리를 생성한다. ​&lt;/p&gt;
-
-&lt;p&gt;파스 트리는 명시적으로 생성되기도 하지만 ​
-트리 순회(traversal) 흔적이 생성되기도 한다.&lt;br /&gt;
-(이러한 트리 순회 흔적을 유래(파생, derivation)이라고 합니다.) ​&lt;/p&gt;
-
-&lt;p&gt;파스 트리와 유래 모두 컴파일러나 인터프리터가 필
-요로 하는 모든 신택스(구문 구조적) 정보를 포함한다. ​&lt;/p&gt;
-
-&lt;p&gt;신택스 어낼리시스의 목표는 인풋 프로그램이 문법적으로 올바른지 검사하고, ​
-문법적으로 올바른 인풋에 대한 파스 트리를 생성한다. ​&lt;/p&gt;
-
-&lt;p&gt;도중에 오류가 발견되면 오류 진단 메시지를 생성하고, ​
-인풋 프로그램의 신택스 어낼리시스를 계속한다. ​&lt;/p&gt;
-
-&lt;p&gt;물론 신택스 어낼리시스 도중에 오류가 발생하면, ​
-신택스 어낼리시스만 계속하면서 문법적으로 잘못된 부분을 식별할 뿐이지, ​
-파스 트리를 생성하지는 않는다.&lt;/p&gt;
-
-&lt;p&gt;파싱 방법은 하향식(탑다운)과 상향식(바텀업) 방식이 있다. ​&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Top -down parsing&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;탑다운 파싱은 start 심볼에서 시작하여, 인풋 스트링을 derivation에 어느 BNF 규칙을 적용하는 게 좋을지 따져 보고 ​
-규칙을 선택하여 derivation한다.&lt;/p&gt;
-
-&lt;p&gt;이러한 derivation을 트리로 간주하면, 위에서 아래로 내려오면서 ​
-반복적으로 규칙을 선택하고 적용하여 ​궁극적으로 인풋 스트링(프로그램)이 생성될 때까지 계속한다. ​&lt;/p&gt;
-
-&lt;p&gt;그래서 이것을 recursive-descent parser(반복적 하강
-식 파서)라고 한다. ​&lt;/p&gt;
-
-&lt;p&gt;이와 같은 방식의 파싱 알고리즘을 LL 알고리즘이라고 하는데, ​
-인풋을 왼쪽에서 오른쪽으로 스캔하고, ​
-Leftmost derivation을 생성한다. ​&lt;/p&gt;
-
-&lt;p&gt;Leftmost derivation이란 sentential form
-(문형식)의 가장 왼쪽에 있는 난터미날에 대해, ​
-그 난터미날을 LHS로 갖고 있는 규칙을 선정하여, ​
-그 규칙의 RHS로 바꾸는 것을 의미한다. ​&lt;/p&gt;
-
-&lt;p&gt;LL의 앞에 있는 L은 ‘왼쪽에서 오른쪽으로’를 나타내고,  ​
-뒤의 L은 ‘leftmost derivation’을 나타낸다.&lt;/p&gt;
-
-&lt;p&gt;탑다운 파서의 파싱 결정 문제 ​
-Preorder에 의해 파스 트리를 생성한다.&lt;br /&gt;
-Preorder 순회는 root, left, right 순서로 트리를 방문한다.
-​
-좌선 유도 중인 문형식이 주어졌을 때, 파서는 ​
-주어진 문형식에서 가장 왼쪽의 난터미날 심볼에 대해, ​
-그 난터미날 심볼을 LHS로 갖고 있는 규칙을 찾아서, ​
-그 규칙의 오른쪽 부분으로 문형식의 난 터미날 심볼을 교체한다.(이것을 expand라고 함)&lt;br /&gt;
-이렇게 하여, 좌선 유도에 의한 다음 문형식을 생성한다.
-​
-문형식에서 xAa에서, x는 터미날 심볼로 구성된 스트링을, ​
-A는 난터미날 심볼을, a는 터미날과 난터미날 심볼의 혼합 스트링을 나타낸다.&lt;br /&gt;
-Expand할 때는 적용할 규칙을 선택하여 ​주어진 스트링의 난터미날 심볼을 규칙의 오른쪽으로 교체하여 확장한다.​&lt;/p&gt;
-
-&lt;p&gt;예를 들어 보자. ​
-현재 문형식이 xAa이고, ​
-A에 적용 가능한 규칙이 A→bB | cBb | a 라고 하면, ​
-탑다운 파서는 어느 규칙을 선택하느냐에 따라, ​
-다음 문형식으로 xbBa, xcBba, or xaa 중의 하나를 생성한다.&lt;br /&gt;
-이것이 바로 탑다운 파서의 파싱 결정 문제이며, ​백트래킹 비용을 수반한다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Bottom-up parsing&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;바텀업 파싱은 인풋 스트링을 스캐닝하면서, ​
-규칙의 RHS에 해당되는 스트링이 발견되면, ​
-이 스트링을 발견된 규칙의 왼쪽 스트링으로 바꾼다. ​&lt;/p&gt;
-
-&lt;p&gt;이러한 과정을 반복해서 인풋 스트링이 ​
-궁극적으로 starting 심볼로 바뀌면 파싱이 끝나는 것이다. ​&lt;/p&gt;
-
-&lt;p&gt;이렇게 하려면 탑다운 방식과 달리 스택이라는 자료 구조를
- 필요로 하는데, ​
-스택에 넣고 빼고 하는 과정을 포함하기 때문에 이것을 shif
-t-reduce 파서라고 한다. ​&lt;/p&gt;
-
-&lt;p&gt;Shift는 스택에 심볼을 넣는 것, reduce는
- 스택의 서브 스트링을 규칙의 LHS로 바꾸는 것을 말한다. ​  ​&lt;/p&gt;
-
-&lt;p&gt;이러한 알고리즘을 LR 알고리즘이라고 하는데, ​
-L은 왼쪽에서 오른쪽으로 인풋을 스캐닝하고, ​
-R은 rightmost derivation을 생성한다는 것을 나타낸다.&lt;/p&gt;
-
-&lt;p&gt;바텀업 파싱의 기본 아이디어는 ​
-주어진 스트링을 처리할 때, 규칙의 RHS에 해당되는 서브 스트링을 찾아서, ​
-그 서브스트링을 규칙의 LHS로 교체하는 과정을,  ​
-주어진 스트링이 start 심볼이 될 때까지 반복하는 것이다. ​&lt;/p&gt;
-
-&lt;p&gt;바텀업 파싱의 기술적인 이슈는 ​
-어느 규칙을 적용해서 어느 서브스트링을 교체할 것인지, ​
-미리 따져보는 것이다.&lt;/p&gt;
-
-&lt;p&gt;쉬프트-리듀스 파싱은 바텀업 파싱의 일종이다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl27.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;예를 보면서, 바텀업 파싱을 알아 보자.&lt;br /&gt;
-문법과 인풋 스트링이 이와 같을 때, ​
-인풋 스트링의 왼쪽에서부터 시작해서, ​
-서브스트링에 적용할 수 있는 규칙을 찾아 본다.&lt;br /&gt;
-RHS에 b가 있는 규칙 A → b를 적용할 수 있다. ​
-빨간색 b에 A-&amp;gt;b를 적용하면,  ​
-빨간색 b가 규칙 A-&amp;gt;b의 LHS인 A로 교체되어 ​
-aAbcde가 된다.&lt;/p&gt;
-
-&lt;p&gt;다음, 빨간색 Abc가 A-&amp;gt;Abc에 의해 A로 교체되어 ​
-aAde가 되고, ​
-빨간색 d가 B-&amp;gt;d에 의해, A로 교체되어 ​
-aABe가 된다.&lt;/p&gt;
-
-&lt;p&gt;빨간색 aABe가 S-&amp;gt;aABe에 의해 start 심볼 S로 교체되어 ​
-파싱이 종료된다.&lt;/p&gt;
-
-&lt;p&gt;위의 그림을 잘 살펴보면, reduce의 의미와 derivar
-ion의 의미가 반대임을 알 수 있다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;바텀업 파싱은 규칙이 허용하는 바에 따라 인풋 스트링의 서브스트링을 ​
-LHS의 난터미날 심볼로 교체한다. ​
-이러한 교체는 인풋 스트링이 S로 교체될 때까지 계속된다. ​
-여기서 교체되는 서브스트링은 ​
-처음에는 터미날 심볼로 구성되지만, ​
-점차 터미날 심볼로 구성된 서브스트링이 난터미날로 교체되면서, ​
-터미날 심볼과 난터미날 심볼로 구성된다.  ​
-LHS로 교체하는 과정을 보면, ​
-인풋 스트링의 길이가 점점 줄어들고 있
-음(즉, reduce되고 있음)을 볼 수 있다.  ​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;탑다운 파싱과 비교를 해 보면, ​
-탑다운 파싱은 S에서 인풋 스트링이 생성될 때까지 규칙을 적용해서 ​
-가장 왼쪽의(leftmost) 난터미날 심볼을 RHS로 expand한다. ​
-이것을 좌선 유도(leftmost derivation)이라고 하는데… ​
-위의 파싱 과정을 거꾸로 살펴 보면, ​
-가장 오른쪽의 난터미날이 먼저 RHS로 expand됨을 볼 수 있다. ​
-즉, 우선 유도(rightmost derivation)가 되고 있는 것이다. ​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;따라서, 탑다운과 바텀업 파싱의 과정을 보면 서로 반대임을 알 수 있다. ​
-즉, 바텀업 파싱은 탑다운 우선 유도의 역순과 같다.   ​&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;바텀업 파싱에서는 어느 서브 스트링에 어떤 규칙을 적용하느냐가 중요하다.&lt;br /&gt;
-앞의 예에서 abbcde(b에 A-&amp;gt;b를 적용) =&amp;gt; aAbcde(d에 B-&amp;gt;d를 적용) =&amp;gt; a
-AbcBe이 생성되면, ​&lt;/p&gt;
-
-&lt;p&gt;이후 어떠한 규칙을 적용해도 S로 리듀스되지 않는다.&lt;br /&gt;
-규칙의 LHS로 교체할 수 있는 ‘인풋 스트링 S의 서브스트링 a’를 핸들이라고 한다. ​&lt;/p&gt;
-
-&lt;p&gt;a가 A → a의 RHS에 매치되면, ​
-a를 A(규칙의 LHS)로 교체한다.&lt;br /&gt;
-이때 이러한 교체 과정은 탑다운 
-방식의 우선 유도(rightmost derivation)의 역순으로 나타난다.   ​&lt;/p&gt;
-
-&lt;p&gt;쉬프트-리듀스 파싱에서 리듀스 연산은 핸들에만 적용 가능하다.&lt;/p&gt;
-
-&lt;p&gt;쉬프트-리듀스 파싱의 구현 방법에 대해 알아 보자.&lt;br /&gt;
-바텀업 파싱은 쉬프트와 리듀스라는 두개의 액션으로 설명되기 때문에, ​
-쉬프트-리듀스 파싱으로 불리며, ​
-이를 위한 자료구조로 스택을 사용한다.  ​​&lt;/p&gt;
-
-&lt;p&gt;쉬프트 액션은 다음 인풋 토큰을 스택의 꼭대기에 옮겨 넣는 것을 의미하며, ​
-리듀스 액션은 스택의 꼭대기에 있는 핸들(규칙의 RHS)를 규칙의 LHS로 교체
-하는 것을 의미한다. ​&lt;/p&gt;
-
-&lt;p&gt;이 과정을 start 심볼로 리듀스 될 때까지 반복한다.&lt;br /&gt;
-쉬프트할 때 스택을 사용하면, ​
-현재 처리 중인 스트링에서 리듀스 가능한 서브스트
-링(핸들)을 찾기 쉬운 경향이 있다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl28.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;위 그림은 쉬프트-리듀스의 예이다.&lt;/p&gt;
-
-&lt;p&gt;쉬프트와 리듀스 둘다 가능할 때, 쉬프트-리듀스 컨플릭트가 발생한다. ​
-스택에 핸들 if E then S가 있을 때, 문법에 의하면 
-쉬프트, 리듀스 모두 가능하다. ​&lt;/p&gt;
-
-&lt;p&gt;그러나, 이것은 그 다음에 나오는 심볼이 무엇이냐에 달려 있다. ​
-다음에 else가 나온다면 리듀스하면 안되고 쉬프트해야 한다.  ​
-반대로 else가 나오지 않는다면 리듀스해도 된다.  ​&lt;/p&gt;
-
-&lt;p&gt;리듀스에 적용할 규칙이 여럿일 때, 리듀스-리듀스 컨플릭트 발생한다.&lt;br /&gt;
-스택에 핸들 id(arg)가 있을 때, Stmt로 리듀스할지, Expr로 리듀스할지?  ​
-이것 역시 다음에 나오는 심볼에 달려 있다.&lt;/p&gt;
-
-&lt;p&gt;앞에 언급한 문제를 해결하려면, ​
-인풋 스트링에서 현재 심볼의 다음에 오는 k개의 심볼을 먼저 본다면 ​
-현재 어느 규칙을 써서 무엇을 할지 쉽게 결정할 수 있을 것이다
-이것을 LR(k) 파서라고 하고, 여기서 k는 lookahead라고 한다.​&lt;/p&gt;
-
-&lt;p&gt;장점은 일반적인 방법이면서 많은 유형의 문법을 다룰 수 있고, 효율적이라는 것이다
-단점은 구현하기 어렵다는 것이다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;컴파일러가 각 단게별로 소모하는 처리 비용을 시간의 비율로 나타내
-면 다음과 같다. ​&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;~ 35-40% of time spent in I/O​&lt;/li&gt;
-  &lt;li&gt;~ 30% in lexical analysis​&lt;/li&gt;
-  &lt;li&gt;~ 10% in symbol table management​&lt;/li&gt;
-  &lt;li&gt;~ 7-15% in parsing and other control​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;가장 많은 비용을 소모하는 것이 바로 IO이다
-렉시칼 애널라이저가 그 만큼의 시간을 소모하고, ​
-정착 알고리듬 측면에서 가장 복잡한 파싱이 비용소모가 적다. ​&lt;/p&gt;
-
-&lt;hr /&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="pl" />
-      
-
-      
-        <summary type="html">신택스 분석 방법</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">정적 시맨틱과 동적 시맨틱</title>
-      <link href="https://lee989898.github.io/pl-09" rel="alternate" type="text/html" title="정적 시맨틱과 동적 시맨틱" />
-      <published>2021-09-23T19:18:00+09:00</published>
-      <updated>2021-09-23T19:18:00+09:00</updated>
-      <id>https://lee989898.github.io/pl-09</id>
-      <content type="html" xml:base="https://lee989898.github.io/pl-09">&lt;h3 id=&quot;정적-시맨틱과-동적-시맨틱&quot;&gt;&lt;strong&gt;정적 시맨틱과 동적 시맨틱&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;시맨틱에는 정적 시맨틱과 동적 시맨틱이 있다.&lt;br /&gt;
-정적인 시맨틱은 컴파일 시에 확인할 수 있는 시맨틱 규칙을 말한다.&lt;br /&gt;
-이들 시맨틱 규칙은 ​타입 검사, 프로그램에서 변수가 언급되기 전에 이에 대한 정의가 되어 있는지, ​서브 프로그램에서 어느 선언
- 이 어느 변수에 적용되어야 하는지, ​서브 프로그램과 메소드가 호출될 때 호출 순서를 올
-바르게 지키는지 등을 포함한다.  ​&lt;/p&gt;
-
-&lt;p&gt;동적 시맨틱스는 프로그램이 실행될 때 ​프로그램 컨스트럭트가 
-언제 어떤 행태(계산 결과)를 생성해야 하는지 정의하는 것이다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;BNF로 시맨틱을 표현할 수 있을까?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;타입 호환성 규칙은 BNF로 서술할 수 있지만, ​
-새로운 난터미널 심볼과 규칙을 추가로 요구하기 때문에, ​
-문법이 너무 커지고 신택스 애널라이저(구문 해석기)가 비대해져 유용하지 않다. ​&lt;/p&gt;
-
-&lt;p&gt;프로그래밍 언어에 공통적으로 적용되고 있는 ​
-‘모든 변수는 언급되기(reference) 이전에 
-선언(정의)되어야 한다’는 규칙은 BNF로 서술이 불가하다. ​&lt;/p&gt;
-
-&lt;p&gt;이러한 종류의 규칙을 정적인(static) 시맨틱스라고 부른다.&lt;br /&gt;
-정적인 시맨틱스는 프로그램 실행시 프로그램의 의미에 간접적으로
- 관련이 있을 뿐이고, 오히려, 프로그램의 올바른 형태(신택
- 스)와 직접 관련이 있다. ​&lt;/p&gt;
-
-&lt;p&gt;따라서, 정적인 시맨틱스의 검사는 컴파일 시에 가능하다.&lt;br /&gt;
-이 말은 정적인 시맨틱스는 컴파일러의 구현시 고려되어야 한다는 의미이다. ​&lt;/p&gt;
-
-&lt;p&gt;그러면 정적인 시맨틱스를 어떻게 서술할 수 있을까? ​
-바로 속성 문법(attribute grammar)으로 서술한다. ​
-속성 문법은, ‘프로그래밍 언어가 만족해야 할’ 정적인 시맨틱 규칙을 
-서술하고 검사하기 위해 사용되는 ​BNF와 유사한 형태의 문법이다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;속성 문법이 단순한 assignment 문장의 타입 검사에 어떻게 사용 될까?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;이 assignment 문장의 신택스와 정적 시맨틱스는 다음과 같다. ​&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;변수명은 A, B, C 뿐이다.​&lt;/li&gt;
-  &lt;li&gt;Assignment의 우변은 변수거나 ‘변수 + 변수’의 표현식이다. ​&lt;/li&gt;
-  &lt;li&gt;변수의 타입은 int거나 real이다.​&lt;/li&gt;
-  &lt;li&gt;우변에 변수 2개가 있을 때, 이들의 타입은 같을 필요가 없다. ​&lt;/li&gt;
-  &lt;li&gt;두 오퍼랜드가 같은 타입이 아닐 때 표현식의 타입은 real이다.&lt;br /&gt;
-(여기서 표현식의 타입이란 표현식을 계산한 결과값의 타입을 말한다.) ​&lt;/li&gt;
-  &lt;li&gt;이들의 타입이 같을 때, 표현식의 타입은 오퍼랜드의 타입과 같다. ​&lt;/li&gt;
-  &lt;li&gt;좌변의 타입은 우변의 타입과 같아야 한다. ​&lt;/li&gt;
-  &lt;li&gt;그래서, 우변의 오퍼랜드의 타입이 mix될 수 있으나, 우변의 계산 결과값과 좌변의 타겟이 같을 때만 assignment는 타당하다.  ​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;속성 문법은 위와 같은 정적 시맨틱 규칙을 명세한다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl21.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;간단한 assignment를 속성문법으로 서술하면 위 그림과 같다. ​&lt;/p&gt;
-
-&lt;p&gt;속성 문법에는 신택스 규칙과 함께 데이터 타입에 관한 시맨틱 
-규칙, 그리고 판단식이 서술되어 있다.&lt;br /&gt;
-룩업 함수는 심볼 테이블에서 변수명을 찾아서 변수의 타입을 반환한다.&lt;br /&gt;
-심볼 테이블은 컴파일러가 구문 분석 단계에서 ​
-변수에 대한 이름, 타입 등을 저장하기 위해 생성한 ​
-테이블 구조를 말한다. ​&lt;/p&gt;
-
-&lt;p&gt;실제 타입은 var, expr의 실제 타입을 말한다.&lt;br /&gt;
-실제 타입은 선언되어 있거나 변수명으로부터 유추 가능하다.&lt;br /&gt;
-예를 들어, Perl에서 $, @, %는 ​
-각각 스칼라(스티링, 숫자), 벡터(배열), 해쉬 구조를 나타낸다.&lt;br /&gt;
-이로부터 변수의 타입을 유추할 수 있다. ​&lt;/p&gt;
-
-&lt;p&gt;예상 타입은 expr와 관련된 속성으로부터 상속된 타입으로 ​
-좌변의 변수의 실제 타입에 의해 결정된다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl22.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;왼쪽 그림은 속성의 흐름, ​
-즉 속성이 파스 트리를 따라
- 상속(pass up, pass down)되는 흐름을 나타내고 있고, ​&lt;/p&gt;
-
-&lt;p&gt;오른쪽 그림은 속성 문법에 의한 ​
-attributed parse tree(속성이 부여된 파스 트리)를 보여준다.  ​&lt;/p&gt;
-
-&lt;p&gt;이와 같이 부여된 속성에 근거하여, 컴파일러는 타입 검사를 할 수 있다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;동적 시맨틱스를 서술하는 방법은 여러 가지가 있으나, operational semantics에 대해 살펴 보기로 한다. ​&lt;/p&gt;
-
-&lt;p&gt;Operational semantics는 연산의 의미에 의해 
-표현식, 문장, 단위 프로그램의 의미를 서술하는 방식이다. ​&lt;/p&gt;
-
-&lt;p&gt;시맨틱스 서술의 중요성을 각 사용자별로 따져 보면 다음과 같다.  ​&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;프로그래머는 원하는 프로그램을 짜기 위해 프로그
-래밍 언어의 각 문장이 무엇을 하는지 알 필요가 있다. ​&lt;/li&gt;
-  &lt;li&gt;컴파일러 개발자는 프로그래밍 언어
-에서 각 컨스트럭트의 의미를 정확히 알아야 한다. ​&lt;/li&gt;
-  &lt;li&gt;프로그래밍 언어 설계자는 설계 상의 모호성과 불일치를 발견할 수 있다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Operational semantics는 문장이나 단위 프로그램
-을 컴퓨터에서 실행한 효과를 명세하여, ​
-문장이나 프로그램의 의미를 서술한다. ​&lt;/p&gt;
-
-&lt;p&gt;Operational semantics는 머신 상태의 일련의 변화로 볼 수 있다.&lt;br /&gt;
-여기서 머신의 상태란 프로그램 수행에 따라 변화하는 각 변수 값의 콜
-렉션(집합)이다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​&lt;img src=&quot;/assets/built/images/pl/pl23.png&quot; width=&quot;100%&quot; height=&quot;50%&quot; title=&quot;제목&quot; alt=&quot;프로그래밍언어&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;위의 그림과 같이, operational semantics는 ​
-문장에 대한 의미를 intermediate code처럼 정해진 
-방식으로 서술한 것으로 볼 수 있다.&lt;br /&gt;
-Intermediate 언어는 가상 머신에서 실
-행되는 언어 또는 어셈블리 언어를 말한다.&lt;/p&gt;
-
-&lt;p&gt;Operational semantics 서술을 위해 intermediate 언어와 가상 머신을 사용하기도 한다. ​​&lt;/p&gt;
-
-&lt;hr /&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="pl" />
-      
-
-      
-        <summary type="html">정적 시맨틱과 동적 시맨틱</summary>
       
 
       
