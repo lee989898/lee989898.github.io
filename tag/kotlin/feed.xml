@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/kotlin/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-11-26T00:11:26+09:00</updated>
+  <updated>2021-11-26T00:23:25+09:00</updated>
   <id>https://lee989898.github.io/tag/kotlin/feed.xml</id>
 
   
@@ -366,7 +366,48 @@
       <published>2021-08-05T01:07:00+09:00</published>
       <updated>2021-08-05T01:07:00+09:00</updated>
       <id>https://lee989898.github.io/kotlin-03</id>
-      <content type="html" xml:base="https://lee989898.github.io/kotlin-03">&lt;h1 id=&quot;클래스-객체-인터페이스&quot;&gt;&lt;strong&gt;클래스, 객체, 인터페이스&lt;/strong&gt;&lt;/h1&gt;
+      <content type="html" xml:base="https://lee989898.github.io/kotlin-03">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;코틀린 테이블&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-01&quot;&gt;코틀린 기초&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-02&quot;&gt;함수 정의와 호출&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-03&quot;&gt;클래스, 객체, 인터페이스&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-04&quot;&gt;람다로 프로그래밍&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-05&quot;&gt;코틀린 타입 시스템&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-06&quot;&gt;연산자 오버로딩과 기타 관례&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-07&quot;&gt;고차 함수: 파라미터와 반환 값으로 람다 사용&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-08&quot;&gt;제네릭스&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-09&quot;&gt;애노테이션과 리플렉션&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-10&quot;&gt;DSL 만들기&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;클래스-객체-인터페이스&quot;&gt;클래스, 객체, 인터페이스&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#클래스-계층-정의&quot;&gt;클래스 계층 정의&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#뻔하지-않은-생성자와-프로퍼티를-갖는-클래스-선언&quot;&gt;뻔하지 않은 생성자와 프로퍼티를 갖는 클래스 선언&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#컴파일러가-생성한-메서드-데이터-클래스와-클래스-위임&quot;&gt;컴파일러가 생성한 메서드: 데이터 클래스와 클래스 위임&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#object-키워드-클래스-선언과-인스턴스-생성&quot;&gt;object 키워드: 클래스 선언과 인스턴스 생성&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;클래스-계층-정의&quot;&gt;클래스 계층 정의&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;뻔하지-않은-생성자와-프로퍼티를-갖는-클래스-선언&quot;&gt;뻔하지 않은 생성자와 프로퍼티를 갖는 클래스 선언&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;컴파일러가-생성한-메서드-데이터-클래스와-클래스-위임&quot;&gt;컴파일러가 생성한 메서드: 데이터 클래스와 클래스 위임&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;object-키워드-클래스-선언과-인스턴스-생성&quot;&gt;object 키워드: 클래스 선언과 인스턴스 생성&lt;/h2&gt;
 
 &lt;hr /&gt;</content>
 
@@ -389,7 +430,7 @@
       
 
       
-        <summary type="html">클래스, 객체, 인터페이스</summary>
+        <summary type="html">코틀린 테이블 코틀린 기초 함수 정의와 호출 클래스, 객체, 인터페이스 람다로 프로그래밍 코틀린 타입 시스템 연산자 오버로딩과 기타 관례 고차 함수: 파라미터와 반환 값으로 람다 사용 제네릭스 애노테이션과 리플렉션 DSL 만들기</summary>
       
 
       
@@ -425,10 +466,10 @@
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;#코틀린에서-컬렉션-만들기&quot;&gt;코틀린에서 컬렉션 만들기&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#함수를-호출하기-쉽게-만들기&quot;&gt;함수를 호출하기 쉽게 만들기&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#메서드를-다른-클래스에-추가-확장-함수와-확장-프로퍼티&quot;&gt;메서드를 다른 클래스에 추가 확장 함수와 확장 프로퍼티&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#컬렌션-처리-가변-길이-인자와-중위-함수-호출과-라이브러리-지원&quot;&gt;컬렌션 처리 가변 길이 인자와 중위 함수 호출과 라이브러리 지원&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#메서드를-다른-클래스에-추가-확장-함수와-확장-프로퍼티&quot;&gt;메서드를 다른 클래스에 추가: 확장 함수와 확장 프로퍼티&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#컬렌션-처리-가변-길이-인자와-중위-함수-호출과-라이브러리-지원&quot;&gt;컬렌션 처리: 가변 길이 인자와 중위 함수 호출과 라이브러리 지원&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#문자열과-정규식-다루기&quot;&gt;문자열과 정규식 다루기&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#코드-다듬기-로컬-함수와-확장&quot;&gt;코드 다듬기 로컬 함수와 확장&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#코드-다듬기-로컬-함수와-확장&quot;&gt;코드 다듬기: 로컬 함수와 확장&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -610,7 +651,7 @@ fun reporstOperationCount(){
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;메서드를-다른-클래스에-추가-확장-함수와-확장-프로퍼티&quot;&gt;메서드를 다른 클래스에 추가 확장 함수와 확장 프로퍼티&lt;/h2&gt;
+&lt;h2 id=&quot;메서드를-다른-클래스에-추가-확장-함수와-확장-프로퍼티&quot;&gt;메서드를 다른 클래스에 추가: 확장 함수와 확장 프로퍼티&lt;/h2&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;package strings
 
@@ -742,7 +783,7 @@ Kotlin!
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;컬렌션-처리-가변-길이-인자와-중위-함수-호출과-라이브러리-지원&quot;&gt;컬렌션 처리 가변 길이 인자와 중위 함수 호출과 라이브러리 지원&lt;/h2&gt;
+&lt;h2 id=&quot;컬렌션-처리-가변-길이-인자와-중위-함수-호출과-라이브러리-지원&quot;&gt;컬렌션 처리: 가변 길이 인자와 중위 함수 호출과 라이브러리 지원&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;vararg 키워드를 사용하면 호출 시 인자 개수가 달라질 수 있는 함수를 정의할 수 있다&lt;/li&gt;
@@ -874,7 +915,7 @@ dir: /users/yole/kotlin-book, name: chapter, ext: aboc
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;코드-다듬기-로컬-함수와-확장&quot;&gt;코드 다듬기 로컬 함수와 확장&lt;/h2&gt;
+&lt;h2 id=&quot;코드-다듬기-로컬-함수와-확장&quot;&gt;코드 다듬기: 로컬 함수와 확장&lt;/h2&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class User(val id: Int, val name: String, val address: String)
 
@@ -993,16 +1034,16 @@ fun saveUser(user: User){
 &lt;hr /&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;#함수와-변수&quot;&gt;함수와 변수&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#기본요소-함수와-변수&quot;&gt;기본요소: 함수와 변수&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#클래스와-프로퍼티&quot;&gt;클래스와 프로퍼티&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#enum과-when&quot;&gt;enum과 when&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#while과-for-루프&quot;&gt;while과 for 루프&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#선택-표현과-처리-enum과-when&quot;&gt;선택 표현과 처리: enum과 when&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#대상을-이터레이션-while과-for-루프&quot;&gt;대상을 이터레이션: while과 for 루프&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#코틀린의-예외-처리&quot;&gt;코틀린의 예외 처리&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;함수와-변수&quot;&gt;함수와 변수&lt;/h2&gt;
+&lt;h2 id=&quot;기본요소-함수와-변수&quot;&gt;기본요소: 함수와 변수&lt;/h2&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;fun main(args: String&amp;lt;String&amp;gt;){
     println(&quot;Hello, world!&quot;)
@@ -1223,7 +1264,7 @@ fun main(args: Array&amp;lt;String&amp;gt;){
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;enum과-when&quot;&gt;enum과 when&lt;/h2&gt;
+&lt;h2 id=&quot;선택-표현과-처리-enum과-when&quot;&gt;선택 표현과 처리: enum과 when&lt;/h2&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;enum 클래스 정의&lt;/p&gt;
