@@ -59,35 +59,7 @@
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Lambda Calculus​" />
-    <meta property="og:description" content="Lambda Calculus​
-__
-
-
-
-
-  Why functional programming?​
-
-
-
-
-
-  Imperative and Functional programming style​
-
-
-
-
-
-  Functions as programs ​
-
-
-
-
-
-  Functional programs​
-
-
-
-" />
+    <meta property="og:description" content="Lambda Calculus​ __ Why functional programming?​ 함수 프로그래밍이 왜 필요한가? ​ 소프트웨어 제품이 신뢰성이 낮고, 관리하기 어려우며, 올바른지 증명하기 하기 어렵다. ​ 그 이유는 다음과 같다. ​ 소프트웨어를 새로 릴리즈할 때마다, 알려진 오류는 수정되나 새로운 오류가 발견된다. ​ 소프트웨어의 정밀한 설계는 오랜 기간의 연구 개발을 필요로 하나, ​ 현실적으로 시장" />
     <meta property="og:url" content="https://lee989898.github.io/pl-19" />
     <meta property="og:image" content="https://lee989898.github.io/assets/built/images/pl-background-frontend.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -97,35 +69,7 @@ __
     <meta property="article:tag" content="Pl" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Lambda Calculus​" />
-    <meta name="twitter:description" content="Lambda Calculus​
-__
-
-
-
-
-  Why functional programming?​
-
-
-
-
-
-  Imperative and Functional programming style​
-
-
-
-
-
-  Functions as programs ​
-
-
-
-
-
-  Functional programs​
-
-
-
-" />
+    <meta name="twitter:description" content="Lambda Calculus​ __ Why functional programming?​ 함수 프로그래밍이 왜 필요한가? ​ 소프트웨어 제품이 신뢰성이 낮고, 관리하기 어려우며, 올바른지 증명하기 하기 어렵다. ​ 그 이유는 다음과 같다. ​ 소프트웨어를 새로 릴리즈할 때마다, 알려진 오류는 수정되나 새로운 오류가 발견된다. ​ 소프트웨어의 정밀한 설계는 오랜 기간의 연구 개발을 필요로 하나, ​ 현실적으로 시장" />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
     <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/pl-background-frontend.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -157,35 +101,7 @@ __
         "@type": "WebPage",
         "@id": "https://lee989898.github.io/pl-19"
     },
-    "description": "Lambda Calculus​
-__
-
-
-
-
-  Why functional programming?​
-
-
-
-
-
-  Imperative and Functional programming style​
-
-
-
-
-
-  Functions as programs ​
-
-
-
-
-
-  Functional programs​
-
-
-
-"
+    "description": "Lambda Calculus​ __ Why functional programming?​ 함수 프로그래밍이 왜 필요한가? ​ 소프트웨어 제품이 신뢰성이 낮고, 관리하기 어려우며, 올바른지 증명하기 하기 어렵다. ​ 그 이유는 다음과 같다. ​ 소프트웨어를 새로 릴리즈할 때마다, 알려진 오류는 수정되나 새로운 오류가 발견된다. ​ 소프트웨어의 정밀한 설계는 오랜 기간의 연구 개발을 필요로 하나, ​ 현실적으로 시장"
 }
     </script>
 
@@ -300,11 +216,129 @@ into the {body} of the default.hbs template -->
   <p>Why functional programming?​</p>
 </blockquote>
 
+<ul>
+  <li>함수 프로그래밍이 왜 필요한가? ​
+    <ul>
+      <li>소프트웨어 제품이 신뢰성이 낮고, 관리하기 어려우며, 올바른지 증명하기 하기 어렵다. ​</li>
+      <li>그 이유는 다음과 같다. ​
+        <ul>
+          <li>소프트웨어를 새로 릴리즈할 때마다, 알려진 오류는 수정되나 새로운 오류가 발견된다. ​</li>
+          <li>소프트웨어의 정밀한 설계는 오랜 기간의 연구 개발을 필요로 하나, ​</li>
+          <li>현실적으로 시장 출시 압박이 우선한다. ​</li>
+          <li>하드웨어의 처리 능력이 증가함에 따라, ​</li>
+          <li>과거에 못하던 복잡한 어플리케이션을 자동화하느라, 소프트웨어의 복잡도가 증가한다. ​</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>이러한 현상을 극복하기 위해, 컴퓨터 과학자들은 두가지 중요한 문제를 풀어야 한다. ​
+    <ul>
+      <li>저비용으로 대규모 소프트웨어의 신뢰성과 사용자 편의성을 개선하는 방법 ​</li>
+      <li>저비용으로 처리 능력을 증가시키는 방법</li>
+    </ul>
+  </li>
+  <li>이러한 문제에 대한 해결책으로, ​명령형 프로그래밍을 지지하는 측에서는, 소프트웨어 공학, 프로그램 증명 기법, 스펙을 프로그램으로 변환하는 기법, 새로운 (병렬) 컴퓨터 아키텍처 등을 연구해 왔다. ​</li>
+  <li>함수 프로그래밍을 지지하는 측에서는 프로그램으로서의 함수를 대안으로 연구해 왔다.  ​</li>
+</ul>
+
 <hr />
 
 <blockquote>
   <p>Imperative and Functional programming style​</p>
 </blockquote>
+
+<p>계산 모델을 튜링 머신에 기반한 IPL은 기본 개념으로 ​메모리, 변수, 할당문, 반복처리(iteration)을 갖는다. ​</p>
+<ul>
+  <li>메모리는 프로그램과 데이터를 저장하고, ​</li>
+  <li>변수는 메모리 셀을 차지하고 있으며, 계산 결과의 변화에 따라 변경 가능한 값을 저장한다. ​</li>
+  <li>할당문은 계산 결과를 메모리에 저장하며, 이를 통해 변수의 값을 변경시킨다. ​</li>
+  <li>
+    <p>Iteration은 값이 변하는 변수를 통해 반복처리를 제어한다.</p>
+  </li>
+  <li>명령형 프로그래밍의 장점은 실행 시스템의 구현이 단순하고 저비용 고효율이다. ​</li>
+  <li>명령형 프로그래밍의 단점은 ​
+    <ul>
+      <li>Goto는 아무런 조건없이 점프만하기 때문에, ​프로그램의 올바름을 판단하기 어렵게 만든다. ​</li>
+      <li>난로컬 변수와 할당문으로 인해 부작용이 발생하며, ​이로 인해 프로그램의 올바름을 판단하기 어렵게 만든다. ​</li>
+      <li>알고리듬의 어느 부분이 동시 처리 가능한지, ​동시처리하면 안되는지 탐지하기 어려워서, ​알고리듬이 필요 이상으로 순차적이다. ​</li>
+    </ul>
+  </li>
+  <li>최근 들어 많은 연구자들은 소프트웨어 위기와 속도 문제가 ​명령형 언어와 튜링 머신의 계산 모델에 기인한다고 추측하고 있다.</li>
+</ul>
+
+<p>함수 프로그램에서는, ​</p>
+<ul>
+  <li>함수 파라미터의 실제 ‘값’이 함수 호출의 결과를 유일하게 결정한다. ​</li>
+  <li>할당문이 없어서 함수의 부작용이 발생할 수 없다. ​</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FUNCTION increment (INTEGER value) : INTEGER;​
+BEGIN​
+value + 1​
+END;​
+:​
+print(increment (41));​ 
+print(increment (41));​
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>함수의 결과는 파라미터의 값에 의해서만 결정되므로, ​어떠한 조건 하에서도 그 결과는 같다. ​이것을 referential transparenc라고 한다. ​이러한 이유로, 함수 increment의 결과 값은 둘다 42이다. ​</p>
+  </li>
+  <li>함수 프로그래밍 언어에서는 함수를 ‘일등 시민’으로 취급한다. ​</li>
+  <li>따라서 함수를 파라미터로 주고 받을 수 있다. ​</li>
+  <li>명령형 프로그래밍 언어에서는 함수를 파라미터로 주고 받을 수 없다. ​</li>
+  <li>함수 프로그래밍 언어는 함수의 일반적인 사용(합성 함수 f(g(x)) 등)을 지원한다. ​</li>
+  <li>
+    <p>이것은 종래의 명령형 언어에서 허용되지 않는다.</p>
+  </li>
+  <li>함수 프로그래밍 언어는 계산 모형을 람다 계산학에 기반하고 있으며, ​기본 개념으로 표현식(expression), 리커젼, 평가, 변수가 있다. ​</li>
+  <li>표현식은 수학식을 의미하며, ​리커젼은 재귀 함수에 의한 반복처리로서, iteration과 다르다. ​</li>
+  <li>평가는 함수의 실행을 의미하지만, 아무 것도 수정하지 않는다. ​</li>
+  <li>변수는 수학적 의미의 변수로서 알려지지 않은 값을 가지며, ​구체적인 값의 추상화일 뿐, 메모리를 차지하지 않는다. ​</li>
+  <li>따라서 값의 placeholder 역할을 하며, 수정 불가능하다. ​</li>
+  <li>
+    <p>FPL에서는 명령형 언어적 의미의 변수가 없으므로, ​iteration이 불가능하며, ​대신에 반복처리를 위한 리커젼이 있다.​</p>
+  </li>
+  <li>FPL의 장점은 ​
+    <ul>
+      <li>IPL의 기본 개념이 없어서, 소프트웨어 신뢰성을 높인다. ​</li>
+    </ul>
+  </li>
+  <li>프로그래머는 함수를 정의하기만 하고, 인터프리터(실행 시스템)가 계산한다. ​</li>
+  <li>할당문이 없고, 변수의 개념이 IPL의 변수와 다르고, 부작용이 없다. ​
+    <ul>
+      <li>변수는 ‘아직 알려지지 않은 값’을 명명하고 언급한다. ​</li>
+      <li>부작용이 없어서, 올바름 증명이 쉽고, 함수의 평가는 순서에 무관하다. ​</li>
+    </ul>
+  </li>
+  <li>
+    <p>따라서 FPL은 병렬 처리에 적합하다</p>
+  </li>
+  <li>FPL의 단점은, ​우선, 실행 속도가 매우 느려서 비효율적이다. ​</li>
+  <li>그 이유는 다음과 같다. ​
+    <ul>
+      <li>머신 아키텍처가 함수 언어에 적합하게 설계되지 않았다. ​</li>
+      <li>함수 호출 비용이 비싸다. 특히 지연 평가시에… ​</li>
+      <li>파괴적 갱신(갱신되면 먼저 값이 없어짐)에 적합하므로, ​효율적인 컴파일 방법을 찾기 어렵고, ​
+어떤 알고리듬에 대해, 시간 및 공간 복잡도가 너무 높다. ​</li>
+    </ul>
+  </li>
+  <li>이러한 경우에 효율을 위해 프로그램 변환이 필요하다. ​</li>
+  <li>아직 효율적인 컴파일 방법이 널리 사용 가능하지 않다. ​</li>
+  <li>
+    <p>많은 경우에 함수 프로그램의 효율이 받아 들일 수 있는 수준에 있지만, ​컴파일 방법이 매우 복잡하고 연구 수준에 머물어 있다. ​</p>
+  </li>
+  <li>둘째, 명령형 프로그램의 특성이 강한 어플리케이션에 아직 부적합하다. ​
+    <ul>
+      <li>상호 작용이 강한 어플리케이션을 함수 프로그래밍 스타일로 표현하는 능력이 아직은 부족하다. ​</li>
+      <li>이들 어플리케이션으로는 상호적 프로그램, DBMS, OS, 프로세스 컨트롤 등이다. ​</li>
+      <li>함수 프로그래밍 기술 개발이 필요하다. ​</li>
+      <li>함수 스타일로 표현하기 어려운 어플리케이션을 함수 스타일로 표현하는 방법을 개발하는 것이 필요하다.  ​</li>
+      <li>현재, 윈도우, 다이알로그, 메뉴 등을 사용하는 상호적 프로그램을 함수 언어로 명세화하는 방법이 알려져 있다.</li>
+    </ul>
+  </li>
+</ul>
 
 <hr />
 
@@ -312,11 +346,355 @@ into the {body} of the default.hbs template -->
   <p>Functions as programs ​</p>
 </blockquote>
 
+<ul>
+  <li>
+    <p>함수가 프로그램인가? 이 문제에 대해 살펴 봅시다. ​</p>
+  </li>
+  <li>팩토리알을 구하는 함수는 프로그램이라고 간주해도 문제가 없다. ​프로그램의 종료 확인 함수(Halting)는 계산 가능하지 않고, 따라서 원하는 결과를 생산하지 못한다.  ​</li>
+  <li>
+    <p>함수가 임의의 프로그램에 대해 halting 함수를 계산한다고 하자. ​만일 파라미터 프로그램이 종료되지 않는다면 ​Halting 함수는 종료되지 않을 것이고, ​Result 0이 절대로 생산되지 않는다. ​</p>
+  </li>
+  <li>이들 예에서 함수는 람다 계산학에 기반한 계산 모델을 사용하여 평가된다. ​</li>
+  <li>평가는 IPL의 실행과 유사하지만, IPL의 파괴적 갱신이 없다는 면에서 다르다.​</li>
+  <li>람다 계산학은 함수 정의 방식과 변수 대체 규칙(substitution)으로 구성된다.</li>
+</ul>
+
 <hr />
 
 <blockquote>
   <p>Functional programs​</p>
 </blockquote>
+
+<ul>
+  <li>FPL로 작성된 프로그램은 함수의 모음과 초기 표현식으로 구성된다. ​</li>
+  <li>초기 표현식이란 모든 파라미터가 상수인 (또는 상수로 대체된) 표현식을 말하는데, ​</li>
+  <li>이 식은 평가되어야 한다. -&gt; reduce​</li>
+</ul>
+
+<p>​+ 함수 정의는 표현식 내에서 다음 형태로 구성된다. ​(여기서는 scheme 문법을 차용함) ​
+define (함수명 파라미터1 … 파라미터n) 표현식) ​
+이와 같이 함수 프로그램을 정의하는 것은 recursive하다. ​
+표현식은 함수 결과를 명세화하며, 값, 파라미터, 함수 적용(application)을 나타낸다. ​</p>
+
+<p>​+ 함수 적용(application), (f a)는 함수 f를 a에 적용하라는 뜻이다. ​
+초기 표현식은 (+ 2 3), (squareinc 5)과 같이 계산될 수 있는 표현식이다.  ​
+함수 프로그램의 예를 들어 보자. ​</p>
+
+<hr />
+
+<blockquote>
+  <p>Evaluation of functional programs​</p>
+</blockquote>
+
+<p>함수 프로그램의 평가는 실행이나 계산을 의미하는데,  이것은 초기 표현식의 평가와 리덕션(표현식의 축소화)에 의한다. ​</p>
+<ul>
+  <li>
+    <p>초기 표현식의 평가는 인터프리터가 수행하며, ​반복적으로 리덕션(또는 rewriting)을 수행한다. ​</p>
+  </li>
+  <li>
+    <p>예를 들어, ​</p>
+  </li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(ident 42) → 42​
+(square (+ 1 2)) → (square 3) → (* 3 3) → 9​
+(squareinc 7) → (square (inc 7) → (square (+ 7 1)) → (square 8) → (*8 8) → 64​
+</code></pre></div></div>
+
+<ul>
+  <li>각 리덕션 단계에서(화살표로 표시)  ​</li>
+</ul>
+
+<ol>
+  <li>함수 적용은 함수의 파라미터를 대응하는 함수 body로 교체하는 것이다.  ​
+리덕션 가능한 표현식(redex)은 함수 정의에 따라 rewrite 될 수 있는 서브 표현식을 말한다. ​</li>
+  <li>다음 상황에서 리덕션 과정이 끝난다.​
+    <ul>
+      <li>더 이상 redex가 남아 있지 않고,  ​(즉, 더 이상 어떠한 함수 정의라도 적용할 수 없을 때)​</li>
+      <li>초기 표현식이 가장 단순한 형태(normal form; 상수만 있는 축소화된 표현식)에 있을 때, ​결과를 프린트하고 종료한다.   ​</li>
+    </ul>
+  </li>
+</ol>
+
+<blockquote>
+  <p>Order of Evaluation</p>
+</blockquote>
+
+<ul>
+  <li>부작용이 없어서, 평가 순서는 무관하다. ​</li>
+  <li>리덕션 가능한 표현식이 다 없어진 후에, ​계산 결과는 항상 같고, 유일하다. ​</li>
+  <li>그러나 순서가 완전히 무관한 것은 아니다. ​경우에 따라 리덕션 순서는 결과를 생산하지 못할 뿐더러 종료되지 않을 수 있다. ​
+    <ul>
+      <li>종료 못하는 리덕션 순서의 예: ​</li>
+      <li>리커젼 함수의 정의가  ​(define (inf x) (inf x)) (define (alwaysseven x) 7)  일 때, ​만일 앞의 것을 먼저 계산하면, ​(alwaysseven (inf 2)) → (alwaysseven (inf 2)) → … 종료되지 않는다. ​</li>
+      <li>그러나 뒤의 것을 먼저 계산하면, ​(alwaysseven (inf 2)) → 7로 종료된다.</li>
+    </ul>
+  </li>
+  <li>리덕션 전략에는 call by value, call by name이 있다. ​</li>
+  <li>먼저 리슾, 스킴, 엠엘 등에서 사용되는 call by value를 살펴 보자. ​
+    <ul>
+      <li>Eager, strict evaluation이라고 한다. ​</li>
+      <li>리덕션 절차에 의해 함수 적용 그 자체가 리덕션 가능한 표현식이라고 간주(확인)되기 전에, ​</li>
+    </ul>
+  </li>
+  <li>함수의 파라미터를 항상 리덕션한다. (그것이 초기 표현식일 때) ​
+    <ul>
+      <li>파리미터에 대한 함수 적용은 그 파라미터가 값일때만, 리덕션 가능한 표현식이 된다. ​</li>
+      <li>조건 연산자 if의 적용 후에, if의 파라미터를 평가한다.</li>
+    </ul>
+  </li>
+  <li>하스켈에서 사용되는 Call by name를 살펴 보자. ​
+    <ul>
+      <li>lazy evaluation이라고 한다. ​</li>
+      <li>값이 알려져서 초기 표현식이 되고 값을 반환해야 할 때가 되면,  ​비로소 리덕션 가능한 서브 표현식의 값이 계산된다. ​</li>
+      <li>조건 함수의 call by name은 ​첫째 파라미터(if 다음의 부울식)의 평가를 요구한다.  ​</li>
+    </ul>
+  </li>
+  <li>정리하면, ​Eager는 초기 표현식이 만들어지면 바로 계산하여 리덕션(축소화)하지만, ​
+Lazy는 초기 표현식이 만들어지더라도 그 식의 값이 필요할(반환해야 할) 때 계산한다. ​
+표현식에 조건함수가 있다면, if 다음의 부울식을 계산해 가면서 표현식을 펼쳐 가면서 리덕션한다.</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>Recursion ​</p>
+</blockquote>
+
+<ul>
+  <li>리커젼은 순환적으로 정의된 데이터에 대한 함수 정의에 자연스럽게 적용되는 절차이다.</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>Higher-order functions​</p>
+</blockquote>
+
+<ul>
+  <li>FPL은 함수의 개념에 대해 일반적인 관점을 갖는다. ​</li>
+  <li>함수는 ‘일등 시민’으로 (객체처럼) 취급된다. ​</li>
+  <li>함수는 파라미터와 결과로서 함수를 가질(사용할) 수 있다. ​</li>
+  <li>고차 함수는 파라미터로 함수를 갖거나 결과로서 함수를 생산한다. ​</li>
+  <li>일차 함수는 파라미터와 결과로서 함수가 아닌 값을 갖는다. ​</li>
+  <li>예에서 파라미터로서 함수 f를 갖는다. ​</li>
+  <li>이때 f는 목적에 따라 inc, square, ident 등이 된다. ​</li>
+  <li>
+    <p>이와 같이 파라미터로서 함수를 쓰는 것은 ​동일한 함수를 다른 경우에 적용하는데 유용하다.</p>
+  </li>
+  <li>자연수 n을 인풋으로 받아서 ​sum, product를 구하는 프로그램을 짠다고 하면, ​
+위의 슬라이드와 같다. ​</li>
+  <li>왼쪽은 함수 파라미터가 없이 ​미리 정의된 함수 G만을 사용하여 계산하는 경우이고, ​</li>
+  <li>
+    <p>오른쪽은 함수 파라미터를 갖고 있어서, ​목적에 따라 다양한 함수를 사용하여 계산할 수 있는 경우이다.</p>
+  </li>
+  <li>파라미터와 결과로서 함수를 갖는 함수의 예로 함수 합성을 들 수 있다. ​</li>
+  <li>함수의 합성은 두개의 함수를 인풋으로 받아서, 합성 함수를 반환한다. ​</li>
+  <li>합성 함수를 정의하려면, 함수를 나타내는 표현식을 함수명 없이 쓸 수 있어야 한다. ​</li>
+  <li>이와 같은 함수를 익명 함수라고 부르며, 그 신택스는 다음과 같다. ​</li>
+  <li>
+    <p>(lambda (파라미터1, … 파라미터n)  body)​ 이것을 이용하여 합성 함수를 정의하면, ​(define (compose f g) (lambda (x) (f (g x))))가 된다. ​</p>
+  </li>
+  <li>파라미터로 주어진 함수와 동일한 유형의 함수와 ​</li>
+  <li>n일 때 갱신된 새로운 값을 반환하는 ​</li>
+  <li>고차 함수의 정의는 다음과 같다. ​</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(define (change-value-at-n  f  n  new-value)​
+        (lambda (x)​
+            (if (= x n)​
+                new-value​
+                (f x))))​
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>여기서 람다가 들어가는 이유는 이것이 새로운 함수이기 때문이다. ​</p>
+  </li>
+  <li>표현식을 정의하는 신택스는 (define name expr)이다. ​</li>
+  <li>표현식의 예는 (define a (+ 3 4)) (* a 2)  결과는 14이다.</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>Data structures​</p>
+</blockquote>
+
+<ul>
+  <li>FPL의 데이터 구조는 read-only이다. ​</li>
+  <li>Overwrite할 수 없고, 글로벌하게 사용하지 못하지만, ​파라미터로서 함수에 패스된다. ​</li>
+  <li>
+    <p>리스트는 FPL에서 미리 정의된 자료구조로, recursive하다. ​</p>
+  </li>
+  <li>리스트를 구성하는 데 필요한 데이터 컨스트럭터는 다음과 같다. ​
+    <ul>
+      <li>empty: 엠티 리스트를 나타낸다. ​</li>
+      <li>cons: 값과 리스트를 인풋으로 받아서 v를 첫째 요소로 하는 새로운 리스트를 반환한다. ​</li>
+      <li>여러 값을 리스트로 만들어야 할 때 cons 대신에 list 함수를 사용한다. ​</li>
+    </ul>
+  </li>
+  <li>리스트의 조작을 위해 미리 정의된 셀렉터는 다음과 같다. ​
+    <ul>
+      <li>car: 리스트를 인풋으로 받아서 첫째 요소를 반환한다.    ​</li>
+      <li>cdr: 리스트를 인풋으로 받아서 첫째 요소를 제외한 나머지를 반환한다.    ​</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(define Pamuk (list #t 2 #f))에서, ​
+(car Pamuk)은 #t을 반환하고,​
+(cdr Pamuk)은 (2 #f)를 반환한다. ​
+</code></pre></div></div>
+
+<hr />
+
+<blockquote>
+  <p>Definition of Lambda calculus ​</p>
+</blockquote>
+
+<ul>
+  <li>Free and bound variables ​</li>
+  <li>
+    <p>Substitution as a computation ​</p>
+  </li>
+  <li>
+    <p>람다 계산학은 FPL의 계산 모델이다. ​</p>
+  </li>
+  <li>람다 계산학은 하나의 변환 규칙과 하나의 함수 정의 방식(스킴)으로 구성된다.​</li>
+  <li>
+    <p>변환 규칙은 변수 대체로서, 베타 변환이라고도 한다. ​</p>
+  </li>
+  <li>표현식은 이름이거나 함수이다. ​</li>
+  <li>이름은 값을 담고 있는 것의 식별자이고, ​함수는 파라미터의 이름을 표시하기 위해, ​
+그리스 문자 람다를 사용한다. ​</li>
+  <li>함수의 body는 λ<파라미터>의 뒤에 나오는 표현식으로, ​파라미터를 어떻게 재구성할 것인지 명세화한다. ​</파라미터></li>
+  <li>표현식의 (순환적) 정의는 다음 3개의 규칙에 의한다. ​
+    <ul>
+      <li>
+        <table>
+          <tbody>
+            <tr>
+              <td>&lt; expression &gt; := &lt; name &gt;</td>
+              <td>&lt; function &gt;</td>
+              <td>&lt; application &gt; ​</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+      <li>&lt; function &gt; := λ &lt; name &gt; . &lt; expression &gt; ​</li>
+      <li>&lt; application &gt; := &lt; expression &gt;&lt; expression &gt; ​</li>
+    </ul>
+  </li>
+  <li>여기서 name은 파라미터명을, application은 함수의 적용을 나타낸다. ​</li>
+  <li>함수의 적용은 name과 function이 나열될 수 있다. 앞에서 나온 f a처럼 함수의 body는 <expression> 이다. ​</expression></li>
+</ul>
+
+<p>​+ 합성 표현식은 지속적인 표현식을 적용하여 합성 표현식을 평가한다.  ​</p>
+<ul>
+  <li>즉, E1E2E3 . . . En ≡  (. . . ((E1E2)E3) . . . En)이다. ​</li>
+  <li>여기서 ≡는 동동성(equivalence)를 나타낸다. ​</li>
+  <li>
+    <p>모호함을 줄이기 위해, λx.x ≡ (λx.x)와 같이 괄호를 사용한다. ​</p>
+  </li>
+  <li>함수는 표현식에 적용될 수 있다. ​
+    <ul>
+      <li>이러한 경우에 해당되는 단순한 예로, (λx.x)y을 들 수 있다. ​</li>
+    </ul>
+  </li>
+  <li>이것은 y에 identity 함수를 적용하는 것이다. ​
+    <ul>
+      <li>이때, 표현식이 모호해 질 수 있으며, 괄호를 써서 모호성을 피한다.  ​</li>
+      <li>함수 적용의 평가는 파라미터를 함수 정의의 body로 대체하는 것이다.​</li>
+    </ul>
+  </li>
+  <li>위의 예에서, X를 y로 대체하는 것이 함수 적용의 평가이다. ​</li>
+  <li>
+    <p>맨 아랫줄의 [y/x]는 x를 y로 대체하는 것을 나타낸다.</p>
+  </li>
+  <li>대체하는 것을 베타 리덕션이라고도 한다. ​</li>
+  <li>이것을 자세히 들여다 보면, 두 단계로 이루어짐을 알 수 있다. ​</li>
+  <li>파라미터가 표현식을 받아들인다(take in). 이후 표현식으로 body의 파라미터를 교체한다. ​</li>
+  <li>그림은 이 과정을 보여준다. ​</li>
+  <li>
+    <p>리덕션(축소화)은 함수 적용을 통해 ​표현식에 포함된 함수 정의를 줄여 나가는(축소하는) 과정이다.  ​</p>
+  </li>
+  <li>변수는 자유 변수와 속박 변수로 구분된다. ​
+    <ul>
+      <li>모든 name(변수)는 함수 정의 내에서 로컬이다. ​</li>
+      <li>함수 λx.x에서 body 내의 x는 그 앞에 λx가 있기때문에 속박 변수이다. ​</li>
+    </ul>
+  </li>
+  <li>자유 변수는 name 앞에 λ가 없다. ​
+    <ul>
+      <li>표현식 (λx.x)(λy.yx)에서, 첫째 표현식의 body에 있는 x는 첫째 λ에 속박되어 있다.  ​</li>
+    </ul>
+  </li>
+  <li>두번째 표현식의 body에 있는 y는 두번째 λ에 속박되어 있다. ​</li>
+  <li>
+    <p>두번째 표현식의 body에 있는 x는 자유변수이며, 첫번째 표현식의 x와 전적으로 독립적이다. ​</p>
+  </li>
+  <li>이 슬라이드는 표현식 (λx.x)(λy.yx)의 베타 리덕션을 보여준다. ​</li>
+  <li>앞 표현식의 x가 두번째 표현식을 받아 들여서 ​앞 표현식의 body의 x를 두번째 표현식으로 교체한다. ​</li>
+  <li>
+    <p>이와 같이 함수 적용을 통해, 표현식의 함수 정의를 제거함으로써, ​표현식을 축소해 나간다.</p>
+  </li>
+  <li>베타 리덕션의 조금 복잡한 사례를 살펴 보자 ​</li>
+  <li>표현식이 (λx.(λy.xy))y 라고 하자. ​</li>
+  <li>대체할 때, 자유 변수와 속박 변수를 혼동하지 않도록 조심해야 한다. ​</li>
+  <li>왼쪽의 함수는 속박변수 y를 포함한다. ​</li>
+  <li>오른쪽 표현식의 y는 괄호 밖에 있으며, 따라서 자유 변수이다. ​</li>
+  <li>변수 y는 왼쪽에서는 속박 변수, 오른쪽에서는 자유 변수이다. ​</li>
+  <li>이때 이들을 혼동하면 (λy.yy) 로 잘못 리덕션된다. ​</li>
+  <li>
+    <p>혼동을 피하려면, 속박 변수 y를 t로 재명명(rename)하면 된다. ​</p>
+  </li>
+  <li>정리해 보면,…​</li>
+  <li>교체했다고 가정하고, ​</li>
+  <li>새로 교체한 변수가 이후의 표현식에서 기존의 바운드 변수로 사용되었다면, ​</li>
+  <li>전혀 다른 두 변수가 동일한 이름을 쓰게 되기 때문에, ​새로 교체한 변수와 기존의 바운드 변수를 구분할 필요가 있다. ​</li>
+  <li>이를 위해 기존의 바운드 변수를 재명명(rename)한다. ​</li>
+  <li>
+    <p>그러나 (λx.(λt.xt))y 와 같이 끝의 y는 free이므로 rename하지 않는다. ​</p>
+  </li>
+  <li>이 슬라이드의 윗 부분은 앞 슬라이드의 ‘정리하면’의 부분이다. ​</li>
+  <li>끝으로 조금 더 복잡한 예를 들어 보자. ​</li>
+  <li>앞쪽 함수는 변수 y에 적용하면, ​</li>
+  <li>오른쪽 표현식의 자유변수 y(빨간)와 앞의 함수의 body, ​</li>
+  <li>또 다시 body의 속박변수 y(파란)와 혼동된다(구별되지 않는다). ​</li>
+  <li>혼동을 피하고 이들을 구별하려면, 속박변수 y를 t로 재명명한다.</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>Arithmetic functions​</p>
+</blockquote>
+
+<p>Successor 함수를 이와 같이 정의하자.  ​
+여기서 n은 a의 개수이다. ​
+앞에서 정의한 0, 1, 2, 3을 참고하자. ​</p>
+
+<p>그렇다면 Addition과 Multiplication 함수는 ​
+Successor 함수를 이용하여 다음과 같이 정의할 수 있다. ​
+2+3은 2S3으로, (λsz.s(sz)))S3 로 정의할 수 있고, 이것을 리덕션하면, ​
+→S(S3) → · · · → 5 가 된다. ​
+3*3은 (λxya.x(ya))33 → (λa.3(3a)) 으로 정의되며, ​
+이것을 리덕션하면 9가 된다. ​</p>
+
+<p>—​</p>
+
+<blockquote>
+  <p>Recursion</p>
+</blockquote>
+
+<p>함수 Y를 이와 같이 정의한다. ​
+Y를 함수 R에 적용하면, YR은 이와 같다. ​
+이것을 리덕션하면, YR -&gt; R(YR)가 된다. ​
+람다 계산학에서 리커젼은 이와 같이 표현되며, ​
+R의 평가(계산)은 YR의 순환 호출을 사용한다. ​</p>
+
+<p>이것으로 함수 프로그램과 람다 계산학의 소개를 마칩니다.</p>
 
 <hr />
 

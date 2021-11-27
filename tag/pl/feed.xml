@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/pl/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-11-26T22:04:25+09:00</updated>
+  <updated>2021-11-27T22:46:38+09:00</updated>
   <id>https://lee989898.github.io/tag/pl/feed.xml</id>
 
   
@@ -41,9 +41,270 @@
 
 &lt;hr /&gt;
 
-&lt;blockquote&gt;
+&lt;h2 id=&quot;lisp&quot;&gt;Lisp​&lt;/h2&gt;
 
-&lt;/blockquote&gt;
+&lt;p&gt;Lisp은 심볼(문자열) 처리를 위한 언어로 개발되었다&lt;br /&gt;
+심볼들을 표현하기 위한 데이터 구조로 리스트, 즉 링크드 리스트를 기본으로 한다&lt;br /&gt;
+이러한 이유로 데이터 연산은 자연스레 링크(포인터) 조작을 포함한다&lt;br /&gt;
+Lisp이라는 이름은 리스트 프로세싱의 합성어로서, 말 그대로 리스트 처리에 적합하도록 설계되었다&lt;/p&gt;
+
+&lt;p&gt;Lisp의 데이터 타입은 아톰과 리스트, 두 가지이다&lt;br /&gt;
+아톰은 식별자처럼 생긴 심볼들이거나 숫자 형태의 상수를 말한다&lt;br /&gt;
+아톰에 값이 없을 수 있어서 nil도 가능하다&lt;br /&gt;
+리스트는 리스트 요소가 연결되어 있고, 리스트 요소는 두개의 링크(포인터), 데이터 포인터와 넥스트 포인터로 구성된다&lt;br /&gt;
+데이터 포인터는 아톰을 가리키거나 중첩리스트를 가리킨다&lt;br /&gt;
+넥스트 포인터는 다른 리스트 요소를 가리키거나 nil(리스트의 끝을 나타냄)이다&lt;/p&gt;
+
+&lt;p&gt;Lisp 프로그램에서 리스트는 괄호를 써서 나타내는데, 중첩 리스트는 괄호 안에 괄호를 써서 나타낸다&lt;/p&gt;
+
+&lt;p&gt;ex) (A, B, C, D)&lt;br /&gt;
+A,B,C,D는 각각이 아톰이며, (A,B,C,D)는 리스트이다&lt;/p&gt;
+
+&lt;p&gt;산술 연산자로 +, - , incf, decf가 있고, 비교 연산자로 =, /= , &amp;lt;, max, min이 있다&lt;br /&gt;
+부울 값에 대한 논리 연산자로 loand,logor 등이 있다&lt;br /&gt;
+컨트롤 스트럭처로 selection, recursiong, iteration이 있는데, iteration은 명령형 언어의 특성으로, Lisp이 순수 함수 언어가 아니라는 것을 보여준다&lt;br /&gt;
+함수 정의는 (defun 함수명 (파라미터1… 파라미터n)표현식)형식을 따르고, 함수 적용(호출)은 (함수명 파라미터1 … 파라미터n)의 형식을 따른다&lt;/p&gt;
+
+&lt;p&gt;Lisp으로 작성된 팩토리알 함수는&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(DEFUN factorial (X))
+    (IF &amp;lt;= n 1)
+            1
+            (* n factorial (-n 1)))
+)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;과 같다&lt;/p&gt;
+
+&lt;p&gt;미리 정의된 함수 중의 몇몇은 실제로는 함수가 아니라 매크로이다&lt;br /&gt;
+예를 들어, 두개의 파라미터, 죽 변수와 리스트를 받아들이는 DOLIST는 매크로이다&lt;br /&gt;
+DOLIST(x ‘(1 2 3)) (print x))는 리스트 요소 1,2,3,nil로 구성된 리스트를 생성한다&lt;/p&gt;
+
+&lt;p&gt;매크로의 실행은 다음 두 단계로 이루어진다&lt;br /&gt;
+우선, 매크로를 미리 정의딘 Lisp 코드로 펼치고, 다음에, 펼친 Lisp 코드를 평가(실행)한다&lt;/p&gt;
+
+&lt;p&gt;사용자는 DEFMACRO를 써서 자신이 원하는 매크로를 정의할 수 있다&lt;/p&gt;
+
+&lt;p&gt;Lisp에서 괄호 앞의 ‘(QUOTE)는 괄호 속의 표현식을 평가(실행)하지 말고, 그 객체(표현식)를 결과로서 반환하라는 뜻이다&lt;br /&gt;
+예를 들어 ‘(a(* 3 4)c)는 (a 12 c)를 결과로 반환한다&lt;br /&gt;
+중첩된 괄호 속의 (* 3 4)는 평가한다는 것에 주의하자&lt;/p&gt;
+
+&lt;p&gt;Lisp은 컴파일러가 아닌 인터프리터에 의해 실행된다&lt;br /&gt;
+Lisp 프로그램에서는 함수 정의 및 함수 적용(호출)을 “괄호에 의한 리스트 표시 방식”으로 표현된다&lt;br /&gt;
+함수 정의는 (함수명(람다 (파라미터1 … 파라미터n) 표현식)) 으로 정의하며, 함수 적용은 (함수명 파라미터1 … 파라미터n)으로 호출한다&lt;br /&gt;
+예를 들어, (+ 5 7)은 12이고, (+ 3 4 7 6)은 20이다&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;scheme&quot;&gt;Scheme​&lt;/h2&gt;
+
+&lt;p&gt;Scheme은 Lisp으로부터 유래되었으나 함수를 일등 시민으로 취급한다&lt;br /&gt;
+Scheme에서는 함수가 표현식의 결과 값일 수 있고, 함수가 리스트의 요소로 사용될 수 있으며, 함수가 파라미터로 패스될 수 있고, 함수가 함수의 결과로서 반환될 수 있다&lt;/p&gt;
+
+&lt;p&gt;Scheme은 단순한 신택스와 시맨틱스를 갖는, 타입이 없는 작은 언어이다&lt;/p&gt;
+
+&lt;p&gt;Scheme 인터프리터는 상호작용 모드로 동작하면서, read-evaluate-print 순환(REPL)을 무한으로 반복한다&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;사용자가 입력한 표현식을 읽어서&lt;/li&gt;
+  &lt;li&gt;EVAL 함수에 의해 표현식을 해석하고&lt;/li&gt;
+  &lt;li&gt;결과값을 화면에 display한다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;EVAL 함수는 다음과 같이 표현식을 평가한다&lt;br /&gt;
+리터럴의 평가는 그 자체를 결과로 displaat한다&lt;br /&gt;
+원시 함수를 포함하는 표현식의 평가는 다음과 같이 실행한다&lt;br /&gt;
+첫째, 특별한 순서 없이, 파라미터 표현식의 각각 평가한다&lt;br /&gt;
+둘째, 파라미터 값에 원시 함수의 적용을 평가한다&lt;br /&gt;
+끝으로, 결과값을 display한다&lt;/p&gt;
+
+&lt;p&gt;원시 산술 함수는 +,-,*,/,modulo,round,max,min,log,sin,sqrt 등이다&lt;br /&gt;
+음수에 대한 sqrt는 허수이다&lt;/p&gt;
+
+&lt;p&gt;함수 정의는 (LAMBDA (x) (* x x))의 형식을 가지며, 함수 적용은 ((LAMBDA(x) (* x x)) 7)의 형식을 갖는다&lt;/p&gt;
+
+&lt;p&gt;DEFINE 함수는 이름을 값이나 람다 함수에 바인딩하는 특수한 함수이다&lt;br /&gt;
+(DEFINE symbol expression)의 형식을 가지며, 그 예로 (DFINE pi 3.141592), (DEFINE two_pi (* 2 pi))을 들 수 있다&lt;/p&gt;
+
+&lt;p&gt;DEFINE 함수가 이름을 람다 표현식에 바인딩하는 형식은 (DEFINE (function_name parameters) (expression))이다&lt;br /&gt;
+예를 들면, 제곱수를 (DEFINE (square number) (* number number))와 같이 정의하고, 직각삼각형의 빗변의 길이를 (DEFINE (hypotenuse side1 side2)(SQRT(+(square side1)(square side2))))와 같이 정의한다&lt;/p&gt;
+
+&lt;p&gt;출력 함수는 EVAL 함수의 적용을 통해 그 결과를 display한다&lt;/p&gt;
+
+&lt;p&gt;논리적 술어(predicate)함수는 부울 값을 반환한다&lt;br /&gt;
+Scheme의 논리적 술어 함수는 =, &amp;lt;&amp;gt;, &amp;gt;,&amp;lt;,&amp;gt;=, &amp;lt;=, EVEN?, ODD?, ZERO?가 있다&lt;br /&gt;
+리스트가 부울식으로서 해석될 때에는 비어있지 않은 리스트는 참이고, 비어있는 리스트는 거짓이다&lt;/p&gt;
+
+&lt;p&gt;컨트롤 플로우는 택인 컨스트럭트(IF)와 평가 컨트롤(COND)이 있다&lt;br /&gt;
+if는 3개의 파라미터(논리적 술어 표현식, then 표현식, else 표현식)를 갖는다&lt;br /&gt;
+그 형식은 (IF 논리적 술어 then 표현식 else 표현식)이고, 사용 예를 들면 DEFINE(factorial n)(IF (&amp;lt;+ n 1)1(*n(factorial(-n 1))))이다&lt;/p&gt;
+
+&lt;p&gt;평가 컨트롤은 여럿 중에서 하나 이상이 선택 및 실행되는 COND와 recursion이 있다&lt;br /&gt;
+COND의 형식은&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(DEFINE (leap? year))
+    (COND
+        ((ZERO? (MODULO year 400)) #T)
+        ((ZERO? (MODULO year 100)) #F)
+        (ELSE (ZERO? (MODULO year 4)))))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;와 같다&lt;/p&gt;
+
+&lt;p&gt;리스트 함수에는 QUOTE,CAR,CDR,CONS 함수가 있다&lt;br /&gt;
+QUOTE는 그 자체를 결과로 반환하며, ‘로 표시한다&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(QUOTE A) returns A ​
+(QUOTE (A B C)) returns (A B C)​
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;CAR 함수는&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(CAR '((A B) C D)) returns (A B) ​
+(CAR 'A) is an error because A is not a list ​
+(CAR '(A)) returns A ​
+(CAR '()) is an error ​
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;CDR 함수는 ​&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(CDR '((A B) C D)) returns (C D) ​
+(CDR 'A) is an error ​
+(CDR '(A)) returns () ​
+(CDR '()) is an error​
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;CONS 함수는 ​&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(CONS 'A '()) returns (A) ​
+(CONS 'A '(B C)) returns (A B C)​
+(CONS '() '(A B)) returns (() A B)​
+(CONS '(A B) '(C D)) returns ((A B) C D)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;CAR, CDR을 가지고 a_list의 두번째 리스트 요소를 결과값으로 반환하는 함수를 정의하면, (DEFINE (second a_list)(CAR(CDR a_list)))가 된다&lt;br /&gt;
+이것은 a_list에서 첫째 요소를 제외한 나머지를 반환하고, 이중에서 첫째 요소를 반환한다는 뜻이다&lt;br /&gt;
+리스트를 생성하기 위해 CAR CDR의 연속으로 적용해 보면, (CADDAR ‘((A B (C)D)E)) == (C) 임을 알 수 있다&lt;/p&gt;
+
+&lt;p&gt;리스트 함수는 다수의 파라미터로부터 하나의 리스트를 생성한다&lt;br /&gt;
+CONS는 생성할 수도 있으나, List함수가 편리하다&lt;/p&gt;
+
+&lt;p&gt;논리적 술어 함수 중에서 EQ? NULL? LIST?는 심볼 아톰과 리스트에도 적용할 수 있다&lt;br /&gt;
+EQV?은 숫자 아톰과 심볼 아톰에 모두 적용할 수 있다&lt;/p&gt;
+
+&lt;p&gt;Scheme에서 함수 정의의 예를 들어 보자&lt;br /&gt;
+멤버 함수는 파라미터 간의 소속관계를 평가한다&lt;br /&gt;
+리스트의 맨앞 리스트 요소에서부터 차례로 비교하기 위해, COND와 EQ, CAR, CDR을 사용한다&lt;br /&gt;
+append 함수는 앞의 파라미터에 뒤의 파라미터를 잇는다&lt;br /&gt;
+list1의 리스트 요소를 앞에서부터 하나씩 새로운 리스트에 넣기를 반복한다&lt;br /&gt;
+list1의 리스트의 요소를 모두 새로운 리스트에 넣고 나면, 이때 lsit1은 NULL이 되므로, list2의 요소를 새로운 리스트에 넣으면 된다&lt;br /&gt;
+이를 위해 COND와 NULL?, CONS, CAR, CDR을 이용한다&lt;/p&gt;
+
+&lt;p&gt;두개의 리스트가 같은지 판단하려면, 각 리스트의 맨앞 요소에서부터 하나씩 같은지 비교하기를 반복한다&lt;br /&gt;
+이를 위해 COND, EQ?, CAR, CDR 등을 이용한다&lt;/p&gt;
+
+&lt;p&gt;반복 처리는 모두 recursion을 이용한다&lt;br /&gt;
+즉, 이들 모두 recursion으로 프로그래밍 된다&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root1 = (-b + sqrt(b2 - 4 ac))/2a, root 2 = (-b - sqrt(b2 - 4 ac))/2 a​
+
+(DEFINE (quadratic_roots a b c) ​
+
+  (LET ( ​
+
+     (root_part_over_2a ​
+
+                    (/ (SQRT (− (* b b) (* 4 a c))) (* 2 a))) ​
+
+     (minus_b_over_2a (/ (− 0 b) (* 2 a))) ​
+
+         ) ​
+
+  (LIST (+ minus_b_over_2a root_part_over_2a) ​
+
+                  (− minus_b_over_2a root_part_over_2a)) ​
+
+))​
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;LET 함수는 로컬 변수를 생성한다&lt;br /&gt;
+표현을 쉽게 하기 위해 루트 부분과 루트가 없는 부분(이것을 마이너스 부분)으로 나누어, 이들을 각각 로컬 변수 root_part_over_2a, minus_b_over_2a로 언급한다&lt;br /&gt;
+LIST 함수에서 이들을 언급하며 근의 공식 함수를 정의한다&lt;/p&gt;
+
+&lt;p&gt;함수의 합성은 두개의 함수를 파리미터로 받아들여 합성 함수를 결과로 반환한다&lt;br /&gt;
+합성 함수는 DEFINE (compose f g)(LAMBDA(x) (f(g(x))))로 정의한다&lt;br /&gt;
+CADDR을 (DEFINE (third a_list) ((compose CAR (compose CDR CDR)) a_list))와 같이 정의한다&lt;/p&gt;
+
+&lt;p&gt;리스트의 모든 요소에 적용하는 함수로 map 함수를 정의해 보자&lt;br /&gt;
+함수 정의의 형식은 (DEFINE (mao fun a_list) 표현식)이며, a-list의 모든 요소에 함수 fun을 적용하라는 의미이다&lt;br /&gt;
+즉, 함수 map을 정의하는데 파라미터로서 fun이라는 함수를 쓴다&lt;br /&gt;
+따라서 이것은 고차 함수이다&lt;/p&gt;
+
+&lt;p&gt;처리 목적에 맞게 처리하려면, 리스트 요소를 하나씩 반환하는 함수가 필요하며, 이렇게 반환된 리스트 요소에 fun을 적용하기를 반복하면 된다&lt;br /&gt;
+위의 map 함수 정의에서 (COND … NULL? … ELSE …) 부분은 리스트 요소를 하나씩 꺼내는 처리 로직을 수행한다&lt;br /&gt;
+맵함수 사용 예: (map (LAMBDA(num)(*num num num))’(3 4 2 6))은 (27 64 8 216)를 반환한다&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; (DEFINE (adder a_list) ​
+
+      (COND ​
+
+          ((NULL? a_list) 0) ​
+
+          (ELSE (+ (CAR a_list) (adder (CDR a_list)))) ))​
+
+(adder '(3 4 5)) ​
+
+   (+ 3 (adder (4 5))) ​
+
+   (+ 3 (+ 4 (adder (5)))) ​
+
+   (+ 3 (+ 4 (+ 5 (adder ())))) ​
+
+   (+ 3 (+ 4 (+ 5 0))) ​
+
+   (+ 3 (+ 4 5)) ​
+
+   (+ 3 9) ​
+
+   (12)​
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;리스트에 있는 아톰의 합을 구하는 프로그램을 작성해보면, 코드는 위에서 보듯이 매우 간결하다&lt;br /&gt;
+실제 평가 과정을 보면, recursion이 있어 매우 복잡해 보이지만 이것은 인터프리터의 역할이다&lt;/p&gt;
+
+&lt;p&gt;만일 EVAL 함수를 써서 코딩하면, 아래 프로그램이 된다&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Alternative code with EVAL function:​
+
+(DEFINE (adder a_list) ​
+
+    (COND ​
+
+        ((NULL? a_list) 0) ​
+
+        (ELSE (EVAL (CONS '+ a_list))) ​
+
+))​
+
+(adder '(3 4 5)) ​
+
+(EVAL (+ 3 4 5) ​
+
+(12)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;ml&quot;&gt;ML​&lt;/h2&gt;
+
+&lt;p&gt;ML은 타입 검사를 엄격하게 수행하는 언어이다&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;haskell&quot;&gt;Haskell​&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;support-fp-in-ipl&quot;&gt;Support FP in IPL&lt;/h2&gt;
 
 &lt;hr /&gt;</content>
 
@@ -88,11 +349,129 @@
   &lt;p&gt;Why functional programming?​&lt;/p&gt;
 &lt;/blockquote&gt;
 
+&lt;ul&gt;
+  &lt;li&gt;함수 프로그래밍이 왜 필요한가? ​
+    &lt;ul&gt;
+      &lt;li&gt;소프트웨어 제품이 신뢰성이 낮고, 관리하기 어려우며, 올바른지 증명하기 하기 어렵다. ​&lt;/li&gt;
+      &lt;li&gt;그 이유는 다음과 같다. ​
+        &lt;ul&gt;
+          &lt;li&gt;소프트웨어를 새로 릴리즈할 때마다, 알려진 오류는 수정되나 새로운 오류가 발견된다. ​&lt;/li&gt;
+          &lt;li&gt;소프트웨어의 정밀한 설계는 오랜 기간의 연구 개발을 필요로 하나, ​&lt;/li&gt;
+          &lt;li&gt;현실적으로 시장 출시 압박이 우선한다. ​&lt;/li&gt;
+          &lt;li&gt;하드웨어의 처리 능력이 증가함에 따라, ​&lt;/li&gt;
+          &lt;li&gt;과거에 못하던 복잡한 어플리케이션을 자동화하느라, 소프트웨어의 복잡도가 증가한다. ​&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;이러한 현상을 극복하기 위해, 컴퓨터 과학자들은 두가지 중요한 문제를 풀어야 한다. ​
+    &lt;ul&gt;
+      &lt;li&gt;저비용으로 대규모 소프트웨어의 신뢰성과 사용자 편의성을 개선하는 방법 ​&lt;/li&gt;
+      &lt;li&gt;저비용으로 처리 능력을 증가시키는 방법&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;이러한 문제에 대한 해결책으로, ​명령형 프로그래밍을 지지하는 측에서는, 소프트웨어 공학, 프로그램 증명 기법, 스펙을 프로그램으로 변환하는 기법, 새로운 (병렬) 컴퓨터 아키텍처 등을 연구해 왔다. ​&lt;/li&gt;
+  &lt;li&gt;함수 프로그래밍을 지지하는 측에서는 프로그램으로서의 함수를 대안으로 연구해 왔다.  ​&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;hr /&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Imperative and Functional programming style​&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;p&gt;계산 모델을 튜링 머신에 기반한 IPL은 기본 개념으로 ​메모리, 변수, 할당문, 반복처리(iteration)을 갖는다. ​&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;메모리는 프로그램과 데이터를 저장하고, ​&lt;/li&gt;
+  &lt;li&gt;변수는 메모리 셀을 차지하고 있으며, 계산 결과의 변화에 따라 변경 가능한 값을 저장한다. ​&lt;/li&gt;
+  &lt;li&gt;할당문은 계산 결과를 메모리에 저장하며, 이를 통해 변수의 값을 변경시킨다. ​&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Iteration은 값이 변하는 변수를 통해 반복처리를 제어한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;명령형 프로그래밍의 장점은 실행 시스템의 구현이 단순하고 저비용 고효율이다. ​&lt;/li&gt;
+  &lt;li&gt;명령형 프로그래밍의 단점은 ​
+    &lt;ul&gt;
+      &lt;li&gt;Goto는 아무런 조건없이 점프만하기 때문에, ​프로그램의 올바름을 판단하기 어렵게 만든다. ​&lt;/li&gt;
+      &lt;li&gt;난로컬 변수와 할당문으로 인해 부작용이 발생하며, ​이로 인해 프로그램의 올바름을 판단하기 어렵게 만든다. ​&lt;/li&gt;
+      &lt;li&gt;알고리듬의 어느 부분이 동시 처리 가능한지, ​동시처리하면 안되는지 탐지하기 어려워서, ​알고리듬이 필요 이상으로 순차적이다. ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;최근 들어 많은 연구자들은 소프트웨어 위기와 속도 문제가 ​명령형 언어와 튜링 머신의 계산 모델에 기인한다고 추측하고 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;함수 프로그램에서는, ​&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;함수 파라미터의 실제 ‘값’이 함수 호출의 결과를 유일하게 결정한다. ​&lt;/li&gt;
+  &lt;li&gt;할당문이 없어서 함수의 부작용이 발생할 수 없다. ​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;FUNCTION increment (INTEGER value) : INTEGER;​
+BEGIN​
+value + 1​
+END;​
+:​
+print(increment (41));​ 
+print(increment (41));​
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;함수의 결과는 파라미터의 값에 의해서만 결정되므로, ​어떠한 조건 하에서도 그 결과는 같다. ​이것을 referential transparenc라고 한다. ​이러한 이유로, 함수 increment의 결과 값은 둘다 42이다. ​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;함수 프로그래밍 언어에서는 함수를 ‘일등 시민’으로 취급한다. ​&lt;/li&gt;
+  &lt;li&gt;따라서 함수를 파라미터로 주고 받을 수 있다. ​&lt;/li&gt;
+  &lt;li&gt;명령형 프로그래밍 언어에서는 함수를 파라미터로 주고 받을 수 없다. ​&lt;/li&gt;
+  &lt;li&gt;함수 프로그래밍 언어는 함수의 일반적인 사용(합성 함수 f(g(x)) 등)을 지원한다. ​&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;이것은 종래의 명령형 언어에서 허용되지 않는다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;함수 프로그래밍 언어는 계산 모형을 람다 계산학에 기반하고 있으며, ​기본 개념으로 표현식(expression), 리커젼, 평가, 변수가 있다. ​&lt;/li&gt;
+  &lt;li&gt;표현식은 수학식을 의미하며, ​리커젼은 재귀 함수에 의한 반복처리로서, iteration과 다르다. ​&lt;/li&gt;
+  &lt;li&gt;평가는 함수의 실행을 의미하지만, 아무 것도 수정하지 않는다. ​&lt;/li&gt;
+  &lt;li&gt;변수는 수학적 의미의 변수로서 알려지지 않은 값을 가지며, ​구체적인 값의 추상화일 뿐, 메모리를 차지하지 않는다. ​&lt;/li&gt;
+  &lt;li&gt;따라서 값의 placeholder 역할을 하며, 수정 불가능하다. ​&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;FPL에서는 명령형 언어적 의미의 변수가 없으므로, ​iteration이 불가능하며, ​대신에 반복처리를 위한 리커젼이 있다.​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;FPL의 장점은 ​
+    &lt;ul&gt;
+      &lt;li&gt;IPL의 기본 개념이 없어서, 소프트웨어 신뢰성을 높인다. ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;프로그래머는 함수를 정의하기만 하고, 인터프리터(실행 시스템)가 계산한다. ​&lt;/li&gt;
+  &lt;li&gt;할당문이 없고, 변수의 개념이 IPL의 변수와 다르고, 부작용이 없다. ​
+    &lt;ul&gt;
+      &lt;li&gt;변수는 ‘아직 알려지지 않은 값’을 명명하고 언급한다. ​&lt;/li&gt;
+      &lt;li&gt;부작용이 없어서, 올바름 증명이 쉽고, 함수의 평가는 순서에 무관하다. ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;따라서 FPL은 병렬 처리에 적합하다&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;FPL의 단점은, ​우선, 실행 속도가 매우 느려서 비효율적이다. ​&lt;/li&gt;
+  &lt;li&gt;그 이유는 다음과 같다. ​
+    &lt;ul&gt;
+      &lt;li&gt;머신 아키텍처가 함수 언어에 적합하게 설계되지 않았다. ​&lt;/li&gt;
+      &lt;li&gt;함수 호출 비용이 비싸다. 특히 지연 평가시에… ​&lt;/li&gt;
+      &lt;li&gt;파괴적 갱신(갱신되면 먼저 값이 없어짐)에 적합하므로, ​효율적인 컴파일 방법을 찾기 어렵고, ​
+어떤 알고리듬에 대해, 시간 및 공간 복잡도가 너무 높다. ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;이러한 경우에 효율을 위해 프로그램 변환이 필요하다. ​&lt;/li&gt;
+  &lt;li&gt;아직 효율적인 컴파일 방법이 널리 사용 가능하지 않다. ​&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;많은 경우에 함수 프로그램의 효율이 받아 들일 수 있는 수준에 있지만, ​컴파일 방법이 매우 복잡하고 연구 수준에 머물어 있다. ​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;둘째, 명령형 프로그램의 특성이 강한 어플리케이션에 아직 부적합하다. ​
+    &lt;ul&gt;
+      &lt;li&gt;상호 작용이 강한 어플리케이션을 함수 프로그래밍 스타일로 표현하는 능력이 아직은 부족하다. ​&lt;/li&gt;
+      &lt;li&gt;이들 어플리케이션으로는 상호적 프로그램, DBMS, OS, 프로세스 컨트롤 등이다. ​&lt;/li&gt;
+      &lt;li&gt;함수 프로그래밍 기술 개발이 필요하다. ​&lt;/li&gt;
+      &lt;li&gt;함수 스타일로 표현하기 어려운 어플리케이션을 함수 스타일로 표현하는 방법을 개발하는 것이 필요하다.  ​&lt;/li&gt;
+      &lt;li&gt;현재, 윈도우, 다이알로그, 메뉴 등을 사용하는 상호적 프로그램을 함수 언어로 명세화하는 방법이 알려져 있다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;hr /&gt;
 
@@ -100,11 +479,355 @@
   &lt;p&gt;Functions as programs ​&lt;/p&gt;
 &lt;/blockquote&gt;
 
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;함수가 프로그램인가? 이 문제에 대해 살펴 봅시다. ​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;팩토리알을 구하는 함수는 프로그램이라고 간주해도 문제가 없다. ​프로그램의 종료 확인 함수(Halting)는 계산 가능하지 않고, 따라서 원하는 결과를 생산하지 못한다.  ​&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;함수가 임의의 프로그램에 대해 halting 함수를 계산한다고 하자. ​만일 파라미터 프로그램이 종료되지 않는다면 ​Halting 함수는 종료되지 않을 것이고, ​Result 0이 절대로 생산되지 않는다. ​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;이들 예에서 함수는 람다 계산학에 기반한 계산 모델을 사용하여 평가된다. ​&lt;/li&gt;
+  &lt;li&gt;평가는 IPL의 실행과 유사하지만, IPL의 파괴적 갱신이 없다는 면에서 다르다.​&lt;/li&gt;
+  &lt;li&gt;람다 계산학은 함수 정의 방식과 변수 대체 규칙(substitution)으로 구성된다.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;hr /&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Functional programs​&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;FPL로 작성된 프로그램은 함수의 모음과 초기 표현식으로 구성된다. ​&lt;/li&gt;
+  &lt;li&gt;초기 표현식이란 모든 파라미터가 상수인 (또는 상수로 대체된) 표현식을 말하는데, ​&lt;/li&gt;
+  &lt;li&gt;이 식은 평가되어야 한다. -&amp;gt; reduce​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​+ 함수 정의는 표현식 내에서 다음 형태로 구성된다. ​(여기서는 scheme 문법을 차용함) ​
+define (함수명 파라미터1 … 파라미터n) 표현식) ​
+이와 같이 함수 프로그램을 정의하는 것은 recursive하다. ​
+표현식은 함수 결과를 명세화하며, 값, 파라미터, 함수 적용(application)을 나타낸다. ​&lt;/p&gt;
+
+&lt;p&gt;​+ 함수 적용(application), (f a)는 함수 f를 a에 적용하라는 뜻이다. ​
+초기 표현식은 (+ 2 3), (squareinc 5)과 같이 계산될 수 있는 표현식이다.  ​
+함수 프로그램의 예를 들어 보자. ​&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Evaluation of functional programs​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;함수 프로그램의 평가는 실행이나 계산을 의미하는데,  이것은 초기 표현식의 평가와 리덕션(표현식의 축소화)에 의한다. ​&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;초기 표현식의 평가는 인터프리터가 수행하며, ​반복적으로 리덕션(또는 rewriting)을 수행한다. ​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;예를 들어, ​&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(ident 42) → 42​
+(square (+ 1 2)) → (square 3) → (* 3 3) → 9​
+(squareinc 7) → (square (inc 7) → (square (+ 7 1)) → (square 8) → (*8 8) → 64​
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;각 리덕션 단계에서(화살표로 표시)  ​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;함수 적용은 함수의 파라미터를 대응하는 함수 body로 교체하는 것이다.  ​
+리덕션 가능한 표현식(redex)은 함수 정의에 따라 rewrite 될 수 있는 서브 표현식을 말한다. ​&lt;/li&gt;
+  &lt;li&gt;다음 상황에서 리덕션 과정이 끝난다.​
+    &lt;ul&gt;
+      &lt;li&gt;더 이상 redex가 남아 있지 않고,  ​(즉, 더 이상 어떠한 함수 정의라도 적용할 수 없을 때)​&lt;/li&gt;
+      &lt;li&gt;초기 표현식이 가장 단순한 형태(normal form; 상수만 있는 축소화된 표현식)에 있을 때, ​결과를 프린트하고 종료한다.   ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Order of Evaluation&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;부작용이 없어서, 평가 순서는 무관하다. ​&lt;/li&gt;
+  &lt;li&gt;리덕션 가능한 표현식이 다 없어진 후에, ​계산 결과는 항상 같고, 유일하다. ​&lt;/li&gt;
+  &lt;li&gt;그러나 순서가 완전히 무관한 것은 아니다. ​경우에 따라 리덕션 순서는 결과를 생산하지 못할 뿐더러 종료되지 않을 수 있다. ​
+    &lt;ul&gt;
+      &lt;li&gt;종료 못하는 리덕션 순서의 예: ​&lt;/li&gt;
+      &lt;li&gt;리커젼 함수의 정의가  ​(define (inf x) (inf x)) (define (alwaysseven x) 7)  일 때, ​만일 앞의 것을 먼저 계산하면, ​(alwaysseven (inf 2)) → (alwaysseven (inf 2)) → … 종료되지 않는다. ​&lt;/li&gt;
+      &lt;li&gt;그러나 뒤의 것을 먼저 계산하면, ​(alwaysseven (inf 2)) → 7로 종료된다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;리덕션 전략에는 call by value, call by name이 있다. ​&lt;/li&gt;
+  &lt;li&gt;먼저 리슾, 스킴, 엠엘 등에서 사용되는 call by value를 살펴 보자. ​
+    &lt;ul&gt;
+      &lt;li&gt;Eager, strict evaluation이라고 한다. ​&lt;/li&gt;
+      &lt;li&gt;리덕션 절차에 의해 함수 적용 그 자체가 리덕션 가능한 표현식이라고 간주(확인)되기 전에, ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;함수의 파라미터를 항상 리덕션한다. (그것이 초기 표현식일 때) ​
+    &lt;ul&gt;
+      &lt;li&gt;파리미터에 대한 함수 적용은 그 파라미터가 값일때만, 리덕션 가능한 표현식이 된다. ​&lt;/li&gt;
+      &lt;li&gt;조건 연산자 if의 적용 후에, if의 파라미터를 평가한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;하스켈에서 사용되는 Call by name를 살펴 보자. ​
+    &lt;ul&gt;
+      &lt;li&gt;lazy evaluation이라고 한다. ​&lt;/li&gt;
+      &lt;li&gt;값이 알려져서 초기 표현식이 되고 값을 반환해야 할 때가 되면,  ​비로소 리덕션 가능한 서브 표현식의 값이 계산된다. ​&lt;/li&gt;
+      &lt;li&gt;조건 함수의 call by name은 ​첫째 파라미터(if 다음의 부울식)의 평가를 요구한다.  ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;정리하면, ​Eager는 초기 표현식이 만들어지면 바로 계산하여 리덕션(축소화)하지만, ​
+Lazy는 초기 표현식이 만들어지더라도 그 식의 값이 필요할(반환해야 할) 때 계산한다. ​
+표현식에 조건함수가 있다면, if 다음의 부울식을 계산해 가면서 표현식을 펼쳐 가면서 리덕션한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Recursion ​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;리커젼은 순환적으로 정의된 데이터에 대한 함수 정의에 자연스럽게 적용되는 절차이다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Higher-order functions​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;FPL은 함수의 개념에 대해 일반적인 관점을 갖는다. ​&lt;/li&gt;
+  &lt;li&gt;함수는 ‘일등 시민’으로 (객체처럼) 취급된다. ​&lt;/li&gt;
+  &lt;li&gt;함수는 파라미터와 결과로서 함수를 가질(사용할) 수 있다. ​&lt;/li&gt;
+  &lt;li&gt;고차 함수는 파라미터로 함수를 갖거나 결과로서 함수를 생산한다. ​&lt;/li&gt;
+  &lt;li&gt;일차 함수는 파라미터와 결과로서 함수가 아닌 값을 갖는다. ​&lt;/li&gt;
+  &lt;li&gt;예에서 파라미터로서 함수 f를 갖는다. ​&lt;/li&gt;
+  &lt;li&gt;이때 f는 목적에 따라 inc, square, ident 등이 된다. ​&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;이와 같이 파라미터로서 함수를 쓰는 것은 ​동일한 함수를 다른 경우에 적용하는데 유용하다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;자연수 n을 인풋으로 받아서 ​sum, product를 구하는 프로그램을 짠다고 하면, ​
+위의 슬라이드와 같다. ​&lt;/li&gt;
+  &lt;li&gt;왼쪽은 함수 파라미터가 없이 ​미리 정의된 함수 G만을 사용하여 계산하는 경우이고, ​&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;오른쪽은 함수 파라미터를 갖고 있어서, ​목적에 따라 다양한 함수를 사용하여 계산할 수 있는 경우이다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;파라미터와 결과로서 함수를 갖는 함수의 예로 함수 합성을 들 수 있다. ​&lt;/li&gt;
+  &lt;li&gt;함수의 합성은 두개의 함수를 인풋으로 받아서, 합성 함수를 반환한다. ​&lt;/li&gt;
+  &lt;li&gt;합성 함수를 정의하려면, 함수를 나타내는 표현식을 함수명 없이 쓸 수 있어야 한다. ​&lt;/li&gt;
+  &lt;li&gt;이와 같은 함수를 익명 함수라고 부르며, 그 신택스는 다음과 같다. ​&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;(lambda (파라미터1, … 파라미터n)  body)​ 이것을 이용하여 합성 함수를 정의하면, ​(define (compose f g) (lambda (x) (f (g x))))가 된다. ​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;파라미터로 주어진 함수와 동일한 유형의 함수와 ​&lt;/li&gt;
+  &lt;li&gt;n일 때 갱신된 새로운 값을 반환하는 ​&lt;/li&gt;
+  &lt;li&gt;고차 함수의 정의는 다음과 같다. ​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(define (change-value-at-n  f  n  new-value)​
+        (lambda (x)​
+            (if (= x n)​
+                new-value​
+                (f x))))​
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;여기서 람다가 들어가는 이유는 이것이 새로운 함수이기 때문이다. ​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;표현식을 정의하는 신택스는 (define name expr)이다. ​&lt;/li&gt;
+  &lt;li&gt;표현식의 예는 (define a (+ 3 4)) (* a 2)  결과는 14이다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Data structures​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;FPL의 데이터 구조는 read-only이다. ​&lt;/li&gt;
+  &lt;li&gt;Overwrite할 수 없고, 글로벌하게 사용하지 못하지만, ​파라미터로서 함수에 패스된다. ​&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;리스트는 FPL에서 미리 정의된 자료구조로, recursive하다. ​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;리스트를 구성하는 데 필요한 데이터 컨스트럭터는 다음과 같다. ​
+    &lt;ul&gt;
+      &lt;li&gt;empty: 엠티 리스트를 나타낸다. ​&lt;/li&gt;
+      &lt;li&gt;cons: 값과 리스트를 인풋으로 받아서 v를 첫째 요소로 하는 새로운 리스트를 반환한다. ​&lt;/li&gt;
+      &lt;li&gt;여러 값을 리스트로 만들어야 할 때 cons 대신에 list 함수를 사용한다. ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;리스트의 조작을 위해 미리 정의된 셀렉터는 다음과 같다. ​
+    &lt;ul&gt;
+      &lt;li&gt;car: 리스트를 인풋으로 받아서 첫째 요소를 반환한다.    ​&lt;/li&gt;
+      &lt;li&gt;cdr: 리스트를 인풋으로 받아서 첫째 요소를 제외한 나머지를 반환한다.    ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(define Pamuk (list #t 2 #f))에서, ​
+(car Pamuk)은 #t을 반환하고,​
+(cdr Pamuk)은 (2 #f)를 반환한다. ​
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Definition of Lambda calculus ​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Free and bound variables ​&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Substitution as a computation ​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;람다 계산학은 FPL의 계산 모델이다. ​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;람다 계산학은 하나의 변환 규칙과 하나의 함수 정의 방식(스킴)으로 구성된다.​&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;변환 규칙은 변수 대체로서, 베타 변환이라고도 한다. ​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;표현식은 이름이거나 함수이다. ​&lt;/li&gt;
+  &lt;li&gt;이름은 값을 담고 있는 것의 식별자이고, ​함수는 파라미터의 이름을 표시하기 위해, ​
+그리스 문자 람다를 사용한다. ​&lt;/li&gt;
+  &lt;li&gt;함수의 body는 λ&lt;파라미터&gt;의 뒤에 나오는 표현식으로, ​파라미터를 어떻게 재구성할 것인지 명세화한다. ​&lt;/파라미터&gt;&lt;/li&gt;
+  &lt;li&gt;표현식의 (순환적) 정의는 다음 3개의 규칙에 의한다. ​
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;table&gt;
+          &lt;tbody&gt;
+            &lt;tr&gt;
+              &lt;td&gt;&amp;lt; expression &amp;gt; := &amp;lt; name &amp;gt;&lt;/td&gt;
+              &lt;td&gt;&amp;lt; function &amp;gt;&lt;/td&gt;
+              &lt;td&gt;&amp;lt; application &amp;gt; ​&lt;/td&gt;
+            &lt;/tr&gt;
+          &lt;/tbody&gt;
+        &lt;/table&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&amp;lt; function &amp;gt; := λ &amp;lt; name &amp;gt; . &amp;lt; expression &amp;gt; ​&lt;/li&gt;
+      &lt;li&gt;&amp;lt; application &amp;gt; := &amp;lt; expression &amp;gt;&amp;lt; expression &amp;gt; ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;여기서 name은 파라미터명을, application은 함수의 적용을 나타낸다. ​&lt;/li&gt;
+  &lt;li&gt;함수의 적용은 name과 function이 나열될 수 있다. 앞에서 나온 f a처럼 함수의 body는 &lt;expression&gt; 이다. ​&lt;/expression&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​+ 합성 표현식은 지속적인 표현식을 적용하여 합성 표현식을 평가한다.  ​&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;즉, E1E2E3 . . . En ≡  (. . . ((E1E2)E3) . . . En)이다. ​&lt;/li&gt;
+  &lt;li&gt;여기서 ≡는 동동성(equivalence)를 나타낸다. ​&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;모호함을 줄이기 위해, λx.x ≡ (λx.x)와 같이 괄호를 사용한다. ​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;함수는 표현식에 적용될 수 있다. ​
+    &lt;ul&gt;
+      &lt;li&gt;이러한 경우에 해당되는 단순한 예로, (λx.x)y을 들 수 있다. ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;이것은 y에 identity 함수를 적용하는 것이다. ​
+    &lt;ul&gt;
+      &lt;li&gt;이때, 표현식이 모호해 질 수 있으며, 괄호를 써서 모호성을 피한다.  ​&lt;/li&gt;
+      &lt;li&gt;함수 적용의 평가는 파라미터를 함수 정의의 body로 대체하는 것이다.​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;위의 예에서, X를 y로 대체하는 것이 함수 적용의 평가이다. ​&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;맨 아랫줄의 [y/x]는 x를 y로 대체하는 것을 나타낸다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;대체하는 것을 베타 리덕션이라고도 한다. ​&lt;/li&gt;
+  &lt;li&gt;이것을 자세히 들여다 보면, 두 단계로 이루어짐을 알 수 있다. ​&lt;/li&gt;
+  &lt;li&gt;파라미터가 표현식을 받아들인다(take in). 이후 표현식으로 body의 파라미터를 교체한다. ​&lt;/li&gt;
+  &lt;li&gt;그림은 이 과정을 보여준다. ​&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;리덕션(축소화)은 함수 적용을 통해 ​표현식에 포함된 함수 정의를 줄여 나가는(축소하는) 과정이다.  ​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;변수는 자유 변수와 속박 변수로 구분된다. ​
+    &lt;ul&gt;
+      &lt;li&gt;모든 name(변수)는 함수 정의 내에서 로컬이다. ​&lt;/li&gt;
+      &lt;li&gt;함수 λx.x에서 body 내의 x는 그 앞에 λx가 있기때문에 속박 변수이다. ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;자유 변수는 name 앞에 λ가 없다. ​
+    &lt;ul&gt;
+      &lt;li&gt;표현식 (λx.x)(λy.yx)에서, 첫째 표현식의 body에 있는 x는 첫째 λ에 속박되어 있다.  ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;두번째 표현식의 body에 있는 y는 두번째 λ에 속박되어 있다. ​&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;두번째 표현식의 body에 있는 x는 자유변수이며, 첫번째 표현식의 x와 전적으로 독립적이다. ​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;이 슬라이드는 표현식 (λx.x)(λy.yx)의 베타 리덕션을 보여준다. ​&lt;/li&gt;
+  &lt;li&gt;앞 표현식의 x가 두번째 표현식을 받아 들여서 ​앞 표현식의 body의 x를 두번째 표현식으로 교체한다. ​&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;이와 같이 함수 적용을 통해, 표현식의 함수 정의를 제거함으로써, ​표현식을 축소해 나간다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;베타 리덕션의 조금 복잡한 사례를 살펴 보자 ​&lt;/li&gt;
+  &lt;li&gt;표현식이 (λx.(λy.xy))y 라고 하자. ​&lt;/li&gt;
+  &lt;li&gt;대체할 때, 자유 변수와 속박 변수를 혼동하지 않도록 조심해야 한다. ​&lt;/li&gt;
+  &lt;li&gt;왼쪽의 함수는 속박변수 y를 포함한다. ​&lt;/li&gt;
+  &lt;li&gt;오른쪽 표현식의 y는 괄호 밖에 있으며, 따라서 자유 변수이다. ​&lt;/li&gt;
+  &lt;li&gt;변수 y는 왼쪽에서는 속박 변수, 오른쪽에서는 자유 변수이다. ​&lt;/li&gt;
+  &lt;li&gt;이때 이들을 혼동하면 (λy.yy) 로 잘못 리덕션된다. ​&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;혼동을 피하려면, 속박 변수 y를 t로 재명명(rename)하면 된다. ​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;정리해 보면,…​&lt;/li&gt;
+  &lt;li&gt;교체했다고 가정하고, ​&lt;/li&gt;
+  &lt;li&gt;새로 교체한 변수가 이후의 표현식에서 기존의 바운드 변수로 사용되었다면, ​&lt;/li&gt;
+  &lt;li&gt;전혀 다른 두 변수가 동일한 이름을 쓰게 되기 때문에, ​새로 교체한 변수와 기존의 바운드 변수를 구분할 필요가 있다. ​&lt;/li&gt;
+  &lt;li&gt;이를 위해 기존의 바운드 변수를 재명명(rename)한다. ​&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;그러나 (λx.(λt.xt))y 와 같이 끝의 y는 free이므로 rename하지 않는다. ​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;이 슬라이드의 윗 부분은 앞 슬라이드의 ‘정리하면’의 부분이다. ​&lt;/li&gt;
+  &lt;li&gt;끝으로 조금 더 복잡한 예를 들어 보자. ​&lt;/li&gt;
+  &lt;li&gt;앞쪽 함수는 변수 y에 적용하면, ​&lt;/li&gt;
+  &lt;li&gt;오른쪽 표현식의 자유변수 y(빨간)와 앞의 함수의 body, ​&lt;/li&gt;
+  &lt;li&gt;또 다시 body의 속박변수 y(파란)와 혼동된다(구별되지 않는다). ​&lt;/li&gt;
+  &lt;li&gt;혼동을 피하고 이들을 구별하려면, 속박변수 y를 t로 재명명한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Arithmetic functions​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Successor 함수를 이와 같이 정의하자.  ​
+여기서 n은 a의 개수이다. ​
+앞에서 정의한 0, 1, 2, 3을 참고하자. ​&lt;/p&gt;
+
+&lt;p&gt;그렇다면 Addition과 Multiplication 함수는 ​
+Successor 함수를 이용하여 다음과 같이 정의할 수 있다. ​
+2+3은 2S3으로, (λsz.s(sz)))S3 로 정의할 수 있고, 이것을 리덕션하면, ​
+→S(S3) → · · · → 5 가 된다. ​
+3*3은 (λxya.x(ya))33 → (λa.3(3a)) 으로 정의되며, ​
+이것을 리덕션하면 9가 된다. ​&lt;/p&gt;
+
+&lt;p&gt;—​&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Recursion&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;함수 Y를 이와 같이 정의한다. ​
+Y를 함수 R에 적용하면, YR은 이와 같다. ​
+이것을 리덕션하면, YR -&amp;gt; R(YR)가 된다. ​
+람다 계산학에서 리커젼은 이와 같이 표현되며, ​
+R의 평가(계산)은 YR의 순환 호출을 사용한다. ​&lt;/p&gt;
+
+&lt;p&gt;이것으로 함수 프로그램과 람다 계산학의 소개를 마칩니다.&lt;/p&gt;
 
 &lt;hr /&gt;</content>
 

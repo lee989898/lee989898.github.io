@@ -59,16 +59,7 @@
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Pl 20" />
-    <meta property="og:description" content="__
-
-
-
-
-
-
-
-
-" />
+    <meta property="og:description" content="__ Lisp​ Lisp은 심볼(문자열) 처리를 위한 언어로 개발되었다 심볼들을 표현하기 위한 데이터 구조로 리스트, 즉 링크드 리스트를 기본으로 한다 이러한 이유로 데이터 연산은 자연스레 링크(포인터) 조작을 포함한다 Lisp이라는 이름은 리스트 프로세싱의 합성어로서, 말 그대로 리스트 처리에 적합하도록 설계되었다 Lisp의 데이터 타입은 아톰과 리스트, 두 가지이다 아톰은 식별자처럼 생긴 심볼들이거나 숫자" />
     <meta property="og:url" content="https://lee989898.github.io/pl-20" />
     <meta property="og:image" content="https://lee989898.github.io/assets/built/images/pl-background-frontend.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -78,16 +69,7 @@
     <meta property="article:tag" content="Pl" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Pl 20" />
-    <meta name="twitter:description" content="__
-
-
-
-
-
-
-
-
-" />
+    <meta name="twitter:description" content="__ Lisp​ Lisp은 심볼(문자열) 처리를 위한 언어로 개발되었다 심볼들을 표현하기 위한 데이터 구조로 리스트, 즉 링크드 리스트를 기본으로 한다 이러한 이유로 데이터 연산은 자연스레 링크(포인터) 조작을 포함한다 Lisp이라는 이름은 리스트 프로세싱의 합성어로서, 말 그대로 리스트 처리에 적합하도록 설계되었다 Lisp의 데이터 타입은 아톰과 리스트, 두 가지이다 아톰은 식별자처럼 생긴 심볼들이거나 숫자" />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
     <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/pl-background-frontend.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -119,16 +101,7 @@
         "@type": "WebPage",
         "@id": "https://lee989898.github.io/pl-20"
     },
-    "description": "__
-
-
-
-
-
-
-
-
-"
+    "description": "__ Lisp​ Lisp은 심볼(문자열) 처리를 위한 언어로 개발되었다 심볼들을 표현하기 위한 데이터 구조로 리스트, 즉 링크드 리스트를 기본으로 한다 이러한 이유로 데이터 연산은 자연스레 링크(포인터) 조작을 포함한다 Lisp이라는 이름은 리스트 프로세싱의 합성어로서, 말 그대로 리스트 처리에 적합하도록 설계되었다 Lisp의 데이터 타입은 아톰과 리스트, 두 가지이다 아톰은 식별자처럼 생긴 심볼들이거나 숫자"
 }
     </script>
 
@@ -238,9 +211,270 @@ into the {body} of the default.hbs template -->
 
 <hr />
 
-<blockquote>
+<h2 id="lisp">Lisp​</h2>
 
-</blockquote>
+<p>Lisp은 심볼(문자열) 처리를 위한 언어로 개발되었다<br />
+심볼들을 표현하기 위한 데이터 구조로 리스트, 즉 링크드 리스트를 기본으로 한다<br />
+이러한 이유로 데이터 연산은 자연스레 링크(포인터) 조작을 포함한다<br />
+Lisp이라는 이름은 리스트 프로세싱의 합성어로서, 말 그대로 리스트 처리에 적합하도록 설계되었다</p>
+
+<p>Lisp의 데이터 타입은 아톰과 리스트, 두 가지이다<br />
+아톰은 식별자처럼 생긴 심볼들이거나 숫자 형태의 상수를 말한다<br />
+아톰에 값이 없을 수 있어서 nil도 가능하다<br />
+리스트는 리스트 요소가 연결되어 있고, 리스트 요소는 두개의 링크(포인터), 데이터 포인터와 넥스트 포인터로 구성된다<br />
+데이터 포인터는 아톰을 가리키거나 중첩리스트를 가리킨다<br />
+넥스트 포인터는 다른 리스트 요소를 가리키거나 nil(리스트의 끝을 나타냄)이다</p>
+
+<p>Lisp 프로그램에서 리스트는 괄호를 써서 나타내는데, 중첩 리스트는 괄호 안에 괄호를 써서 나타낸다</p>
+
+<p>ex) (A, B, C, D)<br />
+A,B,C,D는 각각이 아톰이며, (A,B,C,D)는 리스트이다</p>
+
+<p>산술 연산자로 +, - , incf, decf가 있고, 비교 연산자로 =, /= , &lt;, max, min이 있다<br />
+부울 값에 대한 논리 연산자로 loand,logor 등이 있다<br />
+컨트롤 스트럭처로 selection, recursiong, iteration이 있는데, iteration은 명령형 언어의 특성으로, Lisp이 순수 함수 언어가 아니라는 것을 보여준다<br />
+함수 정의는 (defun 함수명 (파라미터1… 파라미터n)표현식)형식을 따르고, 함수 적용(호출)은 (함수명 파라미터1 … 파라미터n)의 형식을 따른다</p>
+
+<p>Lisp으로 작성된 팩토리알 함수는</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(DEFUN factorial (X))
+    (IF &lt;= n 1)
+            1
+            (* n factorial (-n 1)))
+)
+</code></pre></div></div>
+
+<p>과 같다</p>
+
+<p>미리 정의된 함수 중의 몇몇은 실제로는 함수가 아니라 매크로이다<br />
+예를 들어, 두개의 파라미터, 죽 변수와 리스트를 받아들이는 DOLIST는 매크로이다<br />
+DOLIST(x ‘(1 2 3)) (print x))는 리스트 요소 1,2,3,nil로 구성된 리스트를 생성한다</p>
+
+<p>매크로의 실행은 다음 두 단계로 이루어진다<br />
+우선, 매크로를 미리 정의딘 Lisp 코드로 펼치고, 다음에, 펼친 Lisp 코드를 평가(실행)한다</p>
+
+<p>사용자는 DEFMACRO를 써서 자신이 원하는 매크로를 정의할 수 있다</p>
+
+<p>Lisp에서 괄호 앞의 ‘(QUOTE)는 괄호 속의 표현식을 평가(실행)하지 말고, 그 객체(표현식)를 결과로서 반환하라는 뜻이다<br />
+예를 들어 ‘(a(* 3 4)c)는 (a 12 c)를 결과로 반환한다<br />
+중첩된 괄호 속의 (* 3 4)는 평가한다는 것에 주의하자</p>
+
+<p>Lisp은 컴파일러가 아닌 인터프리터에 의해 실행된다<br />
+Lisp 프로그램에서는 함수 정의 및 함수 적용(호출)을 “괄호에 의한 리스트 표시 방식”으로 표현된다<br />
+함수 정의는 (함수명(람다 (파라미터1 … 파라미터n) 표현식)) 으로 정의하며, 함수 적용은 (함수명 파라미터1 … 파라미터n)으로 호출한다<br />
+예를 들어, (+ 5 7)은 12이고, (+ 3 4 7 6)은 20이다</p>
+
+<hr />
+
+<h2 id="scheme">Scheme​</h2>
+
+<p>Scheme은 Lisp으로부터 유래되었으나 함수를 일등 시민으로 취급한다<br />
+Scheme에서는 함수가 표현식의 결과 값일 수 있고, 함수가 리스트의 요소로 사용될 수 있으며, 함수가 파라미터로 패스될 수 있고, 함수가 함수의 결과로서 반환될 수 있다</p>
+
+<p>Scheme은 단순한 신택스와 시맨틱스를 갖는, 타입이 없는 작은 언어이다</p>
+
+<p>Scheme 인터프리터는 상호작용 모드로 동작하면서, read-evaluate-print 순환(REPL)을 무한으로 반복한다</p>
+<ul>
+  <li>사용자가 입력한 표현식을 읽어서</li>
+  <li>EVAL 함수에 의해 표현식을 해석하고</li>
+  <li>결과값을 화면에 display한다</li>
+</ul>
+
+<p>EVAL 함수는 다음과 같이 표현식을 평가한다<br />
+리터럴의 평가는 그 자체를 결과로 displaat한다<br />
+원시 함수를 포함하는 표현식의 평가는 다음과 같이 실행한다<br />
+첫째, 특별한 순서 없이, 파라미터 표현식의 각각 평가한다<br />
+둘째, 파라미터 값에 원시 함수의 적용을 평가한다<br />
+끝으로, 결과값을 display한다</p>
+
+<p>원시 산술 함수는 +,-,*,/,modulo,round,max,min,log,sin,sqrt 등이다<br />
+음수에 대한 sqrt는 허수이다</p>
+
+<p>함수 정의는 (LAMBDA (x) (* x x))의 형식을 가지며, 함수 적용은 ((LAMBDA(x) (* x x)) 7)의 형식을 갖는다</p>
+
+<p>DEFINE 함수는 이름을 값이나 람다 함수에 바인딩하는 특수한 함수이다<br />
+(DEFINE symbol expression)의 형식을 가지며, 그 예로 (DFINE pi 3.141592), (DEFINE two_pi (* 2 pi))을 들 수 있다</p>
+
+<p>DEFINE 함수가 이름을 람다 표현식에 바인딩하는 형식은 (DEFINE (function_name parameters) (expression))이다<br />
+예를 들면, 제곱수를 (DEFINE (square number) (* number number))와 같이 정의하고, 직각삼각형의 빗변의 길이를 (DEFINE (hypotenuse side1 side2)(SQRT(+(square side1)(square side2))))와 같이 정의한다</p>
+
+<p>출력 함수는 EVAL 함수의 적용을 통해 그 결과를 display한다</p>
+
+<p>논리적 술어(predicate)함수는 부울 값을 반환한다<br />
+Scheme의 논리적 술어 함수는 =, &lt;&gt;, &gt;,&lt;,&gt;=, &lt;=, EVEN?, ODD?, ZERO?가 있다<br />
+리스트가 부울식으로서 해석될 때에는 비어있지 않은 리스트는 참이고, 비어있는 리스트는 거짓이다</p>
+
+<p>컨트롤 플로우는 택인 컨스트럭트(IF)와 평가 컨트롤(COND)이 있다<br />
+if는 3개의 파라미터(논리적 술어 표현식, then 표현식, else 표현식)를 갖는다<br />
+그 형식은 (IF 논리적 술어 then 표현식 else 표현식)이고, 사용 예를 들면 DEFINE(factorial n)(IF (&lt;+ n 1)1(*n(factorial(-n 1))))이다</p>
+
+<p>평가 컨트롤은 여럿 중에서 하나 이상이 선택 및 실행되는 COND와 recursion이 있다<br />
+COND의 형식은</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(DEFINE (leap? year))
+    (COND
+        ((ZERO? (MODULO year 400)) #T)
+        ((ZERO? (MODULO year 100)) #F)
+        (ELSE (ZERO? (MODULO year 4)))))
+</code></pre></div></div>
+
+<p>와 같다</p>
+
+<p>리스트 함수에는 QUOTE,CAR,CDR,CONS 함수가 있다<br />
+QUOTE는 그 자체를 결과로 반환하며, ‘로 표시한다</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(QUOTE A) returns A ​
+(QUOTE (A B C)) returns (A B C)​
+</code></pre></div></div>
+
+<p>CAR 함수는</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(CAR '((A B) C D)) returns (A B) ​
+(CAR 'A) is an error because A is not a list ​
+(CAR '(A)) returns A ​
+(CAR '()) is an error ​
+</code></pre></div></div>
+
+<p>CDR 함수는 ​</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(CDR '((A B) C D)) returns (C D) ​
+(CDR 'A) is an error ​
+(CDR '(A)) returns () ​
+(CDR '()) is an error​
+</code></pre></div></div>
+
+<p>CONS 함수는 ​</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(CONS 'A '()) returns (A) ​
+(CONS 'A '(B C)) returns (A B C)​
+(CONS '() '(A B)) returns (() A B)​
+(CONS '(A B) '(C D)) returns ((A B) C D)
+</code></pre></div></div>
+
+<p>CAR, CDR을 가지고 a_list의 두번째 리스트 요소를 결과값으로 반환하는 함수를 정의하면, (DEFINE (second a_list)(CAR(CDR a_list)))가 된다<br />
+이것은 a_list에서 첫째 요소를 제외한 나머지를 반환하고, 이중에서 첫째 요소를 반환한다는 뜻이다<br />
+리스트를 생성하기 위해 CAR CDR의 연속으로 적용해 보면, (CADDAR ‘((A B (C)D)E)) == (C) 임을 알 수 있다</p>
+
+<p>리스트 함수는 다수의 파라미터로부터 하나의 리스트를 생성한다<br />
+CONS는 생성할 수도 있으나, List함수가 편리하다</p>
+
+<p>논리적 술어 함수 중에서 EQ? NULL? LIST?는 심볼 아톰과 리스트에도 적용할 수 있다<br />
+EQV?은 숫자 아톰과 심볼 아톰에 모두 적용할 수 있다</p>
+
+<p>Scheme에서 함수 정의의 예를 들어 보자<br />
+멤버 함수는 파라미터 간의 소속관계를 평가한다<br />
+리스트의 맨앞 리스트 요소에서부터 차례로 비교하기 위해, COND와 EQ, CAR, CDR을 사용한다<br />
+append 함수는 앞의 파라미터에 뒤의 파라미터를 잇는다<br />
+list1의 리스트 요소를 앞에서부터 하나씩 새로운 리스트에 넣기를 반복한다<br />
+list1의 리스트의 요소를 모두 새로운 리스트에 넣고 나면, 이때 lsit1은 NULL이 되므로, list2의 요소를 새로운 리스트에 넣으면 된다<br />
+이를 위해 COND와 NULL?, CONS, CAR, CDR을 이용한다</p>
+
+<p>두개의 리스트가 같은지 판단하려면, 각 리스트의 맨앞 요소에서부터 하나씩 같은지 비교하기를 반복한다<br />
+이를 위해 COND, EQ?, CAR, CDR 등을 이용한다</p>
+
+<p>반복 처리는 모두 recursion을 이용한다<br />
+즉, 이들 모두 recursion으로 프로그래밍 된다</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root1 = (-b + sqrt(b2 - 4 ac))/2a, root 2 = (-b - sqrt(b2 - 4 ac))/2 a​
+
+(DEFINE (quadratic_roots a b c) ​
+
+  (LET ( ​
+
+     (root_part_over_2a ​
+
+                    (/ (SQRT (− (* b b) (* 4 a c))) (* 2 a))) ​
+
+     (minus_b_over_2a (/ (− 0 b) (* 2 a))) ​
+
+         ) ​
+
+  (LIST (+ minus_b_over_2a root_part_over_2a) ​
+
+                  (− minus_b_over_2a root_part_over_2a)) ​
+
+))​
+</code></pre></div></div>
+
+<p>LET 함수는 로컬 변수를 생성한다<br />
+표현을 쉽게 하기 위해 루트 부분과 루트가 없는 부분(이것을 마이너스 부분)으로 나누어, 이들을 각각 로컬 변수 root_part_over_2a, minus_b_over_2a로 언급한다<br />
+LIST 함수에서 이들을 언급하며 근의 공식 함수를 정의한다</p>
+
+<p>함수의 합성은 두개의 함수를 파리미터로 받아들여 합성 함수를 결과로 반환한다<br />
+합성 함수는 DEFINE (compose f g)(LAMBDA(x) (f(g(x))))로 정의한다<br />
+CADDR을 (DEFINE (third a_list) ((compose CAR (compose CDR CDR)) a_list))와 같이 정의한다</p>
+
+<p>리스트의 모든 요소에 적용하는 함수로 map 함수를 정의해 보자<br />
+함수 정의의 형식은 (DEFINE (mao fun a_list) 표현식)이며, a-list의 모든 요소에 함수 fun을 적용하라는 의미이다<br />
+즉, 함수 map을 정의하는데 파라미터로서 fun이라는 함수를 쓴다<br />
+따라서 이것은 고차 함수이다</p>
+
+<p>처리 목적에 맞게 처리하려면, 리스트 요소를 하나씩 반환하는 함수가 필요하며, 이렇게 반환된 리스트 요소에 fun을 적용하기를 반복하면 된다<br />
+위의 map 함수 정의에서 (COND … NULL? … ELSE …) 부분은 리스트 요소를 하나씩 꺼내는 처리 로직을 수행한다<br />
+맵함수 사용 예: (map (LAMBDA(num)(*num num num))’(3 4 2 6))은 (27 64 8 216)를 반환한다</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> (DEFINE (adder a_list) ​
+
+      (COND ​
+
+          ((NULL? a_list) 0) ​
+
+          (ELSE (+ (CAR a_list) (adder (CDR a_list)))) ))​
+
+(adder '(3 4 5)) ​
+
+   (+ 3 (adder (4 5))) ​
+
+   (+ 3 (+ 4 (adder (5)))) ​
+
+   (+ 3 (+ 4 (+ 5 (adder ())))) ​
+
+   (+ 3 (+ 4 (+ 5 0))) ​
+
+   (+ 3 (+ 4 5)) ​
+
+   (+ 3 9) ​
+
+   (12)​
+</code></pre></div></div>
+
+<p>리스트에 있는 아톰의 합을 구하는 프로그램을 작성해보면, 코드는 위에서 보듯이 매우 간결하다<br />
+실제 평가 과정을 보면, recursion이 있어 매우 복잡해 보이지만 이것은 인터프리터의 역할이다</p>
+
+<p>만일 EVAL 함수를 써서 코딩하면, 아래 프로그램이 된다</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Alternative code with EVAL function:​
+
+(DEFINE (adder a_list) ​
+
+    (COND ​
+
+        ((NULL? a_list) 0) ​
+
+        (ELSE (EVAL (CONS '+ a_list))) ​
+
+))​
+
+(adder '(3 4 5)) ​
+
+(EVAL (+ 3 4 5) ​
+
+(12)
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="ml">ML​</h2>
+
+<p>ML은 타입 검사를 엄격하게 수행하는 언어이다</p>
+
+<hr />
+
+<h2 id="haskell">Haskell​</h2>
+
+<hr />
+
+<h2 id="support-fp-in-ipl">Support FP in IPL</h2>
 
 <hr />
 
