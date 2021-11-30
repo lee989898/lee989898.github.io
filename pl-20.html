@@ -466,15 +466,112 @@ CADDR을 (DEFINE (third a_list) ((compose CAR (compose CDR CDR)) a_list))와 같
 
 <h2 id="ml">ML​</h2>
 
-<p>ML은 타입 검사를 엄격하게 수행하는 언어이다</p>
+<p>ML은 타입 검사를 엄격하게 수행하는 언어이다<br />
+평가 환경은 프로그램에서 명시적 또는 암묵적으로 선언된 모든 변수명을 그 유형(타입)과 함께 테이블을 포함한다<br />
+이 테이블은 컴파일러의 심볼 테이블과 유사하다<br />
+ML 신택스는 Lisp이나 Scheme에 비해 IPL과 더욱 유사하다<br />
+산술 표현식은 인픽스 방식으로 표현된다</p>
+
+<p>함수 정의는 함수명(파라미터) = 표현식;의 신택스를 갖는다<br />
+예를 들어, fun circumf( r ) = 3.14159<em>r</em>r;로 정의 되었다면, 함수 circumf는 부동점 파라미터를 받아서 부동점 결과를 생산한다<br />
+이 값의 타입은 표현식의 값으로부터 추론된다<br />
+함수 적용은 circumf(1.3)과 같이 호출된다</p>
+
+<p>ML의 컨트롤 플로우는 if 표현식 then 표현식1 else 표현식2에 의한다<br />
+ML에서는 주어진 파라미터에 대한 패턴 매칭을 통해 함수의 반환값을 정의하는 특정 표현식을 선택하기도 한다<br />
+예를 들어, 팩토리알을 구할 떄<br />
+fun fact(n : int): int = if n &lt;= 1 then 1 else n * fact(n − 1);로 표현할 수도 있지만, ​fun fact(0) = 1 | fact(1) = 1 | fact(n : int): int = n * fact(n − 1);로 표현할 수도 있다.<br />
+후자에서는 Fact(0), Fact(1)의 값을 구할 때, 두개의 식 fun fact(0) = 1, fact(1) = 1에 대한 패턴 매칭을 통해 그 결과값을 선택할 수 있다</p>
+
+<p>ML에서는 h, t는 각각 헤드와 테일을 나타내며, CAR, CDR과 같다<br />
+그리고 ::는 CONS와 같다<br />
+두개의 리스트를 append하는 함수는<br />
+fun append([], lis2) = lis2 | append(h :: t, lis2) = h :: append(t, lis2);로 정의된다.</p>
+
+<p>주어진 리스트에서 리스트 요소의 개수를 구하는 함수는<br />
+fun length([]) = 0 | length(h :: t) = 1 + length(t);이다</p>
+
+<p>ML에서 값을 선언하는 방법은 변수명에 값을 바인딩하는 것이다<br />
+그 형식은 val new_name = expression이다<br />
+만일 새로운 값을 바인딩하려면 새로운 변수명에 새로운 값을 바인딩하여 테이블에 새로운 엔트리로 생성해야 한다<br />
+val의 정상적인 사용은 표현식에서 사용하는 변수에 대해, Let안에서 바인딩하는 것이다</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Let val radius = 2.7 ​
+
+      val pi = 3.14159 ​
+
+   in pi * radius * radius ​
+
+   end;​
+</code></pre></div></div>
+
+<p>예에서 radius와 pi는 표현식에 제한된 변수임을 명확히 선언하고 있다</p>
+
+<p>많이 쓰이는 고차 함수로 리스트를 필터링하는 filter함수가 있다<br />
+필터는 다음과 같이 동작한다</p>
+
+<ol>
+  <li>필터는 술어 함수를 파라미터로 받아들여서, 술어 만족 여부에 따라 필터링하는 함수를 반환한다(술어 함수는 종종 fn으로 정의된 람다 표현식으로 주어진다)</li>
+  <li>반환된 필터링 함수는 리스트를 파라미터로 받아들여서 다음과 같이 처리한다
+    <ul>
+      <li>각 리스트 요소에 대해 술어함수를 적용하여 술어 조건을 만족시키는지 검사</li>
+      <li>그 결과가 참이면, 리스트 요소를 새로운 리스트(결과 리스트)에 추가한나다</li>
+      <li>참이 아니면, 스킵한다</li>
+    </ul>
+  </li>
+  <li>이렇게 생성된 새로운 리스트를 결과로 반환한다</li>
+</ol>
+
+<p>필터의 사용을 보면 Filter(fn(x)) =&gt; x &lt;100, [25, 1, 50, 711, 100, 150, 27, 161, 3]);는 결과로서 100보다 작은 요소만으로 구성된 새로운 리스트 [25, 1, 50, 27, 3]를 반환한다</p>
+
+<p>많이 쓰이는 다른 함수로 map함수가 있다<br />
+map함수는 파라미터로 함수 (fa)를 받아 들여서 새로운 함수를 만든다<br />
+새로운 함수는 파라미터로 리스트를 받아 들인다<br />
+각 리스트 요소에 파라미터로 받은 함수(fa)를 적용한다</p>
+
+<p>합성 함수는 val h = g o f로 정의하며, 이것은 h(x) = g(f(x))와 같다</p>
+
+<p>커링은 하나 이상의 파라미터를 가진 함수를 하나의 파라미터를 가진 함수로 교체하는 것이다<br />
+하나의 파라미터를 가진 함수는 함수를 반환하며, 반환된 이 함수는 초기 함수의 다른 파라미터를 받아 들여 결과를 반환한다<br />
+예를 들어, (DEFINE (add x y)(+ x y))의 커리 함수는 DEFINE (add y) (LAMBDA (x) (+ y x))이며, 이것이 호출되면, 그 결과는 (+ y x)으로 리덕션된다</p>
 
 <hr />
 
 <h2 id="haskell">Haskell​</h2>
 
+<p>Haskell은 순수 함수 언어로 알려져 있다<br />
+연산자는 표시 방식만 다를 뿐 다른 FPL과 거의 같다</p>
+
+<p>Haskell 역시 앞에서 Scheme에서 본 것과 유사한 let 컨스트럭트를 지원한다</p>
+
+<p>다른 언어와 다르게 지연 평가를 수행하며, 표현식은 값이 필요할 때에만 평가된다</p>
+
+<p>이에 비해 이른(eager) 평가에서는 함수가 호출되기 전에 미리 함수에 대한 파라미터를 평가한다<br />
+따라서 엄격한 시맨틱스를 갖는다</p>
+
 <hr />
 
 <h2 id="support-fp-in-ipl">Support FP in IPL</h2>
+
+<p>자바 스크립트에서는 이름을 가진 함수를 정의할 수 있다<br />
+ex) 함수명 (파라미터 여러개) { 표현식 (블록)}</p>
+
+<p>여기서 함수명을 빼면 익명의 함수를 정의하게 된다</p>
+
+<p>파이썬에는 람다 표현식이 가능하다<br />
+즉, lambda a,b: 2*a-b라고 하면, 파라미터 a,b로 이름이 없는 익명의 함수를 정의하는 것이다<br />
+파라미터와 함수 바디를 콜론으로 구분한다</p>
+
+<p>파이썬에서는 고차 함수 filter와 map를 정의할 수 있다<br />
+이들은 첫째 파라미터로 모두 람다 표현식을 사용하며, 두번째 파라미터로 시퀀스 타입을 사용한다<br />
+두 함수 모두 두번째 파라미터와 동일한 타입의 시퀀스를 결과로 반환한다.<br />
+예를 들어 map(lambda x : x**3, [2, 4, 6, 8]이라고 하면, 반환 결과는 [8, 64, 216, 512]이다.<br />
+이 예에서 첫번째 파라미터는 함수(표현식)임을 기억하라.</p>
+
+<p>이 map은 2004년 구글의 MapReduce의 map과 같은 의미이며, ​병렬 처리의 한 방법으로 유명해졌다. ​</p>
+
+<p>파이썬은 파라미터의 개수를 제한하고, ​명시적으로 새로운 함수를 정의하고 적용할 수 있도록 partial 함수를 지원한다.<br />
+먼저 제한적으로 적용하려는 함수를 임포트하고,​ (여기서 add5는 add a b : a + b에서 파라미터를 ​한 개로 줄여서 add + 5로 정의한 것이다.)​ 명령문 add5=partial (add, 5)은 함수 add+5를 add5로 정의하고, ​함수 add5(15)를 적용(호출)하면 결과는 20이다. ​</p>
 
 <hr />
 
@@ -587,6 +684,8 @@ CADDR을 (DEFINE (third a_list) ((compose CAR (compose CDR CDR)) a_list))와 같
                         <div class="read-next-card-content">
                             <ul>
                                 
+                                
+                                  
                                 
                                   
                                     
@@ -864,6 +963,57 @@ CADDR을 (DEFINE (third a_list) ((compose CAR (compose CDR CDR)) a_list))와 같
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
             
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/algorithm-09">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/algorithm-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/algorithm-09">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Algorithm</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">근사 알고리즘</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>근사 알고리즘
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="lee989898" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/lee989898/">lee989898</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      2 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
 
             <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
             
@@ -910,7 +1060,7 @@ CADDR을 (DEFINE (third a_list) ((compose CAR (compose CDR CDR)) a_list))와 같
                 <span class="reading-time">
                     
                     
-                      3 min read
+                      6 min read
                     
                 </span>
             </footer>

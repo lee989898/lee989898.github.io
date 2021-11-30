@@ -211,9 +211,7 @@ into the {body} of the default.hbs template -->
 
 <hr />
 
-<blockquote>
-  <p>Thread Overview ​</p>
-</blockquote>
+<h2 id="thread-overview-">Thread Overview ​</h2>
 
 <ul>
   <li>프로세스처럼 독립적으로 수행되는 프로그램 코드​
@@ -278,9 +276,7 @@ into the {body} of the default.hbs template -->
 
 <hr />
 
-<blockquote>
-  <p>Pthread Introduction ​</p>
-</blockquote>
+<h2 id="pthread-introduction-">Pthread Introduction ​</h2>
 
 <ul>
   <li>IEEE POSIX (Portable Operating System Interface for UNIX) 1003.1c Standard​
@@ -516,22 +512,258 @@ into the {body} of the default.hbs template -->
       </li>
       <li>Detach 된 스레드에 pthread_join()를 호출하면 error 발생​</li>
       <li>Detach 된 스레드는 pthread_join() 호출 없이 할당되었던 resources 들이 반납됨 
-​</li>
+​
+        <blockquote>
+          <p>스레드 Attribute</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+  <li>스레드의 attribute는 스레드가 생성될 때 설정됨
+    <ul>
+      <li>이미 생성된 스레드의 attribute 값을 바꾸는 것은 제한적인 경우에만 가능 ​</li>
+    </ul>
+  </li>
+  <li>따라서 pthread_create를 호출하기 전에 원하는 attribute 값들을 설정해야 ​</li>
+  <li>Attribute 설정과 관련된 pthread API
+    <ul>
+      <li>pthread_attr_init()​</li>
+      <li>pthread_attr_destroy()​</li>
+      <li>pthread_attr_setdetachstate()​</li>
+      <li>pthread_attr_getstacksize()​</li>
+      <li>pthread_attr_setstacksize()​</li>
+    </ul>
+  </li>
+  <li>스레드는 joinable 또는 detached 스레드로 생성 가능​</li>
+  <li>Default stack size는 OS 마다 다른 값을 지정​</li>
+  <li>최소 스택 크기는 변수 PTHREAD_STACK_MIN에 저장된다</li>
+</ul>
+
+<blockquote>
+  <p>기타 스레드 Attribute들</p>
+</blockquote>
+
+<ul>
+  <li>Guard size: 스택 오버플로로부터 보호하기 위해 사용</li>
+  <li>스케줄링 속성 상속(스레드 생성에서) or not</li>
+  <li>Scheduling parameter(s): 특히 스레드 우선순위</li>
+  <li>Scheduling policy: FIFO or Round Robin​</li>
+  <li>Contention scope: 이 스레드는 어떤 스레드와 CPU를 놓고 경쟁하는가</li>
+  <li>Stack address: 스택의 위치를 ​​명시적으로 지정</li>
+  <li>Lazy stack allocation: 요청 시 할당(lazy) 또는 한 번에 모두 선행</li>
+</ul>
+
+<hr />
+
+<h2 id="synchronization">Synchronization​</h2>
+
+<blockquote>
+  <p>스레드의 동기화 문제</p>
+</blockquote>
+
+<ul>
+  <li>여러 스레드가 공유 데이터에 접근하여 값들을 읽거나 저장
+    <ul>
+      <li>Run time 에 공유 데이터가 어떤 값을 가질지 예측하기 어려움​</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>Data race 문제</p>
+</blockquote>
+
+<ul>
+  <li>두 개 이상의 스레드가 같은 변수를 access, 그 중 적어도 하나의 access는 write 연산을 실행​</li>
+  <li>Access들이 동시에 발생, 그러나 동기화되지 않은 상태로</li>
+</ul>
+
+<blockquote>
+  <p>기본적인 동기화 Mechanism: Mutex</p>
+</blockquote>
+
+<ul>
+  <li>스레드들이 서로 배타적으로 공유데이터에 접근하도록 하기위해 Mutex (mutual exclusion)를 사용​
+    <ul>
+      <li>스레드들은 거의 독립적으로 실행​</li>
+      <li>Common한 data structure를 사용함​</li>
+    </ul>
+  </li>
+  <li>Mutex외에도 세마포어를 많이 사용​</li>
+</ul>
+
+<blockquote>
+  <p>Mutex 사용방법</p>
+</blockquote>
+
+<ul>
+  <li>Critical 영역에 들어가기 전에 mutex 를 잠금​</li>
+  <li>Critical 영역에서 나오면서 mutex 잠금을 해제​</li>
+  <li>다른 스레드들은 이 mutex 잠금이 해제될 때까지 대기​</li>
+  <li>Mutex 사용 절차</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pthread_mutex_t mutex; // 뮤텍스 선언​
+Pthread_mutex_init(&amp;mutex); // 뮤텍스 초기화 작업​
+pthread_mutex_lock(mutex); // 뮤텍스 잠금​
+... // 공유데이터(크리티컬 영역) 액세스​
+pthread_mutex_unlock(mutex); // 뮤텍스 잠금 해제​
+</code></pre></div></div>
+
+<blockquote>
+  <p>Mutex 선언 및 초기화</p>
+</blockquote>
+
+<ul>
+  <li>Mutex의 변수 타입 : pthread_mutex_t​</li>
+  <li>여러 스레드들이 사용하므로 전역 변수로 선언​</li>
+  <li>반드시 초기화를 해야 사용 가능​</li>
+  <li>초기화 방법​
+    <ul>
+      <li>함수를 통한 초기화​</li>
+      <li>매크로를 통한 초기화​</li>
+    </ul>
+  </li>
+  <li>Mutex 초기화에 특별한 타입을 지정하지 않음 ​</li>
+  <li>단 한 번의 잠금만 허용​
+    <ul>
+      <li>스레드 A가 잠금을 하고 있는 상황에서 스레드 B가 잠금을 시도하면 B는 A의 잠금이 해제될 때까지 기다림​</li>
+      <li>A에 의해 잠긴 뮤텍스에 대해 A가 다시 잠금을 시도하면 deadlock이 발생하여 A는 영원히 블록 상태가 됨​</li>
+      <li>이러한 현상을 피하기 위해 pthread_mutex_trylock()을 사용​</li>
+      <li>Mutex를 얻지 못하는 경우 블록되지 않고 바로 리턴되고 EBUSY 에러 발생​</li>
+    </ul>
+  </li>
+  <li>잠금되어 있는 않은 mutex에 잠금해제를 시도하면 아무 동작을 하지 않음​</li>
+</ul>
+
+<blockquote>
+  <p>Mutex의 삭제</p>
+</blockquote>
+
+<ul>
+  <li>더 이상 mutex를 사용하지 않을 때 삭제​</li>
+  <li>잠금 상태의 mutex를 삭제하려 시도하면 에러 발생​
+    <ul>
+      <li>EBUSY 에러 발생​</li>
+    </ul>
+  </li>
+  <li>Mutex의 현재 상태(잠금, 잠금해제) 확인 함수는 없음​</li>
+  <li>안전하게 mutex를 삭제하기 위해서는 삭제 전에 무조건 mutex를 해제해야 함​</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pthread_mutex_unlock(&amp;mutex);​
+pthread_mutex_destory(&amp;mutex);
+</code></pre></div></div>
+
+<blockquote>
+  <p>Mutex와 deadlock</p>
+</blockquote>
+
+<ul>
+  <li>Deadlock​
+    <ul>
+      <li>두 개의 스레드가 두 개의 mutex를 사용​</li>
+      <li>각 스레드가 mutex를 하나씩 잠그고 있는 상태에서 상대방의 mutex 해제를 기다리는 현상​</li>
+      <li>deadlock이 발생하면 프로그램은 영원히 블록​</li>
+    </ul>
+  </li>
+  <li>Deadlock을 피하는 방법​
+    <ul>
+      <li>Mutex를 잠그는데 일정한 순서를 정하여 사용​</li>
+    </ul>
+  </li>
+  <li>성능​
+    <ul>
+      <li>Mutex를 많이 사용하면 프로그램의 성능이 저하됨​</li>
+      <li>Mutex를 얻은 상태에서 처리하는 작업의 양(Critical Section)을 최소화 해야 함​
+        <ul>
+          <li>Mutex가 잠긴 동안 다른 스레드가 블록될 가능성이 높으며 Critical Section이 길수록 전체 프로그램 성능이 저하될 수 있음​</li>
+        </ul>
+      </li>
+      <li>다른 data structure에 대해서는 다른 lock을 적용</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>Spin Lock​</p>
+</blockquote>
+
+<ul>
+  <li>Mutex lock 과 달리, lock을 얻을때까지 CPU cycle을 소비하면서 계속 spinning 함​
+    <ul>
+      <li>Mutex lock : lock을 얻지 못하면 바로 sleep 모드로 들어감 ​</li>
+      <li>Adaptive mutex lock : 잠깐 동안 spinning 하다가 sleep 모드로 들어감 ​</li>
+    </ul>
+  </li>
+  <li>Spin lock APIs​
+    <ul>
+      <li>pthread_spin_init() ​
+        <ul>
+          <li>PTHREAD_PROCESS_PRIVATE : 생성되는 spin lock이 프로세스에 private 하게 사용될 경우 ​</li>
+          <li>PTHREAD_PROCESS_SHARED : 다른 프로세스와 공유할 경우​</li>
+        </ul>
+      </li>
+      <li>pthread_spin_lock()​</li>
+      <li>pthread_spin_unlock()​</li>
+      <li>pthread_spin_destroy()​</li>
+    </ul>
+  </li>
+  <li>pthread_spin_trylock() ​
+    <ul>
+      <li>Lock을 얻으려 시도​</li>
+      <li>Lock을 얻는 경우나 얻지 못하는 경우 모두 바로 리턴</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>Barrier</p>
+</blockquote>
+
+<ul>
+  <li>Barrier: 글로벌 동기화
+    <ul>
+      <li>특히 SPMD(동일한 기능의 여러 복사본을 병렬로 실행할 때)</li>
+    </ul>
+  </li>
+  <li>Simple use of barriers: all threads hit the same one​
+    <ul>
+      <li>work_on_my_subgrid();​</li>
+      <li>barrier;​</li>
+      <li>read_neighboring_values();​</li>
+      <li>barrier;​</li>
+    </ul>
+  </li>
+  <li>more complicated: barriers on branches (or loops)​
+    <ul>
+      <li>if (thread_id % 2 == 0) {​</li>
+      <li>work1();​</li>
+      <li>barrier; } ​</li>
+      <li>else ​</li>
+      <li>barrier;​</li>
+    </ul>
+  </li>
+  <li>
+    <p>모든 스레드 라이브러리에 Barrier가 제공되지 않는다</p>
+  </li>
+  <li>Barrier APIs​
+    <ul>
+      <li>pthread_barrier_init(&amp;barrier, attr, no_of_threads) ​
+        <ul>
+          <li>pthread_barrier_t  barrier;​</li>
+          <li>Default value of attr is “NULL”​</li>
+        </ul>
+      </li>
+      <li>pthread_barrier_destroy(&amp;barrier)​</li>
+      <li>pthread_barrier_wait(&amp;barrier)</li>
     </ul>
   </li>
 </ul>
 
 <hr />
 
-<blockquote>
-  <p>Synchronization​</p>
-</blockquote>
-
-<hr />
-
-<blockquote>
-  <p>Semaphore &amp; Conditional Variable​</p>
-</blockquote>
+<h2 id="semaphore--conditional-variable">Semaphore &amp; Conditional Variable​</h2>
 
 <hr />
 
@@ -645,6 +877,8 @@ into the {body} of the default.hbs template -->
                         <div class="read-next-card-content">
                             <ul>
                                 
+                                
+                                  
                                 
                                   
                                 
@@ -915,7 +1149,7 @@ into the {body} of the default.hbs template -->
                 <span class="reading-time">
                     
                     
-                      4 min read
+                      2 min read
                     
                 </span>
             </footer>

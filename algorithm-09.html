@@ -11,7 +11,7 @@
 
 
 
-    <title>제네릭스</title>
+    <title>근사 알고리즘</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -49,8 +49,33 @@
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="공부 블로그" />
     <link rel="shortcut icon" href="https://lee989898.github.io/assets/built/images/favicon.jpg" type="image/png" />
-    <link rel="canonical" href="https://lee989898.github.io/kotlin-08" />
+    <link rel="canonical" href="https://lee989898.github.io/algorithm-09" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
+
+    
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$'] ],
+    processEscapes: true,
+  }
+});
+MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 
     
 
@@ -58,30 +83,24 @@
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="제네릭스" />
-    <meta property="og:description" content="제네릭스
-
-
-" />
-    <meta property="og:url" content="https://lee989898.github.io/kotlin-08" />
-    <meta property="og:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
+    <meta property="og:title" content="근사 알고리즘" />
+    <meta property="og:description" content="근사 알고리즘 근사 알고리즘 NP-완전 문제 해결 방법 문제의 크기가 작다면 완전 탐색 알고리즘 사용 문제의 특별한 경우(들)에는 다항 시간 알고리즘을 찾으려고 노력 문제의 최적해에 매우 근사한 해를 구하는 것이 허용된다면 비교적 빠른 근사 알고리즘을 찾으려고 노력 근사 알고리즘 NP-완전 문제와 같이 지금까지 알려진 실용적인 다항 시간 알고리즘이 없거나 최적의" />
+    <meta property="og:url" content="https://lee989898.github.io/algorithm-09" />
+    <meta property="og:image" content="https://lee989898.github.io/assets/built/images/algorithm-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2021-08-09T01:07:00+09:00" />
-    <meta property="article:modified_time" content="2021-08-09T01:07:00+09:00" />
-    <meta property="article:tag" content="Kotlin" />
+    <meta property="article:published_time" content="2021-11-29T01:09:00+09:00" />
+    <meta property="article:modified_time" content="2021-11-29T01:09:00+09:00" />
+    <meta property="article:tag" content="Algorithm" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="제네릭스" />
-    <meta name="twitter:description" content="제네릭스
-
-
-" />
+    <meta name="twitter:title" content="근사 알고리즘" />
+    <meta name="twitter:description" content="근사 알고리즘 근사 알고리즘 NP-완전 문제 해결 방법 문제의 크기가 작다면 완전 탐색 알고리즘 사용 문제의 특별한 경우(들)에는 다항 시간 알고리즘을 찾으려고 노력 문제의 최적해에 매우 근사한 해를 구하는 것이 허용된다면 비교적 빠른 근사 알고리즘을 찾으려고 노력 근사 알고리즘 NP-완전 문제와 같이 지금까지 알려진 실용적인 다항 시간 알고리즘이 없거나 최적의" />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
-    <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
+    <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/algorithm-logo.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="LEE" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Kotlin" />
+    <meta name="twitter:data2" content="Algorithm" />
     <meta name="twitter:site" content="@" />
     <meta name="twitter:creator" content="@" />
     <meta property="og:image:width" content="1400" />
@@ -96,21 +115,18 @@
         "name": "LEE",
         "logo": "https://lee989898.github.io/"
     },
-    "url": "https://lee989898.github.io/kotlin-08",
+    "url": "https://lee989898.github.io/algorithm-09",
     "image": {
         "@type": "ImageObject",
-        "url": "https://lee989898.github.io/assets/built/images/kotlin-logo.png",
+        "url": "https://lee989898.github.io/assets/built/images/algorithm-logo.png",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://lee989898.github.io/kotlin-08"
+        "@id": "https://lee989898.github.io/algorithm-09"
     },
-    "description": "제네릭스
-
-
-"
+    "description": "근사 알고리즘 근사 알고리즘 NP-완전 문제 해결 방법 문제의 크기가 작다면 완전 탐색 알고리즘 사용 문제의 특별한 경우(들)에는 다항 시간 알고리즘을 찾으려고 노력 문제의 최적해에 매우 근사한 해를 구하는 것이 허용된다면 비교적 빠른 근사 알고리즘을 찾으려고 노력 근사 알고리즘 NP-완전 문제와 같이 지금까지 알려진 실용적인 다항 시간 알고리즘이 없거나 최적의"
 }
     </script>
 
@@ -123,7 +139,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="제네릭스" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="근사 알고리즘" href="/feed.xml" />
 
 
 </head>
@@ -191,32 +207,212 @@ into the {body} of the default.hbs template -->
 <main id="site-main" class="site-main outer" role="main">
     <div class="inner">
 
-        <article class="post-full  tag-kotlin post tag-kotlin ">
+        <article class="post-full  tag-algorithm post tag-algorithm ">
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime=" 9 August 2021"> 9 August 2021</time>
+                    <time class="post-full-meta-date" datetime="29 November 2021">29 November 2021</time>
                     
                         <span class="date-divider">/</span>
                         
                             
-                               <a href='/tag/kotlin/'>KOTLIN</a>
+                               <a href='/tag/algorithm/'>ALGORITHM</a>
                             
                         
                     
                 </section>
-                <h1 class="post-full-title">제네릭스</h1>
+                <h1 class="post-full-title">근사 알고리즘</h1>
             </header>
 
             <!--
             
-            <figure class="post-full-image" style="background-image: url(/assets/built/images/kotlin-logo.png)">
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/algorithm-logo.png)">
             </figure>
             
             -->
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <h3 id="제네릭스"><strong>제네릭스</strong></h3>
+                    <h3 id="근사-알고리즘"><strong>근사 알고리즘</strong></h3>
+
+<hr />
+
+<h2 id="근사-알고리즘-1">근사 알고리즘</h2>
+
+<blockquote>
+  <p>NP-완전 문제 해결 방법</p>
+</blockquote>
+
+<ol>
+  <li>문제의 크기가 작다면 완전 탐색 알고리즘 사용</li>
+  <li>문제의 특별한 경우(들)에는 다항 시간 알고리즘을 찾으려고 노력</li>
+  <li>문제의 최적해에 매우 근사한 해를 구하는 것이 허용된다면 비교적 빠른 근사 알고리즘을 찾으려고 노력</li>
+</ol>
+
+<blockquote>
+  <p>근사 알고리즘</p>
+</blockquote>
+
+<ol>
+  <li>NP-완전 문제와 같이 지금까지 알려진 실용적인 다항 시간 알고리즘이 없거나 최적의 해를 반드시 찾을 필요가 없을 때 사용</li>
+  <li>대부분의 근사 알고리즘은 특정 문제에만 적용되는 휴리스틱에 기초</li>
+  <li>휴리스틱은 경험을 통해 얻는 상식적인 접근법</li>
+</ol>
+
+<blockquote>
+  <p>근사 비율</p>
+</blockquote>
+
+<ul>
+  <li>근사해의 값과 최적해의 값의 비율</li>
+  <li>정의: 근사 비율 p
+    <ul>
+      <li>f: 목적 함수</li>
+      <li>$S_a$: 근사해</li>
+      <li>$S^*$: 최적해</li>
+      <li>$S_a$는 다음 부등식을 만족시켜야 한다
+        <ul>
+          <li>최소화 문제: $\frac{f(S_a)} {f(S^*)}$&lt;= p</li>
+          <li>최대화 문제: $\frac{f(S^*)} {f(S_a)}$&lt;= p</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>p-근사 알고리즘: 근사비율이 p인 알고리즘</li>
+  <li>1에 가까울수록 정확도가 높은 알고리즘</li>
+  <li>근사 비율은 보통 2를 사용</li>
+  <li>대부분의 경우에 목적 함수의 최적 값인 $f(S^*)$를 알 수 없기 때문에 근사 비율 계산 불가</li>
+  <li>$f(S^*)$를 대신할 수 있는 $f(S_a)$의 상한을 구하여 근사 비율을 계산</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>정점 커버 찾기</p>
+</blockquote>
+
+<ul>
+  <li>무방향 그래프에서 각 간선의 양쪽 끝의 두 정점들 중에서 적어도 1개의 정점을 포함하는 정점들의 집합</li>
+  <li>크기 = 정점 커버내에 있는 정점들의 수</li>
+  <li>
+    <p>그래프는 여러 개의 정점 커버들을 가질 수 있다</p>
+  </li>
+  <li>무방향 그래프내에 있는 최소 크기의 정점 커버를 찾아라
+    <ul>
+      <li>정점 지향 전략</li>
+      <li>간선 지향 전략</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>정점 지향 전략</p>
+</blockquote>
+
+<ol>
+  <li>그래프의 모든 정점들을 차수(한 정점에 인접한 정점들의 수) 기준으로 내림차순으로 정렬한다</li>
+  <li>차수가 가장 큰 정점을 선택한다</li>
+  <li>선택된 정점에 인접한 모든 간선을 제거한다</li>
+  <li>남은 그래프에서 과정 2와 3을 반복한다</li>
+</ol>
+
+<blockquote>
+  <p>간선 지향 전략</p>
+</blockquote>
+
+<ol>
+  <li>그래프의 한 간선 (u, v)를 임의로 선택한다</li>
+  <li>u와 v를 정점 커버에 포함시키고 u와 v에 인접한 간선들은 모두 그래프에서 제거한다</li>
+  <li>남은 간선들 중 임의로 한 간선을 선택하고 같은 과정을 반복한다. 선택할 간선들이 더 이상 남아 있지 않으면 종료한다</li>
+</ol>
+
+<blockquote>
+  <p>근사 정점 커버 알고리즘</p>
+</blockquote>
+
+<p>Approx_Vertex_Cover(G)<br />
+// 입력: 그래프 G = (V, E)<br />
+// 출력: C - 정점 커버<br />
+1 C = $\emptyset$<br />
+2 $E^<code class="language-plaintext highlighter-rouge">$ = E  
+3 while ( $E^</code>$ $\neq$  $\emptyset$){<br />
+4   $E^<code class="language-plaintext highlighter-rouge">$에서 임의로 간선 (u,v)를 선택한다  
+5   C = C {u} {v}  
+6   $E^</code>$에서 정점 u나 v에 인접한 모든 간선들을 제거한다<br />
+    }<br />
+7 return C</p>
+
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>시간 복잡도: O(</td>
+          <td>E</td>
+          <td>)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>해밀토니안 회로</p>
+</blockquote>
+
+<ul>
+  <li>해밀토니안 회로: 그래프의 한 정점에서 출발하여 다른 모든 정점을 1번씩만 방문하고 출발 정점으로 돌아오는 경로</li>
+  <li>완전 그래프에는 반드시 해밀토니안 회로가 있다</li>
+</ul>
+
+<blockquote>
+  <p>외판원 문제</p>
+</blockquote>
+
+<ul>
+  <li>가중 완전 그래프의 최단 거리 해밀토니안 회로를 찾아라</li>
+  <li>NP-완전 문제</li>
+  <li>다음 조건들을 만족시켜야 한다</li>
+</ul>
+
+<ol>
+  <li>가중치가 있는 완전 무방향 그래프 G = (V, E)의 각 간선 (u, v) $\in$ E는 음이 아닌 가중치 c(u, v)를 가진다</li>
+  <li>모든 정점 u,v,w $\in$ V에 대해서 거리 함수 c가 다음과 같은 삼각 부등식을 만족한다
+    <ul>
+      <li>c(u,v) &lt;= c(u, w) + c(w, v)</li>
+    </ul>
+  </li>
+</ol>
+
+<blockquote>
+  <p>근사 외판원 알고리즘</p>
+</blockquote>
+
+<ul>
+  <li>아이디어</li>
+</ul>
+
+<ol>
+  <li>프림의 최소 비용 신장 트리 알고리즘을 이용하여 주어진 그래프에서 최소 비용 신장 트리를 찾는다</li>
+  <li>이 트리에 깊이 우선 탐색을 하여 정점들의 방문 순서를 구한다</li>
+  <li>이 순서를 따라 정점들을 방문하면서 다시 방문하는 정점을 순서에서 제거하여 외판원 문제의 근사해를 구한다</li>
+</ol>
+
+<p>Approx_MST_TSP(G, c)<br />
+// 입력: G = (V, E) - 가중 완전 그래프, c - G의 간선들의 가중치(삼각 부등식을 만족)<br />
+// 출력: 해밀토니안 회로 H</p>
+<ol>
+  <li>임의의 정점 r $\in$ V를 출발 정점으로 선택한다</li>
+  <li>Prim의 최소 비용 신장 트리 알고리즘을 이용하여 r이 루트 노드인 그래프 G의 최소 비용 신장 트리 T를 구한다</li>
+  <li>트리 T의 루트 노드에서 시작하여 깊이 우선 탐색을 하면서 노드들을 방문한 순서대로 나열한 목록 H를 구한다</li>
+  <li>목록 H에 있는 정점들을 출발 정점을 제외하고 처음부터 순서대로 스캔하면서 중복하여 나타나는 정점들을 H에서 제거한다</li>
+  <li>return H</li>
+</ol>
+
+<ul>
+  <li>시간복잡도: O($n^2$)</li>
+</ul>
 
 <hr />
 
@@ -285,9 +481,9 @@ into the {body} of the default.hbs template -->
                     <div id="disqus_thread"></div>
                     <script>
                         var disqus_config = function () {
-                            var this_page_url = 'https://lee989898.github.io/kotlin-08';
-                            var this_page_identifier = '/kotlin-08';
-                            var this_page_title = '제네릭스';
+                            var this_page_url = 'https://lee989898.github.io/algorithm-09';
+                            var this_page_identifier = '/algorithm-09';
+                            var this_page_title = '근사 알고리즘';
                         };
                         (function() {
                             var d = document, s = d.createElement('script');
@@ -321,7 +517,7 @@ into the {body} of the default.hbs template -->
                         <header class="read-next-card-header">
                             <small class="read-next-card-header-sitetitle">&mdash; LEE &mdash;</small>
                             
-                                <h3 class="read-next-card-header-title"><a href="/tag/kotlin/">Kotlin</a></h3>
+                                <h3 class="read-next-card-header-title"><a href="/tag/algorithm/">Algorithm</a></h3>
                             
                         </header>
                         <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
@@ -331,7 +527,7 @@ into the {body} of the default.hbs template -->
                                 
                                 
                                   
-                                
+                                    
                                   
                                 
                                   
@@ -343,7 +539,12 @@ into the {body} of the default.hbs template -->
                                   
                                 
                                   
-                                
+                                    
+                                        
+                                        
+                                            <li><a href="/algorithm-08">분기 한정</a></li>
+                                        
+                                    
                                   
                                 
                                   
@@ -355,7 +556,12 @@ into the {body} of the default.hbs template -->
                                   
                                 
                                   
-                                
+                                    
+                                        
+                                        
+                                            <li><a href="/algorithm-07">되추적</a></li>
+                                        
+                                    
                                   
                                 
                                   
@@ -363,69 +569,12 @@ into the {body} of the default.hbs template -->
                                   
                                 
                                   
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
+                                    
+                                        
+                                        
+                                            <li><a href="/algorithm-06">NP-완전</a></li>
+                                        
+                                    
                                   
                                 
                                   
@@ -446,63 +595,7 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
-                                            <li><a href="/kotlin-10">DSL 만들기</a></li>
-                                        
                                     
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                            <li><a href="/kotlin-09">애노테이션과 리플렉션</a></li>
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                            <li><a href="/kotlin-07">고차 함수, 파라미터와 반환 값으로 람다 사용</a></li>
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                
                                   
                                 
                                   
@@ -537,18 +630,116 @@ into the {body} of the default.hbs template -->
                                   
                                 
                                   
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
                                     
                                         
                                         
                                     
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
                                   
                                 
                             </ul>
                         </div>
                         <footer class="read-next-card-footer">
-                            <a href="/tag/kotlin/">
+                            <a href="/tag/algorithm/">
                                 
-                                    See all 9 posts  →
+                                    See all 8 posts  →
                                 
                             </a>
                         </footer>
@@ -558,57 +749,6 @@ into the {body} of the default.hbs template -->
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
             
-                
-
-    <article class="post-card post-template">
-        
-            <a class="post-card-image-link" href="/kotlin-09">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/kotlin-logo.png)"></div>
-            </a>
-        
-        <div class="post-card-content">
-            <a class="post-card-content-link" href="/kotlin-09">
-                <header class="post-card-header">
-                    
-                        
-                            
-                                <span class="post-card-tags">Kotlin</span>
-                            
-                        
-                    
-
-                    <h2 class="post-card-title">애노테이션과 리플렉션</h2>
-                </header>
-                <section class="post-card-excerpt">
-                    
-                        <p>애노테이션과 리플렉션
-
-</p>
-                    
-                </section>
-            </a>
-            <footer class="post-card-meta">
-                
-                    
-                        
-                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="lee989898" />
-                        
-                        <span class="post-card-author">
-                            <a href="/author/lee989898/">lee989898</a>
-                        </span>
-                    
-                
-                <span class="reading-time">
-                    
-                    
-                      1 min read
-                    
-                </span>
-            </footer>
-        </div>
-    </article>
-
-            
 
             <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
             
@@ -616,26 +756,26 @@ into the {body} of the default.hbs template -->
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/kotlin-07">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/kotlin-logo.png)"></div>
+            <a class="post-card-image-link" href="/pl-20">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/pl-background-frontend.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/kotlin-07">
+            <a class="post-card-content-link" href="/pl-20">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Kotlin</span>
+                                <span class="post-card-tags">Pl</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">고차 함수, 파라미터와 반환 값으로 람다 사용</h2>
+                    <h2 class="post-card-title">Pl 20</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>고차 함수, 파라미터와 반환 값으로 람다 사용
+                        <p>__
 
 </p>
                     
@@ -655,7 +795,7 @@ into the {body} of the default.hbs template -->
                 <span class="reading-time">
                     
                     
-                      1 min read
+                      9 min read
                     
                 </span>
             </footer>
@@ -677,18 +817,18 @@ into the {body} of the default.hbs template -->
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">제네릭스</div>
+    <div class="floating-header-title">근사 알고리즘</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%EC%A0%9C%EB%84%A4%EB%A6%AD%EC%8A%A4&amp;url=https://lee989898.github.io/kotlin-08"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%EA%B7%BC%EC%82%AC+%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98&amp;url=https://lee989898.github.io/algorithm-09"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://lee989898.github.io/kotlin-08"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://lee989898.github.io/algorithm-09"
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
 

@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/algorithm/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-11-27T22:46:38+09:00</updated>
+  <updated>2021-11-30T10:42:36+09:00</updated>
   <id>https://lee989898.github.io/tag/algorithm/feed.xml</id>
 
   
@@ -30,6 +30,222 @@
   
   
 
+  
+    <entry>
+      <title type="html">근사 알고리즘</title>
+      <link href="https://lee989898.github.io/algorithm-09" rel="alternate" type="text/html" title="근사 알고리즘" />
+      <published>2021-11-29T01:09:00+09:00</published>
+      <updated>2021-11-29T01:09:00+09:00</updated>
+      <id>https://lee989898.github.io/algorithm-09</id>
+      <content type="html" xml:base="https://lee989898.github.io/algorithm-09">&lt;h3 id=&quot;근사-알고리즘&quot;&gt;&lt;strong&gt;근사 알고리즘&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;근사-알고리즘-1&quot;&gt;근사 알고리즘&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;NP-완전 문제 해결 방법&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;문제의 크기가 작다면 완전 탐색 알고리즘 사용&lt;/li&gt;
+  &lt;li&gt;문제의 특별한 경우(들)에는 다항 시간 알고리즘을 찾으려고 노력&lt;/li&gt;
+  &lt;li&gt;문제의 최적해에 매우 근사한 해를 구하는 것이 허용된다면 비교적 빠른 근사 알고리즘을 찾으려고 노력&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;근사 알고리즘&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;NP-완전 문제와 같이 지금까지 알려진 실용적인 다항 시간 알고리즘이 없거나 최적의 해를 반드시 찾을 필요가 없을 때 사용&lt;/li&gt;
+  &lt;li&gt;대부분의 근사 알고리즘은 특정 문제에만 적용되는 휴리스틱에 기초&lt;/li&gt;
+  &lt;li&gt;휴리스틱은 경험을 통해 얻는 상식적인 접근법&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;근사 비율&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;근사해의 값과 최적해의 값의 비율&lt;/li&gt;
+  &lt;li&gt;정의: 근사 비율 p
+    &lt;ul&gt;
+      &lt;li&gt;f: 목적 함수&lt;/li&gt;
+      &lt;li&gt;$S_a$: 근사해&lt;/li&gt;
+      &lt;li&gt;$S^*$: 최적해&lt;/li&gt;
+      &lt;li&gt;$S_a$는 다음 부등식을 만족시켜야 한다
+        &lt;ul&gt;
+          &lt;li&gt;최소화 문제: $\frac{f(S_a)} {f(S^*)}$&amp;lt;= p&lt;/li&gt;
+          &lt;li&gt;최대화 문제: $\frac{f(S^*)} {f(S_a)}$&amp;lt;= p&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;p-근사 알고리즘: 근사비율이 p인 알고리즘&lt;/li&gt;
+  &lt;li&gt;1에 가까울수록 정확도가 높은 알고리즘&lt;/li&gt;
+  &lt;li&gt;근사 비율은 보통 2를 사용&lt;/li&gt;
+  &lt;li&gt;대부분의 경우에 목적 함수의 최적 값인 $f(S^*)$를 알 수 없기 때문에 근사 비율 계산 불가&lt;/li&gt;
+  &lt;li&gt;$f(S^*)$를 대신할 수 있는 $f(S_a)$의 상한을 구하여 근사 비율을 계산&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;정점 커버 찾기&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;무방향 그래프에서 각 간선의 양쪽 끝의 두 정점들 중에서 적어도 1개의 정점을 포함하는 정점들의 집합&lt;/li&gt;
+  &lt;li&gt;크기 = 정점 커버내에 있는 정점들의 수&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;그래프는 여러 개의 정점 커버들을 가질 수 있다&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;무방향 그래프내에 있는 최소 크기의 정점 커버를 찾아라
+    &lt;ul&gt;
+      &lt;li&gt;정점 지향 전략&lt;/li&gt;
+      &lt;li&gt;간선 지향 전략&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;정점 지향 전략&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;그래프의 모든 정점들을 차수(한 정점에 인접한 정점들의 수) 기준으로 내림차순으로 정렬한다&lt;/li&gt;
+  &lt;li&gt;차수가 가장 큰 정점을 선택한다&lt;/li&gt;
+  &lt;li&gt;선택된 정점에 인접한 모든 간선을 제거한다&lt;/li&gt;
+  &lt;li&gt;남은 그래프에서 과정 2와 3을 반복한다&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;간선 지향 전략&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;그래프의 한 간선 (u, v)를 임의로 선택한다&lt;/li&gt;
+  &lt;li&gt;u와 v를 정점 커버에 포함시키고 u와 v에 인접한 간선들은 모두 그래프에서 제거한다&lt;/li&gt;
+  &lt;li&gt;남은 간선들 중 임의로 한 간선을 선택하고 같은 과정을 반복한다. 선택할 간선들이 더 이상 남아 있지 않으면 종료한다&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;근사 정점 커버 알고리즘&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Approx_Vertex_Cover(G)&lt;br /&gt;
+// 입력: 그래프 G = (V, E)&lt;br /&gt;
+// 출력: C - 정점 커버&lt;br /&gt;
+1 C = $\emptyset$&lt;br /&gt;
+2 $E^&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ = E  
+3 while ( $E^&lt;/code&gt;$ $\neq$  $\emptyset$){&lt;br /&gt;
+4   $E^&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$에서 임의로 간선 (u,v)를 선택한다  
+5   C = C {u} {v}  
+6   $E^&lt;/code&gt;$에서 정점 u나 v에 인접한 모든 간선들을 제거한다&lt;br /&gt;
+    }&lt;br /&gt;
+7 return C&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;시간 복잡도: O(&lt;/td&gt;
+          &lt;td&gt;E&lt;/td&gt;
+          &lt;td&gt;)&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;해밀토니안 회로&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;해밀토니안 회로: 그래프의 한 정점에서 출발하여 다른 모든 정점을 1번씩만 방문하고 출발 정점으로 돌아오는 경로&lt;/li&gt;
+  &lt;li&gt;완전 그래프에는 반드시 해밀토니안 회로가 있다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;외판원 문제&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;가중 완전 그래프의 최단 거리 해밀토니안 회로를 찾아라&lt;/li&gt;
+  &lt;li&gt;NP-완전 문제&lt;/li&gt;
+  &lt;li&gt;다음 조건들을 만족시켜야 한다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;가중치가 있는 완전 무방향 그래프 G = (V, E)의 각 간선 (u, v) $\in$ E는 음이 아닌 가중치 c(u, v)를 가진다&lt;/li&gt;
+  &lt;li&gt;모든 정점 u,v,w $\in$ V에 대해서 거리 함수 c가 다음과 같은 삼각 부등식을 만족한다
+    &lt;ul&gt;
+      &lt;li&gt;c(u,v) &amp;lt;= c(u, w) + c(w, v)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;근사 외판원 알고리즘&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;아이디어&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;프림의 최소 비용 신장 트리 알고리즘을 이용하여 주어진 그래프에서 최소 비용 신장 트리를 찾는다&lt;/li&gt;
+  &lt;li&gt;이 트리에 깊이 우선 탐색을 하여 정점들의 방문 순서를 구한다&lt;/li&gt;
+  &lt;li&gt;이 순서를 따라 정점들을 방문하면서 다시 방문하는 정점을 순서에서 제거하여 외판원 문제의 근사해를 구한다&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Approx_MST_TSP(G, c)&lt;br /&gt;
+// 입력: G = (V, E) - 가중 완전 그래프, c - G의 간선들의 가중치(삼각 부등식을 만족)&lt;br /&gt;
+// 출력: 해밀토니안 회로 H&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;임의의 정점 r $\in$ V를 출발 정점으로 선택한다&lt;/li&gt;
+  &lt;li&gt;Prim의 최소 비용 신장 트리 알고리즘을 이용하여 r이 루트 노드인 그래프 G의 최소 비용 신장 트리 T를 구한다&lt;/li&gt;
+  &lt;li&gt;트리 T의 루트 노드에서 시작하여 깊이 우선 탐색을 하면서 노드들을 방문한 순서대로 나열한 목록 H를 구한다&lt;/li&gt;
+  &lt;li&gt;목록 H에 있는 정점들을 출발 정점을 제외하고 처음부터 순서대로 스캔하면서 중복하여 나타나는 정점들을 H에서 제거한다&lt;/li&gt;
+  &lt;li&gt;return H&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;시간복잡도: O($n^2$)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="algorithm" />
+      
+
+      
+        <summary type="html">근사 알고리즘</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">분기 한정</title>
