@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/security/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-11-30T10:42:36+09:00</updated>
+  <updated>2021-12-03T21:21:48+09:00</updated>
   <id>https://lee989898.github.io/tag/security/feed.xml</id>
 
   
@@ -30,6 +30,739 @@
   
   
 
+  
+    <entry>
+      <title type="html">__SSL/TLS__</title>
+      <link href="https://lee989898.github.io/sc-20" rel="alternate" type="text/html" title="__SSL/TLS__" />
+      <published>2021-12-03T01:06:00+09:00</published>
+      <updated>2021-12-03T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc-20</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-20">&lt;h3 id=&quot;ssltls&quot;&gt;&lt;strong&gt;SSL/TLS&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Secure sockets layer (SSL)​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1996, Netscape​&lt;/li&gt;
+  &lt;li&gt;1999, TLS로​&lt;/li&gt;
+  &lt;li&gt;웹기반 전자상거래를 위해 TCP layer에서 메시지와 무결성과 비밀성 제공​&lt;/li&gt;
+  &lt;li&gt;Web-server와 web-browser간 보안​&lt;/li&gt;
+  &lt;li&gt;HTTPS – 현재 대부분 서버에서 사용​&lt;/li&gt;
+  &lt;li&gt;Handshake (암호spec, session관리), record (암호,무결성등 보안서비스) protocols로 나뉜다​&lt;/li&gt;
+  &lt;li&gt;인증수행-&amp;gt;세션키분배-&amp;gt;암호화 메시지 송수신 순서​&lt;/li&gt;
+  &lt;li&gt;지원하는 보안서비스 ​
+    &lt;ul&gt;
+      &lt;li&gt;Server/client authentication, confidentiality, integrity&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;부인방지기능은 제공안됨 – 전자서명 사용해야​&lt;/li&gt;
+  &lt;li&gt;단순히 web-server와 web-browser간의 모든 data를 암호화하면 안전? No, replay attack (관찰된 통신내용을 동일하게 재생하면 같은 결과를 얻을 수 있다.)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Secure sockets layer (SSL) 표준​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;User authentication​&lt;/li&gt;
+  &lt;li&gt;Confidentiality​&lt;/li&gt;
+  &lt;li&gt;Integrity​
+​
+&lt;img src=&quot;/assets/built/images/sc/sc31.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;TLS/SSL Protocol 구성​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Handshake protocol​
+    &lt;ul&gt;
+      &lt;li&gt;Client, server 간 인증, 암호 알고리즘 합의, 키교환 등 수행​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Record protocol​
+    &lt;ul&gt;
+      &lt;li&gt;데이터를 인증, 암호화처리하고 메시지 송수신​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Change cipher spec​
+    &lt;ul&gt;
+      &lt;li&gt;암호 spec을 변경담당​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Alter protocol​
+    &lt;ul&gt;
+      &lt;li&gt;에러처리​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Handshake Protocol&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;핸드셰이크는 서버를 확인하고 데이터가 전송되기 전에 클라이언트와 서버가 암호화 세트에 동의하도록 한다&lt;/li&gt;
+  &lt;li&gt;Record protocol의 의한 data송수신보다 먼저 수행되어 다음의 session정보를 생성, 관리​
+    &lt;ul&gt;
+      &lt;li&gt;Session ID​&lt;/li&gt;
+      &lt;li&gt;Certification​&lt;/li&gt;
+      &lt;li&gt;Cipher spec: 압축, MAC algorithm​&lt;/li&gt;
+      &lt;li&gt;Compression method: 암호화 이전 압축 algorithm​&lt;/li&gt;
+      &lt;li&gt;Master secret key: 48bit&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Handshake Protocol&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;3개의 필드로 이루어진 메시지 교환
+    &lt;ul&gt;
+      &lt;li&gt;type: 메시지 종류 명시&lt;/li&gt;
+      &lt;li&gt;length: 메시지 길이&lt;/li&gt;
+      &lt;li&gt;content: 메시지 종류에 따른 값들&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;4단계 진행
+    &lt;ul&gt;
+      &lt;li&gt;1단계: Security capability establish​&lt;/li&gt;
+      &lt;li&gt;2단계: Server authentication &amp;amp; key exchange​&lt;/li&gt;
+      &lt;li&gt;3단계: Client authentication &amp;amp; key exchange​&lt;/li&gt;
+      &lt;li&gt;4단계: Change cipher specs​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc32.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1단계: Security capability establish​
+    &lt;ul&gt;
+      &lt;li&gt;1~3​&lt;/li&gt;
+      &lt;li&gt;Hello 메시지 교환으로 session ID, 키교환알고리즘, 인증 알고리즘, 암호알고리즘, 압축 알고리즘 결정&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Server authentication &amp;amp; key exchange​
+    &lt;ul&gt;
+      &lt;li&gt;4~6​&lt;/li&gt;
+      &lt;li&gt;4: 서버의 인증서와 검증위한 인증서체인, 공개키전송​&lt;/li&gt;
+      &lt;li&gt;5: client 인증서 요구(opt)​&lt;/li&gt;
+      &lt;li&gt;6: 2단계 종료메시지&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;3단계: Client authentication &amp;amp; key exchange​
+    &lt;ul&gt;
+      &lt;li&gt;7~9​&lt;/li&gt;
+      &lt;li&gt;7: client 인증서전송​&lt;/li&gt;
+      &lt;li&gt;8: 48byte premaster secrete 전송​&lt;/li&gt;
+      &lt;li&gt;9: client 인증서 검증&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;4단계: Change cipher specs​
+    &lt;ul&gt;
+      &lt;li&gt;10~11​&lt;/li&gt;
+      &lt;li&gt;암호사양변경 메시지 교환을 통해 다음 세션에 적용될 암호 spec 결정&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Record Protocol&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;메시지를 최대 16KB 단위로 fragment​&lt;/li&gt;
+  &lt;li&gt;MAC 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc33.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1: 메시지를 최대 16KB 단위로 fragment​&lt;/li&gt;
+  &lt;li&gt;2: 압축 (opt)​&lt;/li&gt;
+  &lt;li&gt;3: MAC 추가​&lt;/li&gt;
+  &lt;li&gt;4: Encryption​&lt;/li&gt;
+  &lt;li&gt;5: SSL reacord header 추가&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Changes from SSL 3.0 to TLS&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Transport Layer Security [RFC2246]​&lt;/li&gt;
+  &lt;li&gt;Additional Alerts added​&lt;/li&gt;
+  &lt;li&gt;Modification to hash calculations​&lt;/li&gt;
+  &lt;li&gt;Protocol version 3.1 in ClientHello, ServerHello&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="security" />
+      
+
+      
+        <summary type="html">SSL/TLS</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">__IPSEC__</title>
+      <link href="https://lee989898.github.io/sc-21" rel="alternate" type="text/html" title="__IPSEC__" />
+      <published>2021-12-03T01:06:00+09:00</published>
+      <updated>2021-12-03T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc-21</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-21">&lt;h3 id=&quot;ipsec&quot;&gt;&lt;strong&gt;IPSEC&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;IPSEC&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;IP 주소 위장 방지(출발지 인증)​&lt;/li&gt;
+  &lt;li&gt;IP 데이터그램의 변경 및 재전송 방지​&lt;/li&gt;
+  &lt;li&gt;IP 데이터 그램을 위한 기밀성, 무결성 제공​&lt;/li&gt;
+  &lt;li&gt;보안  프로토콜 선택(시스템들이 필요로 하는)​&lt;/li&gt;
+  &lt;li&gt;암호 알고리즘 선택(선택된 프로토콜에서 사용되도록)​&lt;/li&gt;
+  &lt;li&gt;암호키 생성,분배(요청된 서비스의 제공에 필요) ​&lt;/li&gt;
+  &lt;li&gt;Application​
+    &lt;ul&gt;
+      &lt;li&gt;VPN (virtual Private Network): 가상 전용회선​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;IPSEC 구성&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;IPsec AH(인증 헤더) 프로토콜​
+    &lt;ul&gt;
+      &lt;li&gt;데이터 근원 인증,비연결형 무결성 제공 ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;캡슐화 보안페이로드 (ESP ) – 데이터기밀성, 제한된 트래칙 흐름 기밀성, 비연결형 무결성, 데이터 근원인증, 재전송공격 방지 제공​&lt;/li&gt;
+  &lt;li&gt;IKE 프로토콜 ​
+    &lt;ul&gt;
+      &lt;li&gt;통신당사자간 키관리 프로토콜​&lt;/li&gt;
+      &lt;li&gt;암호알고리즘 선택협상, 키분배 위해 사용​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Transport and Tunnel Modes&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc34.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Transport mode​
+    &lt;ul&gt;
+      &lt;li&gt;End to end between hosts​&lt;/li&gt;
+      &lt;li&gt;관련 hosts들이 IPSec을 지원해야​&lt;/li&gt;
+      &lt;li&gt;IP 상위 프로토콜 (TCP, Application) 안전하게 전송​&lt;/li&gt;
+      &lt;li&gt;IP header에 IPSec header정보 추가​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc35.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Tunnel mode​
+    &lt;ul&gt;
+      &lt;li&gt;터널내의 모든 IP 트래픽 보호​&lt;/li&gt;
+      &lt;li&gt;터널의 시작,종류 지점에 IPSec gateway​&lt;/li&gt;
+      &lt;li&gt;터널 시작 gateway에서 새 IP header와 Ipsec header 추가하고, 종료 gateway에서 제거​&lt;/li&gt;
+      &lt;li&gt;라우터가 내부 패킷을 검사하지 않음&lt;/li&gt;
+      &lt;li&gt;소스 및 목적지 주소가 다를 수 있음&lt;/li&gt;
+      &lt;li&gt;방화벽에서 구현 가능&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="security" />
+      
+
+      
+        <summary type="html">IPSEC</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">__Kerberos​__</title>
+      <link href="https://lee989898.github.io/sc-18" rel="alternate" type="text/html" title="__Kerberos​__" />
+      <published>2021-12-01T01:06:00+09:00</published>
+      <updated>2021-12-01T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc-18</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-18">&lt;h3 id=&quot;kerberos&quot;&gt;&lt;strong&gt;Kerberos​&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Kerberos?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Symmetric key 기반 분산 인증 시스템​&lt;/li&gt;
+  &lt;li&gt;사용자가 서버의 서비스에 액세스하려는 경우 (예, 프린터서버, 네트워크 디스크 등)​&lt;/li&gt;
+  &lt;li&gt;세 가지 위협 존재:​
+    &lt;ul&gt;
+      &lt;li&gt;사용자가 다른 사용자로 가장​&lt;/li&gt;
+      &lt;li&gt;사용자가 워크스테이션의 네트워크 주소를 변경&lt;/li&gt;
+      &lt;li&gt;사용자는 교환을 도청하고 재생 공격을 사용​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Client들이 원격으로 서버에 자원, 서비스 요청시마다 인증반복​&lt;/li&gt;
+  &lt;li&gt;매번 passwd 입력 안해도 되며, 각 서버가 사용자들의 비번을 저장할 필요없다​&lt;/li&gt;
+  &lt;li&gt;경쟁자: SSL&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;​Kerberos Design 요구사항​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;사용자는 워크스테이션 세션(로그인 세션)이 시작될 때 한 번 자신을 식별해야 한다&lt;/li&gt;
+  &lt;li&gt;암호는 네트워크를 통해 일반 텍스트로 전송되지 않습니다(또는 메모리에 저장)&lt;/li&gt;
+  &lt;li&gt;각 서버가 사용자들의 비번을 저장할 필요없어야 ​함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;System Components​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Server, User​&lt;/li&gt;
+  &lt;li&gt;AS(Authentication Server)​
+    &lt;ul&gt;
+      &lt;li&gt;모든 user/server 들의 password 안다​&lt;/li&gt;
+      &lt;li&gt;TGS 에 제시할 ticket 발급​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;TGS(Ticket Granting Server)​
+    &lt;ul&gt;
+      &lt;li&gt;서버는 ticket만 받는다​&lt;/li&gt;
+      &lt;li&gt;서비스 요청시, 한 user는 한 server에 한 ticket제시​&lt;/li&gt;
+      &lt;li&gt;Server에 제시할 ticket 발급역할​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;시스템 구성도&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc28.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Protocol​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;User/TGS는 AS에, server는 TGS에 등록(passwd)되어 있다  (or PKI사용)​&lt;/li&gt;
+  &lt;li&gt;User가 서비스 필요​&lt;/li&gt;
+  &lt;li&gt;서비스 제공할 server 찾는다​&lt;/li&gt;
+  &lt;li&gt;해당 server 관리하는 TGS 찾는다​&lt;/li&gt;
+  &lt;li&gt;AS에 TGS에 보낼 ticket요청&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;User는 AS에게  UserID, TGS이름을 $K_{user-AS}$로 암호화하여 보낸다&lt;/li&gt;
+  &lt;li&gt;AS는 User와 TGS간의 통신을 위한 세션키1 $K_{user-TGS}$ 를 생성​ 세션키1, UserID 를 $K_{AS-TGS}$로 암호화하여 User에게 발급할 Ticket을 생성​ 세션키1과 Ticket을 $K_{user-AS}$로 암호화하여 보낸다​&lt;/li&gt;
+  &lt;li&gt;받은 2를 $K_{user-AS}$복호화해서 세션키1 $K_{user-TGS}$ 와 Ticket을 얻는다. ​UserID를 세션키1로 암호화해서 Ticket과 함께 TGS로 보낸다​&lt;/li&gt;
+  &lt;li&gt;받은 3을 $K_{user-TGS}$와 $K_{AS-TGS}$ 로 복호화해서 User정보와 요구내용 확인, ​TGS는 User와 Server간의 통신을 위한 세션키2 $K_{user-server}$ 생성 ​세션키2, UserID 를 $K_{TGS-server}$로 암호화하여 User에게 발급할 Ticket을 생성​ 세션키2와 Ticket을 $K_{user-TGS}$로 암호화하여 보낸다​&lt;/li&gt;
+  &lt;li&gt;받은 4를 $K_{user-TGS}$로 복호화해서 세션키2 $K_{user-server}$와 Ticket(user, Server)를 얻는다. Server에게 $K_{user-server}$로 암호화한 UserID와 Ticket을 전송한다​&lt;/li&gt;
+  &lt;li&gt;Server는 받는 5의 Ticket을 $K_{TGS-server}$로 복호화 하여 세션키2 $K_{user-server}$을 얻는다. 이걸로 UserID를 복호화해서  사용자확인을 한다.​&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Drawbacks of Kerberos&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;단일 실패 지점: 중앙 서버의 지속적인 가용성이 필요. Kerberos 서버가 다운되면 아무도 로그인할 수 없다&lt;/li&gt;
+  &lt;li&gt;Kerberos에는 엄격한 시간 요구 사항이 있으므로 관련된 호스트의 시계가 구성된 제한 내에서 동기화되어야 함&lt;/li&gt;
+  &lt;li&gt;관리 프로토콜은 표준화되지 않았으며 서버 구현에 따라 다르다&lt;/li&gt;
+  &lt;li&gt;모든 인증은 중앙 집중식 KDC에 의해 제어되므로 이 인증 인프라가 손상되면 공격자가 모든 사용자를 가장할 수 있음&lt;/li&gt;
+  &lt;li&gt;다른 호스트 이름이 필요한 각 네트워크 서비스에는 고유한 Kerberos 키 세트가 필요합니다. 이는 가상 호스팅 및 클러스터를 복잡하게 만든다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="security" />
+      
+
+      
+        <summary type="html">Kerberos​</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">__Dos​__</title>
+      <link href="https://lee989898.github.io/sc-19" rel="alternate" type="text/html" title="__Dos​__" />
+      <published>2021-12-01T01:06:00+09:00</published>
+      <updated>2021-12-01T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc-19</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-19">&lt;h3 id=&quot;dos&quot;&gt;&lt;strong&gt;Dos​&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Dos (Denial of Service)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;서비스 거부​&lt;/li&gt;
+  &lt;li&gt;시스템 자원(cpu, memory, network, storage 등)을 고갈시켜 정상적인 접근에 대한 서비스를 제공할 수 없도록 만드는 행위​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Dos attack type​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Error trigger Dos attack​&lt;/li&gt;
+  &lt;li&gt;OS,application의 약점에 attack packet 전송해서 system error 유발 (slammer worm)​&lt;/li&gt;
+  &lt;li&gt;Ping of death, Land, Teardrop​&lt;/li&gt;
+  &lt;li&gt;Flooding Dos attack​&lt;/li&gt;
+  &lt;li&gt;packet, traffic을 과중하게 발생하여 server, network resource 고갈​&lt;/li&gt;
+  &lt;li&gt;TCP syn flooding​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;TCP syn flooding​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;TCP 3-way handshaking의 취약점 이용​&lt;/li&gt;
+  &lt;li&gt;공격자가 src IP 주소를 위조해서 TCP SYN를  동시에 대량전송​&lt;/li&gt;
+  &lt;li&gt;서버는 TCP ACK를 보내고, 자원할당 후 응답 기다림​&lt;/li&gt;
+  &lt;li&gt;정상적인 접근방해+엉뚱한 피해자​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc29.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;DDoS Attack​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Distributed Denial of Service​&lt;/li&gt;
+  &lt;li&gt;다수의 pc가 동시에 Dos 공격​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;BotNet?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bot(=zombie): 악성sw에 감염되어 자신도 모르게 해커의 조종을 받는 컴퓨터​&lt;/li&gt;
+  &lt;li&gt;BotNet: 명령제어서버(C&amp;amp;C,command and control)를 통해 원격제어되는 악성코드에 감염된 컴퓨터(bot)들의 네트워크 ​&lt;/li&gt;
+  &lt;li&gt;대부분 사어버테러의 주요 원인&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc30.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;DDos 종류&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Standard DoS: 알려진 취약점 집중공격​&lt;/li&gt;
+  &lt;li&gt;Tool을 이용한 DoS: TFN, TFN2K, Trinoo, Loki, Stacheldraht, Jolt, Land, teardrop…​&lt;/li&gt;
+  &lt;li&gt;Traffic anomalie 공격: bandwidth점유, ICMP, TCP, UDP flooding​&lt;/li&gt;
+  &lt;li&gt;Spoofed SYN flooding: spoof된 source IP로 TCP syn보냄​&lt;/li&gt;
+  &lt;li&gt;Connection Per Second(CPS) flood: zombie로 부터 connection flooding​&lt;/li&gt;
+  &lt;li&gt;Established Connection flood: zombie로 부터 established connection flood​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Why DDos?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Simple​&lt;/li&gt;
+  &lt;li&gt;Easy: just use tools​&lt;/li&gt;
+  &lt;li&gt;Effective​&lt;/li&gt;
+  &lt;li&gt;공격자추적이 어렵다​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​&lt;/p&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="security" />
+      
+
+      
+        <summary type="html">Dos​</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">__방화벽__</title>
+      <link href="https://lee989898.github.io/sc-17" rel="alternate" type="text/html" title="__방화벽__" />
+      <published>2021-11-24T01:06:00+09:00</published>
+      <updated>2021-11-24T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc-17</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-17">&lt;h3 id=&quot;방화벽&quot;&gt;&lt;strong&gt;방화벽&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Firewalls?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;조직의 내부망을 외부 인터넷과 격리시켜 일부 패킷은 통과시키고 나머지는 차단하는 HW와 SW의 조합&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc24.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Firewall 서비스&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Traffic monitoring​&lt;/li&gt;
+  &lt;li&gt;Traffic control​&lt;/li&gt;
+  &lt;li&gt;NAT – 내부 network 보호​&lt;/li&gt;
+  &lt;li&gt;VPN – 내부 traffic 노출차단&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Firewalls을 쓰는 이유&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;서비스 거부 공격 방지:
+    &lt;ul&gt;
+      &lt;li&gt;SYN 플러딩: 공격자가 많은 가짜 TCP 연결을 설정하고 “실제” 연결을 위한 리소스가 남지 않음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;내부 데이터의 불법적인 수정/접근을 방지한다
+    &lt;ul&gt;
+      &lt;li&gt;예: 공격자가 CIA의 홈페이지를 다른 것으로 교체&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;내부 네트워크(인증된 사용자/호스트 집합)에 대한 승인된 액세스만 허용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Firewall types&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Stateless packet filter​&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;지나는 packet에 대해 미리 정의된 규칙에 따라 pass/block 결정​&lt;/li&gt;
+  &lt;li&gt;Packet의 다음 정보를 기반으로 결정​
+    &lt;ul&gt;
+      &lt;li&gt;source IP address, destination IP address​&lt;/li&gt;
+      &lt;li&gt;TCP/UDP source and destination port numbers​&lt;/li&gt;
+      &lt;li&gt;ICMP message type​&lt;/li&gt;
+      &lt;li&gt;TCP SYN and ACK bits​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;example 1: block incoming and outgoing BitTorrent traffic source or dest port = 6881-6889​&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;example 2: Block outbound Web access, port=80.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;ACL: 규칙이 있는 테이블, 들어오는 패킷에 위에서 아래로 적용: (액션, 조건) pair&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;장점​
+    &lt;ul&gt;
+      &lt;li&gt;Simple : 동작방식이 직관적이며 간단, 구현용이​&lt;/li&gt;
+      &lt;li&gt;Fast​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;단점​
+    &lt;ul&gt;
+      &lt;li&gt;application layer protocol의 취약점공격에 차단 불가능​&lt;/li&gt;
+      &lt;li&gt;사용자/application 별 서비스 제공불가능 ​&lt;/li&gt;
+      &lt;li&gt;필터링시 사용 정보가 제한되어서 정교한 필터링 불가능​&lt;/li&gt;
+      &lt;li&gt;IP주소 위변조 여부 판단 불가능&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Statefull packet filter​&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;동일한 상태정보를 가지는 패킷들을(packet flow) 그룹으로 필터링​
+    &lt;ul&gt;
+      &lt;li&gt;상태정보: src IP/port, dst IP/port ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;장점​
+    &lt;ul&gt;
+      &lt;li&gt;정교한 필터링​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;단점​
+    &lt;ul&gt;
+      &lt;li&gt;상태정보 테이블 검사수행에 따른 성능저하​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Application gateway&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;애플리케이션 데이터 및 IP/TCP/UDP 필드에서 패킷을 필터링한다&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;장점​
+    &lt;ul&gt;
+      &lt;li&gt;Application layer protocol 공격 차단​&lt;/li&gt;
+      &lt;li&gt;사용자 인증가능​&lt;/li&gt;
+      &lt;li&gt;정교한 Log, audit 가능​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;단점​
+    &lt;ul&gt;
+      &lt;li&gt;응용 프로그램마다 다른 응용 프로그램 게이트웨이가 필요하다(텔넷, http, ftp, 이메일 …)&lt;/li&gt;
+      &lt;li&gt;모든 데이터가 게이트웨이를 통과하기 때문에 성능이 저하됨&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;방화벽 및 게이트웨이의 한계&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;IP spoofing: 라우터는 데이터가 “실제로” 청구된 소스에서 오는지 알 수 없다&lt;/li&gt;
+  &lt;li&gt;여러 앱의 경우. 특별한 대우가 필요하며 각각의 앱이 있다&lt;/li&gt;
+  &lt;li&gt;클라이언트 소프트웨어는 게이트웨이에 접속하는 방법을 알아야 한다.
+    &lt;ul&gt;
+      &lt;li&gt;예를 들어, 웹 브라우저에서 프록시의 IP 주소를 설정해야 한다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;내부 공격자 방어에 취약​&lt;/li&gt;
+  &lt;li&gt;데이터 내용은 미확인 – 문서 등 내부에 심겨진 악성코드 방어 취약&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="security" />
+      
+
+      
+        <summary type="html">방화벽</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">__침입탐지__</title>
@@ -285,185 +1018,6 @@
 
       
         <summary type="html">침입탐지</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">__방화벽__</title>
-      <link href="https://lee989898.github.io/sc-17" rel="alternate" type="text/html" title="__방화벽__" />
-      <published>2021-11-24T01:06:00+09:00</published>
-      <updated>2021-11-24T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/sc-17</id>
-      <content type="html" xml:base="https://lee989898.github.io/sc-17">&lt;h3 id=&quot;방화벽&quot;&gt;&lt;strong&gt;방화벽&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Firewalls?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;조직의 내부망을 외부 인터넷과 격리시켜 일부 패킷은 통과시키고 나머지는 차단하는 HW와 SW의 조합&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc24.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Firewall 서비스&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Traffic monitoring​&lt;/li&gt;
-  &lt;li&gt;Traffic control​&lt;/li&gt;
-  &lt;li&gt;NAT – 내부 network 보호​&lt;/li&gt;
-  &lt;li&gt;VPN – 내부 traffic 노출차단&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Firewalls을 쓰는 이유&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;서비스 거부 공격 방지:
-    &lt;ul&gt;
-      &lt;li&gt;SYN 플러딩: 공격자가 많은 가짜 TCP 연결을 설정하고 “실제” 연결을 위한 리소스가 남지 않음&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;내부 데이터의 불법적인 수정/접근을 방지한다
-    &lt;ul&gt;
-      &lt;li&gt;예: 공격자가 CIA의 홈페이지를 다른 것으로 교체&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;내부 네트워크(인증된 사용자/호스트 집합)에 대한 승인된 액세스만 허용&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Firewall types&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Stateless packet filter​&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;지나는 packet에 대해 미리 정의된 규칙에 따라 pass/block 결정​&lt;/li&gt;
-  &lt;li&gt;Packet의 다음 정보를 기반으로 결정​
-    &lt;ul&gt;
-      &lt;li&gt;source IP address, destination IP address​&lt;/li&gt;
-      &lt;li&gt;TCP/UDP source and destination port numbers​&lt;/li&gt;
-      &lt;li&gt;ICMP message type​&lt;/li&gt;
-      &lt;li&gt;TCP SYN and ACK bits​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;example 1: block incoming and outgoing BitTorrent traffic source or dest port = 6881-6889​&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;example 2: Block outbound Web access, port=80.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;ACL: 규칙이 있는 테이블, 들어오는 패킷에 위에서 아래로 적용: (액션, 조건) pair&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;장점​
-    &lt;ul&gt;
-      &lt;li&gt;Simple : 동작방식이 직관적이며 간단, 구현용이​&lt;/li&gt;
-      &lt;li&gt;Fast​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;단점​
-    &lt;ul&gt;
-      &lt;li&gt;application layer protocol의 취약점공격에 차단 불가능​&lt;/li&gt;
-      &lt;li&gt;사용자/application 별 서비스 제공불가능 ​&lt;/li&gt;
-      &lt;li&gt;필터링시 사용 정보가 제한되어서 정교한 필터링 불가능​&lt;/li&gt;
-      &lt;li&gt;IP주소 위변조 여부 판단 불가능&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Statefull packet filter​&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;동일한 상태정보를 가지는 패킷들을(packet flow) 그룹으로 필터링​
-    &lt;ul&gt;
-      &lt;li&gt;상태정보: src IP/port, dst IP/port ​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;장점​
-    &lt;ul&gt;
-      &lt;li&gt;정교한 필터링​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;단점​
-    &lt;ul&gt;
-      &lt;li&gt;상태정보 테이블 검사수행에 따른 성능저하​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Application gateway&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;애플리케이션 데이터 및 IP/TCP/UDP 필드에서 패킷을 필터링한다&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;장점​
-    &lt;ul&gt;
-      &lt;li&gt;Application layer protocol 공격 차단​&lt;/li&gt;
-      &lt;li&gt;사용자 인증가능​&lt;/li&gt;
-      &lt;li&gt;정교한 Log, audit 가능​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;단점​
-    &lt;ul&gt;
-      &lt;li&gt;응용 프로그램마다 다른 응용 프로그램 게이트웨이가 필요하다(텔넷, http, ftp, 이메일 …)&lt;/li&gt;
-      &lt;li&gt;모든 데이터가 게이트웨이를 통과하기 때문에 성능이 저하됨&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;방화벽 및 게이트웨이의 한계&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;IP spoofing: 라우터는 데이터가 “실제로” 청구된 소스에서 오는지 알 수 없다&lt;/li&gt;
-  &lt;li&gt;여러 앱의 경우. 특별한 대우가 필요하며 각각의 앱이 있다&lt;/li&gt;
-  &lt;li&gt;클라이언트 소프트웨어는 게이트웨이에 접속하는 방법을 알아야 한다.
-    &lt;ul&gt;
-      &lt;li&gt;예를 들어, 웹 브라우저에서 프록시의 IP 주소를 설정해야 한다&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;내부 공격자 방어에 취약​&lt;/li&gt;
-  &lt;li&gt;데이터 내용은 미확인 – 문서 등 내부에 심겨진 악성코드 방어 취약&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="security" />
-      
-
-      
-        <summary type="html">방화벽</summary>
       
 
       
@@ -1183,552 +1737,6 @@ Alice는 Bob에게 $K_{B-KDC}$(A,R1)을 보내고 Bob은 R1을 추출해낸다&l
 
       
         <summary type="html">접근 제어</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">signature</title>
-      <link href="https://lee989898.github.io/sc-10" rel="alternate" type="text/html" title="signature" />
-      <published>2021-10-31T01:06:00+09:00</published>
-      <updated>2021-10-31T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/sc-10</id>
-      <content type="html" xml:base="https://lee989898.github.io/sc-10">&lt;h3 id=&quot;signature&quot;&gt;&lt;strong&gt;signature&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;서명&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;자기의 동일성을 표시하고 책임을 분명하기 하기 위하여 문서 따위에 자기 이름을 써넣음​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;전자서명의 기본 아이디어&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;송신자(alice)는 자신의 비밀키로 암호화​&lt;/li&gt;
-  &lt;li&gt;수신자는 송신자의 공개키로 복호화&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;시나리오:&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;+ Bob은 public key를 공개된 장소에 두고, private key는 자신이 가지고 있다
-+ Alice는 Bob의 public key를 가져와, 메시지를 암호화해서 전송​
-+ 이 메시지는 다른 사람이 보더라도 풀 수 없다. 메시지를 복호화하려면 Bob의 private key가 필요하기 때문-&amp;gt;기밀성보장​
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;문제점1. Bob은 Alice가 메시지를 작성했다는것을 확신할 수 있을까? NO​&lt;/li&gt;
-  &lt;li&gt;문제점2. Bob은 메시지가 중간에 변경되지않았다는것을 확신할 수 있을까? NO​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;해결법&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Alice는 메시지로 MAC을 만들고, 이것을 Alice가 자신의 private key로 암호화 한다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc05.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;만들어진 것을 본래 메시지에 붙인다 -&amp;gt; 서명&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc06.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;이것을 Bob의 public key로 암호화 해서 전송&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;다른 사람은 Bob의 private key가 없으므로 볼수없다 -&amp;gt; 기밀성​&lt;/li&gt;
-  &lt;li&gt;Bob은 자신의 private key로 열면 평문과 시그니쳐가 나온다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc07.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Bob은 다음과 같이 무결성,인증을 한다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc08.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="security" />
-      
-
-      
-        <summary type="html">signature</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">이메일 보안</title>
-      <link href="https://lee989898.github.io/sc-11" rel="alternate" type="text/html" title="이메일 보안" />
-      <published>2021-10-31T01:06:00+09:00</published>
-      <updated>2021-10-31T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/sc-11</id>
-      <content type="html" xml:base="https://lee989898.github.io/sc-11">&lt;h3 id=&quot;이메일-보안&quot;&gt;&lt;strong&gt;이메일 보안&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;PGP&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;운영체제에 상관없이 확정성이 뛰어나다&lt;/li&gt;
-  &lt;li&gt;S/MIME&lt;/li&gt;
-  &lt;li&gt;공개키 기반의 프로토콜이다&lt;/li&gt;
-  &lt;li&gt;RSA, El Gamel을 사용한다&lt;/li&gt;
-  &lt;li&gt;대칭키 방식과도 연동된다(3DES)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Requirements of secure E-mail&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;기밀성&lt;/li&gt;
-  &lt;li&gt;송신자 인증&lt;/li&gt;
-  &lt;li&gt;메시지 무결성&lt;/li&gt;
-  &lt;li&gt;수신자 인증&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Secure e-mail: 기밀성&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc10.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;앨리스는 기밀성을 입증한 e-mail, m을 밥에게 보내고 싶다&lt;/li&gt;
-  &lt;li&gt;랜덤 대칭키를 생성한다, K&lt;sub&gt;S&lt;/sub&gt;&lt;/li&gt;
-  &lt;li&gt;메시지를  K&lt;sub&gt;S&lt;/sub&gt;로 encrypt한다&lt;/li&gt;
-  &lt;li&gt;또한 K&lt;sub&gt;S&lt;/sub&gt;를 밥의 공개키로 encrypt한다&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;밥에게 K&lt;sub&gt;S&lt;/sub&gt;(m)과 K&lt;sub&gt;B&lt;/sub&gt;(K&lt;sub&gt;S&lt;/sub&gt;)를 보낸다&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;밥은 그의 private키로 decrypt하여 K&lt;sub&gt;S&lt;/sub&gt;를 찾아낸다&lt;/li&gt;
-  &lt;li&gt;K&lt;sub&gt;S&lt;/sub&gt;로 K&lt;sub&gt;S&lt;/sub&gt;(m)을 decrypt하여 m을 찾아낸다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Secure e-mail: 송신자 인증, 무결성&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc11.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;앨리스는 송신자 인증과 메시지 무결성을 지키고 싶다&lt;/li&gt;
-  &lt;li&gt;앨리스는 메세지를 digitally 사인한다&lt;/li&gt;
-  &lt;li&gt;메시지와 디지털 시그니처 모두 보낸다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Secure e-mail: all together&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc12.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;앨리스는 보안,송신자 인증,메시지 무결성을 지키고 싶다&lt;/li&gt;
-  &lt;li&gt;앨리스는 3가지 키를 사용한다
-    &lt;ul&gt;
-      &lt;li&gt;그녀의 private key&lt;/li&gt;
-      &lt;li&gt;밥의 public key&lt;/li&gt;
-      &lt;li&gt;새로 만들어진 대칭키&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Email 보안 표준&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;PGP&lt;/li&gt;
-  &lt;li&gt;S/MIME
-    &lt;ul&gt;
-      &lt;li&gt;이메일을 위해 MIME에 보안서비스 제공 표준&lt;/li&gt;
-      &lt;li&gt;인증,무결성,부인방지,기밀성 제공&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc09.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;hr /&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="security" />
-      
-
-      
-        <summary type="html">이메일 보안</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">Hash</title>
-      <link href="https://lee989898.github.io/sc-09" rel="alternate" type="text/html" title="Hash" />
-      <published>2021-10-23T01:06:00+09:00</published>
-      <updated>2021-10-23T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/sc-09</id>
-      <content type="html" xml:base="https://lee989898.github.io/sc-09">&lt;h3 id=&quot;hash&quot;&gt;&lt;strong&gt;Hash&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Hash와 관련된 Key Concepts인 Integrity와 Authentication을 다시 한번 살펴보자&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Integrity&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;무결성&lt;/li&gt;
-  &lt;li&gt;원본 그대로임을 보장&lt;/li&gt;
-  &lt;li&gt;변조가 없다는 것 혹은 변경이 있었음을 알게 됨&lt;/li&gt;
-  &lt;li&gt;주요 공격: modification&lt;/li&gt;
-  &lt;li&gt;Integrity를 지키기 위한 Solution : hash&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Authentication&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;인증&lt;/li&gt;
-  &lt;li&gt;송수신자 서로간의 신원 확인&lt;/li&gt;
-  &lt;li&gt;주요 공격 : impersonation&lt;/li&gt;
-  &lt;li&gt;Authentication을 지키기 위환 solution : 전자서명, 공인인증서&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Hash Functions&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;임의의 긴 입력 값을 적절하게 처리하여 고정된 길이의 짧은 값을 출력하는 함수&lt;/li&gt;
-  &lt;li&gt;Message Authentication Code로 무결성 제공&lt;/li&gt;
-  &lt;li&gt;전자 서명으로 sender authentication 제공&lt;/li&gt;
-  &lt;li&gt;공인인증서, 가상화폐 등에 사용&lt;/li&gt;
-  &lt;li&gt;컴퓨터보안에서 대표적인 hash function은 MD2,4,5 SHA1, HAS160&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;a href=&quot;http://www.miraclesalad.com/webtools/md5.php&quot;&gt;http://www.miraclesalad.com/webtools/md5.php&lt;/a&gt;&lt;br /&gt;
-위 사이트에서 임의의ㅣ 입력값에 대한 해쉬값을 관찰할 수 있다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;해쉬의 특징으로는 대표적으로 3가지가 있다.&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;입력길이에 상관없이 출력길이가 일정&lt;/li&gt;
-  &lt;li&gt;조금이라도 입력값이 다르면 출력값은 완전히 다름&lt;/li&gt;
-  &lt;li&gt;revers가 어렵다(일방향성)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;위 성질중 integrity는 2번에 의해서 보장된다.&lt;br /&gt;
-Encrypt/decrypt와의 차이점은 3번이다. 복호화가 어렵기 때문이다.&lt;/p&gt;
-
-&lt;p&gt;예를 들어보자 h(x): x/23해서 소수점 7~10자리 수를 추출&lt;br /&gt;
-h(345689) = xx.95652177391&lt;br /&gt;
-출력값은 일정하나, reverse는 불가능하다.&lt;/p&gt;
-
-&lt;p&gt;그러나 h(232.8395049993) = 7391 처럼 다른 값을 넣었음에도 값이 같은 일명 collision이 일어날 수 있다.&lt;br /&gt;
-Collison은 서로 다른 입력값이 같은 해시값을 계산하는 것을 의미한다.&lt;br /&gt;
-충동저항성은 collision이 일어날 확률이 작음을 의미한다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;MAC&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;메시지 무결성: 변경되지 않은 원본이 맞음&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc01.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;메시지와 해쉬값을 붙어서 보낸다.&lt;br /&gt;
-받는사람은 비교해서 같으면 원본 다르면 원본이 아닌걸 알 수 있다.&lt;br /&gt;
-하지만 여기서 sender authenticationd은 제공되지 않는다.&lt;br /&gt;
-Digital Signature에서 이문제를 해결한다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Digital Signature&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;무결성과 인증을 동시에 제공&lt;/li&gt;
-  &lt;li&gt;키를 사용한다(키를 모르는 사용자는 생성불가)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc02.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;비교하여 같으면 변조되지 않고 보낸사람을 인증해준다.&lt;br /&gt;
-하지만 mac도 한계가 있는데 제 3자에 대한 sender authentication이 불가능 하다.&lt;br /&gt;
-키를 모르면 인증을 못하기 때문이다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Replay Attack&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc03.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;위 그림은 MAC 공격방법이다.&lt;br /&gt;
-Attacker는 고객이 보낸 똑같은 패킷을 복사하여 고객으로 위장하는 공격 방법이다.&lt;br /&gt;
-이러한 공격을 막는 방법은 패킷에 추가정보로 시간을 알려주는 time stamp를 넣어 해결할 수 있다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;대표적인 해쉬 함수로는 두가지 계열이 있는데 MD와 SHA 계열이다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;MD (Message Digest)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;MD2,4,5,6​&lt;/li&gt;
-  &lt;li&gt;Ron Rivest (RSA), 1990~92​&lt;/li&gt;
-  &lt;li&gt;Merkle structure기반​&lt;/li&gt;
-  &lt;li&gt;128bit hash 값​&lt;/li&gt;
-  &lt;li&gt;512 bit block size ​&lt;/li&gt;
-  &lt;li&gt;MD4는 32bit CPU 전용 (MS)​&lt;/li&gt;
-  &lt;li&gt;MD5는 SHA1등 최신 해시들의 기초가됨​&lt;/li&gt;
-  &lt;li&gt;2005 강한 충돌 내성 깨짐&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;SHA (Secure Hash Algorithm)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;NIST 1993​&lt;/li&gt;
-  &lt;li&gt;Merkle structure기반​&lt;/li&gt;
-  &lt;li&gt;SHA0,1은 160bit hash 값, SHA2는 224~512bit​&lt;/li&gt;
-  &lt;li&gt;512 bit block size ​&lt;/li&gt;
-  &lt;li&gt;최대 2^64-1 bit 메시지처리​&lt;/li&gt;
-  &lt;li&gt;가장 많이 사용​&lt;/li&gt;
-  &lt;li&gt;2005 강한 충돌 내성 깨짐&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;​   &lt;img src=&quot;/assets/built/images/sc/sc04.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;위 그림은 Merkle structure의 예시이다.&lt;br /&gt;
-MD, SHA 두가지 모두 Merkle structure기반인데 이것은
-Message를 block으로 나누어서 고정된 길이의 입력값을 받아들여 고정된 길이로 출력하는 압축함수를 반복 사용하여 긴 길이의 입력을 처리할 수 있는 해쉬 함수로 학대하여 설계하는 방식이다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Hash attack&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;같은 해시값을 갖는 다른 입력값을 찾아낸다​&lt;/li&gt;
-  &lt;li&gt;예를 들면, (ID, PWD)값은 해시값으로 저장되어 있다.​&lt;/li&gt;
-  &lt;li&gt;만일 같은 해시값을 갖는 (ID2, PWD2)를 찾는다면, (ID, PWD)로 로그인 가능​하다&lt;/li&gt;
-  &lt;li&gt;(ID, PWD), (ID2, PWD2)를 충돌쌍(collision pairs)라 한다​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="security" />
-      
-
-      
-        <summary type="html">Hash</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">ElGamal</title>
-      <link href="https://lee989898.github.io/sc-07" rel="alternate" type="text/html" title="ElGamal" />
-      <published>2021-10-14T01:06:00+09:00</published>
-      <updated>2021-10-14T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/sc-07</id>
-      <content type="html" xml:base="https://lee989898.github.io/sc-07">&lt;h3 id=&quot;elgamal&quot;&gt;&lt;strong&gt;ElGamal&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;ElGamal&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Taher Elgamal, 1985 NSF&lt;/li&gt;
-  &lt;li&gt;이산대수의 어려움을 이용&lt;/li&gt;
-  &lt;li&gt;RSA보다 안전성향상&lt;/li&gt;
-  &lt;li&gt;A = $B^c$, c찾기&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Key genetation&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;큰 소수 p, p보다 작은 임의의 g,x 선택&lt;/li&gt;
-  &lt;li&gt;Y = $g^x$ mod p를 계산&lt;/li&gt;
-  &lt;li&gt;공개키: Y,p,g&lt;/li&gt;
-  &lt;li&gt;비밀키: x&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Encryptin/decryption&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;공개키: Y,p,g&lt;/li&gt;
-  &lt;li&gt;비밀키: x&lt;/li&gt;
-  &lt;li&gt;Encrypt: p-1과 relative prime인 임의의 k(1&amp;lt; k &amp;lt; p-1)&lt;br /&gt;
-a = $g^k$  mod p, b = $Y^k$ M mod p 를 계산
-    &lt;ul&gt;
-      &lt;li&gt;여기서, k를 임의로 선택하기 때문에 동일한 M에 대해서 매번 다르게 암호화된다. (RSA와 차이점)&lt;/li&gt;
-      &lt;li&gt;Ciphertext는 dnjsfo M 길이의 2배가 된다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Decrypt: b/$a^x$ mod p = $y^k$ M / $a^x$ mod p = M&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;ElGamal 서명 기법&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;RSA와 달리 서명만을 위해 설계됨&lt;/li&gt;
-  &lt;li&gt;ElGamal 서명기법은 약간 변형된 형태로 NIST의 디지털 서명 표준(DSS)으로 채택&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="security" />
-      
-
-      
-        <summary type="html">ElGamal</summary>
       
 
       

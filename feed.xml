@@ -1,4 +1,422 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lee989898.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lee989898.github.io/" rel="alternate" type="text/html" /><updated>2021-11-30T10:42:36+09:00</updated><id>https://lee989898.github.io/feed.xml</id><title type="html">LEE</title><subtitle>공부 블로그</subtitle><entry><title type="html">근사 알고리즘</title><link href="https://lee989898.github.io/algorithm-09" rel="alternate" type="text/html" title="근사 알고리즘" /><published>2021-11-29T01:09:00+09:00</published><updated>2021-11-29T01:09:00+09:00</updated><id>https://lee989898.github.io/algorithm-09</id><content type="html" xml:base="https://lee989898.github.io/algorithm-09">&lt;h3 id=&quot;근사-알고리즘&quot;&gt;&lt;strong&gt;근사 알고리즘&lt;/strong&gt;&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lee989898.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lee989898.github.io/" rel="alternate" type="text/html" /><updated>2021-12-03T21:21:48+09:00</updated><id>https://lee989898.github.io/feed.xml</id><title type="html">LEE</title><subtitle>공부 블로그</subtitle><entry><title type="html">__SSL/TLS__</title><link href="https://lee989898.github.io/sc-20" rel="alternate" type="text/html" title="__SSL/TLS__" /><published>2021-12-03T01:06:00+09:00</published><updated>2021-12-03T01:06:00+09:00</updated><id>https://lee989898.github.io/sc-20</id><content type="html" xml:base="https://lee989898.github.io/sc-20">&lt;h3 id=&quot;ssltls&quot;&gt;&lt;strong&gt;SSL/TLS&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Secure sockets layer (SSL)​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1996, Netscape​&lt;/li&gt;
+  &lt;li&gt;1999, TLS로​&lt;/li&gt;
+  &lt;li&gt;웹기반 전자상거래를 위해 TCP layer에서 메시지와 무결성과 비밀성 제공​&lt;/li&gt;
+  &lt;li&gt;Web-server와 web-browser간 보안​&lt;/li&gt;
+  &lt;li&gt;HTTPS – 현재 대부분 서버에서 사용​&lt;/li&gt;
+  &lt;li&gt;Handshake (암호spec, session관리), record (암호,무결성등 보안서비스) protocols로 나뉜다​&lt;/li&gt;
+  &lt;li&gt;인증수행-&amp;gt;세션키분배-&amp;gt;암호화 메시지 송수신 순서​&lt;/li&gt;
+  &lt;li&gt;지원하는 보안서비스 ​
+    &lt;ul&gt;
+      &lt;li&gt;Server/client authentication, confidentiality, integrity&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;부인방지기능은 제공안됨 – 전자서명 사용해야​&lt;/li&gt;
+  &lt;li&gt;단순히 web-server와 web-browser간의 모든 data를 암호화하면 안전? No, replay attack (관찰된 통신내용을 동일하게 재생하면 같은 결과를 얻을 수 있다.)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Secure sockets layer (SSL) 표준​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;User authentication​&lt;/li&gt;
+  &lt;li&gt;Confidentiality​&lt;/li&gt;
+  &lt;li&gt;Integrity​
+​
+&lt;img src=&quot;/assets/built/images/sc/sc31.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;TLS/SSL Protocol 구성​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Handshake protocol​
+    &lt;ul&gt;
+      &lt;li&gt;Client, server 간 인증, 암호 알고리즘 합의, 키교환 등 수행​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Record protocol​
+    &lt;ul&gt;
+      &lt;li&gt;데이터를 인증, 암호화처리하고 메시지 송수신​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Change cipher spec​
+    &lt;ul&gt;
+      &lt;li&gt;암호 spec을 변경담당​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Alter protocol​
+    &lt;ul&gt;
+      &lt;li&gt;에러처리​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Handshake Protocol&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;핸드셰이크는 서버를 확인하고 데이터가 전송되기 전에 클라이언트와 서버가 암호화 세트에 동의하도록 한다&lt;/li&gt;
+  &lt;li&gt;Record protocol의 의한 data송수신보다 먼저 수행되어 다음의 session정보를 생성, 관리​
+    &lt;ul&gt;
+      &lt;li&gt;Session ID​&lt;/li&gt;
+      &lt;li&gt;Certification​&lt;/li&gt;
+      &lt;li&gt;Cipher spec: 압축, MAC algorithm​&lt;/li&gt;
+      &lt;li&gt;Compression method: 암호화 이전 압축 algorithm​&lt;/li&gt;
+      &lt;li&gt;Master secret key: 48bit&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Handshake Protocol&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;3개의 필드로 이루어진 메시지 교환
+    &lt;ul&gt;
+      &lt;li&gt;type: 메시지 종류 명시&lt;/li&gt;
+      &lt;li&gt;length: 메시지 길이&lt;/li&gt;
+      &lt;li&gt;content: 메시지 종류에 따른 값들&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;4단계 진행
+    &lt;ul&gt;
+      &lt;li&gt;1단계: Security capability establish​&lt;/li&gt;
+      &lt;li&gt;2단계: Server authentication &amp;amp; key exchange​&lt;/li&gt;
+      &lt;li&gt;3단계: Client authentication &amp;amp; key exchange​&lt;/li&gt;
+      &lt;li&gt;4단계: Change cipher specs​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc32.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1단계: Security capability establish​
+    &lt;ul&gt;
+      &lt;li&gt;1~3​&lt;/li&gt;
+      &lt;li&gt;Hello 메시지 교환으로 session ID, 키교환알고리즘, 인증 알고리즘, 암호알고리즘, 압축 알고리즘 결정&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Server authentication &amp;amp; key exchange​
+    &lt;ul&gt;
+      &lt;li&gt;4~6​&lt;/li&gt;
+      &lt;li&gt;4: 서버의 인증서와 검증위한 인증서체인, 공개키전송​&lt;/li&gt;
+      &lt;li&gt;5: client 인증서 요구(opt)​&lt;/li&gt;
+      &lt;li&gt;6: 2단계 종료메시지&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;3단계: Client authentication &amp;amp; key exchange​
+    &lt;ul&gt;
+      &lt;li&gt;7~9​&lt;/li&gt;
+      &lt;li&gt;7: client 인증서전송​&lt;/li&gt;
+      &lt;li&gt;8: 48byte premaster secrete 전송​&lt;/li&gt;
+      &lt;li&gt;9: client 인증서 검증&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;4단계: Change cipher specs​
+    &lt;ul&gt;
+      &lt;li&gt;10~11​&lt;/li&gt;
+      &lt;li&gt;암호사양변경 메시지 교환을 통해 다음 세션에 적용될 암호 spec 결정&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Record Protocol&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;메시지를 최대 16KB 단위로 fragment​&lt;/li&gt;
+  &lt;li&gt;MAC 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc33.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1: 메시지를 최대 16KB 단위로 fragment​&lt;/li&gt;
+  &lt;li&gt;2: 압축 (opt)​&lt;/li&gt;
+  &lt;li&gt;3: MAC 추가​&lt;/li&gt;
+  &lt;li&gt;4: Encryption​&lt;/li&gt;
+  &lt;li&gt;5: SSL reacord header 추가&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Changes from SSL 3.0 to TLS&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Transport Layer Security [RFC2246]​&lt;/li&gt;
+  &lt;li&gt;Additional Alerts added​&lt;/li&gt;
+  &lt;li&gt;Modification to hash calculations​&lt;/li&gt;
+  &lt;li&gt;Protocol version 3.1 in ClientHello, ServerHello&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="security" /><summary type="html">SSL/TLS</summary></entry><entry><title type="html">__IPSEC__</title><link href="https://lee989898.github.io/sc-21" rel="alternate" type="text/html" title="__IPSEC__" /><published>2021-12-03T01:06:00+09:00</published><updated>2021-12-03T01:06:00+09:00</updated><id>https://lee989898.github.io/sc-21</id><content type="html" xml:base="https://lee989898.github.io/sc-21">&lt;h3 id=&quot;ipsec&quot;&gt;&lt;strong&gt;IPSEC&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;IPSEC&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;IP 주소 위장 방지(출발지 인증)​&lt;/li&gt;
+  &lt;li&gt;IP 데이터그램의 변경 및 재전송 방지​&lt;/li&gt;
+  &lt;li&gt;IP 데이터 그램을 위한 기밀성, 무결성 제공​&lt;/li&gt;
+  &lt;li&gt;보안  프로토콜 선택(시스템들이 필요로 하는)​&lt;/li&gt;
+  &lt;li&gt;암호 알고리즘 선택(선택된 프로토콜에서 사용되도록)​&lt;/li&gt;
+  &lt;li&gt;암호키 생성,분배(요청된 서비스의 제공에 필요) ​&lt;/li&gt;
+  &lt;li&gt;Application​
+    &lt;ul&gt;
+      &lt;li&gt;VPN (virtual Private Network): 가상 전용회선​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;IPSEC 구성&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;IPsec AH(인증 헤더) 프로토콜​
+    &lt;ul&gt;
+      &lt;li&gt;데이터 근원 인증,비연결형 무결성 제공 ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;캡슐화 보안페이로드 (ESP ) – 데이터기밀성, 제한된 트래칙 흐름 기밀성, 비연결형 무결성, 데이터 근원인증, 재전송공격 방지 제공​&lt;/li&gt;
+  &lt;li&gt;IKE 프로토콜 ​
+    &lt;ul&gt;
+      &lt;li&gt;통신당사자간 키관리 프로토콜​&lt;/li&gt;
+      &lt;li&gt;암호알고리즘 선택협상, 키분배 위해 사용​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Transport and Tunnel Modes&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc34.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Transport mode​
+    &lt;ul&gt;
+      &lt;li&gt;End to end between hosts​&lt;/li&gt;
+      &lt;li&gt;관련 hosts들이 IPSec을 지원해야​&lt;/li&gt;
+      &lt;li&gt;IP 상위 프로토콜 (TCP, Application) 안전하게 전송​&lt;/li&gt;
+      &lt;li&gt;IP header에 IPSec header정보 추가​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc35.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Tunnel mode​
+    &lt;ul&gt;
+      &lt;li&gt;터널내의 모든 IP 트래픽 보호​&lt;/li&gt;
+      &lt;li&gt;터널의 시작,종류 지점에 IPSec gateway​&lt;/li&gt;
+      &lt;li&gt;터널 시작 gateway에서 새 IP header와 Ipsec header 추가하고, 종료 gateway에서 제거​&lt;/li&gt;
+      &lt;li&gt;라우터가 내부 패킷을 검사하지 않음&lt;/li&gt;
+      &lt;li&gt;소스 및 목적지 주소가 다를 수 있음&lt;/li&gt;
+      &lt;li&gt;방화벽에서 구현 가능&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="security" /><summary type="html">IPSEC</summary></entry><entry><title type="html">__Kerberos​__</title><link href="https://lee989898.github.io/sc-18" rel="alternate" type="text/html" title="__Kerberos​__" /><published>2021-12-01T01:06:00+09:00</published><updated>2021-12-01T01:06:00+09:00</updated><id>https://lee989898.github.io/sc-18</id><content type="html" xml:base="https://lee989898.github.io/sc-18">&lt;h3 id=&quot;kerberos&quot;&gt;&lt;strong&gt;Kerberos​&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Kerberos?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Symmetric key 기반 분산 인증 시스템​&lt;/li&gt;
+  &lt;li&gt;사용자가 서버의 서비스에 액세스하려는 경우 (예, 프린터서버, 네트워크 디스크 등)​&lt;/li&gt;
+  &lt;li&gt;세 가지 위협 존재:​
+    &lt;ul&gt;
+      &lt;li&gt;사용자가 다른 사용자로 가장​&lt;/li&gt;
+      &lt;li&gt;사용자가 워크스테이션의 네트워크 주소를 변경&lt;/li&gt;
+      &lt;li&gt;사용자는 교환을 도청하고 재생 공격을 사용​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Client들이 원격으로 서버에 자원, 서비스 요청시마다 인증반복​&lt;/li&gt;
+  &lt;li&gt;매번 passwd 입력 안해도 되며, 각 서버가 사용자들의 비번을 저장할 필요없다​&lt;/li&gt;
+  &lt;li&gt;경쟁자: SSL&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;​Kerberos Design 요구사항​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;사용자는 워크스테이션 세션(로그인 세션)이 시작될 때 한 번 자신을 식별해야 한다&lt;/li&gt;
+  &lt;li&gt;암호는 네트워크를 통해 일반 텍스트로 전송되지 않습니다(또는 메모리에 저장)&lt;/li&gt;
+  &lt;li&gt;각 서버가 사용자들의 비번을 저장할 필요없어야 ​함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;System Components​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Server, User​&lt;/li&gt;
+  &lt;li&gt;AS(Authentication Server)​
+    &lt;ul&gt;
+      &lt;li&gt;모든 user/server 들의 password 안다​&lt;/li&gt;
+      &lt;li&gt;TGS 에 제시할 ticket 발급​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;TGS(Ticket Granting Server)​
+    &lt;ul&gt;
+      &lt;li&gt;서버는 ticket만 받는다​&lt;/li&gt;
+      &lt;li&gt;서비스 요청시, 한 user는 한 server에 한 ticket제시​&lt;/li&gt;
+      &lt;li&gt;Server에 제시할 ticket 발급역할​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;시스템 구성도&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc28.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Protocol​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;User/TGS는 AS에, server는 TGS에 등록(passwd)되어 있다  (or PKI사용)​&lt;/li&gt;
+  &lt;li&gt;User가 서비스 필요​&lt;/li&gt;
+  &lt;li&gt;서비스 제공할 server 찾는다​&lt;/li&gt;
+  &lt;li&gt;해당 server 관리하는 TGS 찾는다​&lt;/li&gt;
+  &lt;li&gt;AS에 TGS에 보낼 ticket요청&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;User는 AS에게  UserID, TGS이름을 $K_{user-AS}$로 암호화하여 보낸다&lt;/li&gt;
+  &lt;li&gt;AS는 User와 TGS간의 통신을 위한 세션키1 $K_{user-TGS}$ 를 생성​ 세션키1, UserID 를 $K_{AS-TGS}$로 암호화하여 User에게 발급할 Ticket을 생성​ 세션키1과 Ticket을 $K_{user-AS}$로 암호화하여 보낸다​&lt;/li&gt;
+  &lt;li&gt;받은 2를 $K_{user-AS}$복호화해서 세션키1 $K_{user-TGS}$ 와 Ticket을 얻는다. ​UserID를 세션키1로 암호화해서 Ticket과 함께 TGS로 보낸다​&lt;/li&gt;
+  &lt;li&gt;받은 3을 $K_{user-TGS}$와 $K_{AS-TGS}$ 로 복호화해서 User정보와 요구내용 확인, ​TGS는 User와 Server간의 통신을 위한 세션키2 $K_{user-server}$ 생성 ​세션키2, UserID 를 $K_{TGS-server}$로 암호화하여 User에게 발급할 Ticket을 생성​ 세션키2와 Ticket을 $K_{user-TGS}$로 암호화하여 보낸다​&lt;/li&gt;
+  &lt;li&gt;받은 4를 $K_{user-TGS}$로 복호화해서 세션키2 $K_{user-server}$와 Ticket(user, Server)를 얻는다. Server에게 $K_{user-server}$로 암호화한 UserID와 Ticket을 전송한다​&lt;/li&gt;
+  &lt;li&gt;Server는 받는 5의 Ticket을 $K_{TGS-server}$로 복호화 하여 세션키2 $K_{user-server}$을 얻는다. 이걸로 UserID를 복호화해서  사용자확인을 한다.​&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Drawbacks of Kerberos&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;단일 실패 지점: 중앙 서버의 지속적인 가용성이 필요. Kerberos 서버가 다운되면 아무도 로그인할 수 없다&lt;/li&gt;
+  &lt;li&gt;Kerberos에는 엄격한 시간 요구 사항이 있으므로 관련된 호스트의 시계가 구성된 제한 내에서 동기화되어야 함&lt;/li&gt;
+  &lt;li&gt;관리 프로토콜은 표준화되지 않았으며 서버 구현에 따라 다르다&lt;/li&gt;
+  &lt;li&gt;모든 인증은 중앙 집중식 KDC에 의해 제어되므로 이 인증 인프라가 손상되면 공격자가 모든 사용자를 가장할 수 있음&lt;/li&gt;
+  &lt;li&gt;다른 호스트 이름이 필요한 각 네트워크 서비스에는 고유한 Kerberos 키 세트가 필요합니다. 이는 가상 호스팅 및 클러스터를 복잡하게 만든다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="security" /><summary type="html">Kerberos​</summary></entry><entry><title type="html">__Dos​__</title><link href="https://lee989898.github.io/sc-19" rel="alternate" type="text/html" title="__Dos​__" /><published>2021-12-01T01:06:00+09:00</published><updated>2021-12-01T01:06:00+09:00</updated><id>https://lee989898.github.io/sc-19</id><content type="html" xml:base="https://lee989898.github.io/sc-19">&lt;h3 id=&quot;dos&quot;&gt;&lt;strong&gt;Dos​&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Dos (Denial of Service)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;서비스 거부​&lt;/li&gt;
+  &lt;li&gt;시스템 자원(cpu, memory, network, storage 등)을 고갈시켜 정상적인 접근에 대한 서비스를 제공할 수 없도록 만드는 행위​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Dos attack type​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Error trigger Dos attack​&lt;/li&gt;
+  &lt;li&gt;OS,application의 약점에 attack packet 전송해서 system error 유발 (slammer worm)​&lt;/li&gt;
+  &lt;li&gt;Ping of death, Land, Teardrop​&lt;/li&gt;
+  &lt;li&gt;Flooding Dos attack​&lt;/li&gt;
+  &lt;li&gt;packet, traffic을 과중하게 발생하여 server, network resource 고갈​&lt;/li&gt;
+  &lt;li&gt;TCP syn flooding​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;TCP syn flooding​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;TCP 3-way handshaking의 취약점 이용​&lt;/li&gt;
+  &lt;li&gt;공격자가 src IP 주소를 위조해서 TCP SYN를  동시에 대량전송​&lt;/li&gt;
+  &lt;li&gt;서버는 TCP ACK를 보내고, 자원할당 후 응답 기다림​&lt;/li&gt;
+  &lt;li&gt;정상적인 접근방해+엉뚱한 피해자​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc29.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;DDoS Attack​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Distributed Denial of Service​&lt;/li&gt;
+  &lt;li&gt;다수의 pc가 동시에 Dos 공격​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;BotNet?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bot(=zombie): 악성sw에 감염되어 자신도 모르게 해커의 조종을 받는 컴퓨터​&lt;/li&gt;
+  &lt;li&gt;BotNet: 명령제어서버(C&amp;amp;C,command and control)를 통해 원격제어되는 악성코드에 감염된 컴퓨터(bot)들의 네트워크 ​&lt;/li&gt;
+  &lt;li&gt;대부분 사어버테러의 주요 원인&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc30.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;DDos 종류&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Standard DoS: 알려진 취약점 집중공격​&lt;/li&gt;
+  &lt;li&gt;Tool을 이용한 DoS: TFN, TFN2K, Trinoo, Loki, Stacheldraht, Jolt, Land, teardrop…​&lt;/li&gt;
+  &lt;li&gt;Traffic anomalie 공격: bandwidth점유, ICMP, TCP, UDP flooding​&lt;/li&gt;
+  &lt;li&gt;Spoofed SYN flooding: spoof된 source IP로 TCP syn보냄​&lt;/li&gt;
+  &lt;li&gt;Connection Per Second(CPS) flood: zombie로 부터 connection flooding​&lt;/li&gt;
+  &lt;li&gt;Established Connection flood: zombie로 부터 established connection flood​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Why DDos?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Simple​&lt;/li&gt;
+  &lt;li&gt;Easy: just use tools​&lt;/li&gt;
+  &lt;li&gt;Effective​&lt;/li&gt;
+  &lt;li&gt;공격자추적이 어렵다​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​&lt;/p&gt;
+
+&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="security" /><summary type="html">Dos​</summary></entry><entry><title type="html">근사 알고리즘</title><link href="https://lee989898.github.io/algorithm-09" rel="alternate" type="text/html" title="근사 알고리즘" /><published>2021-11-29T01:09:00+09:00</published><updated>2021-11-29T01:09:00+09:00</updated><id>https://lee989898.github.io/algorithm-09</id><content type="html" xml:base="https://lee989898.github.io/algorithm-09">&lt;h3 id=&quot;근사-알고리즘&quot;&gt;&lt;strong&gt;근사 알고리즘&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
 
@@ -546,7 +964,233 @@ ex) 함수명 (파라미터 여러개) { 표현식 (블록)}&lt;/p&gt;
 &lt;p&gt;파이썬은 파라미터의 개수를 제한하고, ​명시적으로 새로운 함수를 정의하고 적용할 수 있도록 partial 함수를 지원한다.&lt;br /&gt;
 먼저 제한적으로 적용하려는 함수를 임포트하고,​ (여기서 add5는 add a b : a + b에서 파라미터를 ​한 개로 줄여서 add + 5로 정의한 것이다.)​ 명령문 add5=partial (add, 5)은 함수 add+5를 add5로 정의하고, ​함수 add5(15)를 적용(호출)하면 결과는 20이다. ​&lt;/p&gt;
 
-&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="pl" /><summary type="html">__</summary></entry><entry><title type="html">POSIX Thread Programming</title><link href="https://lee989898.github.io/st-10" rel="alternate" type="text/html" title="POSIX Thread Programming" /><published>2021-11-24T01:06:00+09:00</published><updated>2021-11-24T01:06:00+09:00</updated><id>https://lee989898.github.io/st-10</id><content type="html" xml:base="https://lee989898.github.io/st-10">&lt;h3 id=&quot;posix-thread-programming&quot;&gt;&lt;strong&gt;POSIX Thread Programming&lt;/strong&gt;&lt;/h3&gt;
+&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="pl" /><summary type="html">__</summary></entry><entry><title type="html">__침입탐지__</title><link href="https://lee989898.github.io/sc-16" rel="alternate" type="text/html" title="__침입탐지__" /><published>2021-11-24T01:06:00+09:00</published><updated>2021-11-24T01:06:00+09:00</updated><id>https://lee989898.github.io/sc-16</id><content type="html" xml:base="https://lee989898.github.io/sc-16">&lt;h3 id=&quot;침입탐지&quot;&gt;&lt;strong&gt;침입탐지&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;IDS(침입탐지 시스템)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;침입탐지시스템​&lt;/li&gt;
+  &lt;li&gt;침입행위에 대한 탐지를 수행하고 탐지시 대응할 수 있도록 지원하는 일련의 시스템​&lt;/li&gt;
+  &lt;li&gt;Intrusion?​
+    &lt;ul&gt;
+      &lt;li&gt;시스템에 허가되지 않은 방법으로 내부 자원에 접근​&lt;/li&gt;
+      &lt;li&gt;Login 시도 (ID, PWD 추측)​&lt;/li&gt;
+      &lt;li&gt;불법적으로 데이터 도용시도 (rootkit)​&lt;/li&gt;
+      &lt;li&gt;Root/관리자 권한 획득시도​&lt;/li&gt;
+      &lt;li&gt;메일발송 실행파일을 숨겨놓고 메일전송시도​&lt;/li&gt;
+      &lt;li&gt;Backdoor 접근시도&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;패킷 필터링
+    &lt;ul&gt;
+      &lt;li&gt;오직 TCP/IP 헤더만 본다&lt;/li&gt;
+      &lt;li&gt;패킷 간의 연관성을 알아 내기 어렵다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;IDS
+    &lt;ul&gt;
+      &lt;li&gt;depp packet inspection: 패킷 콘테츠 까지 검사한다&lt;/li&gt;
+      &lt;li&gt;다수의 패킷을 검사한다
+        &lt;ul&gt;
+          &lt;li&gt;port scanning&lt;/li&gt;
+          &lt;li&gt;network mapping&lt;/li&gt;
+          &lt;li&gt;Dos attack&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Dectection 방법&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Signature-based dectection​
+    &lt;ul&gt;
+      &lt;li&gt;침입사건들을 패턴화(signature)​
+    + Signature example​&lt;/li&gt;
+      &lt;li&gt;실행 파일 첨부 메일 유형​&lt;/li&gt;
+      &lt;li&gt;파일 읽기 시도 유형​&lt;/li&gt;
+      &lt;li&gt;로그인 시도 유형​
+    + 장점​&lt;/li&gt;
+      &lt;li&gt;known attack에 대해 효율적​
+    + 단점​&lt;/li&gt;
+      &lt;li&gt;Unknown attack에 취약​&lt;/li&gt;
+      &lt;li&gt;새로운 공격유형 발견때마다 signature 생성해야​&lt;/li&gt;
+      &lt;li&gt;일반적으로 False negative rate 높음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Anomaly-based dectection​
+    &lt;ul&gt;
+      &lt;li&gt;정상범위를 벗어나는 사건을 탐지​
+    + Anomaly example​&lt;/li&gt;
+      &lt;li&gt;휴일에 traffic 량이 평소보다 20%증가​&lt;/li&gt;
+      &lt;li&gt;일반사용자가 갑자기 1000통 메일발송​&lt;/li&gt;
+      &lt;li&gt;특정 호스트에 단시간 주문요청 100%증가​&lt;/li&gt;
+      &lt;li&gt;국내 사용자 카드가 해외에서 결재​
+    + 장점​&lt;/li&gt;
+      &lt;li&gt;Machine learning 처리​&lt;/li&gt;
+      &lt;li&gt;Unknown attac에 대해 효율적​
+    + 단점​&lt;/li&gt;
+      &lt;li&gt;정상범위 정의 어려움​&lt;/li&gt;
+      &lt;li&gt;비정상탐지까지 기다려야​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;IDS types&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Network-based IDS​&lt;/li&gt;
+  &lt;li&gt;Wireless IDS (wireless IDS)​&lt;/li&gt;
+  &lt;li&gt;Host-based IDS​&lt;/li&gt;
+  &lt;li&gt;Distributed Host-based IDS&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Network-based IDS​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Example​
+    &lt;ul&gt;
+      &lt;li&gt;Network 망에 곳곳에 traffic을 모니터, 분석하여 침입탐지​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Example​
+    &lt;ul&gt;
+      &lt;li&gt;Ddos, worm  ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;장점 ​
+    &lt;ul&gt;
+      &lt;li&gt;Host는 부하적음 (하나의  NIDS로 여러 host보호)​&lt;/li&gt;
+      &lt;li&gt;조기 탐지가능​&lt;/li&gt;
+      &lt;li&gt;취약한 부분의 packet 을 정밀분석하여 다양한 침입탐지 ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;단점​
+    &lt;ul&gt;
+      &lt;li&gt;각 host 내부는 탐지제한​&lt;/li&gt;
+      &lt;li&gt;전체 network 망에 부하&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Wireless IDS (wireless IDS)​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;무선통신 WLAN network망의 traffic 분석​&lt;/li&gt;
+  &lt;li&gt;장점​
+    &lt;ul&gt;
+      &lt;li&gt;무선통신의 취약성위협 탐지​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;단점​
+    &lt;ul&gt;
+      &lt;li&gt;Network 부하, 비용&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Host-based IDS​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;특정 host 컴퓨터내부를 모니터링, 분석하여 탐지​&lt;/li&gt;
+  &lt;li&gt;Example​
+    &lt;ul&gt;
+      &lt;li&gt;로그분석, 파일시스템 기록분석, 실행코드분석 ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;장점​
+    &lt;ul&gt;
+      &lt;li&gt;악성sw 탐지용이​&lt;/li&gt;
+      &lt;li&gt;내부공격자 탐지​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;단점​
+    &lt;ul&gt;
+      &lt;li&gt;각 host마다 다름​&lt;/li&gt;
+      &lt;li&gt;Host 부하&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Distributed Host-based IDS&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;여러 HIDS들이 연계하여 전체적으로 host들을 분석하여 탐지 ​&lt;/li&gt;
+  &lt;li&gt;장점​
+    &lt;ul&gt;
+      &lt;li&gt;효율적이고 정확성​&lt;/li&gt;
+      &lt;li&gt;공격들의 연관관계 파악용이​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;단점​
+    &lt;ul&gt;
+      &lt;li&gt;HIDS보다 복잡, 부담&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Honey Pot&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;꿀단지​&lt;/li&gt;
+  &lt;li&gt;의도적으로 해커의 침입을 유도하는 시스템​&lt;/li&gt;
+  &lt;li&gt;해커 정보수집, 공격유형파악, 대응전략수립, 법적증거 ​&lt;/li&gt;
+  &lt;li&gt;침입자 활동감시, 로그기록&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;IDS 평가 기준&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;False Positive rate​
+    &lt;ul&gt;
+      &lt;li&gt;정상을 침입으로 판단하는 확률​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;False Negative​
+    &lt;ul&gt;
+      &lt;li&gt;침입을 정상으로 판단하는 확률​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;True Positive rate​&lt;/li&gt;
+  &lt;li&gt;True Negative rate​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;IPS (Intrusion Prevention System)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;침입방지시스템​&lt;/li&gt;
+  &lt;li&gt;IDS+침입방지기능​&lt;/li&gt;
+  &lt;li&gt;Example​
+    &lt;ul&gt;
+      &lt;li&gt;IDS로 침입탐지하고 계정, 연결 등 차단​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="security" /><summary type="html">침입탐지</summary></entry><entry><title type="html">POSIX Thread Programming</title><link href="https://lee989898.github.io/st-10" rel="alternate" type="text/html" title="POSIX Thread Programming" /><published>2021-11-24T01:06:00+09:00</published><updated>2021-11-24T01:06:00+09:00</updated><id>https://lee989898.github.io/st-10</id><content type="html" xml:base="https://lee989898.github.io/st-10">&lt;h3 id=&quot;posix-thread-programming&quot;&gt;&lt;strong&gt;POSIX Thread Programming&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
 
@@ -1249,233 +1893,7 @@ pthread_mutex_destory(&amp;amp;mutex);
   &lt;li&gt;데이터 내용은 미확인 – 문서 등 내부에 심겨진 악성코드 방어 취약&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="security" /><summary type="html">방화벽</summary></entry><entry><title type="html">__침입탐지__</title><link href="https://lee989898.github.io/sc-16" rel="alternate" type="text/html" title="__침입탐지__" /><published>2021-11-24T01:06:00+09:00</published><updated>2021-11-24T01:06:00+09:00</updated><id>https://lee989898.github.io/sc-16</id><content type="html" xml:base="https://lee989898.github.io/sc-16">&lt;h3 id=&quot;침입탐지&quot;&gt;&lt;strong&gt;침입탐지&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;IDS(침입탐지 시스템)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;침입탐지시스템​&lt;/li&gt;
-  &lt;li&gt;침입행위에 대한 탐지를 수행하고 탐지시 대응할 수 있도록 지원하는 일련의 시스템​&lt;/li&gt;
-  &lt;li&gt;Intrusion?​
-    &lt;ul&gt;
-      &lt;li&gt;시스템에 허가되지 않은 방법으로 내부 자원에 접근​&lt;/li&gt;
-      &lt;li&gt;Login 시도 (ID, PWD 추측)​&lt;/li&gt;
-      &lt;li&gt;불법적으로 데이터 도용시도 (rootkit)​&lt;/li&gt;
-      &lt;li&gt;Root/관리자 권한 획득시도​&lt;/li&gt;
-      &lt;li&gt;메일발송 실행파일을 숨겨놓고 메일전송시도​&lt;/li&gt;
-      &lt;li&gt;Backdoor 접근시도&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;패킷 필터링
-    &lt;ul&gt;
-      &lt;li&gt;오직 TCP/IP 헤더만 본다&lt;/li&gt;
-      &lt;li&gt;패킷 간의 연관성을 알아 내기 어렵다&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;IDS
-    &lt;ul&gt;
-      &lt;li&gt;depp packet inspection: 패킷 콘테츠 까지 검사한다&lt;/li&gt;
-      &lt;li&gt;다수의 패킷을 검사한다
-        &lt;ul&gt;
-          &lt;li&gt;port scanning&lt;/li&gt;
-          &lt;li&gt;network mapping&lt;/li&gt;
-          &lt;li&gt;Dos attack&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Dectection 방법&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Signature-based dectection​
-    &lt;ul&gt;
-      &lt;li&gt;침입사건들을 패턴화(signature)​
-    + Signature example​&lt;/li&gt;
-      &lt;li&gt;실행 파일 첨부 메일 유형​&lt;/li&gt;
-      &lt;li&gt;파일 읽기 시도 유형​&lt;/li&gt;
-      &lt;li&gt;로그인 시도 유형​
-    + 장점​&lt;/li&gt;
-      &lt;li&gt;known attack에 대해 효율적​
-    + 단점​&lt;/li&gt;
-      &lt;li&gt;Unknown attack에 취약​&lt;/li&gt;
-      &lt;li&gt;새로운 공격유형 발견때마다 signature 생성해야​&lt;/li&gt;
-      &lt;li&gt;일반적으로 False negative rate 높음&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Anomaly-based dectection​
-    &lt;ul&gt;
-      &lt;li&gt;정상범위를 벗어나는 사건을 탐지​
-    + Anomaly example​&lt;/li&gt;
-      &lt;li&gt;휴일에 traffic 량이 평소보다 20%증가​&lt;/li&gt;
-      &lt;li&gt;일반사용자가 갑자기 1000통 메일발송​&lt;/li&gt;
-      &lt;li&gt;특정 호스트에 단시간 주문요청 100%증가​&lt;/li&gt;
-      &lt;li&gt;국내 사용자 카드가 해외에서 결재​
-    + 장점​&lt;/li&gt;
-      &lt;li&gt;Machine learning 처리​&lt;/li&gt;
-      &lt;li&gt;Unknown attac에 대해 효율적​
-    + 단점​&lt;/li&gt;
-      &lt;li&gt;정상범위 정의 어려움​&lt;/li&gt;
-      &lt;li&gt;비정상탐지까지 기다려야​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;IDS types&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Network-based IDS​&lt;/li&gt;
-  &lt;li&gt;Wireless IDS (wireless IDS)​&lt;/li&gt;
-  &lt;li&gt;Host-based IDS​&lt;/li&gt;
-  &lt;li&gt;Distributed Host-based IDS&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Network-based IDS​&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Example​
-    &lt;ul&gt;
-      &lt;li&gt;Network 망에 곳곳에 traffic을 모니터, 분석하여 침입탐지​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Example​
-    &lt;ul&gt;
-      &lt;li&gt;Ddos, worm  ​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;장점 ​
-    &lt;ul&gt;
-      &lt;li&gt;Host는 부하적음 (하나의  NIDS로 여러 host보호)​&lt;/li&gt;
-      &lt;li&gt;조기 탐지가능​&lt;/li&gt;
-      &lt;li&gt;취약한 부분의 packet 을 정밀분석하여 다양한 침입탐지 ​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;단점​
-    &lt;ul&gt;
-      &lt;li&gt;각 host 내부는 탐지제한​&lt;/li&gt;
-      &lt;li&gt;전체 network 망에 부하&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Wireless IDS (wireless IDS)​&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;무선통신 WLAN network망의 traffic 분석​&lt;/li&gt;
-  &lt;li&gt;장점​
-    &lt;ul&gt;
-      &lt;li&gt;무선통신의 취약성위협 탐지​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;단점​
-    &lt;ul&gt;
-      &lt;li&gt;Network 부하, 비용&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Host-based IDS​&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;특정 host 컴퓨터내부를 모니터링, 분석하여 탐지​&lt;/li&gt;
-  &lt;li&gt;Example​
-    &lt;ul&gt;
-      &lt;li&gt;로그분석, 파일시스템 기록분석, 실행코드분석 ​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;장점​
-    &lt;ul&gt;
-      &lt;li&gt;악성sw 탐지용이​&lt;/li&gt;
-      &lt;li&gt;내부공격자 탐지​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;단점​
-    &lt;ul&gt;
-      &lt;li&gt;각 host마다 다름​&lt;/li&gt;
-      &lt;li&gt;Host 부하&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Distributed Host-based IDS&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;여러 HIDS들이 연계하여 전체적으로 host들을 분석하여 탐지 ​&lt;/li&gt;
-  &lt;li&gt;장점​
-    &lt;ul&gt;
-      &lt;li&gt;효율적이고 정확성​&lt;/li&gt;
-      &lt;li&gt;공격들의 연관관계 파악용이​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;단점​
-    &lt;ul&gt;
-      &lt;li&gt;HIDS보다 복잡, 부담&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Honey Pot&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;꿀단지​&lt;/li&gt;
-  &lt;li&gt;의도적으로 해커의 침입을 유도하는 시스템​&lt;/li&gt;
-  &lt;li&gt;해커 정보수집, 공격유형파악, 대응전략수립, 법적증거 ​&lt;/li&gt;
-  &lt;li&gt;침입자 활동감시, 로그기록&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;IDS 평가 기준&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;False Positive rate​
-    &lt;ul&gt;
-      &lt;li&gt;정상을 침입으로 판단하는 확률​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;False Negative​
-    &lt;ul&gt;
-      &lt;li&gt;침입을 정상으로 판단하는 확률​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;True Positive rate​&lt;/li&gt;
-  &lt;li&gt;True Negative rate​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;IPS (Intrusion Prevention System)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;침입방지시스템​&lt;/li&gt;
-  &lt;li&gt;IDS+침입방지기능​&lt;/li&gt;
-  &lt;li&gt;Example​
-    &lt;ul&gt;
-      &lt;li&gt;IDS로 침입탐지하고 계정, 연결 등 차단​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="security" /><summary type="html">침입탐지</summary></entry><entry><title type="html">분기 한정</title><link href="https://lee989898.github.io/algorithm-08" rel="alternate" type="text/html" title="분기 한정" /><published>2021-11-22T01:09:00+09:00</published><updated>2021-11-22T01:09:00+09:00</updated><id>https://lee989898.github.io/algorithm-08</id><content type="html" xml:base="https://lee989898.github.io/algorithm-08">&lt;h3 id=&quot;분기-한정&quot;&gt;&lt;strong&gt;분기 한정&lt;/strong&gt;&lt;/h3&gt;
+&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="security" /><summary type="html">방화벽</summary></entry><entry><title type="html">분기 한정</title><link href="https://lee989898.github.io/algorithm-08" rel="alternate" type="text/html" title="분기 한정" /><published>2021-11-22T01:09:00+09:00</published><updated>2021-11-22T01:09:00+09:00</updated><id>https://lee989898.github.io/algorithm-08</id><content type="html" xml:base="https://lee989898.github.io/algorithm-08">&lt;h3 id=&quot;분기-한정&quot;&gt;&lt;strong&gt;분기 한정&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
 
@@ -1811,1214 +2229,4 @@ computeBound(x,y,assigned)
   &lt;li&gt;시간복잡도: O(N!)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="algorithm" /><summary type="html">분기 한정</summary></entry><entry><title type="html">Lambda Calculus​</title><link href="https://lee989898.github.io/pl-19" rel="alternate" type="text/html" title="Lambda Calculus​" /><published>2021-11-17T19:18:00+09:00</published><updated>2021-11-17T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-19</id><content type="html" xml:base="https://lee989898.github.io/pl-19">&lt;h3 id=&quot;lambda-calculus&quot;&gt;&lt;strong&gt;Lambda Calculus​&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;__&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Why functional programming?​&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;함수 프로그래밍이 왜 필요한가? ​
-    &lt;ul&gt;
-      &lt;li&gt;소프트웨어 제품이 신뢰성이 낮고, 관리하기 어려우며, 올바른지 증명하기 하기 어렵다. ​&lt;/li&gt;
-      &lt;li&gt;그 이유는 다음과 같다. ​
-        &lt;ul&gt;
-          &lt;li&gt;소프트웨어를 새로 릴리즈할 때마다, 알려진 오류는 수정되나 새로운 오류가 발견된다. ​&lt;/li&gt;
-          &lt;li&gt;소프트웨어의 정밀한 설계는 오랜 기간의 연구 개발을 필요로 하나, ​&lt;/li&gt;
-          &lt;li&gt;현실적으로 시장 출시 압박이 우선한다. ​&lt;/li&gt;
-          &lt;li&gt;하드웨어의 처리 능력이 증가함에 따라, ​&lt;/li&gt;
-          &lt;li&gt;과거에 못하던 복잡한 어플리케이션을 자동화하느라, 소프트웨어의 복잡도가 증가한다. ​&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;이러한 현상을 극복하기 위해, 컴퓨터 과학자들은 두가지 중요한 문제를 풀어야 한다. ​
-    &lt;ul&gt;
-      &lt;li&gt;저비용으로 대규모 소프트웨어의 신뢰성과 사용자 편의성을 개선하는 방법 ​&lt;/li&gt;
-      &lt;li&gt;저비용으로 처리 능력을 증가시키는 방법&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;이러한 문제에 대한 해결책으로, ​명령형 프로그래밍을 지지하는 측에서는, 소프트웨어 공학, 프로그램 증명 기법, 스펙을 프로그램으로 변환하는 기법, 새로운 (병렬) 컴퓨터 아키텍처 등을 연구해 왔다. ​&lt;/li&gt;
-  &lt;li&gt;함수 프로그래밍을 지지하는 측에서는 프로그램으로서의 함수를 대안으로 연구해 왔다.  ​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Imperative and Functional programming style​&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;계산 모델을 튜링 머신에 기반한 IPL은 기본 개념으로 ​메모리, 변수, 할당문, 반복처리(iteration)을 갖는다. ​&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;메모리는 프로그램과 데이터를 저장하고, ​&lt;/li&gt;
-  &lt;li&gt;변수는 메모리 셀을 차지하고 있으며, 계산 결과의 변화에 따라 변경 가능한 값을 저장한다. ​&lt;/li&gt;
-  &lt;li&gt;할당문은 계산 결과를 메모리에 저장하며, 이를 통해 변수의 값을 변경시킨다. ​&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Iteration은 값이 변하는 변수를 통해 반복처리를 제어한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;명령형 프로그래밍의 장점은 실행 시스템의 구현이 단순하고 저비용 고효율이다. ​&lt;/li&gt;
-  &lt;li&gt;명령형 프로그래밍의 단점은 ​
-    &lt;ul&gt;
-      &lt;li&gt;Goto는 아무런 조건없이 점프만하기 때문에, ​프로그램의 올바름을 판단하기 어렵게 만든다. ​&lt;/li&gt;
-      &lt;li&gt;난로컬 변수와 할당문으로 인해 부작용이 발생하며, ​이로 인해 프로그램의 올바름을 판단하기 어렵게 만든다. ​&lt;/li&gt;
-      &lt;li&gt;알고리듬의 어느 부분이 동시 처리 가능한지, ​동시처리하면 안되는지 탐지하기 어려워서, ​알고리듬이 필요 이상으로 순차적이다. ​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;최근 들어 많은 연구자들은 소프트웨어 위기와 속도 문제가 ​명령형 언어와 튜링 머신의 계산 모델에 기인한다고 추측하고 있다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;함수 프로그램에서는, ​&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;함수 파라미터의 실제 ‘값’이 함수 호출의 결과를 유일하게 결정한다. ​&lt;/li&gt;
-  &lt;li&gt;할당문이 없어서 함수의 부작용이 발생할 수 없다. ​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;FUNCTION increment (INTEGER value) : INTEGER;​
-BEGIN​
-value + 1​
-END;​
-:​
-print(increment (41));​ 
-print(increment (41));​
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;함수의 결과는 파라미터의 값에 의해서만 결정되므로, ​어떠한 조건 하에서도 그 결과는 같다. ​이것을 referential transparenc라고 한다. ​이러한 이유로, 함수 increment의 결과 값은 둘다 42이다. ​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;함수 프로그래밍 언어에서는 함수를 ‘일등 시민’으로 취급한다. ​&lt;/li&gt;
-  &lt;li&gt;따라서 함수를 파라미터로 주고 받을 수 있다. ​&lt;/li&gt;
-  &lt;li&gt;명령형 프로그래밍 언어에서는 함수를 파라미터로 주고 받을 수 없다. ​&lt;/li&gt;
-  &lt;li&gt;함수 프로그래밍 언어는 함수의 일반적인 사용(합성 함수 f(g(x)) 등)을 지원한다. ​&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;이것은 종래의 명령형 언어에서 허용되지 않는다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;함수 프로그래밍 언어는 계산 모형을 람다 계산학에 기반하고 있으며, ​기본 개념으로 표현식(expression), 리커젼, 평가, 변수가 있다. ​&lt;/li&gt;
-  &lt;li&gt;표현식은 수학식을 의미하며, ​리커젼은 재귀 함수에 의한 반복처리로서, iteration과 다르다. ​&lt;/li&gt;
-  &lt;li&gt;평가는 함수의 실행을 의미하지만, 아무 것도 수정하지 않는다. ​&lt;/li&gt;
-  &lt;li&gt;변수는 수학적 의미의 변수로서 알려지지 않은 값을 가지며, ​구체적인 값의 추상화일 뿐, 메모리를 차지하지 않는다. ​&lt;/li&gt;
-  &lt;li&gt;따라서 값의 placeholder 역할을 하며, 수정 불가능하다. ​&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;FPL에서는 명령형 언어적 의미의 변수가 없으므로, ​iteration이 불가능하며, ​대신에 반복처리를 위한 리커젼이 있다.​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;FPL의 장점은 ​
-    &lt;ul&gt;
-      &lt;li&gt;IPL의 기본 개념이 없어서, 소프트웨어 신뢰성을 높인다. ​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;프로그래머는 함수를 정의하기만 하고, 인터프리터(실행 시스템)가 계산한다. ​&lt;/li&gt;
-  &lt;li&gt;할당문이 없고, 변수의 개념이 IPL의 변수와 다르고, 부작용이 없다. ​
-    &lt;ul&gt;
-      &lt;li&gt;변수는 ‘아직 알려지지 않은 값’을 명명하고 언급한다. ​&lt;/li&gt;
-      &lt;li&gt;부작용이 없어서, 올바름 증명이 쉽고, 함수의 평가는 순서에 무관하다. ​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;따라서 FPL은 병렬 처리에 적합하다&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;FPL의 단점은, ​우선, 실행 속도가 매우 느려서 비효율적이다. ​&lt;/li&gt;
-  &lt;li&gt;그 이유는 다음과 같다. ​
-    &lt;ul&gt;
-      &lt;li&gt;머신 아키텍처가 함수 언어에 적합하게 설계되지 않았다. ​&lt;/li&gt;
-      &lt;li&gt;함수 호출 비용이 비싸다. 특히 지연 평가시에… ​&lt;/li&gt;
-      &lt;li&gt;파괴적 갱신(갱신되면 먼저 값이 없어짐)에 적합하므로, ​효율적인 컴파일 방법을 찾기 어렵고, ​
-어떤 알고리듬에 대해, 시간 및 공간 복잡도가 너무 높다. ​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;이러한 경우에 효율을 위해 프로그램 변환이 필요하다. ​&lt;/li&gt;
-  &lt;li&gt;아직 효율적인 컴파일 방법이 널리 사용 가능하지 않다. ​&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;많은 경우에 함수 프로그램의 효율이 받아 들일 수 있는 수준에 있지만, ​컴파일 방법이 매우 복잡하고 연구 수준에 머물어 있다. ​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;둘째, 명령형 프로그램의 특성이 강한 어플리케이션에 아직 부적합하다. ​
-    &lt;ul&gt;
-      &lt;li&gt;상호 작용이 강한 어플리케이션을 함수 프로그래밍 스타일로 표현하는 능력이 아직은 부족하다. ​&lt;/li&gt;
-      &lt;li&gt;이들 어플리케이션으로는 상호적 프로그램, DBMS, OS, 프로세스 컨트롤 등이다. ​&lt;/li&gt;
-      &lt;li&gt;함수 프로그래밍 기술 개발이 필요하다. ​&lt;/li&gt;
-      &lt;li&gt;함수 스타일로 표현하기 어려운 어플리케이션을 함수 스타일로 표현하는 방법을 개발하는 것이 필요하다.  ​&lt;/li&gt;
-      &lt;li&gt;현재, 윈도우, 다이알로그, 메뉴 등을 사용하는 상호적 프로그램을 함수 언어로 명세화하는 방법이 알려져 있다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Functions as programs ​&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;함수가 프로그램인가? 이 문제에 대해 살펴 봅시다. ​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;팩토리알을 구하는 함수는 프로그램이라고 간주해도 문제가 없다. ​프로그램의 종료 확인 함수(Halting)는 계산 가능하지 않고, 따라서 원하는 결과를 생산하지 못한다.  ​&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;함수가 임의의 프로그램에 대해 halting 함수를 계산한다고 하자. ​만일 파라미터 프로그램이 종료되지 않는다면 ​Halting 함수는 종료되지 않을 것이고, ​Result 0이 절대로 생산되지 않는다. ​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;이들 예에서 함수는 람다 계산학에 기반한 계산 모델을 사용하여 평가된다. ​&lt;/li&gt;
-  &lt;li&gt;평가는 IPL의 실행과 유사하지만, IPL의 파괴적 갱신이 없다는 면에서 다르다.​&lt;/li&gt;
-  &lt;li&gt;람다 계산학은 함수 정의 방식과 변수 대체 규칙(substitution)으로 구성된다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Functional programs​&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;FPL로 작성된 프로그램은 함수의 모음과 초기 표현식으로 구성된다. ​&lt;/li&gt;
-  &lt;li&gt;초기 표현식이란 모든 파라미터가 상수인 (또는 상수로 대체된) 표현식을 말하는데, ​&lt;/li&gt;
-  &lt;li&gt;이 식은 평가되어야 한다. -&amp;gt; reduce​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;​+ 함수 정의는 표현식 내에서 다음 형태로 구성된다. ​(여기서는 scheme 문법을 차용함) ​
-define (함수명 파라미터1 … 파라미터n) 표현식) ​
-이와 같이 함수 프로그램을 정의하는 것은 recursive하다. ​
-표현식은 함수 결과를 명세화하며, 값, 파라미터, 함수 적용(application)을 나타낸다. ​&lt;/p&gt;
-
-&lt;p&gt;​+ 함수 적용(application), (f a)는 함수 f를 a에 적용하라는 뜻이다. ​
-초기 표현식은 (+ 2 3), (squareinc 5)과 같이 계산될 수 있는 표현식이다.  ​
-함수 프로그램의 예를 들어 보자. ​&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Evaluation of functional programs​&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;함수 프로그램의 평가는 실행이나 계산을 의미하는데,  이것은 초기 표현식의 평가와 리덕션(표현식의 축소화)에 의한다. ​&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;초기 표현식의 평가는 인터프리터가 수행하며, ​반복적으로 리덕션(또는 rewriting)을 수행한다. ​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;예를 들어, ​&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(ident 42) → 42​
-(square (+ 1 2)) → (square 3) → (* 3 3) → 9​
-(squareinc 7) → (square (inc 7) → (square (+ 7 1)) → (square 8) → (*8 8) → 64​
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;각 리덕션 단계에서(화살표로 표시)  ​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;함수 적용은 함수의 파라미터를 대응하는 함수 body로 교체하는 것이다.  ​
-리덕션 가능한 표현식(redex)은 함수 정의에 따라 rewrite 될 수 있는 서브 표현식을 말한다. ​&lt;/li&gt;
-  &lt;li&gt;다음 상황에서 리덕션 과정이 끝난다.​
-    &lt;ul&gt;
-      &lt;li&gt;더 이상 redex가 남아 있지 않고,  ​(즉, 더 이상 어떠한 함수 정의라도 적용할 수 없을 때)​&lt;/li&gt;
-      &lt;li&gt;초기 표현식이 가장 단순한 형태(normal form; 상수만 있는 축소화된 표현식)에 있을 때, ​결과를 프린트하고 종료한다.   ​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Order of Evaluation&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;부작용이 없어서, 평가 순서는 무관하다. ​&lt;/li&gt;
-  &lt;li&gt;리덕션 가능한 표현식이 다 없어진 후에, ​계산 결과는 항상 같고, 유일하다. ​&lt;/li&gt;
-  &lt;li&gt;그러나 순서가 완전히 무관한 것은 아니다. ​경우에 따라 리덕션 순서는 결과를 생산하지 못할 뿐더러 종료되지 않을 수 있다. ​
-    &lt;ul&gt;
-      &lt;li&gt;종료 못하는 리덕션 순서의 예: ​&lt;/li&gt;
-      &lt;li&gt;리커젼 함수의 정의가  ​(define (inf x) (inf x)) (define (alwaysseven x) 7)  일 때, ​만일 앞의 것을 먼저 계산하면, ​(alwaysseven (inf 2)) → (alwaysseven (inf 2)) → … 종료되지 않는다. ​&lt;/li&gt;
-      &lt;li&gt;그러나 뒤의 것을 먼저 계산하면, ​(alwaysseven (inf 2)) → 7로 종료된다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;리덕션 전략에는 call by value, call by name이 있다. ​&lt;/li&gt;
-  &lt;li&gt;먼저 리슾, 스킴, 엠엘 등에서 사용되는 call by value를 살펴 보자. ​
-    &lt;ul&gt;
-      &lt;li&gt;Eager, strict evaluation이라고 한다. ​&lt;/li&gt;
-      &lt;li&gt;리덕션 절차에 의해 함수 적용 그 자체가 리덕션 가능한 표현식이라고 간주(확인)되기 전에, ​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;함수의 파라미터를 항상 리덕션한다. (그것이 초기 표현식일 때) ​
-    &lt;ul&gt;
-      &lt;li&gt;파리미터에 대한 함수 적용은 그 파라미터가 값일때만, 리덕션 가능한 표현식이 된다. ​&lt;/li&gt;
-      &lt;li&gt;조건 연산자 if의 적용 후에, if의 파라미터를 평가한다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;하스켈에서 사용되는 Call by name를 살펴 보자. ​
-    &lt;ul&gt;
-      &lt;li&gt;lazy evaluation이라고 한다. ​&lt;/li&gt;
-      &lt;li&gt;값이 알려져서 초기 표현식이 되고 값을 반환해야 할 때가 되면,  ​비로소 리덕션 가능한 서브 표현식의 값이 계산된다. ​&lt;/li&gt;
-      &lt;li&gt;조건 함수의 call by name은 ​첫째 파라미터(if 다음의 부울식)의 평가를 요구한다.  ​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;정리하면, ​Eager는 초기 표현식이 만들어지면 바로 계산하여 리덕션(축소화)하지만, ​
-Lazy는 초기 표현식이 만들어지더라도 그 식의 값이 필요할(반환해야 할) 때 계산한다. ​
-표현식에 조건함수가 있다면, if 다음의 부울식을 계산해 가면서 표현식을 펼쳐 가면서 리덕션한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Recursion ​&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;리커젼은 순환적으로 정의된 데이터에 대한 함수 정의에 자연스럽게 적용되는 절차이다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Higher-order functions​&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;FPL은 함수의 개념에 대해 일반적인 관점을 갖는다. ​&lt;/li&gt;
-  &lt;li&gt;함수는 ‘일등 시민’으로 (객체처럼) 취급된다. ​&lt;/li&gt;
-  &lt;li&gt;함수는 파라미터와 결과로서 함수를 가질(사용할) 수 있다. ​&lt;/li&gt;
-  &lt;li&gt;고차 함수는 파라미터로 함수를 갖거나 결과로서 함수를 생산한다. ​&lt;/li&gt;
-  &lt;li&gt;일차 함수는 파라미터와 결과로서 함수가 아닌 값을 갖는다. ​&lt;/li&gt;
-  &lt;li&gt;예에서 파라미터로서 함수 f를 갖는다. ​&lt;/li&gt;
-  &lt;li&gt;이때 f는 목적에 따라 inc, square, ident 등이 된다. ​&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;이와 같이 파라미터로서 함수를 쓰는 것은 ​동일한 함수를 다른 경우에 적용하는데 유용하다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;자연수 n을 인풋으로 받아서 ​sum, product를 구하는 프로그램을 짠다고 하면, ​
-위의 슬라이드와 같다. ​&lt;/li&gt;
-  &lt;li&gt;왼쪽은 함수 파라미터가 없이 ​미리 정의된 함수 G만을 사용하여 계산하는 경우이고, ​&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;오른쪽은 함수 파라미터를 갖고 있어서, ​목적에 따라 다양한 함수를 사용하여 계산할 수 있는 경우이다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;파라미터와 결과로서 함수를 갖는 함수의 예로 함수 합성을 들 수 있다. ​&lt;/li&gt;
-  &lt;li&gt;함수의 합성은 두개의 함수를 인풋으로 받아서, 합성 함수를 반환한다. ​&lt;/li&gt;
-  &lt;li&gt;합성 함수를 정의하려면, 함수를 나타내는 표현식을 함수명 없이 쓸 수 있어야 한다. ​&lt;/li&gt;
-  &lt;li&gt;이와 같은 함수를 익명 함수라고 부르며, 그 신택스는 다음과 같다. ​&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;(lambda (파라미터1, … 파라미터n)  body)​ 이것을 이용하여 합성 함수를 정의하면, ​(define (compose f g) (lambda (x) (f (g x))))가 된다. ​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;파라미터로 주어진 함수와 동일한 유형의 함수와 ​&lt;/li&gt;
-  &lt;li&gt;n일 때 갱신된 새로운 값을 반환하는 ​&lt;/li&gt;
-  &lt;li&gt;고차 함수의 정의는 다음과 같다. ​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(define (change-value-at-n  f  n  new-value)​
-        (lambda (x)​
-            (if (= x n)​
-                new-value​
-                (f x))))​
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;여기서 람다가 들어가는 이유는 이것이 새로운 함수이기 때문이다. ​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;표현식을 정의하는 신택스는 (define name expr)이다. ​&lt;/li&gt;
-  &lt;li&gt;표현식의 예는 (define a (+ 3 4)) (* a 2)  결과는 14이다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Data structures​&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;FPL의 데이터 구조는 read-only이다. ​&lt;/li&gt;
-  &lt;li&gt;Overwrite할 수 없고, 글로벌하게 사용하지 못하지만, ​파라미터로서 함수에 패스된다. ​&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;리스트는 FPL에서 미리 정의된 자료구조로, recursive하다. ​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;리스트를 구성하는 데 필요한 데이터 컨스트럭터는 다음과 같다. ​
-    &lt;ul&gt;
-      &lt;li&gt;empty: 엠티 리스트를 나타낸다. ​&lt;/li&gt;
-      &lt;li&gt;cons: 값과 리스트를 인풋으로 받아서 v를 첫째 요소로 하는 새로운 리스트를 반환한다. ​&lt;/li&gt;
-      &lt;li&gt;여러 값을 리스트로 만들어야 할 때 cons 대신에 list 함수를 사용한다. ​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;리스트의 조작을 위해 미리 정의된 셀렉터는 다음과 같다. ​
-    &lt;ul&gt;
-      &lt;li&gt;car: 리스트를 인풋으로 받아서 첫째 요소를 반환한다.    ​&lt;/li&gt;
-      &lt;li&gt;cdr: 리스트를 인풋으로 받아서 첫째 요소를 제외한 나머지를 반환한다.    ​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(define Pamuk (list #t 2 #f))에서, ​
-(car Pamuk)은 #t을 반환하고,​
-(cdr Pamuk)은 (2 #f)를 반환한다. ​
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Definition of Lambda calculus ​&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Free and bound variables ​&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Substitution as a computation ​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;람다 계산학은 FPL의 계산 모델이다. ​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;람다 계산학은 하나의 변환 규칙과 하나의 함수 정의 방식(스킴)으로 구성된다.​&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;변환 규칙은 변수 대체로서, 베타 변환이라고도 한다. ​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;표현식은 이름이거나 함수이다. ​&lt;/li&gt;
-  &lt;li&gt;이름은 값을 담고 있는 것의 식별자이고, ​함수는 파라미터의 이름을 표시하기 위해, ​
-그리스 문자 람다를 사용한다. ​&lt;/li&gt;
-  &lt;li&gt;함수의 body는 λ&lt;파라미터&gt;의 뒤에 나오는 표현식으로, ​파라미터를 어떻게 재구성할 것인지 명세화한다. ​&lt;/파라미터&gt;&lt;/li&gt;
-  &lt;li&gt;표현식의 (순환적) 정의는 다음 3개의 규칙에 의한다. ​
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;table&gt;
-          &lt;tbody&gt;
-            &lt;tr&gt;
-              &lt;td&gt;&amp;lt; expression &amp;gt; := &amp;lt; name &amp;gt;&lt;/td&gt;
-              &lt;td&gt;&amp;lt; function &amp;gt;&lt;/td&gt;
-              &lt;td&gt;&amp;lt; application &amp;gt; ​&lt;/td&gt;
-            &lt;/tr&gt;
-          &lt;/tbody&gt;
-        &lt;/table&gt;
-      &lt;/li&gt;
-      &lt;li&gt;&amp;lt; function &amp;gt; := λ &amp;lt; name &amp;gt; . &amp;lt; expression &amp;gt; ​&lt;/li&gt;
-      &lt;li&gt;&amp;lt; application &amp;gt; := &amp;lt; expression &amp;gt;&amp;lt; expression &amp;gt; ​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;여기서 name은 파라미터명을, application은 함수의 적용을 나타낸다. ​&lt;/li&gt;
-  &lt;li&gt;함수의 적용은 name과 function이 나열될 수 있다. 앞에서 나온 f a처럼 함수의 body는 &lt;expression&gt; 이다. ​&lt;/expression&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;​+ 합성 표현식은 지속적인 표현식을 적용하여 합성 표현식을 평가한다.  ​&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;즉, E1E2E3 . . . En ≡  (. . . ((E1E2)E3) . . . En)이다. ​&lt;/li&gt;
-  &lt;li&gt;여기서 ≡는 동동성(equivalence)를 나타낸다. ​&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;모호함을 줄이기 위해, λx.x ≡ (λx.x)와 같이 괄호를 사용한다. ​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;함수는 표현식에 적용될 수 있다. ​
-    &lt;ul&gt;
-      &lt;li&gt;이러한 경우에 해당되는 단순한 예로, (λx.x)y을 들 수 있다. ​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;이것은 y에 identity 함수를 적용하는 것이다. ​
-    &lt;ul&gt;
-      &lt;li&gt;이때, 표현식이 모호해 질 수 있으며, 괄호를 써서 모호성을 피한다.  ​&lt;/li&gt;
-      &lt;li&gt;함수 적용의 평가는 파라미터를 함수 정의의 body로 대체하는 것이다.​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;위의 예에서, X를 y로 대체하는 것이 함수 적용의 평가이다. ​&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;맨 아랫줄의 [y/x]는 x를 y로 대체하는 것을 나타낸다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;대체하는 것을 베타 리덕션이라고도 한다. ​&lt;/li&gt;
-  &lt;li&gt;이것을 자세히 들여다 보면, 두 단계로 이루어짐을 알 수 있다. ​&lt;/li&gt;
-  &lt;li&gt;파라미터가 표현식을 받아들인다(take in). 이후 표현식으로 body의 파라미터를 교체한다. ​&lt;/li&gt;
-  &lt;li&gt;그림은 이 과정을 보여준다. ​&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;리덕션(축소화)은 함수 적용을 통해 ​표현식에 포함된 함수 정의를 줄여 나가는(축소하는) 과정이다.  ​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;변수는 자유 변수와 속박 변수로 구분된다. ​
-    &lt;ul&gt;
-      &lt;li&gt;모든 name(변수)는 함수 정의 내에서 로컬이다. ​&lt;/li&gt;
-      &lt;li&gt;함수 λx.x에서 body 내의 x는 그 앞에 λx가 있기때문에 속박 변수이다. ​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;자유 변수는 name 앞에 λ가 없다. ​
-    &lt;ul&gt;
-      &lt;li&gt;표현식 (λx.x)(λy.yx)에서, 첫째 표현식의 body에 있는 x는 첫째 λ에 속박되어 있다.  ​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;두번째 표현식의 body에 있는 y는 두번째 λ에 속박되어 있다. ​&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;두번째 표현식의 body에 있는 x는 자유변수이며, 첫번째 표현식의 x와 전적으로 독립적이다. ​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;이 슬라이드는 표현식 (λx.x)(λy.yx)의 베타 리덕션을 보여준다. ​&lt;/li&gt;
-  &lt;li&gt;앞 표현식의 x가 두번째 표현식을 받아 들여서 ​앞 표현식의 body의 x를 두번째 표현식으로 교체한다. ​&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;이와 같이 함수 적용을 통해, 표현식의 함수 정의를 제거함으로써, ​표현식을 축소해 나간다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;베타 리덕션의 조금 복잡한 사례를 살펴 보자 ​&lt;/li&gt;
-  &lt;li&gt;표현식이 (λx.(λy.xy))y 라고 하자. ​&lt;/li&gt;
-  &lt;li&gt;대체할 때, 자유 변수와 속박 변수를 혼동하지 않도록 조심해야 한다. ​&lt;/li&gt;
-  &lt;li&gt;왼쪽의 함수는 속박변수 y를 포함한다. ​&lt;/li&gt;
-  &lt;li&gt;오른쪽 표현식의 y는 괄호 밖에 있으며, 따라서 자유 변수이다. ​&lt;/li&gt;
-  &lt;li&gt;변수 y는 왼쪽에서는 속박 변수, 오른쪽에서는 자유 변수이다. ​&lt;/li&gt;
-  &lt;li&gt;이때 이들을 혼동하면 (λy.yy) 로 잘못 리덕션된다. ​&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;혼동을 피하려면, 속박 변수 y를 t로 재명명(rename)하면 된다. ​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;정리해 보면,…​&lt;/li&gt;
-  &lt;li&gt;교체했다고 가정하고, ​&lt;/li&gt;
-  &lt;li&gt;새로 교체한 변수가 이후의 표현식에서 기존의 바운드 변수로 사용되었다면, ​&lt;/li&gt;
-  &lt;li&gt;전혀 다른 두 변수가 동일한 이름을 쓰게 되기 때문에, ​새로 교체한 변수와 기존의 바운드 변수를 구분할 필요가 있다. ​&lt;/li&gt;
-  &lt;li&gt;이를 위해 기존의 바운드 변수를 재명명(rename)한다. ​&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;그러나 (λx.(λt.xt))y 와 같이 끝의 y는 free이므로 rename하지 않는다. ​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;이 슬라이드의 윗 부분은 앞 슬라이드의 ‘정리하면’의 부분이다. ​&lt;/li&gt;
-  &lt;li&gt;끝으로 조금 더 복잡한 예를 들어 보자. ​&lt;/li&gt;
-  &lt;li&gt;앞쪽 함수는 변수 y에 적용하면, ​&lt;/li&gt;
-  &lt;li&gt;오른쪽 표현식의 자유변수 y(빨간)와 앞의 함수의 body, ​&lt;/li&gt;
-  &lt;li&gt;또 다시 body의 속박변수 y(파란)와 혼동된다(구별되지 않는다). ​&lt;/li&gt;
-  &lt;li&gt;혼동을 피하고 이들을 구별하려면, 속박변수 y를 t로 재명명한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Arithmetic functions​&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Successor 함수를 이와 같이 정의하자.  ​
-여기서 n은 a의 개수이다. ​
-앞에서 정의한 0, 1, 2, 3을 참고하자. ​&lt;/p&gt;
-
-&lt;p&gt;그렇다면 Addition과 Multiplication 함수는 ​
-Successor 함수를 이용하여 다음과 같이 정의할 수 있다. ​
-2+3은 2S3으로, (λsz.s(sz)))S3 로 정의할 수 있고, 이것을 리덕션하면, ​
-→S(S3) → · · · → 5 가 된다. ​
-3*3은 (λxya.x(ya))33 → (λa.3(3a)) 으로 정의되며, ​
-이것을 리덕션하면 9가 된다. ​&lt;/p&gt;
-
-&lt;p&gt;—​&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Recursion&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;함수 Y를 이와 같이 정의한다. ​
-Y를 함수 R에 적용하면, YR은 이와 같다. ​
-이것을 리덕션하면, YR -&amp;gt; R(YR)가 된다. ​
-람다 계산학에서 리커젼은 이와 같이 표현되며, ​
-R의 평가(계산)은 YR의 순환 호출을 사용한다. ​&lt;/p&gt;
-
-&lt;p&gt;이것으로 함수 프로그램과 람다 계산학의 소개를 마칩니다.&lt;/p&gt;
-
-&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="pl" /><summary type="html">Lambda Calculus​ __</summary></entry><entry><title type="html">__Diffie-Hellman__</title><link href="https://lee989898.github.io/sc-14" rel="alternate" type="text/html" title="__Diffie-Hellman__" /><published>2021-11-17T01:06:00+09:00</published><updated>2021-11-17T01:06:00+09:00</updated><id>https://lee989898.github.io/sc-14</id><content type="html" xml:base="https://lee989898.github.io/sc-14">&lt;h3 id=&quot;diffie-hellman&quot;&gt;&lt;strong&gt;Diffie-Hellman&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Diffie-Hellman&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;보안성 없는 매체를 통한 Symmetric key 공유&lt;/li&gt;
-  &lt;li&gt;송/수신자를 위한 일회용 Secret/shared session key agreement protocol&lt;/li&gt;
-  &lt;li&gt;이산대수문제&lt;/li&gt;
-  &lt;li&gt;IPSEC, 상용sw에 자주 사용&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Steps&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;p,g: 큰 정수, 1 &amp;lt; q &amp;lt; p, 모든 사용자에 공개&lt;/li&gt;
-  &lt;li&gt;Alice는 임의로 a 생성, A = $g^a$ mod p 계산&lt;/li&gt;
-  &lt;li&gt;Bob은 임의로 b 생성, B = $g^b$ mod p 계산&lt;/li&gt;
-  &lt;li&gt;A,B를 서로 교환&lt;/li&gt;
-  &lt;li&gt;Alice와 Bob은 K=$g^{ab}$ mod p&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Deiffie-Hellman의 취약성: 중간자 공격&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Man in the middle attack: Trudy poses as Alice and as Bob
-    &lt;ul&gt;
-      &lt;li&gt;Diffe-Hellman은 매우 복잡한 프로토콜이지만, 제 3자가 x 또는 y 값을 알아내지 않아도 되기 때문에 중간에서 밥과 앨리스를 속이는 것이 가능하다.​&lt;/li&gt;
-      &lt;li&gt;중간자 공격 절차​
-        &lt;ol&gt;
-          &lt;li&gt;앨리스가 x를 선택한 후 R1=Gx를 계산하여 R1을 밥에게 전송​&lt;/li&gt;
-          &lt;li&gt;제 3자가 R1을 가로챈 후, z를 선택한 다음 R2=Gz mod N을 계산하여 R2를 앨리스와 밥에게 전송​&lt;/li&gt;
-          &lt;li&gt;밥이 y를 선택한 다음 R3=Gy mod N을 계산해서 R3을 앨리스에게 전송, R3을 제 3자가 가로챔​&lt;/li&gt;
-          &lt;li&gt;앨리스와 제 3자가 공유한 키 K1=Gxz mod N을 계산​&lt;/li&gt;
-          &lt;li&gt;제 3자와 밥은 공유한 키 K2=Gzy mod N을 계산​&lt;/li&gt;
-        &lt;/ol&gt;
-      &lt;/li&gt;
-      &lt;li&gt;경우 앨리스와 밥은 제 3자와 공유한 키를 서로간의 공유한 키로 생각​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;사용자 인증을 하지 않아서 발생하는 문제 -&amp;gt; 전자서명, 인증서&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="security" /><summary type="html">Diffie-Hellman</summary></entry><entry><title type="html">__DRM(Digital Right Managemment__</title><link href="https://lee989898.github.io/sc-15" rel="alternate" type="text/html" title="__DRM(Digital Right Managemment__" /><published>2021-11-17T01:06:00+09:00</published><updated>2021-11-17T01:06:00+09:00</updated><id>https://lee989898.github.io/sc-15</id><content type="html" xml:base="https://lee989898.github.io/sc-15">&lt;h3 id=&quot;drmdigital-right-managemment&quot;&gt;&lt;strong&gt;DRM(Digital Right Managemment&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;DRM&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;digital 저작권 관리&lt;/li&gt;
-  &lt;li&gt;Digital contents의 불법 사용을 제한/방지하고, 저작권을 보고하기 위한 기술 및 서비스&lt;/li&gt;
-  &lt;li&gt;Digital contents
-    &lt;ul&gt;
-      &lt;li&gt;audio,video,image,text,multimedia,sw 등&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;저작권이란&lt;/li&gt;
-  &lt;li&gt;Copyright​&lt;/li&gt;
-  &lt;li&gt;저작자가 자신이 창작한 저작물에 대해 갖는 권리(저작권법)​
-    &lt;ol&gt;
-      &lt;li&gt;복제권: 저작자는 저작물을 복제할 권리를 갖는다​&lt;/li&gt;
-      &lt;li&gt;공연권​&lt;/li&gt;
-      &lt;li&gt;공중송신권​&lt;/li&gt;
-      &lt;li&gt;전시권: 원본이나 복제물을 전시할 권리​&lt;/li&gt;
-      &lt;li&gt;배포권: 원본이나 복제물을 배포. 다만, 저작자의 허락을 받아 판매등의 방법으로 거래에 제공된 경우는 제외​&lt;/li&gt;
-      &lt;li&gt;대여권: 영리를 목적으로 대여할 권리​&lt;/li&gt;
-      &lt;li&gt;2차적 저작물작성권: 원저작물로 하는 2차적저작물을 작성하여 이용할 권리​&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Common DRM business model&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Provider​
-    &lt;ul&gt;
-      &lt;li&gt;저자물(권) 소유​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Distributor​
-    &lt;ul&gt;
-      &lt;li&gt;유통을 담당하는 배급자​&lt;/li&gt;
-      &lt;li&gt;합법적인 소비자에게만 제공해야​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Clearinghouse​
-    &lt;ul&gt;
-      &lt;li&gt;디지털 상품에 대한 권리발급​&lt;/li&gt;
-      &lt;li&gt;배급료, 사용료 처리 (Log기록)​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Consumer​
-    &lt;ul&gt;
-      &lt;li&gt;Clearinghouse에 사용료지급하고  distributor로부터 컨텐츠제공받음&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;주요기술 1: Stegano graphy(숨겨진 글)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;평범해 보이는 미디어에 내용을 아는 수신자만 알아볼 수 있도록 은밀히 정보를 숨기는 기술​&lt;/li&gt;
-  &lt;li&gt;암호화알고리즘이 안전하지 않을 때 유용&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;주요기술 2: Watermark&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;빛을 비출때나 반사될 때 더 밝게 보이는, 인지할 수 있는 종이의 무늬나 그림​&lt;/li&gt;
-  &lt;li&gt;지폐, 상표, 문서 등의 위조 방지에 많이 사용된다&lt;/li&gt;
-  &lt;li&gt;Digital watermarking​
-    &lt;ul&gt;
-      &lt;li&gt;Text, image, video, audio 등의 원본 데이터에 본래 소유주만이 아는 mark를 사람의 감각으로 식별할 수 없게 삽입하는 기술​&lt;/li&gt;
-      &lt;li&gt;일부 digital data가 손상되더라도 인간은 감지할 수 없음​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;복제방지, 원본여부, 재생횟수제한, 유효기간설정, 시간제한 등에 활용&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="security" /><summary type="html">DRM(Digital Right Managemment</summary></entry><entry><title type="html">프로세스통신-socket</title><link href="https://lee989898.github.io/st-09" rel="alternate" type="text/html" title="프로세스통신-socket" /><published>2021-11-16T01:06:00+09:00</published><updated>2021-11-16T01:06:00+09:00</updated><id>https://lee989898.github.io/st-09</id><content type="html" xml:base="https://lee989898.github.io/st-09">&lt;h3 id=&quot;프로세스통신-socket&quot;&gt;&lt;strong&gt;프로세스통신-socket&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Socket&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Pipe는 통신하는 프로세스들을 하나의 시스템 내부로 한정 ​&lt;/li&gt;
-  &lt;li&gt;Socket은 같은 시스템에 속한 프로세스들 뿐만 아니라, 서로 다른 시스템들에 속한 프로세스들 간의 통신을 가능케 함​
-    &lt;ul&gt;
-      &lt;li&gt;socket() 시스템 호출에 의해 만들어 짐 ​&lt;/li&gt;
-      &lt;li&gt;응용 프로그램의 관점에서는 pipe와 마찬가지로 파일 디스크립터를 통해 접근(read, write, 등) 가능​&lt;/li&gt;
-      &lt;li&gt;Kernel의 관점에서 socket은 IPC를 위한 통신의 끝점(또는 출입구)에 해당함​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;전혀 관계없는 프로세스간에 통신을 위해 socket을 식별할 목적으로 이름을 붙임​
-    &lt;ul&gt;
-      &lt;li&gt;파일 이름 또는 번호​&lt;/li&gt;
-      &lt;li&gt;bind() 시스템 호출 사용​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;이름 붙이기&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Linux 도메인에서는 socket 이름으로 파일 이름 사용 (경로명 포함)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;INET(Internet) 도메인에서는 socket 이름으로 포트번호 사용​&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Well-known port: ftp는 21번, telnet은 23번, 등등. ​&lt;/li&gt;
-      &lt;li&gt;통신 상대 프로세스가 속한 컴퓨터 시스템 이름(IP address) + 
-  포트 번호&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/st/st21.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;시스템프로그래밍&quot; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Stream Socket을 이용한 IPC&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Virtual circuit​
-    &lt;ul&gt;
-      &lt;li&gt;통신 대상에 연결(논리적 접속)을 설정​&lt;/li&gt;
-      &lt;li&gt;그 연결을 통하여 데이터를 송수신​&lt;/li&gt;
-      &lt;li&gt;송수신이 끝나면 연결 해제​&lt;/li&gt;
-      &lt;li&gt;연결형 통신이라고 부름 : 전화에 비유​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Stream socket​
-    &lt;ul&gt;
-      &lt;li&gt;Virtual circuit 기능을 이용하여 구현한 socket​&lt;/li&gt;
-      &lt;li&gt;프로세스간에 대량의 데이터를 송수신하는 경우 이용 ​&lt;/li&gt;
-      &lt;li&gt;통신의 신뢰성 보증​&lt;/li&gt;
-      &lt;li&gt;송신한 정보가 없어지거나 바뀌지 않음​&lt;/li&gt;
-      &lt;li&gt;올바른 순서로 수신됨​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;연결형 프로토콜의 예 : TCP (Transmission Control Protocol)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Client :​
-    &lt;ul&gt;
-      &lt;li&gt;Socket 작성 : socket() 시스템 호출​&lt;/li&gt;
-      &lt;li&gt;Socket에 이름 붙임 : bind()  생략 가능​&lt;/li&gt;
-      &lt;li&gt;Server에 접속 요구 : connect()​&lt;/li&gt;
-      &lt;li&gt;데이터 송수신 : read()/write()  socket이 파일 디스크립터로 접근 가능하므로​&lt;/li&gt;
-      &lt;li&gt;Socket 제거 : close()​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Server : ​
-    &lt;ul&gt;
-      &lt;li&gt;Socket 작성 : socket() 시스템 호출​&lt;/li&gt;
-      &lt;li&gt;Socket에 이름 붙임 : bind()​&lt;/li&gt;
-      &lt;li&gt;Client의 접속 요구 받을 준비 : listen()​&lt;/li&gt;
-      &lt;li&gt;접속 요구 허가 : accept()​&lt;/li&gt;
-      &lt;li&gt;데이터 송수신 : read()/write()​&lt;/li&gt;
-      &lt;li&gt;Socket 제거 : close()&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/st/st22.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;시스템프로그래밍&quot; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Datagram Socket을 이용한 IPC&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Datagram​
-    &lt;ul&gt;
-      &lt;li&gt;통신 대상에 연결(논리적 접속)을 설정할 필요 없음​&lt;/li&gt;
-      &lt;li&gt;개개의 데이터를 그때 그때 상대방에게 보냄​&lt;/li&gt;
-      &lt;li&gt;비 연결형 통신이라고 부름 : 편지에 비유​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Datagram socket​
-    &lt;ul&gt;
-      &lt;li&gt;Datagram 기능을 이용하여 구현한 socket​&lt;/li&gt;
-      &lt;li&gt;프로세스간에 작은 데이터를 계속해서 보내는 통신​&lt;/li&gt;
-      &lt;li&gt;매번 데이터를 보낼 때마다 상대방을 지정 ​&lt;/li&gt;
-      &lt;li&gt;전송 데이터의 신뢰성이 보증되지 않음 : 시간, 순서, 등​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;비 연결형 프로토콜의 예 : UDP (User Datagram Protocol)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Client :​
-    &lt;ul&gt;
-      &lt;li&gt;Socket 작성 : socket() 시스템 호출​&lt;/li&gt;
-      &lt;li&gt;Socket에 이름 붙임 : bind()  생략 가능​&lt;/li&gt;
-      &lt;li&gt;데이터 송신 : sendto() ​&lt;/li&gt;
-      &lt;li&gt;데이터 수신 : recvfrom()​&lt;/li&gt;
-      &lt;li&gt;Socket 제거 : close()​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Server : ​
-    &lt;ul&gt;
-      &lt;li&gt;Socket 작성 : socket() 시스템 호출​&lt;/li&gt;
-      &lt;li&gt;Socket에 이름 붙임 : bind()​&lt;/li&gt;
-      &lt;li&gt;데이터 수신 : recvfrom()​&lt;/li&gt;
-      &lt;li&gt;데이터 송신 : sendto()​&lt;/li&gt;
-      &lt;li&gt;Socket 제거 : close()&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;socket() system call&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt;​
-#include &amp;lt;sys/socket.h&amp;gt;​
-
-int socket(int domain, int type, int protocol)
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;소켓을 생성​
-    &lt;ul&gt;
-      &lt;li&gt;int domain :  사용하는 도메인의 종류​&lt;/li&gt;
-      &lt;li&gt;int type :      사용하는 소켓 타입​&lt;/li&gt;
-      &lt;li&gt;int protocol : 사용하는 프로토콜의 종류​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;정상 종료시 생성된 소켓에 대한 파일 디스크립터 반환, 에러시 -1 반환&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Domain의 종류 ​
-    &lt;ul&gt;
-      &lt;li&gt;PF_UNIX : unix domain ​&lt;/li&gt;
-      &lt;li&gt;PF_INET : inet domain​&lt;/li&gt;
-      &lt;li&gt;그 이외​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Socket type의 종류​
-    &lt;ul&gt;
-      &lt;li&gt;Sock_stream : stream socket​&lt;/li&gt;
-      &lt;li&gt;Sock_dgram : datagram socket​&lt;/li&gt;
-      &lt;li&gt;그 이외​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;사용되는 고유의 protocol 지정. 대부분 0을 사용&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;bind() system call​&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt;​
-#include &amp;lt;sys/socket.h&amp;gt;​
-
-int bind(int sockfd, struct sockaddr *my_addr, int len)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;int sockfd : socket() 시스템 호출에서 돌려 받은 socket 파일 디스크립터를 지정​&lt;/li&gt;
-  &lt;li&gt;struct sockaddr *my_addr : 이름을 붙일 구조체​
-    &lt;ul&gt;
-      &lt;li&gt;struct sockaddr *my_addr 에는 다음을 지정​
-        &lt;ul&gt;
-          &lt;li&gt;Unix domain 또는 Inet domain 중 어느 쪽을 사용할 지​&lt;/li&gt;
-          &lt;li&gt;Socket 이름​&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;int len :  이름이 붙여진 구조체(*my_addr)의 길이​&lt;/li&gt;
-  &lt;li&gt;Unix Domain에서 socket의 주소 정보는 socketaddr_un 구조체에서 정의​
-```
-#include &amp;lt;sys/un.h&amp;gt;​
-#define UNIX_PATH_MAX 108​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;struct sockaddr_un {​
-    sa_family_t   sun_family;     /* sa_family_t는 short과 같은 타입&lt;em&gt;/​
-     /&lt;/em&gt; PF_UNIX 설정 &lt;em&gt;/​
-    char sun_path[UNIX_PATH_MAX];   /&lt;/em&gt; 경로명 */​&lt;/p&gt;
-
-&lt;p&gt;};&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;+ Inet Domain에서 socket의 주소 정보는 socketaddr_in 구조체에서 정의​
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;#include &amp;lt;netinet/in.h&amp;gt;​&lt;/p&gt;
-
-&lt;p&gt;struct sockaddr_in {​
-    sa_family_t     sin_family;   /* PF_INET 설정 &lt;em&gt;/
-    u_int16_t        sin_port;      /&lt;/em&gt; 포트 번호 &lt;em&gt;/​
-    struct in_addr   sin_addr;    /&lt;/em&gt; IP 주소 */​&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;}; ​ struct in_addr { u_int32_t  s_addr; };  /* IP 주소 */ ```
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;connect() system call&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;netinet/in.h&amp;gt;​
-#include &amp;lt;sys/types.h&amp;gt;​
-#include &amp;lt;sys/socket.h&amp;gt;​
-
-int connect(int sockfd, const struct socketaddr *serv_addr, socklen_t addr_len)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;ul&gt;
-  &lt;li&gt;스트림 소켓 이용시 client에서 호출 (서버에 접속 요청)​&lt;/li&gt;
-  &lt;li&gt;정상 종료시 0을 반환, 에러시 -1 반환​
-    &lt;ul&gt;
-      &lt;li&gt;int sockfd : socket 파일 디스크립터를 지정​&lt;/li&gt;
-      &lt;li&gt;struct sockaddr *serv_addr : 접속하고 싶은 서버의 소켓 주소 정보 ​&lt;/li&gt;
-      &lt;li&gt;socklen_t addr_len : 서버의 소켓 주소 정보 구조체의 길이​
-​
-        &lt;blockquote&gt;
-          &lt;p&gt;listen() system call&lt;/p&gt;
-        &lt;/blockquote&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/socket.h&amp;gt;​
-
-int listen(int sockfd, int backlog)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;스트림 소켓 이용시 server에서 호출 정상 종료시 0을 반환, 에러시 -1 반환​&lt;/li&gt;
-  &lt;li&gt;int sockfd : socket 파일 디스크립터를 지정​&lt;/li&gt;
-  &lt;li&gt;int backlog : 연결 요청에 대한 대기열의 최대 길이(대개 5)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;accept() system call&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt;​
-#include &amp;lt;sys/socket.h&amp;gt;​
-
-int accept(int sockfd, struct sockaddr *client_addr, socklen_t *addrlen)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;스트림 소켓 이용시 server에서 호출​&lt;/li&gt;
-  &lt;li&gt;정상 종료시 소켓에 대한 새로운 파일 디스크립터를 반환, 에러시 -1 반환​&lt;/li&gt;
-  &lt;li&gt;int sockfd : socket 파일 디스크립터를 지정​&lt;/li&gt;
-  &lt;li&gt;struct sockaddr *client_addr : client의 socket 주소 정보 구조체를 가리키는 포인터​&lt;/li&gt;
-  &lt;li&gt;socklen_t *addrlen : client의 socket 주소 정보 구조체의 길이&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;send() system call&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt;​
-#include &amp;lt;sys/socket.h&amp;gt;​
-
-int send(int sockfd, const void *buf, size_t len, int flags)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Send() : 소켓으로 데이터 보냄&lt;/li&gt;
-  &lt;li&gt;정상 종료시 실제 보낸 바이트 수를 반환, 에러시 -1 반환​&lt;/li&gt;
-  &lt;li&gt;int sockfd : accept로 반환된 파일 디스크립터를 지정​&lt;/li&gt;
-  &lt;li&gt;const void *buf : 송신 버퍼의 시작 주소​&lt;/li&gt;
-  &lt;li&gt;size_t len : 송신 데이터의 길이​&lt;/li&gt;
-  &lt;li&gt;int flags : 송신 옵션&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;recv() system call&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt;​
-#include &amp;lt;sys/socket.h&amp;gt;​
-
-int recv(int sockfd, void *buf, size_t len, int flags)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Recv() : 소켓으로부터 데이터 받음&lt;/li&gt;
-  &lt;li&gt;정상 종료시 실제 받은 바이트 수를 반환, 에러시 -1 반환​&lt;/li&gt;
-  &lt;li&gt;int sockfd : accept로 반환된 파일 디스크립터를 지정​&lt;/li&gt;
-  &lt;li&gt;void *buf : 수신 버퍼의 시작 주소​&lt;/li&gt;
-  &lt;li&gt;size_t len : 수신 데이터의 길이​&lt;/li&gt;
-  &lt;li&gt;int flags : 수신 옵션&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;sendto() system call​&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt;
-#include &amp;lt;sys/socket.h&amp;gt;​
-
-int sendto(int sockfd, const void *buf, size_t len, int flags, const struct sockaddr *to, socklen_t tolen)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Sendto() : 데이터그램 소켓으로 데이터 보냄​&lt;/li&gt;
-  &lt;li&gt;정상 종료시 실제 보낸 바이트 수를 반환, 에러시 -1 반환​&lt;/li&gt;
-  &lt;li&gt;int sockfd : 파일 디스크립터를 지정​&lt;/li&gt;
-  &lt;li&gt;const void *buf : 송신 버퍼의 시작 주소​&lt;/li&gt;
-  &lt;li&gt;size_t len : 송신 데이터의 길이​&lt;/li&gt;
-  &lt;li&gt;int flags : 송신 옵션 ​&lt;/li&gt;
-  &lt;li&gt;const struct sockaddr *to : 받을 곳의 소켓 주소 정보 구조체를 가리키는 포인터​&lt;/li&gt;
-  &lt;li&gt;socklen_t tolen : 받을 곳의 소켓 주소 정보 구조체의 길이​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;recvfrom() system call&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt;​
-#include &amp;lt;sys/socket.h&amp;gt;​
-
-int recvfrom(int sockfd, void *buf, size_t len, int flags, struct sockaddr *from, socklen_t *fromlen)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;ul&gt;
-  &lt;li&gt;Recvfrom() : 데이터그램 소켓에서 데이터 받음​&lt;/li&gt;
-  &lt;li&gt;정상 종료시 실제 받은 바이트 수를 반환, 에러시 -1 반환​&lt;/li&gt;
-  &lt;li&gt;int sockfd : 파일 디스크립터를 지정​&lt;/li&gt;
-  &lt;li&gt;void *buf : 수신 버퍼의 시작 주소​&lt;/li&gt;
-  &lt;li&gt;size_t len : 수신 데이터의 길이​&lt;/li&gt;
-  &lt;li&gt;int flags : 수신 옵션​&lt;/li&gt;
-  &lt;li&gt;struct sockaddr *from : 보내는 곳의 소켓 주소 정보 구조체를 가리키는 포인터​&lt;/li&gt;
-  &lt;li&gt;socklen_t tolen : 보내는 곳의 소켓 주소 정보 구조체의 길이&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;System V IPC​&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Semaphores​&lt;/li&gt;
-  &lt;li&gt;Shared memory​&lt;/li&gt;
-  &lt;li&gt;Message queues​&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Semaphores&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;여러 프로세스에 대한 공유 데이터 개체에 대한 액세스를 제공하는 카운터&lt;/li&gt;
-  &lt;li&gt;공유 리소스를 얻으려면
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;ol&gt;
-          &lt;li&gt;Test semaphore controlling resource​
-            &lt;ul&gt;
-              &lt;li&gt;1-1 If value &amp;gt; 0, value –, grant use​&lt;/li&gt;
-              &lt;li&gt;1-2 If value == 0, sleep until value &amp;gt; 0​&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-        &lt;/ol&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;ol&gt;
-          &lt;li&gt;Release resource, value ++​&lt;/li&gt;
-        &lt;/ol&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Steps 1-1, 1-2 atomic 연산이어야 한다&lt;/li&gt;
-  &lt;li&gt;세마포어는 하나 이상의 세마포어 값의 집합으로 정의되다
-    &lt;ul&gt;
-      &lt;li&gt;세마포어가 생성될 때 집합에 값의 개수도 지정된다&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/st/st23.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;시스템프로그래밍&quot; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Functions&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/sem.h&amp;gt;​
-
-int semget(key_t key, int num_sems, int sem_flags);​
-int semctl(int sem_id, int sem_num, int command, …);​
-int semop(int sem_id, struct sembuf *sem_ops, size_t num_sem_ops);
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;semget : 세마포어 생성 또는 세마포어 키 반환
-    &lt;ul&gt;
-      &lt;li&gt;Key : 동일한 세마포어에 액세스하기 위한 10진수 값&lt;/li&gt;
-      &lt;li&gt;num_sems : 세마포어의 수&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;semctl : 세마포어 정보 제어
-    &lt;ul&gt;
-      &lt;li&gt;sem_id : 세마포어 ID​&lt;/li&gt;
-      &lt;li&gt;sem_num : 세마포어의 수&lt;/li&gt;
-      &lt;li&gt;command : 세마포어 명령&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;semop : 세마포어 값 변경&lt;/li&gt;
-  &lt;li&gt;생성(semget)은 초기화(semctl)와 무관하다​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Shared memory&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;가장 빠른 형태의 IPC: 프로세스 간 데이터 복사 불필요&lt;/li&gt;
-  &lt;li&gt;공유 메모리 세그먼트에 대한 액세스를 동기화해야 함 -&amp;gt; 세마포어가 사용됨&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/st/st24.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;시스템프로그래밍&quot; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Functions&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt; ​
-#include &amp;lt;sys/ipc.h&amp;gt; ​
-#include &amp;lt;sys/shm.h&amp;gt; ​
-
-int shmget(key_t key, int size, int flag); ​
-        Returns: shared memory ID if OK, -1 on error
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;공유 메모리 식별자 얻기&lt;/li&gt;
-  &lt;li&gt;Size : 공유 메모리 세그먼트의 크기&lt;/li&gt;
-  &lt;li&gt;Flag : ipc_perm.mode​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt; ​
-#include &amp;lt;sys/ipc.h&amp;gt; ​
-#include &amp;lt;sys/shm.h&amp;gt; ​
-
-int shmctl(int shmid, int cmd, struct shmid_ds *buf);​
-        Returns: 0 if OK, -1 on error
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;다양한 공유 메모리 작업​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt; ​
-#include &amp;lt;sys/ipc.h&amp;gt; ​
-#include &amp;lt;sys/shm.h&amp;gt; ​
-
-void *shmat (int shmid, void *addr, int flag); ​
-        Returns: pointer to shared memory segment if OK, -1 on error
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;주소에 공유 메모리 첨부&lt;/li&gt;
-  &lt;li&gt;flag ​
-    &lt;ul&gt;
-      &lt;li&gt;SHM_RDONLY : 세그먼트가 읽기 전용이다​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;addr==0: 커널이 선택한 첫 번째 주소에서
-    &lt;ul&gt;
-      &lt;li&gt;recommended​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;addr!=0 &amp;amp;&amp;amp; SHM_RND is not specified:​
-    &lt;ul&gt;
-      &lt;li&gt;addr이 제공한 주소에서&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;addr!=0 &amp;amp;&amp;amp; SHM_RND is specified:​
-    &lt;ul&gt;
-      &lt;li&gt;주어진 주소에서 (addr – (addr modulus SHMLBA))​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt; ​
-#include &amp;lt;sys/ipc.h&amp;gt; ​
-#include &amp;lt;sys/shm.h&amp;gt; ​
-
-void shmdt (void *addr); ​
-        Returns: 0 if OK, -1 on error
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;공유 메모리 세그먼트 분리&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Message queues&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;메시지의 연결 목록
-    &lt;ul&gt;
-      &lt;li&gt;커널에 저장&lt;/li&gt;
-      &lt;li&gt;메시지 대기열 식별자로 식별&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;msgget: 새 대기열 생성 또는 기존 대기열 열기&lt;/li&gt;
-  &lt;li&gt;msgsnd: 대기열에 새 메시지 추가&lt;/li&gt;
-  &lt;li&gt;msgrcv: 대기열에서 메시지 수신&lt;/li&gt;
-  &lt;li&gt;Fetching order: based on type&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt; ​
-#include &amp;lt;sys/ipc.h&amp;gt; ​
-#include &amp;lt;sys/msg.h&amp;gt; ​
-
-int msgget(key_t key, int flag); ​
-        Returns: msg queue ID if OK, -1 on error
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;새 대기열 생성 또는 기존 대기열 열기&lt;/li&gt;
-  &lt;li&gt;Flag : ipc_perm.mode​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt; ​
-#include &amp;lt;sys/ipc.h&amp;gt; ​
-#include &amp;lt;sys/msg.h&amp;gt; ​
-​
-int msgsnd(int msqid, const void *ptr, size_t nbytes, int flag); ​
-        Returns: 0 if OK, -1 on error
-
-struct mymesg {​
-  long mtype;         /* positive message type */​
-  char mtext[512];    /* message data, of length nbytes */​
-};
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;큐의 끝에 메시지 배치&lt;/li&gt;
-  &lt;li&gt;ptr은 메시지를 가리킨다&lt;/li&gt;
-  &lt;li&gt;nbytes : 메시지 데이터의 길이&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt; ​
-#include &amp;lt;sys/ipc.h&amp;gt; ​
-#include &amp;lt;sys/msg.h&amp;gt; ​
-
-int msgrcv(int msqid, void *ptr, size_t nbytes, long type, int flag); ​
-        Returns: data size in message if OK, -1 on error
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;대기열에서 메시지 검색&lt;/li&gt;
-  &lt;li&gt;type == 0 : 큐의 첫 번째 메시지가 반환된다&lt;/li&gt;
-  &lt;li&gt;type &amp;gt; 0 : 메시지 유형이 유형과 동일한 큐의 첫 번째 메시지가 반환된다&lt;/li&gt;
-  &lt;li&gt;type &amp;lt; 0 : 메시지 유형이 유형의 절대값보다 작거나 같은 가장 낮은 값인 큐의 첫 번째 메시지가 반환된다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="system" /><summary type="html">프로세스통신-socket</summary></entry></feed>
+&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="algorithm" /><summary type="html">분기 한정</summary></entry></feed>

@@ -200,6 +200,42 @@ into the {body} of the default.hbs template -->
 <script>
     window.store = {
     
+    "sc-21": {
+        "title": "__IPSEC__",
+            "author": "lee989898",
+            "category": "",
+            "content": "IPSEC  IPSEC  IP 주소 위장 방지(출발지 인증)​  IP 데이터그램의 변경 및 재전송 방지​  IP 데이터 그램을 위한 기밀성, 무결성 제공​  보안  프로토콜 선택(시스템들이 필요로 하는)​  암호 알고리즘 선택(선택된 프로토콜에서 사용되도록)​  암호키 생성,분배(요청된 서비스의 제공에 필요) ​  Application​          VPN (virtual Private Network): 가상 전용회선​        IPSEC 구성  IPsec AH(인증 헤더) 프로토콜​          데이터 근원 인증,비연결형 무결성 제공 ​        캡슐화 보안페이로드 (ESP ) – 데이터기밀성, 제한된 트래칙 흐름 기밀성, 비연결형 무결성, 데이터 근원인증, 재전송공격 방지 제공​  IKE 프로토콜 ​          통신당사자간 키관리 프로토콜​      암호알고리즘 선택협상, 키분배 위해 사용​        Transport and Tunnel Modes  Transport mode​          End to end between hosts​      관련 hosts들이 IPSec을 지원해야​      IP 상위 프로토콜 (TCP, Application) 안전하게 전송​      IP header에 IPSec header정보 추가​        Tunnel mode​          터널내의 모든 IP 트래픽 보호​      터널의 시작,종류 지점에 IPSec gateway​      터널 시작 gateway에서 새 IP header와 Ipsec header 추가하고, 종료 gateway에서 제거​      라우터가 내부 패킷을 검사하지 않음      소스 및 목적지 주소가 다를 수 있음      방화벽에서 구현 가능      ",
+        "url": "/sc-21"
+    }
+    ,
+    
+    "sc-20": {
+        "title": "__SSL/TLS__",
+            "author": "lee989898",
+            "category": "",
+            "content": "SSL/TLS  Secure sockets layer (SSL)​  1996, Netscape​  1999, TLS로​  웹기반 전자상거래를 위해 TCP layer에서 메시지와 무결성과 비밀성 제공​  Web-server와 web-browser간 보안​  HTTPS – 현재 대부분 서버에서 사용​  Handshake (암호spec, session관리), record (암호,무결성등 보안서비스) protocols로 나뉜다​  인증수행-&gt;세션키분배-&gt;암호화 메시지 송수신 순서​  지원하는 보안서비스 ​          Server/client authentication, confidentiality, integrity        부인방지기능은 제공안됨 – 전자서명 사용해야​  단순히 web-server와 web-browser간의 모든 data를 암호화하면 안전? No, replay attack (관찰된 통신내용을 동일하게 재생하면 같은 결과를 얻을 수 있다.)  Secure sockets layer (SSL) 표준​  User authentication​  Confidentiality​  Integrity​​  TLS/SSL Protocol 구성​  Handshake protocol​          Client, server 간 인증, 암호 알고리즘 합의, 키교환 등 수행​        Record protocol​          데이터를 인증, 암호화처리하고 메시지 송수신​        Change cipher spec​          암호 spec을 변경담당​        Alter protocol​          에러처리​        Handshake Protocol  핸드셰이크는 서버를 확인하고 데이터가 전송되기 전에 클라이언트와 서버가 암호화 세트에 동의하도록 한다  Record protocol의 의한 data송수신보다 먼저 수행되어 다음의 session정보를 생성, 관리​          Session ID​      Certification​      Cipher spec: 압축, MAC algorithm​      Compression method: 암호화 이전 압축 algorithm​      Master secret key: 48bit        Handshake Protocol  3개의 필드로 이루어진 메시지 교환          type: 메시지 종류 명시      length: 메시지 길이      content: 메시지 종류에 따른 값들        4단계 진행          1단계: Security capability establish​      2단계: Server authentication &amp; key exchange​      3단계: Client authentication &amp; key exchange​      4단계: Change cipher specs​        1단계: Security capability establish​          1~3​      Hello 메시지 교환으로 session ID, 키교환알고리즘, 인증 알고리즘, 암호알고리즘, 압축 알고리즘 결정        Server authentication &amp; key exchange​          4~6​      4: 서버의 인증서와 검증위한 인증서체인, 공개키전송​      5: client 인증서 요구(opt)​      6: 2단계 종료메시지        3단계: Client authentication &amp; key exchange​          7~9​      7: client 인증서전송​      8: 48byte premaster secrete 전송​      9: client 인증서 검증        4단계: Change cipher specs​          10~11​      암호사양변경 메시지 교환을 통해 다음 세션에 적용될 암호 spec 결정        Record Protocol  메시지를 최대 16KB 단위로 fragment​  MAC 사용  1: 메시지를 최대 16KB 단위로 fragment​  2: 압축 (opt)​  3: MAC 추가​  4: Encryption​  5: SSL reacord header 추가  Changes from SSL 3.0 to TLS  Transport Layer Security [RFC2246]​  Additional Alerts added​  Modification to hash calculations​  Protocol version 3.1 in ClientHello, ServerHello",
+        "url": "/sc-20"
+    }
+    ,
+    
+    "sc-19": {
+        "title": "__Dos​__",
+            "author": "lee989898",
+            "category": "",
+            "content": "Dos​  Dos (Denial of Service)  서비스 거부​  시스템 자원(cpu, memory, network, storage 등)을 고갈시켜 정상적인 접근에 대한 서비스를 제공할 수 없도록 만드는 행위​  Dos attack type​  Error trigger Dos attack​  OS,application의 약점에 attack packet 전송해서 system error 유발 (slammer worm)​  Ping of death, Land, Teardrop​  Flooding Dos attack​  packet, traffic을 과중하게 발생하여 server, network resource 고갈​  TCP syn flooding​  TCP syn flooding​  TCP 3-way handshaking의 취약점 이용​  공격자가 src IP 주소를 위조해서 TCP SYN를  동시에 대량전송​  서버는 TCP ACK를 보내고, 자원할당 후 응답 기다림​  정상적인 접근방해+엉뚱한 피해자​  DDoS Attack​  Distributed Denial of Service​  다수의 pc가 동시에 Dos 공격​  BotNet?  Bot(=zombie): 악성sw에 감염되어 자신도 모르게 해커의 조종을 받는 컴퓨터​  BotNet: 명령제어서버(C&amp;C,command and control)를 통해 원격제어되는 악성코드에 감염된 컴퓨터(bot)들의 네트워크 ​  대부분 사어버테러의 주요 원인  DDos 종류  Standard DoS: 알려진 취약점 집중공격​  Tool을 이용한 DoS: TFN, TFN2K, Trinoo, Loki, Stacheldraht, Jolt, Land, teardrop…​  Traffic anomalie 공격: bandwidth점유, ICMP, TCP, UDP flooding​  Spoofed SYN flooding: spoof된 source IP로 TCP syn보냄​  Connection Per Second(CPS) flood: zombie로 부터 connection flooding​  Established Connection flood: zombie로 부터 established connection flood​  Why DDos?  Simple​  Easy: just use tools​  Effective​  공격자추적이 어렵다​​",
+        "url": "/sc-19"
+    }
+    ,
+    
+    "sc-18": {
+        "title": "__Kerberos​__",
+            "author": "lee989898",
+            "category": "",
+            "content": "Kerberos​  Kerberos?  Symmetric key 기반 분산 인증 시스템​  사용자가 서버의 서비스에 액세스하려는 경우 (예, 프린터서버, 네트워크 디스크 등)​  세 가지 위협 존재:​          사용자가 다른 사용자로 가장​      사용자가 워크스테이션의 네트워크 주소를 변경      사용자는 교환을 도청하고 재생 공격을 사용​        Client들이 원격으로 서버에 자원, 서비스 요청시마다 인증반복​  매번 passwd 입력 안해도 되며, 각 서버가 사용자들의 비번을 저장할 필요없다​  경쟁자: SSL  ​Kerberos Design 요구사항​  사용자는 워크스테이션 세션(로그인 세션)이 시작될 때 한 번 자신을 식별해야 한다  암호는 네트워크를 통해 일반 텍스트로 전송되지 않습니다(또는 메모리에 저장)  각 서버가 사용자들의 비번을 저장할 필요없어야 ​함  System Components​  Server, User​  AS(Authentication Server)​          모든 user/server 들의 password 안다​      TGS 에 제시할 ticket 발급​        TGS(Ticket Granting Server)​          서버는 ticket만 받는다​      서비스 요청시, 한 user는 한 server에 한 ticket제시​      Server에 제시할 ticket 발급역할​        시스템 구성도  Protocol​  User/TGS는 AS에, server는 TGS에 등록(passwd)되어 있다  (or PKI사용)​  User가 서비스 필요​  서비스 제공할 server 찾는다​  해당 server 관리하는 TGS 찾는다​  AS에 TGS에 보낼 ticket요청  User는 AS에게  UserID, TGS이름을 $K_{user-AS}$로 암호화하여 보낸다  AS는 User와 TGS간의 통신을 위한 세션키1 $K_{user-TGS}$ 를 생성​ 세션키1, UserID 를 $K_{AS-TGS}$로 암호화하여 User에게 발급할 Ticket을 생성​ 세션키1과 Ticket을 $K_{user-AS}$로 암호화하여 보낸다​  받은 2를 $K_{user-AS}$복호화해서 세션키1 $K_{user-TGS}$ 와 Ticket을 얻는다. ​UserID를 세션키1로 암호화해서 Ticket과 함께 TGS로 보낸다​  받은 3을 $K_{user-TGS}$와 $K_{AS-TGS}$ 로 복호화해서 User정보와 요구내용 확인, ​TGS는 User와 Server간의 통신을 위한 세션키2 $K_{user-server}$ 생성 ​세션키2, UserID 를 $K_{TGS-server}$로 암호화하여 User에게 발급할 Ticket을 생성​ 세션키2와 Ticket을 $K_{user-TGS}$로 암호화하여 보낸다​  받은 4를 $K_{user-TGS}$로 복호화해서 세션키2 $K_{user-server}$와 Ticket(user, Server)를 얻는다. Server에게 $K_{user-server}$로 암호화한 UserID와 Ticket을 전송한다​  Server는 받는 5의 Ticket을 $K_{TGS-server}$로 복호화 하여 세션키2 $K_{user-server}$을 얻는다. 이걸로 UserID를 복호화해서  사용자확인을 한다.​  Drawbacks of Kerberos  단일 실패 지점: 중앙 서버의 지속적인 가용성이 필요. Kerberos 서버가 다운되면 아무도 로그인할 수 없다  Kerberos에는 엄격한 시간 요구 사항이 있으므로 관련된 호스트의 시계가 구성된 제한 내에서 동기화되어야 함  관리 프로토콜은 표준화되지 않았으며 서버 구현에 따라 다르다  모든 인증은 중앙 집중식 KDC에 의해 제어되므로 이 인증 인프라가 손상되면 공격자가 모든 사용자를 가장할 수 있음  다른 호스트 이름이 필요한 각 네트워크 서비스에는 고유한 Kerberos 키 세트가 필요합니다. 이는 가상 호스팅 및 클러스터를 복잡하게 만든다",
+        "url": "/sc-18"
+    }
+    ,
+    
     "algorithm-09": {
         "title": "근사 알고리즘",
             "author": "lee989898",
