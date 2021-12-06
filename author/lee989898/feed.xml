@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/author/lee989898/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-12-06T00:12:39+09:00</updated>
+  <updated>2021-12-06T19:05:54+09:00</updated>
   <id>https://lee989898.github.io/author/lee989898/feed.xml</id>
 
   
@@ -802,16 +802,18 @@
     </entry>
   
     <entry>
-      <title type="html">Pl 20</title>
-      <link href="https://lee989898.github.io/pl-20" rel="alternate" type="text/html" title="Pl 20" />
+      <title type="html">FPLs</title>
+      <link href="https://lee989898.github.io/pl-20" rel="alternate" type="text/html" title="FPLs" />
       <published>2021-11-24T19:18:00+09:00</published>
       <updated>2021-11-24T19:18:00+09:00</updated>
       <id>https://lee989898.github.io/pl-20</id>
-      <content type="html" xml:base="https://lee989898.github.io/pl-20">&lt;h3 id=&quot;__&quot;&gt;&lt;em&gt;__&lt;/em&gt;&lt;/h3&gt;
+      <content type="html" xml:base="https://lee989898.github.io/pl-20">&lt;h3 id=&quot;fpls&quot;&gt;&lt;strong&gt;FPLs&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
 
 &lt;h2 id=&quot;lisp&quot;&gt;Lisp​&lt;/h2&gt;
+
+&lt;hr /&gt;
 
 &lt;p&gt;Lisp은 심볼(문자열) 처리를 위한 언어로 개발되었다&lt;br /&gt;
 심볼들을 표현하기 위한 데이터 구조로 리스트, 즉 링크드 리스트를 기본으로 한다&lt;br /&gt;
@@ -867,6 +869,8 @@ Lisp 프로그램에서는 함수 정의 및 함수 적용(호출)을 “괄호�
 &lt;hr /&gt;
 
 &lt;h2 id=&quot;scheme&quot;&gt;Scheme​&lt;/h2&gt;
+
+&lt;hr /&gt;
 
 &lt;p&gt;Scheme은 Lisp으로부터 유래되었으나 함수를 일등 시민으로 취급한다&lt;br /&gt;
 Scheme에서는 함수가 표현식의 결과 값일 수 있고, 함수가 리스트의 요소로 사용될 수 있으며, 함수가 파라미터로 패스될 수 있고, 함수가 함수의 결과로서 반환될 수 있다&lt;/p&gt;
@@ -1066,6 +1070,8 @@ CADDR을 (DEFINE (third a_list) ((compose CAR (compose CDR CDR)) a_list))와 같
 
 &lt;h2 id=&quot;ml&quot;&gt;ML​&lt;/h2&gt;
 
+&lt;hr /&gt;
+
 &lt;p&gt;ML은 타입 검사를 엄격하게 수행하는 언어이다&lt;br /&gt;
 평가 환경은 프로그램에서 명시적 또는 암묵적으로 선언된 모든 변수명을 그 유형(타입)과 함께 테이블을 포함한다&lt;br /&gt;
 이 테이블은 컴파일러의 심볼 테이블과 유사하다&lt;br /&gt;
@@ -1139,6 +1145,8 @@ map함수는 파라미터로 함수 (fa)를 받아 들여서 새로운 함수를
 
 &lt;h2 id=&quot;haskell&quot;&gt;Haskell​&lt;/h2&gt;
 
+&lt;hr /&gt;
+
 &lt;p&gt;Haskell은 순수 함수 언어로 알려져 있다&lt;br /&gt;
 연산자는 표시 방식만 다를 뿐 다른 FPL과 거의 같다&lt;/p&gt;
 
@@ -1152,6 +1160,8 @@ map함수는 파라미터로 함수 (fa)를 받아 들여서 새로운 함수를
 &lt;hr /&gt;
 
 &lt;h2 id=&quot;support-fp-in-ipl&quot;&gt;Support FP in IPL&lt;/h2&gt;
+
+&lt;hr /&gt;
 
 &lt;p&gt;자바 스크립트에서는 이름을 가진 함수를 정의할 수 있다&lt;br /&gt;
 ex) 함수명 (파라미터 여러개) { 표현식 (블록)}&lt;/p&gt;
@@ -1194,7 +1204,7 @@ ex) 함수명 (파라미터 여러개) { 표현식 (블록)}&lt;/p&gt;
       
 
       
-        <summary type="html">__</summary>
+        <summary type="html">FPLs</summary>
       
 
       
