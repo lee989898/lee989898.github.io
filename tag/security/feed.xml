@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/security/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-12-06T22:13:40+09:00</updated>
+  <updated>2021-12-08T22:16:21+09:00</updated>
   <id>https://lee989898.github.io/tag/security/feed.xml</id>
 
   
@@ -1495,20 +1495,16 @@ Alice는 Bob에게 $K_{B-KDC}$(A,R1)을 보내고 Bob은 R1을 추출해낸다&l
 &lt;/blockquote&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;허가되지 않은 사용자의 자원 접근 막고&lt;/li&gt;
-  &lt;li&gt;정당한 사용자라도 허가되지 않은 방법으로 자원사용 막고&lt;/li&gt;
-  &lt;li&gt;정당한 사용자가 허가된 방식으로만 자원에 접근하도록&lt;/li&gt;
+  &lt;li&gt;허가되지 않은 사용자의 자원 접근 막는다&lt;/li&gt;
+  &lt;li&gt;정당한 사용자라도 허가되지 않은 방법으로 자원사용 하는 것을 막는다&lt;/li&gt;
+  &lt;li&gt;정당한 사용자가 허가된 방식으로만 자원에 접근하도록 한다&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Access control components&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;hr /&gt;
-
 &lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc17.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Authentication function: 사용자가 시스템에 접근할 수 있는지 결정&lt;/li&gt;
@@ -1521,11 +1517,7 @@ Alice는 Bob에게 $K_{B-KDC}$(A,R1)을 보내고 Bob은 R1을 추출해낸다&l
   &lt;p&gt;Access control architecture&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;hr /&gt;
-
 &lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc18.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Access Control Policy&lt;/p&gt;
@@ -1556,10 +1548,6 @@ Alice는 Bob에게 $K_{B-KDC}$(A,R1)을 보내고 Bob은 R1을 추출해낸다&l
   &lt;li&gt;Access Matrix 사용
     &lt;ul&gt;
       &lt;li&gt;주체와 객체, 권한을 행렬로 표현&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Access matrix
-    &lt;ul&gt;
       &lt;li&gt;행: 자원접근 주체, subject&lt;/li&gt;
       &lt;li&gt;열: subject가 접근하는 대상자원, object&lt;/li&gt;
       &lt;li&gt;Entry: 허용되는 접근&lt;/li&gt;
