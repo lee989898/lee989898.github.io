@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/security/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-12-08T22:16:21+09:00</updated>
+  <updated>2021-12-09T21:32:35+09:00</updated>
   <id>https://lee989898.github.io/tag/security/feed.xml</id>
 
   
@@ -1556,11 +1556,7 @@ Alice는 Bob에게 $K_{B-KDC}$(A,R1)을 보내고 Bob은 R1을 추출해낸다&l
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;hr /&gt;
-
 &lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc19.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
 
 &lt;ul&gt;
   &lt;li&gt;방법1. ACL - Access control lists
@@ -1571,11 +1567,7 @@ Alice는 Bob에게 $K_{B-KDC}$(A,R1)을 보내고 Bob은 R1을 추출해낸다&l
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;hr /&gt;
-
 &lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc20.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
 
 &lt;ul&gt;
   &lt;li&gt;방법2. Capablility tickets
@@ -1591,11 +1583,7 @@ Alice는 Bob에게 $K_{B-KDC}$(A,R1)을 보내고 Bob은 R1을 추출해낸다&l
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;hr /&gt;
-
 &lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc21.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
 
 &lt;ul&gt;
   &lt;li&gt;방법 3. authorization table
@@ -1606,11 +1594,7 @@ Alice는 Bob에게 $K_{B-KDC}$(A,R1)을 보내고 Bob은 R1을 추출해낸다&l
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;hr /&gt;
-
 &lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc22.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
 
 &lt;ul&gt;
   &lt;li&gt;DAC 장단점 분석
@@ -1629,8 +1613,6 @@ Alice는 Bob에게 $K_{B-KDC}$(A,R1)을 보내고 Bob은 R1을 추출해낸다&l
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;hr /&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Role-based access control (RBAC)&lt;/p&gt;
@@ -1661,8 +1643,6 @@ Alice는 Bob에게 $K_{B-KDC}$(A,R1)을 보내고 Bob은 R1을 추출해낸다&l
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;hr /&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Attribute-based access control(ABAC)&lt;/p&gt;
