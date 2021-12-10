@@ -749,13 +749,13 @@ pthread_mutex_destory(&amp;mutex);
   </li>
   <li>Barrier APIs​
     <ul>
-      <li>pthread_barrier_init(&amp;barrier, attr, no_of_threads) ​
+      <li>pthread_barrier_init(&amp;barrier, attr, no_of_threads)
         <ul>
-          <li>pthread_barrier_t  barrier;​</li>
-          <li>Default value of attr is “NULL”​</li>
+          <li>pthread_barrier_t  barrier;</li>
+          <li>Default value of attr is “NULL”</li>
         </ul>
       </li>
-      <li>pthread_barrier_destroy(&amp;barrier)​</li>
+      <li>pthread_barrier_destroy(&amp;barrier)</li>
       <li>pthread_barrier_wait(&amp;barrier)</li>
     </ul>
   </li>
@@ -763,10 +763,151 @@ pthread_mutex_destory(&amp;mutex);
 
 <hr />
 
-<h2 id="semaphore--conditional-variable">Semaphore &amp; Conditional Variable​</h2>
+<h2 id="semaphore"><strong>Semaphore</strong></h2>
 
 <hr />
 
+<ul>
+  <li>Semaphore : counting and signaling mechanism
+    <ul>
+      <li>지정된 개수의 아이템들을 위한 접근 제어에 활용
+        <ul>
+          <li>아이템 개수가 하나이면 mutex와 동일​</li>
+        </ul>
+      </li>
+      <li>스레드간에 신호를 보내는 역할​</li>
+    </ul>
+  </li>
+  <li>두 종류의 semaphore​
+    <ul>
+      <li>Named semaphore​</li>
+      <li>Unnamed semaphore</li>
+    </ul>
+  </li>
+  <li>Unnamed semaphore의 초기화​</li>
+</ul>
+
+<p>sem_t *sem;​<br />
+int sem_init(sem_t *sem, int pshared, unsigned int value);</p>
+<ul>
+  <li>sem : 세마포어 객체​</li>
+  <li>pshared : 다른 스레드와 공유할 것인지의 여부​</li>
+  <li>value : 세마포어의 초기값​</li>
+  <li>예 : sem_init(&amp;sem, 0, 10)​</li>
+</ul>
+
+<p>Unnamed semaphore의 종료​</p>
+<ul>
+  <li>
+    <p>sem_destroy(&amp;sem)</p>
+  </li>
+  <li>Named semaphore의 초기화​
+    <ul>
+      <li>sem_open(sem_name, FLAGS, permission, value)​</li>
+      <li>예 : sem_open(“/my_sem”, O_CREAT, 0777, 10)​</li>
+    </ul>
+  </li>
+  <li>Named semaphore의 종료​
+    <ul>
+      <li>sem_close(sem) : semaphore와의 연결을 끊지만, 시스템 상에 semaphore를 남겨둠​</li>
+      <li>sem_unlink(sem_name) : semaphore에 사용된 resource를 free 시킴</li>
+    </ul>
+  </li>
+  <li>세마포어의 값을 감소시키는 함수 ​
+    <ul>
+      <li>크리티컬 영역에 진입하면서 자동으로 세마포어의 값을 감소(-1)시킴</li>
+    </ul>
+  </li>
+</ul>
+
+<p>int sem_wait(sem_t *sem);​<br />
+int sem_trywait(sem_t *sem);</p>
+
+<ul>
+  <li>
+    <p>세마포어의 값을 1 증가시키는 함수<br />
+int sem_post(sem_t *sem);</p>
+  </li>
+  <li>
+    <p>현재 세마포어의 값을 읽는 함수<br />
+int sem_getvalue(sem_t *sem, int *sval);</p>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="conditional-variable"><strong>Conditional Variable</strong></h2>
+
+<hr />
+
+<ul>
+  <li>조건변수​
+    <ul>
+      <li>스레드 간에 특정 조건이 발생했음을 알리는 통신을 위해 사용​</li>
+      <li>조건변수는 반드시 mutex와 함께 사용되어야 한다​</li>
+    </ul>
+  </li>
+  <li>조건변수의 생성​
+    <ul>
+      <li>함수를 이용한 초기화와 매크로를 이용한 초기화 방법이 있음​<br />
+pthread_cond_t cond;​</li>
+    </ul>
+  </li>
+</ul>
+
+<p>pthread_cond_init(&amp;cond, NULL); // 함수를 이용한 초기화​</p>
+
+<p>pthread_cond_t cond = PTHREAD_COND_INITIALIZER; // 매크로를 이용​</p>
+<ul>
+  <li>조건변수의 삭제​</li>
+</ul>
+
+<p>pthread_cond_destory(&amp;cond);</p>
+
+<ul>
+  <li>조건변수를 기다리는 함수​</li>
+</ul>
+
+<p>int pthread_cond_wait(pthread_cond_t *cond, pthread_mutex_t *mutex);​</p>
+<ul>
+  <li>cond : 조건 알림이 발생할 때까지 대기​</li>
+  <li>mutex : mutex가 cond를 제어​</li>
+  <li>동작​
+    <ul>
+      <li>Mutex 해제 -&gt; 블록 상태 -&gt; 조건 알림을 받음 -&gt; 깨어나면서 mutex를 얻음​</li>
+    </ul>
+  </li>
+  <li>조건 알림을 보내는 함수​
+int pthread_cond_signal(pthread_cond_t *cond);</li>
+  <li>
+    <p>조건 변수 cond에 의해 기다리던 조건이 발생했음을 대기하고 있는 스레드에게 통보​</p>
+  </li>
+  <li>하나의 생산자 스레드와 여러개의 소비자 스레드가 있는 경우​
+    <ul>
+      <li>pthread_cond_signal() 함수를 사용하면 단 하나의 스레드만 깨우고 나머지 스레드는 영원히 기다릴 가능성이 있음​</li>
+      <li>pthread_cond_broadcast()를 사용​
+        <ul>
+          <li>여러 스레드를 동시에 깨움​</li>
+          <li>깨어난 스레드들 중 공유 데이터를 위한 mutex를 얻은 스레드만이 공유 데이터에 접근​</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Producer-Consumer 예제 ​
+    <ul>
+      <li>Queue를 사용​
+        <ul>
+          <li>생산자 스레드는 queue에 메시지 쓰기 작업을 수행​</li>
+          <li>소비자 스레드는 queue에서 메시지 읽기 작업을 수행​</li>
+          <li>운영체제의 scheduler는 생산자와 소비자 스레드가 교대로 실행되는 것을 보장하지 않음​</li>
+        </ul>
+      </li>
+      <li>조건변수를 사용하여 queue의 길이가 0보다 클 경우 소비자 스레드를 깨움​</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
 
                 </div>
             </section>

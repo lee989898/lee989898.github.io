@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/system/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-12-09T21:32:35+09:00</updated>
+  <updated>2021-12-10T19:18:26+09:00</updated>
   <id>https://lee989898.github.io/tag/system/feed.xml</id>
 
   
@@ -579,13 +579,13 @@ pthread_mutex_destory(&amp;amp;mutex);
   &lt;/li&gt;
   &lt;li&gt;Barrier APIs​
     &lt;ul&gt;
-      &lt;li&gt;pthread_barrier_init(&amp;amp;barrier, attr, no_of_threads) ​
+      &lt;li&gt;pthread_barrier_init(&amp;amp;barrier, attr, no_of_threads)
         &lt;ul&gt;
-          &lt;li&gt;pthread_barrier_t  barrier;​&lt;/li&gt;
-          &lt;li&gt;Default value of attr is “NULL”​&lt;/li&gt;
+          &lt;li&gt;pthread_barrier_t  barrier;&lt;/li&gt;
+          &lt;li&gt;Default value of attr is “NULL”&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
-      &lt;li&gt;pthread_barrier_destroy(&amp;amp;barrier)​&lt;/li&gt;
+      &lt;li&gt;pthread_barrier_destroy(&amp;amp;barrier)&lt;/li&gt;
       &lt;li&gt;pthread_barrier_wait(&amp;amp;barrier)&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
@@ -593,7 +593,149 @@ pthread_mutex_destory(&amp;amp;mutex);
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;semaphore--conditional-variable&quot;&gt;Semaphore &amp;amp; Conditional Variable​&lt;/h2&gt;
+&lt;h2 id=&quot;semaphore&quot;&gt;&lt;strong&gt;Semaphore&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Semaphore : counting and signaling mechanism
+    &lt;ul&gt;
+      &lt;li&gt;지정된 개수의 아이템들을 위한 접근 제어에 활용
+        &lt;ul&gt;
+          &lt;li&gt;아이템 개수가 하나이면 mutex와 동일​&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;스레드간에 신호를 보내는 역할​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;두 종류의 semaphore​
+    &lt;ul&gt;
+      &lt;li&gt;Named semaphore​&lt;/li&gt;
+      &lt;li&gt;Unnamed semaphore&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Unnamed semaphore의 초기화​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;sem_t *sem;​&lt;br /&gt;
+int sem_init(sem_t *sem, int pshared, unsigned int value);&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;sem : 세마포어 객체​&lt;/li&gt;
+  &lt;li&gt;pshared : 다른 스레드와 공유할 것인지의 여부​&lt;/li&gt;
+  &lt;li&gt;value : 세마포어의 초기값​&lt;/li&gt;
+  &lt;li&gt;예 : sem_init(&amp;amp;sem, 0, 10)​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Unnamed semaphore의 종료​&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;sem_destroy(&amp;amp;sem)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Named semaphore의 초기화​
+    &lt;ul&gt;
+      &lt;li&gt;sem_open(sem_name, FLAGS, permission, value)​&lt;/li&gt;
+      &lt;li&gt;예 : sem_open(“/my_sem”, O_CREAT, 0777, 10)​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Named semaphore의 종료​
+    &lt;ul&gt;
+      &lt;li&gt;sem_close(sem) : semaphore와의 연결을 끊지만, 시스템 상에 semaphore를 남겨둠​&lt;/li&gt;
+      &lt;li&gt;sem_unlink(sem_name) : semaphore에 사용된 resource를 free 시킴&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;세마포어의 값을 감소시키는 함수 ​
+    &lt;ul&gt;
+      &lt;li&gt;크리티컬 영역에 진입하면서 자동으로 세마포어의 값을 감소(-1)시킴&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;int sem_wait(sem_t *sem);​&lt;br /&gt;
+int sem_trywait(sem_t *sem);&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;세마포어의 값을 1 증가시키는 함수&lt;br /&gt;
+int sem_post(sem_t *sem);&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;현재 세마포어의 값을 읽는 함수&lt;br /&gt;
+int sem_getvalue(sem_t *sem, int *sval);&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;conditional-variable&quot;&gt;&lt;strong&gt;Conditional Variable&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;조건변수​
+    &lt;ul&gt;
+      &lt;li&gt;스레드 간에 특정 조건이 발생했음을 알리는 통신을 위해 사용​&lt;/li&gt;
+      &lt;li&gt;조건변수는 반드시 mutex와 함께 사용되어야 한다​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;조건변수의 생성​
+    &lt;ul&gt;
+      &lt;li&gt;함수를 이용한 초기화와 매크로를 이용한 초기화 방법이 있음​&lt;br /&gt;
+pthread_cond_t cond;​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;pthread_cond_init(&amp;amp;cond, NULL); // 함수를 이용한 초기화​&lt;/p&gt;
+
+&lt;p&gt;pthread_cond_t cond = PTHREAD_COND_INITIALIZER; // 매크로를 이용​&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;조건변수의 삭제​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;pthread_cond_destory(&amp;amp;cond);&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;조건변수를 기다리는 함수​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;int pthread_cond_wait(pthread_cond_t *cond, pthread_mutex_t *mutex);​&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;cond : 조건 알림이 발생할 때까지 대기​&lt;/li&gt;
+  &lt;li&gt;mutex : mutex가 cond를 제어​&lt;/li&gt;
+  &lt;li&gt;동작​
+    &lt;ul&gt;
+      &lt;li&gt;Mutex 해제 -&amp;gt; 블록 상태 -&amp;gt; 조건 알림을 받음 -&amp;gt; 깨어나면서 mutex를 얻음​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;조건 알림을 보내는 함수​
+int pthread_cond_signal(pthread_cond_t *cond);&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;조건 변수 cond에 의해 기다리던 조건이 발생했음을 대기하고 있는 스레드에게 통보​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;하나의 생산자 스레드와 여러개의 소비자 스레드가 있는 경우​
+    &lt;ul&gt;
+      &lt;li&gt;pthread_cond_signal() 함수를 사용하면 단 하나의 스레드만 깨우고 나머지 스레드는 영원히 기다릴 가능성이 있음​&lt;/li&gt;
+      &lt;li&gt;pthread_cond_broadcast()를 사용​
+        &lt;ul&gt;
+          &lt;li&gt;여러 스레드를 동시에 깨움​&lt;/li&gt;
+          &lt;li&gt;깨어난 스레드들 중 공유 데이터를 위한 mutex를 얻은 스레드만이 공유 데이터에 접근​&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Producer-Consumer 예제 ​
+    &lt;ul&gt;
+      &lt;li&gt;Queue를 사용​
+        &lt;ul&gt;
+          &lt;li&gt;생산자 스레드는 queue에 메시지 쓰기 작업을 수행​&lt;/li&gt;
+          &lt;li&gt;소비자 스레드는 queue에서 메시지 읽기 작업을 수행​&lt;/li&gt;
+          &lt;li&gt;운영체제의 scheduler는 생산자와 소비자 스레드가 교대로 실행되는 것을 보장하지 않음​&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;조건변수를 사용하여 queue의 길이가 0보다 클 경우 소비자 스레드를 깨움​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;hr /&gt;</content>
 

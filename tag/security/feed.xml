@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/security/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-12-09T21:32:35+09:00</updated>
+  <updated>2021-12-10T19:18:26+09:00</updated>
   <id>https://lee989898.github.io/tag/security/feed.xml</id>
 
   
@@ -1131,16 +1131,16 @@
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;저작권이란&lt;/li&gt;
-  &lt;li&gt;Copyright​&lt;/li&gt;
-  &lt;li&gt;저작자가 자신이 창작한 저작물에 대해 갖는 권리(저작권법)​
+  &lt;li&gt;Copyright&lt;/li&gt;
+  &lt;li&gt;저작자가 자신이 창작한 저작물에 대해 갖는 권리(저작권법)
     &lt;ol&gt;
-      &lt;li&gt;복제권: 저작자는 저작물을 복제할 권리를 갖는다​&lt;/li&gt;
-      &lt;li&gt;공연권​&lt;/li&gt;
-      &lt;li&gt;공중송신권​&lt;/li&gt;
-      &lt;li&gt;전시권: 원본이나 복제물을 전시할 권리​&lt;/li&gt;
-      &lt;li&gt;배포권: 원본이나 복제물을 배포. 다만, 저작자의 허락을 받아 판매등의 방법으로 거래에 제공된 경우는 제외​&lt;/li&gt;
-      &lt;li&gt;대여권: 영리를 목적으로 대여할 권리​&lt;/li&gt;
-      &lt;li&gt;2차적 저작물작성권: 원저작물로 하는 2차적저작물을 작성하여 이용할 권리​&lt;/li&gt;
+      &lt;li&gt;복제권: 저작자는 저작물을 복제할 권리를 갖는다&lt;/li&gt;
+      &lt;li&gt;공연권&lt;/li&gt;
+      &lt;li&gt;공중송신권&lt;/li&gt;
+      &lt;li&gt;전시권: 원본이나 복제물을 전시할 권리&lt;/li&gt;
+      &lt;li&gt;배포권: 원본이나 복제물을 배포. 다만, 저작자의 허락을 받아 판매등의 방법으로 거래에 제공된 경우는 제외&lt;/li&gt;
+      &lt;li&gt;대여권: 영리를 목적으로 대여할 권리&lt;/li&gt;
+      &lt;li&gt;2차적 저작물작성권: 원저작물로 하는 2차적저작물을 작성하여 이용할 권리&lt;/li&gt;
     &lt;/ol&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
@@ -1150,24 +1150,24 @@
 &lt;/blockquote&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Provider​
+  &lt;li&gt;Provider
     &lt;ul&gt;
-      &lt;li&gt;저자물(권) 소유​&lt;/li&gt;
+      &lt;li&gt;저자물(권) 소유&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;Distributor​
+  &lt;li&gt;Distributor
     &lt;ul&gt;
-      &lt;li&gt;유통을 담당하는 배급자​&lt;/li&gt;
-      &lt;li&gt;합법적인 소비자에게만 제공해야​&lt;/li&gt;
+      &lt;li&gt;유통을 담당하는 배급자&lt;/li&gt;
+      &lt;li&gt;합법적인 소비자에게만 제공해야&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;Clearinghouse​
+  &lt;li&gt;Clearinghouse
     &lt;ul&gt;
-      &lt;li&gt;디지털 상품에 대한 권리발급​&lt;/li&gt;
-      &lt;li&gt;배급료, 사용료 처리 (Log기록)​&lt;/li&gt;
+      &lt;li&gt;디지털 상품에 대한 권리발급&lt;/li&gt;
+      &lt;li&gt;배급료, 사용료 처리 (Log기록)&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;Consumer​
+  &lt;li&gt;Consumer
     &lt;ul&gt;
       &lt;li&gt;Clearinghouse에 사용료지급하고  distributor로부터 컨텐츠제공받음&lt;/li&gt;
     &lt;/ul&gt;
@@ -1179,7 +1179,7 @@
 &lt;/blockquote&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;평범해 보이는 미디어에 내용을 아는 수신자만 알아볼 수 있도록 은밀히 정보를 숨기는 기술​&lt;/li&gt;
+  &lt;li&gt;평범해 보이는 미디어에 내용을 아는 수신자만 알아볼 수 있도록 은밀히 정보를 숨기는 기술&lt;/li&gt;
   &lt;li&gt;암호화알고리즘이 안전하지 않을 때 유용&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -1188,12 +1188,12 @@
 &lt;/blockquote&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;빛을 비출때나 반사될 때 더 밝게 보이는, 인지할 수 있는 종이의 무늬나 그림​&lt;/li&gt;
+  &lt;li&gt;빛을 비출때나 반사될 때 더 밝게 보이는, 인지할 수 있는 종이의 무늬나 그림&lt;/li&gt;
   &lt;li&gt;지폐, 상표, 문서 등의 위조 방지에 많이 사용된다&lt;/li&gt;
-  &lt;li&gt;Digital watermarking​
+  &lt;li&gt;Digital watermarking
     &lt;ul&gt;
-      &lt;li&gt;Text, image, video, audio 등의 원본 데이터에 본래 소유주만이 아는 mark를 사람의 감각으로 식별할 수 없게 삽입하는 기술​&lt;/li&gt;
-      &lt;li&gt;일부 digital data가 손상되더라도 인간은 감지할 수 없음​&lt;/li&gt;
+      &lt;li&gt;Text, image, video, audio 등의 원본 데이터에 본래 소유주만이 아는 mark를 사람의 감각으로 식별할 수 없게 삽입하는 기술&lt;/li&gt;
+      &lt;li&gt;일부 digital data가 손상되더라도 인간은 감지할 수 없음&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;복제방지, 원본여부, 재생횟수제한, 유효기간설정, 시간제한 등에 활용&lt;/li&gt;
