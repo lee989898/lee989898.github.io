@@ -59,7 +59,7 @@
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="함수 정의와 호출" />
-    <meta property="og:description" content="코틀린 테이블 코틀린 기초 함수 정의와 호출 클래스, 객체, 인터페이스 람다로 프로그래밍 코틀린 타입 시스템 연산자 오버로딩과 기타 관례 고차 함수: 파라미터와 반환 값으로 람다 사용 제네릭스 애노테이션과 리플렉션 DSL 만들기 함수 정의와 호출 코틀린에서 컬렉션 만들기 함수를 호출하기 쉽게 만들기 메서드를 다른 클래스에 추가: 확장 함수와 확장 프로퍼티 컬렌션" />
+    <meta property="og:description" content="코틀린 테이블 코틀린 기초 함수 정의와 호출 클래스, 객체, 인터페이스 람다로 프로그래밍 코틀린 타입 시스템 연산자 오버로딩과 기타 관례 고차 함수: 파라미터와 반환 값으로 람다 사용 제네릭스 애노테이션과 리플렉션 DSL 만들기 코틀린에서 컬렉션 만들기 함수를 호출하기 쉽게 만들기 메서드를 다른 클래스에 추가: 확장 함수와 확장 프로퍼티 컬렌션 처리: 가변 길이" />
     <meta property="og:url" content="https://lee989898.github.io/kotlin-02" />
     <meta property="og:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -69,7 +69,7 @@
     <meta property="article:tag" content="Kotlin" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="함수 정의와 호출" />
-    <meta name="twitter:description" content="코틀린 테이블 코틀린 기초 함수 정의와 호출 클래스, 객체, 인터페이스 람다로 프로그래밍 코틀린 타입 시스템 연산자 오버로딩과 기타 관례 고차 함수: 파라미터와 반환 값으로 람다 사용 제네릭스 애노테이션과 리플렉션 DSL 만들기 함수 정의와 호출 코틀린에서 컬렉션 만들기 함수를 호출하기 쉽게 만들기 메서드를 다른 클래스에 추가: 확장 함수와 확장 프로퍼티 컬렌션" />
+    <meta name="twitter:description" content="코틀린 테이블 코틀린 기초 함수 정의와 호출 클래스, 객체, 인터페이스 람다로 프로그래밍 코틀린 타입 시스템 연산자 오버로딩과 기타 관례 고차 함수: 파라미터와 반환 값으로 람다 사용 제네릭스 애노테이션과 리플렉션 DSL 만들기 코틀린에서 컬렉션 만들기 함수를 호출하기 쉽게 만들기 메서드를 다른 클래스에 추가: 확장 함수와 확장 프로퍼티 컬렌션 처리: 가변 길이" />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
     <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -101,7 +101,7 @@
         "@type": "WebPage",
         "@id": "https://lee989898.github.io/kotlin-02"
     },
-    "description": "코틀린 테이블 코틀린 기초 함수 정의와 호출 클래스, 객체, 인터페이스 람다로 프로그래밍 코틀린 타입 시스템 연산자 오버로딩과 기타 관례 고차 함수: 파라미터와 반환 값으로 람다 사용 제네릭스 애노테이션과 리플렉션 DSL 만들기 함수 정의와 호출 코틀린에서 컬렉션 만들기 함수를 호출하기 쉽게 만들기 메서드를 다른 클래스에 추가: 확장 함수와 확장 프로퍼티 컬렌션"
+    "description": "코틀린 테이블 코틀린 기초 함수 정의와 호출 클래스, 객체, 인터페이스 람다로 프로그래밍 코틀린 타입 시스템 연산자 오버로딩과 기타 관례 고차 함수: 파라미터와 반환 값으로 람다 사용 제네릭스 애노테이션과 리플렉션 DSL 만들기 코틀린에서 컬렉션 만들기 함수를 호출하기 쉽게 만들기 메서드를 다른 클래스에 추가: 확장 함수와 확장 프로퍼티 컬렌션 처리: 가변 길이"
 }
     </script>
 
@@ -223,10 +223,6 @@ into the {body} of the default.hbs template -->
 
 <hr />
 
-<h1 id="함수-정의와-호출">함수 정의와 호출</h1>
-
-<hr />
-
 <ul>
   <li><a href="#코틀린에서-컬렉션-만들기">코틀린에서 컬렉션 만들기</a></li>
   <li><a href="#함수를-호출하기-쉽게-만들기">함수를 호출하기 쉽게 만들기</a></li>
@@ -240,28 +236,28 @@ into the {body} of the default.hbs template -->
 
 <h2 id="코틀린에서-컬렉션-만들기">코틀린에서 컬렉션 만들기</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>val set hashSetOf(1, 7, 53)
-val list = arrayListOf(1 ,7, 53)
-val map = hashMapOf(1 to "one", 7 to "seven")
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">set</span> <span class="nf">hashSetOf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">53</span><span class="p">)</span>
+<span class="kd">val</span> <span class="py">list</span> <span class="p">=</span> <span class="nf">arrayListOf</span><span class="p">(</span><span class="mi">1</span> <span class="p">,</span><span class="mi">7</span><span class="p">,</span> <span class="mi">53</span><span class="p">)</span>
+<span class="kd">val</span> <span class="py">map</span> <span class="p">=</span> <span class="nf">hashMapOf</span><span class="p">(</span><span class="mi">1</span> <span class="n">to</span> <span class="s">"one"</span><span class="p">,</span> <span class="mi">7</span> <span class="n">to</span> <span class="s">"seven"</span><span class="p">)</span>
 
-&gt;&gt;&gt; println(set.javaClass)
-class java.util.HashSet
-&gt;&gt;&gt; println(list.javaClass)
-class java.util.ArrayList
-&gt;&gt;&gt; println(map.javaClass)
-class java.util.HashMap
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="k">set</span><span class="p">.</span><span class="n">javaClass</span><span class="p">)</span>
+<span class="kd">class</span> <span class="err">java.util.</span><span class="nc">HashSet</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="n">javaClass</span><span class="p">)</span>
+<span class="kd">class</span> <span class="err">java.util.</span><span class="nc">ArrayList</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">map</span><span class="p">.</span><span class="n">javaClass</span><span class="p">)</span>
+<span class="kd">class</span> <span class="err">java.util.</span><span class="nc">HashMap</span>
 </code></pre></div></div>
 
 <ul>
   <li>코틀린이 자신만의 컬렉션 기능을 제공하지 않는다</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; val strings = listOf("first", "second", "fourteenth")
-&gt;&gt;&gt; println(strings.last())
-fourteenth
-&gt;&gt;&gt; val numbers = setOf(1, 14, 2)
-&gt;&gt;&gt; println(numbets.max())
-14
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">strings</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span><span class="s">"first"</span><span class="p">,</span> <span class="s">"second"</span><span class="p">,</span> <span class="s">"fourteenth"</span><span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">strings</span><span class="p">.</span><span class="nf">last</span><span class="p">())</span>
+<span class="n">fourteenth</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">numbers</span> <span class="p">=</span> <span class="nf">setOf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">numbets</span><span class="p">.</span><span class="nf">max</span><span class="p">())</span>
+<span class="mi">14</span>
 </code></pre></div></div>
 
 <ul>
@@ -272,34 +268,33 @@ fourteenth
 
 <h2 id="함수를-호출하기-쉽게-만들기">함수를 호출하기 쉽게 만들기</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; val list = listOf(1,2,3)
-&gt;&gt;&gt; println(list)
-[1, 2, 3]
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">list</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">list</span><span class="p">)</span>
+<span class="na">[1, 2, 3]</span>
 </code></pre></div></div>
 
 <ul>
   <li>자바 컬렉션에는 디폴트 toString 구현이 들어있다.그러나 우리에게 필요한 형식이 아닐 수 있다</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fun &lt;T&gt; joinToString(
-    collection: Collection&lt;T&gt;,
-    separator: String,
-    prefix: String,
-    postfix: String
-): String {
-    val result = StringBuilder(prefix)
-    for((index, element) in collection.withIndex()){
-        if(index &gt; 0) result.append(separator)
-        result.append(element)
-    }
-    result.append(postfix)
-    return result.toString()
-}
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="nf">joinToString</span><span class="p">(</span>
+    <span class="n">collection</span><span class="p">:</span> <span class="nc">Collection</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;,</span>
+    <span class="n">separator</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span>
+    <span class="n">prefix</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span>
+    <span class="n">postfix</span><span class="p">:</span> <span class="nc">String</span>
+<span class="p">):</span> <span class="nc">String</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">result</span> <span class="p">=</span> <span class="nc">StringBuilder</span><span class="p">(</span><span class="n">prefix</span><span class="p">)</span>
+    <span class="k">for</span><span class="p">((</span><span class="n">index</span><span class="p">,</span> <span class="n">element</span><span class="p">)</span> <span class="k">in</span> <span class="n">collection</span><span class="p">.</span><span class="nf">withIndex</span><span class="p">()){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">index</span> <span class="p">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="n">result</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">separator</span><span class="p">)</span>
+        <span class="n">result</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="n">result</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">postfix</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">.</span><span class="nf">toString</span><span class="p">()</span>
+<span class="p">}</span>
 
-&gt;&gt;&gt; val list = listOf(1, 2, 3)
-&gt;&gt;&gt; println(joinToString(list, "; ", ", "(", ")"))
-(1; 2; 3)
-
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">list</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="nf">joinToString</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="s">"; "</span><span class="p">,</span> <span class="s">", "</span><span class="p">(</span><span class="s">", "</span><span class="p">)</span><span class="s">"))
+</span><span class="p">(</span><span class="mi">1</span><span class="p">;</span> <span class="mi">2</span><span class="p">;</span> <span class="mi">3</span><span class="p">)</span>
 </code></pre></div></div>
 
 <ul>
@@ -310,7 +305,7 @@ fourteenth
   <p>이름 붙인 인자</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>joinToString(collection, separator = " ", prefix = " ", postfix = ".")
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">joinToString</span><span class="p">(</span><span class="n">collection</span><span class="p">,</span> <span class="n">separator</span> <span class="p">=</span> <span class="s">" "</span><span class="p">,</span> <span class="n">prefix</span> <span class="p">=</span> <span class="s">" "</span><span class="p">,</span> <span class="n">postfix</span> <span class="p">=</span> <span class="s">"."</span><span class="p">)</span>
 </code></pre></div></div>
 
 <ul>
@@ -322,27 +317,27 @@ fourteenth
   <p>디폴트 파라미터 값</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fun &lt;T&gt; joinToString(
-    collection: Collection&lt;T&gt;,
-    separator: String = ", ",
-    prefix: String = "",
-    postfix: String = "" 
-): String {
-    val result = StringBuilder(prefix)
-    for((index, element) in collection.withIndex()){
-        if(index &gt; 0) result.append(separator)
-        result.append(element)
-    }
-    result.append(postfix)
-    return result.toString()
-}
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="nf">joinToString</span><span class="p">(</span>
+    <span class="n">collection</span><span class="p">:</span> <span class="nc">Collection</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;,</span>
+    <span class="n">separator</span><span class="p">:</span> <span class="nc">String</span> <span class="p">=</span> <span class="s">", "</span><span class="p">,</span>
+    <span class="n">prefix</span><span class="p">:</span> <span class="nc">String</span> <span class="p">=</span> <span class="s">""</span><span class="p">,</span>
+    <span class="n">postfix</span><span class="p">:</span> <span class="nc">String</span> <span class="p">=</span> <span class="s">""</span> 
+<span class="p">):</span> <span class="nc">String</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">result</span> <span class="p">=</span> <span class="nc">StringBuilder</span><span class="p">(</span><span class="n">prefix</span><span class="p">)</span>
+    <span class="k">for</span><span class="p">((</span><span class="n">index</span><span class="p">,</span> <span class="n">element</span><span class="p">)</span> <span class="k">in</span> <span class="n">collection</span><span class="p">.</span><span class="nf">withIndex</span><span class="p">()){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">index</span> <span class="p">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="n">result</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">separator</span><span class="p">)</span>
+        <span class="n">result</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="n">result</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">postfix</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">.</span><span class="nf">toString</span><span class="p">()</span>
+<span class="p">}</span>
 
-&gt;&gt;&gt; joinToString(list, ", ", "", "")
-1, 2, 3
-&gt;&gt;&gt; joinToString(list)
-1, 2, 3
-&gt;&gt;&gt; joinToString(list, "; ")
-1; 2; 3;
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">joinToString</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="s">", "</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="p">)</span>
+<span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">joinToString</span><span class="p">(</span><span class="n">list</span><span class="p">)</span>
+<span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">joinToString</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="s">"; "</span><span class="p">)</span>
+<span class="mi">1</span><span class="p">;</span> <span class="mi">2</span><span class="p">;</span> <span class="mi">3</span><span class="p">;</span>
 </code></pre></div></div>
 
 <ul>
@@ -350,8 +345,8 @@ fourteenth
   <li>일반 호출 문법을 사용하려면 함수를 선언할 때와 같은 순서로 인자를 지정해야 한다</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; joinToString(list, postfix = ";", prefix = "# ")
-# 1, 2, 3;
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&gt;&gt;&gt;</span> <span class="nf">joinToString</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="n">postfix</span> <span class="p">=</span> <span class="s">";"</span><span class="p">,</span> <span class="n">prefix</span> <span class="p">=</span> <span class="s">"# "</span><span class="p">)</span>
+<span class="err">#</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">;</span>
 </code></pre></div></div>
 
 <ul>
@@ -363,15 +358,15 @@ fourteenth
   <p>정적인 유틸리티 클래스 없애기: 최상위 함수와 프로피터</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>package strings // 코틀린 join.kt
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="nn">strings</span> <span class="c1">// 코틀린 join.kt</span>
 
-fun joinToString(...): String {...} 
+<span class="k">fun</span> <span class="nf">joinToString</span><span class="p">(</span><span class="o">..</span><span class="p">.):</span> <span class="nc">String</span> <span class="p">{</span><span class="o">..</span><span class="p">.}</span> 
 
-package strings // join.kt를 컴파일한 결과와 같은 클래스를 자바 코드
+<span class="k">package</span> <span class="nn">strings</span> <span class="c1">// join.kt를 컴파일한 결과와 같은 클래스를 자바 코드</span>
 
-public class JoinKt{
-    public static String joinToString(...) { ... } 
-}
+<span class="k">public</span> <span class="kd">class</span> <span class="nc">JoinKt</span><span class="p">{</span>
+    <span class="k">public</span> <span class="n">static</span> <span class="nc">String</span> <span class="nf">joinToString</span><span class="p">(</span><span class="o">..</span><span class="p">.)</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span> 
+<span class="p">}</span>
 
 </code></pre></div></div>
 
@@ -384,16 +379,16 @@ public class JoinKt{
   <p>최상위 프로퍼티</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var opCount = 0
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="py">opCount</span> <span class="p">=</span> <span class="mi">0</span>
 
-fun performOperation(){
-    opCount++
-    //...
-}
+<span class="k">fun</span> <span class="nf">performOperation</span><span class="p">(){</span>
+    <span class="n">opCount</span><span class="p">++</span>
+    <span class="c1">//...</span>
+<span class="p">}</span>
 
-fun reporstOperationCount(){
-    println("Operation performed $opCount times")
-}
+<span class="k">fun</span> <span class="nf">reporstOperationCount</span><span class="p">(){</span>
+    <span class="nf">println</span><span class="p">(</span><span class="s">"Operation performed $opCount times"</span><span class="p">)</span>
+<span class="p">}</span>
 
 </code></pre></div></div>
 
@@ -403,7 +398,7 @@ fun reporstOperationCount(){
   <li>최상위 프로퍼티를 활용해 코드에 상수를 추가할 수 있다</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>val UNIX_LINE_SEOARATIR = "\n"
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">UNIX_LINE_SEOARATIR</span> <span class="p">=</span> <span class="s">"\n"</span>
 </code></pre></div></div>
 
 <ul>
@@ -417,12 +412,12 @@ fun reporstOperationCount(){
 
 <h2 id="메서드를-다른-클래스에-추가-확장-함수와-확장-프로퍼티">메서드를 다른 클래스에 추가: 확장 함수와 확장 프로퍼티</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>package strings
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="nn">strings</span>
 
-fun String.lastChar(): Char = this.get(this.length - 1) // 수신 객체 멤버에 this없이도 접근할 수 있다
+<span class="k">fun</span> <span class="nc">String</span><span class="p">.</span><span class="nf">lastChar</span><span class="p">():</span> <span class="nc">Char</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">length</span> <span class="p">-</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">// 수신 객체 멤버에 this없이도 접근할 수 있다</span>
 
-&gt;&gt;&gt; println("Kotlin".lastChar())
-n
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="s">"Kotlin"</span><span class="p">.</span><span class="nf">lastChar</span><span class="p">())</span>
+<span class="n">n</span>
 </code></pre></div></div>
 
 <ul>
@@ -437,13 +432,13 @@ n
   <p>임포트와 확장 함수</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import strings.lastChar
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">strings.lastChar</span>
 
-val c = "Kotlin".lastChar()
+<span class="kd">val</span> <span class="py">c</span> <span class="p">=</span> <span class="s">"Kotlin"</span><span class="p">.</span><span class="nf">lastChar</span><span class="p">()</span>
 
-import strings.lastChar as last
+<span class="k">import</span> <span class="nn">strings.lastChar</span> <span class="k">as</span> <span class="n">last</span>
 
-val c = "Kotlin".lats()
+<span class="kd">val</span> <span class="py">c</span> <span class="p">=</span> <span class="s">"Kotlin"</span><span class="p">.</span><span class="nf">lats</span><span class="p">()</span>
 </code></pre></div></div>
 
 <ul>
@@ -458,23 +453,23 @@ val c = "Kotlin".lats()
   <p>확장 함수로 유틸리티 함수 정의</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fun &lt;T&gt; Collection&lt;T&gt;.joinToString(
-    separator: String = ", ",
-    prefix: String = "",
-    postfix: String = "" 
-): String {
-    val result = StringBuilder(prefix)
-    for((index, element) in this.withIndex()){
-        if(index &gt; 0) result.append(separator)
-        result.append(element)
-    }
-    result.append(postfix)
-    return result.toString()
-}
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="nf">Collection</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;.</span><span class="nf">joinToString</span><span class="p">(</span>
+    <span class="n">separator</span><span class="p">:</span> <span class="nc">String</span> <span class="p">=</span> <span class="s">", "</span><span class="p">,</span>
+    <span class="n">prefix</span><span class="p">:</span> <span class="nc">String</span> <span class="p">=</span> <span class="s">""</span><span class="p">,</span>
+    <span class="n">postfix</span><span class="p">:</span> <span class="nc">String</span> <span class="p">=</span> <span class="s">""</span> 
+<span class="p">):</span> <span class="nc">String</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">result</span> <span class="p">=</span> <span class="nc">StringBuilder</span><span class="p">(</span><span class="n">prefix</span><span class="p">)</span>
+    <span class="k">for</span><span class="p">((</span><span class="n">index</span><span class="p">,</span> <span class="n">element</span><span class="p">)</span> <span class="k">in</span> <span class="k">this</span><span class="p">.</span><span class="nf">withIndex</span><span class="p">()){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">index</span> <span class="p">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="n">result</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">separator</span><span class="p">)</span>
+        <span class="n">result</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="n">result</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">postfix</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">.</span><span class="nf">toString</span><span class="p">()</span>
+<span class="p">}</span>
 
-&gt;&gt;&gt; val list = listOf(1, 2, 3)
-&gt;&gt;&gt; println(list.joinToString(separator = "; ", prefix = "(",postfix = ")"))
-(1; 2; 3)
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">list</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="nf">joinToString</span><span class="p">(</span><span class="n">separator</span> <span class="p">=</span> <span class="s">"; "</span><span class="p">,</span> <span class="n">prefix</span> <span class="p">=</span> <span class="s">"("</span><span class="p">,</span><span class="n">postfix</span> <span class="p">=</span> <span class="s">")"</span><span class="p">))</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">;</span> <span class="mi">2</span><span class="p">;</span> <span class="mi">3</span><span class="p">)</span>
 </code></pre></div></div>
 
 <ul>
@@ -485,17 +480,17 @@ val c = "Kotlin".lats()
   <p>확장 함수는 오바리이드 할 수 없다</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>open class View{
-    open fun click() = println("View Clicked")
-}
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">open</span> <span class="kd">class</span> <span class="nc">View</span><span class="p">{</span>
+    <span class="k">open</span> <span class="k">fun</span> <span class="nf">click</span><span class="p">()</span> <span class="p">=</span> <span class="nf">println</span><span class="p">(</span><span class="s">"View Clicked"</span><span class="p">)</span>
+<span class="p">}</span>
 
-class Button: View{
-    override fun click() = println("Button clicked")
-}
+<span class="kd">class</span> <span class="nc">Button</span><span class="p">:</span> <span class="nc">View</span><span class="p">{</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">click</span><span class="p">()</span> <span class="p">=</span> <span class="nf">println</span><span class="p">(</span><span class="s">"Button clicked"</span><span class="p">)</span>
+<span class="p">}</span>
 
-&gt;&gt;&gt; val view: View = Button()
-&gt;&gt;&gt; view.click()
-Button clicked
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">view</span><span class="p">:</span> <span class="nc">View</span> <span class="p">=</span> <span class="nc">Button</span><span class="p">()</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="n">view</span><span class="p">.</span><span class="nf">click</span><span class="p">()</span>
+<span class="nc">Button</span> <span class="n">clicked</span>
 </code></pre></div></div>
 
 <ul>
@@ -504,11 +499,11 @@ Button clicked
   <li>확장 함수는 클래스 밖에 선언된다</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fun View.showOff() = println("I'm a view!")
-fun Button.showOff() = println("I'm a button!")
-&gt;&gt;&gt; val view: View = Button()
-&gt;&gt;&gt; view.showOff()
-I'm a view!
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nc">View</span><span class="p">.</span><span class="nf">showOff</span><span class="p">()</span> <span class="p">=</span> <span class="nf">println</span><span class="p">(</span><span class="s">"I'm a view!"</span><span class="p">)</span>
+<span class="k">fun</span> <span class="nc">Button</span><span class="p">.</span><span class="nf">showOff</span><span class="p">()</span> <span class="p">=</span> <span class="nf">println</span><span class="p">(</span><span class="s">"I'm a button!"</span><span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">view</span><span class="p">:</span> <span class="nc">View</span> <span class="p">=</span> <span class="nc">Button</span><span class="p">()</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="n">view</span><span class="p">.</span><span class="nf">showOff</span><span class="p">()</span>
+<span class="nc">I</span><span class="err">'</span><span class="n">m</span> <span class="n">a</span> <span class="n">view</span><span class="p">!</span>
 </code></pre></div></div>
 
 <ul>
@@ -520,8 +515,8 @@ I'm a view!
   <p>확장 프로퍼티</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>val String.lastChar: Char
-    get() = get(length - 1)
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">String</span><span class="p">.</span><span class="n">lastChar</span><span class="p">:</span> <span class="nc">Char</span>
+    <span class="k">get</span><span class="p">()</span> <span class="p">=</span> <span class="k">get</span><span class="p">(</span><span class="n">length</span> <span class="p">-</span> <span class="mi">1</span><span class="p">)</span>
 </code></pre></div></div>
 
 <ul>
@@ -531,18 +526,18 @@ I'm a view!
   <li>초기와 코드도 쓸 수 없다</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var StringBuilder.lastChar: Char
-    get() = get(length - 1)
-    set(value: Char){
-        this.setCharAt(length -1, value)
-    }
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="py">StringBuilder</span><span class="p">.</span><span class="n">lastChar</span><span class="p">:</span> <span class="nc">Char</span>
+    <span class="k">get</span><span class="p">()</span> <span class="p">=</span> <span class="k">get</span><span class="p">(</span><span class="n">length</span> <span class="p">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">set</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nc">Char</span><span class="p">){</span>
+        <span class="k">this</span><span class="p">.</span><span class="nf">setCharAt</span><span class="p">(</span><span class="n">length</span> <span class="p">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+    <span class="p">}</span>
 
-&gt;&gt;&gt; println("Kotlin".lastChar)
-n
-&gt;&gt;&gt; val sb = StringBuilder("Kotlin?")
-&gt;&gt;&gt; sb.lastChar = '!'
-&gt;&gt;&gt; println(sb)
-Kotlin!
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="s">"Kotlin"</span><span class="p">.</span><span class="n">lastChar</span><span class="p">)</span>
+<span class="n">n</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">sb</span> <span class="p">=</span> <span class="nc">StringBuilder</span><span class="p">(</span><span class="s">"Kotlin?"</span><span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="n">sb</span><span class="p">.</span><span class="n">lastChar</span> <span class="p">=</span> <span class="sc">'!'</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">sb</span><span class="p">)</span>
+<span class="nc">Kotlin</span><span class="p">!</span>
 </code></pre></div></div>
 
 <hr />
@@ -559,15 +554,15 @@ Kotlin!
   <p>자바 컬렉션 API 확장</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>val strings: List&lt;String&gt; = listOf("first","second", "fourteenth")
-&gt;&gt;&gt; strings.last()
-fourteenth
-&gt;&gt;&gt; val numbers: Collection&lt;Int&gt; = setOf(1, 14, 2)
-&gt;&gt;&gt; numbers.max()
-14
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">strings</span><span class="p">:</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span><span class="s">"first"</span><span class="p">,</span><span class="s">"second"</span><span class="p">,</span> <span class="s">"fourteenth"</span><span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="n">strings</span><span class="p">.</span><span class="nf">last</span><span class="p">()</span>
+<span class="n">fourteenth</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">numbers</span><span class="p">:</span> <span class="nc">Collection</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;</span> <span class="p">=</span> <span class="nf">setOf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="n">numbers</span><span class="p">.</span><span class="nf">max</span><span class="p">()</span>
+<span class="mi">14</span>
 
-fun&lt;T&gt;List&lt;T&gt;.last(): T{ 마지막 원소를 반환함}
-fun Collection&lt;Int&gt;.max(): Int{ 컬렉션의 최댓값을 찾음}
+<span class="k">fun</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span><span class="nc">List</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;.</span><span class="nf">last</span><span class="p">():</span> <span class="nc">T</span><span class="p">{</span> <span class="err">마지막</span> <span class="err">원소를</span> <span class="err">반환함</span><span class="p">}</span>
+<span class="k">fun</span> <span class="nf">Collection</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;.</span><span class="nf">max</span><span class="p">():</span> <span class="nc">Int</span><span class="p">{</span> <span class="err">컬렉션의</span> <span class="err">최댓값을</span> <span class="err">찾음</span><span class="p">}</span>
 </code></pre></div></div>
 
 <ul>
@@ -578,12 +573,12 @@ fun Collection&lt;Int&gt;.max(): Int{ 컬렉션의 최댓값을 찾음}
   <p>가변 인자 함수: 인자의 개수가 달라질 수 있는 함수 정의</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fun listOf&lt;T&gt;(vararg values: T): List&lt;T&gt; { ... }
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">listOf</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;(</span><span class="k">vararg</span> <span class="n">values</span><span class="p">:</span> <span class="nc">T</span><span class="p">):</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
 
-fun main(args: Array&lt;String&gt;){
-    val list = listOf("args: ", *args) // 스프레드 연산자가 배열의 내용을 펼쳐준다
-    println(list)
-}
+<span class="k">fun</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="nc">Array</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;){</span>
+    <span class="kd">val</span> <span class="py">list</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span><span class="s">"args: "</span><span class="p">,</span> <span class="p">*</span><span class="n">args</span><span class="p">)</span> <span class="c1">// 스프레드 연산자가 배열의 내용을 펼쳐준다</span>
+    <span class="nf">println</span><span class="p">(</span><span class="n">list</span><span class="p">)</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 <ul>
@@ -595,14 +590,14 @@ fun main(args: Array&lt;String&gt;){
   <p>값의 쌍 다루기: 중위 호출과 구조 분해 선언</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>val map = mapOf(1 to "one", 7 to "seven", 53 to "fifty-three")
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">map</span> <span class="p">=</span> <span class="nf">mapOf</span><span class="p">(</span><span class="mi">1</span> <span class="n">to</span> <span class="s">"one"</span><span class="p">,</span> <span class="mi">7</span> <span class="n">to</span> <span class="s">"seven"</span><span class="p">,</span> <span class="mi">53</span> <span class="n">to</span> <span class="s">"fifty-three"</span><span class="p">)</span>
 
-1.to("one") // "to" 메소드를 일반적인 방식으로 호출함
-1 to "one" // "to" 메소드를 중위 호출 방식으로 호출함
+<span class="mi">1</span><span class="p">.</span><span class="nf">to</span><span class="p">(</span><span class="s">"one"</span><span class="p">)</span> <span class="c1">// "to" 메소드를 일반적인 방식으로 호출함</span>
+<span class="mi">1</span> <span class="n">to</span> <span class="s">"one"</span> <span class="c1">// "to" 메소드를 중위 호출 방식으로 호출함</span>
 
-infix fun Any.to(other: Any) = Pair(this, other)
+<span class="k">infix</span> <span class="k">fun</span> <span class="nc">Any</span><span class="p">.</span><span class="nf">to</span><span class="p">(</span><span class="n">other</span><span class="p">:</span> <span class="nc">Any</span><span class="p">)</span> <span class="p">=</span> <span class="nc">Pair</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
 
-val (number, name) = 1 to "one"
+<span class="kd">val</span> <span class="p">(</span><span class="py">number</span><span class="p">,</span> <span class="py">name</span><span class="p">)</span> <span class="p">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="s">"one"</span>
 </code></pre></div></div>
 
 <ul>
@@ -622,11 +617,11 @@ val (number, name) = 1 to "one"
   <p>문자열 나누기</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; println("12.345-6.A".split("\\.|-".toRegex()))
-[12, 345, 6 ,A]
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="s">"12.345-6.A"</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s">"\\.|-"</span><span class="p">.</span><span class="nf">toRegex</span><span class="p">()))</span>
+<span class="na">[12, 345, 6 ,A]</span>
 
-&gt;&gt;&gt; println(12.345-6.A".split(".","-"))
-[12, 345, 6, A]
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="mf">12.345</span><span class="p">-</span><span class="mi">6</span><span class="p">.</span><span class="nc">A</span><span class="s">".split("</span><span class="p">.</span><span class="s">","</span><span class="p">-</span><span class="s">"))
+</span><span class="na">[12, 345, 6, A]</span>
 </code></pre></div></div>
 
 <ul>
@@ -638,29 +633,29 @@ val (number, name) = 1 to "one"
   <p>정규식과 3중 따움표로 묶은 문자열</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fun parsePath(path: String){
-    val directory = path.substringBeforeLast("/")
-    val fullName = path.substringAfterLast("/")
-    val fileName = fullName.substringBeforeLast(".")
-    val extenstion = fullName.substringAfterLast(".")
-    println("dir: $directory, name: $fileName, ext: $extension")
-}
-&gt;&gt;&gt; parsePath(/users/yole/kotlin-book/chapter.aboc)
-dir: /users/yole/kotlin-book, name: chapter, ext: aboc
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">parsePath</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nc">String</span><span class="p">){</span>
+    <span class="kd">val</span> <span class="py">directory</span> <span class="p">=</span> <span class="n">path</span><span class="p">.</span><span class="nf">substringBeforeLast</span><span class="p">(</span><span class="s">"/"</span><span class="p">)</span>
+    <span class="kd">val</span> <span class="py">fullName</span> <span class="p">=</span> <span class="n">path</span><span class="p">.</span><span class="nf">substringAfterLast</span><span class="p">(</span><span class="s">"/"</span><span class="p">)</span>
+    <span class="kd">val</span> <span class="py">fileName</span> <span class="p">=</span> <span class="n">fullName</span><span class="p">.</span><span class="nf">substringBeforeLast</span><span class="p">(</span><span class="s">"."</span><span class="p">)</span>
+    <span class="kd">val</span> <span class="py">extenstion</span> <span class="p">=</span> <span class="n">fullName</span><span class="p">.</span><span class="nf">substringAfterLast</span><span class="p">(</span><span class="s">"."</span><span class="p">)</span>
+    <span class="nf">println</span><span class="p">(</span><span class="s">"dir: $directory, name: $fileName, ext: $extension"</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">parsePath</span><span class="p">(/</span><span class="n">users</span><span class="p">/</span><span class="n">yole</span><span class="p">/</span><span class="n">kotlin-book</span><span class="p">/</span><span class="n">chapter</span><span class="p">.</span><span class="n">aboc</span><span class="p">)</span>
+<span class="n">dir</span><span class="p">:</span> <span class="p">/</span><span class="n">users</span><span class="p">/</span><span class="n">yole</span><span class="p">/</span><span class="n">kotlin-book</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n">chapter</span><span class="p">,</span> <span class="n">ext</span><span class="p">:</span> <span class="n">aboc</span>
 </code></pre></div></div>
 
 <ul>
   <li>String을 확장한 함수를 사용</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fun parsePath(path: String){
-    val regax = """(.+)/(.+)\(.+)""".toRegax()
-    val matchResult = regax.matchEntire(path)
-    if(matchResult != null){
-        val(directory, filename, extension) = matchResult.destructured
-        println("dir: $directory, name: $filename, ext: $extension")
-    }    
-}
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">parsePath</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nc">String</span><span class="p">){</span>
+    <span class="kd">val</span> <span class="py">regax</span> <span class="p">=</span> <span class="s">"""(.+)/(.+)\(.+)"""</span><span class="p">.</span><span class="nf">toRegax</span><span class="p">()</span>
+    <span class="kd">val</span> <span class="py">matchResult</span> <span class="p">=</span> <span class="n">regax</span><span class="p">.</span><span class="nf">matchEntire</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">matchResult</span> <span class="p">!=</span> <span class="k">null</span><span class="p">){</span>
+        <span class="k">val</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">extension</span><span class="p">)</span> <span class="p">=</span> <span class="n">matchResult</span><span class="p">.</span><span class="n">destructured</span>
+        <span class="nf">println</span><span class="p">(</span><span class="s">"dir: $directory, name: $filename, ext: $extension"</span><span class="p">)</span>
+    <span class="p">}</span>    
+<span class="p">}</span>
 </code></pre></div></div>
 
 <ul>
@@ -681,43 +676,43 @@ dir: /users/yole/kotlin-book, name: chapter, ext: aboc
 
 <h2 id="코드-다듬기-로컬-함수와-확장">코드 다듬기: 로컬 함수와 확장</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class User(val id: Int, val name: String, val address: String)
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">User</span><span class="p">(</span><span class="kd">val</span> <span class="py">id</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="kd">val</span> <span class="py">address</span><span class="p">:</span> <span class="nc">String</span><span class="p">)</span>
 
-fun saveUser(user: User){
-    if(user.name.isEmpty()){
-        throws IllegalArgumentException(
-            "Can't save user $(user.id): empty Name")
-        )
-    }
-    if(user.address.isEmpty()){
-        throws IllegalArgumentException(
-            "Can't save user $(user.id): empty Address")
-        )
-    }
-}
+<span class="k">fun</span> <span class="nf">saveUser</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="nc">User</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="n">name</span><span class="p">.</span><span class="nf">isEmpty</span><span class="p">()){</span>
+        <span class="n">throws</span> <span class="nc">IllegalArgumentException</span><span class="p">(</span>
+            <span class="s">"Can't save user $(user.id): empty Name"</span><span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="n">address</span><span class="p">.</span><span class="nf">isEmpty</span><span class="p">()){</span>
+        <span class="n">throws</span> <span class="nc">IllegalArgumentException</span><span class="p">(</span>
+            <span class="s">"Can't save user $(user.id): empty Address"</span><span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-&gt;&gt;&gt; saveUser(User(1,"",""))
-java.lang.IllegalArgumentException: Can't save user 1: empty Name
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">saveUser</span><span class="p">(</span><span class="nc">User</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s">""</span><span class="p">,</span><span class="s">""</span><span class="p">))</span>
+<span class="n">java</span><span class="p">.</span><span class="n">lang</span><span class="p">.</span><span class="nc">IllegalArgumentException</span><span class="p">:</span> <span class="nc">Can</span><span class="err">'</span><span class="n">t</span> <span class="n">save</span> <span class="n">user</span> <span class="mi">1</span><span class="p">:</span> <span class="n">empty</span> <span class="nc">Name</span>
 </code></pre></div></div>
 
 <ul>
   <li>코틀린에서는 함수에서 추출한 함수를 원 함수 내부에 중첩시킬 수 있다</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class User(val id: Int, val name: String, val address: String)
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">User</span><span class="p">(</span><span class="kd">val</span> <span class="py">id</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="kd">val</span> <span class="py">address</span><span class="p">:</span> <span class="nc">String</span><span class="p">)</span>
 
-fun saveUser(user: User){
-    fun vaildate(user: USer,
-                value: String,
-                fieldName: String){
-            if(value.isEmpty()){
-        throws IllegalArgumentException(
-            "Can't save user $(user.id): empty $fileName")
-        }
-    }
-    validate(user, user.name, "Name")
-    validate(user, user.address, "Address")
-}
+<span class="k">fun</span> <span class="nf">saveUser</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="nc">User</span><span class="p">){</span>
+    <span class="k">fun</span> <span class="nf">vaildate</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="nc">USer</span><span class="p">,</span>
+                <span class="n">value</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span>
+                <span class="n">fieldName</span><span class="p">:</span> <span class="nc">String</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">value</span><span class="p">.</span><span class="nf">isEmpty</span><span class="p">()){</span>
+        <span class="n">throws</span> <span class="nc">IllegalArgumentException</span><span class="p">(</span>
+            <span class="s">"Can't save user $(user.id): empty $fileName"</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nf">validate</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">user</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="s">"Name"</span><span class="p">)</span>
+    <span class="nf">validate</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">user</span><span class="p">.</span><span class="n">address</span><span class="p">,</span> <span class="s">"Address"</span><span class="p">)</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 <ul>
@@ -725,18 +720,18 @@ fun saveUser(user: User){
   <li>불필요한 User 파라미터도 없애보자</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class User(val id: Int, val name: String, val address: String)
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">User</span><span class="p">(</span><span class="kd">val</span> <span class="py">id</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="kd">val</span> <span class="py">address</span><span class="p">:</span> <span class="nc">String</span><span class="p">)</span>
 
-fun saveUser(user: User){
-    fun vaildate(value: String,fieldName: String){
-            if(value.isEmpty()){
-        throws IllegalArgumentException(
-            "Can't save user $(user.id): " + "empty $fileName")
-        }
-    }
-    validate(user.name, "Name")
-    validate(user.address, "Address")
-}
+<span class="k">fun</span> <span class="nf">saveUser</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="nc">User</span><span class="p">){</span>
+    <span class="k">fun</span> <span class="nf">vaildate</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span><span class="n">fieldName</span><span class="p">:</span> <span class="nc">String</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">value</span><span class="p">.</span><span class="nf">isEmpty</span><span class="p">()){</span>
+        <span class="n">throws</span> <span class="nc">IllegalArgumentException</span><span class="p">(</span>
+            <span class="s">"Can't save user $(user.id): "</span> <span class="p">+</span> <span class="s">"empty $fileName"</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nf">validate</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="s">"Name"</span><span class="p">)</span>
+    <span class="nf">validate</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="n">address</span><span class="p">,</span> <span class="s">"Address"</span><span class="p">)</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 <ul>
@@ -744,7 +739,6 @@ fun saveUser(user: User){
 </ul>
 
 <hr />
-
 
                 </div>
             </section>

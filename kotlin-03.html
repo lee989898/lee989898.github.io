@@ -59,7 +59,7 @@
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="클래스, 객체, 인터페이스" />
-    <meta property="og:description" content="코틀린 테이블 코틀린 기초 함수 정의와 호출 클래스, 객체, 인터페이스 람다로 프로그래밍 코틀린 타입 시스템 연산자 오버로딩과 기타 관례 고차 함수: 파라미터와 반환 값으로 람다 사용 제네릭스 애노테이션과 리플렉션 DSL 만들기 클래스, 객체, 인터페이스 클래스 계층 정의 뻔하지 않은 생성자와 프로퍼티를 갖는 클래스 선언 컴파일러가 생성한 메서드: 데이터 클래스와 클래스" />
+    <meta property="og:description" content="코틀린 테이블 코틀린 기초 함수 정의와 호출 클래스, 객체, 인터페이스 람다로 프로그래밍 코틀린 타입 시스템 연산자 오버로딩과 기타 관례 고차 함수: 파라미터와 반환 값으로 람다 사용 제네릭스 애노테이션과 리플렉션 DSL 만들기 클래스 계층 정의 뻔하지 않은 생성자와 프로퍼티를 갖는 클래스 선언 컴파일러가 생성한 메서드: 데이터 클래스와 클래스 위임 object 키워드:" />
     <meta property="og:url" content="https://lee989898.github.io/kotlin-03" />
     <meta property="og:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -69,7 +69,7 @@
     <meta property="article:tag" content="Kotlin" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="클래스, 객체, 인터페이스" />
-    <meta name="twitter:description" content="코틀린 테이블 코틀린 기초 함수 정의와 호출 클래스, 객체, 인터페이스 람다로 프로그래밍 코틀린 타입 시스템 연산자 오버로딩과 기타 관례 고차 함수: 파라미터와 반환 값으로 람다 사용 제네릭스 애노테이션과 리플렉션 DSL 만들기 클래스, 객체, 인터페이스 클래스 계층 정의 뻔하지 않은 생성자와 프로퍼티를 갖는 클래스 선언 컴파일러가 생성한 메서드: 데이터 클래스와 클래스" />
+    <meta name="twitter:description" content="코틀린 테이블 코틀린 기초 함수 정의와 호출 클래스, 객체, 인터페이스 람다로 프로그래밍 코틀린 타입 시스템 연산자 오버로딩과 기타 관례 고차 함수: 파라미터와 반환 값으로 람다 사용 제네릭스 애노테이션과 리플렉션 DSL 만들기 클래스 계층 정의 뻔하지 않은 생성자와 프로퍼티를 갖는 클래스 선언 컴파일러가 생성한 메서드: 데이터 클래스와 클래스 위임 object 키워드:" />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
     <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -101,7 +101,7 @@
         "@type": "WebPage",
         "@id": "https://lee989898.github.io/kotlin-03"
     },
-    "description": "코틀린 테이블 코틀린 기초 함수 정의와 호출 클래스, 객체, 인터페이스 람다로 프로그래밍 코틀린 타입 시스템 연산자 오버로딩과 기타 관례 고차 함수: 파라미터와 반환 값으로 람다 사용 제네릭스 애노테이션과 리플렉션 DSL 만들기 클래스, 객체, 인터페이스 클래스 계층 정의 뻔하지 않은 생성자와 프로퍼티를 갖는 클래스 선언 컴파일러가 생성한 메서드: 데이터 클래스와 클래스"
+    "description": "코틀린 테이블 코틀린 기초 함수 정의와 호출 클래스, 객체, 인터페이스 람다로 프로그래밍 코틀린 타입 시스템 연산자 오버로딩과 기타 관례 고차 함수: 파라미터와 반환 값으로 람다 사용 제네릭스 애노테이션과 리플렉션 DSL 만들기 클래스 계층 정의 뻔하지 않은 생성자와 프로퍼티를 갖는 클래스 선언 컴파일러가 생성한 메서드: 데이터 클래스와 클래스 위임 object 키워드:"
 }
     </script>
 
@@ -223,10 +223,6 @@ into the {body} of the default.hbs template -->
 
 <hr />
 
-<h1 id="클래스-객체-인터페이스">클래스, 객체, 인터페이스</h1>
-
-<hr />
-
 <ul>
   <li><a href="#클래스-계층-정의">클래스 계층 정의</a></li>
   <li><a href="#뻔하지-않은-생성자와-프로퍼티를-갖는-클래스-선언">뻔하지 않은 생성자와 프로퍼티를 갖는 클래스 선언</a></li>
@@ -244,20 +240,20 @@ into the {body} of the default.hbs template -->
   <li>코틀린 인터페이스</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>interface Clickable{
-    fun click()
-}
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Clickable</span><span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">click</span><span class="p">()</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 <p>위 인터페이스를 구현하는 모든 비추상 클래스는 click에 대한 구현을 제공해야 한다<br />
 다음은 인터페이스를 구현하는 방법이다</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Button : Clickable{
-    override fun click() = println("I was clicked")
-}
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Button</span> <span class="p">:</span> <span class="nc">Clickable</span><span class="p">{</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">click</span><span class="p">()</span> <span class="p">=</span> <span class="nf">println</span><span class="p">(</span><span class="s">"I was clicked"</span><span class="p">)</span>
+<span class="p">}</span>
 
-&gt;&gt;&gt; Button.click()
-I was clicked
+<span class="p">&gt;&gt;&gt;</span> <span class="nc">Button</span><span class="p">.</span><span class="nf">click</span><span class="p">()</span>
+<span class="nc">I</span> <span class="n">was</span> <span class="n">clicked</span>
 </code></pre></div></div>
 
 <p>자바와 마찬가지로 클래스는 인터페이스를 원하는 만큼 개수 제한 없이 마음대로 구현할 수 있지만, 클래스는 오직 하나만 확장할 수 있다</p>
@@ -266,40 +262,40 @@ I was clicked
 
 <p>인터페이스 메소드도 디폴트 구현을 제공할 수 있다. 그런 경우 메소드 앞에 default를 붙여야 하는 자바와 달리 코틀린에서는 메소드를 특별한 키워드로 꾸밀 필요가 없이 메소드 본문을 메소드 시그니처 뒤에 추가하면 된다</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>interface Clickable{
-    fun click() // 일반 메소드 선언
-    fun showOff() = println("I'm clickable!") // 디폴트 구현이 있는 메소드
-}
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Clickable</span><span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">click</span><span class="p">()</span> <span class="c1">// 일반 메소드 선언</span>
+    <span class="k">fun</span> <span class="nf">showOff</span><span class="p">()</span> <span class="p">=</span> <span class="nf">println</span><span class="p">(</span><span class="s">"I'm clickable!"</span><span class="p">)</span> <span class="c1">// 디폴트 구현이 있는 메소드</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 <p>showOff 메소드의 경우 새로운 동작을 정의할 수도 있고, 그냥 정의를 생략해서 디폴트 구현을 사용할 수도 있다</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>동일한 메소드를 구현하는 다른 인터페이스 정의
-interface Focusable{
-    fun setFocus(b: Boolean) = 
-        println("I ${if (b) "got else "lost"} focus.")
-    fun showOff() = println("I'm focusable!")
-}
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">동일한</span> <span class="err">메소드를</span> <span class="err">구현하는</span> <span class="err">다른</span> <span class="err">인터페이스</span> <span class="err">정의</span>
+<span class="kd">interface</span> <span class="nc">Focusable</span><span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">setFocus</span><span class="p">(</span><span class="n">b</span><span class="p">:</span> <span class="nc">Boolean</span><span class="p">)</span> <span class="p">=</span> 
+        <span class="nf">println</span><span class="p">(</span><span class="s">"I ${if (b) "</span><span class="n">got</span> <span class="k">else</span> <span class="s">"lost"</span><span class="p">}</span> <span class="n">focus</span><span class="p">.</span><span class="s">")
+</span>    <span class="k">fun</span> <span class="nf">showOff</span><span class="p">()</span> <span class="p">=</span> <span class="nf">println</span><span class="p">(</span><span class="s">"I'm focusable!"</span><span class="p">)</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 <p>한 클래스에서 모두 디폴트 구현이 들어있는 두 인터페이스를 함께 구현하면 어느쪽 showOff메소드도 선택되지 않는다<br />
 코틀린 컴파일러는 두 메소드를 아우르는 구현을 하위 클래스에 직접 구현하게 강제한다</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>상속한 인터페이스의 메소드 구현 호출하기
-class Button : Clickable, Focusable{
-    override fun click() = println("I was clicked")
-    override fun showOff(){ // 인터페이스를 구현하는 하위 클래스에서 명시적으로 새로운 구현을 제공해야 한다
-        super&lt;Clickable&gt;.showOff()
-        super&lt;Focusable&gt;.showOff()
-    }
-}
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">상속한</span> <span class="err">인터페이스의</span> <span class="err">메소드</span> <span class="err">구현</span> <span class="err">호출하기</span>
+<span class="kd">class</span> <span class="nc">Button</span> <span class="p">:</span> <span class="nc">Clickable</span><span class="p">,</span> <span class="nc">Focusable</span><span class="p">{</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">click</span><span class="p">()</span> <span class="p">=</span> <span class="nf">println</span><span class="p">(</span><span class="s">"I was clicked"</span><span class="p">)</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">showOff</span><span class="p">(){</span> <span class="c1">// 인터페이스를 구현하는 하위 클래스에서 명시적으로 새로운 구현을 제공해야 한다</span>
+        <span class="k">super</span><span class="p">&lt;</span><span class="nc">Clickable</span><span class="p">&gt;.</span><span class="nf">showOff</span><span class="p">()</span>
+        <span class="k">super</span><span class="p">&lt;</span><span class="nc">Focusable</span><span class="p">&gt;.</span><span class="nf">showOff</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-fun main(args: Array&lt;String&gt;){
-    val button = Button()
-    button.showOff()
-    button.setFocus(true)
-    button.click()
-}
+<span class="k">fun</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="nc">Array</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;){</span>
+    <span class="kd">val</span> <span class="py">button</span> <span class="p">=</span> <span class="nc">Button</span><span class="p">()</span>
+    <span class="n">button</span><span class="p">.</span><span class="nf">showOff</span><span class="p">()</span>
+    <span class="n">button</span><span class="p">.</span><span class="nf">setFocus</span><span class="p">(</span><span class="k">true</span><span class="p">)</span>
+    <span class="n">button</span><span class="p">.</span><span class="nf">click</span><span class="p">()</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 <ul>
@@ -307,26 +303,26 @@ fun main(args: Array&lt;String&gt;){
 </ul>
 
 <p>기본적으로 상속이 가능하면 취약한 기반 클래스라는 문제가 발생한다<br />
-이펙티브 자바를 쓴 조슈아 블로크는 “상속을 위한 설계와 문서를 갖추거나, 그럴 수 없다면 상속을 금지하라”는 조언을 했다<br />
+이펙티브 자바를 쓴 조슈아 블로크는 상속을 위한 설계와 문서를 갖추거나, 그럴 수 없다면 상속을 금지하라는 조언을 했다<br />
 코틀린도 이러한 조언을 따른다. 코틀린의 클래스와 메소드는 기본적으로 final이다<br />
 클래스의 상속을 허용하려면 클래스 앞에 open 변경자를 붙여야 한다<br />
 오버라이드를 허용하고 싶은 메소드나 프로퍼티의 앞에도 open 변경자를 붙여야 한다</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>열린 메소드를 포함하는 열린 클래스 정의하기
-open class RichButton : Clickable { // 이 클래스는 열려있다
-    fun disable() {} // 이 함수는 파이널이다
-    open fun animate() {} // 이 함수는 열려있다
-    override fun click() {} // 이 함수는 열려있는 메소드를 오버라이드한다
-}
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">열린</span> <span class="err">메소드를</span> <span class="err">포함하는</span> <span class="err">열린</span> <span class="err">클래스</span> <span class="err">정의하기</span>
+<span class="k">open</span> <span class="kd">class</span> <span class="nc">RichButton</span> <span class="p">:</span> <span class="nc">Clickable</span> <span class="p">{</span> <span class="c1">// 이 클래스는 열려있다</span>
+    <span class="k">fun</span> <span class="nf">disable</span><span class="p">()</span> <span class="p">{}</span> <span class="c1">// 이 함수는 파이널이다</span>
+    <span class="k">open</span> <span class="k">fun</span> <span class="nf">animate</span><span class="p">()</span> <span class="p">{}</span> <span class="c1">// 이 함수는 열려있다</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">click</span><span class="p">()</span> <span class="p">{}</span> <span class="c1">// 이 함수는 열려있는 메소드를 오버라이드한다</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 <p>기반 클래스나 인터페이스의 멤버를 오버라이드하는 경우 메소드는 기본적으로 열려있다<br />
 오버라이드하는 메소드의 구현을 하위 클래스에서 오버라이드 하지 못하게 금지하려면 오버라이드 하는 메소드 앞에 final을 명시해야 한다</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>오버라이드 금지하기
-open class RichButton : Clickable{
-    final override fun click() {} // 이 final은 쓸데 없이 붙은 중복이 아니다. final이 없는 override 메소드나 프로퍼티는 기본적으로 열려있다
-}
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">오버라이드</span> <span class="err">금지하기</span>
+<span class="k">open</span> <span class="kd">class</span> <span class="nc">RichButton</span> <span class="p">:</span> <span class="nc">Clickable</span><span class="p">{</span>
+    <span class="k">final</span> <span class="k">override</span> <span class="k">fun</span> <span class="nf">click</span><span class="p">()</span> <span class="p">{}</span> <span class="c1">// 이 final은 쓸데 없이 붙은 중복이 아니다. final이 없는 override 메소드나 프로퍼티는 기본적으로 열려있다</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 <p>클래스의 기본적인 상속 가능 사태를 final로 함으로써 얻을 수 있는 큰 이익은 다양한 경우에 스마트 캐스트가 가능하다는 점이다. 스마트 캐스트는 타입 검사 뒤에 변경될 수 없는 변수에만 적용 가능하다</p>
@@ -334,19 +330,19 @@ open class RichButton : Clickable{
 <p>코틀린에서도 클래스를 abstract로 선언할 수 있다. abstract로 선언한 추상 클래스는 인스턴스화 할 수 없다<br />
 추상 멤버는 항상 열려있다. 따라서 추상 멤버 앞에 open 변경자를 명시할 필요가 없다</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>추상 클래스 정의하기
-abstract class Animated{ 
-    abstract fun animate() // 추상 함수다. 구현이 없다. 하위 클래스에서 이 함수를 반드시 오버라이드 해야 한다
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">추상</span> <span class="err">클래스</span> <span class="err">정의하기</span>
+<span class="k">abstract</span> <span class="kd">class</span> <span class="nc">Animated</span><span class="p">{</span> 
+    <span class="k">abstract</span> <span class="k">fun</span> <span class="nf">animate</span><span class="p">()</span> <span class="c1">// 추상 함수다. 구현이 없다. 하위 클래스에서 이 함수를 반드시 오버라이드 해야 한다</span>
 
-    open fun stopAnimation(){ /// 추상 클래스에 속했더라도 비추상 함수는 기본적으로 파이널이지만 원한다면 open으로 오버라이드를 허용할 수 있다
+    <span class="k">open</span> <span class="k">fun</span> <span class="nf">stopAnimation</span><span class="p">(){</span> <span class="c1">/// 추상 클래스에 속했더라도 비추상 함수는 기본적으로 파이널이지만 원한다면 open으로 오버라이드를 허용할 수 있다</span>
 
-    }
+    <span class="p">}</span>
 
-    fun animateTwice(){
+    <span class="k">fun</span> <span class="nf">animateTwice</span><span class="p">(){</span>
 
-    }
+    <span class="p">}</span>
 
-}
+<span class="p">}</span>
 </code></pre></div></div>
 
 <p>인터페이스 멤버의 경우 final, open, abstract를 사용하지 않는다. 인터페이스 멤버는 항상 열려 있으면 final로 변경할 수 없다. 인터페이스 멤버에게 본문이 없으면 자동으로 추상 멤버가 되지만, 따로 멤버 선언 앞에 abstract 키워드를 덧붙일 필요가 없다</p>
@@ -371,15 +367,15 @@ internal: (클래스 멤버)같은 모듈 안에서만 볼 수 있다, (최상�
 protected: (클래스 멤버) 하위 클래스 안에서만 볼 수 있다, (최상위 선언) (최상위 선언에 적용할 수 없음)
 private: (클래스 멤버) 같은 클래스 안에서만 볼 수 있다, (최상위 선언) 같은 파일 안에서만 볼 수 있다</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>internal open class TalkativeButton : Focusable{
-    private fun yell() = println("Hey!")
-    protected fun whisper() = println("Let's talk!")
-}
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">internal</span> <span class="k">open</span> <span class="kd">class</span> <span class="nc">TalkativeButton</span> <span class="p">:</span> <span class="nc">Focusable</span><span class="p">{</span>
+    <span class="k">private</span> <span class="k">fun</span> <span class="nf">yell</span><span class="p">()</span> <span class="p">=</span> <span class="nf">println</span><span class="p">(</span><span class="s">"Hey!"</span><span class="p">)</span>
+    <span class="k">protected</span> <span class="k">fun</span> <span class="nf">whisper</span><span class="p">()</span> <span class="p">=</span> <span class="nf">println</span><span class="p">(</span><span class="s">"Let's talk!"</span><span class="p">)</span>
+<span class="p">}</span>
 
-fun TalkativeButton.giveSpeech() { // 오류: public 멤버가 자신의 internal 수신타입인 TalkativeButton을 노출함
-    yell() // 오류: yell에 접근할 수 없음
-    whisper() // 오류: whisper에 접근할 수 없음
-}
+<span class="k">fun</span> <span class="nc">TalkativeButton</span><span class="p">.</span><span class="nf">giveSpeech</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// 오류: public 멤버가 자신의 internal 수신타입인 TalkativeButton을 노출함</span>
+    <span class="nf">yell</span><span class="p">()</span> <span class="c1">// 오류: yell에 접근할 수 없음</span>
+    <span class="nf">whisper</span><span class="p">()</span> <span class="c1">// 오류: whisper에 접근할 수 없음</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 <p>어떤 클래스의 기반 타입 목록에 들어있는 타입이나 제네릭 클래스의 타입 파라미터에 들어있는 타입의 가시성은 그 클래스 자신의 가시성과 같거나 더 높아야 하고, 메소드의 시그니처에 사용된 모든 타입의 가시성은 그 메소드의 가시성과 같거나 더 높아야 한다<br />
@@ -393,23 +389,23 @@ fun TalkativeButton.giveSpeech() { // 오류: public 멤버가 자신의 interna
 
 <p>코틀린의 중첩 클래스는 명시적으로 요청하지 않는 한 바깥쪽 클래스 인스턴스에 대한 접근 권한이 없다는 점이다</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>직렬화할 수 있는 상태가 있는 뷰 선언
-interface State: Serializable
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">직렬화할</span> <span class="err">수</span> <span class="err">있는</span> <span class="err">상태가</span> <span class="err">있는</span> <span class="err">뷰</span> <span class="err">선언</span>
+<span class="kd">interface</span> <span class="nc">State</span><span class="p">:</span> <span class="nc">Serializable</span>
 
-interface View{
-    fun getCurrentState(): State
-    fun restoreState(state: State) {}
-}
+<span class="kd">interface</span> <span class="nc">View</span><span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">getCurrentState</span><span class="p">():</span> <span class="nc">State</span>
+    <span class="k">fun</span> <span class="nf">restoreState</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="nc">State</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>중첩 클래스를 사용해 코틀린에서 View 구현하기
-class Button : View{
-    override fun getCurrentState(): State = ButtonState()
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">중첩</span> <span class="err">클래스를</span> <span class="err">사용해</span> <span class="err">코틀린에서</span> <span class="nc">View</span> <span class="err">구현하기</span>
+<span class="kd">class</span> <span class="nc">Button</span> <span class="p">:</span> <span class="nc">View</span><span class="p">{</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">getCurrentState</span><span class="p">():</span> <span class="nc">State</span> <span class="p">=</span> <span class="nc">ButtonState</span><span class="p">()</span>
 
-    override fun restoreState(state: State) { }
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">restoreState</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="nc">State</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
 
-    class ButtonState: State {}
-}
+    <span class="kd">class</span> <span class="nc">ButtonState</span><span class="p">:</span> <span class="nc">State</span> <span class="p">{}</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 <p>코트린 중첩 클래스에 아무런 변경자가 붙지 않으면 자바 static 중첩 클래스와 같다. 이를 배누 클래스로 변경해서 바깥쪽 클래스에 대한 참조를 포함하게 만들고 싶다면 inner 변경자를 붙여야 한다</p>
@@ -419,46 +415,46 @@ class Button : View{
 
 <p>코틀린에서 바깥쪽 클래스의 인스턴스를 가리키는 참조를 표기하는 방법은 내부 클래스 Inner 안에서 바깥쪽 클래스 Outer의 참조에 접근하려면  this@Outer 라고 써야 한다</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Outer{
-    inner classs Inner{
-        fun getOuterReference(): Outer = this@Outer
-    }
-}
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Outer</span><span class="p">{</span>
+    <span class="k">inner</span> <span class="n">classs</span> <span class="nc">Inner</span><span class="p">{</span>
+        <span class="k">fun</span> <span class="nf">getOuterReference</span><span class="p">():</span> <span class="nc">Outer</span> <span class="p">=</span> <span class="k">this</span><span class="nd">@Outer</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 <ul>
   <li>봉인된 클래스: 클래스 계층 정의 시 계층 확장 제한</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>인터페이스 구현을 통해 식 표현하기
-interface Expr
-class Num(val value: Int) : Expr
-class Sum(val left: Expr, val right: Expr) : Expr
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">인터페이스</span> <span class="err">구현을</span> <span class="err">통해</span> <span class="err">식</span> <span class="err">표현하기</span>
+<span class="kd">interface</span> <span class="nc">Expr</span>
+<span class="kd">class</span> <span class="nc">Num</span><span class="p">(</span><span class="kd">val</span> <span class="py">value</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span> <span class="p">:</span> <span class="nc">Expr</span>
+<span class="kd">class</span> <span class="nc">Sum</span><span class="p">(</span><span class="kd">val</span> <span class="py">left</span><span class="p">:</span> <span class="nc">Expr</span><span class="p">,</span> <span class="kd">val</span> <span class="py">right</span><span class="p">:</span> <span class="nc">Expr</span><span class="p">)</span> <span class="p">:</span> <span class="nc">Expr</span>
 
-fun eval (e: Expr): Int = 
-    when (e) {
-        is Num -&gt; e.value
-        is Sum -&gt; eval(e.right) + eval(e.left)
-        else -&gt; // else 분기가 꼭 있어야 한다
-            throw IllegalArgumentException("Unknown expression")
-    }
+<span class="k">fun</span> <span class="nf">eval</span> <span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="nc">Expr</span><span class="p">):</span> <span class="nc">Int</span> <span class="p">=</span> 
+    <span class="k">when</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">is</span> <span class="nc">Num</span> <span class="p">-&gt;</span> <span class="n">e</span><span class="p">.</span><span class="n">value</span>
+        <span class="k">is</span> <span class="nc">Sum</span> <span class="p">-&gt;</span> <span class="nf">eval</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">right</span><span class="p">)</span> <span class="p">+</span> <span class="nf">eval</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">left</span><span class="p">)</span>
+        <span class="k">else</span> <span class="p">-&gt;</span> <span class="c1">// else 분기가 꼭 있어야 한다</span>
+            <span class="k">throw</span> <span class="nc">IllegalArgumentException</span><span class="p">(</span><span class="s">"Unknown expression"</span><span class="p">)</span>
+    <span class="p">}</span>
 </code></pre></div></div>
 
 <p>항상 디폴트 분기를 추가하는 게 편하지는 않다. 실수로 새로운 클래스 처리를 잊어버렸더라도 디폴트 분기가 선택되기 때문에 심각한 버그가 발생할 수 있다<br />
 코틀린에서는 sealed 클래스로 이런 문제를 해결한다. 상위 클래스에 sealed 변경자를 붙이면 그 상위 클래스를 상속한 하위 클래스 정의를 제한할 수 있다<br />
 sealed 클래스의 하위 클래스를 정의할 때는 반드시 상위 클래스 안에 중첩시켜야 한다</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sealed 클래스로 식 표현하기
-sealed class Expr{ // 기반 클래스를 sealed로 봉인한다
-    class Num(val value: Int) : Expr() // 기반 클래스의 모든 하위 클래스를 중첩 클래스로 나열한다
-    class Sum(val left: Expr, val right: Expr) : Expr()
-}
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">sealed</span> <span class="err">클래스로</span> <span class="err">식</span> <span class="err">표현하기</span>
+<span class="k">sealed</span> <span class="kd">class</span> <span class="nc">Expr</span><span class="p">{</span> <span class="c1">// 기반 클래스를 sealed로 봉인한다</span>
+    <span class="kd">class</span> <span class="nc">Num</span><span class="p">(</span><span class="kd">val</span> <span class="py">value</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span> <span class="p">:</span> <span class="nc">Expr</span><span class="p">()</span> <span class="c1">// 기반 클래스의 모든 하위 클래스를 중첩 클래스로 나열한다</span>
+    <span class="kd">class</span> <span class="nc">Sum</span><span class="p">(</span><span class="kd">val</span> <span class="py">left</span><span class="p">:</span> <span class="nc">Expr</span><span class="p">,</span> <span class="kd">val</span> <span class="py">right</span><span class="p">:</span> <span class="nc">Expr</span><span class="p">)</span> <span class="p">:</span> <span class="nc">Expr</span><span class="p">()</span>
+<span class="p">}</span>
 
-fun eval(e : Expr): Int =
-    when(e) { // when 식이 모든 하위 클래스를 검사하므로 별도의 else 분기가 없어도 된다
-        is Expr.Num -&gt; e.value
-        is Expr.Sum -&gt; eval(e.right) + eval(e.left)
-    }
+<span class="k">fun</span> <span class="nf">eval</span><span class="p">(</span><span class="n">e</span> <span class="p">:</span> <span class="nc">Expr</span><span class="p">):</span> <span class="nc">Int</span> <span class="p">=</span>
+    <span class="k">when</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// when 식이 모든 하위 클래스를 검사하므로 별도의 else 분기가 없어도 된다</span>
+        <span class="k">is</span> <span class="nc">Expr</span><span class="p">.</span><span class="nc">Num</span> <span class="p">-&gt;</span> <span class="n">e</span><span class="p">.</span><span class="n">value</span>
+        <span class="k">is</span> <span class="nc">Expr</span><span class="p">.</span><span class="nc">Sum</span> <span class="p">-&gt;</span> <span class="nf">eval</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">right</span><span class="p">)</span> <span class="p">+</span> <span class="nf">eval</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">left</span><span class="p">)</span>
+    <span class="p">}</span>
 </code></pre></div></div>
 
 <p>sealed로 표시된 클래스는 자동으로 open이다. 나중에 sealed 클래스의 상속 계층에 새로운 하위 클래스를 추가해도 when식이 컴파일 되지 않는다. 따라서 when식을 고쳐야 한다는 사실을 쉽게 알 수 있다</p>
@@ -478,19 +474,124 @@ fun eval(e : Expr): Int =
 <p>클래스 이름 뒤에 오는 괄호로 둘러싸인 코드를 주 생성자라고 부른다. 주 생성자는 생성자 파라미터를 지정하고 그 생성자 파라미터에 의해 초기화되는 프로퍼티를 정의하는 두 가지 목적에 쓰인다<br />
 class User(val nickname: String) 선언을 같은 목적을 달성할 수 있는 가장 명시적인 선언으로 풀어서 보자</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class User constructor(_nickname: String){
-    val nickname: String
-    init {
-        nickname = _nickname
-    }
-}
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">User</span> <span class="k">constructor</span><span class="p">(</span><span class="n">_nickname</span><span class="p">:</span> <span class="nc">String</span><span class="p">){</span>
+    <span class="kd">val</span> <span class="py">nickname</span><span class="p">:</span> <span class="nc">String</span>
+    <span class="nf">init</span> <span class="p">{</span>
+        <span class="n">nickname</span> <span class="p">=</span> <span class="n">_nickname</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 <p>constructor 키워드는 주 생성자나 부 생성자 정의를 시작할 때 사용한다<br />
 init 키워드는 초기화 블록을 시작한다. 초기화 블록에는 클래스의 객체가 만들어질 때 실행될 초기화 코드가 들어간다</p>
 
 <p>class User(val nickname: String) // val은 이 파라미터에 사응하는 프로퍼티가 생성된다는 뜻이다<br />
-함수 파라미터와 마찬가지로 생성자 파라미터에도 디폴트 값을 정의할 수 잇다</p>
+함수 파라미터와 마찬가지로 생성자 파라미터에도 디폴트 값을 정의할 수 있다<br />
+class User(val nickname: String, val isSubscribed: Boolean = true)</p>
+
+<p>클래스의 인스턴스를 만들려면 new 키워드 없이 생성자를 직접 호출하면 된다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">hyun</span> <span class="p">=</span> <span class="nc">User</span><span class="p">(</span><span class="s">"현석"</span><span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">hyun</span><span class="p">.</span><span class="n">isSubscribed</span><span class="p">)</span>
+<span class="k">true</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">gye</span> <span class="p">=</span> <span class="nc">User</span><span class="p">(</span><span class="s">"계영"</span><span class="p">,</span> <span class="k">false</span><span class="p">)</span> <span class="c1">// 모든 인자를 파라미터 선언 순서대로 지정할 수도 있다</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">gye</span><span class="p">.</span><span class="n">isSubscribed</span><span class="p">)</span>
+<span class="k">false</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">hey</span> <span class="p">=</span> <span class="nc">User</span><span class="p">(</span><span class="s">"혜원"</span><span class="p">,</span> <span class="n">isSubscirbed</span> <span class="p">=</span> <span class="k">false</span><span class="p">)</span> <span class="c1">// 생성자 인자 중 일부에 대해 이름을 지정할 수도 있다</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">hey</span><span class="p">.</span><span class="n">isSubscribed</span><span class="p">)</span>
+<span class="k">false</span>
+</code></pre></div></div>
+
+<p>클래스에 기반 클래스가 있다면 주 생성자에서 기반 클래스의 생성자를 호출해야 할 필요가 있다. 기반 클래스를 초기화하려면 기반 클래스 이름 뒤에 괄호를 치고 생성자 인자를 넘긴다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">open</span> <span class="kd">class</span> <span class="nc">User</span><span class="p">(</span><span class="kd">val</span> <span class="py">nickname</span><span class="p">:</span> <span class="nc">String</span><span class="p">)</span> <span class="p">{}</span>
+<span class="kd">class</span> <span class="nc">TwitterUSer</span><span class="p">(</span><span class="n">nickname</span><span class="p">:</span> <span class="nc">String</span><span class="p">)</span> <span class="p">:</span> <span class="nc">User</span><span class="p">(</span><span class="n">nickname</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>클래스를 정의할 때 별도로 성성자를 정의하지 않으면 컴파일러가 자동으로 아무 일도 하지 않는 인자가 없는 디폴트 생성자를 만들어준다<br />
+open class Button // 인자가 없는 디폴트 생성자가 만들어진다<br />
+Button의 생성자는 아무 인자도 받지 않짐나, Button 클래스를 상속한 하위 클래스는 반드시 Button 클래스의 생성자를 호출해야 한다<br />
+class RadioButton: Button()<br />
+이 규칙으로 인해 기반 클래스의 이름 뒤에는 꼭 빈 괄호가 들어간다. 반면 인터페이스는 생성자가 없기 때문에 어떤 클래스가 인터페이스를 구현하는 경우 그 클래스의 상위 클래스 목록에 있는 인터페이스 이름뒤에는 아무 괄호도 없다</p>
+
+<p>class Secretive private construtor(){ } // 이 클래스의 유일한 주 생성자는 비공개이다<br />
+Secretive 클래스 안에는 주 생성자밖에 없고 그 주 생성자는 비공개이므로 외부에서는 Secretive를 인스턴스화할 수 없다</p>
+
+<ul>
+  <li>부 생성자: 상위 클래스를 다른 방식으로 초기화</li>
+</ul>
+
+<p>부 생성자는 constructor 키워드로 시작한다. 필요에 따라 얼마든지 부 생성자를 많이 선언해도 된다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">open</span> <span class="kd">class</span> <span class="nc">View</span><span class="p">{</span>
+    <span class="k">constructor</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="nc">Context</span><span class="p">){</span>
+
+    <span class="p">}</span>
+    <span class="k">constructor</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="nc">Context</span><span class="p">,</span> <span class="n">attr</span><span class="p">:</span> <span class="nc">AttributeSet</span><span class="p">){</span>
+
+    <span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">MyButton</span> <span class="p">:</span> <span class="nc">View</span><span class="p">{</span>
+    <span class="k">constructor</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="nc">Context</span><span class="p">)</span>
+        <span class="p">:</span> <span class="k">super</span><span class="p">(</span><span class="n">ctx</span><span class="p">){</span>
+
+    <span class="p">}</span>
+    <span class="k">constructor</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="nc">Contexgt</span><span class="p">,</span> <span class="n">attr</span><span class="p">:</span> <span class="nc">AttributeSet</span><span class="p">)</span>
+        <span class="p">:</span> <span class="k">super</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">attr</span><span class="p">){</span>
+
+        <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>위에서 두 부 생성자는 super() 키워드를 통해 자신에 대응하는 상위 클래스 생성자를 호출한다. this()를 통해 클래스 자신의 다른 생성자를 호출할 수 도 있다</p>
+
+<p>클래스에 주 생성자가 없다면 모든 부 생성자는 반드시 상위 클래스를 초기화하거나 다른 생성자에게 생성을 위임해야 한다</p>
+
+<ul>
+  <li>인터페이스에 선언된 프로퍼티 구현</li>
+</ul>
+
+<p>코틀린에서는 인터페이스에 추상 프로퍼티 선언을 넣을 수 있다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">User</span><span class="p">{</span>
+    <span class="kd">val</span> <span class="py">nickname</span><span class="p">:</span> <span class="nc">String</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>이는 User 인터페이스를 구현하는 클래스가 nickname의 값을 얻을 수 있는 방법을 제공해야 한다는 뜻이다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">인터페이스의</span> <span class="err">프로퍼티</span> <span class="err">구현하기</span>
+<span class="kd">class</span> <span class="nc">PrivateUser</span><span class="p">(</span><span class="k">override</span> <span class="kd">val</span> <span class="py">nickname</span><span class="p">:</span> <span class="nc">String</span><span class="p">)</span> <span class="p">:</span> <span class="nc">User</span> <span class="c1">// 주 생성자에 있는 프로퍼티</span>
+
+<span class="kd">class</span> <span class="nc">SubscribingUser</span><span class="p">(</span><span class="kd">val</span> <span class="py">email</span><span class="p">:</span> <span class="nc">String</span><span class="p">)</span> <span class="p">:</span> <span class="nc">USer</span><span class="p">{</span>
+    <span class="k">override</span> <span class="kd">val</span> <span class="py">nickname</span><span class="p">:</span> <span class="nc">String</span>
+        <span class="k">get</span><span class="p">()</span> <span class="p">=</span> <span class="n">email</span><span class="p">.</span><span class="nf">substringBefore</span><span class="p">(</span><span class="sc">'@'</span><span class="p">)</span> <span class="c1">// 커스텀 게터</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">FacebookUser</span><span class="p">(</span><span class="kd">val</span> <span class="py">accountId</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span> <span class="p">:</span> <span class="nc">User</span><span class="p">{</span>
+    <span class="k">override</span> <span class="kd">val</span> <span class="py">nickname</span> <span class="p">=</span> <span class="nf">getFacebookName</span><span class="p">(</span><span class="n">accountId</span><span class="p">)</span> <span class="c1">// 프로퍼티 초기화 식</span>
+<span class="p">}</span>
+
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="nc">PrivateUser</span><span class="p">(</span><span class="nd">test@</span><span class="n">kotlinlang</span><span class="p">.</span><span class="n">org</span><span class="p">).</span><span class="n">nickname</span><span class="p">)</span>
+<span class="nd">test@</span><span class="n">kotlinlang</span><span class="p">.</span><span class="n">org</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="nc">SubscribingUser</span><span class="p">(</span><span class="nd">test@</span><span class="n">kotlinlang</span><span class="p">.</span><span class="n">org</span><span class="p">).</span><span class="n">nickname</span><span class="p">)</span>
+<span class="n">test</span>
+</code></pre></div></div>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">User</span><span class="p">{</span>
+    <span class="kd">val</span> <span class="py">email</span><span class="p">:</span> <span class="nc">String</span>
+    <span class="kd">val</span> <span class="py">nickname</span><span class="p">:</span> <span class="nc">String</span>
+        <span class="k">get</span><span class="p">()</span> <span class="p">=</span> <span class="n">email</span><span class="p">.</span><span class="nf">substringBefore</span><span class="p">(</span><span class="sc">'@'</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>하위 클래스는 추상 프로퍼티인 email을 반드시 오버라이드 해야 한다. 반면 nickname은 오바라이드하지 않고 상속할 수 있다</p>
+
+<ul>
+  <li>게터와 세터에서 뒷받침하는 필드에 접근</li>
+</ul>
 
 <hr />
 
