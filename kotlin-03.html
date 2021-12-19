@@ -240,7 +240,257 @@ into the {body} of the default.hbs template -->
 
 <hr />
 
+<ul>
+  <li>코틀린 인터페이스</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>interface Clickable{
+    fun click()
+}
+</code></pre></div></div>
+
+<p>위 인터페이스를 구현하는 모든 비추상 클래스는 click에 대한 구현을 제공해야 한다<br />
+다음은 인터페이스를 구현하는 방법이다</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Button : Clickable{
+    override fun click() = println("I was clicked")
+}
+
+&gt;&gt;&gt; Button.click()
+I was clicked
+</code></pre></div></div>
+
+<p>자바와 마찬가지로 클래스는 인터페이스를 원하는 만큼 개수 제한 없이 마음대로 구현할 수 있지만, 클래스는 오직 하나만 확장할 수 있다</p>
+
+<p>코틀린에서는 override 변경자를 꼭 사용해야 한다. overrid 변경자는 실수로 상위 클래스의 메소드를 오버라이드 하는 경우를 방지해준다</p>
+
+<p>인터페이스 메소드도 디폴트 구현을 제공할 수 있다. 그런 경우 메소드 앞에 default를 붙여야 하는 자바와 달리 코틀린에서는 메소드를 특별한 키워드로 꾸밀 필요가 없이 메소드 본문을 메소드 시그니처 뒤에 추가하면 된다</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>interface Clickable{
+    fun click() // 일반 메소드 선언
+    fun showOff() = println("I'm clickable!") // 디폴트 구현이 있는 메소드
+}
+</code></pre></div></div>
+
+<p>showOff 메소드의 경우 새로운 동작을 정의할 수도 있고, 그냥 정의를 생략해서 디폴트 구현을 사용할 수도 있다</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>동일한 메소드를 구현하는 다른 인터페이스 정의
+interface Focusable{
+    fun setFocus(b: Boolean) = 
+        println("I ${if (b) "got else "lost"} focus.")
+    fun showOff() = println("I'm focusable!")
+}
+</code></pre></div></div>
+
+<p>한 클래스에서 모두 디폴트 구현이 들어있는 두 인터페이스를 함께 구현하면 어느쪽 showOff메소드도 선택되지 않는다<br />
+코틀린 컴파일러는 두 메소드를 아우르는 구현을 하위 클래스에 직접 구현하게 강제한다</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>상속한 인터페이스의 메소드 구현 호출하기
+class Button : Clickable, Focusable{
+    override fun click() = println("I was clicked")
+    override fun showOff(){ // 인터페이스를 구현하는 하위 클래스에서 명시적으로 새로운 구현을 제공해야 한다
+        super&lt;Clickable&gt;.showOff()
+        super&lt;Focusable&gt;.showOff()
+    }
+}
+
+fun main(args: Array&lt;String&gt;){
+    val button = Button()
+    button.showOff()
+    button.setFocus(true)
+    button.click()
+}
+</code></pre></div></div>
+
+<ul>
+  <li>open, final, abstract 변경자: 기본적으로 final</li>
+</ul>
+
+<p>기본적으로 상속이 가능하면 취약한 기반 클래스라는 문제가 발생한다<br />
+이펙티브 자바를 쓴 조슈아 블로크는 “상속을 위한 설계와 문서를 갖추거나, 그럴 수 없다면 상속을 금지하라”는 조언을 했다<br />
+코틀린도 이러한 조언을 따른다. 코틀린의 클래스와 메소드는 기본적으로 final이다<br />
+클래스의 상속을 허용하려면 클래스 앞에 open 변경자를 붙여야 한다<br />
+오버라이드를 허용하고 싶은 메소드나 프로퍼티의 앞에도 open 변경자를 붙여야 한다</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>열린 메소드를 포함하는 열린 클래스 정의하기
+open class RichButton : Clickable { // 이 클래스는 열려있다
+    fun disable() {} // 이 함수는 파이널이다
+    open fun animate() {} // 이 함수는 열려있다
+    override fun click() {} // 이 함수는 열려있는 메소드를 오버라이드한다
+}
+</code></pre></div></div>
+
+<p>기반 클래스나 인터페이스의 멤버를 오버라이드하는 경우 메소드는 기본적으로 열려있다<br />
+오버라이드하는 메소드의 구현을 하위 클래스에서 오버라이드 하지 못하게 금지하려면 오버라이드 하는 메소드 앞에 final을 명시해야 한다</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>오버라이드 금지하기
+open class RichButton : Clickable{
+    final override fun click() {} // 이 final은 쓸데 없이 붙은 중복이 아니다. final이 없는 override 메소드나 프로퍼티는 기본적으로 열려있다
+}
+</code></pre></div></div>
+
+<p>클래스의 기본적인 상속 가능 사태를 final로 함으로써 얻을 수 있는 큰 이익은 다양한 경우에 스마트 캐스트가 가능하다는 점이다. 스마트 캐스트는 타입 검사 뒤에 변경될 수 없는 변수에만 적용 가능하다</p>
+
+<p>코틀린에서도 클래스를 abstract로 선언할 수 있다. abstract로 선언한 추상 클래스는 인스턴스화 할 수 없다<br />
+추상 멤버는 항상 열려있다. 따라서 추상 멤버 앞에 open 변경자를 명시할 필요가 없다</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>추상 클래스 정의하기
+abstract class Animated{ 
+    abstract fun animate() // 추상 함수다. 구현이 없다. 하위 클래스에서 이 함수를 반드시 오버라이드 해야 한다
+
+    open fun stopAnimation(){ /// 추상 클래스에 속했더라도 비추상 함수는 기본적으로 파이널이지만 원한다면 open으로 오버라이드를 허용할 수 있다
+
+    }
+
+    fun animateTwice(){
+
+    }
+
+}
+</code></pre></div></div>
+
+<p>인터페이스 멤버의 경우 final, open, abstract를 사용하지 않는다. 인터페이스 멤버는 항상 열려 있으면 final로 변경할 수 없다. 인터페이스 멤버에게 본문이 없으면 자동으로 추상 멤버가 되지만, 따로 멤버 선언 앞에 abstract 키워드를 덧붙일 필요가 없다</p>
+
+<p>final: 오버라이드 할 수 없음, 클래스 멤버의 기본 변경자다<br />
+open: 오버라이드 할 수 있음, 반드시 open을 명시해야 오버라이드 할 수 있다<br />
+abstract: 반드시 오버라이드해야 함, 추상 클래스의 멤버에만 이 변경자를 붙일 수 있다. 추상 멤버에는 구현이 있으면 안 된다<br />
+override: 상위 클래스나 상위 인스턴스의 멤버를 오버라이드 하는 중, 오버라이드하는 멤버는 기본적으로 열려있다. 하위 클래스의 오버라이드를 금지하려면 final을 명시해야 한다</p>
+
+<ul>
+  <li>가시성 변경자: 기본적으로 공개</li>
+</ul>
+
+<p>가시성 변경자는 코드 기반에 있는 선언에 대한 클래스 외부 접근을 제어한다. 어떤 클래스의 구현에 대한 접근을 제한함으로써 그 클래스에 의존하는 외부 코드를 깨지 않고도 클래스 내부 구현을 변경할 수 있다</p>
+
+<p>아무 변경자도 없는 경우 선언은 모두 공개 된다. 자바의 기본 가시성인 패키지 전용은 코틀린에 없다. 코틀린을 패키지를 네임스페이스를 관리하기 위한 용도로만 사용한다<br />
+패키지 전용 가시성에 대한 대안으로 코틀린에는 intrenal이라는 새로운 가시성 변경자를 도입했다. internel은 모듈 내부에서만 볼 수 있음이라는 뜻이다. 모듈은 한 번에 한꺼번에 컴파일되는 코틀린 파일들을 의미한다<br />
+코틀린은 최상위 선언에 대해 private 가시성을 허용한다</p>
+
+<p>public: (클래스 멤버)모든 곳에서 볼 수 있다, (최상위 선언)모든 곳에서 볼 수 있다<br />
+internal: (클래스 멤버)같은 모듈 안에서만 볼 수 있다, (최상위 선언) 같은 모듈 안에서만 볼 수 있다
+protected: (클래스 멤버) 하위 클래스 안에서만 볼 수 있다, (최상위 선언) (최상위 선언에 적용할 수 없음)
+private: (클래스 멤버) 같은 클래스 안에서만 볼 수 있다, (최상위 선언) 같은 파일 안에서만 볼 수 있다</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>internal open class TalkativeButton : Focusable{
+    private fun yell() = println("Hey!")
+    protected fun whisper() = println("Let's talk!")
+}
+
+fun TalkativeButton.giveSpeech() { // 오류: public 멤버가 자신의 internal 수신타입인 TalkativeButton을 노출함
+    yell() // 오류: yell에 접근할 수 없음
+    whisper() // 오류: whisper에 접근할 수 없음
+}
+</code></pre></div></div>
+
+<p>어떤 클래스의 기반 타입 목록에 들어있는 타입이나 제네릭 클래스의 타입 파라미터에 들어있는 타입의 가시성은 그 클래스 자신의 가시성과 같거나 더 높아야 하고, 메소드의 시그니처에 사용된 모든 타입의 가시성은 그 메소드의 가시성과 같거나 더 높아야 한다<br />
+자바에서는 같은 패키지 안에서 protected멤버에 접근할 수 있지만, 코틀린에서는 그렇지 않다. protected 멤버는 오직 어떤 클래스나 그 클래스를 상속한 클래스 안에서만 보인다. 클래스를 확장한 함수는 그 클래스의 private이나 protected 멤버에 접근할 수 없다</p>
+
+<p>코틀린에서는 외부 클래스가 내부 클래스나 중첩된 클래스의 private 멤버에 접근할 수 없다</p>
+
+<ul>
+  <li>내부 클래스와 중첩된 클래스: 기본적으로 중첩 클래스</li>
+</ul>
+
+<p>코틀린의 중첩 클래스는 명시적으로 요청하지 않는 한 바깥쪽 클래스 인스턴스에 대한 접근 권한이 없다는 점이다</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>직렬화할 수 있는 상태가 있는 뷰 선언
+interface State: Serializable
+
+interface View{
+    fun getCurrentState(): State
+    fun restoreState(state: State) {}
+}
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>중첩 클래스를 사용해 코틀린에서 View 구현하기
+class Button : View{
+    override fun getCurrentState(): State = ButtonState()
+
+    override fun restoreState(state: State) { }
+
+    class ButtonState: State {}
+}
+</code></pre></div></div>
+
+<p>코트린 중첩 클래스에 아무런 변경자가 붙지 않으면 자바 static 중첩 클래스와 같다. 이를 배누 클래스로 변경해서 바깥쪽 클래스에 대한 참조를 포함하게 만들고 싶다면 inner 변경자를 붙여야 한다</p>
+
+<p>중첩 클래스: class A<br />
+내부 클래스: inner class a</p>
+
+<p>코틀린에서 바깥쪽 클래스의 인스턴스를 가리키는 참조를 표기하는 방법은 내부 클래스 Inner 안에서 바깥쪽 클래스 Outer의 참조에 접근하려면  this@Outer 라고 써야 한다</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Outer{
+    inner classs Inner{
+        fun getOuterReference(): Outer = this@Outer
+    }
+}
+</code></pre></div></div>
+
+<ul>
+  <li>봉인된 클래스: 클래스 계층 정의 시 계층 확장 제한</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>인터페이스 구현을 통해 식 표현하기
+interface Expr
+class Num(val value: Int) : Expr
+class Sum(val left: Expr, val right: Expr) : Expr
+
+fun eval (e: Expr): Int = 
+    when (e) {
+        is Num -&gt; e.value
+        is Sum -&gt; eval(e.right) + eval(e.left)
+        else -&gt; // else 분기가 꼭 있어야 한다
+            throw IllegalArgumentException("Unknown expression")
+    }
+</code></pre></div></div>
+
+<p>항상 디폴트 분기를 추가하는 게 편하지는 않다. 실수로 새로운 클래스 처리를 잊어버렸더라도 디폴트 분기가 선택되기 때문에 심각한 버그가 발생할 수 있다<br />
+코틀린에서는 sealed 클래스로 이런 문제를 해결한다. 상위 클래스에 sealed 변경자를 붙이면 그 상위 클래스를 상속한 하위 클래스 정의를 제한할 수 있다<br />
+sealed 클래스의 하위 클래스를 정의할 때는 반드시 상위 클래스 안에 중첩시켜야 한다</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sealed 클래스로 식 표현하기
+sealed class Expr{ // 기반 클래스를 sealed로 봉인한다
+    class Num(val value: Int) : Expr() // 기반 클래스의 모든 하위 클래스를 중첩 클래스로 나열한다
+    class Sum(val left: Expr, val right: Expr) : Expr()
+}
+
+fun eval(e : Expr): Int =
+    when(e) { // when 식이 모든 하위 클래스를 검사하므로 별도의 else 분기가 없어도 된다
+        is Expr.Num -&gt; e.value
+        is Expr.Sum -&gt; eval(e.right) + eval(e.left)
+    }
+</code></pre></div></div>
+
+<p>sealed로 표시된 클래스는 자동으로 open이다. 나중에 sealed 클래스의 상속 계층에 새로운 하위 클래스를 추가해도 when식이 컴파일 되지 않는다. 따라서 when식을 고쳐야 한다는 사실을 쉽게 알 수 있다</p>
+
+<hr />
+
 <h2 id="뻔하지-않은-생성자와-프로퍼티를-갖는-클래스-선언">뻔하지 않은 생성자와 프로퍼티를 갖는 클래스 선언</h2>
+
+<hr />
+
+<p>코틀린에서는 주생성자와 부생성자를 구분한다. 또한 초기화 블록을 통해 초기화 로직을 추가할 수 있다</p>
+
+<ul>
+  <li>클래스 초기화: 주 생성자와 초기화 블록</li>
+</ul>
+
+<p>클래스 이름 뒤에 오는 괄호로 둘러싸인 코드를 주 생성자라고 부른다. 주 생성자는 생성자 파라미터를 지정하고 그 생성자 파라미터에 의해 초기화되는 프로퍼티를 정의하는 두 가지 목적에 쓰인다<br />
+class User(val nickname: String) 선언을 같은 목적을 달성할 수 있는 가장 명시적인 선언으로 풀어서 보자</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class User constructor(_nickname: String){
+    val nickname: String
+    init {
+        nickname = _nickname
+    }
+}
+</code></pre></div></div>
+
+<p>constructor 키워드는 주 생성자나 부 생성자 정의를 시작할 때 사용한다<br />
+init 키워드는 초기화 블록을 시작한다. 초기화 블록에는 클래스의 객체가 만들어질 때 실행될 초기화 코드가 들어간다</p>
+
+<p>class User(val nickname: String) // val은 이 파라미터에 사응하는 프로퍼티가 생성된다는 뜻이다<br />
+함수 파라미터와 마찬가지로 생성자 파라미터에도 디폴트 값을 정의할 수 잇다</p>
 
 <hr />
 
