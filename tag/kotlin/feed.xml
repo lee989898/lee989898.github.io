@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/kotlin/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-12-20T00:33:51+09:00</updated>
+  <updated>2021-12-20T23:32:27+09:00</updated>
   <id>https://lee989898.github.io/tag/kotlin/feed.xml</id>
 
   
@@ -330,9 +330,49 @@
       <published>2021-08-06T01:07:00+09:00</published>
       <updated>2021-08-06T01:07:00+09:00</updated>
       <id>https://lee989898.github.io/kotlin-04</id>
-      <content type="html" xml:base="https://lee989898.github.io/kotlin-04">&lt;h1 id=&quot;람다로-프로그래밍&quot;&gt;&lt;strong&gt;람다로 프로그래밍&lt;/strong&gt;&lt;/h1&gt;
+      <content type="html" xml:base="https://lee989898.github.io/kotlin-04">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;코틀린 테이블&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-01&quot;&gt;코틀린 기초&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-02&quot;&gt;함수 정의와 호출&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-03&quot;&gt;클래스, 객체, 인터페이스&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-04&quot;&gt;람다로 프로그래밍&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-05&quot;&gt;코틀린 타입 시스템&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-06&quot;&gt;연산자 오버로딩과 기타 관례&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-07&quot;&gt;고차 함수: 파라미터와 반환 값으로 람다 사용&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-08&quot;&gt;제네릭스&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-09&quot;&gt;애노테이션과 리플렉션&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./kotlin-10&quot;&gt;DSL 만들기&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;hr /&gt;</content>
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#람다-식과-멤버-참조&quot;&gt;람다 식과 멤버 참조&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#함수형-스타일로-컬렉션-다루기&quot;&gt;함수형 스타일로 컬렉션 다루기&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#시퀀스-지연-컬렉션-연산&quot;&gt;시퀀스: 지연 컬렉션 연산&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#자바-함수형-인터페이스를-코틀린에서-사용&quot;&gt;자바 함수형 인터페이스를 코틀린에서 사용&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#수신-객체-지정-람다-사용&quot;&gt;수신 객체 지정 람다 사용&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;람다-식과-멤버-참조&quot;&gt;람다 식과 멤버 참조&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;함수형-스타일로-컬렉션-다루기&quot;&gt;함수형 스타일로 컬렉션 다루기&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;시퀀스-지연-컬렉션-연산&quot;&gt;시퀀스: 지연 컬렉션 연산&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;자바-함수형-인터페이스를-코틀린에서-사용&quot;&gt;자바 함수형 인터페이스를 코틀린에서 사용&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;수신-객체-지정-람다-사용&quot;&gt;수신 객체 지정 람다 사용&lt;/h2&gt;</content>
 
       
       
@@ -353,7 +393,7 @@
       
 
       
-        <summary type="html">람다로 프로그래밍</summary>
+        <summary type="html">코틀린 테이블 코틀린 기초 함수 정의와 호출 클래스, 객체, 인터페이스 람다로 프로그래밍 코틀린 타입 시스템 연산자 오버로딩과 기타 관례 고차 함수: 파라미터와 반환 값으로 람다 사용 제네릭스 애노테이션과 리플렉션 DSL 만들기</summary>
       
 
       
