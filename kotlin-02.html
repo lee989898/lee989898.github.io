@@ -293,8 +293,8 @@ into the {body} of the default.hbs template -->
 <span class="p">}</span>
 
 <span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">list</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="nf">joinToString</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="s">"; "</span><span class="p">,</span> <span class="s">", "</span><span class="p">(</span><span class="s">", "</span><span class="p">)</span><span class="s">"))
-</span><span class="p">(</span><span class="mi">1</span><span class="p">;</span> <span class="mi">2</span><span class="p">;</span> <span class="mi">3</span><span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="nf">joinToString</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="s">"; "</span><span class="p">,</span> <span class="s">"("</span><span class="p">,</span> <span class="s">")"</span><span class="p">))</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">;</span> <span class="mi">2</span><span class="p">;</span> <span class="mi">3</span><span class="p">)</span>
 </code></pre></div></div>
 
 <ul>
@@ -620,8 +620,8 @@ into the {body} of the default.hbs template -->
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="s">"12.345-6.A"</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s">"\\.|-"</span><span class="p">.</span><span class="nf">toRegex</span><span class="p">()))</span>
 <span class="na">[12, 345, 6 ,A]</span>
 
-<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="mf">12.345</span><span class="p">-</span><span class="mi">6</span><span class="p">.</span><span class="nc">A</span><span class="s">".split("</span><span class="p">.</span><span class="s">","</span><span class="p">-</span><span class="s">"))
-</span><span class="na">[12, 345, 6, A]</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="s">"12.345-6.A"</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s">"."</span><span class="p">,</span><span class="s">"-"</span><span class="p">))</span>
+<span class="na">[12, 345, 6, A]</span>
 </code></pre></div></div>
 
 <ul>

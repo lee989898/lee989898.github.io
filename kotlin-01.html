@@ -59,7 +59,7 @@
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="코틀린 기초" />
-    <meta property="og:description" content="코틀린 테이블 코틀린 기초 함수 정의와 호출 클래스, 객체, 인터페이스 람다로 프로그래밍 코틀린 타입 시스템 연산자 오버로딩과 기타 관례 고차 함수: 파라미터와 반환 값으로 람다 사용 제네릭스 애노테이션과 리플렉션 DSL 만들기 기본요소: 함수와 변수 클래스와 프로퍼티 선택 표현과 처리: enum과 when 대상을 이터레이션: while과 for 루프 코틀린의 예외 처리 기본요소:" />
+    <meta property="og:description" content="코틀린 테이블 코틀린 기초 함수 정의와 호출 클래스, 객체, 인터페이스 람다로 프로그래밍 코틀린 타입 시스템 연산자 오버로딩과 기타 관례 고차 함수: 파라미터와 반환 값으로 람다 사용 제네릭스 애노테이션과 리플렉션 DSL 만들기 기본요소: 함수와 변수 클래스와 프로퍼티 선택 표현과 처리: enum과 when while과 for 루프 코틀린의 예외 처리 기본요소: 함수와 변수" />
     <meta property="og:url" content="https://lee989898.github.io/kotlin-01" />
     <meta property="og:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -69,7 +69,7 @@
     <meta property="article:tag" content="Kotlin" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="코틀린 기초" />
-    <meta name="twitter:description" content="코틀린 테이블 코틀린 기초 함수 정의와 호출 클래스, 객체, 인터페이스 람다로 프로그래밍 코틀린 타입 시스템 연산자 오버로딩과 기타 관례 고차 함수: 파라미터와 반환 값으로 람다 사용 제네릭스 애노테이션과 리플렉션 DSL 만들기 기본요소: 함수와 변수 클래스와 프로퍼티 선택 표현과 처리: enum과 when 대상을 이터레이션: while과 for 루프 코틀린의 예외 처리 기본요소:" />
+    <meta name="twitter:description" content="코틀린 테이블 코틀린 기초 함수 정의와 호출 클래스, 객체, 인터페이스 람다로 프로그래밍 코틀린 타입 시스템 연산자 오버로딩과 기타 관례 고차 함수: 파라미터와 반환 값으로 람다 사용 제네릭스 애노테이션과 리플렉션 DSL 만들기 기본요소: 함수와 변수 클래스와 프로퍼티 선택 표현과 처리: enum과 when while과 for 루프 코틀린의 예외 처리 기본요소: 함수와 변수" />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
     <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -101,7 +101,7 @@
         "@type": "WebPage",
         "@id": "https://lee989898.github.io/kotlin-01"
     },
-    "description": "코틀린 테이블 코틀린 기초 함수 정의와 호출 클래스, 객체, 인터페이스 람다로 프로그래밍 코틀린 타입 시스템 연산자 오버로딩과 기타 관례 고차 함수: 파라미터와 반환 값으로 람다 사용 제네릭스 애노테이션과 리플렉션 DSL 만들기 기본요소: 함수와 변수 클래스와 프로퍼티 선택 표현과 처리: enum과 when 대상을 이터레이션: while과 for 루프 코틀린의 예외 처리 기본요소:"
+    "description": "코틀린 테이블 코틀린 기초 함수 정의와 호출 클래스, 객체, 인터페이스 람다로 프로그래밍 코틀린 타입 시스템 연산자 오버로딩과 기타 관례 고차 함수: 파라미터와 반환 값으로 람다 사용 제네릭스 애노테이션과 리플렉션 DSL 만들기 기본요소: 함수와 변수 클래스와 프로퍼티 선택 표현과 처리: enum과 when while과 for 루프 코틀린의 예외 처리 기본요소: 함수와 변수"
 }
     </script>
 
@@ -227,7 +227,7 @@ into the {body} of the default.hbs template -->
   <li><a href="#기본요소-함수와-변수">기본요소: 함수와 변수</a></li>
   <li><a href="#클래스와-프로퍼티">클래스와 프로퍼티</a></li>
   <li><a href="#선택-표현과-처리-enum과-when">선택 표현과 처리: enum과 when</a></li>
-  <li><a href="#대상을-이터레이션-while과-for-루프">대상을 이터레이션: while과 for 루프</a></li>
+  <li><a href="#while과-for-루프">while과 for 루프</a></li>
   <li><a href="#코틀린의-예외-처리">코틀린의 예외 처리</a></li>
 </ul>
 
@@ -791,8 +791,8 @@ languages.add(“Kotlin”)</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">list</span> <span class="p">=</span> <span class="nf">arrayListOf</span><span class="p">(</span><span class="s">"10"</span><span class="p">,</span> <span class="s">"11"</span><span class="p">,</span> <span class="s">"1001"</span><span class="p">)</span>
 <span class="k">for</span><span class="p">((</span><span class="n">index</span><span class="p">,</span> <span class="n">element</span><span class="p">)</span> <span class="k">in</span> <span class="n">list</span><span class="p">.</span><span class="nf">withIndex</span><span class="p">()){</span>
-    <span class="nf">println</span><span class="p">(</span><span class="s">"$index: $element)
-</span><span class="p">}</span>
+    <span class="nf">println</span><span class="p">(</span><span class="s">"$index: $element"</span><span class="p">)</span>
+<span class="p">}</span>
 
 <span class="mi">0</span><span class="p">:</span> <span class="mi">10</span>
 <span class="mi">1</span><span class="p">:</span> <span class="mi">11</span>
