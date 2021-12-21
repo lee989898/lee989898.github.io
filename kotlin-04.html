@@ -237,13 +237,282 @@ into the {body} of the default.hbs template -->
 
 <hr />
 
+<ul>
+  <li>람다 소개 : 코드 블록을 함수 인자로 넘기기</li>
+</ul>
+
+<p>함수형 언어에서는 함수를 직접 다른 함수에 전달할 수 있다</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">무명</span> <span class="n">내부</span> <span class="n">클래스로</span> <span class="n">리스너</span> <span class="n">구현하기</span>
+<span class="n">button</span><span class="o">.</span><span class="na">setOnClickListener</span><span class="o">(</span><span class="k">new</span> <span class="nc">OnClickListener</span><span class="o">(){</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="o">(</span><span class="nc">View</span> <span class="n">view</span><span class="o">){</span>
+        <span class="c1">// 클릭시 수행할 동작</span>
+    <span class="o">}</span>
+<span class="o">})</span>
+</code></pre></div></div>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">람다로</span> <span class="err">리스너</span> <span class="err">구현하기</span>
+<span class="n">button</span><span class="p">.</span><span class="nf">setOnclickListener</span><span class="p">{</span> <span class="c1">// 클릭시 수행할 동작}</span>
+</code></pre></div></div>
+
+<p>람다는 메소드가 하나뿐인 무명 객체 대신 사용할 수 있다</p>
+
+<ul>
+  <li>람다와 컬렉션</li>
+</ul>
+
+<p>컬렉션을 다룰 때 수행하는 대부분의 작업은 몇 가지 일반적인 패턴에 속한다</p>
+
+<p>data class Person(val name: String, val age: Int)<br />
+사람들로 이뤄진 리스트가 있고 그중에 가장 연장자를 찾아보자. 람다를 사용해본 경험이 없는 개발자라면 루프를 써서 직접 검색을 구현할 것이다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">findTheOldest</span><span class="p">(</span><span class="n">people</span><span class="p">:</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Person</span><span class="p">&gt;){</span>
+    <span class="kd">var</span> <span class="py">maxAge</span> <span class="p">=</span> <span class="mi">0</span>
+    <span class="kd">var</span> <span class="py">theOldest</span><span class="p">:</span> <span class="nc">Person</span><span class="p">?</span> <span class="p">=</span> <span class="k">null</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">person</span> <span class="k">in</span> <span class="n">people</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">person</span><span class="p">.</span><span class="n">age</span> <span class="p">&gt;</span> <span class="n">maxAge</span><span class="p">){</span>
+            <span class="n">maxAge</span> <span class="p">=</span> <span class="n">person</span><span class="p">.</span><span class="n">age</span>
+            <span class="n">theOldest</span> <span class="p">=</span> <span class="n">person</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nf">println</span><span class="p">(</span><span class="n">theOldest</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">people</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span><span class="nc">Person</span><span class="p">(</span><span class="s">"Alice"</span><span class="p">,</span> <span class="mi">29</span><span class="p">),</span> <span class="nc">Person</span><span class="p">(</span><span class="s">"Bob"</span><span class="p">,</span> <span class="mi">31</span><span class="p">))</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">findTheOldest</span><span class="p">(</span><span class="n">people</span><span class="p">)</span>
+<span class="nc">Person</span><span class="p">(</span><span class="n">name</span> <span class="p">=</span> <span class="nc">Bob</span><span class="p">,</span> <span class="n">age</span> <span class="p">=</span> <span class="mi">31</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>코틀린에서는 더 좋은 방법이 있다. 라이브러리 함수를 쓰면 된다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">람다를</span> <span class="err">사용해</span> <span class="err">컬렉션</span> <span class="err">검색하기</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">people</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span><span class="nc">Person</span><span class="p">(</span><span class="s">"Alice"</span><span class="p">,</span><span class="mi">29</span><span class="p">),</span> <span class="nc">Person</span><span class="p">(</span><span class="s">"Bob"</span><span class="p">,</span> <span class="mi">31</span><span class="p">))</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">people</span><span class="p">.</span><span class="nf">maxBy</span><span class="p">{</span> <span class="n">it</span><span class="p">.</span><span class="n">age</span> <span class="p">)}</span>
+<span class="nc">Person</span><span class="p">(</span><span class="n">name</span><span class="p">=</span><span class="nc">Bob</span><span class="p">,</span> <span class="n">age</span><span class="p">=</span><span class="mi">31</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>모든 컬렉션에 대해 maxBy함수를 호출할 수 있다. {it.age}는 바로 비교에 사용할 값을 돌려주는 함수다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">멤버</span> <span class="err">참조를</span> <span class="err">사용해</span> <span class="err">컬렉션</span> <span class="err">검사하기</span>
+<span class="n">people</span><span class="p">.</span><span class="nf">maxBy</span><span class="p">(</span><span class="nc">Person</span><span class="o">::</span><span class="n">age</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>위 코드는 그 위에 코드와 같은 일을 한다</p>
+
+<ul>
+  <li>람다 식의 문법</li>
+</ul>
+
+<p>람다는 값처럼 여기저기 전달할 수 있는 동작의 모음이다. 함수에 인자로 넘기면서 바로 람다를 정의하는 경우가 대부분이다<br />
+코틀린 람다 식은 항상 중괄호로 둘러싸여 있다. 인자 목록 주변에 괄호가 없다<br />
+화살표가 인자 목록과 람다 본문을 구분해준다. 람다 식을 변수에 저장할 수 있다. 람다가 저장된 변수를 다른 일반 함수와 마찬가지로 다룰 수 있다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">sum</span> <span class="p">=</span> <span class="p">{</span> <span class="n">x</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="p">-&gt;</span> <span class="n">x</span> <span class="p">+</span> <span class="n">y</span><span class="p">}</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="nf">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="mi">3</span>
+</code></pre></div></div>
+
+<p>코드의 일부분을 블록으로 둘러싸 실행할 필요가 있다면 run을 사용한다. run은 인자로 받은 람다를 실행해 주는 라이브러리 함수다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&gt;&gt;&gt;</span> <span class="nf">run</span><span class="p">{</span> <span class="nf">println</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span> <span class="p">}</span>
+<span class="mi">42</span>
+</code></pre></div></div>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">people</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span><span class="nc">Person</span><span class="p">(</span><span class="s">"Alice"</span><span class="p">,</span><span class="mi">29</span><span class="p">),</span> <span class="nc">Person</span><span class="p">(</span><span class="s">"Bob"</span><span class="p">,</span> <span class="mi">31</span><span class="p">))</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">people</span><span class="p">.</span><span class="nf">maxBy</span><span class="p">{</span> <span class="n">it</span><span class="p">.</span><span class="n">age</span> <span class="p">)}</span>
+<span class="nc">Person</span><span class="p">(</span><span class="n">name</span><span class="p">=</span><span class="nc">Bob</span><span class="p">,</span> <span class="n">age</span><span class="p">=</span><span class="mi">31</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>위 코드에서 정식으로 람다를 작성하면 다음과 같다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">people</span><span class="p">.</span><span class="nf">maxBy</span><span class="p">({</span><span class="n">p</span><span class="p">:</span> <span class="nc">Person</span> <span class="p">-&gt;</span> <span class="n">p</span><span class="p">.</span><span class="n">age</span><span class="p">})</span>
+</code></pre></div></div>
+
+<p>하지만 위 코드는 번잡하다. 구분자가 너무 많이 쓰이고 인자 타입을 굳이 적을 필요는 없다<br />
+코틀린에는 함수 호출 시 맨 뒤에 있는 인자가 람다 식이라면 그 람다를 괄호 밖으로 빼낼 수 있다는 문법 관습이 있다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">people</span><span class="p">.</span><span class="nf">maxBy</span><span class="p">()</span> <span class="p">{</span><span class="n">p</span><span class="p">:</span> <span class="nc">Person</span> <span class="p">-&gt;</span> <span class="n">p</span><span class="p">.</span><span class="n">age</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>위 코드처럼 람다가 어떤 함수의 유일한 인자이고 괄호 뒤에 람다를 썼다면 호출 시 빈괄호를 없애도 된다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">people</span><span class="p">.</span><span class="nf">maxBy</span> <span class="p">{</span><span class="n">p</span><span class="p">:</span> <span class="nc">Person</span> <span class="p">-&gt;</span> <span class="n">p</span><span class="p">.</span><span class="n">age</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>인자가 여럿 있는 경우에는 람다를 밖으로 빼낼 수도 있고 람다를 괄호 안에 유지해서 함수의 인자임을 분명히 할 수도 있다. 둘 이상의 람다를 인자로 받는 함수라고 해도 인자 목록의 맨 마지막 람다만 밖으로 뺄 수 있다. 따라서 그런 경우에는 괄호를 사용하는 일반적인 함수 호출 구문을 사용하는 편이 낫다<br />
+이제 구문을 더 간단하게 다듬고 파라미터 타입을 없앤다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">people</span><span class="p">.</span><span class="nf">maxBy</span> <span class="p">{</span> <span class="n">p</span> <span class="p">-&gt;</span> <span class="n">p</span><span class="p">.</span><span class="n">age</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>로컬 변수처럼 컴파일러는 람다 파라미터의 타입도 추론할 수 있다. 람다의 파라미터 이름을 디폴트 이름인 it으로 바꾸면 람다 식을 더 간단하게 만들 수 있다. 람다의 파라미터가 하나뿐이고 그 타입을 컴파일러가 추론할 수 있는 경우 it을 바로 쓸 수 있다. 람다 파라미터 이름을 따로 지정하지 않은 경우에만 it이라는 이름이 자동으로 만들어진다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">people</span><span class="p">.</span><span class="nf">maxBy</span> <span class="p">{</span> <span class="n">it</span><span class="p">.</span><span class="n">age</span><span class="p">}</span> <span class="c1">// it은 자동 생성된 파라미터 이름이다</span>
+</code></pre></div></div>
+
+<p>람다를 변수에 저장할 때는 파라미터의 타입을 추론할 문맥이 존재하지 않는다. 따라서 파라미터 타입을 명시해야 한다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">getAge</span> <span class="p">=</span> <span class="p">{</span> <span class="n">p</span><span class="p">:</span> <span class="nc">Person</span> <span class="p">-&gt;</span> <span class="n">p</span><span class="p">.</span><span class="n">age</span><span class="p">}</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="n">people</span><span class="p">.</span><span class="nf">maxBy</span><span class="p">(</span><span class="n">getAge</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>본문이 여러 줄로 이뤄진 경우 본문의 맨 마지막에 있는 식이 람다의 결과 값이 된다</p>
+
+<ul>
+  <li>현재 영역에 있는 변수에 접근</li>
+</ul>
+
+<p>람다를 함수 안에서 정의하면 함수의 파라미터뿐 아니라 람다 정의의 앞에 선언된 로컬 변수까지 람다에서 모두 사용할 수 있다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">함수</span> <span class="err">파라미터를</span> <span class="err">람다</span> <span class="err">안에서</span> <span class="err">사용하기</span>
+<span class="k">fun</span> <span class="nf">printMessagesWithPrefix</span><span class="p">(</span><span class="n">messages</span><span class="p">:</span> <span class="nc">Collection</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;,</span> <span class="n">prefix</span><span class="p">:</span> <span class="nc">String</span><span class="p">){</span>
+    <span class="n">messages</span><span class="p">.</span><span class="nf">forEach</span><span class="p">{</span>
+        <span class="nf">println</span><span class="p">(</span><span class="s">"$prefix $it"</span><span class="p">)</span> <span class="c1">// 람다 안에서 함수의 prefix 파라미터를 사용한다</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">errors</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span><span class="s">"403 Forbidden"</span><span class="p">,</span> <span class="s">"404 Not Found"</span><span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">printMessagesWithPrefix</span><span class="p">(</span><span class="n">erros</span><span class="p">,</span> <span class="s">"Error: "</span><span class="p">)</span>
+<span class="nc">Error</span><span class="p">:</span> <span class="mi">403</span> <span class="nc">Forbidden</span>
+<span class="nc">Error</span><span class="p">:</span> <span class="mi">404</span> <span class="nc">Not</span> <span class="nc">Foundss</span>
+</code></pre></div></div>
+
+<p>람다 안에서 바깥의 변수를 변경해도 된다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">람다</span> <span class="err">안에서</span> <span class="err">바깥</span> <span class="err">함수의</span> <span class="err">로컬</span> <span class="err">변수</span> <span class="err">변경하기</span>
+<span class="k">fun</span> <span class="nf">printProblemCounts</span><span class="p">(</span><span class="n">responses</span><span class="p">:</span> <span class="nc">Collcetion</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;){</span>
+    <span class="kd">var</span> <span class="py">clientErrors</span> <span class="p">=</span> <span class="mi">0</span>
+    <span class="kd">var</span> <span class="py">serverErrors</span> <span class="p">=</span> <span class="mi">0</span>
+    <span class="n">responsers</span><span class="p">.</span><span class="nf">forEach</span><span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="nf">startsWith</span><span class="p">(</span><span class="s">"4"</span><span class="p">)){</span>
+            <span class="n">clientErrors</span><span class="p">++</span>
+        <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="nf">startsWith</span><span class="p">(</span><span class="s">"5"</span><span class="p">)){</span>
+            <span class="n">serverErrors</span><span class="p">++</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nf">println</span><span class="p">(</span><span class="s">"$clientErrors client erros, $serverErrors server errors"</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">responses</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span><span class="s">"200 OK"</span><span class="p">,</span> <span class="s">"418 I'm a teapot"</span><span class="p">,</span> <span class="s">"500 Internal Server Error"</span><span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">printProblemCounts</span><span class="p">(</span><span class="n">responses</span><span class="p">)</span>
+<span class="mi">1</span> <span class="n">client</span> <span class="n">errors</span><span class="p">,</span> <span class="mi">1</span> <span class="n">server</span> <span class="n">errors</span>
+</code></pre></div></div>
+
+<p>위와 같이 람다 안에서 사용하는 외부 변수를 람다가 포획한 변수라고 부른다. 어떤 함수가 자신의 로컬 변수를 포획한 람다를 반환하거나 다른 변수에 저장한다면 로컬 변수의 생명주기와 함수의 생명주기가 달라질 수 있다</p>
+
+<ul>
+  <li>멤버 참조</li>
+</ul>
+
+<p>코틀린에서는 함수를 값으로 바꿀 수 있다. 이떼 이중 콜론을 사용한다<br />
+val getAge = Person::age<br />
+::를 사용하는 식을 멤버 참조라고 부른다. 멤버 참조는 프로퍼티나 메소드를 단 하나만 호출하는 함수 값을 만들어준다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">people</span><span class="p">.</span><span class="nf">maxBy</span><span class="p">(</span><span class="nc">Person</span><span class="o">::</span><span class="n">age</span><span class="p">)</span>
+<span class="n">people</span><span class="p">.</span><span class="nf">maxBy</span><span class="p">(</span><span class="n">p</span> <span class="p">-&gt;</span> <span class="n">p</span><span class="p">.</span><span class="n">age</span><span class="p">)</span>
+<span class="n">people</span><span class="p">.</span><span class="nf">maxBy</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="n">age</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>최상위에 선언된 함수나 프로퍼티를 참조할 수도 있다</p>
+
+<hr />
+
 <h2 id="함수형-스타일로-컬렉션-다루기">함수형 스타일로 컬렉션 다루기</h2>
+
+<ul>
+  <li>필수적인 함수 : filter와 map</li>
+</ul>
+
+<p>filter와 map은 컬렉션을 활용할 때 기반이 되는 함수다<br />
+filter 함수는 컬렉션을 이터레이션하면서 주어진 람다에 각 원소를 넘겨서 람다가 true를 반환하는 원소만 모은다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">list</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="nf">filter</span> <span class="p">{</span> <span class="n">it</span> <span class="p">%</span> <span class="mi">2</span> <span class="p">==</span> <span class="mi">0</span><span class="p">})</span>
+<span class="na">[2, 4]</span>
+
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">people</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span><span class="nc">Person</span><span class="p">(</span><span class="s">"Alice"</span><span class="p">,</span> <span class="mi">29</span><span class="p">),</span> <span class="nc">Person</span><span class="p">(</span><span class="s">"Bob"</span><span class="p">,</span> <span class="mi">31</span><span class="p">))</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">people</span><span class="p">.</span><span class="nf">filter</span> <span class="p">{</span><span class="n">it</span><span class="p">.</span><span class="n">age</span> <span class="p">&gt;</span> <span class="mi">30</span><span class="p">})</span>
+<span class="na">[Person(name=Bob, age=31)]</span>
+</code></pre></div></div>
+
+<p>filter 함수는 컬렉션에서 원치 않는 원소를 제거한다. 하지만 원소를 변환할 수는 없다<br />
+map 함수는 주어진 람다를 컬렉션의 각 원소에 적용한 결과를 모아서 새 컬렉션을 만든다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">list</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="nf">map</span> <span class="p">{</span> <span class="n">it</span> <span class="p">*</span> <span class="n">it</span><span class="p">})</span>
+<span class="na">[1,4,9,16]</span>
+
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">people</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span><span class="nc">Person</span><span class="p">(</span><span class="s">"Alice"</span><span class="p">,</span><span class="mi">29</span><span class="p">),</span> <span class="nc">Person</span><span class="p">(</span><span class="s">"Bob"</span><span class="p">,</span> <span class="mi">31</span><span class="p">))</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">people</span><span class="p">.</span><span class="nf">map</span> <span class="p">{</span><span class="n">it</span><span class="p">.</span><span class="n">name</span><span class="p">})</span>
+<span class="na">[Alice, Bob]</span>
+</code></pre></div></div>
+
+<p>위 코드를 멤버 참조를 사용해 작성할 수도 있다<br />
+people.map(Person::name)</p>
+
+<ul>
+  <li>all,any,count,find : 컬렉션에 술어 적용</li>
+</ul>
+
+<p>all과 any는 컬렉션에 대해 자주 수행하는 연산으로 컬렉션의 모든 원소가 어떤 조건을 만족하는지 판단한다<br />
+count는 조건을 만족하는 함수의 개수를 반환하며, find 함수는 조건을 만족하는 첫 번째 원소를 반환한다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">canBeInClub27</span> <span class="p">=</span> <span class="p">{</span> <span class="n">p</span><span class="p">:</span> <span class="nc">Person</span> <span class="p">-&gt;</span> <span class="n">p</span><span class="p">.</span><span class="n">age</span> <span class="p">&lt;=</span> <span class="mi">27</span><span class="p">}</span>
+
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">people</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span><span class="nc">Person</span><span class="p">(</span><span class="s">"Alice"</span><span class="p">,</span> <span class="mi">27</span><span class="p">),</span> <span class="nc">Person</span><span class="p">(</span><span class="s">"Bob"</span><span class="p">,</span> <span class="mi">31</span><span class="p">))</span> <span class="c1">// 모든 원소가 이 술어를 만족하는지</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">people</span><span class="p">.</span><span class="nf">all</span><span class="p">(</span><span class="n">canBeInClub27</span><span class="p">))</span>
+<span class="k">false</span>
+
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">people</span><span class="p">.</span><span class="nf">any</span><span class="p">(</span><span class="n">canBeInClub27</span><span class="p">))</span> <span class="c1">// 술어를 만족하는 원소가 하나라도 있는지</span>
+<span class="k">true</span>
+
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">people</span><span class="p">.</span><span class="nf">count</span><span class="p">(</span><span class="n">canBeInClub27</span><span class="p">))</span> <span class="c1">// 술어를 만족하는 원소의 개수</span>
+<span class="mi">1</span>
+
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">people</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">canBeInClub27</span><span class="p">))</span> <span class="c1">// 술어를 만족하는 원소를 하나 찾기 가장 먼저 조건을 만족하는 원소 반환</span>
+<span class="nc">Person</span><span class="p">(</span><span class="n">name</span><span class="p">=</span><span class="nc">Alice</span><span class="p">,</span> <span class="n">age</span><span class="p">=</span><span class="mi">27</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>어떤 조건에 대해 !all을 수행한 결과와 그 조건의 부정에 대해 any를 수행한 결과는 같다. 또 어떤 조건에 !any를 수행한 결과와 그 조건이 부정에 대해 all을 수행한 결과도 같다</p>
+
+<ul>
+  <li>groupBy : 리스트를 여러 그룹으로 이뤄진 맵으로 변경</li>
+</ul>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">people</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span><span class="nc">Person</span><span class="p">(</span><span class="s">"Alice"</span><span class="p">,</span><span class="mi">31</span><span class="p">),</span> <span class="nc">Person</span><span class="p">(</span><span class="s">"Bob"</span><span class="p">,</span> <span class="mi">29</span><span class="p">),</span> <span class="nc">Person</span><span class="p">(</span><span class="s">"Carol"</span><span class="p">,</span> <span class="mi">31</span><span class="p">))</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">people</span><span class="p">.</span><span class="nf">groupBy</span> <span class="p">{</span> <span class="n">it</span><span class="p">.</span><span class="n">age</span> <span class="p">})</span>
+</code></pre></div></div>
+
+<p>위 연산의 결과는 컬렉션의 원소를 구분하는 특성이 키이고 ,키 값에 따른 각 그룹이 값인 맵이다<br />
+각 그룹은 리스트다. 따라서 groupBy의 결과 타입은 Map&lt;Int, List&lt; Person »이다</p>
+
+<ul>
+  <li>flatMap과 flatten : 중첩된 컬렉션 안의 원소 처리</li>
+</ul>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Book</span><span class="p">(</span><span class="kd">val</span> <span class="py">title</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="kd">val</span> <span class="py">authors</span><span class="p">:</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;)</span>
+<span class="n">books</span><span class="p">.</span><span class="nf">flatMap</span> <span class="p">{</span> <span class="n">it</span><span class="p">.</span><span class="n">authors</span><span class="p">}.</span><span class="nf">toSet</span><span class="p">()</span> <span class="c1">// books 컬렉션에 있는 책을 쓴 모든 저자의 집합</span>
+</code></pre></div></div>
+
+<p>flatMap 함수는 먼저 인자로 주어진 람다를 컬렉션의 모든 객체에 적용하고 람다를 적용한 결과 얻어지는 여러 리스트를 한 리스트로 한데 모은다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">strings</span> <span class="p">=</span> <span class="nf">listOF</span><span class="p">(</span><span class="s">"abc"</span><span class="p">,</span> <span class="s">"def"</span><span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">strings</span><span class="p">.</span><span class="nf">flatMap</span> <span class="p">{</span> <span class="n">it</span><span class="p">.</span><span class="nf">toList</span><span class="p">()})</span>
+<span class="na">[a,b,c,d,e,f]</span>
+</code></pre></div></div>
+
+<p>toList 함수를 문자열에 적용하면 그 문자열에 속한 모든 문자로 이뤄진 리스트가 만들어진다</p>
 
 <hr />
 
 <h2 id="시퀀스-지연-컬렉션-연산">시퀀스: 지연 컬렉션 연산</h2>
 
 <hr />
+
+<ul>
+  <li>시퀀스 연산 실행 : 중간 연산과 최종 연산</li>
+</ul>
 
 <h2 id="자바-함수형-인터페이스를-코틀린에서-사용">자바 함수형 인터페이스를 코틀린에서 사용</h2>
 
