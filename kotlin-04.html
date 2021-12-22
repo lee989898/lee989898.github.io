@@ -584,13 +584,45 @@ count는 조건을 만족하는 함수의 개수를 반환하며, find 함수는
 
 <hr />
 
+<p>코틀린 람다를 자바 API에 사용해도 문제가 없다<br />
+추상 메소드가 하나만 있는 인터페이스를 SAM인터페이스 또는 함수형 인터페이스라고 부른다</p>
+
 <ul>
   <li>자바 메소드에 람다를 인자로 전달</li>
 </ul>
 
+<p>함수형 인터페이스를 인자로 원하는 자바 메소드에 코틀린 람다를 전달할 수 있다</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">postponeComputation</span><span class="o">(</span><span class="kt">int</span> <span class="n">delay</span><span class="o">,</span> <span class="nc">Runnable</span> <span class="n">computation</span><span class="o">);</span>
+</code></pre></div></div>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">postponeComputation</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="p">{</span> <span class="nf">println</span><span class="p">(</span><span class="mi">42</span><span class="p">)}</span>  <span class="c1">// 컴파일러는 자동으로 람다를 Runnable 인스턴스로 변환해준다</span>
+</code></pre></div></div>
+
+<ul>
+  <li>SAM 생성자 : 람다를 함수형 인터페이스로 명지적으로 변경</li>
+</ul>
+
+<p>SAM 생성자는 람다를 함수형 인터페이스의 인스턴스로 변환할 수 있게 컴파일러가 자동으로 생성한 함수다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">SAM</span> <span class="err">생성자를</span> <span class="err">사용해</span> <span class="err">값</span> <span class="err">반환하기</span>
+<span class="k">fun</span> <span class="nf">createAllDoneRunnable</span><span class="p">()</span> <span class="p">:</span> <span class="nc">Runnable</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nc">Runnable</span> <span class="p">{</span> <span class="nf">println</span><span class="p">(</span><span class="s">"All done!"</span><span class="p">)}</span>
+<span class="p">}</span>
+
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">createAllDoneRunnable</span><span class="p">().</span><span class="nf">run</span><span class="p">()</span>
+<span class="nc">All</span> <span class="n">done</span><span class="p">!</span>
+</code></pre></div></div>
+
 <hr />
 
 <h2 id="수신-객체-지정-람다-사용">수신 객체 지정 람다 사용</h2>
+
+<ul>
+  <li>with 함수</li>
+</ul>
+
+<p>with는 수신 객체 지정 람다를 활용한다</p>
 
                 </div>
             </section>
