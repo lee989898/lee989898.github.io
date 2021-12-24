@@ -664,6 +664,60 @@ Unit은 모든 기능을 갖는 일반적인 타입이며 타입 인자로 쓸 �
   <li>널 가능성과 컬렉션</li>
 </ul>
 
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 널이 될 수 있는 값으로 이뤄진 컬렉션 만들기</span>
+<span class="k">fun</span> <span class="nf">readNumbers</span><span class="p">(</span><span class="n">reader</span><span class="p">:</span> <span class="nc">BufferedReader</span><span class="p">):</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Int</span><span class="err">?</span><span class="p">&gt;{</span>
+    <span class="kd">val</span> <span class="py">result</span> <span class="p">=</span> <span class="nc">ArrayList</span><span class="p">&lt;</span><span class="nc">Int</span><span class="err">?</span><span class="p">&gt;()</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">line</span> <span class="k">in</span> <span class="n">reader</span><span class="p">.</span><span class="nf">lineSequence</span><span class="p">()){</span>
+        <span class="k">try</span><span class="p">{</span>
+            <span class="kd">val</span> <span class="py">number</span> <span class="p">=</span> <span class="n">line</span><span class="p">.</span><span class="nf">toInt</span><span class="p">()</span>
+            <span class="n">result</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="k">catch</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="nc">NumberFormatException</span><span class="p">){</span>
+            <span class="n">result</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="k">null</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">result</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>List&lt; Int? &gt; 경우 리스트 자체는 항상 널이 아니다. 하지만 리스트에 들어있는 각 원소는 널이 될 수도 있다<br />
+List&lt; Int &gt;? 경우 리스트를 가리키는 변수에는 널이 들어갈 수 잇지만 리스트 안에는 널이 아닌 값만 들어간다</p>
+
+<p>경우에 따라 널이 될 수 있는 값으로 이뤄진 널이 될 수 있는 리스트를 정의해야 할 수 도 있다. 코틀린에서는 물음표 2개 사용해 List&lt; Int? &gt;?로 이를 표현한다<br />
+이런 리스트를 처리할 때는 변수에 대해 널 검사를 수행한 다음에 그 리스트에 속한 모든 원소에 대해 다시 널 검사를 수행해야 한다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 널이 될 수 있는 값으로 이뤄진 컬렉션 다루기</span>
+<span class="k">fun</span> <span class="nf">addValidNumbers</span><span class="p">(</span><span class="n">numbers</span><span class="p">:</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Int</span><span class="err">?</span><span class="p">&gt;){</span>
+    <span class="kd">var</span> <span class="py">sumOfValidNumbers</span> <span class="p">=</span> <span class="mi">0</span>
+    <span class="kd">var</span> <span class="py">invaildNumbers</span> <span class="p">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">number</span> <span class="k">in</span> <span class="n">numbers</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">number</span> <span class="p">!=</span> <span class="k">null</span><span class="p">){</span>
+            <span class="n">sumOfValidNumbers</span> <span class="p">+=</span> <span class="n">number</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">invalidNumbers</span><span class="p">++</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nf">println</span><span class="p">(</span><span class="s">"Sum of vaild numbers: $sumOfValidNumbers"</span><span class="p">)</span>
+    <span class="nf">pritnln</span><span class="p">(</span><span class="s">"Invalid numbers: $invalidNumbers"</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">reader</span> <span class="p">=</span> <span class="nc">BufferdReader</span><span class="p">(</span><span class="nc">StringReader</span><span class="p">(</span><span class="s">"1\nabc\n42"</span><span class="p">))</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">numbers</span> <span class="p">=</span> <span class="nf">readNumbers</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">addValidNumbers</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+<span class="nc">Sum</span> <span class="n">of</span> <span class="n">valid</span> <span class="n">numbers</span><span class="p">:</span> <span class="mi">43</span>
+<span class="nc">Invalid</span> <span class="n">numbers</span><span class="p">:</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<p>리스트의 원소에 접근하면 Int? 타입의 값을 얻는다. 따라서 그 값을 산술식에 사용하기 전에 널 여부를 검사해야 한다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// filterNotNull를 널이 될 수 있는 값으로 이뤄진 컬렉션에 대해 사용하기</span>
+<span class="k">fun</span> <span class="nf">addValidNumbers</span><span class="p">(</span><span class="n">numbers</span><span class="p">:</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Int</span><span class="err">?</span><span class="p">&gt;){</span>
+    <span class="kd">val</span> <span class="py">validNumbers</span> <span class="p">=</span> <span class="n">numbers</span><span class="p">.</span><span class="nf">filterNotNull</span><span class="p">()</span>
+    <span class="nf">println</span><span class="p">(</span><span class="s">"Sum of vaild numbers: ${validNumbers.sum()}"</span><span class="p">)</span>
+    <span class="nf">println</span><span class="p">(</span><span class="s">"Invalid numbers: ${numbers.size - validNumbers.size}"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
                 </div>
             </section>
 
