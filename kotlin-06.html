@@ -384,15 +384,149 @@ into the {body} of the default.hbs template -->
 <span class="mi">2</span>
 </code></pre></div></div>
 
-<p>— 비교 연산자 오버로딩</p>
-
 <hr />
 
 <h2 id="비교-연산자-오버로딩">비교 연산자 오버로딩</h2>
 
 <hr />
 
+<ul>
+  <li>동등성 연산자: equals</li>
+</ul>
+
+<p>코틀린이 == 연산자 호출을 equals 메소드 호출로 컴파일한다. != 연산자를 사용하는 식도 equals 호출로 컴파일된다<br />
+==와 !=는 내부에서 인자가 널인지 검사하므로 다른 연산과 달리 널이 될 수 있는 값에도 적용할 수 있다<br />
+a == b라는 비교를 처리할 때 코틀린은 a가 널인지 판단해서 널이 아닌 경우에만 a.equals(b)를 호출한다. a가 널이라면 b도 널인 경우에만 결과가 true다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// equals 메소드 구현하기</span>
+<span class="kd">class</span> <span class="nc">Point</span><span class="p">(</span><span class="kd">val</span> <span class="py">x</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="kd">val</span> <span class="py">y</span><span class="p">:</span> <span class="nc">Int</span><span class="p">){</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">equals</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="nc">Any</span><span class="p">?):</span> <span class="nc">Boolean</span><span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">obj</span> <span class="p">==</span> <span class="k">this</span><span class="p">)</span> <span class="k">return</span> <span class="k">true</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">obj</span> <span class="p">!</span><span class="k">is</span> <span class="nc">Point</span><span class="p">)</span> <span class="k">return</span> <span class="k">false</span>
+        <span class="k">return</span> <span class="n">obj</span><span class="p">.</span><span class="n">x</span> <span class="p">==</span> <span class="n">x</span> <span class="p">&amp;&amp;</span> <span class="n">obj</span><span class="p">.</span><span class="n">y</span> <span class="p">==</span> <span class="n">y</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="nc">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span> <span class="p">==</span> <span class="nc">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<span class="k">true</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="nc">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span> <span class="p">!=</span> <span class="nc">Point</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="k">true</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="k">null</span> <span class="p">==</span> <span class="nc">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="k">false</span>
+</code></pre></div></div>
+
+<p>Any의 equals에는 operator가 붙어있지만 그 메소드를 오버라이드하는 메소드 앞에는 operator 변경자를 붙이지 않아도 자동으로 상위 클래스의 operator 지정이 적용된다<br />
+Any에서 상속받은 equals가 확장 함수보다 우선순위가 높기 때문에 equals를 확장 함수로 정의할 수 없다</p>
+
+<ul>
+  <li>순서 연산자: compareTo</li>
+</ul>
+
+<p>코틀린에서 &lt;, &gt;, &lt;=, &gt;= 는 compareTo 호출로 컴파일 된다. compareTo가 반환하는 값은 Int다<br />
+p1 &lt; p2는 p1.compareTo(p2) &lt; 0 과 같다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">compareTo</span> <span class="err">메소드</span> <span class="err">구현하기</span>
+<span class="kd">class</span> <span class="nc">Person</span><span class="p">(</span>
+    <span class="kd">val</span> <span class="py">firstName</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="kd">val</span> <span class="py">lastName</span><span class="p">:</span> <span class="nc">String</span>
+<span class="p">)</span> <span class="p">:</span> <span class="nc">Comparable</span><span class="p">&lt;</span><span class="nc">Person</span><span class="p">&gt;{</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">compareTo</span><span class="p">(</span><span class="n">other</span><span class="p">:</span> <span class="nc">Person</span><span class="p">):</span> <span class="nc">Int</span><span class="p">{</span>
+        <span class="k">return</span> <span class="nf">compareValueBy</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span>
+           <span class="nc">Person</span><span class="o">::</span><span class="n">lastName</span><span class="p">,</span> <span class="nc">Person</span><span class="o">::</span><span class="n">firstName</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">p1</span> <span class="p">=</span> <span class="nc">Person</span><span class="p">(</span><span class="s">"Alice"</span><span class="p">,</span> <span class="s">"Smith"</span><span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">p2</span> <span class="p">=</span> <span class="nc">Persin</span><span class="p">(</span><span class="s">"Bob"</span><span class="p">,</span> <span class="s">"Johnson"</span><span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">p1</span> <span class="p">&lt;</span> <span class="n">p2</span><span class="p">)</span>
+<span class="k">false</span>
+</code></pre></div></div>
+
+<hr />
+
 <h2 id="컬렉션과-범위에-대해-쓸-수-있는-관례">컬렉션과 범위에 대해 쓸 수 있는 관례</h2>
+
+<hr />
+
+<ul>
+  <li>인덱스로 원소에 접근: get과 set</li>
+</ul>
+
+<p>코틀린에서는 인덱스 연산자도 관례를 따른다<br />
+인덱스 연산자를 사용해 원소를 읽는 연산은 get 연산자 메소드로 변환되고, 원소를 쓰는 연산은 set 연산자 메소드로 변환된다<br />
+Map과 mutableMap 인터페이스에는 그 두 메소드가 이미 들어있다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// get 관례 구현하기</span>
+<span class="k">operator</span> <span class="k">fun</span> <span class="nc">Point</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">index</span><span class="p">:</span> <span class="nc">Int</span><span class="p">):</span> <span class="nc">Int</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">when</span><span class="p">(</span><span class="n">index</span><span class="p">){</span>
+        <span class="mi">0</span> <span class="p">-&gt;</span> <span class="n">x</span>
+        <span class="mi">1</span> <span class="p">-&gt;</span> <span class="n">y</span>
+        <span class="k">else</span> <span class="p">-&gt;</span> 
+            <span class="k">throw</span> <span class="nc">IndexOutOfBoundException</span><span class="p">(</span><span class="s">"Invaild coordinate $index"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">p</span> <span class="p">=</span> <span class="nc">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="mi">20</span>
+</code></pre></div></div>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 관례를 따르는 set 구현하기</span>
+<span class="kd">data class</span> <span class="nc">MutablePoint</span><span class="p">(</span><span class="kd">var</span> <span class="py">x</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span>
+
+<span class="k">operator</span> <span class="k">fun</span> <span class="nc">MutablePoint</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="n">index</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nc">Int</span><span class="p">){</span>
+    <span class="k">when</span><span class="p">(</span><span class="n">index</span><span class="p">){</span>
+        <span class="mi">0</span> <span class="p">-&gt;</span> <span class="n">x</span> <span class="p">=</span> <span class="n">value</span>
+        <span class="mi">1</span> <span class="p">-&gt;</span> <span class="n">y</span> <span class="p">=</span> <span class="n">value</span>
+        <span class="k">else</span> <span class="p">-&gt;</span>
+            <span class="k">throw</span> <span class="nc">IndexOutOfBoundsException</span><span class="p">(</span><span class="s">"Invaild coordinate $index"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">p</span> <span class="p">=</span> <span class="nc">MutablePoont</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">=</span> <span class="mi">42</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="nc">MutablePoint</span><span class="p">(</span><span class="n">x</span><span class="p">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">y</span><span class="p">=</span><span class="mi">42</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>in 관례</li>
+</ul>
+
+<p>in은 객체가 켈렉션에 들어있는지 검사한다. 그런 경우 in 연사자와 대응하는 함수는 contains다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// in 관례 구현하기</span>
+<span class="kd">data class</span> <span class="nc">Rectangle</span><span class="p">(</span><span class="kd">val</span> <span class="py">upperLeft</span><span class="p">:</span> <span class="nc">Point</span><span class="p">,</span> <span class="kd">val</span> <span class="py">lowerRight</span><span class="p">:</span> <span class="nc">Point</span><span class="p">)</span>
+
+<span class="k">operator</span> <span class="k">fun</span> <span class="nc">Rectangle</span><span class="p">.</span><span class="nf">contains</span><span class="p">(</span><span class="n">p</span><span class="p">:</span><span class="nc">Point</span><span class="p">):</span> <span class="nc">Boolean</span><span class="p">{</span>
+    <span class="k">return</span> <span class="n">p</span><span class="p">.</span><span class="n">x</span> <span class="k">in</span> <span class="n">upperLeft</span><span class="p">.</span><span class="n">x</span> <span class="n">until</span> <span class="n">lowerRight</span><span class="p">.</span><span class="n">x</span> <span class="p">&amp;&amp;</span>
+        <span class="n">p</span><span class="p">.</span><span class="n">y</span> <span class="k">in</span> <span class="n">upperLeft</span><span class="p">.</span><span class="n">y</span> <span class="n">until</span> <span class="n">lowerRight</span><span class="p">.</span><span class="n">y</span>
+<span class="p">}</span>
+
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">rect</span> <span class="p">=</span> <span class="nc">Rectangle</span><span class="p">(</span><span class="nc">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="nc">Point</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="nc">Point</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span> <span class="k">in</span> <span class="n">rect</span><span class="p">)</span>
+<span class="k">true</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="nc">Point</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="k">in</span> <span class="n">rect</span><span class="p">)</span>
+<span class="k">false</span>
+</code></pre></div></div>
+
+<ul>
+  <li>rangeTo 관례</li>
+</ul>
+
+<p>.. 연산자는 rangeTo 함수를 간략하게 표현하는 방법이다. rangeTo 함수는 범위를 반환한다<br />
+이 연산자를 아무 클래스에나 정의할 수 있지만 어떤 클래스가 Comparable 인터페이스를 구현하면 rangeTo를 정의할 필요가 없다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 날짜의 범위 다루기</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">now</span> <span class="p">=</span> <span class="nc">LocalDate</span><span class="p">.</span><span class="nf">now</span><span class="p">()</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">vacation</span> <span class="p">=</span> <span class="n">now</span><span class="o">..</span><span class="n">now</span><span class="p">.</span><span class="nf">plusDays</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">now</span><span class="p">.</span><span class="nf">plusWeeks</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">in</span> <span class="n">vacation</span><span class="p">)</span>
+<span class="k">true</span>
+</code></pre></div></div>
+
+<ul>
+  <li>for 루프를 위한 iterator 관례</li>
+</ul>
+
+<p>코틀린에서는 iterator 메소드를 확장 함수로 정의할 수 있다</p>
 
 <hr />
 
