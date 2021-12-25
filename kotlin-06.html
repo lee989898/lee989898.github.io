@@ -59,10 +59,7 @@
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="연산자 오버로딩과 기타 관례" />
-    <meta property="og:description" content="연산자 오버로딩과 기타 관례
-
-
-" />
+    <meta property="og:description" content="코틀린 테이블 코틀린 기초 함수 정의와 호출 클래스, 객체, 인터페이스 람다로 프로그래밍 코틀린 타입 시스템 연산자 오버로딩과 기타 관례 고차 함수: 파라미터와 반환 값으로 람다 사용 제네릭스 애노테이션과 리플렉션 DSL 만들기 산술 연산자 오버로딩 비교 연산자 오버로딩 컬렉션과 범위에 대해 쓸 수 있는 관례 구조 분해 선언과 component 함수 프로퍼티" />
     <meta property="og:url" content="https://lee989898.github.io/kotlin-06" />
     <meta property="og:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -72,10 +69,7 @@
     <meta property="article:tag" content="Kotlin" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="연산자 오버로딩과 기타 관례" />
-    <meta name="twitter:description" content="연산자 오버로딩과 기타 관례
-
-
-" />
+    <meta name="twitter:description" content="코틀린 테이블 코틀린 기초 함수 정의와 호출 클래스, 객체, 인터페이스 람다로 프로그래밍 코틀린 타입 시스템 연산자 오버로딩과 기타 관례 고차 함수: 파라미터와 반환 값으로 람다 사용 제네릭스 애노테이션과 리플렉션 DSL 만들기 산술 연산자 오버로딩 비교 연산자 오버로딩 컬렉션과 범위에 대해 쓸 수 있는 관례 구조 분해 선언과 component 함수 프로퍼티" />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
     <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/kotlin-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -107,10 +101,7 @@
         "@type": "WebPage",
         "@id": "https://lee989898.github.io/kotlin-06"
     },
-    "description": "연산자 오버로딩과 기타 관례
-
-
-"
+    "description": "코틀린 테이블 코틀린 기초 함수 정의와 호출 클래스, 객체, 인터페이스 람다로 프로그래밍 코틀린 타입 시스템 연산자 오버로딩과 기타 관례 고차 함수: 파라미터와 반환 값으로 람다 사용 제네릭스 애노테이션과 리플렉션 DSL 만들기 산술 연산자 오버로딩 비교 연산자 오버로딩 컬렉션과 범위에 대해 쓸 수 있는 관례 구조 분해 선언과 component 함수 프로퍼티"
 }
     </script>
 
@@ -216,9 +207,200 @@ into the {body} of the default.hbs template -->
             -->
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <h3 id="연산자-오버로딩과-기타-관례"><strong>연산자 오버로딩과 기타 관례</strong></h3>
+                    <p><span class="table-of-contents-list">코틀린 테이블</span></p>
+<ul class="table-of-contents-list">
+    <li><a href="./kotlin-01">코틀린 기초</a></li>
+    <li><a href="./kotlin-02">함수 정의와 호출</a></li>
+    <li><a href="./kotlin-03">클래스, 객체, 인터페이스</a></li>
+    <li><a href="./kotlin-04">람다로 프로그래밍</a></li>
+    <li><a href="./kotlin-05">코틀린 타입 시스템</a></li>
+    <li><a href="./kotlin-06">연산자 오버로딩과 기타 관례</a></li>
+    <li><a href="./kotlin-07">고차 함수: 파라미터와 반환 값으로 람다 사용</a></li>
+    <li><a href="./kotlin-08">제네릭스</a></li>
+    <li><a href="./kotlin-09">애노테이션과 리플렉션</a></li>
+    <li><a href="./kotlin-10">DSL 만들기</a></li>
+</ul>
 
 <hr />
+
+<ul>
+  <li><a href="#산술-연산자-오버로딩">산술 연산자 오버로딩</a></li>
+  <li><a href="#비교-연산자-오버로딩">비교 연산자 오버로딩</a></li>
+  <li><a href="#컬렉션과-범위에-대해-쓸-수-있는-관례">컬렉션과 범위에 대해 쓸 수 있는 관례</a></li>
+  <li><a href="#구조-분해-선언과-component-함수">구조 분해 선언과 component 함수</a></li>
+  <li><a href="#프로퍼티-접근자-로직-재활용-위임-프로퍼티">프로퍼티 접근자 로직 재활용: 위임 프로퍼티</a></li>
+</ul>
+
+<hr />
+
+<h2 id="산술-연산자-오버로딩">산술 연산자 오버로딩</h2>
+
+<hr />
+
+<p>코틀린은 함수 이름을 통한 관례에 의존한다. 코틀린에서 관례를 사용하는 가장 단순한 예는 산술 연산자다</p>
+
+<ul>
+  <li>이항 산술 연산 오버로딩</li>
+</ul>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// plus 연산자 구현하기</span>
+<span class="kd">data class</span> <span class="nc">Point</span><span class="p">(</span><span class="kd">val</span> <span class="py">x</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="kd">val</span> <span class="py">y</span><span class="p">:</span> <span class="nc">Int</span><span class="p">){</span>
+    <span class="k">operator</span> <span class="k">fun</span> <span class="nf">plus</span><span class="p">(</span><span class="n">other</span><span class="p">:</span> <span class="nc">Point</span><span class="p">):</span> <span class="nc">Point</span><span class="p">{</span>
+        <span class="k">return</span> <span class="nc">Point</span><span class="p">(</span><span class="n">x</span> <span class="p">+</span> <span class="n">other</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">+</span> <span class="n">other</span><span class="p">.</span><span class="n">y</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">p1</span> <span class="p">=</span> <span class="nc">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">p2</span> <span class="p">=</span> <span class="nc">Point</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">p1</span> <span class="p">+</span><span class="n">p2</span><span class="p">)</span> <span class="c1">// +로 계산하면 plus 함수가 호출된다</span>
+<span class="nc">Point</span><span class="p">(</span><span class="n">x</span><span class="p">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">y</span><span class="p">=</span><span class="mi">60</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>plus 함수 앞에 operator 키워드를 붙여야 한다. 연산자를 오버로딩하는 함수 앞에는 꼭 operator가 있어야 한다<br />
+연산자를 멤버 함수로 만드는 대신 확장 함수로 정의할 수도 있다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 연산자를 확장 함수로 정의하기</span>
+<span class="k">operator</span> <span class="k">fun</span> <span class="nc">Point</span><span class="p">.</span><span class="nf">plus</span><span class="p">(</span><span class="n">other</span><span class="p">:</span> <span class="nc">Point</span><span class="p">):</span> <span class="nc">Point</span><span class="p">{</span>
+    <span class="k">return</span> <span class="nc">Point</span><span class="p">(</span><span class="n">x</span> <span class="p">+</span> <span class="n">other</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">+</span> <span class="n">other</span><span class="p">.</span><span class="n">y</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>식</th>
+      <th>함수이름</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>a * b</td>
+      <td>times</td>
+    </tr>
+    <tr>
+      <td>a / b</td>
+      <td>div</td>
+    </tr>
+    <tr>
+      <td>a % b</td>
+      <td>mod(1.1 부터 rem)</td>
+    </tr>
+    <tr>
+      <td>a + b</td>
+      <td>pluse</td>
+    </tr>
+    <tr>
+      <td>a - b</td>
+      <td>minus</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>연산자를 정의할 때 두 피연산자가 같은 타입일 필요는 없다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 두 피연산자의 타입이 다른 연산자 정의하기</span>
+<span class="k">operator</span> <span class="k">fun</span> <span class="nc">Point</span><span class="p">.</span><span class="nf">times</span><span class="p">(</span><span class="n">scale</span><span class="p">:</span> <span class="nc">Double</span><span class="p">):</span> <span class="nc">Point</span><span class="p">{</span>
+    <span class="k">return</span> <span class="nc">Point</span><span class="p">((</span><span class="n">x</span> <span class="p">*</span> <span class="n">scale</span><span class="p">).</span><span class="nf">toInt</span><span class="p">(),</span> <span class="p">(</span><span class="n">y</span> <span class="p">*</span> <span class="n">sclae</span><span class="p">).</span><span class="nf">toInt</span><span class="p">())</span>
+<span class="p">}</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">p</span> <span class="p">=</span> <span class="nc">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">p</span> <span class="p">*</span> <span class="mf">1.5</span><span class="p">)</span>
+<span class="nc">Point</span><span class="p">(</span><span class="n">x</span><span class="p">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">y</span><span class="p">=</span><span class="mi">30</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 결과 타입이 피연산ㄴ자 타입과 다른 연산자 정의하기</span>
+<span class="k">operator</span> <span class="k">fun</span> <span class="nc">Char</span><span class="p">.</span><span class="nf">times</span><span class="p">(</span><span class="n">count</span><span class="p">:</span> <span class="nc">Int</span><span class="p">):</span> <span class="nc">String</span><span class="p">{</span>
+    <span class="k">return</span> <span class="n">toString</span><span class="p">.</span><span class="nf">repeat</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="sc">'a'</span> <span class="p">*</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">aaa</span>
+</code></pre></div></div>
+
+<ul>
+  <li>복합 대입 연산자 오버로딩</li>
+</ul>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">numbers</span> <span class="p">=</span> <span class="nc">ArrayList</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;()</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="n">numbers</span> <span class="p">+=</span> <span class="mi">42</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="mi">42</span>
+</code></pre></div></div>
+
+<ul>
+  <li>단항 연산자 오버로딩</li>
+</ul>
+
+<p>단항 연산자를 오버로딩하는 절차도 이항 연산자와 마찬가지다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 단항 연산자 정의하기</span>
+<span class="k">operator</span> <span class="k">fun</span> <span class="nc">Point</span><span class="p">.</span><span class="nf">unaryMinus</span><span class="p">():</span> <span class="nc">Point</span><span class="p">{</span>
+    <span class="k">return</span> <span class="nc">Point</span><span class="p">(-</span><span class="n">x</span><span class="p">,</span> <span class="p">-</span><span class="n">y</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">p</span> <span class="p">=</span> <span class="nc">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(-</span><span class="n">p</span><span class="p">)</span>
+<span class="nc">Point</span><span class="p">(</span><span class="n">x</span><span class="p">=-</span><span class="mi">10</span><span class="p">,</span> <span class="n">y</span><span class="p">=-</span><span class="mi">20</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>단항 연사자를 오버로딩하기 위해 사용하는 함수는 인자를 취하지 않는다</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>식</th>
+      <th>함수이름</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>+a</td>
+      <td>unaryPlus</td>
+    </tr>
+    <tr>
+      <td>-a</td>
+      <td>unaryMinus</td>
+    </tr>
+    <tr>
+      <td>!a</td>
+      <td>noy</td>
+    </tr>
+    <tr>
+      <td>++a, a–</td>
+      <td>inc</td>
+    </tr>
+    <tr>
+      <td>–a, a–</td>
+      <td>dec</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 증가 연산자 정의하기</span>
+<span class="k">operator</span> <span class="k">fun</span> <span class="nc">BigDecimal</span><span class="p">.</span><span class="nf">inc</span><span class="p">()</span> <span class="p">=</span> <span class="k">this</span> <span class="p">+</span> <span class="nc">BigDecimal</span><span class="p">.</span><span class="nc">ONE</span>
+
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">var</span> <span class="py">bd</span> <span class="p">=</span> <span class="nc">BigDecimal</span><span class="p">.</span><span class="nc">ZERO</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">bd</span><span class="p">++)</span>
+<span class="mi">0</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(++</span><span class="n">bd</span><span class="p">)</span>
+<span class="mi">2</span>
+</code></pre></div></div>
+
+<p>— 비교 연산자 오버로딩</p>
+
+<hr />
+
+<h2 id="비교-연산자-오버로딩">비교 연산자 오버로딩</h2>
+
+<hr />
+
+<h2 id="컬렉션과-범위에-대해-쓸-수-있는-관례">컬렉션과 범위에 대해 쓸 수 있는 관례</h2>
+
+<hr />
+
+<h2 id="구조-분해-선언과-component-함수">구조 분해 선언과 component 함수</h2>
+
+<hr />
+
+<h2 id="프로퍼티-접근자-로직-재활용-위임-프로퍼티">프로퍼티 접근자 로직 재활용: 위임 프로퍼티</h2>
 
                 </div>
             </section>
@@ -591,8 +773,7 @@ into the {body} of the default.hbs template -->
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>고차 함수, 파라미터와 반환 값으로 람다 사용
-
+                        <p>
 </p>
                     
                 </section>
