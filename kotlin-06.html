@@ -534,7 +534,256 @@ Map과 mutableMap 인터페이스에는 그 두 메소드가 이미 들어있다
 
 <hr />
 
+<p>구조 분해를 사용하면 복합적인 값을 분해해서 여러 다른 변수를 한꺼번에 초기화할 수 있다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">p</span> <span class="p">=</span> <span class="nc">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="mi">10</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="mi">20</span>
+</code></pre></div></div>
+
+<p>구조 분해 선언의 각 변수를 초기화하기 위해 componentN이라는 함수를 호출한다. N은 구조 분해 선언에 있는 변수 위치에 따라 붙는 번호다<br />
+data 클래스의 주 생성자에 들어있는 프로퍼티에 대해서는 컴파일러가 자동으로 componentN 함수를 만들어준다</p>
+
+<p>아래코드는 데이터 타입이 아닌 클래스에서 어떻게 구현하는지 보여준다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Point</span><span class="p">(</span><span class="kd">val</span> <span class="py">x</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="kd">val</span> <span class="py">y</span><span class="p">:</span> <span class="nc">Int</span><span class="p">){</span>
+    <span class="k">operator</span> <span class="k">fun</span> <span class="nf">component1</span><span class="p">()</span> <span class="p">=</span> <span class="n">x</span>
+    <span class="k">operator</span> <span class="k">fun</span> <span class="nf">component2</span><span class="p">()</span> <span class="p">=</span> <span class="n">y</span>
+<span class="p">}</span>    
+</code></pre></div></div>
+
+<p>구조 분해 선언은 함수에서 여러 값을 반환할 때 유용하다</p>
+
+<p>여러 값을 한꺼번에 반환해야 하는 함수가 있다면 반환해야 하는 모든 값이 들어간 데이터 클래스를 정의하고 함수의 반환 타입을 그 데이터 클래스로 바꾼다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 구조 분해 선언을 사용해 여러 값 반환하기</span>
+<span class="kd">data class</span> <span class="nc">NameComponents</span><span class="p">(</span><span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span>
+                            <span class="kd">val</span> <span class="py">extension</span><span class="p">:</span> <span class="nc">String</span><span class="p">)</span>
+
+<span class="k">fun</span> <span class="nf">splitFilename</span><span class="p">(</span><span class="n">fullName</span><span class="p">:</span> <span class="nc">String</span><span class="p">):</span> <span class="nc">NameComponents</span><span class="p">{</span>
+    <span class="kd">val</span> <span class="py">result</span> <span class="p">=</span> <span class="n">fullName</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="sc">'.'</span><span class="p">,</span> <span class="n">limit</span> <span class="p">=</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nc">NameComponents</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="p">}</span>
+
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="p">(</span><span class="py">name</span><span class="p">,</span> <span class="py">ext</span><span class="p">)</span> <span class="p">=</span> <span class="nf">splitFilename</span><span class="p">(</span><span class="s">"example.kt"</span><span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="n">example</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">ext</span><span class="p">)</span>
+<span class="n">kt</span>
+</code></pre></div></div>
+
+<p>배열이나 컬렉션에도 componentN 함수가 있음을 안다면 위 예제를 더 개선할 수 있다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 컬렉션에 대해 구조 분해 선언 사용하기</span>
+<span class="kd">data class</span> <span class="nc">NameComponents</span><span class="p">(</span>
+    <span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span>
+    <span class="kd">val</span> <span class="py">extension</span><span class="p">:</span> <span class="nc">String</span><span class="p">)</span>
+
+<span class="k">fun</span> <span class="nf">splitFilename</span><span class="p">(</span><span class="n">fullName</span><span class="p">:</span> <span class="nc">String</span><span class="p">):</span> <span class="nc">NameComponents</span><span class="p">{</span>
+    <span class="kd">val</span> <span class="p">(</span><span class="py">name</span><span class="p">,</span> <span class="py">extension</span><span class="p">)</span> <span class="p">=</span> <span class="n">fullName</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="sc">'.'</span><span class="p">,</span> <span class="n">limit</span> <span class="p">=</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nc">NameComponents</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">extension</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>코틀린 표준 라이브러리에서는 맨 앞의 다섯 원소에 대한 componentN을 제공한다<br />
+표준 라이브러리 Pair나 Tirple 클래스를 사용하면 함수에서 여러 값을 더 간단하게 반환할 수 있다</p>
+
+<ul>
+  <li>구조 분해 선언과 루프</li>
+</ul>
+
+<p>함수 본문 내의 선언문뿐 아니라 변수 선언이 들어갈 수 있는 장소라면 어디든 구조 분해 선언을 사용할 수 있다<br />
+루프 안에서도 구조 분해 선언을 사용할 수 있다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 구조 분해 선언을 사용해 맵 이터레이션하기</span>
+<span class="k">fun</span> <span class="nf">printEntries</span><span class="p">(</span><span class="n">map</span><span class="p">:</span> <span class="nc">Map</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">String</span><span class="p">&gt;){</span>
+    <span class="k">for</span><span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="k">in</span> <span class="n">map</span><span class="p">){</span>
+        <span class="nf">println</span><span class="p">(</span><span class="s">"$key -&gt; $value"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">map</span> <span class="p">=</span> <span class="nf">mapOf</span><span class="p">(</span><span class="s">"Oracle"</span> <span class="n">to</span> <span class="s">"Java"</span><span class="p">,</span> <span class="s">"JetBrains"</span> <span class="n">to</span> <span class="s">"Kotlin"</span><span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">printEntries</span><span class="p">(</span><span class="n">map</span><span class="p">)</span>
+<span class="nc">Oracle</span> <span class="p">-&gt;</span> <span class="nc">Java</span>
+<span class="nc">JetBrains</span> <span class="p">-&gt;</span> <span class="nc">Kotlin</span>
+</code></pre></div></div>
+
+<hr />
+
 <h2 id="프로퍼티-접근자-로직-재활용-위임-프로퍼티">프로퍼티 접근자 로직 재활용: 위임 프로퍼티</h2>
+
+<hr />
+
+<p>위임 프로퍼티를 사용하면 값을 뒷받침하는 필드에 단순히 저장하는 것보다 더 복잡한 방식으로 작동하는 프로퍼티를 쉽게 구현할 수 있다<br />
+위임은 객체가 직접 작업을 수행하지 않고 다른 도우미 객체가 그 작업을 처리하게 맡기는 디자인 패턴을 말한다. 이때 작업을 처리하는 도우미 객체를 위임 객체라고 부른다</p>
+
+<ul>
+  <li>위임 프로퍼티 소개</li>
+</ul>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Delegate</span><span class="p">{</span>
+    <span class="k">operator</span> <span class="k">fun</span> <span class="nf">getValue</span><span class="p">(</span><span class="o">..</span><span class="p">.)</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
+    <span class="k">operator</span> <span class="k">fun</span> <span class="nf">setValue</span><span class="p">(</span><span class="o">..</span><span class="p">.,</span> <span class="n">value</span><span class="p">:</span> <span class="nc">Type</span><span class="p">)</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Foo</span><span class="p">{</span>
+    <span class="kd">var</span> <span class="py">p</span><span class="p">:</span> <span class="nc">Type</span> <span class="k">by</span> <span class="nc">Delegate</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">foo</span> <span class="p">=</span> <span class="nc">Foo</span><span class="p">()</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">oldValue</span> <span class="p">=</span> <span class="n">foo</span><span class="p">.</span><span class="n">p</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="n">foo</span><span class="p">.</span><span class="n">p</span> <span class="p">=</span> <span class="n">newValue</span>
+</code></pre></div></div>
+
+<p>foo.p는 실제로 p의 게터나 세터는 Delegate 타입의 위임 프로퍼티 객체이 있는 메소드를 호출한다</p>
+
+<ul>
+  <li>위임 프로퍼티 사용: by lazy()를 사용한 프로퍼티 초기화 지연</li>
+</ul>
+
+<p>지연 초기화는 객체의 일부분을 초기화하지 않고 남겨뒀다가 실제로 그 부분의 값이 필요한 경우 초기화할 때 흔히 쓰이는 패턴이다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 지연 초기화를 뒷받침하는 프로퍼티를 통해 구현하기</span>
+<span class="kd">class</span> <span class="nc">Person</span><span class="p">(</span><span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">){</span>
+    <span class="k">private</span> <span class="kd">var</span> <span class="py">_emails</span><span class="p">:</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Email</span><span class="p">&gt;?</span> <span class="p">=</span> <span class="k">null</span>
+    <span class="kd">val</span> <span class="py">emails</span><span class="p">:</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Email</span><span class="p">&gt;</span>
+        <span class="k">get</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">_emails</span> <span class="p">==</span> <span class="k">null</span><span class="p">){</span>
+                <span class="n">_emails</span> <span class="p">=</span> <span class="nf">loadEmails</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">_emails</span><span class="o">!!</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">p</span> <span class="p">=</span> <span class="nc">Person</span><span class="p">(</span><span class="s">"Alice"</span><span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="n">p</span><span class="p">.</span><span class="n">emails</span>
+<span class="nc">Load</span> <span class="n">emails</span> <span class="k">for</span> <span class="nc">Alice</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="n">p</span><span class="p">.</span><span class="n">emails</span>
+</code></pre></div></div>
+
+<p>위임 프로퍼티를 사용하면 위 코드가 훨씬 더 간단해진다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 지연 초기화를 위임 프로퍼티를 통해 구현하기</span>
+<span class="kd">class</span> <span class="nc">Person</span><span class="p">(</span><span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">){</span>
+    <span class="kd">val</span> <span class="py">emails</span> <span class="k">by</span> <span class="nf">lazy</span> <span class="p">{</span> <span class="nf">loadEmails</span><span class="p">(</span><span class="k">this</span><span class="p">)</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>layz 함수는 코틀린 관례에 맞는 시그니처의 getValue 메소드가 들어있는 객체를 반환한다</p>
+
+<ul>
+  <li>위임 프로퍼티 구현</li>
+</ul>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// PropertyChangeSupport를 사용하기 위한 도우미 클래스</span>
+<span class="k">open</span> <span class="kd">class</span> <span class="nc">PropertyChangeAware</span><span class="p">{</span>
+    <span class="k">protected</span> <span class="kd">val</span> <span class="py">changeSupport</span> <span class="p">=</span> <span class="nc">PropertyChangeSupport</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+
+    <span class="k">fun</span> <span class="nf">addPropertyChangeListner</span><span class="p">(</span><span class="n">listener</span><span class="p">:</span> <span class="nc">PropertyChangeListener</span><span class="p">){</span>
+        <span class="n">changeSupport</span><span class="p">.</span><span class="nf">removePropertyChangeListener</span><span class="p">(</span><span class="n">listener</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 프로퍼티 변경 통지를 직접 구현하기</span>
+<span class="kd">class</span> <span class="nc">Person</span><span class="p">(</span>
+    <span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="n">salary</span><span class="p">:</span> <span class="nc">Int</span>
+<span class="p">)</span> <span class="p">:</span> <span class="nc">PropertyChangeAware</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="py">age</span><span class="p">:</span> <span class="nc">Int</span> <span class="p">=</span> <span class="n">age</span>
+        <span class="k">set</span><span class="p">(</span><span class="n">newValue</span><span class="p">){</span>
+            <span class="kd">val</span> <span class="py">oldValue</span> <span class="p">=</span> <span class="n">field</span>
+            <span class="n">field</span> <span class="p">=</span> <span class="n">newValue</span>
+            <span class="n">changeSupport</span><span class="p">.</span><span class="nf">firePropertyChange</span><span class="p">(</span>
+                <span class="s">"age"</span><span class="p">,</span> <span class="n">oldValue</span><span class="p">,</span> <span class="n">newValue</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="kd">var</span> <span class="py">salary</span><span class="p">:</span> <span class="nc">Int</span> <span class="p">=</span> <span class="n">salary</span>
+        <span class="k">set</span><span class="p">(</span><span class="n">newValue</span><span class="p">){</span>
+            <span class="kd">val</span> <span class="py">oldValue</span> <span class="p">=</span> <span class="n">field</span>
+            <span class="n">field</span> <span class="p">=</span> <span class="n">newValue</span>
+            <span class="n">changeSupport</span><span class="p">.</span><span class="nf">firePropertyChange</span><span class="p">(</span>
+                <span class="s">"salary"</span><span class="p">,</span> <span class="n">oldValue</span><span class="p">,</span> <span class="n">newValue</span><span class="p">)</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">p</span> <span class="p">=</span> <span class="nc">Person</span><span class="p">(</span><span class="s">"Dmitry"</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="n">p</span><span class="p">.</span><span class="nf">addPropertyChangeListenr</span><span class="p">(</span>
+        <span class="nc">PropertyChangeListener</span> <span class="p">{</span> <span class="n">event</span> <span class="p">-&gt;</span>
+            <span class="nf">println</span><span class="p">(</span><span class="s">"Property ${event.propertyName} chaged "</span> <span class="p">+</span> 
+                <span class="s">"from ${event.oldValue} to ${event.newValue}"</span><span class="p">)</span>
+                <span class="p">}</span>
+<span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="n">p</span><span class="p">.</span><span class="n">age</span> <span class="p">=</span> <span class="mi">35</span>
+<span class="nc">Property</span> <span class="n">age</span> <span class="n">changed</span> <span class="n">from</span> <span class="mi">34</span> <span class="n">to</span> <span class="mi">35</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="n">p</span><span class="p">.</span><span class="n">salary</span> <span class="p">=</span> <span class="mi">2100</span>
+<span class="nc">Property</span> <span class="n">salary</span> <span class="n">changed</span> <span class="n">from</span> <span class="mi">2000</span> <span class="n">to</span> <span class="mi">2100</span>
+</code></pre></div></div>
+
+<ul>
+  <li>위임 프로퍼티 컴파일 규칙</li>
+</ul>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">C</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="py">prop</span><span class="p">:</span> <span class="nc">Type</span> <span class="k">by</span> <span class="nc">MyDelegate</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kd">val</span> <span class="py">c</span> <span class="p">=</span> <span class="nc">C</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>컴파일러는 다음 코드를 생성한다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">C</span> <span class="p">{</span>
+    <span class="k">private</span> <span class="kd">val</span> <span class="err">&lt;</span><span class="py">delegate</span><span class="p">&gt;</span> <span class="p">=</span> <span class="nc">MyDelegate</span><span class="p">()</span>
+    <span class="kd">var</span> <span class="py">prop</span><span class="p">:</span> <span class="nc">Type</span>
+    <span class="k">get</span><span class="p">()</span> <span class="p">=</span> <span class="p">&lt;</span><span class="n">delegate</span><span class="p">&gt;.</span><span class="nf">getValue</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="p">&lt;</span><span class="n">property</span><span class="p">&gt;)</span>
+    <span class="k">set</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nc">Type</span><span class="p">)</span> <span class="p">=</span> <span class="p">&lt;</span><span class="n">delegate</span><span class="p">&gt;.</span><span class="nf">setValue</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="p">&lt;</span><span class="n">property</span><span class="p">&gt;,</span> <span class="n">value</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>위 메커니즘으로 프로퍼티 값이 저장될 장소를 바꿀 수도 있고 프로퍼티를 읽거나 쓸 떄 벌어질 일을 변경할 수도 있고 프로퍼티를 읽거나 쓸 때 벌이질 일을 변경할 수도 있다</p>
+
+<ul>
+  <li>프로퍼티 값을 맵에 저장</li>
+</ul>
+
+<p>자신의 프로퍼티를 동적으로 정의할 수 있는 객체를 만들 떄 위임 프로퍼티를 활용하는 경우가 있다. 그런 객체를 확장 가능한 객체라고 부르기도 한다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 값을 맵에 저장하는 프로퍼티 정의하기</span>
+<span class="kd">class</span> <span class="nc">Person</span><span class="p">{</span>
+    <span class="c1">// 추가 정보</span>
+    <span class="k">private</span> <span class="kd">val</span> <span class="py">_attributes</span> <span class="p">=</span> <span class="n">hashMapOf</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">String</span><span class="p">&gt;()</span>
+    <span class="k">fun</span> <span class="nf">setAttribute</span><span class="p">(</span><span class="n">attrName</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nc">String</span><span class="p">){</span>
+        <span class="n">_attributes</span><span class="p">[</span><span class="n">attrName</span><span class="p">]</span> <span class="p">=</span> <span class="n">value</span>
+    <span class="p">}</span>
+    <span class="c1">// 필수 정보</span>
+    <span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span>
+    <span class="k">get</span><span class="p">()</span> <span class="p">=</span> <span class="n">_attributes</span><span class="p">[</span><span class="s">"name"</span><span class="p">]</span><span class="o">!!</span>
+<span class="p">}</span>
+
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">p</span> <span class="p">=</span> <span class="nc">Person</span><span class="p">()</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">data</span> <span class="p">=</span> <span class="nf">mapOf</span><span class="p">(</span><span class="s">"name"</span> <span class="n">to</span> <span class="s">"Dmitry"</span><span class="p">,</span> <span class="s">"company"</span> <span class="n">to</span> <span class="s">"JetBrains"</span><span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="p">((</span><span class="n">attrName</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="k">in</span> <span class="n">data</span><span class="p">)</span>
+<span class="o">..</span><span class="p">.</span> <span class="n">p</span><span class="p">.</span><span class="nf">setAttribute</span><span class="p">(</span><span class="n">attrName</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
+<span class="nc">Dmitry</span>
+</code></pre></div></div>
+
+<p>위 코드를 아주 쉽게 위임 프로퍼티를 활용하게 변경할 수 있다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 값을 맵에 저장하는 위임 프로퍼티 사용하기</span>
+<span class="kd">class</span> <span class="nc">Person</span><span class="p">{</span>
+    <span class="k">private</span> <span class="kd">val</span> <span class="py">_attributes</span> <span class="p">=</span> <span class="n">hashMapOf</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">String</span><span class="p">&gt;()</span>
+    <span class="k">fun</span> <span class="nf">setAttribute</span><span class="p">(</span><span class="n">attrName</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nc">String</span><span class="p">){</span>
+        <span class="n">_attributes</span><span class="p">[</span><span class="n">attrName</span><span class="p">]</span> <span class="p">=</span> <span class="n">value</span>
+    <span class="p">}</span>
+    <span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span> <span class="k">by</span> <span class="n">_attributes</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>프레임워크에서 위임 프로퍼티 활용</li>
+</ul>
 
                 </div>
             </section>
@@ -907,7 +1156,20 @@ Map과 mutableMap 인터페이스에는 그 두 메소드가 이미 들어있다
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>
+                        <p>코틀린 테이블
+
+    코틀린 기초
+    함수 정의와 호출
+    클래스, 객체, 인터페이스
+    람다로 프로그래밍
+    코틀린 타입 시스템
+    연산자 오버로딩과 기타 관례
+    고차 함수: 파라미터와 반환 값으로 람다 사용
+    제네릭스
+    애노테이션과 리플렉션
+    DSL 만들기
+
+
 </p>
                     
                 </section>
