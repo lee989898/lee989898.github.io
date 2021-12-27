@@ -2,10 +2,10 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom" >
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
-  <link href="https://lee989898.github.io/tag/android/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="https://lee989898.github.io/tag/several/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
   <updated>2021-12-27T09:10:27+09:00</updated>
-  <id>https://lee989898.github.io/tag/android/feed.xml</id>
+  <id>https://lee989898.github.io/tag/several/feed.xml</id>
 
   
   
@@ -32,12 +32,12 @@
 
   
     <entry>
-      <title type="html">android 시작</title>
-      <link href="https://lee989898.github.io/android-01" rel="alternate" type="text/html" title="android 시작" />
-      <published>2021-08-02T01:07:00+09:00</published>
-      <updated>2021-08-02T01:07:00+09:00</updated>
-      <id>https://lee989898.github.io/android-01</id>
-      <content type="html" xml:base="https://lee989898.github.io/android-01">&lt;hr /&gt;</content>
+      <title type="html">여러가지</title>
+      <link href="https://lee989898.github.io/several-01" rel="alternate" type="text/html" title="여러가지" />
+      <published>2021-08-15T01:05:00+09:00</published>
+      <updated>2021-08-15T01:05:00+09:00</updated>
+      <id>https://lee989898.github.io/several-01</id>
+      <content type="html" xml:base="https://lee989898.github.io/several-01"></content>
 
       
       
@@ -54,7 +54,7 @@
       
 
       
-        <category term="android" />
+        <category term="several" />
       
 
       
