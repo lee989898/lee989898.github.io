@@ -1299,9 +1299,14 @@
     
       
       <item>
-        <title>android 시작</title>
+        <title>하스스톤 앨범 앱1</title>
         
-          <description>&lt;hr /&gt;
+          <description>&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#main-레이아웃&quot;&gt;main 레이아웃&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#warrior-레이아웃&quot;&gt;warrior 레이아웃&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#findviewbyid-toast-intent&quot;&gt;findViewById Toast Intent&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 </description>
         
         <pubDate>Mon, 02 Aug 2021 01:07:00 +0900</pubDate>
