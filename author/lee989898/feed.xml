@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/author/lee989898/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-12-30T23:35:49+09:00</updated>
+  <updated>2022-01-05T19:17:36+09:00</updated>
   <id>https://lee989898.github.io/author/lee989898/feed.xml</id>
 
   
@@ -1696,445 +1696,6 @@ ex) 함수명 (파라미터 여러개) { 표현식 (블록)}&lt;/p&gt;
     </entry>
   
     <entry>
-      <title type="html">__방화벽__</title>
-      <link href="https://lee989898.github.io/sc-17" rel="alternate" type="text/html" title="__방화벽__" />
-      <published>2021-11-24T01:06:00+09:00</published>
-      <updated>2021-11-24T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/sc-17</id>
-      <content type="html" xml:base="https://lee989898.github.io/sc-17">&lt;h3 id=&quot;방화벽&quot;&gt;&lt;strong&gt;방화벽&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Firewalls?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;조직의 내부망을 외부 인터넷과 격리시켜 일부 패킷은 통과시키고 나머지는 차단하는 HW와 SW의 조합&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc24.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Firewall 서비스&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Traffic monitoring​&lt;/li&gt;
-  &lt;li&gt;Traffic control​&lt;/li&gt;
-  &lt;li&gt;NAT – 내부 network 보호​&lt;/li&gt;
-  &lt;li&gt;VPN – 내부 traffic 노출차단&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Firewalls을 쓰는 이유&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;서비스 거부 공격 방지:
-    &lt;ul&gt;
-      &lt;li&gt;SYN 플러딩: 공격자가 많은 가짜 TCP 연결을 설정하고 “실제” 연결을 위한 리소스가 남지 않음&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;내부 데이터의 불법적인 수정/접근을 방지한다
-    &lt;ul&gt;
-      &lt;li&gt;예: 공격자가 CIA의 홈페이지를 다른 것으로 교체&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;내부 네트워크(인증된 사용자/호스트 집합)에 대한 승인된 액세스만 허용&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Firewall types&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Stateless packet filter​&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;지나는 packet에 대해 미리 정의된 규칙에 따라 pass/block 결정​&lt;/li&gt;
-  &lt;li&gt;Packet의 다음 정보를 기반으로 결정​
-    &lt;ul&gt;
-      &lt;li&gt;source IP address, destination IP address​&lt;/li&gt;
-      &lt;li&gt;TCP/UDP source and destination port numbers​&lt;/li&gt;
-      &lt;li&gt;ICMP message type​&lt;/li&gt;
-      &lt;li&gt;TCP SYN and ACK bits​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;example 1: block incoming and outgoing BitTorrent traffic source or dest port = 6881-6889​&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;example 2: Block outbound Web access, port=80.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;ACL: 규칙이 있는 테이블, 들어오는 패킷에 위에서 아래로 적용: (액션, 조건) pair&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;장점​
-    &lt;ul&gt;
-      &lt;li&gt;Simple : 동작방식이 직관적이며 간단, 구현용이​&lt;/li&gt;
-      &lt;li&gt;Fast​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;단점​
-    &lt;ul&gt;
-      &lt;li&gt;application layer protocol의 취약점공격에 차단 불가능​&lt;/li&gt;
-      &lt;li&gt;사용자/application 별 서비스 제공불가능 ​&lt;/li&gt;
-      &lt;li&gt;필터링시 사용 정보가 제한되어서 정교한 필터링 불가능​&lt;/li&gt;
-      &lt;li&gt;IP주소 위변조 여부 판단 불가능&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Statefull packet filter​&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;동일한 상태정보를 가지는 패킷들을(packet flow) 그룹으로 필터링​
-    &lt;ul&gt;
-      &lt;li&gt;상태정보: src IP/port, dst IP/port ​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;장점​
-    &lt;ul&gt;
-      &lt;li&gt;정교한 필터링​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;단점​
-    &lt;ul&gt;
-      &lt;li&gt;상태정보 테이블 검사수행에 따른 성능저하​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Application gateway&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;애플리케이션 데이터 및 IP/TCP/UDP 필드에서 패킷을 필터링한다&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;장점​
-    &lt;ul&gt;
-      &lt;li&gt;Application layer protocol 공격 차단​&lt;/li&gt;
-      &lt;li&gt;사용자 인증가능​&lt;/li&gt;
-      &lt;li&gt;정교한 Log, audit 가능​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;단점​
-    &lt;ul&gt;
-      &lt;li&gt;응용 프로그램마다 다른 응용 프로그램 게이트웨이가 필요하다(텔넷, http, ftp, 이메일 …)&lt;/li&gt;
-      &lt;li&gt;모든 데이터가 게이트웨이를 통과하기 때문에 성능이 저하됨&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;방화벽 및 게이트웨이의 한계&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;IP spoofing: 라우터는 데이터가 “실제로” 청구된 소스에서 오는지 알 수 없다&lt;/li&gt;
-  &lt;li&gt;여러 앱의 경우. 특별한 대우가 필요하며 각각의 앱이 있다&lt;/li&gt;
-  &lt;li&gt;클라이언트 소프트웨어는 게이트웨이에 접속하는 방법을 알아야 한다.
-    &lt;ul&gt;
-      &lt;li&gt;예를 들어, 웹 브라우저에서 프록시의 IP 주소를 설정해야 한다&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;내부 공격자 방어에 취약​&lt;/li&gt;
-  &lt;li&gt;데이터 내용은 미확인 – 문서 등 내부에 심겨진 악성코드 방어 취약&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="security" />
-      
-
-      
-        <summary type="html">방화벽</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">__침입탐지__</title>
-      <link href="https://lee989898.github.io/sc-16" rel="alternate" type="text/html" title="__침입탐지__" />
-      <published>2021-11-24T01:06:00+09:00</published>
-      <updated>2021-11-24T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/sc-16</id>
-      <content type="html" xml:base="https://lee989898.github.io/sc-16">&lt;h3 id=&quot;침입탐지&quot;&gt;&lt;strong&gt;침입탐지&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;IDS(침입탐지 시스템)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;침입탐지시스템​&lt;/li&gt;
-  &lt;li&gt;침입행위에 대한 탐지를 수행하고 탐지시 대응할 수 있도록 지원하는 일련의 시스템​&lt;/li&gt;
-  &lt;li&gt;Intrusion?​
-    &lt;ul&gt;
-      &lt;li&gt;시스템에 허가되지 않은 방법으로 내부 자원에 접근​&lt;/li&gt;
-      &lt;li&gt;Login 시도 (ID, PWD 추측)​&lt;/li&gt;
-      &lt;li&gt;불법적으로 데이터 도용시도 (rootkit)​&lt;/li&gt;
-      &lt;li&gt;Root/관리자 권한 획득시도​&lt;/li&gt;
-      &lt;li&gt;메일발송 실행파일을 숨겨놓고 메일전송시도​&lt;/li&gt;
-      &lt;li&gt;Backdoor 접근시도&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;패킷 필터링
-    &lt;ul&gt;
-      &lt;li&gt;오직 TCP/IP 헤더만 본다&lt;/li&gt;
-      &lt;li&gt;패킷 간의 연관성을 알아 내기 어렵다&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;IDS
-    &lt;ul&gt;
-      &lt;li&gt;depp packet inspection: 패킷 콘테츠 까지 검사한다&lt;/li&gt;
-      &lt;li&gt;다수의 패킷을 검사한다
-        &lt;ul&gt;
-          &lt;li&gt;port scanning&lt;/li&gt;
-          &lt;li&gt;network mapping&lt;/li&gt;
-          &lt;li&gt;Dos attack&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Dectection 방법&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Signature-based dectection​
-    &lt;ul&gt;
-      &lt;li&gt;침입사건들을 패턴화(signature)​
-    + Signature example​&lt;/li&gt;
-      &lt;li&gt;실행 파일 첨부 메일 유형​&lt;/li&gt;
-      &lt;li&gt;파일 읽기 시도 유형​&lt;/li&gt;
-      &lt;li&gt;로그인 시도 유형​
-    + 장점​&lt;/li&gt;
-      &lt;li&gt;known attack에 대해 효율적​
-    + 단점​&lt;/li&gt;
-      &lt;li&gt;Unknown attack에 취약​&lt;/li&gt;
-      &lt;li&gt;새로운 공격유형 발견때마다 signature 생성해야​&lt;/li&gt;
-      &lt;li&gt;일반적으로 False negative rate 높음&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Anomaly-based dectection​
-    &lt;ul&gt;
-      &lt;li&gt;정상범위를 벗어나는 사건을 탐지​
-    + Anomaly example​&lt;/li&gt;
-      &lt;li&gt;휴일에 traffic 량이 평소보다 20%증가​&lt;/li&gt;
-      &lt;li&gt;일반사용자가 갑자기 1000통 메일발송​&lt;/li&gt;
-      &lt;li&gt;특정 호스트에 단시간 주문요청 100%증가​&lt;/li&gt;
-      &lt;li&gt;국내 사용자 카드가 해외에서 결재​
-    + 장점​&lt;/li&gt;
-      &lt;li&gt;Machine learning 처리​&lt;/li&gt;
-      &lt;li&gt;Unknown attac에 대해 효율적​
-    + 단점​&lt;/li&gt;
-      &lt;li&gt;정상범위 정의 어려움​&lt;/li&gt;
-      &lt;li&gt;비정상탐지까지 기다려야​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;IDS types&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Network-based IDS​&lt;/li&gt;
-  &lt;li&gt;Wireless IDS (wireless IDS)​&lt;/li&gt;
-  &lt;li&gt;Host-based IDS​&lt;/li&gt;
-  &lt;li&gt;Distributed Host-based IDS&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Network-based IDS​&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Example​
-    &lt;ul&gt;
-      &lt;li&gt;Network 망에 곳곳에 traffic을 모니터, 분석하여 침입탐지​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Example​
-    &lt;ul&gt;
-      &lt;li&gt;Ddos, worm  ​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;장점 ​
-    &lt;ul&gt;
-      &lt;li&gt;Host는 부하적음 (하나의  NIDS로 여러 host보호)​&lt;/li&gt;
-      &lt;li&gt;조기 탐지가능​&lt;/li&gt;
-      &lt;li&gt;취약한 부분의 packet 을 정밀분석하여 다양한 침입탐지 ​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;단점​
-    &lt;ul&gt;
-      &lt;li&gt;각 host 내부는 탐지제한​&lt;/li&gt;
-      &lt;li&gt;전체 network 망에 부하&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Wireless IDS (wireless IDS)​&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;무선통신 WLAN network망의 traffic 분석​&lt;/li&gt;
-  &lt;li&gt;장점​
-    &lt;ul&gt;
-      &lt;li&gt;무선통신의 취약성위협 탐지​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;단점​
-    &lt;ul&gt;
-      &lt;li&gt;Network 부하, 비용&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Host-based IDS​&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;특정 host 컴퓨터내부를 모니터링, 분석하여 탐지​&lt;/li&gt;
-  &lt;li&gt;Example​
-    &lt;ul&gt;
-      &lt;li&gt;로그분석, 파일시스템 기록분석, 실행코드분석 ​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;장점​
-    &lt;ul&gt;
-      &lt;li&gt;악성sw 탐지용이​&lt;/li&gt;
-      &lt;li&gt;내부공격자 탐지​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;단점​
-    &lt;ul&gt;
-      &lt;li&gt;각 host마다 다름​&lt;/li&gt;
-      &lt;li&gt;Host 부하&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Distributed Host-based IDS&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;여러 HIDS들이 연계하여 전체적으로 host들을 분석하여 탐지 ​&lt;/li&gt;
-  &lt;li&gt;장점​
-    &lt;ul&gt;
-      &lt;li&gt;효율적이고 정확성​&lt;/li&gt;
-      &lt;li&gt;공격들의 연관관계 파악용이​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;단점​
-    &lt;ul&gt;
-      &lt;li&gt;HIDS보다 복잡, 부담&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Honey Pot&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;꿀단지​&lt;/li&gt;
-  &lt;li&gt;의도적으로 해커의 침입을 유도하는 시스템​&lt;/li&gt;
-  &lt;li&gt;해커 정보수집, 공격유형파악, 대응전략수립, 법적증거 ​&lt;/li&gt;
-  &lt;li&gt;침입자 활동감시, 로그기록&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;IDS 평가 기준&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;False Positive rate​
-    &lt;ul&gt;
-      &lt;li&gt;정상을 침입으로 판단하는 확률​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;False Negative​
-    &lt;ul&gt;
-      &lt;li&gt;침입을 정상으로 판단하는 확률​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;True Positive rate​&lt;/li&gt;
-  &lt;li&gt;True Negative rate​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;IPS (Intrusion Prevention System)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;침입방지시스템​&lt;/li&gt;
-  &lt;li&gt;IDS+침입방지기능​&lt;/li&gt;
-  &lt;li&gt;Example​
-    &lt;ul&gt;
-      &lt;li&gt;IDS로 침입탐지하고 계정, 연결 등 차단​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="security" />
-      
-
-      
-        <summary type="html">침입탐지</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
       <title type="html">POSIX Thread Programming</title>
       <link href="https://lee989898.github.io/st-10" rel="alternate" type="text/html" title="POSIX Thread Programming" />
       <published>2021-11-24T01:06:00+09:00</published>
@@ -2862,6 +2423,445 @@ int pthread_cond_signal(pthread_cond_t *cond);&lt;/li&gt;
 
       
         <summary type="html">POSIX Thread Programming</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">__방화벽__</title>
+      <link href="https://lee989898.github.io/sc-17" rel="alternate" type="text/html" title="__방화벽__" />
+      <published>2021-11-24T01:06:00+09:00</published>
+      <updated>2021-11-24T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc-17</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-17">&lt;h3 id=&quot;방화벽&quot;&gt;&lt;strong&gt;방화벽&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Firewalls?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;조직의 내부망을 외부 인터넷과 격리시켜 일부 패킷은 통과시키고 나머지는 차단하는 HW와 SW의 조합&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc24.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Firewall 서비스&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Traffic monitoring​&lt;/li&gt;
+  &lt;li&gt;Traffic control​&lt;/li&gt;
+  &lt;li&gt;NAT – 내부 network 보호​&lt;/li&gt;
+  &lt;li&gt;VPN – 내부 traffic 노출차단&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Firewalls을 쓰는 이유&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;서비스 거부 공격 방지:
+    &lt;ul&gt;
+      &lt;li&gt;SYN 플러딩: 공격자가 많은 가짜 TCP 연결을 설정하고 “실제” 연결을 위한 리소스가 남지 않음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;내부 데이터의 불법적인 수정/접근을 방지한다
+    &lt;ul&gt;
+      &lt;li&gt;예: 공격자가 CIA의 홈페이지를 다른 것으로 교체&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;내부 네트워크(인증된 사용자/호스트 집합)에 대한 승인된 액세스만 허용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Firewall types&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Stateless packet filter​&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;지나는 packet에 대해 미리 정의된 규칙에 따라 pass/block 결정​&lt;/li&gt;
+  &lt;li&gt;Packet의 다음 정보를 기반으로 결정​
+    &lt;ul&gt;
+      &lt;li&gt;source IP address, destination IP address​&lt;/li&gt;
+      &lt;li&gt;TCP/UDP source and destination port numbers​&lt;/li&gt;
+      &lt;li&gt;ICMP message type​&lt;/li&gt;
+      &lt;li&gt;TCP SYN and ACK bits​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;example 1: block incoming and outgoing BitTorrent traffic source or dest port = 6881-6889​&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;example 2: Block outbound Web access, port=80.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;ACL: 규칙이 있는 테이블, 들어오는 패킷에 위에서 아래로 적용: (액션, 조건) pair&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;장점​
+    &lt;ul&gt;
+      &lt;li&gt;Simple : 동작방식이 직관적이며 간단, 구현용이​&lt;/li&gt;
+      &lt;li&gt;Fast​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;단점​
+    &lt;ul&gt;
+      &lt;li&gt;application layer protocol의 취약점공격에 차단 불가능​&lt;/li&gt;
+      &lt;li&gt;사용자/application 별 서비스 제공불가능 ​&lt;/li&gt;
+      &lt;li&gt;필터링시 사용 정보가 제한되어서 정교한 필터링 불가능​&lt;/li&gt;
+      &lt;li&gt;IP주소 위변조 여부 판단 불가능&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Statefull packet filter​&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;동일한 상태정보를 가지는 패킷들을(packet flow) 그룹으로 필터링​
+    &lt;ul&gt;
+      &lt;li&gt;상태정보: src IP/port, dst IP/port ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;장점​
+    &lt;ul&gt;
+      &lt;li&gt;정교한 필터링​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;단점​
+    &lt;ul&gt;
+      &lt;li&gt;상태정보 테이블 검사수행에 따른 성능저하​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Application gateway&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;애플리케이션 데이터 및 IP/TCP/UDP 필드에서 패킷을 필터링한다&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;장점​
+    &lt;ul&gt;
+      &lt;li&gt;Application layer protocol 공격 차단​&lt;/li&gt;
+      &lt;li&gt;사용자 인증가능​&lt;/li&gt;
+      &lt;li&gt;정교한 Log, audit 가능​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;단점​
+    &lt;ul&gt;
+      &lt;li&gt;응용 프로그램마다 다른 응용 프로그램 게이트웨이가 필요하다(텔넷, http, ftp, 이메일 …)&lt;/li&gt;
+      &lt;li&gt;모든 데이터가 게이트웨이를 통과하기 때문에 성능이 저하됨&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;방화벽 및 게이트웨이의 한계&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;IP spoofing: 라우터는 데이터가 “실제로” 청구된 소스에서 오는지 알 수 없다&lt;/li&gt;
+  &lt;li&gt;여러 앱의 경우. 특별한 대우가 필요하며 각각의 앱이 있다&lt;/li&gt;
+  &lt;li&gt;클라이언트 소프트웨어는 게이트웨이에 접속하는 방법을 알아야 한다.
+    &lt;ul&gt;
+      &lt;li&gt;예를 들어, 웹 브라우저에서 프록시의 IP 주소를 설정해야 한다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;내부 공격자 방어에 취약​&lt;/li&gt;
+  &lt;li&gt;데이터 내용은 미확인 – 문서 등 내부에 심겨진 악성코드 방어 취약&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="security" />
+      
+
+      
+        <summary type="html">방화벽</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">__침입탐지__</title>
+      <link href="https://lee989898.github.io/sc-16" rel="alternate" type="text/html" title="__침입탐지__" />
+      <published>2021-11-24T01:06:00+09:00</published>
+      <updated>2021-11-24T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc-16</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc-16">&lt;h3 id=&quot;침입탐지&quot;&gt;&lt;strong&gt;침입탐지&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;IDS(침입탐지 시스템)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;침입탐지시스템​&lt;/li&gt;
+  &lt;li&gt;침입행위에 대한 탐지를 수행하고 탐지시 대응할 수 있도록 지원하는 일련의 시스템​&lt;/li&gt;
+  &lt;li&gt;Intrusion?​
+    &lt;ul&gt;
+      &lt;li&gt;시스템에 허가되지 않은 방법으로 내부 자원에 접근​&lt;/li&gt;
+      &lt;li&gt;Login 시도 (ID, PWD 추측)​&lt;/li&gt;
+      &lt;li&gt;불법적으로 데이터 도용시도 (rootkit)​&lt;/li&gt;
+      &lt;li&gt;Root/관리자 권한 획득시도​&lt;/li&gt;
+      &lt;li&gt;메일발송 실행파일을 숨겨놓고 메일전송시도​&lt;/li&gt;
+      &lt;li&gt;Backdoor 접근시도&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;패킷 필터링
+    &lt;ul&gt;
+      &lt;li&gt;오직 TCP/IP 헤더만 본다&lt;/li&gt;
+      &lt;li&gt;패킷 간의 연관성을 알아 내기 어렵다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;IDS
+    &lt;ul&gt;
+      &lt;li&gt;depp packet inspection: 패킷 콘테츠 까지 검사한다&lt;/li&gt;
+      &lt;li&gt;다수의 패킷을 검사한다
+        &lt;ul&gt;
+          &lt;li&gt;port scanning&lt;/li&gt;
+          &lt;li&gt;network mapping&lt;/li&gt;
+          &lt;li&gt;Dos attack&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Dectection 방법&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Signature-based dectection​
+    &lt;ul&gt;
+      &lt;li&gt;침입사건들을 패턴화(signature)​
+    + Signature example​&lt;/li&gt;
+      &lt;li&gt;실행 파일 첨부 메일 유형​&lt;/li&gt;
+      &lt;li&gt;파일 읽기 시도 유형​&lt;/li&gt;
+      &lt;li&gt;로그인 시도 유형​
+    + 장점​&lt;/li&gt;
+      &lt;li&gt;known attack에 대해 효율적​
+    + 단점​&lt;/li&gt;
+      &lt;li&gt;Unknown attack에 취약​&lt;/li&gt;
+      &lt;li&gt;새로운 공격유형 발견때마다 signature 생성해야​&lt;/li&gt;
+      &lt;li&gt;일반적으로 False negative rate 높음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Anomaly-based dectection​
+    &lt;ul&gt;
+      &lt;li&gt;정상범위를 벗어나는 사건을 탐지​
+    + Anomaly example​&lt;/li&gt;
+      &lt;li&gt;휴일에 traffic 량이 평소보다 20%증가​&lt;/li&gt;
+      &lt;li&gt;일반사용자가 갑자기 1000통 메일발송​&lt;/li&gt;
+      &lt;li&gt;특정 호스트에 단시간 주문요청 100%증가​&lt;/li&gt;
+      &lt;li&gt;국내 사용자 카드가 해외에서 결재​
+    + 장점​&lt;/li&gt;
+      &lt;li&gt;Machine learning 처리​&lt;/li&gt;
+      &lt;li&gt;Unknown attac에 대해 효율적​
+    + 단점​&lt;/li&gt;
+      &lt;li&gt;정상범위 정의 어려움​&lt;/li&gt;
+      &lt;li&gt;비정상탐지까지 기다려야​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;IDS types&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Network-based IDS​&lt;/li&gt;
+  &lt;li&gt;Wireless IDS (wireless IDS)​&lt;/li&gt;
+  &lt;li&gt;Host-based IDS​&lt;/li&gt;
+  &lt;li&gt;Distributed Host-based IDS&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Network-based IDS​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Example​
+    &lt;ul&gt;
+      &lt;li&gt;Network 망에 곳곳에 traffic을 모니터, 분석하여 침입탐지​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Example​
+    &lt;ul&gt;
+      &lt;li&gt;Ddos, worm  ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;장점 ​
+    &lt;ul&gt;
+      &lt;li&gt;Host는 부하적음 (하나의  NIDS로 여러 host보호)​&lt;/li&gt;
+      &lt;li&gt;조기 탐지가능​&lt;/li&gt;
+      &lt;li&gt;취약한 부분의 packet 을 정밀분석하여 다양한 침입탐지 ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;단점​
+    &lt;ul&gt;
+      &lt;li&gt;각 host 내부는 탐지제한​&lt;/li&gt;
+      &lt;li&gt;전체 network 망에 부하&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Wireless IDS (wireless IDS)​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;무선통신 WLAN network망의 traffic 분석​&lt;/li&gt;
+  &lt;li&gt;장점​
+    &lt;ul&gt;
+      &lt;li&gt;무선통신의 취약성위협 탐지​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;단점​
+    &lt;ul&gt;
+      &lt;li&gt;Network 부하, 비용&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Host-based IDS​&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;특정 host 컴퓨터내부를 모니터링, 분석하여 탐지​&lt;/li&gt;
+  &lt;li&gt;Example​
+    &lt;ul&gt;
+      &lt;li&gt;로그분석, 파일시스템 기록분석, 실행코드분석 ​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;장점​
+    &lt;ul&gt;
+      &lt;li&gt;악성sw 탐지용이​&lt;/li&gt;
+      &lt;li&gt;내부공격자 탐지​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;단점​
+    &lt;ul&gt;
+      &lt;li&gt;각 host마다 다름​&lt;/li&gt;
+      &lt;li&gt;Host 부하&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Distributed Host-based IDS&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;여러 HIDS들이 연계하여 전체적으로 host들을 분석하여 탐지 ​&lt;/li&gt;
+  &lt;li&gt;장점​
+    &lt;ul&gt;
+      &lt;li&gt;효율적이고 정확성​&lt;/li&gt;
+      &lt;li&gt;공격들의 연관관계 파악용이​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;단점​
+    &lt;ul&gt;
+      &lt;li&gt;HIDS보다 복잡, 부담&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Honey Pot&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;꿀단지​&lt;/li&gt;
+  &lt;li&gt;의도적으로 해커의 침입을 유도하는 시스템​&lt;/li&gt;
+  &lt;li&gt;해커 정보수집, 공격유형파악, 대응전략수립, 법적증거 ​&lt;/li&gt;
+  &lt;li&gt;침입자 활동감시, 로그기록&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;IDS 평가 기준&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;False Positive rate​
+    &lt;ul&gt;
+      &lt;li&gt;정상을 침입으로 판단하는 확률​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;False Negative​
+    &lt;ul&gt;
+      &lt;li&gt;침입을 정상으로 판단하는 확률​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;True Positive rate​&lt;/li&gt;
+  &lt;li&gt;True Negative rate​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;IPS (Intrusion Prevention System)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;침입방지시스템​&lt;/li&gt;
+  &lt;li&gt;IDS+침입방지기능​&lt;/li&gt;
+  &lt;li&gt;Example​
+    &lt;ul&gt;
+      &lt;li&gt;IDS로 침입탐지하고 계정, 연결 등 차단​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="security" />
+      
+
+      
+        <summary type="html">침입탐지</summary>
       
 
       

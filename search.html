@@ -135,14 +135,11 @@ into the {body} of the default.hbs template -->
 <ul class="nav" role="menu">
     <li class="nav-home" role="menuitem"><a href="/">Home</a></li>
     <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
-    <li class="nav-android" role="menuitem"><a href="/tag/android/">안드로이드</a></li>
     <li class="nav-kotlin" role="menuitem"><a href="/tag/kotlin/">코틀린</a></li>
-    <li class="nav-python" role="menuitem"><a href="/tag/python/">파이썬</a></li>
     <li class="nav-algorithm" role="menuitem"><a href="/tag/algorithm/">알고리즘</a></li>
     <li class="nav-pl" role="menuitem"><a href="/tag/pl/">프로그래밍언어</a></li>
     <li class="nav-security" role="menuitem"><a href="/tag/security/">컴퓨터보안</a></li>
     <li class="nav-system" role="menuitem"><a href="/tag/system/">시스템프로그래밍</a></li>
-    <li class="nav-several" role="menuitem"><a href="/tag/several/">여러가지</a></li>
     <li class="nav-archive" role="menuitem">
         <a href="/archive.html">All Posts</a>
     </li>
@@ -750,15 +747,6 @@ into the {body} of the default.hbs template -->
     }
     ,
     
-    "several-01": {
-        "title": "개발 관련 상식",
-            "author": "lee989898",
-            "category": "",
-            "content": "컴퓨터와 인터넷컴퓨터란 무엇인가?컴퓨터는 기본적으로 기계를 모아둔 것이다하드디스크: 메모리를 적어두는 곳RAM: 기억하는 곳CPU: 계산하는 곳메인보드: 위에 것들을 꽂아두는 곳인간이 기계와 소통할 수 있게 만드는 기반 프로그램인 운영체제를 통해 기계와 소통이 가능하다  (안드로이드, iOS, 윈도우, 리눅스 등등)이 OS에 명령을 내리는 게 코딩이라는 것이다. 코딩은 프로그램을 만드는 것이다. 그래서 프로그래밍이라고 한다컴퓨터끼리 대화를 주고 받고 싶으면 인터넷을 통해서 해야한다. 그런데 대화를 주고 받을때 규칙이 필요하다그러한 규칙 중 하나가 웹(http)이다. http://lee989898.github.io/ 는 웹 통신을 하겠다는 의미이다그리고 암구호 표를 서로 가져서 가운데 라우터 같은 것들이 못 듣게 하는 것이 https이다만약에 아무 언어로 “듣고 있다가 누가 http 요청 하면 이 파일을 돌려줘”라고 명령을 한다면 그게 바로 “웹 서버”를 만들었다고 하는 것이다웹서비스 동작 방식서버의 역할은 가운데서 데이터를 저장하고, 주는 것이다. 서버가 터지면 카톡이 안되는 이유가 카톡 서버가 편지 전달을 못하기 때문이다서버는 사실상 컴퓨터 껍데기 없이 가로로 눕힌 것이다",
-        "url": "/several-01"
-    }
-    ,
-    
     "kotlin-10": {
         "title": "DSL 만들기",
             "author": "lee989898",
@@ -831,147 +819,12 @@ into the {body} of the default.hbs template -->
     }
     ,
     
-    "python-13": {
-        "title": "PYTHON",
-            "author": "lee989898",
-            "category": "",
-            "content": "",
-        "url": "/python-13"
-    }
-    ,
-    
-    "python-12": {
-        "title": "PYTHON",
-            "author": "lee989898",
-            "category": "",
-            "content": "",
-        "url": "/python-12"
-    }
-    ,
-    
-    "python-11": {
-        "title": "PYTHON",
-            "author": "lee989898",
-            "category": "",
-            "content": "",
-        "url": "/python-11"
-    }
-    ,
-    
-    "python-10": {
-        "title": "PYTHON",
-            "author": "lee989898",
-            "category": "",
-            "content": "",
-        "url": "/python-10"
-    }
-    ,
-    
-    "python-09": {
-        "title": "PYTHON",
-            "author": "lee989898",
-            "category": "",
-            "content": "",
-        "url": "/python-09"
-    }
-    ,
-    
-    "python-08": {
-        "title": "PYTHON",
-            "author": "lee989898",
-            "category": "",
-            "content": "",
-        "url": "/python-08"
-    }
-    ,
-    
-    "python-07": {
-        "title": "PYTHON",
-            "author": "lee989898",
-            "category": "",
-            "content": "",
-        "url": "/python-07"
-    }
-    ,
-    
-    "python-06": {
-        "title": "PYTHON",
-            "author": "lee989898",
-            "category": "",
-            "content": "",
-        "url": "/python-06"
-    }
-    ,
-    
-    "android-02": {
-        "title": "하스스톤 앨범 앱2",
-            "author": "lee989898",
-            "category": "",
-            "content": "  Splash 화면  앱바 없애기  테두리 둥글게  Margin,Padding  Intent putExtraSplash 화면  Splash Activiy를 만든다  AndroidManifest 파일에서 &lt; intent-filter &gt; … &lt;/ intent-filter &gt;를 Splash 엑티비티 아래에 위치 하게 한다  activity_splash.xml 파일에 사진을 넣는다  splash Activiy에서 Handler()을 이용해 메인 액티비티로 화면을 넘기다// AndroidManifest.xml&lt;activity    android:name=\".SplashActivity\"    android:exported=\"true\"&gt;        &lt;intent-filter&gt;            &lt;action android:name=\"android.intent.action.MAIN\" /&gt;            &lt;category android:name=\"android.intent.category.LAUNCHER\" /&gt;         &lt;/intent-filter&gt;&lt;/activity&gt;// activity_splash.xml&lt;?xml version=\"1.0\" encoding=\"utf-8\"?&gt;&lt;androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"    xmlns:app=\"http://schemas.android.com/apk/res-auto\"    xmlns:tools=\"http://schemas.android.com/tools\"    android:layout_width=\"match_parent\"    android:layout_height=\"match_parent\"    tools:context=\".SplashActivity\"&gt;    &lt;ImageView        android:src=\"@drawable/splash\"        android:scaleType=\"fitCenter\"        android:layout_width=\"match_parent\"        android:layout_height=\"match_parent\"/&gt;&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;// SplashActivityimport android.content.Intentimport androidx.appcompat.app.AppCompatActivityimport android.os.Bundleimport android.os.Handlerclass SplashActivity : AppCompatActivity() {    override fun onCreate(savedInstanceState: Bundle?) {        super.onCreate(savedInstanceState)        setContentView(R.layout.activity_splash)        Handler().postDelayed({            startActivity(Intent(this, MainActivity::class.java))            finish()        },2000)    }}앱바 없애기  theme.xml파일에서 &lt; item name=”windowNoTitle” &gt;true&lt;/ item &gt;을 추가한다&lt;resources xmlns:tools=\"http://schemas.android.com/tools\"&gt;    &lt;!-- Base application theme. --&gt;    &lt;style name=\"Theme.HearthStone_album2\" parent=\"Theme.MaterialComponents.DayNight.DarkActionBar\"&gt;        &lt;!-- Primary brand color. --&gt;        &lt;item name=\"windowNoTitle\"&gt;true&lt;/item&gt; // 이 부분이다        &lt;item name=\"colorPrimary\"&gt;@color/purple_500&lt;/item&gt;        &lt;item name=\"colorPrimaryVariant\"&gt;@color/purple_700&lt;/item&gt;        &lt;item name=\"colorOnPrimary\"&gt;@color/white&lt;/item&gt;        &lt;!-- Secondary brand color. --&gt;        &lt;item name=\"colorSecondary\"&gt;@color/teal_200&lt;/item&gt;        &lt;item name=\"colorSecondaryVariant\"&gt;@color/teal_700&lt;/item&gt;        &lt;item name=\"colorOnSecondary\"&gt;@color/black&lt;/item&gt;        &lt;!-- Status bar color. --&gt;        &lt;item name=\"android:statusBarColor\" tools:targetApi=\"l\"&gt;?attr/colorPrimaryVariant&lt;/item&gt;        &lt;!-- Customize your theme here. --&gt;    &lt;/style&gt;&lt;/resources&gt;테두리 둥글게  둥글게 하고 싶은 이미지뷰를 카드뷰로 감싸준다  카드뷰의 속성 app:cardCornerRadius로 둥근 정도를 정한다// activity_main.xml&lt;androidx.cardview.widget.CardView    android:layout_width=\"wrap_content\"    android:layout_height=\"wrap_content\"    android:layout_margin=\"10dp\"    app:cardCornerRadius=\"50dp\"&gt; // 둥근 정도 정하기    &lt;ImageView        android:id=\"@+id/main_warrior_iv\"        android:layout_width=\"120dp\"        android:layout_height=\"120dp\"        android:scaleType=\"fitXY\"        android:src=\"@drawable/warrior\" /&gt;&lt;/androidx.cardview.widget.CardView&gt;Margin,Paddingpadding: 뷰 안쪽margin: 뷰 바깥쪽// activity_splash.xml&lt;ImageView    android:layout_width=\"match_parent\"    android:layout_height=\"match_parent\"    android:layout_margin=\"20dp\"    android:background=\"@color/white\"    android:padding=\"20dp\"    android:scaleType=\"fitCenter\"    android:src=\"@drawable/splash\" /&gt;Intent putExtra  데이터를 주는 액티비티에서 putExtra()를 통해 데이터를 넘긴다  데이터를 받는 액티비티에서 getExtra()를 통해 데이터를 받는다// MainActivity.ktval warriorBtn = findViewById&lt;ImageView&gt;(R.id.main_warrior_iv)val shamanBtn = findViewById&lt;ImageView&gt;(R.id.main_shaman_iv)warriorBtn.setOnClickListener {    val intent = Intent(this, ImageInsideActivity::class.java)        intent.putExtra(\"data\", \"1\")        startActivity(intent)    }shamanBtn.setOnClickListener {    val intent = Intent(this, ImageInsideActivity::class.java)        intent.putExtra(\"data\", \"2\")        startActivity(intent)    }// ImageInsideActivity.ktval getData = intent.getStringExtra(\"data\")val changeImage = findViewById&lt;ImageView&gt;(R.id.inside_image_area_iv)if(getData == \"1\"){    changeImage.setImageResource(R.drawable.warrior)}if(getData == \"2\"){   changeImage.setImageResource(R.drawable.shaman)}",
-        "url": "/android-02"
-    }
-    ,
-    
-    "python-05": {
-        "title": "PYTHON",
-            "author": "lee989898",
-            "category": "",
-            "content": "",
-        "url": "/python-05"
-    }
-    ,
-    
-    "python-04": {
-        "title": "PYTHON",
-            "author": "lee989898",
-            "category": "",
-            "content": "",
-        "url": "/python-04"
-    }
-    ,
-    
-    "python-03": {
-        "title": "PYTHON",
-            "author": "lee989898",
-            "category": "",
-            "content": "",
-        "url": "/python-03"
-    }
-    ,
-    
     "kotlin-02": {
         "title": "함수 정의와 호출",
             "author": "lee989898",
             "category": "",
             "content": "코틀린 테이블    코틀린 기초    함수 정의와 호출    클래스, 객체, 인터페이스    람다로 프로그래밍    코틀린 타입 시스템    연산자 오버로딩과 기타 관례    고차 함수: 파라미터와 반환 값으로 람다 사용    제네릭스    애노테이션과 리플렉션    DSL 만들기  코틀린에서 컬렉션 만들기  함수를 호출하기 쉽게 만들기  메서드를 다른 클래스에 추가: 확장 함수와 확장 프로퍼티  컬렌션 처리: 가변 길이 인자와 중위 함수 호출과 라이브러리 지원  문자열과 정규식 다루기  코드 다듬기: 로컬 함수와 확장코틀린에서 컬렉션 만들기val set hashSetOf(1, 7, 53)val list = arrayListOf(1 ,7, 53)val map = hashMapOf(1 to \"one\", 7 to \"seven\")&gt;&gt;&gt; println(set.javaClass)class java.util.HashSet&gt;&gt;&gt; println(list.javaClass)class java.util.ArrayList&gt;&gt;&gt; println(map.javaClass)class java.util.HashMap  코틀린이 자신만의 컬렉션 기능을 제공하지 않는다&gt;&gt;&gt; val strings = listOf(\"first\", \"second\", \"fourteenth\")&gt;&gt;&gt; println(strings.last())fourteenth&gt;&gt;&gt; val numbers = setOf(1, 14, 2)&gt;&gt;&gt; println(numbets.max())14  코틀린에서는 자바보다 더 많은 기능을 쓸 수 있다함수를 호출하기 쉽게 만들기&gt;&gt;&gt; val list = listOf(1,2,3)&gt;&gt;&gt; println(list)[1, 2, 3]  자바 컬렉션에는 디폴트 toString 구현이 들어있다.그러나 우리에게 필요한 형식이 아닐 수 있다fun &lt;T&gt; joinToString(    collection: Collection&lt;T&gt;,    separator: String,    prefix: String,    postfix: String): String {    val result = StringBuilder(prefix)    for((index, element) in collection.withIndex()){        if(index &gt; 0) result.append(separator)        result.append(element)    }    result.append(postfix)    return result.toString()}&gt;&gt;&gt; val list = listOf(1, 2, 3)&gt;&gt;&gt; println(joinToString(list, \"; \", \"(\", \")\"))(1; 2; 3)  위 함수는 어떤 타입의 값을 원소로 하는 컬렉션이든 처리할 수 있다 그러나 함수를 호출하는 문장이 번잡하다  이름 붙인 인자joinToString(collection, separator = \" \", prefix = \" \", postfix = \".\")  코틀린으로 작성한 함수를 호출할 때는 함수에 전달하는 인자 중 일부의 이름을 명시할 수 있다  호출 시 인자 중 어느 하나라도 이름을 명시하고 나면 혼동을 막기 위해 그 뒤에 오는 모든 인자는 이름을 꼭 명시해야 한다  디폴트 파라미터 값fun &lt;T&gt; joinToString(    collection: Collection&lt;T&gt;,    separator: String = \", \",    prefix: String = \"\",    postfix: String = \"\" ): String {    val result = StringBuilder(prefix)    for((index, element) in collection.withIndex()){        if(index &gt; 0) result.append(separator)        result.append(element)    }    result.append(postfix)    return result.toString()}&gt;&gt;&gt; joinToString(list, \", \", \"\", \"\")1, 2, 3&gt;&gt;&gt; joinToString(list)1, 2, 3&gt;&gt;&gt; joinToString(list, \"; \")1; 2; 3;  함수를 호출할 때 모든 인자를 쓸 수도 있고, 일부를 생략할 수도 있다  일반 호출 문법을 사용하려면 함수를 선언할 때와 같은 순서로 인자를 지정해야 한다&gt;&gt;&gt; joinToString(list, postfix = \";\", prefix = \"# \")# 1, 2, 3;  이름 붙인 인자를 사용하는 경우에는 인자 목록의 중간에 있는 인자를 생략하고, 지정하고 싶은 인자를 이름을 붙여 순서와 관계없이 지정할 수 있다  함수의 디폴트 파라미터 값은 함수를 호출하는 쪽이 아니라 함수 선언 쪽에서 지정된다  정적인 유틸리티 클래스 없애기: 최상위 함수와 프로피터package strings // 코틀린 join.ktfun joinToString(...): String {...} package strings // join.kt를 컴파일한 결과와 같은 클래스를 자바 코드public class JoinKt{    public static String joinToString(...) { ... } }  다른 패기지에서 그 함수를 사용하고 싶을때는 그 함수가 정의된 패키지를 임포트 해야한다  임포트 시 유틸리티 클래스 이름이 추가로 들어갈 필요가 없다  최상위 프로퍼티var opCount = 0fun performOperation(){    opCount++    //...}fun reporstOperationCount(){    println(\"Operation performed $opCount times\")}  함수와 마찬지로 프로퍼티도 파일의 최상위 수준에 놓을 수 있다  이런 프로퍼티의 값은 정적 필드에 저장된다  최상위 프로퍼티를 활용해 코드에 상수를 추가할 수 있다val UNIX_LINE_SEOARATIR = \"\\n\"  최상위 프로퍼티도 다른 모든 프로퍼티처럼 접근자 메소드를 통해 자바 코드에 노출된다  겉으론 상수처럼 보이는데 실제로는 게터를 사용해야 한다면 자연스럽지 못하다  const 변경자를 추가하면 프로퍼티를 public static final 필드로 컴파일하게 만들 수 있다  원시 타입과 String 타입의 프로퍼티만 const로 지정할 수 있다메서드를 다른 클래스에 추가: 확장 함수와 확장 프로퍼티package stringsfun String.lastChar(): Char = this.get(this.length - 1) // 수신 객체 멤버에 this없이도 접근할 수 있다&gt;&gt;&gt; println(\"Kotlin\".lastChar())n  확장 함수는 어떤 클래스의 멤버 메서드인 것처럼 호출할 수 있지만 그 클래스의 밖에 선언된 함수다  확장 함수를 만드려면 추가하려는 함수 이름 앞에 그 함수가 확장할 클래스의 이름을 덧붙이기만 하면 된다  클래스 이름을 수신 객체 타입, 확장 함수가 호출 되는 대상이 되는 값을 수신 객체라고 부른다  위 예제에서는 String이 수신 객체 타입이고 “kotlin”이 수신 객체다  확장 함수 내부에서는 수신 객체의 메소드나 프로퍼티를 바로 사용할 수 있다. 그러나 클래스 내부에서만 사용할 수 있는 비공개 멤버나 보호된 멤버를 사용할 수 없다  임포트와 확장 함수import strings.lastCharval c = \"Kotlin\".lastChar()import strings.lastChar as lastval c = \"Kotlin\".lats()  확장 함수를 정의했다고 해도 자동으로 프로젝트 안의 모든 소스코드에서 그 함수를 사용할 수 있지는 않다  다른 클래스나 함수와 마찬가지로 임포트해야 한다  as 키워드를 사용하면 임포트한 클래스나 함수를 다른 이름으로 부를 수 있다  한 파일 안에서 다른 여러 패키지에 속해있는 이름이 같은 함수를 가져와 사용해야 하는 경우 이름을 바꿔서 임포트하면 이름 충돌을 막을 수 있다  코틀린 문법상 확장 함수는 반드시 짧은 이름을 써야 한다  확장 함수로 유틸리티 함수 정의fun &lt;T&gt; Collection&lt;T&gt;.joinToString(    separator: String = \", \",    prefix: String = \"\",    postfix: String = \"\" ): String {    val result = StringBuilder(prefix)    for((index, element) in this.withIndex()){        if(index &gt; 0) result.append(separator)        result.append(element)    }    result.append(postfix)    return result.toString()}&gt;&gt;&gt; val list = listOf(1, 2, 3)&gt;&gt;&gt; println(list.joinToString(separator = \"; \", prefix = \"(\",postfix = \")\"))(1; 2; 3)  이제 joinToString을 마치 클래스의 멤버인 것처럼 호출할 수 있다  확장 함수는 오바리이드 할 수 없다open class View{    open fun click() = println(\"View Clicked\")}class Button: View{    override fun click() = println(\"Button clicked\")}&gt;&gt;&gt; val view: View = Button()&gt;&gt;&gt; view.click()Button clicked  확장 함수는 오버라이드 할 수 없다  확장 함수는 클래스의 일부가 아니다  확장 함수는 클래스 밖에 선언된다fun View.showOff() = println(\"I'm a view!\")fun Button.showOff() = println(\"I'm a button!\")&gt;&gt;&gt; val view: View = Button()&gt;&gt;&gt; view.showOff()I'm a view!  view가 가리키는 객체의 실제 타입은 Button이지만, 이 경우 view의 타입이 View이기 때문에 무조건 View의 확장 함수가 호출된다  클래스를 확장한 함수와 클래스의 멤버 함수의 이름과 시그니처가 같다면 확장 함수가 아니라 멤버 함수가 호출된다  확장 프로퍼티val String.lastChar: Char    get() = get(length - 1)  실제로 확장 프로퍼티는 아무 상태도 가질 수 없다  확장 함수의 경우와 마찬가지로 확장 프로퍼티도 일반적인 프로퍼티와 같은데, 단지 수신 객체 클래스가 추가된 것이다  뒷받침하는 필드가 없어서 기본 게터 구현을 제공할 수 없으므로 게터는 꼭 정의를 해야한다  초기와 코드도 쓸 수 없다var StringBuilder.lastChar: Char    get() = get(length - 1)    set(value: Char){        this.setCharAt(length -1, value)    }&gt;&gt;&gt; println(\"Kotlin\".lastChar)n&gt;&gt;&gt; val sb = StringBuilder(\"Kotlin?\")&gt;&gt;&gt; sb.lastChar = '!'&gt;&gt;&gt; println(sb)Kotlin!컬렌션 처리: 가변 길이 인자와 중위 함수 호출과 라이브러리 지원  vararg 키워드를 사용하면 호출 시 인자 개수가 달라질 수 있는 함수를 정의할 수 있다  중위 함수 호출 구문을 사용하면 인자가 하나뿐인 메소드를 간편하게 호출할 수 있다  구조 분해 선언을 사용하면 복합적인 값을 분해해서 여러 번 수에 나눠 담을 수 있다  자바 컬렉션 API 확장val strings: List&lt;String&gt; = listOf(\"first\",\"second\", \"fourteenth\")&gt;&gt;&gt; strings.last()fourteenth&gt;&gt;&gt; val numbers: Collection&lt;Int&gt; = setOf(1, 14, 2)&gt;&gt;&gt; numbers.max()14fun&lt;T&gt;List&lt;T&gt;.last(): T{ 마지막 원소를 반환함}fun Collection&lt;Int&gt;.max(): Int{ 컬렉션의 최댓값을 찾음}  last와 max는 모두 확장 함수였던 것이다  가변 인자 함수: 인자의 개수가 달라질 수 있는 함수 정의fun listOf&lt;T&gt;(vararg values: T): List&lt;T&gt; { ... }fun main(args: Array&lt;String&gt;){    val list = listOf(\"args: \", *args) // 스프레드 연산자가 배열의 내용을 펼쳐준다    println(list)}  가변 길이 인자는 메소드를 호출할 때 원하는 개수만큼 값을 인자로 넘기면 자바 컴파일러가 배열에 그 값들을 넣어 주는 기능이다  타입 뒤에 …를 붇이는 대신 vararg 변경자를 붙인다  값의 쌍 다루기: 중위 호출과 구조 분해 선언val map = mapOf(1 to \"one\", 7 to \"seven\", 53 to \"fifty-three\")1.to(\"one\") // \"to\" 메소드를 일반적인 방식으로 호출함1 to \"one\" // \"to\" 메소드를 중위 호출 방식으로 호출함infix fun Any.to(other: Any) = Pair(this, other)val (number, name) = 1 to \"one\"  맵을 만들려면 mapOf 함수를 사용한다  to라는 단어는 중위 호출이라는 특별한 방식으로 to라는 일반 메소드를 호출한 것이다  인자가 하나뿐인 일반 메소드나 인자가 하나뿐인 확장 함수에 중위 호출을 사용할 수 있다  함수를 중위 호출에 사용하게 허용하고 싶으면 infix 변경자를 함수 선언 앞에 추가해야 한다  이런 기능을 구조 분해 선언이라고 한다  to를 사용하면 타입과 관계없이 임의의 순서쌍을 만들 수 있다문자열과 정규식 다루기  문자열 나누기&gt;&gt;&gt; println(\"12.345-6.A\".split(\"\\\\.|-\".toRegex()))[12, 345, 6 ,A]&gt;&gt;&gt; println(\"12.345-6.A\".split(\".\",\"-\"))[12, 345, 6, A]  정규식을 파라미터로 받는 함수는 String이 아닌 Regex타입의 값을 받는다  간단한 경우네는 꼭 정규식을 쓸 필요가 없다. split 확장 함수를 오버로딩한 버전 중에는 구분 문자열을 하나 이상 인자로 받는 함수가 있다  정규식과 3중 따움표로 묶은 문자열fun parsePath(path: String){    val directory = path.substringBeforeLast(\"/\")    val fullName = path.substringAfterLast(\"/\")    val fileName = fullName.substringBeforeLast(\".\")    val extenstion = fullName.substringAfterLast(\".\")    println(\"dir: $directory, name: $fileName, ext: $extension\")}&gt;&gt;&gt; parsePath(/users/yole/kotlin-book/chapter.aboc)dir: /users/yole/kotlin-book, name: chapter, ext: aboc  String을 확장한 함수를 사용fun parsePath(path: String){    val regax = \"\"\"(.+)/(.+)\\(.+)\"\"\".toRegax()    val matchResult = regax.matchEntire(path)    if(matchResult != null){        val(directory, filename, extension) = matchResult.destructured        println(\"dir: $directory, name: $filename, ext: $extension\")    }    }  정규식을 사용  3중 따옴표 문자열에서는 역슬래시를 포함한 어떤 문자도 이스케이프할 필요가 없다  여러 줄 3중 따옴표 문자열  3중 따옴표 문자열에서는 줄 바꿈을 표현하는 아무 문자열이나 그대로 들어간다  3중 따옴표 안에 문자열 템플릿을 사용할 수 있다 ‘$’ 문자를 넣어야 한다코드 다듬기: 로컬 함수와 확장class User(val id: Int, val name: String, val address: String)fun saveUser(user: User){    if(user.name.isEmpty()){        throws IllegalArgumentException(            \"Can't save user $(user.id): empty Name\")        )    }    if(user.address.isEmpty()){        throws IllegalArgumentException(            \"Can't save user $(user.id): empty Address\")        )    }}&gt;&gt;&gt; saveUser(User(1,\"\",\"\"))java.lang.IllegalArgumentException: Can't save user 1: empty Name  코틀린에서는 함수에서 추출한 함수를 원 함수 내부에 중첩시킬 수 있다class User(val id: Int, val name: String, val address: String)fun saveUser(user: User){    fun vaildate(user: USer,                value: String,                fieldName: String){            if(value.isEmpty()){        throws IllegalArgumentException(            \"Can't save user $(user.id): empty $fileName\")        }    }    validate(user, user.name, \"Name\")    validate(user, user.address, \"Address\")}  검증 로직 중복이 사라졌다  불필요한 User 파라미터도 없애보자class User(val id: Int, val name: String, val address: String)fun saveUser(user: User){    fun vaildate(value: String,fieldName: String){            if(value.isEmpty()){        throws IllegalArgumentException(            \"Can't save user $(user.id): \" + \"empty $fileName\")        }    }    validate(user.name, \"Name\")    validate(user.address, \"Address\")}  이 것을 더 개선하고 싶다면 User클래스를 확장한 함수로 만들 수도 있다",
         "url": "/kotlin-02"
-    }
-    ,
-    
-    "android-01": {
-        "title": "하스스톤 앨범 앱1",
-            "author": "lee989898",
-            "category": "",
-            "content": "  main 레이아웃  warrior 레이아웃  findViewById Toast Intentmain 레이아웃// 메인 레이아웃&lt;?xml version=\"1.0\" encoding=\"utf-8\"?&gt;&lt;LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"    xmlns:app=\"http://schemas.android.com/apk/res-auto\"    xmlns:tools=\"http://schemas.android.com/tools\"    android:layout_width=\"match_parent\"    android:layout_height=\"match_parent\"    android:orientation=\"vertical\" // 레이아웃들을 수직으로 정렬 시킨다    tools:context=\".MainActivity\"&gt;    &lt;LinearLayout        android:layout_width=\"match_parent\"        android:layout_height=\"120dp\"&gt;        &lt;ImageView            android:id=\"@+id/main_warrior_iv\"            android:layout_width=\"120dp\"            android:layout_height=\"120dp\"            android:src=\"@drawable/warrior\" /&gt;        &lt;ImageView            android:id=\"@+id/main_shaman_iv\"            android:layout_width=\"120dp\"            android:layout_height=\"120dp\"            android:src=\"@drawable/shaman\" /&gt;        &lt;ImageView            android:id=\"@+id/main_rogue_iv\"            android:layout_width=\"120dp\"            android:layout_height=\"120dp\"            android:src=\"@drawable/rogue\" /&gt;    &lt;/LinearLayout&gt;    &lt;LinearLayout        android:layout_width=\"match_parent\"        android:layout_height=\"wrap_content\"&gt;        &lt;ImageView            android:id=\"@+id/main_paladin_iv\"            android:layout_width=\"120dp\"            android:layout_height=\"120dp\"            android:src=\"@drawable/paladin\" /&gt;        &lt;ImageView            android:id=\"@+id/main_hunter_iv\"            android:layout_width=\"120dp\"            android:layout_height=\"120dp\"            android:src=\"@drawable/hunter\" /&gt;        &lt;ImageView            android:id=\"@+id/main_druid_iv\"            android:layout_width=\"120dp\"            android:layout_height=\"120dp\"            android:src=\"@drawable/druid\" /&gt;    &lt;/LinearLayout&gt;    &lt;LinearLayout        android:layout_width=\"match_parent\"        android:layout_height=\"wrap_content\"&gt;        &lt;ImageView            android:id=\"@+id/main_warlock_iv\"            android:layout_width=\"120dp\"            android:layout_height=\"120dp\"            android:src=\"@drawable/warlock\" /&gt;        &lt;ImageView            android:id=\"@+id/main_mage_iv\"            android:layout_width=\"120dp\"            android:layout_height=\"120dp\"            android:src=\"@drawable/mage\" /&gt;        &lt;ImageView            android:id=\"@+id/main_priest_iv\"            android:layout_width=\"120dp\"            android:layout_height=\"120dp\"            android:src=\"@drawable/priest\" /&gt;    &lt;/LinearLayout&gt;    &lt;LinearLayout        android:layout_width=\"match_parent\"        android:layout_height=\"wrap_content\"&gt;        &lt;ImageView            android:id=\"@+id/main_demonhunter_iv\"            android:layout_width=\"120dp\"            android:layout_height=\"120dp\"            android:src=\"@drawable/demonhunter\" /&gt;    &lt;/LinearLayout&gt;&lt;/LinearLayout&gt;warrior 레이아웃// 메인 화면에서 앨범 클릭시 보여주는 화면 중 하나&lt;?xml version=\"1.0\" encoding=\"utf-8\"?&gt;&lt;androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"    xmlns:app=\"http://schemas.android.com/apk/res-auto\"    xmlns:tools=\"http://schemas.android.com/tools\"    android:layout_width=\"match_parent\"    android:layout_height=\"match_parent\"    tools:context=\".WarriorActivity\"&gt;    &lt;ImageView        android:layout_width=\"match_parent\"        android:layout_height=\"match_parent\"        android:src=\"@drawable/warrior\" /&gt;&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;findViewById Toast Intentimport android.content.Intentimport androidx.appcompat.app.AppCompatActivityimport android.os.Bundleimport android.widget.ImageViewimport android.widget.Toastclass MainActivity : AppCompatActivity() {    override fun onCreate(savedInstanceState: Bundle?) {        super.onCreate(savedInstanceState)        setContentView(R.layout.activity_main)        val warriorImg = findViewById&lt;ImageView&gt;(R.id.main_warrior_iv) // 이미지 id를 통해 연결        val shamanImg = findViewById&lt;ImageView&gt;(R.id.main_shaman_iv)        val rogueImg = findViewById&lt;ImageView&gt;(R.id.main_rogue_iv)        val paladinImg = findViewById&lt;ImageView&gt;(R.id.main_paladin_iv)        val hunterImg = findViewById&lt;ImageView&gt;(R.id.main_hunter_iv)        val druidImg = findViewById&lt;ImageView&gt;(R.id.main_druid_iv)        val warlockImg = findViewById&lt;ImageView&gt;(R.id.main_warlock_iv)        val mageImg = findViewById&lt;ImageView&gt;(R.id.main_mage_iv)        val priestImg = findViewById&lt;ImageView&gt;(R.id.main_priest_iv)        val demonhunterImg = findViewById&lt;ImageView&gt;(R.id.main_demonhunter_iv)        warriorImg.setOnClickListener { // 이미지 클릭시 행동            Toast.makeText(this, \"전사 클릭 완료\", Toast.LENGTH_SHORT).show() // 화면에 글을 잠시 띄워준다            val intent = Intent(this, WarriorActivity::class.java)            startActivity(intent)  // 지정한 액티비티로 전환        }        shamanImg.setOnClickListener {            Toast.makeText(this, \"주술사 클릭 완료\", Toast.LENGTH_SHORT).show()            val intent = Intent(this, ShamanActivity::class.java)            startActivity(intent)        }        rogueImg.setOnClickListener {            Toast.makeText(this, \"도적 클릭 완료\", Toast.LENGTH_SHORT).show()            val intent = Intent(this, RogueActivity::class.java)            startActivity(intent)        }        paladinImg.setOnClickListener {            Toast.makeText(this, \"성기사 클릭 완료\", Toast.LENGTH_SHORT).show()            val intent = Intent(this, PaladinActivity::class.java)            startActivity(intent)        }        hunterImg.setOnClickListener {            Toast.makeText(this, \"사냥꾼 클릭 완료\", Toast.LENGTH_SHORT).show()            val intent = Intent(this, HunterActivity::class.java)            startActivity(intent)        }        druidImg.setOnClickListener {            Toast.makeText(this, \"드루이드 클릭 완료\", Toast.LENGTH_SHORT).show()            val intent = Intent(this, DruidActivity::class.java)            startActivity(intent)        }        warlockImg.setOnClickListener {            Toast.makeText(this, \"흑마법사 클릭 완료\", Toast.LENGTH_SHORT).show()            val intent = Intent(this, WarlockActivity::class.java)            startActivity(intent)        }        mageImg.setOnClickListener {            Toast.makeText(this, \"마법사 클릭 완료\", Toast.LENGTH_SHORT).show()            val intent = Intent(this, MageActivity::class.java)            startActivity(intent)        }        priestImg.setOnClickListener {            Toast.makeText(this, \"사제 클릭 완료\", Toast.LENGTH_SHORT).show()            val intent = Intent(this, PriestActivity::class.java)            startActivity(intent)        }        demonhunterImg.setOnClickListener {            Toast.makeText(this, \"악마사냥꾼 클릭 완료\", Toast.LENGTH_SHORT).show()            val intent = Intent(this, DemonHunterActivity::class.java)            startActivity(intent)        }    }}",
-        "url": "/android-01"
-    }
-    ,
-    
-    "python-02": {
-        "title": "PYTHON",
-            "author": "lee989898",
-            "category": "",
-            "content": "",
-        "url": "/python-02"
-    }
-    ,
-    
-    "python-01": {
-        "title": "PYTHON",
-            "author": "lee989898",
-            "category": "",
-            "content": "",
-        "url": "/python-01"
     }
     ,
     
@@ -1013,7 +866,7 @@ $(function() {
         <!-- The footer at the very bottom of the screen -->
         <footer class="site-footer outer">
             <div class="site-footer-content inner">
-                <section class="copyright"><a href="https://lee989898.github.io/">LEE</a> &copy; 2021</section>
+                <section class="copyright"><a href="https://lee989898.github.io/">LEE</a> &copy; 2022</section>
                 <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> &
                     <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> using
                     <a href="https://github.com/jekyllt/jasper2" target="_blank" rel="noopener">Jasper2</a></section>
