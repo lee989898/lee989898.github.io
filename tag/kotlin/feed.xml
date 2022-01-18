@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/kotlin/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-01-16T19:48:32+09:00</updated>
+  <updated>2022-01-18T23:43:33+09:00</updated>
   <id>https://lee989898.github.io/tag/kotlin/feed.xml</id>
 
   
@@ -3746,7 +3746,8 @@ final이 아닌 변수도 객체 식 안에서 사용할 수 있다. 따라서 �
 
 &lt;h2 id=&quot;기본요소-함수와-변수&quot;&gt;기본요소: 함수와 변수&lt;/h2&gt;
 
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;){&lt;/span&gt;
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 코틀린 'Hello, World!'&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;){&lt;/span&gt;
     &lt;span class=&quot;nf&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello, world!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -3755,7 +3756,7 @@ final이 아닌 변수도 객체 식 안에서 사용할 수 있다. 따라서 �
 
 &lt;ul&gt;
   &lt;li&gt;함수를 선언할 때 fun 키워드를 사용한다&lt;/li&gt;
-  &lt;li&gt;파라미터 이름 뒤에 그 파라미터의 타입을 쓴다&lt;/li&gt;
+  &lt;li&gt;파라미터 이름 뒤에 그 파라미터의 타입을 쓴다, 변수를 선언할 때도 마찬가지 방식으로 타입을 지정한다&lt;/li&gt;
   &lt;li&gt;함수를 최상위 수준에 정의할 수 있다. 클래스 안에 함수를 넣어야 할 필요가 없다&lt;/li&gt;
   &lt;li&gt;배열도 일반적인 클래스와 마찬가지다. 배열 처리를 위한 문법이 따로 존재하지 않는다&lt;/li&gt;
   &lt;li&gt;함수를 간결하게 사용할 수 있게 감싼 래퍼를 제공하여 println을 사용한다&lt;/li&gt;
