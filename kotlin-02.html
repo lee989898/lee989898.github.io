@@ -234,7 +234,7 @@ into the {body} of the default.hbs template -->
 
 <h2 id="코틀린에서-컬렉션-만들기">코틀린에서 컬렉션 만들기</h2>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">set</span> <span class="nf">hashSetOf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">53</span><span class="p">)</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">set</span> <span class="p">=</span> <span class="nf">hashSetOf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">53</span><span class="p">)</span>
 <span class="kd">val</span> <span class="py">list</span> <span class="p">=</span> <span class="nf">arrayListOf</span><span class="p">(</span><span class="mi">1</span> <span class="p">,</span><span class="mi">7</span><span class="p">,</span> <span class="mi">53</span><span class="p">)</span>
 <span class="kd">val</span> <span class="py">map</span> <span class="p">=</span> <span class="nf">hashMapOf</span><span class="p">(</span><span class="mi">1</span> <span class="n">to</span> <span class="s">"one"</span><span class="p">,</span> <span class="mi">7</span> <span class="n">to</span> <span class="s">"seven"</span><span class="p">)</span>
 
@@ -246,9 +246,8 @@ into the {body} of the default.hbs template -->
 <span class="kd">class</span> <span class="err">java.util.</span><span class="nc">HashMap</span>
 </code></pre></div></div>
 
-<ul>
-  <li>코틀린이 자신만의 컬렉션 기능을 제공하지 않는다</li>
-</ul>
+<p>to는 특별한 키워드가 아니라 일반 함수이다<br />
+코틀린이 자신만의 컬렉션 기능을 제공하지 않는다</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">strings</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span><span class="s">"first"</span><span class="p">,</span> <span class="s">"second"</span><span class="p">,</span> <span class="s">"fourteenth"</span><span class="p">)</span>
 <span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">strings</span><span class="p">.</span><span class="nf">last</span><span class="p">())</span>
@@ -258,9 +257,7 @@ into the {body} of the default.hbs template -->
 <span class="mi">14</span>
 </code></pre></div></div>
 
-<ul>
-  <li>코틀린에서는 자바보다 더 많은 기능을 쓸 수 있다</li>
-</ul>
+<p>코틀린에서는 자바보다 컬렉션으로 더 많은 기능을 쓸 수 있다</p>
 
 <hr />
 
@@ -271,11 +268,10 @@ into the {body} of the default.hbs template -->
 <span class="na">[1, 2, 3]</span>
 </code></pre></div></div>
 
-<ul>
-  <li>자바 컬렉션에는 디폴트 toString 구현이 들어있다.그러나 우리에게 필요한 형식이 아닐 수 있다</li>
-</ul>
+<p>자바 컬렉션에는 디폴트 toString 구현이 들어있다.그러나 필요한 형식이 아닐 수 있다</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="nf">joinToString</span><span class="p">(</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// joinToString() 함수의 초기 구현</span>
+<span class="k">fun</span> <span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="nf">joinToString</span><span class="p">(</span>
     <span class="n">collection</span><span class="p">:</span> <span class="nc">Collection</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;,</span>
     <span class="n">separator</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span>
     <span class="n">prefix</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span>
@@ -295,27 +291,28 @@ into the {body} of the default.hbs template -->
 <span class="p">(</span><span class="mi">1</span><span class="p">;</span> <span class="mi">2</span><span class="p">;</span> <span class="mi">3</span><span class="p">)</span>
 </code></pre></div></div>
 
-<ul>
-  <li>위 함수는 어떤 타입의 값을 원소로 하는 컬렉션이든 처리할 수 있다 그러나 함수를 호출하는 문장이 번잡하다</li>
-</ul>
+<p>위 함수는 어떤 타입의 값을 원소로 하는 컬렉션이든 처리할 수 있다 그러나 함수를 호출하는 문장이 번잡하다</p>
 
 <blockquote>
-  <p>이름 붙인 인자</p>
+  <blockquote>
+    <p>이름 붙인 인자</p>
+  </blockquote>
 </blockquote>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">joinToString</span><span class="p">(</span><span class="n">collection</span><span class="p">,</span> <span class="n">separator</span> <span class="p">=</span> <span class="s">" "</span><span class="p">,</span> <span class="n">prefix</span> <span class="p">=</span> <span class="s">" "</span><span class="p">,</span> <span class="n">postfix</span> <span class="p">=</span> <span class="s">"."</span><span class="p">)</span>
 </code></pre></div></div>
 
-<ul>
-  <li>코틀린으로 작성한 함수를 호출할 때는 함수에 전달하는 인자 중 일부의 이름을 명시할 수 있다</li>
-  <li>호출 시 인자 중 어느 하나라도 이름을 명시하고 나면 혼동을 막기 위해 그 뒤에 오는 모든 인자는 이름을 꼭 명시해야 한다</li>
-</ul>
+<p>코틀린으로 작성한 함수를 호출할 때는 함수에 전달하는 인자 중 일부의 이름을 명시할 수 있다<br />
+호출 시 인자 중 어느 하나라도 이름을 명시하고 나면 혼동을 막기 위해 그 뒤에 오는 모든 인자는 이름을 꼭 명시해야 한다</p>
 
 <blockquote>
-  <p>디폴트 파라미터 값</p>
+  <blockquote>
+    <p>디폴트 파라미터 값</p>
+  </blockquote>
 </blockquote>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="nf">joinToString</span><span class="p">(</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 디폴트 파라미터 값을 사용해 joinToString() 정의하기</span>
+<span class="k">fun</span> <span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="nf">joinToString</span><span class="p">(</span>
     <span class="n">collection</span><span class="p">:</span> <span class="nc">Collection</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;,</span>
     <span class="n">separator</span><span class="p">:</span> <span class="nc">String</span> <span class="p">=</span> <span class="s">", "</span><span class="p">,</span>
     <span class="n">prefix</span><span class="p">:</span> <span class="nc">String</span> <span class="p">=</span> <span class="s">""</span><span class="p">,</span>
@@ -338,40 +335,30 @@ into the {body} of the default.hbs template -->
 <span class="mi">1</span><span class="p">;</span> <span class="mi">2</span><span class="p">;</span> <span class="mi">3</span><span class="p">;</span>
 </code></pre></div></div>
 
-<ul>
-  <li>함수를 호출할 때 모든 인자를 쓸 수도 있고, 일부를 생략할 수도 있다</li>
-  <li>일반 호출 문법을 사용하려면 함수를 선언할 때와 같은 순서로 인자를 지정해야 한다</li>
-</ul>
+<p>함수를 호출할 때 모든 인자를 쓸 수도 있고, 일부를 생략할 수도 있다<br />
+일반 호출 문법을 사용하려면 함수를 선언할 때와 같은 순서로 인자를 지정해야 한다</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&gt;&gt;&gt;</span> <span class="nf">joinToString</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="n">postfix</span> <span class="p">=</span> <span class="s">";"</span><span class="p">,</span> <span class="n">prefix</span> <span class="p">=</span> <span class="s">"# "</span><span class="p">)</span>
 <span class="err">#</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">;</span>
 </code></pre></div></div>
 
-<ul>
-  <li>이름 붙인 인자를 사용하는 경우에는 인자 목록의 중간에 있는 인자를 생략하고, 지정하고 싶은 인자를 이름을 붙여 순서와 관계없이 지정할 수 있다</li>
-  <li>함수의 디폴트 파라미터 값은 함수를 호출하는 쪽이 아니라 함수 선언 쪽에서 지정된다</li>
-</ul>
+<p>이름 붙인 인자를 사용하는 경우에는 인자 목록의 중간에 있는 인자를 생략하고, 지정하고 싶은 인자를 이름을 붙여 순서와 관계없이 지정할 수 있다<br />
+함수의 디폴트 파라미터 값은 함수를 호출하는 쪽이 아니라 함수 선언 쪽에서 지정된다</p>
 
 <blockquote>
-  <p>정적인 유틸리티 클래스 없애기: 최상위 함수와 프로피터</p>
+  <blockquote>
+    <p>정적인 유틸리티 클래스 없애기: 최상위 함수와 프로피터</p>
+  </blockquote>
 </blockquote>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="nn">strings</span> <span class="c1">// 코틀린 join.kt</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// joinToString() 함수를 최상위 함수로 선언하기</span>
+<span class="k">package</span> <span class="nn">strings</span> <span class="c1">// 코틀린 join.kt</span>
 
 <span class="k">fun</span> <span class="nf">joinToString</span><span class="p">(</span><span class="o">..</span><span class="p">.):</span> <span class="nc">String</span> <span class="p">{</span><span class="o">..</span><span class="p">.}</span> 
-
-<span class="k">package</span> <span class="nn">strings</span> <span class="c1">// join.kt를 컴파일한 결과와 같은 클래스를 자바 코드</span>
-
-<span class="k">public</span> <span class="kd">class</span> <span class="nc">JoinKt</span><span class="p">{</span>
-    <span class="k">public</span> <span class="n">static</span> <span class="nc">String</span> <span class="nf">joinToString</span><span class="p">(</span><span class="o">..</span><span class="p">.)</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span> 
-<span class="p">}</span>
-
 </code></pre></div></div>
 
-<ul>
-  <li>다른 패기지에서 그 함수를 사용하고 싶을때는 그 함수가 정의된 패키지를 임포트 해야한다</li>
-  <li>임포트 시 유틸리티 클래스 이름이 추가로 들어갈 필요가 없다</li>
-</ul>
+<p>다른 패기지에서 그 함수를 사용하고 싶을때는 그 함수가 정의된 패키지를 임포트 해야한다<br />
+임포트 시 유틸리티 클래스 이름이 추가로 들어갈 필요가 없다</p>
 
 <blockquote>
   <p>최상위 프로퍼티</p>
@@ -387,24 +374,19 @@ into the {body} of the default.hbs template -->
 <span class="k">fun</span> <span class="nf">reporstOperationCount</span><span class="p">(){</span>
     <span class="nf">println</span><span class="p">(</span><span class="s">"Operation performed $opCount times"</span><span class="p">)</span>
 <span class="p">}</span>
-
 </code></pre></div></div>
 
-<ul>
-  <li>함수와 마찬지로 프로퍼티도 파일의 최상위 수준에 놓을 수 있다</li>
-  <li>이런 프로퍼티의 값은 정적 필드에 저장된다</li>
-  <li>최상위 프로퍼티를 활용해 코드에 상수를 추가할 수 있다</li>
-</ul>
+<p>함수와 마찬지로 프로퍼티도 파일의 최상위 수준에 놓을 수 있다<br />
+이런 프로퍼티의 값은 정적 필드에 저장된다<br />
+최상위 프로퍼티를 활용해 코드에 상수를 추가할 수 있다</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">UNIX_LINE_SEOARATIR</span> <span class="p">=</span> <span class="s">"\n"</span>
 </code></pre></div></div>
 
-<ul>
-  <li>최상위 프로퍼티도 다른 모든 프로퍼티처럼 접근자 메소드를 통해 자바 코드에 노출된다</li>
-  <li>겉으론 상수처럼 보이는데 실제로는 게터를 사용해야 한다면 자연스럽지 못하다</li>
-  <li>const 변경자를 추가하면 프로퍼티를 public static final 필드로 컴파일하게 만들 수 있다</li>
-  <li>원시 타입과 String 타입의 프로퍼티만 const로 지정할 수 있다</li>
-</ul>
+<p>최상위 프로퍼티도 다른 모든 프로퍼티처럼 접근자 메소드를 통해 자바 코드에 노출된다<br />
+겉으론 상수처럼 보이는데 실제로는 게터를 사용해야 한다면 자연스럽지 못하다<br />
+const 변경자를 추가하면 프로퍼티를 public static final 필드로 컴파일하게 만들 수 있다<br />
+원시 타입과 String 타입의 프로퍼티만 const로 지정할 수 있다</p>
 
 <hr />
 
@@ -418,16 +400,16 @@ into the {body} of the default.hbs template -->
 <span class="n">n</span>
 </code></pre></div></div>
 
-<ul>
-  <li>확장 함수는 어떤 클래스의 멤버 메서드인 것처럼 호출할 수 있지만 그 클래스의 밖에 선언된 함수다</li>
-  <li>확장 함수를 만드려면 추가하려는 함수 이름 앞에 그 함수가 확장할 클래스의 이름을 덧붙이기만 하면 된다</li>
-  <li>클래스 이름을 수신 객체 타입, 확장 함수가 호출 되는 대상이 되는 값을 수신 객체라고 부른다</li>
-  <li>위 예제에서는 String이 수신 객체 타입이고 “kotlin”이 수신 객체다</li>
-  <li>확장 함수 내부에서는 수신 객체의 메소드나 프로퍼티를 바로 사용할 수 있다. 그러나 클래스 내부에서만 사용할 수 있는 비공개 멤버나 보호된 멤버를 사용할 수 없다</li>
-</ul>
+<p>확장 함수는 어떤 클래스의 멤버 메서드인 것처럼 호출할 수 있지만 그 클래스의 밖에 선언된 함수다<br />
+확장 함수를 만드려면 추가하려는 함수 이름 앞에 그 함수가 확장할 클래스의 이름을 덧붙이기만 하면 된다<br />
+클래스 이름을 수신 객체 타입, 확장 함수가 호출 되는 대상이 되는 값을 수신 객체라고 부른다<br />
+위 예제에서는 String이 수신 객체 타입이고 “kotlin”이 수신 객체다<br />
+확장 함수 내부에서는 수신 객체의 메소드나 프로퍼티를 바로 사용할 수 있다. 그러나 클래스 내부에서만 사용할 수 있는 비공개 멤버나 보호된 멤버를 사용할 수 없다</p>
 
 <blockquote>
-  <p>임포트와 확장 함수</p>
+  <blockquote>
+    <p>임포트와 확장 함수</p>
+  </blockquote>
 </blockquote>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">strings.lastChar</span>
@@ -439,25 +421,28 @@ into the {body} of the default.hbs template -->
 <span class="kd">val</span> <span class="py">c</span> <span class="p">=</span> <span class="s">"Kotlin"</span><span class="p">.</span><span class="nf">lats</span><span class="p">()</span>
 </code></pre></div></div>
 
-<ul>
-  <li>확장 함수를 정의했다고 해도 자동으로 프로젝트 안의 모든 소스코드에서 그 함수를 사용할 수 있지는 않다</li>
-  <li>다른 클래스나 함수와 마찬가지로 임포트해야 한다</li>
-  <li>as 키워드를 사용하면 임포트한 클래스나 함수를 다른 이름으로 부를 수 있다</li>
-  <li>한 파일 안에서 다른 여러 패키지에 속해있는 이름이 같은 함수를 가져와 사용해야 하는 경우 이름을 바꿔서 임포트하면 이름 충돌을 막을 수 있다</li>
-  <li>코틀린 문법상 확장 함수는 반드시 짧은 이름을 써야 한다</li>
-</ul>
+<p>확장 함수를 정의했다고 해도 자동으로 프로젝트 안의 모든 소스코드에서 그 함수를 사용할 수 있지는 않다<br />
+다른 클래스나 함수와 마찬가지로 임포트해야 한다<br />
+as 키워드를 사용하면 임포트한 클래스나 함수를 다른 이름으로 부를 수 있다<br />
+한 파일 안에서 다른 여러 패키지에 속해있는 이름이 같은 함수를 가져와 사용해야 하는 경우 이름을 바꿔서 임포트하면 이름 충돌을 막을 수 있다<br />
+코틀린 문법상 확장 함수는 반드시 짧은 이름을 써야 한다</p>
+
+<p>내부적으로 확장 함수는 수신 객체를 첫 번째 인자로 받는 정적 메소드라 확장 함수를 호출해도 다른 어댑터 객체나 실행 시점 부가 비용이 들지 않는다</p>
 
 <blockquote>
-  <p>확장 함수로 유틸리티 함수 정의</p>
+  <blockquote>
+    <p>확장 함수로 유틸리티 함수 정의</p>
+  </blockquote>
 </blockquote>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="nf">Collection</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;.</span><span class="nf">joinToString</span><span class="p">(</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// joinToString()를 확장으로 정의하기</span>
+<span class="k">fun</span> <span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="nf">Collection</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;.</span><span class="nf">joinToString</span><span class="p">(</span>
     <span class="n">separator</span><span class="p">:</span> <span class="nc">String</span> <span class="p">=</span> <span class="s">", "</span><span class="p">,</span>
     <span class="n">prefix</span><span class="p">:</span> <span class="nc">String</span> <span class="p">=</span> <span class="s">""</span><span class="p">,</span>
     <span class="n">postfix</span><span class="p">:</span> <span class="nc">String</span> <span class="p">=</span> <span class="s">""</span> 
 <span class="p">):</span> <span class="nc">String</span> <span class="p">{</span>
     <span class="kd">val</span> <span class="py">result</span> <span class="p">=</span> <span class="nc">StringBuilder</span><span class="p">(</span><span class="n">prefix</span><span class="p">)</span>
-    <span class="k">for</span><span class="p">((</span><span class="n">index</span><span class="p">,</span> <span class="n">element</span><span class="p">)</span> <span class="k">in</span> <span class="k">this</span><span class="p">.</span><span class="nf">withIndex</span><span class="p">()){</span>
+    <span class="k">for</span><span class="p">((</span><span class="n">index</span><span class="p">,</span> <span class="n">element</span><span class="p">)</span> <span class="k">in</span> <span class="k">this</span><span class="p">.</span><span class="nf">withIndex</span><span class="p">()){</span> <span class="c1">// this는 수신 객체를 가리킨다. 여기서는 T 타입의 원소로 이뤄진 컬렉션이다</span>
         <span class="k">if</span><span class="p">(</span><span class="n">index</span> <span class="p">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="n">result</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">separator</span><span class="p">)</span>
         <span class="n">result</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
     <span class="p">}</span>
@@ -470,15 +455,14 @@ into the {body} of the default.hbs template -->
 <span class="p">(</span><span class="mi">1</span><span class="p">;</span> <span class="mi">2</span><span class="p">;</span> <span class="mi">3</span><span class="p">)</span>
 </code></pre></div></div>
 
-<ul>
-  <li>이제 joinToString을 마치 클래스의 멤버인 것처럼 호출할 수 있다</li>
-</ul>
+<p>이제 joinToString을 마치 클래스의 멤버인 것처럼 호출할 수 있다</p>
 
 <blockquote>
   <p>확장 함수는 오바리이드 할 수 없다</p>
 </blockquote>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">open</span> <span class="kd">class</span> <span class="nc">View</span><span class="p">{</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 멤버 함수 오버라이드 하기</span>
+<span class="k">open</span> <span class="kd">class</span> <span class="nc">View</span><span class="p">{</span>
     <span class="k">open</span> <span class="k">fun</span> <span class="nf">click</span><span class="p">()</span> <span class="p">=</span> <span class="nf">println</span><span class="p">(</span><span class="s">"View Clicked"</span><span class="p">)</span>
 <span class="p">}</span>
 
@@ -491,13 +475,12 @@ into the {body} of the default.hbs template -->
 <span class="nc">Button</span> <span class="n">clicked</span>
 </code></pre></div></div>
 
-<ul>
-  <li>확장 함수는 오버라이드 할 수 없다</li>
-  <li>확장 함수는 클래스의 일부가 아니다</li>
-  <li>확장 함수는 클래스 밖에 선언된다</li>
-</ul>
+<p>확장 함수는 오버라이드 할 수 없다<br />
+확장 함수는 클래스의 일부가 아니다<br />
+확장 함수는 클래스 밖에 선언된다</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nc">View</span><span class="p">.</span><span class="nf">showOff</span><span class="p">()</span> <span class="p">=</span> <span class="nf">println</span><span class="p">(</span><span class="s">"I'm a view!"</span><span class="p">)</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 확장 함수는 오버라이드 할 수 없다</span>
+<span class="k">fun</span> <span class="nc">View</span><span class="p">.</span><span class="nf">showOff</span><span class="p">()</span> <span class="p">=</span> <span class="nf">println</span><span class="p">(</span><span class="s">"I'm a view!"</span><span class="p">)</span>
 <span class="k">fun</span> <span class="nc">Button</span><span class="p">.</span><span class="nf">showOff</span><span class="p">()</span> <span class="p">=</span> <span class="nf">println</span><span class="p">(</span><span class="s">"I'm a button!"</span><span class="p">)</span>
 <span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">view</span><span class="p">:</span> <span class="nc">View</span> <span class="p">=</span> <span class="nc">Button</span><span class="p">()</span>
 <span class="p">&gt;&gt;&gt;</span> <span class="n">view</span><span class="p">.</span><span class="nf">showOff</span><span class="p">()</span>
@@ -510,21 +493,23 @@ into the {body} of the default.hbs template -->
 </ul>
 
 <blockquote>
-  <p>확장 프로퍼티</p>
+  <blockquote>
+    <p>확장 프로퍼티</p>
+  </blockquote>
 </blockquote>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">String</span><span class="p">.</span><span class="n">lastChar</span><span class="p">:</span> <span class="nc">Char</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 확장 프로퍼티 선언하기</span>
+<span class="kd">val</span> <span class="py">String</span><span class="p">.</span><span class="n">lastChar</span><span class="p">:</span> <span class="nc">Char</span>
     <span class="k">get</span><span class="p">()</span> <span class="p">=</span> <span class="k">get</span><span class="p">(</span><span class="n">length</span> <span class="p">-</span> <span class="mi">1</span><span class="p">)</span>
 </code></pre></div></div>
 
-<ul>
-  <li>실제로 확장 프로퍼티는 아무 상태도 가질 수 없다</li>
-  <li>확장 함수의 경우와 마찬가지로 확장 프로퍼티도 일반적인 프로퍼티와 같은데, 단지 수신 객체 클래스가 추가된 것이다</li>
-  <li>뒷받침하는 필드가 없어서 기본 게터 구현을 제공할 수 없으므로 게터는 꼭 정의를 해야한다</li>
-  <li>초기와 코드도 쓸 수 없다</li>
-</ul>
+<p>실제로 확장 프로퍼티는 아무 상태도 가질 수 없다<br />
+확장 함수의 경우와 마찬가지로 확장 프로퍼티도 일반적인 프로퍼티와 같은데, 단지 수신 객체 클래스가 추가된 것이다<br />
+뒷받침하는 필드가 없어서 기본 게터 구현을 제공할 수 없으므로 게터는 꼭 정의를 해야한다<br />
+초기와 코드도 쓸 수 없다</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="py">StringBuilder</span><span class="p">.</span><span class="n">lastChar</span><span class="p">:</span> <span class="nc">Char</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 변경 가능한 확장 프로퍼티 선언하기</span>
+<span class="kd">var</span> <span class="py">StringBuilder</span><span class="p">.</span><span class="n">lastChar</span><span class="p">:</span> <span class="nc">Char</span>
     <span class="k">get</span><span class="p">()</span> <span class="p">=</span> <span class="k">get</span><span class="p">(</span><span class="n">length</span> <span class="p">-</span> <span class="mi">1</span><span class="p">)</span>
     <span class="k">set</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nc">Char</span><span class="p">){</span>
         <span class="k">this</span><span class="p">.</span><span class="nf">setCharAt</span><span class="p">(</span><span class="n">length</span> <span class="p">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
@@ -542,14 +527,14 @@ into the {body} of the default.hbs template -->
 
 <h2 id="컬렌션-처리-가변-길이-인자와-중위-함수-호출과-라이브러리-지원">컬렌션 처리: 가변 길이 인자와 중위 함수 호출과 라이브러리 지원</h2>
 
-<ul>
-  <li>vararg 키워드를 사용하면 호출 시 인자 개수가 달라질 수 있는 함수를 정의할 수 있다</li>
-  <li>중위 함수 호출 구문을 사용하면 인자가 하나뿐인 메소드를 간편하게 호출할 수 있다</li>
-  <li>구조 분해 선언을 사용하면 복합적인 값을 분해해서 여러 번 수에 나눠 담을 수 있다</li>
-</ul>
+<p>vararg 키워드를 사용하면 호출 시 인자 개수가 달라질 수 있는 함수를 정의할 수 있다<br />
+중위 함수 호출 구문을 사용하면 인자가 하나뿐인 메소드를 간편하게 호출할 수 있다<br />
+구조 분해 선언을 사용하면 복합적인 값을 분해해서 여러 번 수에 나눠 담을 수 있다</p>
 
 <blockquote>
-  <p>자바 컬렉션 API 확장</p>
+  <blockquote>
+    <p>자바 컬렉션 API 확장</p>
+  </blockquote>
 </blockquote>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">strings</span><span class="p">:</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span><span class="s">"first"</span><span class="p">,</span><span class="s">"second"</span><span class="p">,</span> <span class="s">"fourteenth"</span><span class="p">)</span>
@@ -563,12 +548,12 @@ into the {body} of the default.hbs template -->
 <span class="k">fun</span> <span class="nf">Collection</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;.</span><span class="nf">max</span><span class="p">():</span> <span class="nc">Int</span><span class="p">{</span> <span class="err">컬렉션의</span> <span class="err">최댓값을</span> <span class="err">찾음</span><span class="p">}</span>
 </code></pre></div></div>
 
-<ul>
-  <li>last와 max는 모두 확장 함수였던 것이다</li>
-</ul>
+<p>last와 max는 모두 확장 함수였던 것이다</p>
 
 <blockquote>
-  <p>가변 인자 함수: 인자의 개수가 달라질 수 있는 함수 정의</p>
+  <blockquote>
+    <p>가변 인자 함수: 인자의 개수가 달라질 수 있는 함수 정의</p>
+  </blockquote>
 </blockquote>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">listOf</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;(</span><span class="k">vararg</span> <span class="n">values</span><span class="p">:</span> <span class="nc">T</span><span class="p">):</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
@@ -579,13 +564,13 @@ into the {body} of the default.hbs template -->
 <span class="p">}</span>
 </code></pre></div></div>
 
-<ul>
-  <li>가변 길이 인자는 메소드를 호출할 때 원하는 개수만큼 값을 인자로 넘기면 자바 컴파일러가 배열에 그 값들을 넣어 주는 기능이다</li>
-  <li>타입 뒤에 …를 붇이는 대신 vararg 변경자를 붙인다</li>
-</ul>
+<p>가변 길이 인자는 메소드를 호출할 때 원하는 개수만큼 값을 인자로 넘기면 자바 컴파일러가 배열에 그 값들을 넣어 주는 기능이다<br />
+타입 뒤에 …를 붇이는 대신 vararg 변경자를 붙인다</p>
 
 <blockquote>
-  <p>값의 쌍 다루기: 중위 호출과 구조 분해 선언</p>
+  <blockquote>
+    <p>값의 쌍 다루기: 중위 호출과 구조 분해 선언</p>
+  </blockquote>
 </blockquote>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">map</span> <span class="p">=</span> <span class="nf">mapOf</span><span class="p">(</span><span class="mi">1</span> <span class="n">to</span> <span class="s">"one"</span><span class="p">,</span> <span class="mi">7</span> <span class="n">to</span> <span class="s">"seven"</span><span class="p">,</span> <span class="mi">53</span> <span class="n">to</span> <span class="s">"fifty-three"</span><span class="p">)</span>
@@ -598,21 +583,21 @@ into the {body} of the default.hbs template -->
 <span class="kd">val</span> <span class="p">(</span><span class="py">number</span><span class="p">,</span> <span class="py">name</span><span class="p">)</span> <span class="p">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="s">"one"</span>
 </code></pre></div></div>
 
-<ul>
-  <li>맵을 만들려면 mapOf 함수를 사용한다</li>
-  <li>to라는 단어는 중위 호출이라는 특별한 방식으로 to라는 일반 메소드를 호출한 것이다</li>
-  <li>인자가 하나뿐인 일반 메소드나 인자가 하나뿐인 확장 함수에 중위 호출을 사용할 수 있다</li>
-  <li>함수를 중위 호출에 사용하게 허용하고 싶으면 infix 변경자를 함수 선언 앞에 추가해야 한다</li>
-  <li>이런 기능을 구조 분해 선언이라고 한다</li>
-  <li>to를 사용하면 타입과 관계없이 임의의 순서쌍을 만들 수 있다</li>
-</ul>
+<p>맵을 만들려면 mapOf 함수를 사용한다<br />
+to라는 단어는 중위 호출이라는 특별한 방식으로 to라는 일반 메소드를 호출한 것이다<br />
+인자가 하나뿐인 일반 메소드나 인자가 하나뿐인 확장 함수에 중위 호출을 사용할 수 있다<br />
+함수를 중위 호출에 사용하게 허용하고 싶으면 infix 변경자를 함수 선언 앞에 추가해야 한다<br />
+이런 기능을 구조 분해 선언이라고 한다<br />
+to를 사용하면 타입과 관계없이 임의의 순서쌍을 만들 수 있다</p>
 
 <hr />
 
 <h2 id="문자열과-정규식-다루기">문자열과 정규식 다루기</h2>
 
 <blockquote>
-  <p>문자열 나누기</p>
+  <blockquote>
+    <p>문자열 나누기</p>
+  </blockquote>
 </blockquote>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&gt;&gt;&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="s">"12.345-6.A"</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s">"\\.|-"</span><span class="p">.</span><span class="nf">toRegex</span><span class="p">()))</span>
@@ -622,31 +607,27 @@ into the {body} of the default.hbs template -->
 <span class="na">[12, 345, 6, A]</span>
 </code></pre></div></div>
 
-<ul>
-  <li>정규식을 파라미터로 받는 함수는 String이 아닌 Regex타입의 값을 받는다</li>
-  <li>간단한 경우네는 꼭 정규식을 쓸 필요가 없다. split 확장 함수를 오버로딩한 버전 중에는 구분 문자열을 하나 이상 인자로 받는 함수가 있다</li>
-</ul>
+<p>정규식을 파라미터로 받는 함수는 String이 아닌 Regex타입의 값을 받는다<br />
+간단한 경우에는 꼭 정규식을 쓸 필요가 없다. split 확장 함수를 오버로딩한 버전 중에는 구분 문자열을 하나 이상 인자로 받는 함수가 있다</p>
 
 <blockquote>
-  <p>정규식과 3중 따움표로 묶은 문자열</p>
+  <blockquote>
+    <p>정규식과 3중 따움표로 묶은 문자열</p>
+  </blockquote>
 </blockquote>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">parsePath</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nc">String</span><span class="p">){</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// String 확장 함수를 사용해 경로 파싱하기</span>
+<span class="k">fun</span> <span class="nf">parsePath</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nc">String</span><span class="p">){</span>
     <span class="kd">val</span> <span class="py">directory</span> <span class="p">=</span> <span class="n">path</span><span class="p">.</span><span class="nf">substringBeforeLast</span><span class="p">(</span><span class="s">"/"</span><span class="p">)</span>
     <span class="kd">val</span> <span class="py">fullName</span> <span class="p">=</span> <span class="n">path</span><span class="p">.</span><span class="nf">substringAfterLast</span><span class="p">(</span><span class="s">"/"</span><span class="p">)</span>
     <span class="kd">val</span> <span class="py">fileName</span> <span class="p">=</span> <span class="n">fullName</span><span class="p">.</span><span class="nf">substringBeforeLast</span><span class="p">(</span><span class="s">"."</span><span class="p">)</span>
     <span class="kd">val</span> <span class="py">extenstion</span> <span class="p">=</span> <span class="n">fullName</span><span class="p">.</span><span class="nf">substringAfterLast</span><span class="p">(</span><span class="s">"."</span><span class="p">)</span>
     <span class="nf">println</span><span class="p">(</span><span class="s">"dir: $directory, name: $fileName, ext: $extension"</span><span class="p">)</span>
 <span class="p">}</span>
-<span class="p">&gt;&gt;&gt;</span> <span class="nf">parsePath</span><span class="p">(/</span><span class="n">users</span><span class="p">/</span><span class="n">yole</span><span class="p">/</span><span class="n">kotlin-book</span><span class="p">/</span><span class="n">chapter</span><span class="p">.</span><span class="n">aboc</span><span class="p">)</span>
-<span class="n">dir</span><span class="p">:</span> <span class="p">/</span><span class="n">users</span><span class="p">/</span><span class="n">yole</span><span class="p">/</span><span class="n">kotlin-book</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n">chapter</span><span class="p">,</span> <span class="n">ext</span><span class="p">:</span> <span class="n">aboc</span>
 </code></pre></div></div>
 
-<ul>
-  <li>String을 확장한 함수를 사용</li>
-</ul>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">parsePath</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nc">String</span><span class="p">){</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 경로 파싱에 정규식 사용하기</span>
+<span class="k">fun</span> <span class="nf">parsePath</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nc">String</span><span class="p">){</span>
     <span class="kd">val</span> <span class="py">regax</span> <span class="p">=</span> <span class="s">"""(.+)/(.+)\(.+)"""</span><span class="p">.</span><span class="nf">toRegax</span><span class="p">()</span>
     <span class="kd">val</span> <span class="py">matchResult</span> <span class="p">=</span> <span class="n">regax</span><span class="p">.</span><span class="nf">matchEntire</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
     <span class="k">if</span><span class="p">(</span><span class="n">matchResult</span> <span class="p">!=</span> <span class="k">null</span><span class="p">){</span>
@@ -656,25 +637,23 @@ into the {body} of the default.hbs template -->
 <span class="p">}</span>
 </code></pre></div></div>
 
-<ul>
-  <li>정규식을 사용</li>
-  <li>3중 따옴표 문자열에서는 역슬래시를 포함한 어떤 문자도 이스케이프할 필요가 없다</li>
-</ul>
+<p>3중 따옴표 문자열에서는 역슬래시를 포함한 어떤 문자도 이스케이프할 필요가 없다</p>
 
 <blockquote>
-  <p>여러 줄 3중 따옴표 문자열</p>
+  <blockquote>
+    <p>여러 줄 3중 따옴표 문자열</p>
+  </blockquote>
 </blockquote>
 
-<ul>
-  <li>3중 따옴표 문자열에서는 줄 바꿈을 표현하는 아무 문자열이나 그대로 들어간다</li>
-  <li>3중 따옴표 안에 문자열 템플릿을 사용할 수 있다 ‘$’ 문자를 넣어야 한다</li>
-</ul>
+<p>3중 따옴표 문자열에서는 줄 바꿈을 표현하는 아무 문자열이나 그대로 들어간다<br />
+3중 따옴표 안에 문자열 템플릿을 사용할 수 있다 ‘$’ 문자를 넣어야 한다</p>
 
 <hr />
 
 <h2 id="코드-다듬기-로컬-함수와-확장">코드 다듬기: 로컬 함수와 확장</h2>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">User</span><span class="p">(</span><span class="kd">val</span> <span class="py">id</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="kd">val</span> <span class="py">address</span><span class="p">:</span> <span class="nc">String</span><span class="p">)</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 코드 중복을 보여주는 예</span>
+<span class="kd">class</span> <span class="nc">User</span><span class="p">(</span><span class="kd">val</span> <span class="py">id</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="kd">val</span> <span class="py">address</span><span class="p">:</span> <span class="nc">String</span><span class="p">)</span>
 
 <span class="k">fun</span> <span class="nf">saveUser</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="nc">User</span><span class="p">){</span>
     <span class="k">if</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="n">name</span><span class="p">.</span><span class="nf">isEmpty</span><span class="p">()){</span>
@@ -693,11 +672,10 @@ into the {body} of the default.hbs template -->
 <span class="n">java</span><span class="p">.</span><span class="n">lang</span><span class="p">.</span><span class="nc">IllegalArgumentException</span><span class="p">:</span> <span class="nc">Can</span><span class="err">'</span><span class="n">t</span> <span class="n">save</span> <span class="n">user</span> <span class="mi">1</span><span class="p">:</span> <span class="n">empty</span> <span class="nc">Name</span>
 </code></pre></div></div>
 
-<ul>
-  <li>코틀린에서는 함수에서 추출한 함수를 원 함수 내부에 중첩시킬 수 있다</li>
-</ul>
+<p>코틀린에서는 함수에서 추출한 함수를 원 함수 내부에 중첩시킬 수 있다</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">User</span><span class="p">(</span><span class="kd">val</span> <span class="py">id</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="kd">val</span> <span class="py">address</span><span class="p">:</span> <span class="nc">String</span><span class="p">)</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 로컬 함수를 사용해 코드 중복 줄이기</span>
+<span class="kd">class</span> <span class="nc">User</span><span class="p">(</span><span class="kd">val</span> <span class="py">id</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="kd">val</span> <span class="py">address</span><span class="p">:</span> <span class="nc">String</span><span class="p">)</span>
 
 <span class="k">fun</span> <span class="nf">saveUser</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="nc">User</span><span class="p">){</span>
     <span class="k">fun</span> <span class="nf">vaildate</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="nc">USer</span><span class="p">,</span>
@@ -713,15 +691,14 @@ into the {body} of the default.hbs template -->
 <span class="p">}</span>
 </code></pre></div></div>
 
-<ul>
-  <li>검증 로직 중복이 사라졌다</li>
-  <li>불필요한 User 파라미터도 없애보자</li>
-</ul>
+<p>검증 로직 중복이 사라졌다<br />
+불필요한 User 파라미터도 없애보자</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">User</span><span class="p">(</span><span class="kd">val</span> <span class="py">id</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="kd">val</span> <span class="py">address</span><span class="p">:</span> <span class="nc">String</span><span class="p">)</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 로컬 함수에서 바깥 함수의 파라미터 접근하기</span>
+<span class="kd">class</span> <span class="nc">User</span><span class="p">(</span><span class="kd">val</span> <span class="py">id</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="kd">val</span> <span class="py">address</span><span class="p">:</span> <span class="nc">String</span><span class="p">)</span>
 
 <span class="k">fun</span> <span class="nf">saveUser</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="nc">User</span><span class="p">){</span>
-    <span class="k">fun</span> <span class="nf">vaildate</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span><span class="n">fieldName</span><span class="p">:</span> <span class="nc">String</span><span class="p">){</span>
+    <span class="k">fun</span> <span class="nf">validate</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span><span class="n">fieldName</span><span class="p">:</span> <span class="nc">String</span><span class="p">){</span>
             <span class="k">if</span><span class="p">(</span><span class="n">value</span><span class="p">.</span><span class="nf">isEmpty</span><span class="p">()){</span>
         <span class="n">throws</span> <span class="nc">IllegalArgumentException</span><span class="p">(</span>
             <span class="s">"Can't save user $(user.id): "</span> <span class="p">+</span> <span class="s">"empty $fileName"</span><span class="p">)</span>
@@ -732,9 +709,26 @@ into the {body} of the default.hbs template -->
 <span class="p">}</span>
 </code></pre></div></div>
 
-<ul>
-  <li>이 것을 더 개선하고 싶다면 User클래스를 확장한 함수로 만들 수도 있다</li>
-</ul>
+<p>이 것을 더 개선하고 싶다면 User클래스를 확장한 함수로 만들 수도 있다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 검증 로직을 확장 함수로 추출하기</span>
+<span class="kd">class</span> <span class="nc">User</span><span class="p">(</span><span class="kd">val</span> <span class="py">id</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="kd">val</span> <span class="py">address</span><span class="p">:</span> <span class="nc">String</span><span class="p">)</span>
+
+<span class="k">fun</span> <span class="nc">User</span><span class="p">.</span><span class="nf">validateBeforeSave</span><span class="p">(){</span>
+    <span class="k">fun</span> <span class="nf">vaildate</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span><span class="n">fieldName</span><span class="p">:</span> <span class="nc">String</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">value</span><span class="p">.</span><span class="nf">isEmpty</span><span class="p">()){</span>
+        <span class="n">throws</span> <span class="nc">IllegalArgumentException</span><span class="p">(</span>
+            <span class="s">"Can't save user $(user.id): "</span> <span class="p">+</span> <span class="s">"empty $fileName"</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nf">validate</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="s">"Name"</span><span class="p">)</span>
+    <span class="nf">validate</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="n">address</span><span class="p">,</span> <span class="s">"Address"</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">saveUser</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="nc">User</span><span class="p">){</span>
+    <span class="n">user</span><span class="p">.</span><span class="nf">validateBeforeSave</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <hr />
 
