@@ -232,21 +232,25 @@ into the {body} of the default.hbs template -->
 
 <h2 id="클래스-계층-정의">클래스 계층 정의</h2>
 
-<hr />
+<blockquote>
+  <blockquote>
+    <p>코틀린 인터페이스</p>
+  </blockquote>
+</blockquote>
 
-<ul>
-  <li>코틀린 인터페이스</li>
-</ul>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Clickable</span><span class="p">{</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 간단한 인터페이스 선언하기</span>
+<span class="kd">interface</span> <span class="nc">Clickable</span><span class="p">{</span>
     <span class="k">fun</span> <span class="nf">click</span><span class="p">()</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>위 인터페이스를 구현하는 모든 비추상 클래스는 click에 대한 구현을 제공해야 한다<br />
+<p>코틀린 인터페이스 안에는 추상 메소드뿐 아니라 구현이 있는 메소드도 정의할 수 있다<br />
+그러나 인터페이스에는 아무런 상태도 들어갈 수 없다<br />
+위 인터페이스를 구현하는 모든 비추상 클래스는 click에 대한 구현을 제공해야 한다<br />
 다음은 인터페이스를 구현하는 방법이다</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Button</span> <span class="p">:</span> <span class="nc">Clickable</span><span class="p">{</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 단순한 인터페이스 구현하기</span>
+<span class="kd">class</span> <span class="nc">Button</span> <span class="p">:</span> <span class="nc">Clickable</span><span class="p">{</span>
     <span class="k">override</span> <span class="k">fun</span> <span class="nf">click</span><span class="p">()</span> <span class="p">=</span> <span class="nf">println</span><span class="p">(</span><span class="s">"I was clicked"</span><span class="p">)</span>
 <span class="p">}</span>
 
@@ -254,21 +258,20 @@ into the {body} of the default.hbs template -->
 <span class="nc">I</span> <span class="n">was</span> <span class="n">clicked</span>
 </code></pre></div></div>
 
-<p>자바와 마찬가지로 클래스는 인터페이스를 원하는 만큼 개수 제한 없이 마음대로 구현할 수 있지만, 클래스는 오직 하나만 확장할 수 있다</p>
+<p>자바와 마찬가지로 클래스는 인터페이스를 원하는 만큼 개수 제한 없이 마음대로 구현할 수 있지만, 클래스는 오직 하나만 확장할 수 있다<br />
+코틀린에서는 override 변경자를 꼭 사용해야 한다. overrid 변경자는 실수로 상위 클래스의 메소드를 오버라이드 하는 경우를 방지해준다<br />
+인터페이스 메소드도 디폴트 구현을 제공할 수 있다. 그런 경우 메소드 앞에 default를 붙여야 하는 자바와 달리 코틀린에서는 메소드를 특별한 키워드로 꾸밀 필요가 없이 메소드 본문을 메소드 시그니처 뒤에 추가하면 된다</p>
 
-<p>코틀린에서는 override 변경자를 꼭 사용해야 한다. overrid 변경자는 실수로 상위 클래스의 메소드를 오버라이드 하는 경우를 방지해준다</p>
-
-<p>인터페이스 메소드도 디폴트 구현을 제공할 수 있다. 그런 경우 메소드 앞에 default를 붙여야 하는 자바와 달리 코틀린에서는 메소드를 특별한 키워드로 꾸밀 필요가 없이 메소드 본문을 메소드 시그니처 뒤에 추가하면 된다</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Clickable</span><span class="p">{</span>
-    <span class="k">fun</span> <span class="nf">click</span><span class="p">()</span> <span class="c1">// 일반 메소드 선언</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 인터페이스 안에 본문이 있는 메소드 정의하기</span>
+<span class="kd">interface</span> <span class="nc">Clickable</span><span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">click</span><span class="p">()</span>
     <span class="k">fun</span> <span class="nf">showOff</span><span class="p">()</span> <span class="p">=</span> <span class="nf">println</span><span class="p">(</span><span class="s">"I'm clickable!"</span><span class="p">)</span> <span class="c1">// 디폴트 구현이 있는 메소드</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>showOff 메소드의 경우 새로운 동작을 정의할 수도 있고, 그냥 정의를 생략해서 디폴트 구현을 사용할 수도 있다</p>
+<p>위 인터페이스를 구현하는 클래스는 showOff 메소드의 새로운 동작을 정의할 수도 있고, 그냥 정의를 생략해서 디폴트 구현을 사용할 수도 있다</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">동일한</span> <span class="err">메소드를</span> <span class="err">구현하는</span> <span class="err">다른</span> <span class="err">인터페이스</span> <span class="err">정의</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 동일한 메소드를 구현하는 다른 인터페이스 정의</span>
 <span class="kd">interface</span> <span class="nc">Focusable</span><span class="p">{</span>
     <span class="k">fun</span> <span class="nf">setFocus</span><span class="p">(</span><span class="n">b</span><span class="p">:</span> <span class="nc">Boolean</span><span class="p">)</span> <span class="p">=</span> 
         <span class="nf">println</span><span class="p">(</span><span class="s">"I ${if (b) "</span><span class="n">got</span><span class="s">" else "</span><span class="n">lost</span><span class="s">"} focus."</span><span class="p">)</span>
@@ -279,7 +282,7 @@ into the {body} of the default.hbs template -->
 <p>한 클래스에서 모두 디폴트 구현이 들어있는 두 인터페이스를 함께 구현하면 어느쪽 showOff메소드도 선택되지 않는다<br />
 코틀린 컴파일러는 두 메소드를 아우르는 구현을 하위 클래스에 직접 구현하게 강제한다</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">상속한</span> <span class="err">인터페이스의</span> <span class="err">메소드</span> <span class="err">구현</span> <span class="err">호출하기</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 상속한 인터페이스의 메소드 구현 호출하기</span>
 <span class="kd">class</span> <span class="nc">Button</span> <span class="p">:</span> <span class="nc">Clickable</span><span class="p">,</span> <span class="nc">Focusable</span><span class="p">{</span>
     <span class="k">override</span> <span class="k">fun</span> <span class="nf">click</span><span class="p">()</span> <span class="p">=</span> <span class="nf">println</span><span class="p">(</span><span class="s">"I was clicked"</span><span class="p">)</span>
     <span class="k">override</span> <span class="k">fun</span> <span class="nf">showOff</span><span class="p">(){</span> <span class="c1">// 인터페이스를 구현하는 하위 클래스에서 명시적으로 새로운 구현을 제공해야 한다</span>
@@ -296,9 +299,11 @@ into the {body} of the default.hbs template -->
 <span class="p">}</span>
 </code></pre></div></div>
 
-<ul>
-  <li>open, final, abstract 변경자: 기본적으로 final</li>
-</ul>
+<blockquote>
+  <blockquote>
+    <p>open, final, abstract 변경자: 기본적으로 final</p>
+  </blockquote>
+</blockquote>
 
 <p>기본적으로 상속이 가능하면 취약한 기반 클래스라는 문제가 발생한다<br />
 이펙티브 자바를 쓴 조슈아 블로크는 상속을 위한 설계와 문서를 갖추거나, 그럴 수 없다면 상속을 금지하라는 조언을 했다<br />
@@ -306,7 +311,7 @@ into the {body} of the default.hbs template -->
 클래스의 상속을 허용하려면 클래스 앞에 open 변경자를 붙여야 한다<br />
 오버라이드를 허용하고 싶은 메소드나 프로퍼티의 앞에도 open 변경자를 붙여야 한다</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">열린</span> <span class="err">메소드를</span> <span class="err">포함하는</span> <span class="err">열린</span> <span class="err">클래스</span> <span class="err">정의하기</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 열린 메소드를 포함하는 열린 클래스 정의하기</span>
 <span class="k">open</span> <span class="kd">class</span> <span class="nc">RichButton</span> <span class="p">:</span> <span class="nc">Clickable</span> <span class="p">{</span> <span class="c1">// 이 클래스는 열려있다</span>
     <span class="k">fun</span> <span class="nf">disable</span><span class="p">()</span> <span class="p">{}</span> <span class="c1">// 이 함수는 파이널이다</span>
     <span class="k">open</span> <span class="k">fun</span> <span class="nf">animate</span><span class="p">()</span> <span class="p">{}</span> <span class="c1">// 이 함수는 열려있다</span>
@@ -317,7 +322,7 @@ into the {body} of the default.hbs template -->
 <p>기반 클래스나 인터페이스의 멤버를 오버라이드하는 경우 메소드는 기본적으로 열려있다<br />
 오버라이드하는 메소드의 구현을 하위 클래스에서 오버라이드 하지 못하게 금지하려면 오버라이드 하는 메소드 앞에 final을 명시해야 한다</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">오버라이드</span> <span class="err">금지하기</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 오버라이드 금지하기</span>
 <span class="k">open</span> <span class="kd">class</span> <span class="nc">RichButton</span> <span class="p">:</span> <span class="nc">Clickable</span><span class="p">{</span>
     <span class="k">final</span> <span class="k">override</span> <span class="k">fun</span> <span class="nf">click</span><span class="p">()</span> <span class="p">{}</span> <span class="c1">// 이 final은 쓸데 없이 붙은 중복이 아니다. final이 없는 override 메소드나 프로퍼티는 기본적으로 열려있다</span>
 <span class="p">}</span>
@@ -328,7 +333,7 @@ into the {body} of the default.hbs template -->
 <p>코틀린에서도 클래스를 abstract로 선언할 수 있다. abstract로 선언한 추상 클래스는 인스턴스화 할 수 없다<br />
 추상 멤버는 항상 열려있다. 따라서 추상 멤버 앞에 open 변경자를 명시할 필요가 없다</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">추상</span> <span class="err">클래스</span> <span class="err">정의하기</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 추상 클래스 정의하기</span>
 <span class="k">abstract</span> <span class="kd">class</span> <span class="nc">Animated</span><span class="p">{</span> 
     <span class="k">abstract</span> <span class="k">fun</span> <span class="nf">animate</span><span class="p">()</span> <span class="c1">// 추상 함수다. 구현이 없다. 하위 클래스에서 이 함수를 반드시 오버라이드 해야 한다</span>
 
@@ -350,9 +355,11 @@ open: 오버라이드 할 수 있음, 반드시 open을 명시해야 오버라�
 abstract: 반드시 오버라이드해야 함, 추상 클래스의 멤버에만 이 변경자를 붙일 수 있다. 추상 멤버에는 구현이 있으면 안 된다<br />
 override: 상위 클래스나 상위 인스턴스의 멤버를 오버라이드 하는 중, 오버라이드하는 멤버는 기본적으로 열려있다. 하위 클래스의 오버라이드를 금지하려면 final을 명시해야 한다</p>
 
-<ul>
-  <li>가시성 변경자: 기본적으로 공개</li>
-</ul>
+<blockquote>
+  <blockquote>
+    <p>가시성 변경자: 기본적으로 공개</p>
+  </blockquote>
+</blockquote>
 
 <p>가시성 변경자는 코드 기반에 있는 선언에 대한 클래스 외부 접근을 제어한다. 어떤 클래스의 구현에 대한 접근을 제한함으로써 그 클래스에 의존하는 외부 코드를 깨지 않고도 클래스 내부 구현을 변경할 수 있다</p>
 
@@ -381,13 +388,15 @@ private: (클래스 멤버) 같은 클래스 안에서만 볼 수 있다, (최�
 
 <p>코틀린에서는 외부 클래스가 내부 클래스나 중첩된 클래스의 private 멤버에 접근할 수 없다</p>
 
-<ul>
-  <li>내부 클래스와 중첩된 클래스: 기본적으로 중첩 클래스</li>
-</ul>
+<blockquote>
+  <blockquote>
+    <p>내부 클래스와 중첩된 클래스: 기본적으로 중첩 클래스</p>
+  </blockquote>
+</blockquote>
 
 <p>코틀린의 중첩 클래스는 명시적으로 요청하지 않는 한 바깥쪽 클래스 인스턴스에 대한 접근 권한이 없다는 점이다</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">직렬화할</span> <span class="err">수</span> <span class="err">있는</span> <span class="err">상태가</span> <span class="err">있는</span> <span class="err">뷰</span> <span class="err">선언</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 직렬화할 수 있는 상태가 있는 뷰 선언</span>
 <span class="kd">interface</span> <span class="nc">State</span><span class="p">:</span> <span class="nc">Serializable</span>
 
 <span class="kd">interface</span> <span class="nc">View</span><span class="p">{</span>
@@ -396,7 +405,7 @@ private: (클래스 멤버) 같은 클래스 안에서만 볼 수 있다, (최�
 <span class="p">}</span>
 </code></pre></div></div>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">중첩</span> <span class="err">클래스를</span> <span class="err">사용해</span> <span class="err">코틀린에서</span> <span class="nc">View</span> <span class="err">구현하기</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 중첩 클래스를 사용해 코틀린에서 View 구현하기</span>
 <span class="kd">class</span> <span class="nc">Button</span> <span class="p">:</span> <span class="nc">View</span><span class="p">{</span>
     <span class="k">override</span> <span class="k">fun</span> <span class="nf">getCurrentState</span><span class="p">():</span> <span class="nc">State</span> <span class="p">=</span> <span class="nc">ButtonState</span><span class="p">()</span>
 
@@ -406,7 +415,7 @@ private: (클래스 멤버) 같은 클래스 안에서만 볼 수 있다, (최�
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>코트린 중첩 클래스에 아무런 변경자가 붙지 않으면 자바 static 중첩 클래스와 같다. 이를 배누 클래스로 변경해서 바깥쪽 클래스에 대한 참조를 포함하게 만들고 싶다면 inner 변경자를 붙여야 한다</p>
+<p>코틀린 중첩 클래스에 아무런 변경자가 붙지 않으면 자바 static 중첩 클래스와 같다. 이를 내부 클래스로 변경해서 바깥쪽 클래스에 대한 참조를 포함하게 만들고 싶다면 inner 변경자를 붙여야 한다</p>
 
 <p>중첩 클래스: class A<br />
 내부 클래스: inner class a</p>
@@ -420,11 +429,13 @@ private: (클래스 멤버) 같은 클래스 안에서만 볼 수 있다, (최�
 <span class="p">}</span>
 </code></pre></div></div>
 
-<ul>
-  <li>봉인된 클래스: 클래스 계층 정의 시 계층 확장 제한</li>
-</ul>
+<blockquote>
+  <blockquote>
+    <p>봉인된 클래스: 클래스 계층 정의 시 계층 확장 제한</p>
+  </blockquote>
+</blockquote>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">인터페이스</span> <span class="err">구현을</span> <span class="err">통해</span> <span class="err">식</span> <span class="err">표현하기</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 인터페이스 구현을 통해 식 표현하기</span>
 <span class="kd">interface</span> <span class="nc">Expr</span>
 <span class="kd">class</span> <span class="nc">Num</span><span class="p">(</span><span class="kd">val</span> <span class="py">value</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span> <span class="p">:</span> <span class="nc">Expr</span>
 <span class="kd">class</span> <span class="nc">Sum</span><span class="p">(</span><span class="kd">val</span> <span class="py">left</span><span class="p">:</span> <span class="nc">Expr</span><span class="p">,</span> <span class="kd">val</span> <span class="py">right</span><span class="p">:</span> <span class="nc">Expr</span><span class="p">)</span> <span class="p">:</span> <span class="nc">Expr</span>
@@ -438,11 +449,11 @@ private: (클래스 멤버) 같은 클래스 안에서만 볼 수 있다, (최�
     <span class="p">}</span>
 </code></pre></div></div>
 
-<p>항상 디폴트 분기를 추가하는 게 편하지는 않다. 실수로 새로운 클래스 처리를 잊어버렸더라도 디폴트 분기가 선택되기 때문에 심각한 버그가 발생할 수 있다<br />
+<p>항상 디폴트 분기를 추가하는 게 편하지 않다. 실수로 새로운 클래스 처리를 잊어버렸더라도 디폴트 분기가 선택되기 때문에 심각한 버그가 발생할 수 있다<br />
 코틀린에서는 sealed 클래스로 이런 문제를 해결한다. 상위 클래스에 sealed 변경자를 붙이면 그 상위 클래스를 상속한 하위 클래스 정의를 제한할 수 있다<br />
 sealed 클래스의 하위 클래스를 정의할 때는 반드시 상위 클래스 안에 중첩시켜야 한다</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">sealed</span> <span class="err">클래스로</span> <span class="err">식</span> <span class="err">표현하기</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// sealed 클래스로 식 표현하기</span>
 <span class="k">sealed</span> <span class="kd">class</span> <span class="nc">Expr</span><span class="p">{</span> <span class="c1">// 기반 클래스를 sealed로 봉인한다</span>
     <span class="kd">class</span> <span class="nc">Num</span><span class="p">(</span><span class="kd">val</span> <span class="py">value</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span> <span class="p">:</span> <span class="nc">Expr</span><span class="p">()</span> <span class="c1">// 기반 클래스의 모든 하위 클래스를 중첩 클래스로 나열한다</span>
     <span class="kd">class</span> <span class="nc">Sum</span><span class="p">(</span><span class="kd">val</span> <span class="py">left</span><span class="p">:</span> <span class="nc">Expr</span><span class="p">,</span> <span class="kd">val</span> <span class="py">right</span><span class="p">:</span> <span class="nc">Expr</span><span class="p">)</span> <span class="p">:</span> <span class="nc">Expr</span><span class="p">()</span>
@@ -461,13 +472,13 @@ sealed 클래스의 하위 클래스를 정의할 때는 반드시 상위 클래
 
 <h2 id="뻔하지-않은-생성자와-프로퍼티를-갖는-클래스-선언">뻔하지 않은 생성자와 프로퍼티를 갖는 클래스 선언</h2>
 
-<hr />
-
 <p>코틀린에서는 주생성자와 부생성자를 구분한다. 또한 초기화 블록을 통해 초기화 로직을 추가할 수 있다</p>
 
-<ul>
-  <li>클래스 초기화: 주 생성자와 초기화 블록</li>
-</ul>
+<blockquote>
+  <blockquote>
+    <p>클래스 초기화: 주 생성자와 초기화 블록</p>
+  </blockquote>
+</blockquote>
 
 <p>클래스 이름 뒤에 오는 괄호로 둘러싸인 코드를 주 생성자라고 부른다. 주 생성자는 생성자 파라미터를 지정하고 그 생성자 파라미터에 의해 초기화되는 프로퍼티를 정의하는 두 가지 목적에 쓰인다<br />
 class User(val nickname: String) 선언을 같은 목적을 달성할 수 있는 가장 명시적인 선언으로 풀어서 보자</p>
@@ -508,16 +519,18 @@ class User(val nickname: String, val isSubscribed: Boolean = true)</p>
 
 <p>클래스를 정의할 때 별도로 성성자를 정의하지 않으면 컴파일러가 자동으로 아무 일도 하지 않는 인자가 없는 디폴트 생성자를 만들어준다<br />
 open class Button // 인자가 없는 디폴트 생성자가 만들어진다<br />
-Button의 생성자는 아무 인자도 받지 않짐나, Button 클래스를 상속한 하위 클래스는 반드시 Button 클래스의 생성자를 호출해야 한다<br />
+Button의 생성자는 아무 인자도 받지 않지만, Button 클래스를 상속한 하위 클래스는 반드시 Button 클래스의 생성자를 호출해야 한다<br />
 class RadioButton: Button()<br />
 이 규칙으로 인해 기반 클래스의 이름 뒤에는 꼭 빈 괄호가 들어간다. 반면 인터페이스는 생성자가 없기 때문에 어떤 클래스가 인터페이스를 구현하는 경우 그 클래스의 상위 클래스 목록에 있는 인터페이스 이름뒤에는 아무 괄호도 없다</p>
 
 <p>class Secretive private construtor(){ } // 이 클래스의 유일한 주 생성자는 비공개이다<br />
 Secretive 클래스 안에는 주 생성자밖에 없고 그 주 생성자는 비공개이므로 외부에서는 Secretive를 인스턴스화할 수 없다</p>
 
-<ul>
-  <li>부 생성자: 상위 클래스를 다른 방식으로 초기화</li>
-</ul>
+<blockquote>
+  <blockquote>
+    <p>부 생성자: 상위 클래스를 다른 방식으로 초기화</p>
+  </blockquote>
+</blockquote>
 
 <p>부 생성자는 constructor 키워드로 시작한다. 필요에 따라 얼마든지 부 생성자를 많이 선언해도 된다</p>
 
@@ -547,9 +560,11 @@ Secretive 클래스 안에는 주 생성자밖에 없고 그 주 생성자는 �
 
 <p>클래스에 주 생성자가 없다면 모든 부 생성자는 반드시 상위 클래스를 초기화하거나 다른 생성자에게 생성을 위임해야 한다</p>
 
-<ul>
-  <li>인터페이스에 선언된 프로퍼티 구현</li>
-</ul>
+<blockquote>
+  <blockquote>
+    <p>인터페이스에 선언된 프로퍼티 구현</p>
+  </blockquote>
+</blockquote>
 
 <p>코틀린에서는 인터페이스에 추상 프로퍼티 선언을 넣을 수 있다</p>
 
@@ -560,7 +575,7 @@ Secretive 클래스 안에는 주 생성자밖에 없고 그 주 생성자는 �
 
 <p>이는 User 인터페이스를 구현하는 클래스가 nickname의 값을 얻을 수 있는 방법을 제공해야 한다는 뜻이다</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">인터페이스의</span> <span class="err">프로퍼티</span> <span class="err">구현하기</span>  
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 인터페이스의 프로퍼티 구현하기  </span>
 <span class="kd">class</span> <span class="nc">PrivateUser</span><span class="p">(</span><span class="k">override</span> <span class="kd">val</span> <span class="py">nickname</span><span class="p">:</span> <span class="nc">String</span><span class="p">)</span> <span class="p">:</span> <span class="nc">User</span> <span class="c1">// 주 생성자에 있는 프로퍼티</span>
 
 <span class="kd">class</span> <span class="nc">SubscribingUser</span><span class="p">(</span><span class="kd">val</span> <span class="py">email</span><span class="p">:</span> <span class="nc">String</span><span class="p">)</span> <span class="p">:</span> <span class="nc">User</span> <span class="p">{</span> 
@@ -587,11 +602,13 @@ Secretive 클래스 안에는 주 생성자밖에 없고 그 주 생성자는 �
 
 <p>하위 클래스는 추상 프로퍼티인 email을 반드시 오버라이드 해야 한다. 반면 nickname은 오바라이드하지 않고 상속할 수 있다</p>
 
-<ul>
-  <li>게터와 세터에서 뒷받침하는 필드에 접근</li>
-</ul>
+<blockquote>
+  <blockquote>
+    <p>게터와 세터에서 뒷받침하는 필드에 접근</p>
+  </blockquote>
+</blockquote>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">세터에서</span> <span class="err">뒷받침하는</span> <span class="err">필드</span> <span class="err">접근하기</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 세터에서 뒷받침하는 필드 접근하기</span>
 <span class="kd">class</span> <span class="nc">User</span><span class="p">(</span><span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="py">address</span><span class="p">:</span> <span class="nc">String</span> <span class="p">=</span> <span class="s">"unspecified"</span>
       <span class="k">set</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nc">String</span><span class="p">){</span>
@@ -610,13 +627,16 @@ Secretive 클래스 안에는 주 생성자밖에 없고 그 주 생성자는 �
 
 <p>코틀린에서 프로퍼티의 값을 바꿀때는 user.address = “new value” 처럼 필드 설정 구문을 사용한다. 이 구문은 내부적으로는 address의 세터를 호출한다</p>
 
-<ul>
-  <li>접근자의 가시성 변경</li>
-</ul>
+<blockquote>
+  <blockquote>
+    <p>접근자의 가시성 변경</p>
+  </blockquote>
+</blockquote>
 
 <p>접근자의 가시성은 기본적으로는 프로퍼티의 가시성과 같다. 하지만 원한다면 get이나 set앞에 가시성 변경자를 추가해서 접근자의 가시성을 변경할 수 있다</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">LengthCounter</span><span class="p">{</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 비공개 세터가 있는 프로퍼티 선언하기</span>
+<span class="kd">class</span> <span class="nc">LengthCounter</span><span class="p">{</span>
     <span class="kd">var</span> <span class="py">counter</span><span class="p">:</span> <span class="nc">Int</span> <span class="p">=</span> <span class="mi">0</span>
         <span class="k">private</span> <span class="k">set</span> <span class="c1">// 이 클래스 밖에서 이 프로퍼티의 값을 바꿀 수 없다</span>
     
@@ -635,21 +655,26 @@ Secretive 클래스 안에는 주 생성자밖에 없고 그 주 생성자는 �
 
 <h2 id="컴파일러가-생성한-메서드--데이터-클래스와-클래스-위임">컴파일러가 생성한 메서드 : 데이터 클래스와 클래스 위임</h2>
 
-<hr />
-
-<ul>
-  <li>모든 클래스가 정의해야 하는 메소드</li>
-</ul>
+<blockquote>
+  <blockquote>
+    <p>모든 클래스가 정의해야 하는 메소드</p>
+  </blockquote>
+</blockquote>
 
 <p>코틀린 클래스도 toString, equals, hashCode 등을 오버라이드 할 수 있다. 코틀린은 이런 메소드 구현을 자동으로 생성해줄 수 있다</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Client</span><span class="p">(</span><span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="kd">val</span> <span class="py">postalCode</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Client 클래스의 초기 정의</span>
+<span class="kd">class</span> <span class="nc">Client</span><span class="p">(</span><span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="kd">val</span> <span class="py">postalCode</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>문자열 표현 : toString()<br />
-기본 구현을 바꾸려면 toString 메소드를 오버라이드 해야 한다</p>
+<blockquote>
+  <p>문자열 표현 : toString()</p>
+</blockquote>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Client</span><span class="p">(</span><span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="kd">val</span> <span class="py">postalCode</span><span class="p">:</span> <span class="nc">Int</span><span class="p">){</span>
+<p>기본 구현을 바꾸려면 toString 메소드를 오버라이드 해야 한다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Client에 toString() 구현하기</span>
+<span class="kd">class</span> <span class="nc">Client</span><span class="p">(</span><span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="kd">val</span> <span class="py">postalCode</span><span class="p">:</span> <span class="nc">Int</span><span class="p">){</span>
     <span class="k">override</span> <span class="k">fun</span> <span class="nf">toString</span><span class="p">()</span> <span class="p">=</span> <span class="s">"Client(name=$name, postalCode=$postalCode)"</span>
 <span class="p">}</span>
 
@@ -658,7 +683,9 @@ Secretive 클래스 안에는 주 생성자밖에 없고 그 주 생성자는 �
 <span class="nc">Client</span><span class="p">(</span><span class="n">name</span><span class="p">=</span><span class="err">오현석</span><span class="p">,</span> <span class="n">postalCode</span><span class="p">=</span><span class="mi">4122</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>객체의 동등성 : equals()</p>
+<blockquote>
+  <p>객체의 동등성 : equals()</p>
+</blockquote>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">client1</span> <span class="p">=</span> <span class="nc">Client</span><span class="p">(</span><span class="s">"오현석"</span><span class="p">,</span> <span class="mi">4122</span><span class="p">)</span>
 <span class="p">&gt;&gt;&gt;</span> <span class="kd">val</span> <span class="py">client2</span> <span class="p">=</span> <span class="nc">Client</span><span class="p">(</span><span class="s">"오현석"</span><span class="p">,</span> <span class="mi">4122</span><span class="p">)</span>
@@ -666,7 +693,8 @@ Secretive 클래스 안에는 주 생성자밖에 없고 그 주 생성자는 �
 <span class="k">false</span> <span class="c1">// 코틀린에서 == 연산자는 참조 동일성을 검사하지 않고 객체의 동등성을 검사한다. 따라서 == 연산은 equals를 호출하는 식으로 컴파일된다</span>
 </code></pre></div></div>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">classs</span> <span class="nc">Clinet</span><span class="p">(</span><span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="kd">val</span> <span class="py">postalCode</span><span class="p">:</span> <span class="nc">Int</span><span class="p">){</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Client에 equals() 구현하기</span>
+<span class="n">classs</span> <span class="nc">Clinet</span><span class="p">(</span><span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="kd">val</span> <span class="py">postalCode</span><span class="p">:</span> <span class="nc">Int</span><span class="p">){</span>
     <span class="k">override</span> <span class="k">fun</span> <span class="nf">equals</span><span class="p">(</span><span class="n">other</span><span class="p">:</span> <span class="nc">Any</span><span class="p">?):</span> <span class="nc">Boolean</span><span class="p">{</span>
         <span class="k">if</span><span class="p">(</span><span class="n">other</span> <span class="p">==</span> <span class="k">null</span> <span class="p">||</span> <span class="n">other</span> <span class="p">!</span><span class="k">is</span> <span class="nc">Clinet</span><span class="p">)</span>
             <span class="k">return</span> <span class="k">false</span>
@@ -678,9 +706,9 @@ Secretive 클래스 안에는 주 생성자밖에 없고 그 주 생성자는 �
 
 <p>클래스 Cllinet로 더 복잡한 작업을 수행해보면 제대로 작동하지 않는 경우가 있다. 이유는 hashCode가 없다는 점이다</p>
 
-<ul>
-  <li>해시 컨테이너: hashCode()</li>
-</ul>
+<blockquote>
+  <p>해시 컨테이너: hashCode()</p>
+</blockquote>
 
 <p>원소가 오현석이라는 고객 하나뿐인 집합을 만들자. 그 후 새로 원래의 오현석과 똑같은 프로퍼티를 포함하는 새로운 Client 인스턴스를 만들어서 그 인스턴스가 집합안에 들어있는지 검사해보자</p>
 
@@ -692,19 +720,23 @@ Secretive 클래스 안에는 주 생성자밖에 없고 그 주 생성자는 �
 <p>위 같은 결과는 Client 클래스가 hashCode 메소드를 정의하지 않았기 떄문이다. hashCode가 지켜야 하는 equals()가 true를 반환하는 두 객체는 반드시 같은 hashCode()를 반환해야 한다라는 제약이 있는데 Client는 이를 어기고 있다<br />
 HashSet은 원소를 비교할 때 비용을 줄이기 위해 먼저 객체의 해시 코드를 비교하고 해시 코드가 같은 경우에만 실제 값을 비교한다</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Client</span><span class="p">(</span><span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="kd">val</span> <span class="py">postalCode</span><span class="p">:</span> <span class="nc">Int</span><span class="p">){</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Client에 hashCode 구현하기</span>
+<span class="kd">class</span> <span class="nc">Client</span><span class="p">(</span><span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="kd">val</span> <span class="py">postalCode</span><span class="p">:</span> <span class="nc">Int</span><span class="p">){</span>
 
     <span class="k">override</span> <span class="k">fun</span> <span class="nf">hashCode</span><span class="p">():</span> <span class="nc">Int</span> <span class="p">=</span> <span class="n">name</span><span class="p">.</span><span class="nf">hashCode</span><span class="p">()</span> <span class="p">*</span> <span class="mi">31</span> <span class="p">+</span> <span class="n">postalCode</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
-<ul>
-  <li>데이터 클래스 : 모든 클래스가 정의해야 하는 메소드 자동 생성</li>
-</ul>
+<blockquote>
+  <blockquote>
+    <p>데이터 클래스 : 모든 클래스가 정의해야 하는 메소드 자동 생성</p>
+  </blockquote>
+</blockquote>
 
 <p>data라는 변경자를 클래스 앞에 붙이면 필요한 메소드를 컴파일러가 자동으로 만들어준다. data 변경자가 붙은 클래스를 데이터 클래스라고 부른다</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">data class</span> <span class="nc">Client</span><span class="p">(</span><span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="kd">val</span> <span class="py">postalCode</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Client를 데이터 클래스로 선언하기</span>
+<span class="kd">data class</span> <span class="nc">Client</span><span class="p">(</span><span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="kd">val</span> <span class="py">postalCode</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>이제 Client 클래스는 자바에서 요구하는 모든 메소드를 포함한다</p>
@@ -715,11 +747,15 @@ HashSet은 원소를 비교할 때 비용을 줄이기 위해 먼저 객체의 �
   <li>클래스의 각 필드를 선언 순서대로 표시하는 문자열 표현을 만들어주는 toString</li>
 </ol>
 
-<p>equals와 hashCode는 주 생성자에 나열된 모든 프로퍼티를 고려해 만들어진다. 이때 주 생성자 밖에 정의된 프로퍼티는 equals나 hashCode를 계산할 때 고려의 대상이 아니라는 사실에 유의하라<br />
+<p>equals와 hashCode는 주 생성자에 나열된 모든 프로퍼티를 고려해 만들어진다<br />
+이때 주 생성자 밖에 정의된 프로퍼티는 equals나 hashCode를 계산할 때 고려의 대상이 아니라는 사실에 유의하라<br />
 코틀린 컴파일러는 몇 가지 유용한 메소드를 더 생성해준다</p>
 
-<p>데이터 클래스와 불변성 : copy() 메소드<br />
-데이터 클래스의 프로퍼티가 꼭 val일 필요는 없다/ 그러나 HashMap 등의 컨테니어에 데이터 클래스를 담는 경우엔 불변성이 필수적이다. 게다가 불변 객체를 사용하면 프로그램에 대해 훨씬 쉽게 추론할 수 있다</p>
+<blockquote>
+  <p>데이터 클래스와 불변성 : copy() 메소드</p>
+</blockquote>
+
+<p>데이터 클래스의 프로퍼티가 꼭 val일 필요는 없다/ 그러나 HashMap 등의 컨테니어에 데이터 클래스를 담는 경우엔 불변성이 필수적이다. 게다가 불변 객체를 사용하면 프로그램에 대해 훨씬 쉽게 추론할 수 있다</p>
 
 <p>객체를 복사하면서 일부 프로퍼티를 바굴 수 있게 해주는 copy메소드로 데이터 클래스 인스턴스를 불변 객체로 더 쉽게 활용할 수 있다<br />
 객체를 메모리상에서 직접 바꾸는 대신 복사본을 만드는 편이 더 낫다. 복사본은 원본과 다른 생명주기를 가지며, 복사를 하면서 일부 프로퍼티 값을 바꾸거나 복사본을 제거해도 프로그램에서 원본을 참조하는 다른 부분에 전혀 영향을 끼치지 않는다</p>
@@ -729,9 +765,11 @@ HashSet은 원소를 비교할 때 비용을 줄이기 위해 먼저 객체의 �
 <span class="nc">Client</span><span class="p">(</span><span class="n">name</span> <span class="p">=</span> <span class="err">이계영</span><span class="p">,</span> <span class="n">postalCode</span> <span class="p">=</span> <span class="mi">4000</span><span class="p">)</span>
 </code></pre></div></div>
 
-<ul>
-  <li>클래스 위임 : by 키워드 사용</li>
-</ul>
+<blockquote>
+  <blockquote>
+    <p>클래스 위임 : by 키워드 사용</p>
+  </blockquote>
+</blockquote>
 
 <p>종종 상속을 허용하지 않는 클래스에 새로운 동작을 추가해야 할 때가 잇따. 이럴 때 사용하는 일반적인 방법이 데코레이터 패턴이다<br />
 이 패턴의 핵심은 상속을 허용하지 않는 클래스 대신 사용할 수 있는 새로운 클래스를 만들되 기존 클래스와 같은 인터페이스를 데코레이터가 제공하게 만들고, 기존 클래스를 데코레이터 내부에 필드로 유지하는 것이다<br />
@@ -743,7 +781,7 @@ HashSet은 원소를 비교할 때 비용을 줄이기 위해 먼저 객체의 �
 <span class="p">)</span> <span class="p">:</span> <span class="nc">Collection</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="k">by</span> <span class="nf">innerList</span><span class="p">{}</span> 
 </code></pre></div></div>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">클래스</span> <span class="err">위임</span> <span class="err">사용하기</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 클래스 위임 사용하기</span>
 <span class="kd">class</span> <span class="nc">CountingSet</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;(</span>
     <span class="kd">val</span> <span class="py">innerSet</span><span class="p">:</span> <span class="nc">MutableCollection</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="p">=</span> <span class="nc">HashSet</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;()</span>
 <span class="p">)</span> <span class="p">:</span> <span class="nc">MutableCollection</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="k">by</span> <span class="nf">innerSet</span> <span class="p">{</span> <span class="c1">// MutableCollectiom의 구현을 innerSet에게 위임한다</span>
@@ -771,8 +809,6 @@ HashSet은 원소를 비교할 때 비용을 줄이기 위해 먼저 객체의 �
 
 <h2 id="object-키워드--클래스-선언과-인스턴스-생성">object 키워드 : 클래스 선언과 인스턴스 생성</h2>
 
-<hr />
-
 <p>코틀린에서는 object 키워드를 다양한 상황에서 사용하지만 모든 경우 클래스를 정의하면서 동시에 인스턴스를 생성한다는 공통점이 있다</p>
 
 <ol>
@@ -781,9 +817,11 @@ HashSet은 원소를 비교할 때 비용을 줄이기 위해 먼저 객체의 �
   <li>객체 식은 자바의 무명 내부 클래스 대신 쓰인다</li>
 </ol>
 
-<ul>
-  <li>객체 선언 : 싱글턴을 쉽게 만들기</li>
-</ul>
+<blockquote>
+  <blockquote>
+    <p>객체 선언 : 싱글턴을 쉽게 만들기</p>
+  </blockquote>
+</blockquote>
 
 <p>객체지향 시스템을 설계하다 보면 인스턴스가 하나만 필요한 클래스가 유용한 경우가 많다
 객체 선언은 object 키워드로 시작한다. 객체 선언은 클래스를 정의하고 그 클래스의 인스턴스를 만들어서 변수에 저장하는 모든 작업을 단 한 문장으로 처리한다<br />
@@ -792,7 +830,8 @@ HashSet은 원소를 비교할 때 비용을 줄이기 위해 먼저 객체의 �
 변수와 마찬가지로 객체 선언에 사용한 이름 뒤에 마침표를 붙이면 객체에 속한 메소드나 프로퍼티에 접근할 수 있다<br />
 객체 선언도 클래스나 인터페이스를 상속할 수 있다</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">object</span> <span class="nc">CaseInsensitiveFileComparator</span> <span class="p">:</span> <span class="nc">Comparator</span><span class="p">&lt;</span><span class="nc">File</span><span class="p">&gt;{</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 객체 선언을 사용해 Comparator 구현하기</span>
+<span class="kd">object</span> <span class="nc">CaseInsensitiveFileComparator</span> <span class="p">:</span> <span class="nc">Comparator</span><span class="p">&lt;</span><span class="nc">File</span><span class="p">&gt;{</span>
     <span class="k">override</span> <span class="k">fun</span> <span class="nf">compare</span><span class="p">(</span><span class="n">file1</span><span class="p">:</span> <span class="nc">File</span><span class="p">,</span> <span class="n">file2</span><span class="p">:</span> <span class="nc">File</span><span class="p">):</span> <span class="nc">Int</span><span class="p">{</span>
         <span class="k">return</span> <span class="n">file1</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">compareTo</span><span class="p">(</span><span class="n">file2</span><span class="p">.</span><span class="n">path</span><span class="p">,</span> <span class="n">ignroeCase</span> <span class="p">=</span> <span class="k">true</span><span class="p">)</span>
     <span class="p">}</span>
@@ -805,7 +844,7 @@ HashSet은 원소를 비교할 때 비용을 줄이기 위해 먼저 객체의 �
 
 <p>클래스 안에서 객체를 선언할 수도 있다. 그런 객체도 인스턴스는 단 하나뿐이다</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">중첩</span> <span class="err">객체를</span> <span class="err">사용해</span> <span class="nc">Comparator</span> <span class="err">구현하기</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 중첩 객체를 사용해 Comparator 구현하기</span>
 <span class="kd">data class</span> <span class="nc">Person</span><span class="p">(</span><span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">){</span>
     <span class="kd">object</span> <span class="nc">NameComparator</span> <span class="p">:</span> <span class="nc">Comparator</span><span class="p">&lt;</span><span class="nc">Person</span><span class="p">&gt;{</span>
         <span class="k">override</span> <span class="k">fun</span> <span class="nf">compare</span><span class="p">(</span><span class="n">p1</span><span class="p">:</span> <span class="nc">Person</span><span class="p">,</span> <span class="n">p2</span><span class="p">:</span> <span class="nc">Person</span><span class="p">):</span> <span class="nc">Int</span> <span class="p">=</span>
@@ -818,9 +857,11 @@ HashSet은 원소를 비교할 때 비용을 줄이기 위해 먼저 객체의 �
 <span class="na">[Person(name = Alice), Person(name = Bob)]</span>
 </code></pre></div></div>
 
-<ul>
-  <li>동반 객체 : 팩토리 메소드와 정적 멤버가 들어갈 장소</li>
-</ul>
+<blockquote>
+  <blockquote>
+    <p>동반 객체 : 팩토리 메소드와 정적 멤버가 들어갈 장소</p>
+  </blockquote>
+</blockquote>
 
 <p>코틀린 클래스 안에는 정적인 멤버가 없다. static 키워드를 지원하지 않는다. 그 대신 코틀린에서는 패키지 수준의 최상위 함수와 객체 선언을 활용한다<br />
 대부분의 경우 최상위 함수를 활용하는 편을 더 권장한다. 하지만 최상위 함수는 private으로 표시된 클래스 비공개 멤버에 접근할 수 없다</p>
@@ -841,7 +882,7 @@ HashSet은 원소를 비교할 때 비용을 줄이기 위해 먼저 객체의 �
 
 <p>동반 객체는 자신을 둘러싼 클래스의 모든 private 멤버에 접근할 수 있다. 따라서 동반 객체는 바깥쪽 클래스의 private 생성자도 호출할 수 있다</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">부</span> <span class="err">생성자가</span> <span class="err">여럿</span> <span class="err">있는</span> <span class="err">클래스</span> <span class="err">정의하기</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 부 생성자가 여럿 있는 클래스 정의하기</span>
 <span class="kd">class</span> <span class="nc">User</span><span class="p">{</span>
     <span class="kd">val</span> <span class="py">nickname</span> <span class="p">:</span> <span class="nc">String</span>
     <span class="k">constructor</span><span class="p">(</span><span class="n">email</span><span class="p">:</span> <span class="nc">String</span><span class="p">){</span>
@@ -857,7 +898,8 @@ HashSet은 원소를 비교할 때 비용을 줄이기 위해 먼저 객체의 �
 <p>이런 로직을 표현하는 더 유용한 방법으로 클래스의 인스턴스를 생성하는 팩토리 메소드가 있다<br />
 아래 구현에서는 생성자를 통해 User 인스턴스를 만들 수 없고 팩토리 메소드를 통해야만 한다</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">User</span> <span class="k">private</span> <span class="k">constructor</span><span class="p">(</span><span class="kd">val</span> <span class="py">nickname</span><span class="p">:</span> <span class="nc">String</span><span class="p">){</span> <span class="c1">// 주 생성자를 비공개로 만든다</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 부 생성자를 팩토리 메소드로 대신하기</span>
+<span class="kd">class</span> <span class="nc">User</span> <span class="k">private</span> <span class="k">constructor</span><span class="p">(</span><span class="kd">val</span> <span class="py">nickname</span><span class="p">:</span> <span class="nc">String</span><span class="p">){</span> <span class="c1">// 주 생성자를 비공개로 만든다</span>
     <span class="k">companion</span> <span class="k">object</span><span class="p">{</span>
         <span class="k">fun</span> <span class="nf">newSubscribingUser</span><span class="p">(</span><span class="n">email</span><span class="p">:</span> <span class="nc">String</span><span class="p">)</span> <span class="p">=</span> <span class="nc">User</span><span class="p">(</span><span class="n">email</span><span class="p">.</span><span class="nf">substringBefore</span><span class="p">(</span><span class="err">'@</span> <span class="err">'</span><span class="p">))</span>
         <span class="k">fun</span> <span class="nf">newFacebookUser</span><span class="p">(</span><span class="n">accountId</span> <span class="p">:</span> <span class="nc">Int</span><span class="p">)</span> <span class="p">=</span> <span class="nc">User</span><span class="p">(</span><span class="nf">getFacebookName</span><span class="p">(</span><span class="n">accountId</span><span class="p">))</span>
@@ -870,13 +912,15 @@ HashSet은 원소를 비교할 때 비용을 줄이기 위해 먼저 객체의 �
 <span class="n">bob</span>
 </code></pre></div></div>
 
-<ul>
-  <li>동반 객체를 일반 객체처럼 사용</li>
-</ul>
+<blockquote>
+  <blockquote>
+    <p>동반 객체를 일반 객체처럼 사용</p>
+  </blockquote>
+</blockquote>
 
 <p>동반 객체는 클래스 안에 정의된 일반 객체다. 이름을 붙이거나, 동반 객체가 인터페이스를 상속하거나, 동반 객체 안에 확장 함수와 프로퍼티를 정의 할 수 있다</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">동반</span> <span class="err">객체이</span> <span class="err">이름</span> <span class="err">붙이기</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 동반 객체에 이름 붙이기</span>
 <span class="kd">class</span> <span class="nc">Person</span><span class="p">(</span><span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">){</span>
     <span class="k">companion</span> <span class="k">object</span> <span class="nc">Loader</span><span class="p">{</span> <span class="c1">// 동반 객체에 이름을 붙인다</span>
         <span class="k">fun</span> <span class="nf">fromJSON</span><span class="p">(</span><span class="n">jsonText</span><span class="p">:</span> <span class="nc">String</span><span class="p">):</span> <span class="nc">Person</span> <span class="p">=</span> <span class="o">..</span><span class="p">.</span>
@@ -891,9 +935,11 @@ HashSet은 원소를 비교할 때 비용을 줄이기 위해 먼저 객체의 �
 <span class="nc">Brent</span>
 </code></pre></div></div>
 
-<p>동반 객체에서 인터페이스 구현</p>
+<blockquote>
+  <p>동반 객체에서 인터페이스 구현</p>
+</blockquote>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">동반</span> <span class="err">객체에서</span> <span class="err">인터페이스</span> <span class="err">구현하기</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 동반 객체에서 인터페이스 구현하기</span>
 <span class="kd">interface</span> <span class="nc">JSONfactory</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;{</span>
     <span class="k">fun</span> <span class="nf">fromJSON</span><span class="p">(</span><span class="n">jsonText</span><span class="p">:</span> <span class="nc">String</span><span class="p">):</span> <span class="nc">T</span>
 <span class="p">}</span>
@@ -905,9 +951,13 @@ HashSet은 원소를 비교할 때 비용을 줄이기 위해 먼저 객체의 �
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>동반 객체 확장</p>
+<blockquote>
+  <blockquote>
+    <p>동반 객체 확장</p>
+  </blockquote>
+</blockquote>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">동반</span> <span class="err">객체에</span> <span class="err">대한</span> <span class="err">확장</span> <span class="err">함수</span> <span class="err">정의하기</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 동반 객체에 대한 확장 함수 정의하기</span>
 <span class="kd">class</span> <span class="nc">Person</span><span class="p">(</span><span class="kd">val</span> <span class="py">firstName</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="kd">val</span> <span class="py">lastName</span><span class="p">:</span> <span class="nc">String</span><span class="p">){</span>
     <span class="k">companion</span> <span class="k">object</span><span class="p">{</span> <span class="c1">// 비어 있는 동반 객체 선언</span>
     <span class="p">}</span>
@@ -920,13 +970,15 @@ HashSet은 원소를 비교할 때 비용을 줄이기 위해 먼저 객체의 �
 <span class="kd">val</span> <span class="py">p</span> <span class="p">=</span> <span class="nc">Person</span><span class="p">.</span><span class="nf">fromJSON</span><span class="p">(</span><span class="n">json</span><span class="p">)</span>
 </code></pre></div></div>
 
-<ul>
-  <li>객체 식 : 무명 내부 클래스르 다른 방식으로 작성</li>
-</ul>
+<blockquote>
+  <blockquote>
+    <p>객체 식 : 무명 내부 클래스르 다른 방식으로 작성</p>
+  </blockquote>
+</blockquote>
 
 <p>무명 객체를 정의할 때도 object 키워드를 쓴다</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">무명</span> <span class="err">객체로</span> <span class="err">이벤트</span> <span class="err">리스너</span> <span class="err">구현하기</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 무명 객체로 이벤트 리스너 구현하기</span>
 <span class="n">window</span><span class="p">.</span><span class="nf">addMouseListenr</span><span class="p">(</span>
     <span class="kd">object</span> <span class="err">: </span><span class="nc">MouseAdapter</span><span class="p">(){</span>
         <span class="k">override</span> <span class="k">fun</span> <span class="nf">mouseClicked</span><span class="p">(</span><span class="n">e</span> <span class="p">:</span> <span class="nc">MouseEvent</span><span class="p">){</span>
@@ -943,6 +995,18 @@ HashSet은 원소를 비교할 때 비용을 줄이기 위해 먼저 객체의 �
 <p>객체에 이름을 붙여야 한다면 변수에 무명 객체를 대입하면 된다<br />
 객체 선언과 달리 무명 객체는 싱글턴이 아니다. 객체 식이 쓰일 때마다 새로운 인스턴스가 생성된다<br />
 final이 아닌 변수도 객체 식 안에서 사용할 수 있다. 따라서 객체 식 안에서 그 변수의 값을 변경할 수 있다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 무명 객체 안에서 로컬 변수 사용하기</span>
+<span class="k">fun</span> <span class="nf">countClicks</span><span class="p">(</span><span class="n">window</span><span class="p">:</span> <span class="nc">Window</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="py">clickCount</span> <span class="p">=</span> <span class="mi">0</span> <span class="c1">// 로컬 변수</span>
+    
+    <span class="n">window</span><span class="p">.</span><span class="nf">addMouseListener</span><span class="p">(</span><span class="k">object</span><span class="p">:</span> <span class="nc">MouseAdapter</span><span class="p">(){</span>
+        <span class="k">override</span> <span class="n">fin</span> <span class="nf">mouseClicked</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="nc">MouseEvent</span><span class="p">){</span>
+            <span class="n">clickCount</span><span class="p">++</span> <span class="c1">// 로컬 변수의 값 변경</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
                 </div>
             </section>
