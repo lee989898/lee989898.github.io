@@ -1191,5 +1191,29 @@
       </item>
       
     
+      
+      <item>
+        <title>자료형</title>
+        
+          <description>&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#숫자형&quot;&gt;숫자형&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#문자열-자료형&quot;&gt;문자열 자료형&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#리스트-자료형&quot;&gt;리스트 자료형&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#튜플-자료형&quot;&gt;튜플 자료형&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#딕셔너리-자료형&quot;&gt;딕셔너리 자료형&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#집합-자료형&quot;&gt;집합 자료형&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#불-자료형&quot;&gt;불 자료형&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;자료형의-값을-저장하는-공간-변수&quot;&gt;자료형의 값을 저장하는 공간, 변수&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Sun, 01 Aug 2021 19:18:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/py-01</link>
+        <guid isPermaLink="true">https://lee989898.github.io/py-01</guid>
+      </item>
+      
+    
   </channel>
 </rss>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
+  <link href="https://lee989898.github.io/tag/python/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
+  <updated>2022-01-25T20:58:29+09:00</updated>
+  <id>https://lee989898.github.io/tag/python/feed.xml</id>
+
+  
+  
+  
+
+  
+    <title type="html">LEE | </title>
+  
+
+  
+    <subtitle>공부 블로그</subtitle>
+  
+
+  
+
+  
+    
+      
+    
+  
+
+  
+  
+
+  
+    <entry>
+      <title type="html">자료형</title>
+      <link href="https://lee989898.github.io/py-01" rel="alternate" type="text/html" title="자료형" />
+      <published>2021-08-01T19:18:00+09:00</published>
+      <updated>2021-08-01T19:18:00+09:00</updated>
+      <id>https://lee989898.github.io/py-01</id>
+      <content type="html" xml:base="https://lee989898.github.io/py-01">&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#숫자형&quot;&gt;숫자형&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#문자열-자료형&quot;&gt;문자열 자료형&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#리스트-자료형&quot;&gt;리스트 자료형&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#튜플-자료형&quot;&gt;튜플 자료형&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#딕셔너리-자료형&quot;&gt;딕셔너리 자료형&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#집합-자료형&quot;&gt;집합 자료형&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#불-자료형&quot;&gt;불 자료형&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;자료형의-값을-저장하는-공간-변수&quot;&gt;자료형의 값을 저장하는 공간, 변수&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;숫자형&quot;&gt;숫자형&lt;/h2&gt;
+
+&lt;p&gt;숫자형이란 숫자 형태로 이루어진 자료형이다&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;항목&lt;/th&gt;
+      &lt;th&gt;파이썬 사용 예&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;정수&lt;/td&gt;
+      &lt;td&gt;123, -345, 0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;실수&lt;/td&gt;
+      &lt;td&gt;123.45, -1234.5, 3.4e10&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;8진수&lt;/td&gt;
+      &lt;td&gt;0o34, 0o25&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;16진수&lt;/td&gt;
+      &lt;td&gt;0x2A, 0xFF&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;숫자형은 어떻게 만들까&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;정수형&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;정수형이란 말 그대로 정수를 뜻하는 자료형이다&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;178&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;실수형&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;8진수와 16진수&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;숫자형을 활용하기 위한 연산자&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;사칙연산&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;x의 y제곱을 나타내는 ** 연산자&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;나눗셈 후 나머지를 반환하는 % 연산자&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;나눗셈 후 몫을 반환하는 // 연산자&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;문자열-자료형&quot;&gt;문자열 자료형&lt;/h2&gt;
+
+&lt;h2 id=&quot;리스트-자료형&quot;&gt;리스트 자료형&lt;/h2&gt;
+
+&lt;h2 id=&quot;튜플-자료형&quot;&gt;튜플 자료형&lt;/h2&gt;
+
+&lt;h2 id=&quot;딕셔너리-자료형&quot;&gt;딕셔너리 자료형&lt;/h2&gt;
+
+&lt;h2 id=&quot;집합-자료형&quot;&gt;집합 자료형&lt;/h2&gt;
+
+&lt;h2 id=&quot;불-자료형&quot;&gt;불 자료형&lt;/h2&gt;
+
+&lt;h2 id=&quot;자료형의-값을-저장하는-공간-변수&quot;&gt;자료형의 값을 저장하는 공간, 변수&lt;/h2&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="python" />
+      
+
+      
+        <summary type="html">숫자형 문자열 자료형 리스트 자료형 튜플 자료형 딕셔너리 자료형 집합 자료형 불 자료형 자료형의 값을 저장하는 공간, 변수</summary>
+      
+
+      
+      
+    </entry>
+  
+</feed>
