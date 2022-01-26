@@ -260,40 +260,211 @@ into the {body} of the default.hbs template -->
 
 <p>정수형이란 말 그대로 정수를 뜻하는 자료형이다</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">123</span>
-<span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mi">178</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">123</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mi">178</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
 </code></pre></div></div>
 
 <ul>
-  <li>
-    <p>실수형</p>
-  </li>
-  <li>
-    <p>8진수와 16진수</p>
-  </li>
+  <li>실수형</li>
 </ul>
+
+<p>실수형은 소수점이 포함된 숫자이다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mf">1.2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mf">3.45</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mf">4.24E10</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mf">4.24e-10</span>
+</code></pre></div></div>
+
+<p>두번째 방식은 컴퓨터식 지수 표현 방식이다<br />
+4.24E10은 $4.24*{10}^{10}$ 을 의미한다</p>
+
+<ul>
+  <li>8진수와 16진수</li>
+</ul>
+
+<p>8진수를 만들기 위해서는 숫자가 0o또는 0O로 시작해야 한다
+16진수를 만들기 위해서는 0x로 시작하면 된다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mo">0o177</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mh">0x8ff</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="mh">0xABC</span>
+</code></pre></div></div>
+
+<p>8진수와 16진수는 파이썬에서 잘 사용하지 않는다</p>
 
 <blockquote>
   <p>숫자형을 활용하기 위한 연산자</p>
 </blockquote>
 
 <ul>
-  <li>
-    <p>사칙연산</p>
-  </li>
-  <li>
-    <p>x의 y제곱을 나타내는 ** 연산자</p>
-  </li>
-  <li>
-    <p>나눗셈 후 나머지를 반환하는 % 연산자</p>
-  </li>
-  <li>
-    <p>나눗셈 후 몫을 반환하는 // 연산자</p>
-  </li>
+  <li>사칙연산</li>
 </ul>
 
+<p>사칙연산은 (+, -, *, /)를 사용한다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="mi">7</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+<span class="mi">12</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+<span class="mf">0.75</span>
+</code></pre></div></div>
+
+<ul>
+  <li>x의 y제곱을 나타내는 ** 연산자</li>
+</ul>
+
+<p>**연산자는 제곱값을 돌려준다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">**</span> <span class="n">b</span>
+<span class="mi">81</span>
+</code></pre></div></div>
+
+<ul>
+  <li>나눗셈 후 나머지를 반환하는 % 연산자</li>
+</ul>
+
+<p>%은 나눗셈의 나머지 값을 돌려주는 연산자이다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="mi">7</span> <span class="o">%</span> <span class="mi">3</span>
+<span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">3</span> <span class="o">%</span> <span class="mi">7</span>
+<span class="mi">3</span>
+</code></pre></div></div>
+
+<ul>
+  <li>나눗셈 후 몫을 반환하는 // 연산자</li>
+</ul>
+
+<p>/ 연산자는 나눗셈 결과를 반환한다
+// 연산자는 나눗셈 후 몫을 반환한다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="mi">7</span> <span class="o">/</span> <span class="mi">4</span>
+<span class="mf">1.75</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">7</span> <span class="o">//</span> <span class="mi">4</span>
+<span class="mi">1</span>
+</code></pre></div></div>
+
 <h2 id="문자열-자료형">문자열 자료형</h2>
+
+<p>문자열이란 문자, 단어 등으로 구성된 문자들의 집합을 의미한다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"Life is too short, You need Python"</span>
+<span class="s">"a"</span>
+<span class="s">"123"</span>
+</code></pre></div></div>
+
+<p>따옴표로 둘러싸여 있으면 모두 문자열이라고 보면 된다</p>
+
+<blockquote>
+  <p>문자열은 어떻게 만들고 사용할까</p>
+</blockquote>
+
+<p>파이썬에서 문자열을 만드는 방법은 총 4가지이다</p>
+
+<ol>
+  <li>큰따옴표로 양쪽 둘러싸기</li>
+  <li>작은따옴표로 양쪽 둘러싸기</li>
+  <li>큰따옴표 3개를 연속으로 써서 양쪽 둘러싸기</li>
+  <li>작은따옴표 3개를 연속으로 써서 양쪽 둘러싸기</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"Hello World"</span>
+<span class="s">'Python is fun'</span>
+<span class="s">"""Life is too short, You need python"""</span>
+<span class="s">'''Life is too short, You need python'''</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>문자열 안에 작은따옴표나 큰따옴표를 포함시키고 싶을 떄</p>
+</blockquote>
+
+<ul>
+  <li>문자열에 작은따옴표 포함시키기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">food</span> <span class="o">=</span> <span class="s">"Python's favorite food is perl"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">food</span>
+<span class="s">"Python's favorite food is perl"</span>
+</code></pre></div></div>
+
+<p>큰따옴표가 아닌 작은따옴표로 문자열을 둘러싼 후 다시 실행하면 구문 오류가 발생한다</p>
+
+<ul>
+  <li>문자열에 큰따옴표 포함시키기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">say</span> <span class="o">=</span> <span class="s">'"Python is very easy." he says.'</span>
+</code></pre></div></div>
+
+<p>작은따옴표안에 사용된 큰따옴표는 문자열을 만드는 기호로 인식되지 않는다</p>
+
+<ul>
+  <li>백슬래시를 사용해서 작은따옴표와 큰따옴표를 문자열에 포함시키기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">food</span> <span class="o">=</span> <span class="s">'Python</span><span class="se">\'</span><span class="s">s favorite food is perl'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">say</span> <span class="o">=</span> <span class="s">"</span><span class="se">\"</span><span class="s">Python is very easy.</span><span class="se">\"</span><span class="s"> he says."</span>
+</code></pre></div></div>
+
+<p>백슬래시를 작은따옴표나 큰따옴표 앞에 삽입하면 백슬래시 뒤의 작은 따옴표나 큰따옴표는 문자열을 둘러싸는 기호의 의미가 아니라 문자 그 자체를 뜻하게 된다</p>
+
+<blockquote>
+  <p>여러 줄인 문자열을 변수에 대입하고 싶을 떄</p>
+</blockquote>
+
+<ul>
+  <li>줄을 바꾸는 이스케이프 코드 ‘\n’ 삽입하기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">multiline</span> <span class="o">=</span> <span class="s">"Life is too short</span><span class="se">\n</span><span class="s">You nee python"</span>
+</code></pre></div></div>
+
+<p>‘\n’을 삽입하는 방법이 있지만 읽기에 불편하고 줄이 길어지는 단점이 있다</p>
+
+<ul>
+  <li>연속된 작음따옴표 3개또는 큰따옴표 3개 사용하기</li>
+</ul>
+
+<p>위 단점을 극복하기 위해 사용된다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">multiline</span> <span class="o">=</span> <span class="s">'''
+    Life is short
+    You need python
+    '''</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">multiline</span> <span class="o">=</span> <span class="s">"""
+    Life is short
+    You need python
+    """</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>문자열 연산하기</p>
+</blockquote>
+
+<ul>
+  <li>
+    <p>문자열 더해서 연결하기</p>
+  </li>
+  <li>
+    <p>문자열 곱하기</p>
+  </li>
+  <li>
+    <p>문자열 곱하기 응용</p>
+  </li>
+</ul>
 
 <h2 id="리스트-자료형">리스트 자료형</h2>
 
