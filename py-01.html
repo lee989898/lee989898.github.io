@@ -503,6 +503,449 @@ into the {body} of the default.hbs template -->
   <p>문자열 인덱싱과 슬라이싱</p>
 </blockquote>
 
+<p>인덱싱이란 무엇인가를 가리킨다는 의미이다. 슬라이싱은 무엇인가를 잘라낸다는 의미이다</p>
+
+<ul>
+  <li>문자열 인덱싱 이란?</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">"Life is too short, You need Python"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="s">'e'</span>
+</code></pre></div></div>
+
+<ul>
+  <li>문자열 인덱싱 활요하기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">"Life is too short, You need Python"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="s">'L'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span>
+<span class="s">'s'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="s">'n'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">0</span><span class="p">]</span>
+<span class="s">'L'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<span class="s">'o'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span>
+<span class="s">'y'</span>
+</code></pre></div></div>
+
+<ul>
+  <li>문자열 슬라이싱이란?</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">"Life is too short, You need Python"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span>
+<span class="s">'Life'</span>
+</code></pre></div></div>
+
+<p>위 예를 슬라이싱 기법으로 아래처럼 간단하게 처리할 수 있다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">"Life is too short, You need Python"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+<span class="s">'Life'</span>
+</code></pre></div></div>
+
+<p>슬라이싱 기법으로 지정할 떄 끝번호에 해당하는 것은 포함하지 않는다</p>
+
+<ul>
+  <li>문자열을 슬라이싱하는 방법</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<span class="s">'Life '</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="s">'Li'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span>
+<span class="s">'is'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">12</span><span class="p">:</span><span class="mi">17</span><span class="p">]</span>
+<span class="s">'short'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">19</span><span class="p">:</span><span class="mi">0</span><span class="p">]</span>
+<span class="s">'You need Python'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">[:</span><span class="mi">17</span><span class="p">]</span>
+<span class="s">'Life is too short'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">[:]</span>
+<span class="s">'Life is too short, You need Python'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">19</span><span class="p">:</span><span class="o">-</span><span class="mi">7</span><span class="p">]</span>
+<span class="s">'You need'</span>
+</code></pre></div></div>
+
+<ul>
+  <li>슬라이싱으로 문자열 나누기</li>
+</ul>
+
+<p>자주 사용하게 되는 슬라이싱 기법 중 하나이다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">"20010331Rainy"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">date</span> <span class="o">=</span> <span class="n">a</span><span class="p">[:</span><span class="mi">8</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">weather</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">8</span><span class="p">:]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">date</span>
+<span class="s">'20010331'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">weather</span>
+<span class="s">'Rainy'</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>문자열 포매팅</p>
+</blockquote>
+
+<p>문자열 포매팅이란 문자열 안에 어떤 값을 삽입하는 방법이다</p>
+
+<ul>
+  <li>숫자 바로 대입</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="s">"I eat %d apples."</span> <span class="o">%</span> <span class="mi">3</span>
+<span class="s">'I eat 3 apples.'</span>
+</code></pre></div></div>
+
+<ul>
+  <li>문자열 바로 대입</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="s">"I eat %s apples."</span> <span class="o">%</span> <span class="s">"five"</span>
+<span class="s">'I eat five apples.'</span>
+</code></pre></div></div>
+
+<ul>
+  <li>숫자 값을 나타내는 변수로 대입</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s">"I eat %d apples."</span> <span class="o">%</span> <span class="n">number</span>
+<span class="s">'I eat 3 apples.'</span>
+</code></pre></div></div>
+
+<ul>
+  <li>2개 이상의 값 넣기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">day</span> <span class="o">=</span> <span class="s">"three"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s">"I ate %d apples. so I was sick for %s days."</span> <span class="o">%</span> <span class="p">(</span><span class="n">number</span><span class="p">,</span><span class="n">day</span><span class="p">)</span>
+<span class="s">'I ate 10 apples. so I was sick for three days.'</span>
+</code></pre></div></div>
+
+<ul>
+  <li>문자열 포맷 코드</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>코드</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>%s</td>
+      <td>문자열(String)</td>
+    </tr>
+    <tr>
+      <td>%c</td>
+      <td>문자 1개(Character)</td>
+    </tr>
+    <tr>
+      <td>%d</td>
+      <td>정수(Integer)</td>
+    </tr>
+    <tr>
+      <td>%f</td>
+      <td>부동 소수(Floating-point)</td>
+    </tr>
+    <tr>
+      <td>%o</td>
+      <td>8진수</td>
+    </tr>
+    <tr>
+      <td>%x</td>
+      <td>16진수</td>
+    </tr>
+    <tr>
+      <td>%%</td>
+      <td>Literal % (문자 ‘%’ 자체)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>%s 포맷 코드는 어떤 형태의 값이든 변환해 넣을 수 있다<br />
+%s는 자동으로 % 뒤에 있는 값을 문자열로 바꾼다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="s">"I have %s apples"</span> <span class="o">%</span> <span class="mi">3</span>
+<span class="s">'I have 3 apples'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s">"rate is %s"</span> <span class="o">%</span> <span class="mf">3.234</span>
+<span class="s">'rate is 3.234'</span>
+</code></pre></div></div>
+
+<p>포매팅 연산자 %d와 %를 같이 쓸 떄는 %%를 쓴다</p>
+
+<ul>
+  <li>정렬과 공백</li>
+</ul>
+
+<p>전체길이 10개 공백 8개</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="s">"%10s"</span> <span class="o">%</span> <span class="s">"hi"</span>
+<span class="s">'        hi'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s">"%-10sjane"</span> <span class="o">%</span> <span class="s">'hi'</span>
+<span class="s">'hi        jane'</span>
+</code></pre></div></div>
+
+<ul>
+  <li>소수점 표현하기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="s">"%0.4f"</span> <span class="o">%</span> <span class="mf">3.42134234</span>
+<span class="s">'3.4213'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s">"%10.4f"</span> <span class="o">%</span> <span class="mf">3.42134234</span>
+<span class="s">'     3.4213'</span>
+</code></pre></div></div>
+
+<ul>
+  <li>숫자 바로 대입하기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="s">"I eat {0} apples"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="s">'I eat 3 apples'</span>
+</code></pre></div></div>
+
+<ul>
+  <li>문자열 바로 대입하기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="s">"I eat {0} apples"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="s">"five"</span><span class="p">)</span>
+<span class="s">'I eat five apples'</span>
+</code></pre></div></div>
+
+<ul>
+  <li>숫자 값을 가진 변수로 대입하기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s">"I eat {0} apples"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+<span class="s">'I eat 3 apples'</span>
+</code></pre></div></div>
+
+<ul>
+  <li>2개 이상의 값 넣기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">day</span> <span class="o">=</span> <span class="s">"three"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s">"I ate {0} apples. so I was sick for {1} days."</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">day</span><span class="p">)</span>
+<span class="s">'I ate 10 apples. so I was sick for three days.'</span>
+</code></pre></div></div>
+
+<ul>
+  <li>이름으로 넣기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="s">"I ate {number} apples. so I was sick for {day} days."</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">number</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">day</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+<span class="s">'I ate 10 apples. so I was sick for 3 days.'</span>
+</code></pre></div></div>
+
+<ul>
+  <li>인덱스와 이름을 혼용해서 넣기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="s">"I ate {0} apples. so I was sick for {day} days."</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">day</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+<span class="s">'I ate 10 apples. so I was sick for 3 days.'</span>
+</code></pre></div></div>
+
+<ul>
+  <li>왼쪽 정렬</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="s">"{0:&lt;10}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="s">"hi"</span><span class="p">)</span>
+<span class="s">'hi        '</span>
+</code></pre></div></div>
+
+<ul>
+  <li>오른쪽 정렬</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="s">"{0:&gt;10}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="s">"hi"</span><span class="p">)</span>
+<span class="s">'        hi'</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>가운데 정렬</p>
+  </li>
+  <li>
+    <p>왼쪽 정렬</p>
+  </li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="s">"{0:^10}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="s">"hi"</span><span class="p">)</span>
+<span class="s">'   hi    '</span>
+</code></pre></div></div>
+
+<ul>
+  <li>공백 채우기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="s">"{0:=^10}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="s">"hi"</span><span class="p">)</span>
+<span class="s">'====hi====='</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s">"{0:!&lt;10}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="s">"hi"</span><span class="p">)</span>
+<span class="s">'hi!!!!!!!!'</span>
+</code></pre></div></div>
+
+<ul>
+  <li>소수점 표현하기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">3.42134234</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s">"{0:0.4f}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="s">'3.4213'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s">"{0:10.4f}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="s">'    3.4213'</span>
+</code></pre></div></div>
+
+<ul>
+  <li>{ 또는 } 문자 표현하기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="s">""</span><span class="p">.</span><span class="nb">format</span><span class="p">()</span>
+<span class="s">'{ and }'</span>
+</code></pre></div></div>
+
+<ul>
+  <li>f 문자열 포매팅</li>
+</ul>
+
+<p>파이썬 3.6 버전부터는 f 문자열 포매팅 기능을 사용할 수 있다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span> <span class="o">=</span> <span class="s">'홍길동'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="sa">f</span><span class="s">'나의 이름은 </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">입니다. 나이는 </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s">입니다.'</span>
+<span class="s">'나의 이름은 홍길동입니다. 나이는 30입니다.'</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="sa">f</span><span class="s">'나는 내년이면 </span><span class="si">{</span><span class="n">age</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s">살이 된다.'</span>
+<span class="s">'나는 내년이면 31살이 된다.'</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s">'name'</span><span class="p">:</span><span class="s">'홍길동'</span><span class="p">,</span><span class="s">'age'</span><span class="p">:</span><span class="mi">30</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="sa">f</span><span class="s">'나의 이름은 </span><span class="si">{</span><span class="n">d</span><span class="p">[</span><span class="s">"name"</span><span class="p">]</span><span class="si">}</span><span class="s">입니다. 나이는 </span><span class="si">{</span><span class="n">d</span><span class="p">[</span><span class="s">"age"</span><span class="p">]</span><span class="si">}</span><span class="s">입니다.'</span>
+<span class="s">'나의 이름은 홍길동입니다. 나이는 30입니다.'</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="s">"hi"</span><span class="p">:</span><span class="o">&lt;</span><span class="mi">10</span><span class="si">}</span><span class="s">'</span>
+<span class="s">'hi        '</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="s">"hi"</span><span class="p">:</span><span class="o">&gt;</span><span class="mi">10</span><span class="si">}</span><span class="s">'</span>
+<span class="s">'        hi'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="s">"hi"</span><span class="p">:</span><span class="o">^</span><span class="mi">10</span><span class="si">}</span><span class="s">'</span>
+<span class="s">'    hi    '</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="s">"hi"</span><span class="p">:</span><span class="o">=^</span><span class="mi">10</span><span class="si">}</span><span class="s">'</span>
+<span class="s">'====hi===='</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="s">"hi"</span><span class="p">:</span><span class="err">!</span><span class="o">&lt;</span><span class="mi">10</span><span class="si">}</span><span class="s">'</span>
+<span class="s">'hi!!!!!!!!'</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">3.42134234</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="n">y</span><span class="p">:</span><span class="mf">0.4</span><span class="n">f</span><span class="si">}</span><span class="s">'</span>
+<span class="s">'3.4213'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="n">y</span><span class="p">:</span><span class="mf">10.4</span><span class="n">f</span><span class="si">}</span><span class="s">'</span>
+<span class="s">'    3.4213'</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="sa">f</span><span class="s">''</span>
+<span class="s">'{ and }'</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>문자열 관련 함수</p>
+</blockquote>
+
+<ul>
+  <li>문자 개수 세기(count)</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">"hobby"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="s">'b'</span><span class="p">)</span>
+<span class="mi">2</span>
+</code></pre></div></div>
+
+<ul>
+  <li>위치 알려주기 1(find)</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">"Python is the best choice"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">'b'</span><span class="p">)</span>
+<span class="mi">14</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">'k'</span><span class="p">)</span>
+<span class="o">-</span><span class="mi">1</span>
+</code></pre></div></div>
+
+<ul>
+  <li>위치 알려주기 2(index)</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">"Life is too short"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="s">'t'</span><span class="p">)</span>
+<span class="mi">8</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="s">'k'</span><span class="p">)</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+    <span class="n">File</span> <span class="s">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="nb">ValueError</span><span class="p">:</span> <span class="n">substring</span> <span class="ow">not</span> <span class="n">found</span>
+</code></pre></div></div>
+
+<ul>
+  <li>문자열 삽입(join)</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="s">","</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="s">'abcd'</span><span class="p">)</span>
+<span class="s">'a,b,c,d'</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="s">","</span><span class="p">.</span><span class="n">join</span><span class="p">([</span><span class="s">'a'</span><span class="p">,</span><span class="s">'b'</span><span class="p">,</span><span class="s">'c'</span><span class="p">,</span><span class="s">'d'</span><span class="p">])</span>
+<span class="s">'a,b,c,d'</span>
+</code></pre></div></div>
+
+<ul>
+  <li>소문자를 대문자로 바꾸기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+
+<ul>
+  <li>대문자를 소문자로 바꾸기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+
+<ul>
+  <li>왼쪽 공백 지우기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+
+<ul>
+  <li>오른쪽 공백 지우기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+
+<ul>
+  <li>양쪽 공백 지우기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+
+<ul>
+  <li>문자열 바꾸기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+
+<ul>
+  <li>문자열 나누기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+
 <h2 id="리스트-자료형">리스트 자료형</h2>
 
 <h2 id="튜플-자료형">튜플 자료형</h2>
