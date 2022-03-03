@@ -908,43 +908,69 @@ into the {body} of the default.hbs template -->
   <li>소문자를 대문자로 바꾸기</li>
 </ul>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">'hi'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="s">'HI'</span>
+</code></pre></div></div>
 
 <ul>
   <li>대문자를 소문자로 바꾸기</li>
 </ul>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">"HI"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="s">'hi'</span>
+</code></pre></div></div>
 
 <ul>
   <li>왼쪽 공백 지우기</li>
 </ul>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">" hi "</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">lstrip</span><span class="p">()</span>
+<span class="s">'hi '</span>
+</code></pre></div></div>
 
 <ul>
   <li>오른쪽 공백 지우기</li>
 </ul>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">" hi "</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">rstrip</span><span class="p">()</span>
+<span class="s">' hi'</span>
+</code></pre></div></div>
 
 <ul>
   <li>양쪽 공백 지우기</li>
 </ul>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">" hi "</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="s">'hi'</span>
+</code></pre></div></div>
 
 <ul>
   <li>문자열 바꾸기</li>
 </ul>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">"Life is too short"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"Life"</span><span class="p">,</span> <span class="s">"Your leg"</span><span class="p">)</span>
+<span class="s">'Your leg is too short'</span>
+</code></pre></div></div>
 
 <ul>
   <li>문자열 나누기</li>
 </ul>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">"Life is too short"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">split</span><span class="p">()</span>
+<span class="p">[</span><span class="s">'Life'</span><span class="p">,</span> <span class="s">'is'</span><span class="p">,</span> <span class="s">'too'</span><span class="p">,</span> <span class="s">'short'</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="s">"a:b:c:d"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">':'</span><span class="p">)</span>
+<span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>split 함수는 괄호 안에 아무 값도 넣어 주지 않으면 공백을 기준으로 문자열을 나누어 준다</p>
 
 <h2 id="리스트-자료형">리스트 자료형</h2>
 
