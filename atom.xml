@@ -1196,6 +1196,25 @@
         <title>자료형</title>
         
           <description>&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#if문&quot;&gt;if문&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#while문&quot;&gt;while문&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#for문&quot;&gt;for문&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Sun, 01 Aug 2021 19:18:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/py-02</link>
+        <guid isPermaLink="true">https://lee989898.github.io/py-02</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>자료형</title>
+        
+          <description>&lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;#숫자형&quot;&gt;숫자형&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#문자열-자료형&quot;&gt;문자열 자료형&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#리스트-자료형&quot;&gt;리스트 자료형&lt;/a&gt;&lt;/li&gt;
