@@ -1620,7 +1620,195 @@ set 자료형에 저장된 값을 인덱싱으로 접근하려면 리스트나 �
 
 <h2 id="불-자료형">불 자료형</h2>
 
+<blockquote>
+  <p>불 자료형이란?</p>
+</blockquote>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">'</span><span class="nc">bool</span><span class="s">'&gt;
+&gt;&gt;&gt; type(b)
+&lt;class '</span><span class="nb">bool</span><span class="s">'&gt;
+
+&gt;&gt;&gt; 1 == 1
+True
+
+&gt;&gt;&gt; 2 &gt; 1
+True
+&gt;&gt;&gt; 2 &lt; 1
+False
+</span></code></pre></div></div>
+
+<blockquote>
+  <p>자료형의 참과 거짓</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>자료형</th>
+      <th>값</th>
+      <th>참 or 거짓</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>문자열</td>
+      <td>“python”</td>
+      <td>참</td>
+    </tr>
+    <tr>
+      <td>문자열</td>
+      <td>””</td>
+      <td>거짓</td>
+    </tr>
+    <tr>
+      <td>리스트</td>
+      <td>[1,2,3]</td>
+      <td>참</td>
+    </tr>
+    <tr>
+      <td>리스트</td>
+      <td>[]</td>
+      <td>거짓</td>
+    </tr>
+    <tr>
+      <td>튜플</td>
+      <td>()</td>
+      <td>거짓</td>
+    </tr>
+    <tr>
+      <td>딕셔너리</td>
+      <td>{}</td>
+      <td>거짓</td>
+    </tr>
+    <tr>
+      <td>숫자형</td>
+      <td>0이 아닌 숫자</td>
+      <td>참</td>
+    </tr>
+    <tr>
+      <td>숫자형</td>
+      <td>0</td>
+      <td>거짓</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>None</td>
+      <td>거짓</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">while</span> <span class="n">a</span><span class="p">:</span>
+        <span class="n">a</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span>
+
+<span class="mi">4</span>
+<span class="mi">3</span>
+<span class="mi">2</span>
+<span class="mi">1</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>불 연산</p>
+</blockquote>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">bool</span><span class="p">(</span><span class="s">'python'</span><span class="p">)</span>
+<span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">bool</span><span class="p">(</span><span class="s">''</span><span class="p">)</span>
+<span class="bp">False</span>
+</code></pre></div></div>
+
 <h2 id="자료형의-값을-저장하는-공간-변수">자료형의 값을 저장하는 공간, 변수</h2>
+
+<blockquote>
+  <p>변수란?</p>
+</blockquote>
+
+<p>파이썬에서 사용하는 변수는 객체를 가리키는 것이라고도 말할 수 있다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="s">"python"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="mi">4303029896</span>
+</code></pre></div></div>
+
+<p>id 함수는 변수가 가리키고 있는 객체의 주소 값을 돌려주는 파이썬 내장 함수이다</p>
+
+<blockquote>
+  <p>리스트를 복사할 때</p>
+</blockquote>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="mi">4303029896</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="mi">4303029896</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="ow">is</span> <span class="n">b</span>
+<span class="bp">True</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>b 변수를 생성할 때 a 변수의 값을 가져오면서 a와는 다른 주소를 가리키도록 만들기</p>
+
+<ul>
+  <li>[:] 사용</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">[:]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</code></pre></div></div>
+
+<ul>
+  <li>copy 모듈 사용</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">copy</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="ow">is</span> <span class="n">a</span>
+<span class="bp">False</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>변수를 만드는 여러 가지 방법</p>
+</blockquote>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="s">'python'</span><span class="p">,</span> <span class="s">'life'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="s">'python'</span><span class="p">,</span> <span class="s">'life'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">'python'</span><span class="p">,</span> <span class="s">'life'</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">=</span> <span class="s">'python'</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
+<span class="mi">5</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span>
+<span class="mi">3</span>
+</code></pre></div></div>
 
                 </div>
             </section>
