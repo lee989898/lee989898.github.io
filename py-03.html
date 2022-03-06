@@ -477,15 +477,213 @@ into the {body} of the default.hbs template -->
 <span class="mi">7</span>
 </code></pre></div></div>
 
+<hr />
+
 <h2 id="사용자-입력과-출력">사용자 입력과 출력</h2>
 
 <hr />
+
+<blockquote>
+  <p>사용자 입력</p>
+</blockquote>
+
+<ul>
+  <li>input의 사용</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+<span class="n">Life</span> <span class="ow">is</span> <span class="n">too</span> <span class="n">short</span><span class="p">,</span> <span class="n">you</span> <span class="n">need</span> <span class="n">python</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
+<span class="s">'Life is too short, you need python'</span>
+<span class="o">&gt;&gt;&gt;</span>
+</code></pre></div></div>
+
+<p>input은 입력되는 모든 것을 문자열로 취급한다</p>
+
+<ul>
+  <li>프롬프트 값을 띄워사 사용자 입력받기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">number</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"숫자를 입력하세요: "</span><span class="p">)</span>
+<span class="n">숫자를</span> <span class="n">입력하세요</span><span class="p">:</span> <span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+<span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>print 자세히 알기</p>
+</blockquote>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">123</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="mi">123</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">"Python"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">Python</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</code></pre></div></div>
+
+<ul>
+  <li>끈따옴표로 둘러싸인 문자열은 +연산과 동일하다</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">"life"</span> <span class="s">"is"</span> <span class="s">"too short"</span><span class="p">)</span>
+<span class="n">lifeistoo</span> <span class="n">short</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">"life"</span><span class="o">+</span><span class="s">"is"</span><span class="o">+</span><span class="s">"too short"</span><span class="p">)</span>
+<span class="n">lifeistoo</span> <span class="n">short</span>
+</code></pre></div></div>
+
+<ul>
+  <li>문자열 띄어쓰기는 콤마로 한다</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">"life"</span><span class="p">,</span> <span class="s">"is"</span><span class="p">,</span> <span class="s">"too short"</span><span class="p">)</span>
+<span class="n">life</span> <span class="ow">is</span> <span class="n">too</span> <span class="n">short</span>
+</code></pre></div></div>
+
+<ul>
+  <li>한 줄에 결괏값 출력하기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">' '</span><span class="p">)</span>
+    
+<span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span> <span class="mi">7</span> <span class="mi">8</span> <span class="mi">9</span> <span class="o">&gt;&gt;&gt;</span>
+</code></pre></div></div>
 
 <hr />
 
 <h2 id="파일-읽고-쓰기">파일 읽고 쓰기</h2>
 
 <hr />
+
+<blockquote>
+  <p>파일 생성하기</p>
+</blockquote>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"새파일.text"</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
+<span class="n">f</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>파일 객체 = open(파일 이름, 파일 열기 모드)</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>파일 열기 모드</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>r</td>
+      <td>읽기 모드 - 파일을 읽기만 할 때 사용</td>
+    </tr>
+    <tr>
+      <td>w</td>
+      <td>쓰기 모드 - 파일에 내용을 쓸 때 사용</td>
+    </tr>
+    <tr>
+      <td>a</td>
+      <td>추가 모드 - 파일의 마지막에 새로운 내용을 추가할 때 사용</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>파일을 쓰기 모드로 열면 해당 파일이 이미 존재할 경우 원래 있던 내용이 모두 사라지고, 해당 파일이 존재하지 않으면 새로운 파일이 생성된다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"C:/doit/새파일.txt"</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
+<span class="n">f</span><span class="p">.</span><span class="n">close</span>
+</code></pre></div></div>
+
+<p>f.close는 열려 있는 파일 객체를 닫아 주는 역할을 한다<br />
+쓰기 모드로 열었던 파일을 닫지 않고 다시 사용하려고 하면 오류가 발생한다</p>
+
+<blockquote>
+  <p>파일을 쓰기 모드로 열어 출력값 적기</p>
+</blockquote>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># writedata.py
+</span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"C:/doit/새파일.txt"</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="s">"%d번째 줄입니다.</span><span class="se">\n</span><span class="s">"</span> <span class="o">%</span> <span class="n">i</span>
+    <span class="n">f</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">f</span><span class="p">.</span><span class="n">close</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>프로그램의 외부에 저장된 파일을 읽는 여러가지 방법</p>
+</blockquote>
+
+<ul>
+  <li>readline 함수 사용하기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># readline.py
+</span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"C:/doit/새파일.txt"</span><span class="p">.</span> <span class="s">'r'</span><span class="p">)</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="n">f</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># readline.py
+</span><span class="o">//</span> <span class="n">모든</span> <span class="n">줄</span> <span class="n">읽기</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"C:/doit/새파일.txt"</span><span class="p">.</span> <span class="s">'r'</span><span class="p">)</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="n">readline</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="p">:</span> <span class="k">break</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="n">f</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<ul>
+  <li>readlines 함수 사용하기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"C:/doit/새파일.txt"</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="n">f</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<ul>
+  <li>read 함수 사용하기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"C:/doit/새파일.txt"</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">f</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>파일에 새로운 내용 추가하기</p>
+</blockquote>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># adddate.py
+</span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"C:/doit/새파일.txt"</span><span class="p">,</span> <span class="s">'a'</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">20</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="s">"%d 번째 줄입니다.</span><span class="se">\n</span><span class="s">"</span> <span class="o">%</span> <span class="n">i</span>
+    <span class="n">f</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">f</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>with문과 함꼐 사용하기</p>
+</blockquote>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"foo.txt"</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
+<span class="n">f</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="s">"Life is too short, you need python"</span><span class="p">)</span>
+<span class="n">f</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"foo.txt"</span><span class="p">,</span> <span class="s">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="s">"Life is too short, you need python"</span><span class="p">)</span>
+<span class="o">//</span> <span class="k">with</span> <span class="n">블록을</span> <span class="n">벗어나는</span> <span class="n">순간</span> <span class="n">열린</span> <span class="n">파일</span> <span class="n">객체</span> <span class="n">f가</span> <span class="n">자동으로</span> <span class="n">close</span> <span class="n">되어</span> <span class="n">편리하다</span>
+</code></pre></div></div>
 
                 </div>
             </section>
