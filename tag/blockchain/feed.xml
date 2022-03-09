@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
+  <link href="https://lee989898.github.io/tag/blockchain/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
+  <updated>2022-03-09T14:07:59+09:00</updated>
+  <id>https://lee989898.github.io/tag/blockchain/feed.xml</id>
+
+  
+  
+  
+
+  
+    <title type="html">LEE | </title>
+  
+
+  
+    <subtitle>공부 블로그</subtitle>
+  
+
+  
+
+  
+    
+      
+    
+  
+
+  
+  
+
+  
+    <entry>
+      <title type="html">블록체인 이란</title>
+      <link href="https://lee989898.github.io/bc-01" rel="alternate" type="text/html" title="블록체인 이란" />
+      <published>2021-09-02T01:06:00+09:00</published>
+      <updated>2021-09-02T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/bc-01</id>
+      <content type="html" xml:base="https://lee989898.github.io/bc-01">&lt;h2 id=&quot;블록체인이란&quot;&gt;&lt;strong&gt;블록체인이란&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;블록체인은 왜 어려운가?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;cryptography&quot;&gt;&lt;strong&gt;Cryptography&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Public Cryptography(공개키 암호학)&lt;/li&gt;
+  &lt;li&gt;Secure Hashing&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;암호기술(AES, DES, …)은 원칙적으로는 블록체인과 상관이 없다&lt;/p&gt;
+
+&lt;h3 id=&quot;security&quot;&gt;&lt;strong&gt;Security&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;보안의 3대요소
+    &lt;ul&gt;
+      &lt;li&gt;C - Confidentiality(인가된 당사자에 의해서만 접근하는 것을 보장, 기밀성)&lt;/li&gt;
+      &lt;li&gt;I - Integrity(인가된 당사자에 의해서 인가된 방법로만 변경가능한 것, 무결성)&lt;/li&gt;
+      &lt;li&gt;A - Availability(적절한 시간에 인가된 당사자에게 접근 가능해야 하는 것, 가용성)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Authenticity(인증)&lt;/li&gt;
+  &lt;li&gt;Non-repudiation(부인을 할 수 없다)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;distributed-consensus분산-합의-byzantine&quot;&gt;&lt;strong&gt;Distributed Consensus(분산 합의, Byzantine)&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Proof-of-Work&lt;/li&gt;
+  &lt;li&gt;Proof-of-Stake&lt;/li&gt;
+  &lt;li&gt;Probaility(확률론)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;p2p-networking&quot;&gt;&lt;strong&gt;P2P Networking&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;h3 id=&quot;programming-languages&quot;&gt;&lt;strong&gt;Programming languages&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Solidity&lt;/li&gt;
+  &lt;li&gt;Vyper&lt;/li&gt;
+  &lt;li&gt;Go&lt;/li&gt;
+  &lt;li&gt;Javascript&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;complex-operation-mechanisms&quot;&gt;&lt;strong&gt;Complex operation mechanisms&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Peer-to-Peer Networking (P2P)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;communication-models&quot;&gt;&lt;strong&gt;Communication Models&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Point-to-Point&lt;/li&gt;
+  &lt;li&gt;Client-Server(HTTP(S), Centralized architecture, 중압집중적)&lt;/li&gt;
+  &lt;li&gt;Peer-to-Peer(Decentralized architecture, 비집중형, Client가 될 수도 Server가 될 수도)
+    &lt;ul&gt;
+      &lt;li&gt;Scalability&lt;/li&gt;
+      &lt;li&gt;No Single-point-of-failure&lt;/li&gt;
+      &lt;li&gt;No governance&lt;/li&gt;
+      &lt;li&gt;Distributed Architecture과는 다르다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;operations-of-p2p-network&quot;&gt;&lt;strong&gt;Operations of P2P Network&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;네트워크 구성&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;주변/랜덤 노드들과의 연결을 통한 그래프 형성&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;정보 전달&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Flooding: 정보를 전체 네트워크에 Broadcast&lt;/li&gt;
+  &lt;li&gt;Unicasting: 특정 노드로 메시지 전송 (Routing protocols)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;네트워크 참여&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;누구나 참여가능&lt;/li&gt;
+  &lt;li&gt;오픈 네트워크(public)&lt;/li&gt;
+  &lt;li&gt;Join/Leave protocol&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Blockcahin protocols&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bitcoin Network&lt;/li&gt;
+  &lt;li&gt;이더리움: ÐΞVp2p protocol&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;security-principles--blockchain&quot;&gt;&lt;strong&gt;Security Principles &amp;amp; Blockchain&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;보안의 3대요소
+    &lt;ul&gt;
+      &lt;li&gt;C - Confidentiality (보장하지 않음)&lt;/li&gt;
+      &lt;li&gt;I - Integrity ([BC] Transaction, Block, Address)&lt;/li&gt;
+      &lt;li&gt;A - Availability (Denial of Service (Dos) 공격)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Authenticity (Signature 로 Ownership 증명 (Anonymous))&lt;/li&gt;
+  &lt;li&gt;Anonymity (익명성, One time public key)&lt;/li&gt;
+  &lt;li&gt;Non-repudiation (Signature)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;public-key-cryptography-공개키-암호&quot;&gt;&lt;strong&gt;Public Key Cryptography (공개키 암호)&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;대칭키 암호(Symmetric)(DES, 3DES, AES, ARIA)&lt;/p&gt;
+
+&lt;p&gt;비대칭키 암호(Asymmatric)(RSA, ECC)&lt;/p&gt;
+
+&lt;p&gt;발상의 전환 1: 누구나 나에게 암호문을 보낼 수 있다(키배분)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\bc\bc1.png&quot; alt=&quot;블록체인&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;발상의 전환 2: 누구나 내 암호문을 풀 수 있다?(전자서명)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\bc\bc2.png&quot; alt=&quot;블록체인&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;공개키쌍(Key pair)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Public Key(공개키): 누구나 알 수 있음, 암호에 사용, 서명 확인에 사용&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Private Key(개인키): 소유자만 알고 있음, 복호화에 사용, 서명에 사용&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;What is Public key Infrastructure?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;공개키암호의 한계: 주어진 공개키가 누구의 것인가가 불분명
+인증서: 신뢰자가 공개키의 주인을 증명하는 문서(발급자 서명)
+발급자의 공개키는 누가 인증할것인가? 풀 수 없는 문제&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;상대방의 공개키를 확실하게 확인하는 방법 PKI&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\bc\bc3.png&quot; alt=&quot;블록체인&quot; /&gt;&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="blockchain" />
+      
+
+      
+        <summary type="html">블록체인이란</summary>
+      
+
+      
+      
+    </entry>
+  
+</feed>

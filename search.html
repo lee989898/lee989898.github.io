@@ -141,6 +141,8 @@ into the {body} of the default.hbs template -->
     <li class="nav-security" role="menuitem"><a href="/tag/security/">컴퓨터보안</a></li>
     <li class="nav-system" role="menuitem"><a href="/tag/system/">시스템프로그래밍</a></li>
     <li class="nav-python" role="menuitem"><a href="/tag/python/">파이썬</a></li>
+    <li class="nav-security2" role="menuitem"><a href="/tag/security2/">시스템클라우드보안</a></li>
+    <li class="nav-blockchain" role="menuitem"><a href="/tag/blockchain/">블록체인</a></li>
     <li class="nav-archive" role="menuitem">
         <a href="/archive.html">All Posts</a>
     </li>
@@ -739,12 +741,30 @@ into the {body} of the default.hbs template -->
     }
     ,
     
+    "sc2-01": {
+        "title": "정보보호 동향",
+            "author": "lee989898",
+            "category": "",
+            "content": "정보보호 동향(해킹과 보안)해킹과 보안의 역사  해킹이란국어사전: 컴퓨터 시스템에 무단으로 침입/파괴/탈취 하는 행위영영사전: 디자이너가 의도하지 않았던 방법으로 시스템의 특성이나 규칙을 이용한 창조적인 사용법을 찾는 것  1950년대 이전암호화 기계: 에니그마(Enigma)  1918년에 폴란드의 암호 보안 전문가들이 개발  평문 메시지를 암호화된 메시지로 변환하는 전기/기계 장치  처음에는 은행에서 통신 보안 강화를 위해 개발되었지만, 제2차 세계대전에서 독일군에 의해 군사통신 보안용으로 사용  1960년대전화망 침입을 통한 무료 전화 해킹  1969년에 존 인그레이시아는 특정 주파수 대의 휘파람을 불면 장거리 전화를 무료로 쓸 수 있다는 사실을 알아냄  존 드레이퍼는 베트남 전쟁 참전 중에 군용 식량으로 지급되는 ‘캡앤크런치’라는 시리얼에 들어 있던 장난감 호루라기를 불면2600Hz의 소리를 낼 수 있고, 이를 통해 무료 통화가 가능하다는 사실을 발견  1980년대컴퓨터 해킹의 시작  미국 밀워키의 ‘414 Private’이라는 해커 그룹이 로스앨러모스국립 연구소와 암센터 등의 60개 컴퓨터 시스템에 침입하여 실수로 중요 파일을 지워 몇 년간의 연구 결과를 날림  이언 머피(Ian Murph)가 AT&amp;T의 컴퓨터 시스템에 침입해 전화 요금과 관련된 시계를 바꾸어 낮은 가격의 심야 요금이 대낮에 적용 되도록 조작정보 권리 논쟁의 시작  1981년에 독일의 전설적인 해커 그룹인 카오스 컴퓨터 클럽 결성  소식지 창간호에 다음과 같은 설립 목표를 규정함          정보 사회로 발전하려면 전세계와 자유로운 커뮤니케이션을 가능케하는 새로운 인권이 필요하다. 인간 사회 및 개인에게 기술적 영향을 미치는 정보 교류에게 국경이 사라져야 한다. 우리는 지식과 정보의 창조에 이바지할 것이다      GNU (GNU is Not Unix)  1983년 리처드 스톨망에 의해 GNU 계획 발표  GNU는 유닉스와 완벽하게 호환하는 소프트웨어 시스템으로 모든 사람이 무료로 사용하도록 작성  소프트웨어 저작권 개념에 처음부터 함정이 있으면 Copylef를 주장  GNU의 자유 소프트웨어에 대한 4가지 자유          자유 0: 어떠한 목적을 위해서건 프로그램을 실행할 수 있는 자유      자유 1: 프로그램의 작동 원리를 연구하고 이를 자신의 필요에 맞게 변경할 수 있는 자유      자유 2: 이웃을 돕기 위해 프로그램을 복제하고 배포할 수 있는 자유      자유 3: 프로그램을 향상하고 공동체 전체의 이익을 위해 다시 환원 할 수 있는 자유      해커의 등장  로버트 모리스의 웜 바이러스          미국 전역의 컴퓨터가 정체불명의 바이러스에 감염되어 사용자들이 인터넷 연결을 끊는 사건이 발생      미국 국방부는 카네기멜론대학에 컴퓨터 비상 대응팀 설립        구 소련 KGB요원에 매수된 서독 해커들이 전 세계 3백여 기관에 불법적인 접근을 시도하고 군사 기밀 정보를 탈취한다는 사실을 알게됨  1985, 미국 소년이 뉴저지의 국방부 컴퓨터에 침입, 통신위성 위치를 변경하는 코드를 비롯해 극비 군사 통신 데이터를 빼낸 사건 발생  1990년대아메리카온라인 해킹  1997년네 AOL 침입만을 목적으로 고안된 무료 해킹 툴인 AOHell이 공개  이후 며칠 동안 초보 해커들이 악용하여 미국 내 수백만 미국 온라인 사용자가 대용량 메일 폭탄 공격을 받음트로이 목마, 백 오리피스  1998년에 cDc라는 해킹 그룹의 Sir Dystic이 트로이 목마 프로그램인 백 오리피스를 발표데프콘 해킹 대회  1990년애 최초의 해킹 대회인 데프콘이 라스베이거스에서 개최  2000년대분산 서비스 거부 공격 (DDoS)  2000년 2월에 인터넷에서 소통량이 많은 몇 개 사이트에 분산 서비스 거부 공격이 가해짐  이로 인해 야후, CNN, 아마존 등의 사이트가 ICMP 패킷을 이용한 스머프 공격으로 몇 시간 동안 마비됨웜과 바이러스  2000년에 러브 버그 바이러스가 등장행 87억 5000만 달러의 경제적 손실 발생시킴  2003년 1월 25일 오후 2시 30분부터 약 2일 동안 마이크로소프트의 MS-SQL 2000 서버를 공격하는 슬래머 웜이 전국 네트워크를 마비시킴  2004년에 베이글 웜, 마이둠 웜, 넷스카이 웜이라는 웜 삼총사가 등장개인 정보 유출과 도용  2005년 10월부터 2006년 2월 사이에 한국에서 주민등록번호 수십만 개가 유출되어 인터넷 게임 사이트 가입에 사용되는 등 개인 정보 무단 도용 사건 발생전자상거래 교란  2006년 7월에 안심클릭의 허점을 이용한 해킹 사기 사건 발생  2006년 3월에 검색 클릭 수를 자동 증가시키는 방법으로, 국내 대형 포털 사이트의 정보 검색 순위를 조작한 인터넷 광고 대행업체의 대표 이 씨가 업무 방해 등의 혐의로 불구속 입건  2007년 2월 8일에 공인인증서 유출로 인한 시중 은행 불법 인출 사건 발생  2020년대2021년 보안 위협  국가 지원 해킹 조직의 활동  타깃형 랜섬웨어 공격과 피해 규모 증가  업그레이드된 문서형 악성코드 다수 유포  사회적 이슈를 활용한 사회공학적 공격 활동  금융 모바일 악성 앱의 지속적인 변화 시도",
+        "url": "/sc2-01"
+    }
+    ,
+    
     "sc-01": {
         "title": "Intro",
             "author": "lee989898",
             "category": "",
             "content": "Intro  컴퓨터 보안이란?컴퓨터 hw,sw, 데이터의 도난이나 손상, 컴퓨터가 제공하는 서비스의 중단 또는 오용으로부터 컴퓨터 시스템을 보호보안의 대상: information system resource (hardware, software,data,communication facilities and network)보안의 목표: CIA Triad + Authentication  Key Concepts 1: Confidentiality  Secrecy이라고도 함  기밀성,비밀성  송신자와 수신자만이 내용을 알 수 있게 하는 것  허가된 사용자, 장비만이 data 내용을 알 수 있도록 하는 것  주요 공격: eavesdrop(도청), interception  Confidentiality를 지키기 위한 Solution : Encrypt,decrypt  Key Concepts 2: Integrity  무결성  원본 그대로임을 보장. 변조가 없다는 것 혹은 변경이 있었음을 알게 됨  주요 공격: modification  Integrity를 지키기 위한 Solution: hash  Key Concepts 3: Availablilty  가용성  합법적인 사용자가 허가된 시간에 데이터나 서비스에 access 가능하게 하는것  주요공격: interruption, DDos attack  Key Concepts 4: Authentication  인증  송수신자 서로간의 신원확인  주요공격: impersonation  Authentication을 지키기 위한 Solution: 전자서명, 공인인증서",
         "url": "/sc-01"
+    }
+    ,
+    
+    "bc-01": {
+        "title": "블록체인 이란",
+            "author": "lee989898",
+            "category": "",
+            "content": "블록체인이란  블록체인은 왜 어려운가?Cryptography  Public Cryptography(공개키 암호학)  Secure Hashing암호기술(AES, DES, …)은 원칙적으로는 블록체인과 상관이 없다Security  보안의 3대요소          C - Confidentiality(인가된 당사자에 의해서만 접근하는 것을 보장, 기밀성)      I - Integrity(인가된 당사자에 의해서 인가된 방법로만 변경가능한 것, 무결성)      A - Availability(적절한 시간에 인가된 당사자에게 접근 가능해야 하는 것, 가용성)        Authenticity(인증)  Non-repudiation(부인을 할 수 없다)Distributed Consensus(분산 합의, Byzantine)  Proof-of-Work  Proof-of-Stake  Probaility(확률론)P2P NetworkingProgramming languages  Solidity  Vyper  Go  JavascriptComplex operation mechanisms  Peer-to-Peer Networking (P2P)Communication Models  Point-to-Point  Client-Server(HTTP(S), Centralized architecture, 중압집중적)  Peer-to-Peer(Decentralized architecture, 비집중형, Client가 될 수도 Server가 될 수도)          Scalability      No Single-point-of-failure      No governance      Distributed Architecture과는 다르다      Operations of P2P Network네트워크 구성  주변/랜덤 노드들과의 연결을 통한 그래프 형성정보 전달  Flooding: 정보를 전체 네트워크에 Broadcast  Unicasting: 특정 노드로 메시지 전송 (Routing protocols)네트워크 참여  누구나 참여가능  오픈 네트워크(public)  Join/Leave protocolBlockcahin protocols  Bitcoin Network  이더리움: ÐΞVp2p protocolSecurity Principles &amp; Blockchain  보안의 3대요소          C - Confidentiality (보장하지 않음)      I - Integrity ([BC] Transaction, Block, Address)      A - Availability (Denial of Service (Dos) 공격)        Authenticity (Signature 로 Ownership 증명 (Anonymous))  Anonymity (익명성, One time public key)  Non-repudiation (Signature)Public Key Cryptography (공개키 암호)대칭키 암호(Symmetric)(DES, 3DES, AES, ARIA)비대칭키 암호(Asymmatric)(RSA, ECC)발상의 전환 1: 누구나 나에게 암호문을 보낼 수 있다(키배분)발상의 전환 2: 누구나 내 암호문을 풀 수 있다?(전자서명)공개키쌍(Key pair)  Public Key(공개키): 누구나 알 수 있음, 암호에 사용, 서명 확인에 사용      Private Key(개인키): 소유자만 알고 있음, 복호화에 사용, 서명에 사용    What is Public key Infrastructure?공개키암호의 한계: 주어진 공개키가 누구의 것인가가 불분명인증서: 신뢰자가 공개키의 주인을 증명하는 문서(발급자 서명)발급자의 공개키는 누가 인증할것인가? 풀 수 없는 문제  상대방의 공개키를 확실하게 확인하는 방법 PKI",
+        "url": "/bc-01"
     }
     ,
     
