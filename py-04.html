@@ -835,187 +835,878 @@ except 구문은 3가지 방법으로 사용할 수 있다</p>
   <p>all</p>
 </blockquote>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<p>all(x)는 반복 가능한 자료형 x를 입력 인수로 받으며 이 x가 모두 참이면 True, 거짓이 하나라도 있으면 False를 돌려준다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">all</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="bp">True</span>
+
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">all</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="bp">False</span>
+</code></pre></div></div>
 
 <blockquote>
   <p>any</p>
 </blockquote>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<p>any(x)는 x중 하나라도 참이 있으면 True를 돌려주고, x가 모두 거짓일 때에만 False를 돌려준다. all(x)의 반대이다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">any</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="bp">True</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">any</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="s">""</span><span class="p">])</span>
+<span class="bp">False</span>
+</code></pre></div></div>
 
 <blockquote>
   <p>chr</p>
 </blockquote>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<p>chr(i)는 아스키 코드 값을 입력받아 그 코드에 해당하는 문자를 출력하는 함수이다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">97</span><span class="p">)</span>
+<span class="s">'a'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">48</span><span class="p">)</span>
+<span class="s">'0'</span>
+</code></pre></div></div>
 
 <blockquote>
   <p>dir</p>
 </blockquote>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<p>dir은 객체가 자체적으로 가지고 있는 변수나 함수를 보여준다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">dir</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="p">[</span><span class="s">'append'</span><span class="p">,</span> <span class="s">'count'</span><span class="p">,</span> <span class="s">'extend'</span><span class="p">,</span> <span class="s">'index'</span><span class="p">,</span> <span class="s">'insert'</span><span class="p">,</span> <span class="s">'pop'</span><span class="p">,</span> <span class="p">...]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">dir</span><span class="p">({</span><span class="s">'1'</span><span class="p">:</span><span class="s">'a'</span><span class="p">})</span>
+<span class="p">[</span><span class="s">'clear'</span><span class="p">,</span> <span class="s">'copy'</span><span class="p">,</span> <span class="s">'get'</span><span class="p">,</span> <span class="s">'has_key'</span><span class="p">,</span> <span class="s">'items'</span><span class="p">,</span> <span class="s">'keys'</span><span class="p">,</span> <span class="p">...]</span>
+</code></pre></div></div>
 
 <blockquote>
   <p>divmod</p>
 </blockquote>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<p>divmod(a, b)는 2개의 숫자를 입력으로 받는다, 그리고 a를 b로 나눈 몫과 나머지를 튜플 형태로 돌려주는 함수이다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">div</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">7</span> <span class="o">//</span> <span class="mi">3</span>
+<span class="mi">2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">7</span> <span class="o">%</span> <span class="mi">3</span>
+<span class="mi">1</span>
+</code></pre></div></div>
 
 <blockquote>
   <p>enumerate</p>
 </blockquote>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<p>이 함수는 순서가 있는 자료형을 입력으로 받아 인덱스 값을 포함하는 enumerate 객체를 돌려준다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s">'body'</span><span class="p">,</span> <span class="s">'foo'</span><span class="p">,</span> <span class="s">'bar'</span><span class="p">]):</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+<span class="mi">0</span> <span class="n">body</span>
+<span class="mi">1</span> <span class="n">foo</span>
+<span class="mi">2</span> <span class="n">bar</span>
+</code></pre></div></div>
 
 <blockquote>
   <p>eval</p>
 </blockquote>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<p>eval은 실행 가능한 문자열을 입력으로 받아 문자열을 실행한 결괏값을 돌려주는 함수이다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">eval</span><span class="p">(</span><span class="s">'1+2'</span><span class="p">)</span>
+<span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">eval</span><span class="p">(</span><span class="s">"'hi' + 'a'"</span><span class="p">)</span>
+<span class="s">'hia'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">eval</span><span class="p">(</span><span class="s">'divmod(4, 3)'</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
 
 <blockquote>
   <p>filter</p>
 </blockquote>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<p>filter 함수는 첫 번째 인수로 함수 이름을, 두 번째 인수로 그 함수에 차례로 들어갈 반복 가능한 자료형을 받는다. 그리고 두 번째 인수인 방복 가능한 자료형 요소가 첫 번째 인수인 함수에 입력되었을 때 반환 값이 참인 것만 묶어서 돌려준다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#postive.py
+</span><span class="k">def</span> <span class="nf">positive</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">positive</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]))</span>
+
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+
+<span class="c1">#filter1.py
+</span><span class="k">def</span> <span class="nf">postive</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="n">postive</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])))</span>
+
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]))</span>
+</code></pre></div></div>
 
 <blockquote>
   <p>hex</p>
 </blockquote>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<p>hex(x)는 정수 값을 입력받아 16진수로 변환하여 돌려주는 함수이다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">hex</span><span class="p">(</span><span class="mi">234</span><span class="p">)</span>
+<span class="s">'0xea'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">hex</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="s">'0x3'</span>
+</code></pre></div></div>
 
 <blockquote>
   <p>id</p>
 </blockquote>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<p>id(object)는 객체를 입력받아 객체의 고유 주소 값을 돌려주는 함수이다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="mi">135072304</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="mi">135072304</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="mi">135072304</span>
+</code></pre></div></div>
 
 <blockquote>
   <p>input</p>
 </blockquote>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<p>input은 사용자 입력을 받는 함수이다. 매개변수로 문자열을 주면 다음 세 번째 예에서 볼 수 있듯이 그 문자열은 프롬프트가 된다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+<span class="n">hi</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
+<span class="s">'hi'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"Enter: "</span><span class="p">)</span>
+<span class="n">Enter</span><span class="p">:</span> <span class="n">hi</span>
+</code></pre></div></div>
 
 <blockquote>
   <p>int</p>
 </blockquote>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<p>int(x)는 문자열 형태의 숫자나 소수점이 있는 숫자 등을 정수 형태로 돌려주는 함수로, 정수를 입력으로 받으면 그대로 돌려준다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">int</span><span class="p">(</span><span class="s">'3'</span><span class="p">)</span>
+<span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">int</span><span class="p">(</span><span class="mf">3.4</span><span class="p">)</span>
+<span class="mi">3</span>
+</code></pre></div></div>
+
+<p>int(x, radix)는 radix 진수로 표현된 문자열 x를 10진수로 변환하여 돌려준다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">int</span><span class="p">(</span><span class="s">'11'</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="mi">3</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">int</span><span class="p">(</span><span class="s">'1A'</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<span class="mi">26</span>
+</code></pre></div></div>
 
 <blockquote>
   <p>isinstance</p>
 </blockquote>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<p>isinstance는 첫 번째 인수로 인스턴스, 두 번째 인수로 클래스 이름을 받는다. 입력으로 받은 인스턴스가 그 클래스의 인스턴스 인지를 판단하여 참이면 True, 거짓이면 False를 돌려준다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">class</span> <span class="nc">Person</span><span class="p">:</span> <span class="k">pass</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">Person</span><span class="p">)</span>
+<span class="bp">True</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">Person</span><span class="p">)</span>
+<span class="bp">False</span>
+</code></pre></div></div>
 
 <blockquote>
   <p>len</p>
 </blockquote>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<p>len(s)은 입력값 s의 길이를 돌려주는 함수이다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="s">"python"</span><span class="p">)</span>
+<span class="mi">6</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="s">'a'</span><span class="p">))</span>
+<span class="mi">2</span>
+</code></pre></div></div>
 
 <blockquote>
   <p>list</p>
 </blockquote>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<p>list(s)는 반복 가능한 자료형 s를 입력받아 리스트로 만들어 돌려주는 함수이다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="s">"python"</span><span class="p">)</span>
+<span class="p">[</span><span class="s">'p'</span><span class="p">,</span> <span class="s">'y'</span><span class="p">,</span> <span class="s">'t'</span><span class="p">,</span> <span class="s">'h'</span><span class="p">,</span> <span class="s">'o'</span><span class="p">,</span> <span class="s">'n'</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</code></pre></div></div>
 
 <blockquote>
   <p>map</p>
 </blockquote>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<p>map(f, iterable)은 함수(f)와 반복 가능한 자료형을 입력으로 받는다. map은 입력 받은 자료형의 각 요소를 함수 f가 수행한 결과를 묶어서 돌려주는 함수이다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># two_times.py
+</span><span class="k">def</span> <span class="nf">two_times</span><span class="p">(</span><span class="n">numberList</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">numberList</span><span class="p">:</span>
+        <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">number</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">two_times</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">two_times</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">two_times</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]))</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">a</span><span class="p">:</span> <span class="n">a</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]))</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+</code></pre></div></div>
 
 <blockquote>
   <p>max</p>
 </blockquote>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<p>max(iterable)는 인수로 반복 가능한 자료형을 입력받아 그 최댓값을 돌려주는 함수이다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">max</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">max</span><span class="p">(</span><span class="s">"python"</span><span class="p">)</span>
+<span class="s">'y'</span>
+</code></pre></div></div>
 
 <blockquote>
   <p>min</p>
 </blockquote>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<p>min(iterable)은 max 함수와 반대로, 인수로 반복 가능한 자료형을 입력받아 그 최솟값을 돌려주는 함수이다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">min</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">min</span><span class="p">(</span><span class="s">"python"</span><span class="p">)</span>
+<span class="s">'h'</span>
+</code></pre></div></div>
 
 <blockquote>
   <p>oct</p>
 </blockquote>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<p>oct(x)는 정수 형태의 숫자를 8진수 문자열로 바꾸어 돌려주는 함수이다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">oct</span><span class="p">(</span><span class="mi">34</span><span class="p">)</span>
+<span class="s">'0o42'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">oct</span><span class="p">(</span><span class="mi">12345</span><span class="p">)</span>
+<span class="s">'0x30071'</span>
+</code></pre></div></div>
 
 <blockquote>
   <p>open</p>
 </blockquote>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<p>open(filenmae, [mode])은 ‘파일 이름’과 ‘일기 방법’을 입력받아 파일 객체를 돌려주는 함수이다. 읽기 방법을 생략하면 기본값인 읽기 전용 모드로 파일 객체를 만들어 돌려준다</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>모드</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>w</td>
+      <td>쓰기 모드로 파일 열기</td>
+    </tr>
+    <tr>
+      <td>r</td>
+      <td>읽기 모드로 파일 열기</td>
+    </tr>
+    <tr>
+      <td>a</td>
+      <td>추가 모드로 파일 열기</td>
+    </tr>
+    <tr>
+      <td>b</td>
+      <td>바이너리 모드로 파일 열기</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>b는 w, r, a와 함께 사용한다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"binary_file"</span><span class="p">,</span> <span class="s">"rb"</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">fread</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"read_mode.txt"</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">fread2</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"read_mode.txt"</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">fappend</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"append_mode.txt"</span><span class="p">,</span> <span class="s">'a'</span><span class="p">)</span>
+</code></pre></div></div>
 
 <blockquote>
   <p>ord</p>
 </blockquote>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<p>ord(c)는 문자의 아스키 코드 값을 돌려주는 함수이다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">ord</span><span class="p">(</span><span class="s">'a'</span><span class="p">)</span>
+<span class="mi">97</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">ord</span><span class="p">(</span><span class="s">'0'</span><span class="p">)</span>
+<span class="mi">48</span>
+</code></pre></div></div>
 
 <blockquote>
   <p>pow</p>
 </blockquote>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<p>pow(x, y)는 x의 y제곱한 결괏값을 돌려주는 함수이다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="mi">16</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="mi">27</span>
+</code></pre></div></div>
 
 <blockquote>
   <p>range</p>
 </blockquote>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<p>range([start,] stop [,step])는 for문과 함께 자주 사용하는 함수이다. 이 함수는 입력받은 숫자에 해당하는 범위 값을 반복 가능한 객체로 만들어 돌려준다</p>
+
+<ul>
+  <li>인수가 하나일 경우</li>
+</ul>
+
+<p>시작 숫자를 지정해 주지 않으면 range 함수는 0부터 시작한다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+</code></pre></div></div>
+
+<ul>
+  <li>인수가 2개일 경우</li>
+</ul>
+
+<p>입력으로 주어지는 2개의 인수는 시작 숫자와 끝 숫자를 나타낸다. 단 끝 숫자는 해당 범위에 포함되지 않는다는 것에 주의하자</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+
+<span class="o">-</span> <span class="n">인수가</span> <span class="mi">3</span><span class="n">개일</span> <span class="n">경우</span>
+
+<span class="n">세</span> <span class="n">번째</span> <span class="n">인수는</span> <span class="n">숫자</span> <span class="n">사이의</span> <span class="n">거리를</span> <span class="n">말한다</span>
+
+<span class="sb">``</span><span class="err">`</span><span class="n">python</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="o">-</span><span class="mi">9</span><span class="p">]</span>
+</code></pre></div></div>
 
 <blockquote>
   <p>round</p>
 </blockquote>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<p>round(number[, ndigits]) 함수는 숫자를 입력받아 반올림해 주는 함수이다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">round</span><span class="p">(</span><span class="mf">4.6</span><span class="p">)</span>
+<span class="mi">5</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">round</span><span class="p">(</span><span class="mf">4.2</span><span class="p">)</span>
+<span class="mi">4</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">round</span><span class="p">(</span><span class="mf">5.678</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="mf">5.68</span>
+</code></pre></div></div>
+
+<p>round 함수의 두 번째 매개변수는 반올림하여 표시하고 싶은 소수점의 자릿수이다</p>
 
 <blockquote>
   <p>sorted</p>
 </blockquote>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<p>sorted(iterable) 함수는 입력값을 정렬한 후 그 결과를 리스트로 돌려주는 함수이다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">sorted</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">sorted</span><span class="p">([</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">])</span>
+<span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">sorted</span><span class="p">(</span><span class="s">"zero"</span><span class="p">)</span>
+<span class="p">[</span><span class="s">'e'</span><span class="p">,</span> <span class="s">'o'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">,</span> <span class="s">'z'</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">sorted</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>리스트 자료형에도 sort 함수가 있긴 하지만 리스트 객체 그 자체를 정렬만 할 뿐 정렬된 결과를 돌려주지는 않는다</p>
 
 <blockquote>
   <p>str</p>
 </blockquote>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<p>str(object)은 문자열 헝태로 객체를 변환하여 돌려주는 함수이다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">str</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="s">'3'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">str</span><span class="p">(</span><span class="s">'hi'</span><span class="p">)</span>
+<span class="s">'hi'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">str</span><span class="p">(</span><span class="s">'hi'</span><span class="p">.</span><span class="n">upper</span><span class="p">())</span>
+<span class="s">'HI'</span>
+</code></pre></div></div>
 
 <blockquote>
   <p>sum</p>
 </blockquote>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<p>sum(iterable)은 입력받은 리스트나 튜플의 모든 요소의 합을 돌려주는 함수이다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">sum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="mi">6</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">sum</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="mi">15</span>
+</code></pre></div></div>
 
 <blockquote>
   <p>tuple</p>
 </blockquote>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<p>tuple(iterable)은 반복 가능한 자료형을 입력받아 튜플 형태로 바꾸어 돌려주는 함수이다. 만약 튜플이 입력으로 들어오면 그대로 돌려준다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">tuple</span><span class="p">(</span><span class="s">"abc"</span><span class="p">)</span>
+<span class="p">(</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">tuple</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">tuple</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</code></pre></div></div>
 
 <blockquote>
   <p>type</p>
 </blockquote>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<p>type(object)은 입력값의 자료형이 무엇인지 알려 주는 함수이다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="s">"abc"</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">'</span><span class="nc">str</span><span class="s">'&gt;
+&gt;&gt;&gt; type([])
+&lt;class '</span><span class="nb">list</span><span class="s">'&gt;
+&gt;&gt;&gt; type(open("test", '</span><span class="n">w</span><span class="s">'))
+&lt;class '</span><span class="n">_io</span><span class="p">.</span><span class="n">TextIOWrapper</span><span class="s">'&gt;
+</span></code></pre></div></div>
 
 <blockquote>
   <p>zip</p>
 </blockquote>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<p>zip(*iterable)은 동일한 개수로 이루어진 자료형을 묶어 주는 역할을 하는 함수이다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">)]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]))</span>
+<span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">)],</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">)]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="n">zop</span><span class="p">(</span><span class="s">"abc"</span><span class="p">,</span> <span class="s">"def"</span><span class="p">))</span>
+<span class="p">[(</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">),</span> <span class="p">(</span><span class="s">'b'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">),</span> <span class="p">(</span><span class="s">'c'</span><span class="p">,</span> <span class="s">'f'</span><span class="p">)]</span>
+</code></pre></div></div>
 
 <hr />
 
 <h2 id="라이브러리">라이브러리</h2>
 
 <hr />
+
+<p>파이썬 사용자들이 만든 유용한 프로그램을 모아 놓은 것이 바로 파이썬 라이브러리이다</p>
+
+<blockquote>
+  <p>sys</p>
+</blockquote>
+
+<p>sys 모듈은 파이썬 인터프리터가 제공하는 변수와 함수를 직접 제어할 수 있게 해주는 모듈이다</p>
+
+<ul>
+  <li>명령 행에서 인수 전달하기 - sys.argv</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">User</span><span class="o">/</span><span class="n">home</span><span class="o">&gt;</span><span class="n">python</span> <span class="n">test</span><span class="p">.</span><span class="n">py</span> <span class="n">abcc</span> <span class="n">pey</span> <span class="n">guido</span>
+</code></pre></div></div>
+
+<p>명령 프롬프트 창에서 test.py 뒤에 또 다른 값을 함께 넣어 주면 sys.argv 리스트에 그 값이 추가된다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">//</span> <span class="n">argv_test</span><span class="p">.</span><span class="n">py</span> <span class="n">파일은</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">doit</span><span class="o">/</span><span class="n">Mymod</span> <span class="n">디렉터리에</span> <span class="n">저장했다고</span> <span class="n">가정</span>
+<span class="c1"># argv_test.py
+</span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">print</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">)</span>
+<span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">doit</span><span class="o">/</span><span class="n">Mymod</span><span class="o">&gt;</span><span class="n">python</span> <span class="n">argv_test</span><span class="p">.</span><span class="n">py</span> <span class="n">you</span> <span class="n">need</span> <span class="n">python</span>
+<span class="p">[</span><span class="s">'argv_test.py'</span><span class="p">,</span> <span class="s">'you'</span><span class="p">,</span> <span class="s">'need'</span><span class="p">,</span> <span class="s">'python'</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>python 명령어 뒤의 모든 것들이 공백을 기준으로 나뉘어서 sys.argv 리스트의 요소가 된다</p>
+
+<ul>
+  <li>강제로 스크립트 종료하기 - sys.exit</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">sys</span><span class="p">.</span><span class="nb">exit</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>프로그램 파일 안에서 사용하면 프로그램을 중단시킨다</p>
+
+<ul>
+  <li>자신이 만든 모듈 불러와 사용하기 - sys.path</li>
+</ul>
+
+<p>sys.path는 파이썬 모듈들이 저장되어 있는 위치를 나타낸다. 이 위치에 있는 파이썬 모듈은 경로에 상관없이 어디에서나 불러올 수 있다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">sys</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">sys</span><span class="p">.</span><span class="n">path</span>
+<span class="p">[</span><span class="s">''</span><span class="p">,</span> <span class="s">'C:</span><span class="se">\\</span><span class="s">windows</span><span class="se">\\</span><span class="s">System32</span><span class="se">\\</span><span class="s">python37.zip'</span><span class="p">,</span> <span class="s">'c:</span><span class="se">\\</span><span class="s">Python37</span><span class="se">\\</span><span class="s">DLLs'</span><span class="p">,</span> <span class="s">'c:</span><span class="se">\\</span><span class="s">Python37</span><span class="se">\\</span><span class="s">lib'</span><span class="p">,</span> <span class="s">'c:</span><span class="se">\\</span><span class="s">Python37'</span><span class="p">,</span> <span class="s">'c:</span><span class="se">\\</span><span class="s">Python37</span><span class="se">\\</span><span class="s">lib</span><span class="se">\\</span><span class="s">sit-packages'</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span>
+</code></pre></div></div>
+
+<p>'’은 현재 디렉터리를 말한다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># path_append.py
+</span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">"C:/doit/Mymod"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>pickle</p>
+</blockquote>
+
+<p>pickle은 객체의 형태로 그대로 유지하면서 파일에 저장하고 불러올 수 있게 하는 모듈이다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">pickle</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"test.txt"</span><span class="p">,</span> <span class="s">'wb'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s">'python'</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s">'you need'</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">pickle</span><span class="p">.</span><span class="n">dump</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">pickle</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"test.txt"</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pickle</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s">'python'</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="s">'you need'</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>위에서는 딕셔너리 객체를 사용했지만 어떤 자료형이든 저장하고 불러올 수 있다</p>
+
+<blockquote>
+  <p>OS</p>
+</blockquote>
+
+<p>OS 모듈은 환경 변수나 디렉터리, 파일 등의 OS 자원을 제어할 수 있게 해주는 모듈이다</p>
+
+<ul>
+  <li>내 시스템의 환경 변수 값을 알고 싶을 떄 - os.environ</li>
+</ul>
+
+<p>시스템은 제각기 다른 환경 변수 값을 가지고 있는데, os.environ은 현재 시스템의 환경 변수 값을 보여준다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">os</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">os</span><span class="p">.</span><span class="n">environ</span>
+<span class="n">environ</span><span class="p">({</span><span class="s">'PROFRAMFILES'</span><span class="p">:</span> <span class="s">'C:</span><span class="se">\\</span><span class="s">Progarm Files'</span><span class="p">,</span> <span class="s">'APPDATA'</span><span class="p">:</span> <span class="p">...</span> <span class="n">생략</span> <span class="p">...})</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="s">'PATH'</span><span class="p">]</span>
+<span class="s">'C:</span><span class="se">\\</span><span class="s">ProgramData</span><span class="se">\\</span><span class="s">Oracle</span><span class="se">\\</span><span class="s">Java</span><span class="se">\\</span><span class="s">javapath; ... 생략 ...'</span>
+</code></pre></div></div>
+
+<p>환경 변수에 대한 정보를 딕셔너리 객체로 돌려준다</p>
+
+<ul>
+  <li>디렉터리 위치 변경하기 - os.chdir</li>
+</ul>
+
+<p>os.chdir를 사용하면 다음과 같이 현재 디렉터리 위치를 변경할 수 있다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">os</span><span class="p">.</span><span class="n">chdir</span><span class="p">(</span><span class="s">"C:\WINDOWS"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>디렉터리 위치 돌려받기 - os.getcwd</li>
+</ul>
+
+<p>os.getcwd는 현재 자신의 디렉터리 위치를 돌려준다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">os</span><span class="p">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="s">'C:\WINDOWS'</span>
+</code></pre></div></div>
+
+<ul>
+  <li>시스템 명령어 호출하기 - os.system</li>
+</ul>
+
+<p>시스템 자체의 프로그램이나 기타 명령어르 파이썬에서 호출</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">os</span><span class="p">.</span><span class="n">system</span><span class="p">(</span><span class="s">"dir"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>실행한 시스템 명령어의 결괏값 돌려받기 - os.popen</li>
+</ul>
+
+<p>os.popen은 시스템 명령어를 실행한 결괏값을 읽기 모드 형태의 파일 객체로 돌려준다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">popen</span><span class="p">(</span><span class="s">"dir"</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">read</span><span class="p">())</span>
+</code></pre></div></div>
+
+<ul>
+  <li>기타 유용한 os 관련 함수</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>함수</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>os.mkdir(디렉터리)</td>
+      <td>디렉터리를 생성한다</td>
+    </tr>
+    <tr>
+      <td>os.rmdir(디렉터리)</td>
+      <td>디렉터리를 삭제한다,단 디렉터리가 비어 있어야 삭제가 가능하다</td>
+    </tr>
+    <tr>
+      <td>os.unlink(파일 이름)</td>
+      <td>파일을 지운다</td>
+    </tr>
+    <tr>
+      <td>os.rename(src, dst)</td>
+      <td>src라는 이름의 파일을 dst라는 이름으로 바꾼다</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>shutil</p>
+</blockquote>
+
+<p>shutil은 파일을 복사해 주는 파이썬 모듈이다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">shutil</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">shutil</span><span class="p">.</span><span class="n">copy</span><span class="p">(</span><span class="s">"src.txt"</span><span class="p">,</span> <span class="s">"dst.txt"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>만약 dst가 디렉터리 이름이라면 src라는 파일 이름으로 dst 디렉터리에 복사하고 동일한 파일 이름이 있을 경우에는 덮어쓴다</p>
+
+<blockquote>
+  <p>glob</p>
+</blockquote>
+
+<ul>
+  <li>디렉터리에 있는 파일들을 리스트로 만들기 - glob(pathname)</li>
+</ul>
+
+<p>glob 모듈은 디렉터리 안의 파일들을 읽어서 돌려준다, *,? 등 메타 문자를 써서 원하는 파일만 읽어 들일 수도 있다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">glob</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">glob</span><span class="p">.</span><span class="n">glob</span><span class="p">(</span><span class="s">"c:\doit\mark*"</span><span class="p">)</span>
+<span class="p">[</span><span class="s">'c:/doit</span><span class="se">\\</span><span class="s">marks1.py'</span><span class="p">,</span> <span class="s">'c:/doit</span><span class="se">\\</span><span class="s">mark2.py'</span><span class="p">,</span> <span class="s">'c:/doit</span><span class="se">\\</span><span class="s">marks3.py'</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>tempfile</p>
+</blockquote>
+
+<p>파일을 임시로 만들어서 사용할 떄 유용하다. tempfile.mkstemp()는 중복되지 않는 임시 파일의 이름을 무작위로 만들어서 돌려준다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">tempfile</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">filename</span> <span class="o">=</span> <span class="n">tempfile</span><span class="p">.</span><span class="n">mkstemp</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">filename</span>
+<span class="s">'C:WINDOWS\TEMP\~-275151-0'</span>
+</code></pre></div></div>
+
+<p>tempfile.TemporaryFile()은 임시 저장 공간으로 사용할 파일 객체를 돌려준다. 이 파일은 기본적으로 바이너리 쓰기 모드를 갖는다. f.close()가 호출되면 이 파일 객체는 자동으로 사라진다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">tempfile</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">tempfile</span><span class="p">.</span><span class="n">TemporaryFile</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">.</span><span class="n">close</span><span class="p">()</span> 
+</code></pre></div></div>
+
+<blockquote>
+  <p>time</p>
+</blockquote>
+
+<ul>
+  <li>time.time</li>
+</ul>
+
+<p>time.time()은 UTC를 사용하여 현재 시간을 실수 형태로 돌려주는 함수이다. 1970년 1월 1일 0시 0분 0초를 기준으로 지난 시간을 초 단위로 돌려준다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">tiem</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span>
+<span class="mf">988458015.73417199</span>
+</code></pre></div></div>
+
+<ul>
+  <li>time.localtime</li>
+</ul>
+
+<p>time.localtime은 time.time()이 돌려준 실수 값을 사용해서 연도,월,일,시,분,초, … 의 형태로 바꾸어 주는 함수이다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">time</span><span class="p">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">())</span>
+<span class="n">time</span><span class="p">.</span><span class="n">struct_time</span><span class="p">(</span><span class="n">tm_year</span><span class="o">=</span><span class="mi">2013</span><span class="p">,</span> <span class="n">tm_mon</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">tm_mday</span><span class="o">=</span><span class="mi">21</span><span class="p">,</span> <span class="n">tm_hour</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">tm_min</span><span class="o">=</span><span class="mi">48</span><span class="p">,</span> <span class="n">tm_sec</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">tm_wday</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">tm_yady</span><span class="o">=</span><span class="mi">141</span><span class="p">,</span> <span class="n">tm_isdst</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>time.asctime</li>
+</ul>
+
+<p>time.localtime에 의해서 반환된 튜플 형태의 값을 인수로 받아서 날짜와 시간을 알아보기 쉬운 형태로 돌려주는 함수이다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">time</span><span class="p">.</span><span class="n">asctime</span><span class="p">(</span><span class="n">time</span><span class="p">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()))</span>
+<span class="s">'Sat Apr 28 20:50:20 2001'</span>
+</code></pre></div></div>
+
+<ul>
+  <li>time.ctime</li>
+</ul>
+
+<p>time.asctime(time.localtime(time.time()))은 time.ctim()을 사용해 간편하게 표시할 수 있다<br />
+asctime과 다른 점은 ctime은 항상 현재 시간만을 돌려준다는 점이다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">time</span><span class="p">.</span><span class="n">ctime</span><span class="p">()</span>
+<span class="s">'Sat Apr 28 20:56:31 2001'</span>
+</code></pre></div></div>
+
+<ul>
+  <li>time.strftime</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">time</span><span class="p">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">'출력할 형식 포맷 코드'</span><span class="p">,</span> <span class="n">time</span><span class="p">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()))</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">time</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">time</span><span class="p">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">'%x'</span><span class="p">,</span> <span class="n">time</span><span class="p">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()))</span>
+<span class="s">'05/01/01'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">time</span><span class="p">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">'%c'</span><span class="p">,</span> <span class="n">time</span><span class="p">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()))</span>
+<span class="s">'05/01/01 17:22:21'</span>
+</code></pre></div></div>
+
+<ul>
+  <li>time.sleep</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">time</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>time.sleep 함수의 인수는 실수 형태를 쓸 수 있다</p>
+
+<blockquote>
+  <p>calendar</p>
+</blockquote>
+
+<p>calendar는 파이썬에서 달력을 볼 수 있게 해준는 모듈이다</p>
+
+<p>calendar.calendar(연도)로 사용하면 그해의 전체 달력을 볼 수 있다<br />
+calendar.prcal(2015)를 사용해도 똑같은 결괏값을 얻을 수 있다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">calendar</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">calendar</span><span class="p">.</span><span class="n">calendar</span><span class="p">(</span><span class="mi">2015</span><span class="p">))</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">calendar</span><span class="p">.</span><span class="n">prmont</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2015</span><span class="n">년</span> <span class="mi">12</span><span class="n">월의</span> <span class="n">달력만</span> <span class="n">보여</span> <span class="n">준다</span>
+</code></pre></div></div>
+
+<ul>
+  <li>calendar.weekday</li>
+</ul>
+
+<p>weekday 함수는 그 날짜에 해당하는 요일 정보를 돌려준다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">calendar</span><span class="p">.</span><span class="n">weekday</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
+<span class="mi">3</span>
+</code></pre></div></div>
+
+<ul>
+  <li>calendar.monthrange</li>
+</ul>
+
+<p>monthrange함수는 입력받은 달의 1일이 무슨 요일인지와 그 달이 며칠까지 있는지를 튜플 형태로 돌려준다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">calendar</span><span class="p">.</span><span class="n">monthrange</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>random</p>
+</blockquote>
+
+<p>random은 난수를 발생시키는 모듈이다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">random</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">random</span><span class="p">.</span><span class="n">random</span><span class="p">()</span>
+<span class="mf">0.538238982332</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">55</span><span class="p">)</span>
+<span class="mi">43</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># random_pop.py
+</span><span class="kn">import</span> <span class="nn">random</span>
+<span class="k">def</span> <span class="nf">random_pop</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">data</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">random_pop</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+
+<span class="mi">2</span>
+<span class="mi">3</span>
+<span class="mi">1</span>
+<span class="mi">5</span>
+<span class="mi">4</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>webbrowser</p>
+</blockquote>
+
+<p>webbrowser는 자신의 시스템에서 사용하는 기본 웹 브라우저를 자동으로 실행하는 모듈이다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">webbrowser</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">webbrowser</span><span class="p">.</span><span class="nb">open</span><span class="p">(</span><span class="s">"http://google.com"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>open함수는 웹 브라우저가 이미 실행된 상태라면 입력 주소로 이동한다. 만약 웹 브라우저가 실행되지 않은 상태라면 새로 웹 브라우저를 실행한 후 해당 주소로 이동한다<br />
+open_new 함수는 이미 웹 브라우저가 실행된 상태이더라도 새로운 창으로 해당 주소가 열리게 한다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">webbrowser</span><span class="p">.</span><span class="n">open_new</span><span class="p">(</span><span class="s">"http://google.com"</span><span class="p">)</span>
+</code></pre></div></div>
 
                 </div>
             </section>
