@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/python/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-03-10T20:41:21+09:00</updated>
+  <updated>2022-03-11T23:47:53+09:00</updated>
   <id>https://lee989898.github.io/tag/python/feed.xml</id>
 
   
@@ -2651,8 +2651,8 @@ False
     </entry>
   
     <entry>
-      <title type="html">자료형</title>
-      <link href="https://lee989898.github.io/py-04" rel="alternate" type="text/html" title="자료형" />
+      <title type="html">클래스</title>
+      <link href="https://lee989898.github.io/py-04" rel="alternate" type="text/html" title="클래스" />
       <published>2021-08-01T19:18:00+09:00</published>
       <updated>2021-08-01T19:18:00+09:00</updated>
       <id>https://lee989898.github.io/py-04</id>
