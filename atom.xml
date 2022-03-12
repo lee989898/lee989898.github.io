@@ -1245,7 +1245,7 @@
     
       
       <item>
-        <title>자료형</title>
+        <title>함수</title>
         
           <description>&lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;#함수&quot;&gt;함수&lt;/a&gt;&lt;/li&gt;
@@ -1264,7 +1264,7 @@
     
       
       <item>
-        <title>자료형</title>
+        <title>제어문</title>
         
           <description>&lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;#if문&quot;&gt;if문&lt;/a&gt;&lt;/li&gt;

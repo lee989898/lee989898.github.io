@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/python/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-03-11T23:47:53+09:00</updated>
+  <updated>2022-03-12T18:13:14+09:00</updated>
   <id>https://lee989898.github.io/tag/python/feed.xml</id>
 
   
@@ -32,8 +32,8 @@
 
   
     <entry>
-      <title type="html">자료형</title>
-      <link href="https://lee989898.github.io/py-03" rel="alternate" type="text/html" title="자료형" />
+      <title type="html">함수</title>
+      <link href="https://lee989898.github.io/py-03" rel="alternate" type="text/html" title="함수" />
       <published>2021-08-01T19:18:00+09:00</published>
       <updated>2021-08-01T19:18:00+09:00</updated>
       <id>https://lee989898.github.io/py-03</id>
@@ -543,8 +543,8 @@
     </entry>
   
     <entry>
-      <title type="html">자료형</title>
-      <link href="https://lee989898.github.io/py-02" rel="alternate" type="text/html" title="자료형" />
+      <title type="html">제어문</title>
+      <link href="https://lee989898.github.io/py-02" rel="alternate" type="text/html" title="제어문" />
       <published>2021-08-01T19:18:00+09:00</published>
       <updated>2021-08-01T19:18:00+09:00</updated>
       <id>https://lee989898.github.io/py-02</id>

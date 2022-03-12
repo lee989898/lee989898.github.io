@@ -383,6 +383,86 @@ into the {body} of the default.hbs template -->
 
 <p><img src="\assets\built\images\bc\bc3.png" alt="블록체인" /></p>
 
+<blockquote>
+  <p>Public Key Crypto in Blockchain</p>
+</blockquote>
+
+<ul>
+  <li>서명알고리즘 사용</li>
+  <li>Asset에 대한 Ownership을 증명하는데 사용
+    <ul>
+      <li>A로부터 받은 돈을 B가 사용할 떄 B가 서명으로 소유권 증명</li>
+      <li>B가 생성/설치한 Smart Contract에 대한 생성자 증명</li>
+    </ul>
+  </li>
+  <li>Proof-of-Authority (PoA)
+    <ul>
+      <li>Ethereum의 변형으로 일부 testnet에 사용 (Kovan)</li>
+      <li>서명확인된 Miner만 블록생성 가능</li>
+    </ul>
+  </li>
+  <li>서명 알고리즘
+    <ul>
+      <li>ECC (Elliptic Curve Cryptography) 기반 서명</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="\assets\built\images\bc\bc4.png" alt="블록체인" /></p>
+
+<blockquote>
+  <p>Elliptic Curve</p>
+</blockquote>
+
+<ul>
+  <li>Elliptic Curve
+    <ul>
+      <li>$y^2$ = $x^3$ + ax + b</li>
+      <li>곡선의 두 점을 이으는 선을 그리면 반드시 한점에서만 곡선과 교차</li>
+    </ul>
+  </li>
+  <li>Elliptic Curve Algebra (대수)
+    <ul>
+      <li>P1 + P2 = P3</li>
+      <li>0(항등원) = Infinity point</li>
+    </ul>
+  </li>
+  <li>Elliptic Curve Cryptography
+    <ul>
+      <li>큰 솟수(p)의 필드(Fp) 기반</li>
+    </ul>
+  </li>
+  <li>secp256k1 -&gt; bitcoin
+    <ul>
+      <li>$y^2$ = ($x^3$ + 7) over ($F_p$)</li>
+      <li>p = $2^256$ - $2^32$ - $2^9$ - $2^8$ - $2^7$ - $2^6$ -$2^4$ - 1</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="\assets\built\images\bc\bc5.png" alt="블록체인" /></p>
+
+<blockquote>
+  <p>Elliptic Curve Cryptography (ECC)</p>
+</blockquote>
+
+<ul>
+  <li>Given
+    <ul>
+      <li>Elliptic Curve (a, b, p)</li>
+      <li>Generator G</li>
+    </ul>
+  </li>
+  <li>Pick a random number K (엄청 큰 수)</li>
+  <li>Comput K*G</li>
+  <li>Public key(x,y) = K * G</li>
+  <li>Private key = K</li>
+  <li>KG 로부터 K를 구할 수 없음</li>
+  <li>RSA보다 10배 적은 키로 비슷한 보안성 유지</li>
+</ul>
+
+<p><img src="\assets\built\images\bc\bc6.png" alt="블록체인" /></p>
+
                 </div>
             </section>
 

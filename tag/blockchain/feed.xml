@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/blockchain/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-03-11T23:47:53+09:00</updated>
+  <updated>2022-03-12T18:13:14+09:00</updated>
   <id>https://lee989898.github.io/tag/blockchain/feed.xml</id>
 
   
@@ -185,7 +185,87 @@
   &lt;li&gt;상대방의 공개키를 확실하게 확인하는 방법 PKI&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\bc\bc3.png&quot; alt=&quot;블록체인&quot; /&gt;&lt;/p&gt;</content>
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\bc\bc3.png&quot; alt=&quot;블록체인&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Public Key Crypto in Blockchain&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;서명알고리즘 사용&lt;/li&gt;
+  &lt;li&gt;Asset에 대한 Ownership을 증명하는데 사용
+    &lt;ul&gt;
+      &lt;li&gt;A로부터 받은 돈을 B가 사용할 떄 B가 서명으로 소유권 증명&lt;/li&gt;
+      &lt;li&gt;B가 생성/설치한 Smart Contract에 대한 생성자 증명&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Proof-of-Authority (PoA)
+    &lt;ul&gt;
+      &lt;li&gt;Ethereum의 변형으로 일부 testnet에 사용 (Kovan)&lt;/li&gt;
+      &lt;li&gt;서명확인된 Miner만 블록생성 가능&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;서명 알고리즘
+    &lt;ul&gt;
+      &lt;li&gt;ECC (Elliptic Curve Cryptography) 기반 서명&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\bc\bc4.png&quot; alt=&quot;블록체인&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Elliptic Curve&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Elliptic Curve
+    &lt;ul&gt;
+      &lt;li&gt;$y^2$ = $x^3$ + ax + b&lt;/li&gt;
+      &lt;li&gt;곡선의 두 점을 이으는 선을 그리면 반드시 한점에서만 곡선과 교차&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Elliptic Curve Algebra (대수)
+    &lt;ul&gt;
+      &lt;li&gt;P1 + P2 = P3&lt;/li&gt;
+      &lt;li&gt;0(항등원) = Infinity point&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Elliptic Curve Cryptography
+    &lt;ul&gt;
+      &lt;li&gt;큰 솟수(p)의 필드(Fp) 기반&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;secp256k1 -&amp;gt; bitcoin
+    &lt;ul&gt;
+      &lt;li&gt;$y^2$ = ($x^3$ + 7) over ($F_p$)&lt;/li&gt;
+      &lt;li&gt;p = $2^256$ - $2^32$ - $2^9$ - $2^8$ - $2^7$ - $2^6$ -$2^4$ - 1&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\bc\bc5.png&quot; alt=&quot;블록체인&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Elliptic Curve Cryptography (ECC)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Given
+    &lt;ul&gt;
+      &lt;li&gt;Elliptic Curve (a, b, p)&lt;/li&gt;
+      &lt;li&gt;Generator G&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Pick a random number K (엄청 큰 수)&lt;/li&gt;
+  &lt;li&gt;Comput K*G&lt;/li&gt;
+  &lt;li&gt;Public key(x,y) = K * G&lt;/li&gt;
+  &lt;li&gt;Private key = K&lt;/li&gt;
+  &lt;li&gt;KG 로부터 K를 구할 수 없음&lt;/li&gt;
+  &lt;li&gt;RSA보다 10배 적은 키로 비슷한 보안성 유지&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\bc\bc6.png&quot; alt=&quot;블록체인&quot; /&gt;&lt;/p&gt;</content>
 
       
       
