@@ -938,6 +938,20 @@
     
       
       <item>
+        <title>컴퓨터 네트워크</title>
+        
+          <description>&lt;h2 id=&quot;컴퓨터-네트워크란&quot;&gt;&lt;strong&gt;컴퓨터 네트워크란&lt;/strong&gt;&lt;/h2&gt;
+</description>
+        
+        <pubDate>Thu, 02 Sep 2021 01:06:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/cn</link>
+        <guid isPermaLink="true">https://lee989898.github.io/cn</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>블록체인 이란</title>
         
           <description>&lt;h2 id=&quot;블록체인이란&quot;&gt;&lt;strong&gt;블록체인이란&lt;/strong&gt;&lt;/h2&gt;
@@ -1218,90 +1232,6 @@
         <link>
         https://lee989898.github.io/kotlin-01</link>
         <guid isPermaLink="true">https://lee989898.github.io/kotlin-01</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>클래스</title>
-        
-          <description>&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;#클래스&quot;&gt;클래스&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#모듈&quot;&gt;모듈&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#패키지&quot;&gt;패키지&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#예외-처리&quot;&gt;예외 처리&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#내장-함수&quot;&gt;내장 함수&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#라이브러리&quot;&gt;라이브러리&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-</description>
-        
-        <pubDate>Sun, 01 Aug 2021 19:18:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/py-04</link>
-        <guid isPermaLink="true">https://lee989898.github.io/py-04</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>함수</title>
-        
-          <description>&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;#함수&quot;&gt;함수&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#사용자-입력과-출력&quot;&gt;사용자 입력과 출력&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#파일-읽고-쓰기&quot;&gt;파일 읽고 쓰기&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-</description>
-        
-        <pubDate>Sun, 01 Aug 2021 19:18:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/py-03</link>
-        <guid isPermaLink="true">https://lee989898.github.io/py-03</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>제어문</title>
-        
-          <description>&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;#if문&quot;&gt;if문&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#while문&quot;&gt;while문&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#for문&quot;&gt;for문&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-</description>
-        
-        <pubDate>Sun, 01 Aug 2021 19:18:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/py-02</link>
-        <guid isPermaLink="true">https://lee989898.github.io/py-02</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>자료형</title>
-        
-          <description>&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;#숫자형&quot;&gt;숫자형&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#문자열-자료형&quot;&gt;문자열 자료형&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#리스트-자료형&quot;&gt;리스트 자료형&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#튜플-자료형&quot;&gt;튜플 자료형&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#딕셔너리-자료형&quot;&gt;딕셔너리 자료형&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#집합-자료형&quot;&gt;집합 자료형&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#불-자료형&quot;&gt;불 자료형&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;자료형의-값을-저장하는-공간-변수&quot;&gt;자료형의 값을 저장하는 공간, 변수&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-</description>
-        
-        <pubDate>Sun, 01 Aug 2021 19:18:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/py-01</link>
-        <guid isPermaLink="true">https://lee989898.github.io/py-01</guid>
       </item>
       
     
