@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/security2/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-03-19T12:46:10+09:00</updated>
+  <updated>2022-03-20T22:41:34+09:00</updated>
   <id>https://lee989898.github.io/tag/security2/feed.xml</id>
 
   
@@ -204,17 +204,18 @@
 &lt;ul&gt;
   &lt;li&gt;사이버 스파이
     &lt;ul&gt;
-      &lt;li&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;/li&gt;
+      &lt;li&gt;인터넷 등의 사이버 공간에서 특정 회사나 국가의 정보를 빼내서 그것을 필요로 하는 회사나 국가에 제공하는 활동&lt;/li&gt;
+      &lt;li&gt;사이버 스파이의 첫 사례는 1985년 독일의 ‘데이터 여행자 사건’ 마르쿠스 헤스를 포함한 5명의 해커가 유럽우주기구ESA, 미국항공우주국, 버지니아 주 군수 산업체, 일본 쓰쿠바연구소 등에서 4년에 걸쳐 빼낸 산업-과학정보를 구소련의 KGB에 팔아넘긴 사건&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;‘Red October’&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;‘Red October’ 라는 작전명을 가진 대규모 사이버 스파이는 각국 정부 및 외교기관, 연구 기관 등에 악성 프로그램을 유포하여 정보를 빼냄&lt;/li&gt;
   &lt;li&gt;1000여 명에 달하는 전문 직업 해커로 구성된 ‘중국  인민해방군 제3국 제2청 61398 해커 부대’는 2006년 무렵부터 최소 150건 이상의 기밀 정보 유출 공격을 감행&lt;/li&gt;
-  &lt;li&gt;2009년 유엔&lt;/li&gt;
-  &lt;li&gt;대표적인 사이버 전쟁:&lt;/li&gt;
-&lt;/ul&gt;</content>
+  &lt;li&gt;2009년 유엔(UN)에서는 만약 3차 세계대전이 시작된다면 사이버 전쟁이 될 것이라고 예측&lt;/li&gt;
+  &lt;li&gt;대표적인 사이버 전쟁: 2007년 에스토니아 사이버 분쟁, 2008년 러시아와 조지아 간의 사이버 전쟁, 2010년 미국과 이란의 사이버 분쟁 등&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc1.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;
+&lt;img src=&quot;\assets\built\images\sc2\sc2.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;</content>
 
       
       
