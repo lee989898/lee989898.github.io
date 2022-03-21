@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/security/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-03-20T22:41:34+09:00</updated>
+  <updated>2022-03-21T23:04:12+09:00</updated>
   <id>https://lee989898.github.io/tag/security/feed.xml</id>
 
   
@@ -71,7 +71,7 @@
   &lt;li&gt;Confidentiality​&lt;/li&gt;
   &lt;li&gt;Integrity​
 ​
-&lt;img src=&quot;/assets/built/images/sc/sc31.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/li&gt;
+&lt;img src=&quot;\assets\built\images\sc\sc31.png&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;blockquote&gt;
@@ -140,7 +140,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc32.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc\sc32.png&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;1단계: Security capability establish​
@@ -182,7 +182,7 @@
   &lt;li&gt;MAC 사용&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc33.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc\sc33.png&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;1: 메시지를 최대 16KB 단위로 fragment​&lt;/li&gt;
@@ -201,9 +201,7 @@
   &lt;li&gt;Additional Alerts added​&lt;/li&gt;
   &lt;li&gt;Modification to hash calculations​&lt;/li&gt;
   &lt;li&gt;Protocol version 3.1 in ClientHello, ServerHello&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;</content>
+&lt;/ul&gt;</content>
 
       
       
@@ -282,7 +280,7 @@
   &lt;p&gt;Transport and Tunnel Modes&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc34.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc\sc34.png&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Transport mode​
@@ -295,7 +293,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc35.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc\sc35.png&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Tunnel mode​
@@ -308,9 +306,7 @@
       &lt;li&gt;방화벽에서 구현 가능&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;</content>
+&lt;/ul&gt;</content>
 
       
       
@@ -402,7 +398,7 @@
   &lt;p&gt;시스템 구성도&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc28.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc\sc28.png&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Protocol​&lt;/p&gt;
@@ -435,9 +431,7 @@
   &lt;li&gt;관리 프로토콜은 표준화되지 않았으며 서버 구현에 따라 다르다&lt;/li&gt;
   &lt;li&gt;모든 인증은 중앙 집중식 KDC에 의해 제어되므로 이 인증 인프라가 손상되면 공격자가 모든 사용자를 가장할 수 있음&lt;/li&gt;
   &lt;li&gt;다른 호스트 이름이 필요한 각 네트워크 서비스에는 고유한 Kerberos 키 세트가 필요합니다. 이는 가상 호스팅 및 클러스터를 복잡하게 만든다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;</content>
+&lt;/ul&gt;</content>
 
       
       
@@ -508,7 +502,7 @@
   &lt;li&gt;정상적인 접근방해+엉뚱한 피해자​&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc29.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc\sc29.png&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;DDoS Attack​&lt;/p&gt;
@@ -529,7 +523,7 @@
   &lt;li&gt;대부분 사어버테러의 주요 원인&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc30.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc\sc30.png&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;DDos 종류&lt;/p&gt;
@@ -553,11 +547,7 @@
   &lt;li&gt;Easy: just use tools​&lt;/li&gt;
   &lt;li&gt;Effective​&lt;/li&gt;
   &lt;li&gt;공격자추적이 어렵다​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;​&lt;/p&gt;
-
-&lt;hr /&gt;</content>
+&lt;/ul&gt;</content>
 
       
       
@@ -603,7 +593,7 @@
   &lt;li&gt;조직의 내부망을 외부 인터넷과 격리시켜 일부 패킷은 통과시키고 나머지는 차단하는 HW와 SW의 조합&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc24.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc\sc24.png&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Firewall 서비스&lt;/p&gt;
@@ -657,7 +647,7 @@
     &lt;p&gt;example 2: Block outbound Web access, port=80.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;ACL: 규칙이 있는 테이블, 들어오는 패킷에 위에서 아래로 적용: (액션, 조건) pair&lt;/p&gt;
+    &lt;h2 id=&quot;acl-규칙이-있는-테이블-들어오는-패킷에-위에서-아래로-적용-액션-조건-pair&quot;&gt;ACL: 규칙이 있는 테이블, 들어오는 패킷에 위에서 아래로 적용: (액션, 조건) pair&lt;/h2&gt;
   &lt;/li&gt;
   &lt;li&gt;장점​
     &lt;ul&gt;
@@ -675,9 +665,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;Statefull packet filter​&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;2.Statefull packet filter​&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;동일한 상태정보를 가지는 패킷들을(packet flow) 그룹으로 필터링​
@@ -697,9 +685,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;Application gateway&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;3.Application gateway&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -734,9 +720,7 @@
   &lt;/li&gt;
   &lt;li&gt;내부 공격자 방어에 취약​&lt;/li&gt;
   &lt;li&gt;데이터 내용은 미확인 – 문서 등 내부에 심겨진 악성코드 방어 취약&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;</content>
+&lt;/ul&gt;</content>
 
       
       
@@ -818,36 +802,58 @@
 &lt;ol&gt;
   &lt;li&gt;Signature-based dectection​
     &lt;ul&gt;
-      &lt;li&gt;침입사건들을 패턴화(signature)​
-    + Signature example​&lt;/li&gt;
+      &lt;li&gt;침입사건들을 패턴화(signature)​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Signature example​
+    &lt;ul&gt;
       &lt;li&gt;실행 파일 첨부 메일 유형​&lt;/li&gt;
       &lt;li&gt;파일 읽기 시도 유형​&lt;/li&gt;
-      &lt;li&gt;로그인 시도 유형​
-    + 장점​&lt;/li&gt;
-      &lt;li&gt;known attack에 대해 효율적​
-    + 단점​&lt;/li&gt;
+      &lt;li&gt;로그인 시도 유형​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;장점​
+    &lt;ul&gt;
+      &lt;li&gt;known attack에 대해 효율적​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;단점​
+    &lt;ul&gt;
       &lt;li&gt;Unknown attack에 취약​&lt;/li&gt;
       &lt;li&gt;새로운 공격유형 발견때마다 signature 생성해야​&lt;/li&gt;
       &lt;li&gt;일반적으로 False negative rate 높음&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;Anomaly-based dectection​
+&lt;/ul&gt;
+
+&lt;p&gt;2.Anomaly-based dectection​
+    - 정상범위를 벗어나는 사건을 탐지​&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Anomaly example​
     &lt;ul&gt;
-      &lt;li&gt;정상범위를 벗어나는 사건을 탐지​
-    + Anomaly example​&lt;/li&gt;
       &lt;li&gt;휴일에 traffic 량이 평소보다 20%증가​&lt;/li&gt;
       &lt;li&gt;일반사용자가 갑자기 1000통 메일발송​&lt;/li&gt;
       &lt;li&gt;특정 호스트에 단시간 주문요청 100%증가​&lt;/li&gt;
-      &lt;li&gt;국내 사용자 카드가 해외에서 결재​
-    + 장점​&lt;/li&gt;
+      &lt;li&gt;국내 사용자 카드가 해외에서 결재​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;장점​
+    &lt;ul&gt;
       &lt;li&gt;Machine learning 처리​&lt;/li&gt;
-      &lt;li&gt;Unknown attac에 대해 효율적​
-    + 단점​&lt;/li&gt;
+      &lt;li&gt;Unknown attac에 대해 효율적​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;단점​
+    &lt;ul&gt;
       &lt;li&gt;정상범위 정의 어려움​&lt;/li&gt;
       &lt;li&gt;비정상탐지까지 기다려야​&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;IDS types&lt;/p&gt;
@@ -994,9 +1000,7 @@
       &lt;li&gt;IDS로 침입탐지하고 계정, 연결 등 차단​&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;</content>
+&lt;/ul&gt;</content>
 
       
       
@@ -1065,22 +1069,26 @@
   &lt;li&gt;Man in the middle attack: Trudy poses as Alice and as Bob
     &lt;ul&gt;
       &lt;li&gt;Diffe-Hellman은 매우 복잡한 프로토콜이지만, 제 3자가 x 또는 y 값을 알아내지 않아도 되기 때문에 중간에서 밥과 앨리스를 속이는 것이 가능하다.​&lt;/li&gt;
-      &lt;li&gt;중간자 공격 절차​
-        &lt;ol&gt;
-          &lt;li&gt;앨리스가 x를 선택한 후 R1=Gx를 계산하여 R1을 밥에게 전송​&lt;/li&gt;
-          &lt;li&gt;제 3자가 R1을 가로챈 후, z를 선택한 다음 R2=Gz mod N을 계산하여 R2를 앨리스와 밥에게 전송​&lt;/li&gt;
-          &lt;li&gt;밥이 y를 선택한 다음 R3=Gy mod N을 계산해서 R3을 앨리스에게 전송, R3을 제 3자가 가로챔​&lt;/li&gt;
-          &lt;li&gt;앨리스와 제 3자가 공유한 키 K1=Gxz mod N을 계산​&lt;/li&gt;
-          &lt;li&gt;제 3자와 밥은 공유한 키 K2=Gzy mod N을 계산​&lt;/li&gt;
-        &lt;/ol&gt;
-      &lt;/li&gt;
+      &lt;li&gt;중간자 공격 절차​&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;앨리스가 x를 선택한 후 R1=Gx를 계산하여 R1을 밥에게 전송​&lt;/li&gt;
+  &lt;li&gt;제 3자가 R1을 가로챈 후, z를 선택한 다음 R2=Gz mod N을 계산하여 R2를 앨리스와 밥에게 전송​&lt;/li&gt;
+  &lt;li&gt;밥이 y를 선택한 다음 R3=Gy mod N을 계산해서 R3을 앨리스에게 전송, R3을 제 3자가 가로챔​&lt;/li&gt;
+  &lt;li&gt;앨리스와 제 3자가 공유한 키 K1=Gxz mod N을 계산​&lt;/li&gt;
+  &lt;li&gt;제 3자와 밥은 공유한 키 K2=Gzy mod N을 계산​
+    &lt;ul&gt;
       &lt;li&gt;경우 앨리스와 밥은 제 3자와 공유한 키를 서로간의 공유한 키로 생각​&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;사용자 인증을 하지 않아서 발생하는 문제 -&amp;gt; 전자서명, 인증서&lt;/li&gt;
-&lt;/ul&gt;
+&lt;/ol&gt;
 
-&lt;hr /&gt;</content>
+&lt;ul&gt;
+  &lt;li&gt;사용자 인증을 하지 않아서 발생하는 문제 -&amp;gt; 전자서명, 인증서&lt;/li&gt;
+&lt;/ul&gt;</content>
 
       
       
@@ -1132,18 +1140,18 @@
   &lt;/li&gt;
   &lt;li&gt;저작권이란&lt;/li&gt;
   &lt;li&gt;Copyright&lt;/li&gt;
-  &lt;li&gt;저작자가 자신이 창작한 저작물에 대해 갖는 권리(저작권법)
-    &lt;ol&gt;
-      &lt;li&gt;복제권: 저작자는 저작물을 복제할 권리를 갖는다&lt;/li&gt;
-      &lt;li&gt;공연권&lt;/li&gt;
-      &lt;li&gt;공중송신권&lt;/li&gt;
-      &lt;li&gt;전시권: 원본이나 복제물을 전시할 권리&lt;/li&gt;
-      &lt;li&gt;배포권: 원본이나 복제물을 배포. 다만, 저작자의 허락을 받아 판매등의 방법으로 거래에 제공된 경우는 제외&lt;/li&gt;
-      &lt;li&gt;대여권: 영리를 목적으로 대여할 권리&lt;/li&gt;
-      &lt;li&gt;2차적 저작물작성권: 원저작물로 하는 2차적저작물을 작성하여 이용할 권리&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
+  &lt;li&gt;저작자가 자신이 창작한 저작물에 대해 갖는 권리(저작권법)&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;복제권: 저작자는 저작물을 복제할 권리를 갖는다&lt;/li&gt;
+  &lt;li&gt;공연권&lt;/li&gt;
+  &lt;li&gt;공중송신권&lt;/li&gt;
+  &lt;li&gt;전시권: 원본이나 복제물을 전시할 권리&lt;/li&gt;
+  &lt;li&gt;배포권: 원본이나 복제물을 배포. 다만, 저작자의 허락을 받아 판매등의 방법으로 거래에 제공된 경우는 제외&lt;/li&gt;
+  &lt;li&gt;대여권: 영리를 목적으로 대여할 권리&lt;/li&gt;
+  &lt;li&gt;2차적 저작물작성권: 원저작물로 하는 2차적저작물을 작성하여 이용할 권리&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Common DRM business model&lt;/p&gt;
@@ -1197,9 +1205,7 @@
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;복제방지, 원본여부, 재생횟수제한, 유효기간설정, 시간제한 등에 활용&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;</content>
+&lt;/ul&gt;</content>
 
       
       
@@ -1271,7 +1277,7 @@
   &lt;li&gt;각 사용자는 이 키를 사용하여 KDC와 통신한다&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc23.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc\sc23.png&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Operation&lt;/p&gt;
@@ -1305,7 +1311,7 @@ Alice는 Bob에게 $K_{B-KDC}$(A,R1)을 보내고 Bob은 R1을 추출해낸다&l
           &lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
-      &lt;li&gt;+KDC가 공격되면 모든 비밀키가 노출될 수 있음&lt;/li&gt;
+      &lt;li&gt;KDC가 공격되면 모든 비밀키가 노출될 수 있음&lt;/li&gt;
       &lt;li&gt;KDC의 신뢰성이 매우 중요함&lt;/li&gt;
       &lt;li&gt;KDC에 대한 병목현상 발생&lt;/li&gt;
     &lt;/ul&gt;
@@ -1450,9 +1456,7 @@ Alice는 Bob에게 $K_{B-KDC}$(A,R1)을 보내고 Bob은 R1을 추출해낸다&l
   &lt;li&gt;발급기관에서 등록확인서 발급 (참조번호, 인가코드)​&lt;/li&gt;
   &lt;li&gt;발급기관 홈페이지접속해서 공인인증서 발급 신청​&lt;/li&gt;
   &lt;li&gt;공인인증서 파일이 발급​&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;</content>
+&lt;/ul&gt;</content>
 
       
       
@@ -1504,7 +1508,7 @@ Alice는 Bob에게 $K_{B-KDC}$(A,R1)을 보내고 Bob은 R1을 추출해낸다&l
   &lt;p&gt;Access control components&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc17.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc\sc17.png&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Authentication function: 사용자가 시스템에 접근할 수 있는지 결정&lt;/li&gt;
@@ -1517,7 +1521,7 @@ Alice는 Bob에게 $K_{B-KDC}$(A,R1)을 보내고 Bob은 R1을 추출해낸다&l
   &lt;p&gt;Access control architecture&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc18.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc\sc18.png&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Access Control Policy&lt;/p&gt;
@@ -1556,7 +1560,7 @@ Alice는 Bob에게 $K_{B-KDC}$(A,R1)을 보내고 Bob은 R1을 추출해낸다&l
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc19.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc\sc19.png&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;방법1. ACL - Access control lists
@@ -1567,7 +1571,7 @@ Alice는 Bob에게 $K_{B-KDC}$(A,R1)을 보내고 Bob은 R1을 추출해낸다&l
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc20.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc\sc20.png&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;방법2. Capablility tickets
@@ -1583,7 +1587,7 @@ Alice는 Bob에게 $K_{B-KDC}$(A,R1)을 보내고 Bob은 R1을 추출해낸다&l
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc21.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc\sc21.png&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;방법 3. authorization table
@@ -1594,7 +1598,7 @@ Alice는 Bob에게 $K_{B-KDC}$(A,R1)을 보내고 Bob은 R1을 추출해낸다&l
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/built/images/sc/sc22.png&quot; width=&quot;50%&quot; height=&quot;25%&quot; title=&quot;제목&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc\sc22.png&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;DAC 장단점 분석
@@ -1681,9 +1685,7 @@ Alice는 Bob에게 $K_{B-KDC}$(A,R1)을 보내고 Bob은 R1을 추출해낸다&l
       &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;</content>
+&lt;/ul&gt;</content>
 
       
       

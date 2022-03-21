@@ -239,15 +239,15 @@ into the {body} of the default.hbs template -->
       <li>
         <p>kernel process</p>
 
-        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   #include &lt;sys/types.h&gt;​
-  #include &lt;unistd.h&gt;​
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     #include &lt;sys/types.h&gt;​
+    #include &lt;unistd.h&gt;​
 
-  pid_t getpid(void);      // returns process ID​
-  pid_t getppid(void);     // returns parent process ID​
-  uid_t getuid(void);      // returns real user ID​
-  uid_t geteuid(void);     // returns effective user ID​
-  gid_t getgid(void);      // returns real group ID​
-  gid_t getegid(void);     // returns effective group ID​
+    pid_t getpid(void);      // returns process ID​
+    pid_t getppid(void);     // returns parent process ID​
+    uid_t getuid(void);      // returns real user ID​
+    uid_t geteuid(void);     // returns effective user ID​
+    gid_t getgid(void);      // returns real group ID​
+    gid_t getegid(void);     // returns effective group ID​
 </code></pre></div>        </div>
       </li>
     </ul>
@@ -407,13 +407,13 @@ pid_t fork(void);
       <li>
         <p>오류와 함께 즉시 반환(child 프로세스가 없는 경우)</p>
 
-        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  #include &lt;sys/types.h&gt;​
-  #include &lt;sys/wait.h&gt;​​
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    #include &lt;sys/types.h&gt;​
+    #include &lt;sys/wait.h&gt;​​
 
-  pid_t wait(int *statloc);​
-  pid_t waitpid(pid_t pid, int *statloc, int options);​
+    pid_t wait(int *statloc);​
+    pid_t waitpid(pid_t pid, int *statloc, int options);​
 
-  ​둘 다 반환: 정상이면 프로세스 ID, 오류 발생 시 0 또는 -1
+    ​둘 다 반환: 정상이면 프로세스 ID, 오류 발생 시 0 또는 -1
 </code></pre></div>        </div>
       </li>
     </ul>
@@ -870,6 +870,20 @@ struct tms(
                                   
                                 
                                   
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
                                     
                                         
                                         
@@ -1050,18 +1064,6 @@ struct tms(
                                 
                                   
                                 
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
                             </ul>
                         </div>
                         <footer class="read-next-card-footer">
@@ -1174,7 +1176,7 @@ struct tms(
                 <span class="reading-time">
                     
                     
-                      6 min read
+                      5 min read
                     
                 </span>
             </footer>

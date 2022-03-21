@@ -240,11 +240,11 @@ A,B,C,D는 각각이 아톰이며, (A,B,C,D)는 리스트이다</p>
 
 <p>Lisp으로 작성된 팩토리알 함수는</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(DEFUN factorial (X))
-    (IF &lt;= n 1)
-            1
-            (* n factorial (-n 1)))
-)
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">DEFUN</span> <span class="n">factorial</span> <span class="p">(</span><span class="n">X</span><span class="p">))</span>
+    <span class="p">(</span><span class="n">IF</span> <span class="o">&lt;=</span> <span class="n">n</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="mi">1</span>
+            <span class="p">(</span><span class="o">*</span> <span class="n">n</span> <span class="n">factorial</span> <span class="p">(</span><span class="o">-</span><span class="n">n</span> <span class="mi">1</span><span class="p">)))</span>
+<span class="p">)</span>
 </code></pre></div></div>
 
 <p>과 같다</p>
@@ -259,8 +259,8 @@ DOLIST(x ‘(1 2 3)) (print x))는 리스트 요소 1,2,3,nil로 구성된 리�
 <p>사용자는 DEFMACRO를 써서 자신이 원하는 매크로를 정의할 수 있다</p>
 
 <p>Lisp에서 괄호 앞의 ‘(QUOTE)는 괄호 속의 표현식을 평가(실행)하지 말고, 그 객체(표현식)를 결과로서 반환하라는 뜻이다<br />
-예를 들어 ‘(a(* 3 4)c)는 (a 12 c)를 결과로 반환한다<br />
-중첩된 괄호 속의 (* 3 4)는 평가한다는 것에 주의하자</p>
+예를 들어 (a(<em>3 4)c)는 (a 12 c)를 결과로 반환한다<br />
+중첩된 괄호 속의 (</em> 3 4)는 평가한다는 것에 주의하자</p>
 
 <p>Lisp은 컴파일러가 아닌 인터프리터에 의해 실행된다<br />
 Lisp 프로그램에서는 함수 정의 및 함수 적용(호출)을 “괄호에 의한 리스트 표시 방식”으로 표현된다<br />
@@ -279,6 +279,7 @@ Scheme에서는 함수가 표현식의 결과 값일 수 있고, 함수가 리�
 <p>Scheme은 단순한 신택스와 시맨틱스를 갖는, 타입이 없는 작은 언어이다</p>
 
 <p>Scheme 인터프리터는 상호작용 모드로 동작하면서, read-evaluate-print 순환(REPL)을 무한으로 반복한다</p>
+
 <ul>
   <li>사용자가 입력한 표현식을 읽어서</li>
   <li>EVAL 함수에 의해 표현식을 해석하고</li>
@@ -295,7 +296,7 @@ Scheme에서는 함수가 표현식의 결과 값일 수 있고, 함수가 리�
 <p>원시 산술 함수는 +,-,*,/,modulo,round,max,min,log,sin,sqrt 등이다<br />
 음수에 대한 sqrt는 허수이다</p>
 
-<p>함수 정의는 (LAMBDA (x) (* x x))의 형식을 가지며, 함수 적용은 ((LAMBDA(x) (* x x)) 7)의 형식을 갖는다</p>
+<p>함수 정의는 (LAMBDA (x) (<em>x x))의 형식을 가지며, 함수 적용은 ((LAMBDA(x) (</em> x x)) 7)의 형식을 갖는다</p>
 
 <p>DEFINE 함수는 이름을 값이나 람다 함수에 바인딩하는 특수한 함수이다<br />
 (DEFINE symbol expression)의 형식을 가지며, 그 예로 (DFINE pi 3.141592), (DEFINE two_pi (* 2 pi))을 들 수 있다</p>
@@ -316,11 +317,11 @@ if는 3개의 파라미터(논리적 술어 표현식, then 표현식, else 표�
 <p>평가 컨트롤은 여럿 중에서 하나 이상이 선택 및 실행되는 COND와 recursion이 있다<br />
 COND의 형식은</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(DEFINE (leap? year))
-    (COND
-        ((ZERO? (MODULO year 400)) #T)
-        ((ZERO? (MODULO year 100)) #F)
-        (ELSE (ZERO? (MODULO year 4)))))
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">DEFINE</span> <span class="p">(</span><span class="n">leap</span><span class="o">?</span> <span class="n">year</span><span class="p">))</span>
+    <span class="p">(</span><span class="n">COND</span>
+        <span class="p">((</span><span class="n">ZERO</span><span class="o">?</span> <span class="p">(</span><span class="n">MODULO</span> <span class="n">year</span> <span class="mi">400</span><span class="p">))</span> <span class="err">#</span><span class="n">T</span><span class="p">)</span>
+        <span class="p">((</span><span class="n">ZERO</span><span class="o">?</span> <span class="p">(</span><span class="n">MODULO</span> <span class="n">year</span> <span class="mi">100</span><span class="p">))</span> <span class="err">#</span><span class="n">F</span><span class="p">)</span>
+        <span class="p">(</span><span class="n">ELSE</span> <span class="p">(</span><span class="n">ZERO</span><span class="o">?</span> <span class="p">(</span><span class="n">MODULO</span> <span class="n">year</span> <span class="mi">4</span><span class="p">)))))</span>
 </code></pre></div></div>
 
 <p>와 같다</p>
@@ -328,32 +329,32 @@ COND의 형식은</p>
 <p>리스트 함수에는 QUOTE,CAR,CDR,CONS 함수가 있다<br />
 QUOTE는 그 자체를 결과로 반환하며, ‘로 표시한다</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(QUOTE A) returns A ​
-(QUOTE (A B C)) returns (A B C)​
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">QUOTE</span> <span class="n">A</span><span class="p">)</span> <span class="n">returns</span> <span class="n">A</span> <span class="err">​</span>
+<span class="p">(</span><span class="n">QUOTE</span> <span class="p">(</span><span class="n">A</span> <span class="n">B</span> <span class="n">C</span><span class="p">))</span> <span class="n">returns</span> <span class="p">(</span><span class="n">A</span> <span class="n">B</span> <span class="n">C</span><span class="p">)</span><span class="err">​</span>
 </code></pre></div></div>
 
 <p>CAR 함수는</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(CAR '((A B) C D)) returns (A B) ​
-(CAR 'A) is an error because A is not a list ​
-(CAR '(A)) returns A ​
-(CAR '()) is an error ​
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">CAR</span> <span class="err">'</span><span class="p">((</span><span class="n">A</span> <span class="n">B</span><span class="p">)</span> <span class="n">C</span> <span class="n">D</span><span class="p">))</span> <span class="n">returns</span> <span class="p">(</span><span class="n">A</span> <span class="n">B</span><span class="p">)</span> <span class="err">​</span>
+<span class="p">(</span><span class="n">CAR</span> <span class="err">'</span><span class="n">A</span><span class="p">)</span> <span class="n">is</span> <span class="n">an</span> <span class="n">error</span> <span class="n">because</span> <span class="n">A</span> <span class="n">is</span> <span class="n">not</span> <span class="n">a</span> <span class="n">list</span> <span class="err">​</span>
+<span class="p">(</span><span class="n">CAR</span> <span class="err">'</span><span class="p">(</span><span class="n">A</span><span class="p">))</span> <span class="n">returns</span> <span class="n">A</span> <span class="err">​</span>
+<span class="p">(</span><span class="n">CAR</span> <span class="err">'</span><span class="p">())</span> <span class="n">is</span> <span class="n">an</span> <span class="n">error</span> <span class="err">​</span>
 </code></pre></div></div>
 
 <p>CDR 함수는 ​</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(CDR '((A B) C D)) returns (C D) ​
-(CDR 'A) is an error ​
-(CDR '(A)) returns () ​
-(CDR '()) is an error​
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">CDR</span> <span class="err">'</span><span class="p">((</span><span class="n">A</span> <span class="n">B</span><span class="p">)</span> <span class="n">C</span> <span class="n">D</span><span class="p">))</span> <span class="n">returns</span> <span class="p">(</span><span class="n">C</span> <span class="n">D</span><span class="p">)</span> <span class="err">​</span>
+<span class="p">(</span><span class="n">CDR</span> <span class="err">'</span><span class="n">A</span><span class="p">)</span> <span class="n">is</span> <span class="n">an</span> <span class="n">error</span> <span class="err">​</span>
+<span class="p">(</span><span class="n">CDR</span> <span class="err">'</span><span class="p">(</span><span class="n">A</span><span class="p">))</span> <span class="n">returns</span> <span class="p">()</span> <span class="err">​</span>
+<span class="p">(</span><span class="n">CDR</span> <span class="err">'</span><span class="p">())</span> <span class="n">is</span> <span class="n">an</span> <span class="n">error</span><span class="err">​</span>
 </code></pre></div></div>
 
 <p>CONS 함수는 ​</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(CONS 'A '()) returns (A) ​
-(CONS 'A '(B C)) returns (A B C)​
-(CONS '() '(A B)) returns (() A B)​
-(CONS '(A B) '(C D)) returns ((A B) C D)
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">CONS</span> <span class="err">'</span><span class="n">A</span> <span class="err">'</span><span class="p">())</span> <span class="n">returns</span> <span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="err">​</span>
+<span class="p">(</span><span class="n">CONS</span> <span class="err">'</span><span class="n">A</span> <span class="err">'</span><span class="p">(</span><span class="n">B</span> <span class="n">C</span><span class="p">))</span> <span class="n">returns</span> <span class="p">(</span><span class="n">A</span> <span class="n">B</span> <span class="n">C</span><span class="p">)</span><span class="err">​</span>
+<span class="p">(</span><span class="n">CONS</span> <span class="err">'</span><span class="p">()</span> <span class="err">'</span><span class="p">(</span><span class="n">A</span> <span class="n">B</span><span class="p">))</span> <span class="n">returns</span> <span class="p">(()</span> <span class="n">A</span> <span class="n">B</span><span class="p">)</span><span class="err">​</span>
+<span class="p">(</span><span class="n">CONS</span> <span class="err">'</span><span class="p">(</span><span class="n">A</span> <span class="n">B</span><span class="p">)</span> <span class="err">'</span><span class="p">(</span><span class="n">C</span> <span class="n">D</span><span class="p">))</span> <span class="n">returns</span> <span class="p">((</span><span class="n">A</span> <span class="n">B</span><span class="p">)</span> <span class="n">C</span> <span class="n">D</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>CAR, CDR을 가지고 a_list의 두번째 리스트 요소를 결과값으로 반환하는 함수를 정의하면, (DEFINE (second a_list)(CAR(CDR a_list)))가 된다<br />
@@ -380,25 +381,25 @@ list1의 리스트의 요소를 모두 새로운 리스트에 넣고 나면, 이
 <p>반복 처리는 모두 recursion을 이용한다<br />
 즉, 이들 모두 recursion으로 프로그래밍 된다</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root1 = (-b + sqrt(b2 - 4 ac))/2a, root 2 = (-b - sqrt(b2 - 4 ac))/2 a​
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">root1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">b2</span> <span class="o">-</span> <span class="mi">4</span> <span class="n">ac</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span><span class="n">a</span><span class="p">,</span> <span class="n">root</span> <span class="mi">2</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">b2</span> <span class="o">-</span> <span class="mi">4</span> <span class="n">ac</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span> <span class="n">a</span><span class="err">​</span>
 
-(DEFINE (quadratic_roots a b c) ​
+<span class="p">(</span><span class="n">DEFINE</span> <span class="p">(</span><span class="n">quadratic_roots</span> <span class="n">a</span> <span class="n">b</span> <span class="n">c</span><span class="p">)</span> <span class="err">​</span>
 
-  (LET ( ​
+  <span class="p">(</span><span class="n">LET</span> <span class="p">(</span> <span class="err">​</span>
 
-     (root_part_over_2a ​
+     <span class="p">(</span><span class="n">root_part_over_2a</span> <span class="err">​</span>
 
-                    (/ (SQRT (− (* b b) (* 4 a c))) (* 2 a))) ​
+                    <span class="p">(</span><span class="o">/</span> <span class="p">(</span><span class="n">SQRT</span> <span class="p">(</span><span class="err">−</span> <span class="p">(</span><span class="o">*</span> <span class="n">b</span> <span class="n">b</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span> <span class="mi">4</span> <span class="n">a</span> <span class="n">c</span><span class="p">)))</span> <span class="p">(</span><span class="o">*</span> <span class="mi">2</span> <span class="n">a</span><span class="p">)))</span> <span class="err">​</span>
 
-     (minus_b_over_2a (/ (− 0 b) (* 2 a))) ​
+     <span class="p">(</span><span class="n">minus_b_over_2a</span> <span class="p">(</span><span class="o">/</span> <span class="p">(</span><span class="err">−</span> <span class="mi">0</span> <span class="n">b</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span> <span class="mi">2</span> <span class="n">a</span><span class="p">)))</span> <span class="err">​</span>
 
-         ) ​
+         <span class="p">)</span> <span class="err">​</span>
 
-  (LIST (+ minus_b_over_2a root_part_over_2a) ​
+  <span class="p">(</span><span class="n">LIST</span> <span class="p">(</span><span class="o">+</span> <span class="n">minus_b_over_2a</span> <span class="n">root_part_over_2a</span><span class="p">)</span> <span class="err">​</span>
 
-                  (− minus_b_over_2a root_part_over_2a)) ​
+                  <span class="p">(</span><span class="err">−</span> <span class="n">minus_b_over_2a</span> <span class="n">root_part_over_2a</span><span class="p">))</span> <span class="err">​</span>
 
-))​
+<span class="p">))</span><span class="err">​</span>
 </code></pre></div></div>
 
 <p>LET 함수는 로컬 변수를 생성한다<br />
@@ -418,29 +419,29 @@ CADDR을 (DEFINE (third a_list) ((compose CAR (compose CDR CDR)) a_list))와 같
 위의 map 함수 정의에서 (COND … NULL? … ELSE …) 부분은 리스트 요소를 하나씩 꺼내는 처리 로직을 수행한다<br />
 맵함수 사용 예: (map (LAMBDA(num)(*num num num))’(3 4 2 6))은 (27 64 8 216)를 반환한다</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> (DEFINE (adder a_list) ​
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="p">(</span><span class="n">DEFINE</span> <span class="p">(</span><span class="n">adder</span> <span class="n">a_list</span><span class="p">)</span> <span class="err">​</span>
 
-      (COND ​
+      <span class="p">(</span><span class="n">COND</span> <span class="err">​</span>
 
-          ((NULL? a_list) 0) ​
+          <span class="p">((</span><span class="nb">NULL</span><span class="o">?</span> <span class="n">a_list</span><span class="p">)</span> <span class="mi">0</span><span class="p">)</span> <span class="err">​</span>
 
-          (ELSE (+ (CAR a_list) (adder (CDR a_list)))) ))​
+          <span class="p">(</span><span class="n">ELSE</span> <span class="p">(</span><span class="o">+</span> <span class="p">(</span><span class="n">CAR</span> <span class="n">a_list</span><span class="p">)</span> <span class="p">(</span><span class="n">adder</span> <span class="p">(</span><span class="n">CDR</span> <span class="n">a_list</span><span class="p">))))</span> <span class="p">))</span><span class="err">​</span>
 
-(adder '(3 4 5)) ​
+<span class="p">(</span><span class="n">adder</span> <span class="err">'</span><span class="p">(</span><span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">))</span> <span class="err">​</span>
 
-   (+ 3 (adder (4 5))) ​
+   <span class="p">(</span><span class="o">+</span> <span class="mi">3</span> <span class="p">(</span><span class="n">adder</span> <span class="p">(</span><span class="mi">4</span> <span class="mi">5</span><span class="p">)))</span> <span class="err">​</span>
 
-   (+ 3 (+ 4 (adder (5)))) ​
+   <span class="p">(</span><span class="o">+</span> <span class="mi">3</span> <span class="p">(</span><span class="o">+</span> <span class="mi">4</span> <span class="p">(</span><span class="n">adder</span> <span class="p">(</span><span class="mi">5</span><span class="p">))))</span> <span class="err">​</span>
 
-   (+ 3 (+ 4 (+ 5 (adder ())))) ​
+   <span class="p">(</span><span class="o">+</span> <span class="mi">3</span> <span class="p">(</span><span class="o">+</span> <span class="mi">4</span> <span class="p">(</span><span class="o">+</span> <span class="mi">5</span> <span class="p">(</span><span class="n">adder</span> <span class="p">()))))</span> <span class="err">​</span>
 
-   (+ 3 (+ 4 (+ 5 0))) ​
+   <span class="p">(</span><span class="o">+</span> <span class="mi">3</span> <span class="p">(</span><span class="o">+</span> <span class="mi">4</span> <span class="p">(</span><span class="o">+</span> <span class="mi">5</span> <span class="mi">0</span><span class="p">)))</span> <span class="err">​</span>
 
-   (+ 3 (+ 4 5)) ​
+   <span class="p">(</span><span class="o">+</span> <span class="mi">3</span> <span class="p">(</span><span class="o">+</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">))</span> <span class="err">​</span>
 
-   (+ 3 9) ​
+   <span class="p">(</span><span class="o">+</span> <span class="mi">3</span> <span class="mi">9</span><span class="p">)</span> <span class="err">​</span>
 
-   (12)​
+   <span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="err">​</span>
 </code></pre></div></div>
 
 <p>리스트에 있는 아톰의 합을 구하는 프로그램을 작성해보면, 코드는 위에서 보듯이 매우 간결하다<br />
@@ -448,23 +449,23 @@ CADDR을 (DEFINE (third a_list) ((compose CAR (compose CDR CDR)) a_list))와 같
 
 <p>만일 EVAL 함수를 써서 코딩하면, 아래 프로그램이 된다</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Alternative code with EVAL function:​
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Alternative</span> <span class="n">code</span> <span class="n">with</span> <span class="n">EVAL</span> <span class="n">function</span><span class="o">:</span><span class="err">​</span>
 
-(DEFINE (adder a_list) ​
+<span class="p">(</span><span class="n">DEFINE</span> <span class="p">(</span><span class="n">adder</span> <span class="n">a_list</span><span class="p">)</span> <span class="err">​</span>
 
-    (COND ​
+    <span class="p">(</span><span class="n">COND</span> <span class="err">​</span>
 
-        ((NULL? a_list) 0) ​
+        <span class="p">((</span><span class="nb">NULL</span><span class="o">?</span> <span class="n">a_list</span><span class="p">)</span> <span class="mi">0</span><span class="p">)</span> <span class="err">​</span>
 
-        (ELSE (EVAL (CONS '+ a_list))) ​
+        <span class="p">(</span><span class="n">ELSE</span> <span class="p">(</span><span class="n">EVAL</span> <span class="p">(</span><span class="n">CONS</span> <span class="err">'</span><span class="o">+</span> <span class="n">a_list</span><span class="p">)))</span> <span class="err">​</span>
 
-))​
+<span class="p">))</span><span class="err">​</span>
 
-(adder '(3 4 5)) ​
+<span class="p">(</span><span class="n">adder</span> <span class="err">'</span><span class="p">(</span><span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">))</span> <span class="err">​</span>
 
-(EVAL (+ 3 4 5) ​
+<span class="p">(</span><span class="n">EVAL</span> <span class="p">(</span><span class="o">+</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">)</span> <span class="err">​</span>
 
-(12)
+<span class="p">(</span><span class="mi">12</span><span class="p">)</span>
 </code></pre></div></div>
 
 <hr />
@@ -487,13 +488,13 @@ ML 신택스는 Lisp이나 Scheme에 비해 IPL과 더욱 유사하다<br />
 <p>ML의 컨트롤 플로우는 if 표현식 then 표현식1 else 표현식2에 의한다<br />
 ML에서는 주어진 파라미터에 대한 패턴 매칭을 통해 함수의 반환값을 정의하는 특정 표현식을 선택하기도 한다<br />
 예를 들어, 팩토리알을 구할 떄<br />
-fun fact(n : int): int = if n &lt;= 1 then 1 else n * fact(n − 1);로 표현할 수도 있지만, ​fun fact(0) = 1 | fact(1) = 1 | fact(n : int): int = n * fact(n − 1);로 표현할 수도 있다.<br />
+fun fact(n : int): int = if n &lt;= 1 then 1 else n *fact(n − 1);로 표현할 수도 있지만, ​fun fact(0) = 1 | fact(1) = 1 | fact(n : int): int = n* fact(n − 1);로 표현할 수도 있다<br />
 후자에서는 Fact(0), Fact(1)의 값을 구할 때, 두개의 식 fun fact(0) = 1, fact(1) = 1에 대한 패턴 매칭을 통해 그 결과값을 선택할 수 있다</p>
 
 <p>ML에서는 h, t는 각각 헤드와 테일을 나타내며, CAR, CDR과 같다<br />
 그리고 ::는 CONS와 같다<br />
 두개의 리스트를 append하는 함수는<br />
-fun append([], lis2) = lis2 | append(h :: t, lis2) = h :: append(t, lis2);로 정의된다.</p>
+fun append([], lis2) = lis2 | append(h :: t, lis2) = h :: append(t, lis2);로 정의된다</p>
 
 <p>주어진 리스트에서 리스트 요소의 개수를 구하는 함수는<br />
 fun length([]) = 0 | length(h :: t) = 1 + length(t);이다</p>
@@ -503,13 +504,13 @@ fun length([]) = 0 | length(h :: t) = 1 + length(t);이다</p>
 만일 새로운 값을 바인딩하려면 새로운 변수명에 새로운 값을 바인딩하여 테이블에 새로운 엔트리로 생성해야 한다<br />
 val의 정상적인 사용은 표현식에서 사용하는 변수에 대해, Let안에서 바인딩하는 것이다</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Let val radius = 2.7 ​
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Let</span> <span class="n">val</span> <span class="n">radius</span> <span class="o">=</span> <span class="mi">2</span><span class="p">.</span><span class="mi">7</span> <span class="err">​</span>
 
-      val pi = 3.14159 ​
+      <span class="n">val</span> <span class="n">pi</span> <span class="o">=</span> <span class="mi">3</span><span class="p">.</span><span class="mi">14159</span> <span class="err">​</span>
 
-   in pi * radius * radius ​
+   <span class="n">in</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">radius</span> <span class="err">​</span>
 
-   end;​
+   <span class="n">end</span><span class="p">;</span><span class="err">​</span>
 </code></pre></div></div>
 
 <p>예에서 radius와 pi는 표현식에 제한된 변수임을 명확히 선언하고 있다</p>
@@ -519,15 +520,16 @@ val의 정상적인 사용은 표현식에서 사용하는 변수에 대해, Let
 
 <ol>
   <li>필터는 술어 함수를 파라미터로 받아들여서, 술어 만족 여부에 따라 필터링하는 함수를 반환한다(술어 함수는 종종 fn으로 정의된 람다 표현식으로 주어진다)</li>
-  <li>반환된 필터링 함수는 리스트를 파라미터로 받아들여서 다음과 같이 처리한다
-    <ul>
-      <li>각 리스트 요소에 대해 술어함수를 적용하여 술어 조건을 만족시키는지 검사</li>
-      <li>그 결과가 참이면, 리스트 요소를 새로운 리스트(결과 리스트)에 추가한나다</li>
-      <li>참이 아니면, 스킵한다</li>
-    </ul>
-  </li>
-  <li>이렇게 생성된 새로운 리스트를 결과로 반환한다</li>
+  <li>반환된 필터링 함수는 리스트를 파라미터로 받아들여서 다음과 같이 처리한다</li>
 </ol>
+
+<ul>
+  <li>각 리스트 요소에 대해 술어함수를 적용하여 술어 조건을 만족시키는지 검사</li>
+  <li>그 결과가 참이면, 리스트 요소를 새로운 리스트(결과 리스트)에 추가한나다</li>
+  <li>참이 아니면, 스킵한다</li>
+</ul>
+
+<p>3.이렇게 생성된 새로운 리스트를 결과로 반환한다</p>
 
 <p>필터의 사용을 보면 Filter(fn(x)) =&gt; x &lt;100, [25, 1, 50, 711, 100, 150, 27, 161, 3]);는 결과로서 100보다 작은 요소만으로 구성된 새로운 리스트 [25, 1, 50, 27, 3]를 반환한다</p>
 
@@ -575,16 +577,14 @@ ex) 함수명 (파라미터 여러개) { 표현식 (블록)}</p>
 
 <p>파이썬에서는 고차 함수 filter와 map를 정의할 수 있다<br />
 이들은 첫째 파라미터로 모두 람다 표현식을 사용하며, 두번째 파라미터로 시퀀스 타입을 사용한다<br />
-두 함수 모두 두번째 파라미터와 동일한 타입의 시퀀스를 결과로 반환한다.<br />
-예를 들어 map(lambda x : x**3, [2, 4, 6, 8]이라고 하면, 반환 결과는 [8, 64, 216, 512]이다.<br />
-이 예에서 첫번째 파라미터는 함수(표현식)임을 기억하라.</p>
+두 함수 모두 두번째 파라미터와 동일한 타입의 시퀀스를 결과로 반환한다
+예를 들어 map(lambda x : x**3, [2, 4, 6, 8]이라고 하면, 반환 결과는 [8, 64, 216, 512]이다<br />
+이 예에서 첫번째 파라미터는 함수(표현식)임을 기억하라</p>
 
-<p>이 map은 2004년 구글의 MapReduce의 map과 같은 의미이며, ​병렬 처리의 한 방법으로 유명해졌다. ​</p>
+<p>이 map은 2004년 구글의 MapReduce의 map과 같은 의미이며, ​병렬 처리의 한 방법으로 유명해졌다</p>
 
-<p>파이썬은 파라미터의 개수를 제한하고, ​명시적으로 새로운 함수를 정의하고 적용할 수 있도록 partial 함수를 지원한다.<br />
-먼저 제한적으로 적용하려는 함수를 임포트하고,​ (여기서 add5는 add a b : a + b에서 파라미터를 ​한 개로 줄여서 add + 5로 정의한 것이다.)​ 명령문 add5=partial (add, 5)은 함수 add+5를 add5로 정의하고, ​함수 add5(15)를 적용(호출)하면 결과는 20이다. ​</p>
-
-<hr />
+<p>파이썬은 파라미터의 개수를 제한하고, ​명시적으로 새로운 함수를 정의하고 적용할 수 있도록 partial 함수를 지원한다<br />
+먼저 제한적으로 적용하려는 함수를 임포트하고,​ (여기서 add5는 add a b : a + b에서 파라미터를 ​한 개로 줄여서 add + 5로 정의한 것이다.)​ 명령문 add5=partial (add, 5)은 함수 add+5를 add5로 정의하고, ​함수 add5(15)를 적용(호출)하면 결과는 20이다</p>
 
                 </div>
             </section>
@@ -695,6 +695,20 @@ ex) 함수명 (파라미터 여러개) { 표현식 (블록)}</p>
                         <div class="read-next-card-content">
                             <ul>
                                 
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
                                 
                                   
                                     
@@ -918,18 +932,6 @@ ex) 함수명 (파라미터 여러개) { 표현식 (블록)}</p>
                                         
                                         
                                     
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
                                   
                                 
                                   

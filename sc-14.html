@@ -268,22 +268,26 @@ into the {body} of the default.hbs template -->
   <li>Man in the middle attack: Trudy poses as Alice and as Bob
     <ul>
       <li>Diffe-Hellman은 매우 복잡한 프로토콜이지만, 제 3자가 x 또는 y 값을 알아내지 않아도 되기 때문에 중간에서 밥과 앨리스를 속이는 것이 가능하다.​</li>
-      <li>중간자 공격 절차​
-        <ol>
-          <li>앨리스가 x를 선택한 후 R1=Gx를 계산하여 R1을 밥에게 전송​</li>
-          <li>제 3자가 R1을 가로챈 후, z를 선택한 다음 R2=Gz mod N을 계산하여 R2를 앨리스와 밥에게 전송​</li>
-          <li>밥이 y를 선택한 다음 R3=Gy mod N을 계산해서 R3을 앨리스에게 전송, R3을 제 3자가 가로챔​</li>
-          <li>앨리스와 제 3자가 공유한 키 K1=Gxz mod N을 계산​</li>
-          <li>제 3자와 밥은 공유한 키 K2=Gzy mod N을 계산​</li>
-        </ol>
-      </li>
+      <li>중간자 공격 절차​</li>
+    </ul>
+  </li>
+</ul>
+
+<ol>
+  <li>앨리스가 x를 선택한 후 R1=Gx를 계산하여 R1을 밥에게 전송​</li>
+  <li>제 3자가 R1을 가로챈 후, z를 선택한 다음 R2=Gz mod N을 계산하여 R2를 앨리스와 밥에게 전송​</li>
+  <li>밥이 y를 선택한 다음 R3=Gy mod N을 계산해서 R3을 앨리스에게 전송, R3을 제 3자가 가로챔​</li>
+  <li>앨리스와 제 3자가 공유한 키 K1=Gxz mod N을 계산​</li>
+  <li>제 3자와 밥은 공유한 키 K2=Gzy mod N을 계산​
+    <ul>
       <li>경우 앨리스와 밥은 제 3자와 공유한 키를 서로간의 공유한 키로 생각​</li>
     </ul>
   </li>
+</ol>
+
+<ul>
   <li>사용자 인증을 하지 않아서 발생하는 문제 -&gt; 전자서명, 인증서</li>
 </ul>
-
-<hr />
 
                 </div>
             </section>
@@ -394,6 +398,20 @@ into the {body} of the default.hbs template -->
                         <div class="read-next-card-content">
                             <ul>
                                 
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
                                 
                                   
                                 
@@ -619,22 +637,10 @@ into the {body} of the default.hbs template -->
                                   
                                 
                                   
-                                
-                                  
-                                
-                                  
                                     
                                         
                                         
                                     
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
                                   
                                 
                                   

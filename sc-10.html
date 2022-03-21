@@ -84,7 +84,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="signature" />
-    <meta property="og:description" content="signature 서명 자기의 동일성을 표시하고 책임을 분명하기 하기 위하여 문서 따위에 자기 이름을 써넣음​ 전자서명의 기본 아이디어 송신자(alice)는 자신의 비밀키로 암호화​ 수신자는 송신자의 공개키로 복호화 시나리오: + Bob은 public key를 공개된 장소에 두고, private key는 자신이 가지고 있다 + Alice는 Bob의 public key를 가져와, 메시지를 암호화해서 전송​ + 이 메시지는" />
+    <meta property="og:description" content="signature 서명 자기의 동일성을 표시하고 책임을 분명하기 하기 위하여 문서 따위에 자기 이름을 써넣음​ 전자서명의 기본 아이디어 송신자(alice)는 자신의 비밀키로 암호화​ 수신자는 송신자의 공개키로 복호화 시나리오: Bob은 public key를 공개된 장소에 두고, private key는 자신이 가지고 있다 Alice는 Bob의 public key를 가져와, 메시지를 암호화해서 전송​ 이 메시지는 다른 사람이 보더라도" />
     <meta property="og:url" content="https://lee989898.github.io/sc-10" />
     <meta property="og:image" content="https://lee989898.github.io/assets/built/images/security-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -94,7 +94,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     <meta property="article:tag" content="Security" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="signature" />
-    <meta name="twitter:description" content="signature 서명 자기의 동일성을 표시하고 책임을 분명하기 하기 위하여 문서 따위에 자기 이름을 써넣음​ 전자서명의 기본 아이디어 송신자(alice)는 자신의 비밀키로 암호화​ 수신자는 송신자의 공개키로 복호화 시나리오: + Bob은 public key를 공개된 장소에 두고, private key는 자신이 가지고 있다 + Alice는 Bob의 public key를 가져와, 메시지를 암호화해서 전송​ + 이 메시지는" />
+    <meta name="twitter:description" content="signature 서명 자기의 동일성을 표시하고 책임을 분명하기 하기 위하여 문서 따위에 자기 이름을 써넣음​ 전자서명의 기본 아이디어 송신자(alice)는 자신의 비밀키로 암호화​ 수신자는 송신자의 공개키로 복호화 시나리오: Bob은 public key를 공개된 장소에 두고, private key는 자신이 가지고 있다 Alice는 Bob의 public key를 가져와, 메시지를 암호화해서 전송​ 이 메시지는 다른 사람이 보더라도" />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
     <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/security-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -126,7 +126,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
         "@type": "WebPage",
         "@id": "https://lee989898.github.io/sc-10"
     },
-    "description": "signature 서명 자기의 동일성을 표시하고 책임을 분명하기 하기 위하여 문서 따위에 자기 이름을 써넣음​ 전자서명의 기본 아이디어 송신자(alice)는 자신의 비밀키로 암호화​ 수신자는 송신자의 공개키로 복호화 시나리오: + Bob은 public key를 공개된 장소에 두고, private key는 자신이 가지고 있다 + Alice는 Bob의 public key를 가져와, 메시지를 암호화해서 전송​ + 이 메시지는"
+    "description": "signature 서명 자기의 동일성을 표시하고 책임을 분명하기 하기 위하여 문서 따위에 자기 이름을 써넣음​ 전자서명의 기본 아이디어 송신자(alice)는 자신의 비밀키로 암호화​ 수신자는 송신자의 공개키로 복호화 시나리오: Bob은 public key를 공개된 장소에 두고, private key는 자신이 가지고 있다 Alice는 Bob의 public key를 가져와, 메시지를 암호화해서 전송​ 이 메시지는 다른 사람이 보더라도"
 }
     </script>
 
@@ -260,12 +260,13 @@ into the {body} of the default.hbs template -->
 
 <blockquote>
   <p>시나리오:</p>
-</blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+ Bob은 public key를 공개된 장소에 두고, private key는 자신이 가지고 있다
-+ Alice는 Bob의 public key를 가져와, 메시지를 암호화해서 전송​
-+ 이 메시지는 다른 사람이 보더라도 풀 수 없다. 메시지를 복호화하려면 Bob의 private key가 필요하기 때문-&gt;기밀성보장​
-</code></pre></div></div>
+  <ul>
+    <li>Bob은 public key를 공개된 장소에 두고, private key는 자신이 가지고 있다</li>
+    <li>Alice는 Bob의 public key를 가져와, 메시지를 암호화해서 전송​</li>
+    <li>이 메시지는 다른 사람이 보더라도 풀 수 없다. 메시지를 복호화하려면 Bob의 private key가 필요하기 때문-&gt;기밀성보장​</li>
+  </ul>
+</blockquote>
 
 <ul>
   <li>문제점1. Bob은 Alice가 메시지를 작성했다는것을 확신할 수 있을까? NO​</li>
@@ -280,13 +281,13 @@ into the {body} of the default.hbs template -->
   <li>Alice는 메시지로 MAC을 만들고, 이것을 Alice가 자신의 private key로 암호화 한다</li>
 </ul>
 
-<p>​   <img src="/assets/built/images/sc/sc05.png" width="50%" height="25%" title="제목" alt="컴퓨터보안" /></p>
+<p><img src="\assets\built\images\sc\sc05.png" alt="컴퓨터보안" /></p>
 
 <ul>
   <li>만들어진 것을 본래 메시지에 붙인다 -&gt; 서명</li>
 </ul>
 
-<p>​   <img src="/assets/built/images/sc/sc06.png" width="50%" height="25%" title="제목" alt="컴퓨터보안" /></p>
+<p><img src="\assets\built\images\sc\sc06.png" alt="컴퓨터보안" /></p>
 
 <ul>
   <li>이것을 Bob의 public key로 암호화 해서 전송</li>
@@ -299,15 +300,13 @@ into the {body} of the default.hbs template -->
   <li>Bob은 자신의 private key로 열면 평문과 시그니쳐가 나온다</li>
 </ul>
 
-<p>​   <img src="/assets/built/images/sc/sc07.png" width="50%" height="25%" title="제목" alt="컴퓨터보안" /></p>
+<p><img src="\assets\built\images\sc\sc07.png" alt="컴퓨터보안" /></p>
 
 <ul>
   <li>Bob은 다음과 같이 무결성,인증을 한다</li>
 </ul>
 
-<p>​   <img src="/assets/built/images/sc/sc08.png" width="50%" height="25%" title="제목" alt="컴퓨터보안" /></p>
-
-<hr />
+<p><img src="\assets\built\images\sc\sc08.png" alt="컴퓨터보안" /></p>
 
                 </div>
             </section>
@@ -418,6 +417,20 @@ into the {body} of the default.hbs template -->
                         <div class="read-next-card-content">
                             <ul>
                                 
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
                                 
                                   
                                 
@@ -643,22 +656,10 @@ into the {body} of the default.hbs template -->
                                   
                                 
                                   
-                                
-                                  
-                                
-                                  
                                     
                                         
                                         
                                     
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
                                   
                                 
                                   

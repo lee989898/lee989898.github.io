@@ -8,6 +8,111 @@
     
       
       <item>
+        <title>리눅스 사용자 계정과 권한 체계, 쉘 기본</title>
+        
+          <description>&lt;h2 id=&quot;리눅스-사용자-계정과-권한-체계-쉘-기본&quot;&gt;&lt;strong&gt;리눅스: 사용자 계정과 권한 체계, 쉘 기본&lt;/strong&gt;&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Mon, 21 Mar 2022 01:06:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/sc2-03</link>
+        <guid isPermaLink="true">https://lee989898.github.io/sc2-03</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>안드로이드 면접 준비</title>
+        
+          <description>&lt;h2 id=&quot;안드로이드-면접-준비&quot;&gt;&lt;strong&gt;안드로이드 면접 준비&lt;/strong&gt;&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Sat, 19 Mar 2022 01:06:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/ad</link>
+        <guid isPermaLink="true">https://lee989898.github.io/ad</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>코틀린 면접 준비</title>
+        
+          <description>&lt;h2 id=&quot;코틀린-면접-준비&quot;&gt;&lt;strong&gt;코틀린 면접 준비&lt;/strong&gt;&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Fri, 18 Mar 2022 01:06:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/ad</link>
+        <guid isPermaLink="true">https://lee989898.github.io/ad</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>정보보안 기본 3원칙</title>
+        
+          <description>&lt;h2 id=&quot;정보보안-기본-3원칙&quot;&gt;&lt;strong&gt;정보보안 기본 3원칙&lt;/strong&gt;&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Thu, 17 Mar 2022 01:06:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/sc2-02</link>
+        <guid isPermaLink="true">https://lee989898.github.io/sc2-02</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>컴퓨터과학 면접 준비</title>
+        
+          <description>&lt;h2 id=&quot;컴퓨터과학-면접-준비&quot;&gt;&lt;strong&gt;컴퓨터과학 면접 준비&lt;/strong&gt;&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Thu, 17 Mar 2022 01:06:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/ad</link>
+        <guid isPermaLink="true">https://lee989898.github.io/ad</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>정보보호 동향</title>
+        
+          <description>&lt;h2 id=&quot;정보보호-동향해킹과-보안&quot;&gt;&lt;strong&gt;정보보호 동향(해킹과 보안)&lt;/strong&gt;&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Wed, 09 Mar 2022 01:06:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/sc2-01</link>
+        <guid isPermaLink="true">https://lee989898.github.io/sc2-01</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>블록체인 이란</title>
+        
+          <description>&lt;h2 id=&quot;블록체인이란&quot;&gt;&lt;strong&gt;블록체인이란&lt;/strong&gt;&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Wed, 09 Mar 2022 01:06:00 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/bc-01</link>
+        <guid isPermaLink="true">https://lee989898.github.io/bc-01</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>FPinPython</title>
         
           <description>&lt;h3 id=&quot;fpinpython&quot;&gt;&lt;strong&gt;FPinPython&lt;/strong&gt;&lt;/h3&gt;
@@ -908,36 +1013,6 @@
     
       
       <item>
-        <title>정보보안 기본 3원칙</title>
-        
-          <description>&lt;h2 id=&quot;정보보안-기본-3원칙&quot;&gt;&lt;strong&gt;정보보안 기본 3원칙&lt;/strong&gt;&lt;/h2&gt;
-
-</description>
-        
-        <pubDate>Thu, 02 Sep 2021 01:06:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/sc2-02</link>
-        <guid isPermaLink="true">https://lee989898.github.io/sc2-02</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>정보보호 동향</title>
-        
-          <description>&lt;h2 id=&quot;정보보호-동향해킹과-보안&quot;&gt;&lt;strong&gt;정보보호 동향(해킹과 보안)&lt;/strong&gt;&lt;/h2&gt;
-
-</description>
-        
-        <pubDate>Thu, 02 Sep 2021 01:06:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/sc2-01</link>
-        <guid isPermaLink="true">https://lee989898.github.io/sc2-01</guid>
-      </item>
-      
-    
-      
-      <item>
         <title>Intro</title>
         
           <description>&lt;h3 id=&quot;intro&quot;&gt;&lt;strong&gt;Intro&lt;/strong&gt;&lt;/h3&gt;
@@ -948,66 +1023,6 @@
         <link>
         https://lee989898.github.io/sc-01</link>
         <guid isPermaLink="true">https://lee989898.github.io/sc-01</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>블록체인 이란</title>
-        
-          <description>&lt;h2 id=&quot;블록체인이란&quot;&gt;&lt;strong&gt;블록체인이란&lt;/strong&gt;&lt;/h2&gt;
-
-</description>
-        
-        <pubDate>Thu, 02 Sep 2021 01:06:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/bc-01</link>
-        <guid isPermaLink="true">https://lee989898.github.io/bc-01</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>안드로이드 면접 준비</title>
-        
-          <description>&lt;h2 id=&quot;안드로이드-면접-준비&quot;&gt;&lt;strong&gt;안드로이드 면접 준비&lt;/strong&gt;&lt;/h2&gt;
-
-</description>
-        
-        <pubDate>Thu, 02 Sep 2021 01:06:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/ad</link>
-        <guid isPermaLink="true">https://lee989898.github.io/ad</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>코틀린 면접 준비</title>
-        
-          <description>&lt;h2 id=&quot;코틀린-면접-준비&quot;&gt;&lt;strong&gt;코틀린 면접 준비&lt;/strong&gt;&lt;/h2&gt;
-
-</description>
-        
-        <pubDate>Thu, 02 Sep 2021 01:06:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/ad</link>
-        <guid isPermaLink="true">https://lee989898.github.io/ad</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>컴퓨터과학 면접 준비</title>
-        
-          <description>&lt;h2 id=&quot;컴퓨터과학-면접-준비&quot;&gt;&lt;strong&gt;컴퓨터과학 면접 준비&lt;/strong&gt;&lt;/h2&gt;
-
-</description>
-        
-        <pubDate>Thu, 02 Sep 2021 01:06:00 +0900</pubDate>
-        <link>
-        https://lee989898.github.io/ad</link>
-        <guid isPermaLink="true">https://lee989898.github.io/ad</guid>
       </item>
       
     

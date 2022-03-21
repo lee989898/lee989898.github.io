@@ -282,6 +282,7 @@ into the {body} of the default.hbs template -->
 </blockquote>
 
 <p>해쉬의 특징으로는 대표적으로 3가지가 있다.</p>
+
 <ol>
   <li>입력길이에 상관없이 출력길이가 일정</li>
   <li>조금이라도 입력값이 다르면 출력값은 완전히 다름</li>
@@ -311,14 +312,14 @@ Collison은 서로 다른 입력값이 같은 해시값을 계산하는 것을 �
 
 <hr />
 
-<p>​   <img src="/assets/built/images/sc/sc01.png" width="50%" height="25%" title="제목" alt="컴퓨터보안" /></p>
+<p><img src="\assets\built\images\sc\sc01.png" alt="컴퓨터보안" /></p>
 
 <hr />
 
-<p>메시지와 해쉬값을 붙어서 보낸다.<br />
-받는사람은 비교해서 같으면 원본 다르면 원본이 아닌걸 알 수 있다.<br />
-하지만 여기서 sender authenticationd은 제공되지 않는다.<br />
-Digital Signature에서 이문제를 해결한다.</p>
+<p>메시지와 해쉬값을 붙어서 보낸다<br />
+받는사람은 비교해서 같으면 원본 다르면 원본이 아닌걸 알 수 있다<br />
+하지만 여기서 sender authenticationd은 제공되지 않는다<br />
+Digital Signature에서 이문제를 해결한다</p>
 
 <hr />
 
@@ -333,13 +334,13 @@ Digital Signature에서 이문제를 해결한다.</p>
 
 <hr />
 
-<p>​   <img src="/assets/built/images/sc/sc02.png" width="50%" height="25%" title="제목" alt="컴퓨터보안" /></p>
+<p><img src="\assets\built\images\sc\sc02.png" alt="컴퓨터보안" /></p>
 
 <hr />
 
-<p>비교하여 같으면 변조되지 않고 보낸사람을 인증해준다.<br />
-하지만 mac도 한계가 있는데 제 3자에 대한 sender authentication이 불가능 하다.<br />
-키를 모르면 인증을 못하기 때문이다.</p>
+<p>비교하여 같으면 변조되지 않고 보낸사람을 인증해준다<br />
+하지만 mac도 한계가 있는데 제 3자에 대한 sender authentication이 불가능 하다<br />
+키를 모르면 인증을 못하기 때문이다</p>
 
 <hr />
 
@@ -349,17 +350,17 @@ Digital Signature에서 이문제를 해결한다.</p>
 
 <hr />
 
-<p>​   <img src="/assets/built/images/sc/sc03.png" width="50%" height="25%" title="제목" alt="컴퓨터보안" /></p>
+<p><img src="\assets\built\images\sc\sc03.png" alt="컴퓨터보안" /></p>
 
 <hr />
 
-<p>위 그림은 MAC 공격방법이다.<br />
-Attacker는 고객이 보낸 똑같은 패킷을 복사하여 고객으로 위장하는 공격 방법이다.<br />
-이러한 공격을 막는 방법은 패킷에 추가정보로 시간을 알려주는 time stamp를 넣어 해결할 수 있다.</p>
+<p>위 그림은 MAC 공격방법이다<br />
+Attacker는 고객이 보낸 똑같은 패킷을 복사하여 고객으로 위장하는 공격 방법이다<br />
+이러한 공격을 막는 방법은 패킷에 추가정보로 시간을 알려주는 time stamp를 넣어 해결할 수 있다</p>
 
 <hr />
 
-<p>대표적인 해쉬 함수로는 두가지 계열이 있는데 MD와 SHA 계열이다.</p>
+<p>대표적인 해쉬 함수로는 두가지 계열이 있는데 MD와 SHA 계열이다</p>
 
 <blockquote>
   <p>MD (Message Digest)</p>
@@ -392,13 +393,12 @@ Attacker는 고객이 보낸 똑같은 패킷을 복사하여 고객으로 위�
 
 <hr />
 
-<p>​   <img src="/assets/built/images/sc/sc04.png" width="50%" height="25%" title="제목" alt="컴퓨터보안" /></p>
+<p><img src="\assets\built\images\sc\sc04.png" alt="컴퓨터보안" /></p>
 
 <hr />
 
-<p>위 그림은 Merkle structure의 예시이다.<br />
-MD, SHA 두가지 모두 Merkle structure기반인데 이것은
-Message를 block으로 나누어서 고정된 길이의 입력값을 받아들여 고정된 길이로 출력하는 압축함수를 반복 사용하여 긴 길이의 입력을 처리할 수 있는 해쉬 함수로 학대하여 설계하는 방식이다.</p>
+<p>위 그림은 Merkle structure의 예시이다<br />
+MD, SHA 두가지 모두 Merkle structure기반인데 이것은 Message를 block으로 나누어서 고정된 길이의 입력값을 받아들여 고정된 길이로 출력하는 압축함수를 반복 사용하여 긴 길이의 입력을 처리할 수 있는 해쉬 함수로 학대하여 설계하는 방식이다</p>
 
 <hr />
 
@@ -408,12 +408,10 @@ Message를 block으로 나누어서 고정된 길이의 입력값을 받아들�
 
 <ul>
   <li>같은 해시값을 갖는 다른 입력값을 찾아낸다​</li>
-  <li>예를 들면, (ID, PWD)값은 해시값으로 저장되어 있다.​</li>
+  <li>예를 들면, (ID, PWD)값은 해시값으로 저장되어 있다</li>
   <li>만일 같은 해시값을 갖는 (ID2, PWD2)를 찾는다면, (ID, PWD)로 로그인 가능​하다</li>
   <li>(ID, PWD), (ID2, PWD2)를 충돌쌍(collision pairs)라 한다​</li>
 </ul>
-
-<hr />
 
                 </div>
             </section>
@@ -524,6 +522,20 @@ Message를 block으로 나누어서 고정된 길이의 입력값을 받아들�
                         <div class="read-next-card-content">
                             <ul>
                                 
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
                                 
                                   
                                 
@@ -749,22 +761,10 @@ Message를 block으로 나누어서 고정된 길이의 입력값을 받아들�
                                   
                                 
                                   
-                                
-                                  
-                                
-                                  
                                     
                                         
                                         
                                     
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
                                   
                                 
                                   

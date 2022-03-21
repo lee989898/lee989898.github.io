@@ -528,9 +528,9 @@ ssize_t read(int filedes, void *buf, size_t nbytes);
   <p>write(): 쓰기</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;unistd.h&gt;
-
-ssize_t write(int filedes, void *buf, size_t nbytes);
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;unistd.h&gt;
+</span>
+<span class="kt">ssize_t</span> <span class="nf">write</span><span class="p">(</span><span class="kt">int</span> <span class="n">filedes</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">nbytes</span><span class="p">);</span>
 </code></pre></div></div>
 
 <ul>
@@ -551,10 +551,10 @@ ssize_t write(int filedes, void *buf, size_t nbytes);
   <p>lseek(): 파일의 현재 위치 이동</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt;
 #include &lt;unistd.h&gt;
-
-off_t lseek (int filedes, off_t offset, int whence);
+</span>
+<span class="kt">off_t</span> <span class="nf">lseek</span> <span class="p">(</span><span class="kt">int</span> <span class="n">filedes</span><span class="p">,</span> <span class="kt">off_t</span> <span class="n">offset</span><span class="p">,</span> <span class="kt">int</span> <span class="n">whence</span><span class="p">);</span>
 </code></pre></div></div>
 
 <ul>
@@ -624,7 +624,7 @@ off_t lseek (int filedes, off_t offset, int whence);
   </li>
   <li>최근의 disk는 track들을 recording zone들로 분할한다 ​
     <ul>
-      <li>같은 zone 내부의 track들은 같은 개수의 sector들을 갖는다.</li>
+      <li>같은 zone 내부의 track들은 같은 개수의 sector들을 갖는다</li>
       <li>Zone마다 track 당 sector의 개수(sectors/track )가 달라진다. 바깥 쪽 zone은 track당 sector의 개수가 더 많아진다.   ​</li>
       <li>따라서, disk의 용량을 계산할 때  track당 평균 sector의 개수를 사용한다. ​</li>
     </ul>
@@ -642,12 +642,12 @@ off_t lseek (int filedes, off_t offset, int whence);
   <li>성능을 위해서는 디스크 I/O의 횟수를 줄이는 것이 바람직(seek time + rotational delay)​
     <ul>
       <li>작은 양을 여러번 I/O 하는 것 보다​</li>
-      <li>많은 양을 한꺼번에 I/O 하여 횟수를 줄이는 것이 좋다​<br />
-  ​
-—</li>
+      <li>많은 양을 한꺼번에 I/O 하여 횟수를 줄이는 것이 좋다​</li>
     </ul>
   </li>
 </ul>
+
+<hr />
 
 <blockquote>
   <p>dup(), dup2(): 파일 디스크립터 복제</p>
@@ -766,8 +766,6 @@ int access(const char * pathname, int mode);
   </tbody>
 </table>
 
-<hr />
-
                 </div>
             </section>
 
@@ -877,6 +875,20 @@ int access(const char * pathname, int mode);
                         <div class="read-next-card-content">
                             <ul>
                                 
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
                                 
                                   
                                 
@@ -1049,18 +1061,6 @@ int access(const char * pathname, int mode);
                                         
                                         
                                     
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
                                   
                                 
                                   

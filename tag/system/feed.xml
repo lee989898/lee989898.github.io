@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/system/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-03-20T22:41:34+09:00</updated>
+  <updated>2022-03-21T23:04:12+09:00</updated>
   <id>https://lee989898.github.io/tag/system/feed.xml</id>
 
   
@@ -1989,15 +1989,15 @@ int killpg(int pgrp, int sig)​
       &lt;li&gt;
         &lt;p&gt;kernel process&lt;/p&gt;
 
-        &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   #include &amp;lt;sys/types.h&amp;gt;​
-  #include &amp;lt;unistd.h&amp;gt;​
+        &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;     #include &amp;lt;sys/types.h&amp;gt;​
+    #include &amp;lt;unistd.h&amp;gt;​
 
-  pid_t getpid(void);      // returns process ID​
-  pid_t getppid(void);     // returns parent process ID​
-  uid_t getuid(void);      // returns real user ID​
-  uid_t geteuid(void);     // returns effective user ID​
-  gid_t getgid(void);      // returns real group ID​
-  gid_t getegid(void);     // returns effective group ID​
+    pid_t getpid(void);      // returns process ID​
+    pid_t getppid(void);     // returns parent process ID​
+    uid_t getuid(void);      // returns real user ID​
+    uid_t geteuid(void);     // returns effective user ID​
+    gid_t getgid(void);      // returns real group ID​
+    gid_t getegid(void);     // returns effective group ID​
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
@@ -2157,13 +2157,13 @@ pid_t fork(void);
       &lt;li&gt;
         &lt;p&gt;오류와 함께 즉시 반환(child 프로세스가 없는 경우)&lt;/p&gt;
 
-        &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  #include &amp;lt;sys/types.h&amp;gt;​
-  #include &amp;lt;sys/wait.h&amp;gt;​​
+        &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    #include &amp;lt;sys/types.h&amp;gt;​
+    #include &amp;lt;sys/wait.h&amp;gt;​​
 
-  pid_t wait(int *statloc);​
-  pid_t waitpid(pid_t pid, int *statloc, int options);​
+    pid_t wait(int *statloc);​
+    pid_t waitpid(pid_t pid, int *statloc, int options);​
 
-  ​둘 다 반환: 정상이면 프로세스 ID, 오류 발생 시 0 또는 -1
+    ​둘 다 반환: 정상이면 프로세스 ID, 오류 발생 시 0 또는 -1
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
@@ -3125,9 +3125,7 @@ void longjmp(jmp_buf env, int val);​
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;env는 다른 함수에서 참조할 수 있다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;</content>
+&lt;/ul&gt;</content>
 
       
       
@@ -3484,13 +3482,15 @@ int utime(const char *pathname, struct utimebuf *times);
   &lt;li&gt;매개변수
     &lt;ul&gt;
       &lt;li&gt;pathname: 파일의 경로명&lt;/li&gt;
-      &lt;li&gt;시간: 마지막 액세스 시간 및 수정 시간&lt;/li&gt;
-    &lt;/ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;시간: 마지막 액세스 시간 및 수정 시간&lt;/p&gt;
 
-    &lt;p&gt;struct utimebuf​{​
-  time_t    actime;        /* access time &lt;em&gt;/​
-  time_t    modtime;       /&lt;/em&gt; modify time */​
-  };&lt;/p&gt;
+        &lt;p&gt;struct utimebuf​{​
+time_t    actime;        /* access time &lt;em&gt;/​
+time_t    modtime;       /&lt;/em&gt; modify time */​
+};&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;각 필드는 1970-1-1 00:00 부터 현재까지의 경과 시간을 초로 환산한 값​&lt;/li&gt;
 &lt;/ul&gt;
@@ -3758,9 +3758,7 @@ char *getcwd(char *buf, size_t size);​
       &lt;li&gt;I/O 작업이 끝난 후 리턴한다​&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;</content>
+&lt;/ul&gt;</content>
 
       
       
@@ -4114,9 +4112,9 @@ ssize_t read(int filedes, void *buf, size_t nbytes);
   &lt;p&gt;write(): 쓰기&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;unistd.h&amp;gt;
-
-ssize_t write(int filedes, void *buf, size_t nbytes);
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;unistd.h&amp;gt;
+&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;ssize_t&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filedes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;size_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nbytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
@@ -4137,10 +4135,10 @@ ssize_t write(int filedes, void *buf, size_t nbytes);
   &lt;p&gt;lseek(): 파일의 현재 위치 이동&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;sys/types.h&amp;gt;
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;sys/types.h&amp;gt;
 #include &amp;lt;unistd.h&amp;gt;
-
-off_t lseek (int filedes, off_t offset, int whence);
+&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;off_t&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;lseek&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filedes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;off_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;offset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;whence&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
@@ -4210,7 +4208,7 @@ off_t lseek (int filedes, off_t offset, int whence);
   &lt;/li&gt;
   &lt;li&gt;최근의 disk는 track들을 recording zone들로 분할한다 ​
     &lt;ul&gt;
-      &lt;li&gt;같은 zone 내부의 track들은 같은 개수의 sector들을 갖는다.&lt;/li&gt;
+      &lt;li&gt;같은 zone 내부의 track들은 같은 개수의 sector들을 갖는다&lt;/li&gt;
       &lt;li&gt;Zone마다 track 당 sector의 개수(sectors/track )가 달라진다. 바깥 쪽 zone은 track당 sector의 개수가 더 많아진다.   ​&lt;/li&gt;
       &lt;li&gt;따라서, disk의 용량을 계산할 때  track당 평균 sector의 개수를 사용한다. ​&lt;/li&gt;
     &lt;/ul&gt;
@@ -4228,12 +4226,12 @@ off_t lseek (int filedes, off_t offset, int whence);
   &lt;li&gt;성능을 위해서는 디스크 I/O의 횟수를 줄이는 것이 바람직(seek time + rotational delay)​
     &lt;ul&gt;
       &lt;li&gt;작은 양을 여러번 I/O 하는 것 보다​&lt;/li&gt;
-      &lt;li&gt;많은 양을 한꺼번에 I/O 하여 횟수를 줄이는 것이 좋다​&lt;br /&gt;
-  ​
-—&lt;/li&gt;
+      &lt;li&gt;많은 양을 한꺼번에 I/O 하여 횟수를 줄이는 것이 좋다​&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;hr /&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;dup(), dup2(): 파일 디스크립터 복제&lt;/p&gt;
@@ -4350,9 +4348,7 @@ int access(const char * pathname, int mode);
       &lt;td&gt;파일이 존재하는지 아닌지&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;hr /&gt;</content>
+&lt;/table&gt;</content>
 
       
       
@@ -4428,19 +4424,22 @@ int access(const char * pathname, int mode);
       &lt;li&gt;Special file 이라고 부름
         &lt;ul&gt;
           &lt;li&gt;Character special file과 block special file로 나뉨&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Stream file임
-        &lt;ul&gt;
-          &lt;li&gt;사용자 프로그램 내에서 일반 파일과 같은 입출력 명령으로 처리&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;디바이스 파일의 종류
-        &lt;ul&gt;
-          &lt;li&gt;문자 특수 파일(Character special file)
+          &lt;li&gt;Stream file임
             &lt;ul&gt;
-              &lt;li&gt;문자 단위로 데이터를 처리하는 장치에 해당하는 파일&lt;/li&gt;
-              &lt;li&gt;Treminal, printer, …&lt;/li&gt;
+              &lt;li&gt;사용자 프로그램 내에서 일반 파일과 같은 입출력 명령으로 처리&lt;/li&gt;
+              &lt;li&gt;디바이스 파일의 종류
+                &lt;ul&gt;
+                  &lt;li&gt;문자 특수 파일(Character special file)
+                    &lt;ul&gt;
+                      &lt;li&gt;문자 단위로 데이터를 처리하는 장치에 해당하는 파일
+                        &lt;ul&gt;
+                          &lt;li&gt;Treminal, printer, …&lt;/li&gt;
+                        &lt;/ul&gt;
+                      &lt;/li&gt;
+                    &lt;/ul&gt;
+                  &lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
             &lt;/ul&gt;
           &lt;/li&gt;
           &lt;li&gt;블럭 특수 파일(block special file)
@@ -4490,7 +4489,7 @@ drwx——    4 mhlee    mhlee        4096  3월 25 17:10 SUBMIT​&lt;br /&gt;
 -rwxrwxr-x   1 mhlee    mhlee      11888   9월  5 10:35 a.out&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;u&gt;d&lt;/u&gt; &lt;u&gt;rwx&lt;/u&gt; &lt;u&gt;rwx&lt;/u&gt; &lt;u&gt;rwx&lt;/u&gt;​
+  &lt;li&gt;d rwx rwx rwx​
     &lt;ul&gt;
       &lt;li&gt;d: directory file​&lt;/li&gt;
       &lt;li&gt;-: 일반 file​&lt;/li&gt;
@@ -4622,9 +4621,7 @@ drwx——    4 mhlee    mhlee        4096  3월 25 17:10 SUBMIT​&lt;br /&gt;
   &lt;li&gt;각각의 파일 시스템은 트리 형태로 표현가능하다&lt;/li&gt;
   &lt;li&gt;파일 시스템이 여러개면 파일 트리도 여러개 일 것이다&lt;/li&gt;
   &lt;li&gt;두개 이상의 파일 시스템을 합치는 것을 mount라고 하고 반대를 unmount라고 한다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;</content>
+&lt;/ul&gt;</content>
 
       
       
@@ -4732,9 +4729,7 @@ drwx——    4 mhlee    mhlee        4096  3월 25 17:10 SUBMIT​&lt;br /&gt;
   &lt;li&gt;Close&lt;/li&gt;
   &lt;li&gt;Wait&lt;/li&gt;
   &lt;li&gt;Create&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;</content>
+&lt;/ol&gt;</content>
 
       
       

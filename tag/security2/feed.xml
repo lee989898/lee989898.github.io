@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/security2/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-03-20T22:41:34+09:00</updated>
+  <updated>2022-03-21T23:04:12+09:00</updated>
   <id>https://lee989898.github.io/tag/security2/feed.xml</id>
 
   
@@ -32,190 +32,18 @@
 
   
     <entry>
-      <title type="html">정보보호 동향</title>
-      <link href="https://lee989898.github.io/sc2-01" rel="alternate" type="text/html" title="정보보호 동향" />
-      <published>2021-09-02T01:06:00+09:00</published>
-      <updated>2021-09-02T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/sc2-01</id>
-      <content type="html" xml:base="https://lee989898.github.io/sc2-01">&lt;h2 id=&quot;정보보호-동향해킹과-보안&quot;&gt;&lt;strong&gt;정보보호 동향(해킹과 보안)&lt;/strong&gt;&lt;/h2&gt;
+      <title type="html">리눅스 사용자 계정과 권한 체계, 쉘 기본</title>
+      <link href="https://lee989898.github.io/sc2-03" rel="alternate" type="text/html" title="리눅스 사용자 계정과 권한 체계, 쉘 기본" />
+      <published>2022-03-21T01:06:00+09:00</published>
+      <updated>2022-03-21T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc2-03</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc2-03">&lt;h2 id=&quot;리눅스-사용자-계정과-권한-체계-쉘-기본&quot;&gt;&lt;strong&gt;리눅스: 사용자 계정과 권한 체계, 쉘 기본&lt;/strong&gt;&lt;/h2&gt;
 
 &lt;hr /&gt;
 
-&lt;h3 id=&quot;해킹과-보안의-역사&quot;&gt;&lt;strong&gt;해킹과 보안의 역사&lt;/strong&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;__&quot;&gt;&lt;em&gt;__&lt;/em&gt;&lt;/h3&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;해킹이란&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;국어사전: 컴퓨터 시스템에 무단으로 침입/파괴/탈취 하는 행위&lt;br /&gt;
-영영사전: 디자이너가 의도하지 않았던 방법으로 시스템의 특성이나 규칙을 이용한 창조적인 사용법을 찾는 것&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;1950년대 이전&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;암호화 기계: 에니그마(Enigma)&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;1918년에 폴란드의 암호 보안 전문가들이 개발&lt;/li&gt;
-  &lt;li&gt;평문 메시지를 암호화된 메시지로 변환하는 전기/기계 장치&lt;/li&gt;
-  &lt;li&gt;처음에는 은행에서 통신 보안 강화를 위해 개발되었지만, 제2차 세계대전에서 독일군에 의해 군사통신 보안용으로 사용&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;1960년대&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;전화망 침입을 통한 무료 전화 해킹&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;1969년에 존 인그레이시아는 특정 주파수 대의 휘파람을 불면 장거리 전화를 무료로 쓸 수 있다는 사실을 알아냄&lt;/li&gt;
-  &lt;li&gt;존 드레이퍼는 베트남 전쟁 참전 중에 군용 식량으로 지급되는 ‘캡앤크런치’라는 시리얼에 들어 있던 장난감 호루라기를 불면
-2600Hz의 소리를 낼 수 있고, 이를 통해 무료 통화가 가능하다는 사실을 발견&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;1980년대&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;컴퓨터 해킹의 시작&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;미국 밀워키의 ‘414 Private’이라는 해커 그룹이 로스앨러모스국립 연구소와 암센터 등의 60개 컴퓨터 시스템에 침입하여 실수로 중요 파일을 지워 몇 년간의 연구 결과를 날림&lt;/li&gt;
-  &lt;li&gt;이언 머피(Ian Murph)가 AT&amp;amp;T의 컴퓨터 시스템에 침입해 전화 요금과 관련된 시계를 바꾸어 낮은 가격의 심야 요금이 대낮에 적용 되도록 조작&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;정보 권리 논쟁의 시작&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;1981년에 독일의 전설적인 해커 그룹인 카오스 컴퓨터 클럽 결성&lt;/li&gt;
-  &lt;li&gt;소식지 창간호에 다음과 같은 설립 목표를 규정함
-    &lt;ul&gt;
-      &lt;li&gt;정보 사회로 발전하려면 전세계와 자유로운 커뮤니케이션을 가능케하는 새로운 인권이 필요하다. 인간 사회 및 개인에게 기술적 영향을 미치는 정보 교류에게 국경이 사라져야 한다. 우리는 지식과 정보의 창조에 이바지할 것이다&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;GNU (GNU is Not Unix)&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;1983년 리처드 스톨망에 의해 GNU 계획 발표&lt;/li&gt;
-  &lt;li&gt;GNU는 유닉스와 완벽하게 호환하는 소프트웨어 시스템으로 모든 사람이 무료로 사용하도록 작성&lt;/li&gt;
-  &lt;li&gt;소프트웨어 저작권 개념에 처음부터 함정이 있으면 Copylef를 주장&lt;/li&gt;
-  &lt;li&gt;GNU의 자유 소프트웨어에 대한 4가지 자유
-    &lt;ul&gt;
-      &lt;li&gt;자유 0: 어떠한 목적을 위해서건 프로그램을 실행할 수 있는 자유&lt;/li&gt;
-      &lt;li&gt;자유 1: 프로그램의 작동 원리를 연구하고 이를 자신의 필요에 맞게 변경할 수 있는 자유&lt;/li&gt;
-      &lt;li&gt;자유 2: 이웃을 돕기 위해 프로그램을 복제하고 배포할 수 있는 자유&lt;/li&gt;
-      &lt;li&gt;자유 3: 프로그램을 향상하고 공동체 전체의 이익을 위해 다시 환원 할 수 있는 자유&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;해커의 등장&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;로버트 모리스의 웜 바이러스
-    &lt;ul&gt;
-      &lt;li&gt;미국 전역의 컴퓨터가 정체불명의 바이러스에 감염되어 사용자들이 인터넷 연결을 끊는 사건이 발생&lt;/li&gt;
-      &lt;li&gt;미국 국방부는 카네기멜론대학에 컴퓨터 비상 대응팀 설립&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;구 소련 KGB요원에 매수된 서독 해커들이 전 세계 3백여 기관에 불법적인 접근을 시도하고 군사 기밀 정보를 탈취한다는 사실을 알게됨&lt;/li&gt;
-  &lt;li&gt;1985, 미국 소년이 뉴저지의 국방부 컴퓨터에 침입, 통신위성 위치를 변경하는 코드를 비롯해 극비 군사 통신 데이터를 빼낸 사건 발생&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;1990년대&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;아메리카온라인 해킹&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;1997년네 AOL 침입만을 목적으로 고안된 무료 해킹 툴인 AOHell이 공개&lt;/li&gt;
-  &lt;li&gt;이후 며칠 동안 초보 해커들이 악용하여 미국 내 수백만 미국 온라인 사용자가 대용량 메일 폭탄 공격을 받음&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;트로이 목마, 백 오리피스&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;1998년에 cDc라는 해킹 그룹의 Sir Dystic이 트로이 목마 프로그램인 백 오리피스를 발표&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;데프콘 해킹 대회&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;1990년애 최초의 해킹 대회인 데프콘이 라스베이거스에서 개최&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;2000년대&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;분산 서비스 거부 공격 (DDoS)&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;2000년 2월에 인터넷에서 소통량이 많은 몇 개 사이트에 분산 서비스 거부 공격이 가해짐&lt;/li&gt;
-  &lt;li&gt;이로 인해 야후, CNN, 아마존 등의 사이트가 ICMP 패킷을 이용한 스머프 공격으로 몇 시간 동안 마비됨&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;웜과 바이러스&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;2000년에 러브 버그 바이러스가 등장행 87억 5000만 달러의 경제적 손실 발생시킴&lt;/li&gt;
-  &lt;li&gt;2003년 1월 25일 오후 2시 30분부터 약 2일 동안 마이크로소프트의 MS-SQL 2000 서버를 공격하는 슬래머 웜이 전국 네트워크를 마비시킴&lt;/li&gt;
-  &lt;li&gt;2004년에 베이글 웜, 마이둠 웜, 넷스카이 웜이라는 웜 삼총사가 등장&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;개인 정보 유출과 도용&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;2005년 10월부터 2006년 2월 사이에 한국에서 주민등록번호 수십만 개가 유출되어 인터넷 게임 사이트 가입에 사용되는 등 개인 정보 무단 도용 사건 발생&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;전자상거래 교란&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;2006년 7월에 안심클릭의 허점을 이용한 해킹 사기 사건 발생&lt;/li&gt;
-  &lt;li&gt;2006년 3월에 검색 클릭 수를 자동 증가시키는 방법으로, 국내 대형 포털 사이트의 정보 검색 순위를 조작한 인터넷 광고 대행업체의 대표 이 씨가 업무 방해 등의 혐의로 불구속 입건&lt;/li&gt;
-  &lt;li&gt;2007년 2월 8일에 공인인증서 유출로 인한 시중 은행 불법 인출 사건 발생&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;2020년대&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;2021년 보안 위협&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;국가 지원 해킹 조직의 활동&lt;/li&gt;
-  &lt;li&gt;타깃형 랜섬웨어 공격과 피해 규모 증가&lt;/li&gt;
-  &lt;li&gt;업그레이드된 문서형 악성코드 다수 유포&lt;/li&gt;
-  &lt;li&gt;사회적 이슈를 활용한 사회공학적 공격 활동&lt;/li&gt;
-  &lt;li&gt;금융 모바일 악성 앱의 지속적인 변화 시도&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;개인에서-국가로-사이버-전&quot;&gt;&lt;strong&gt;개인에서 국가로: 사이버 전&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;사이버 보안: 유형&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;사이버 스파이
-    &lt;ul&gt;
-      &lt;li&gt;인터넷 등의 사이버 공간에서 특정 회사나 국가의 정보를 빼내서 그것을 필요로 하는 회사나 국가에 제공하는 활동&lt;/li&gt;
-      &lt;li&gt;사이버 스파이의 첫 사례는 1985년 독일의 ‘데이터 여행자 사건’ 마르쿠스 헤스를 포함한 5명의 해커가 유럽우주기구ESA, 미국항공우주국, 버지니아 주 군수 산업체, 일본 쓰쿠바연구소 등에서 4년에 걸쳐 빼낸 산업-과학정보를 구소련의 KGB에 팔아넘긴 사건&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;‘Red October’ 라는 작전명을 가진 대규모 사이버 스파이는 각국 정부 및 외교기관, 연구 기관 등에 악성 프로그램을 유포하여 정보를 빼냄&lt;/li&gt;
-  &lt;li&gt;1000여 명에 달하는 전문 직업 해커로 구성된 ‘중국  인민해방군 제3국 제2청 61398 해커 부대’는 2006년 무렵부터 최소 150건 이상의 기밀 정보 유출 공격을 감행&lt;/li&gt;
-  &lt;li&gt;2009년 유엔(UN)에서는 만약 3차 세계대전이 시작된다면 사이버 전쟁이 될 것이라고 예측&lt;/li&gt;
-  &lt;li&gt;대표적인 사이버 전쟁: 2007년 에스토니아 사이버 분쟁, 2008년 러시아와 조지아 간의 사이버 전쟁, 2010년 미국과 이란의 사이버 분쟁 등&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc1.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;
-&lt;img src=&quot;\assets\built\images\sc2\sc2.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;</content>
+&lt;hr /&gt;</content>
 
       
       
@@ -236,7 +64,7 @@
       
 
       
-        <summary type="html">정보보호 동향(해킹과 보안)</summary>
+        <summary type="html">리눅스: 사용자 계정과 권한 체계, 쉘 기본</summary>
       
 
       
@@ -246,8 +74,8 @@
     <entry>
       <title type="html">정보보안 기본 3원칙</title>
       <link href="https://lee989898.github.io/sc2-02" rel="alternate" type="text/html" title="정보보안 기본 3원칙" />
-      <published>2021-09-02T01:06:00+09:00</published>
-      <updated>2021-09-02T01:06:00+09:00</updated>
+      <published>2022-03-17T01:06:00+09:00</published>
+      <updated>2022-03-17T01:06:00+09:00</updated>
       <id>https://lee989898.github.io/sc2-02</id>
       <content type="html" xml:base="https://lee989898.github.io/sc2-02">&lt;h2 id=&quot;정보보안-기본-3원칙&quot;&gt;&lt;strong&gt;정보보안 기본 3원칙&lt;/strong&gt;&lt;/h2&gt;
 
@@ -465,6 +293,218 @@
 
       
         <summary type="html">정보보안 기본 3원칙</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">정보보호 동향</title>
+      <link href="https://lee989898.github.io/sc2-01" rel="alternate" type="text/html" title="정보보호 동향" />
+      <published>2022-03-09T01:06:00+09:00</published>
+      <updated>2022-03-09T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc2-01</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc2-01">&lt;h2 id=&quot;정보보호-동향해킹과-보안&quot;&gt;&lt;strong&gt;정보보호 동향(해킹과 보안)&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;해킹과-보안의-역사&quot;&gt;&lt;strong&gt;해킹과 보안의 역사&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;해킹이란&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;국어사전: 컴퓨터 시스템에 무단으로 침입/파괴/탈취 하는 행위&lt;br /&gt;
+영영사전: 디자이너가 의도하지 않았던 방법으로 시스템의 특성이나 규칙을 이용한 창조적인 사용법을 찾는 것&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;1950년대 이전&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;암호화 기계: 에니그마(Enigma)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1918년에 폴란드의 암호 보안 전문가들이 개발&lt;/li&gt;
+  &lt;li&gt;평문 메시지를 암호화된 메시지로 변환하는 전기/기계 장치&lt;/li&gt;
+  &lt;li&gt;처음에는 은행에서 통신 보안 강화를 위해 개발되었지만, 제2차 세계대전에서 독일군에 의해 군사통신 보안용으로 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;1960년대&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;전화망 침입을 통한 무료 전화 해킹&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1969년에 존 인그레이시아는 특정 주파수 대의 휘파람을 불면 장거리 전화를 무료로 쓸 수 있다는 사실을 알아냄&lt;/li&gt;
+  &lt;li&gt;존 드레이퍼는 베트남 전쟁 참전 중에 군용 식량으로 지급되는 ‘캡앤크런치’라는 시리얼에 들어 있던 장난감 호루라기를 불면
+2600Hz의 소리를 낼 수 있고, 이를 통해 무료 통화가 가능하다는 사실을 발견&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;1980년대&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;컴퓨터 해킹의 시작&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;미국 밀워키의 ‘414 Private’이라는 해커 그룹이 로스앨러모스국립 연구소와 암센터 등의 60개 컴퓨터 시스템에 침입하여 실수로 중요 파일을 지워 몇 년간의 연구 결과를 날림&lt;/li&gt;
+  &lt;li&gt;이언 머피(Ian Murph)가 AT&amp;amp;T의 컴퓨터 시스템에 침입해 전화 요금과 관련된 시계를 바꾸어 낮은 가격의 심야 요금이 대낮에 적용 되도록 조작&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;정보 권리 논쟁의 시작&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1981년에 독일의 전설적인 해커 그룹인 카오스 컴퓨터 클럽 결성&lt;/li&gt;
+  &lt;li&gt;소식지 창간호에 다음과 같은 설립 목표를 규정함
+    &lt;ul&gt;
+      &lt;li&gt;정보 사회로 발전하려면 전세계와 자유로운 커뮤니케이션을 가능케하는 새로운 인권이 필요하다. 인간 사회 및 개인에게 기술적 영향을 미치는 정보 교류에게 국경이 사라져야 한다. 우리는 지식과 정보의 창조에 이바지할 것이다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;GNU (GNU is Not Unix)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1983년 리처드 스톨망에 의해 GNU 계획 발표&lt;/li&gt;
+  &lt;li&gt;GNU는 유닉스와 완벽하게 호환하는 소프트웨어 시스템으로 모든 사람이 무료로 사용하도록 작성&lt;/li&gt;
+  &lt;li&gt;소프트웨어 저작권 개념에 처음부터 함정이 있으면 Copylef를 주장&lt;/li&gt;
+  &lt;li&gt;GNU의 자유 소프트웨어에 대한 4가지 자유
+    &lt;ul&gt;
+      &lt;li&gt;자유 0: 어떠한 목적을 위해서건 프로그램을 실행할 수 있는 자유&lt;/li&gt;
+      &lt;li&gt;자유 1: 프로그램의 작동 원리를 연구하고 이를 자신의 필요에 맞게 변경할 수 있는 자유&lt;/li&gt;
+      &lt;li&gt;자유 2: 이웃을 돕기 위해 프로그램을 복제하고 배포할 수 있는 자유&lt;/li&gt;
+      &lt;li&gt;자유 3: 프로그램을 향상하고 공동체 전체의 이익을 위해 다시 환원 할 수 있는 자유&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;해커의 등장&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;로버트 모리스의 웜 바이러스
+    &lt;ul&gt;
+      &lt;li&gt;미국 전역의 컴퓨터가 정체불명의 바이러스에 감염되어 사용자들이 인터넷 연결을 끊는 사건이 발생&lt;/li&gt;
+      &lt;li&gt;미국 국방부는 카네기멜론대학에 컴퓨터 비상 대응팀 설립&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;구 소련 KGB요원에 매수된 서독 해커들이 전 세계 3백여 기관에 불법적인 접근을 시도하고 군사 기밀 정보를 탈취한다는 사실을 알게됨&lt;/li&gt;
+  &lt;li&gt;1985, 미국 소년이 뉴저지의 국방부 컴퓨터에 침입, 통신위성 위치를 변경하는 코드를 비롯해 극비 군사 통신 데이터를 빼낸 사건 발생&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;1990년대&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;아메리카온라인 해킹&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1997년네 AOL 침입만을 목적으로 고안된 무료 해킹 툴인 AOHell이 공개&lt;/li&gt;
+  &lt;li&gt;이후 며칠 동안 초보 해커들이 악용하여 미국 내 수백만 미국 온라인 사용자가 대용량 메일 폭탄 공격을 받음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;트로이 목마, 백 오리피스&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1998년에 cDc라는 해킹 그룹의 Sir Dystic이 트로이 목마 프로그램인 백 오리피스를 발표&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;데프콘 해킹 대회&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1990년애 최초의 해킹 대회인 데프콘이 라스베이거스에서 개최&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;2000년대&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;분산 서비스 거부 공격 (DDoS)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;2000년 2월에 인터넷에서 소통량이 많은 몇 개 사이트에 분산 서비스 거부 공격이 가해짐&lt;/li&gt;
+  &lt;li&gt;이로 인해 야후, CNN, 아마존 등의 사이트가 ICMP 패킷을 이용한 스머프 공격으로 몇 시간 동안 마비됨&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;웜과 바이러스&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;2000년에 러브 버그 바이러스가 등장행 87억 5000만 달러의 경제적 손실 발생시킴&lt;/li&gt;
+  &lt;li&gt;2003년 1월 25일 오후 2시 30분부터 약 2일 동안 마이크로소프트의 MS-SQL 2000 서버를 공격하는 슬래머 웜이 전국 네트워크를 마비시킴&lt;/li&gt;
+  &lt;li&gt;2004년에 베이글 웜, 마이둠 웜, 넷스카이 웜이라는 웜 삼총사가 등장&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;개인 정보 유출과 도용&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;2005년 10월부터 2006년 2월 사이에 한국에서 주민등록번호 수십만 개가 유출되어 인터넷 게임 사이트 가입에 사용되는 등 개인 정보 무단 도용 사건 발생&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;전자상거래 교란&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;2006년 7월에 안심클릭의 허점을 이용한 해킹 사기 사건 발생&lt;/li&gt;
+  &lt;li&gt;2006년 3월에 검색 클릭 수를 자동 증가시키는 방법으로, 국내 대형 포털 사이트의 정보 검색 순위를 조작한 인터넷 광고 대행업체의 대표 이 씨가 업무 방해 등의 혐의로 불구속 입건&lt;/li&gt;
+  &lt;li&gt;2007년 2월 8일에 공인인증서 유출로 인한 시중 은행 불법 인출 사건 발생&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;2020년대&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;2021년 보안 위협&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;국가 지원 해킹 조직의 활동&lt;/li&gt;
+  &lt;li&gt;타깃형 랜섬웨어 공격과 피해 규모 증가&lt;/li&gt;
+  &lt;li&gt;업그레이드된 문서형 악성코드 다수 유포&lt;/li&gt;
+  &lt;li&gt;사회적 이슈를 활용한 사회공학적 공격 활동&lt;/li&gt;
+  &lt;li&gt;금융 모바일 악성 앱의 지속적인 변화 시도&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;개인에서-국가로-사이버-전&quot;&gt;&lt;strong&gt;개인에서 국가로: 사이버 전&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;사이버 보안: 유형&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;사이버 스파이
+    &lt;ul&gt;
+      &lt;li&gt;인터넷 등의 사이버 공간에서 특정 회사나 국가의 정보를 빼내서 그것을 필요로 하는 회사나 국가에 제공하는 활동&lt;/li&gt;
+      &lt;li&gt;사이버 스파이의 첫 사례는 1985년 독일의 ‘데이터 여행자 사건’ 마르쿠스 헤스를 포함한 5명의 해커가 유럽우주기구ESA, 미국항공우주국, 버지니아 주 군수 산업체, 일본 쓰쿠바연구소 등에서 4년에 걸쳐 빼낸 산업-과학정보를 구소련의 KGB에 팔아넘긴 사건&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;‘Red October’ 라는 작전명을 가진 대규모 사이버 스파이는 각국 정부 및 외교기관, 연구 기관 등에 악성 프로그램을 유포하여 정보를 빼냄&lt;/li&gt;
+  &lt;li&gt;1000여 명에 달하는 전문 직업 해커로 구성된 ‘중국  인민해방군 제3국 제2청 61398 해커 부대’는 2006년 무렵부터 최소 150건 이상의 기밀 정보 유출 공격을 감행&lt;/li&gt;
+  &lt;li&gt;2009년 유엔(UN)에서는 만약 3차 세계대전이 시작된다면 사이버 전쟁이 될 것이라고 예측&lt;/li&gt;
+  &lt;li&gt;대표적인 사이버 전쟁: 2007년 에스토니아 사이버 분쟁, 2008년 러시아와 조지아 간의 사이버 전쟁, 2010년 미국과 이란의 사이버 분쟁 등&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc1.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;
+&lt;img src=&quot;\assets\built\images\sc2\sc2.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="security2" />
+      
+
+      
+        <summary type="html">정보보호 동향(해킹과 보안)</summary>
       
 
       

@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/android/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-03-20T22:41:34+09:00</updated>
+  <updated>2022-03-21T23:04:12+09:00</updated>
   <id>https://lee989898.github.io/tag/android/feed.xml</id>
 
   
@@ -32,663 +32,10 @@
 
   
     <entry>
-      <title type="html">코틀린 면접 준비</title>
-      <link href="https://lee989898.github.io/ad" rel="alternate" type="text/html" title="코틀린 면접 준비" />
-      <published>2021-09-02T01:06:00+09:00</published>
-      <updated>2021-09-02T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/ad</id>
-      <content type="html" xml:base="https://lee989898.github.io/ad">&lt;h2 id=&quot;코틀린-면접-준비&quot;&gt;&lt;strong&gt;코틀린 면접 준비&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;코틀린-질문&quot;&gt;&lt;strong&gt;코틀린 질문&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;코틀린 사용의 장점&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;널 안전성&lt;/li&gt;
-  &lt;li&gt;가변/불변 구분&lt;/li&gt;
-  &lt;li&gt;람다 표현식 지원&lt;/li&gt;
-  &lt;li&gt;스트림 API 지원&lt;/li&gt;
-  &lt;li&gt;완벽한 자바 호환성&lt;/li&gt;
-  &lt;li&gt;Java에 비해 훨씬 간결한 코드&lt;/li&gt;
-  &lt;li&gt;객체지향이면서 함수형 프로그래밍 언어&lt;/li&gt;
-  &lt;li&gt;자바와 상호운용 가능 (자바에서 코틀린으로 작성된 클래스를 부를 수 있으며 반대로도 가능)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;클래스, 객체, 인스턴스&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;클래스: 객체를 만들어 내기 위한 설계도 혹은 툴
-객채: 소프트웨어 셰계에 구현할 대상
-인스턴스: 설계도를 바탕으로 소프트웨어 세계에 구현된 구체적인 실체&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Array와 List의 차이&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Array의 경우 고전적인 의미의 배열이며, 고정된 사이즈의 연속된 메모리 공간에 할당된다.&lt;br /&gt;
-따라서 인덱스를 통해 값을 변경하는 것이 가능하며(mutable), 사이즈를 변경하는 것이 불가능하다.&lt;br /&gt;
-List의 경우 크게 List와 MutableList가 있는데, ArrayList또는 LinkedList의 구현체다.
-Default로는 ArrayList의 구현체를 따른다.&lt;br /&gt;
-이름에서도 볼 수 있듯이 List는 Immutable이며 MutableList는 Mutable이다.
-성능이 중요시 되는 부분을 제외하고는 List를 쓰는것이 바람직 하다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Scope Function&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;코틀린에서 제공하는 기본 라이브러리 함수로, 객체를 context내에서 코드 단위 블럭으로 실행하는데 묵적을 가진 함수&lt;br /&gt;
-5개의 스코프 함수가 존재: let, run, with, apply, and also&lt;/p&gt;
-
-&lt;p&gt;리시버와 람다 함수&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;스코프 함수를 사용할 떄 넘겨주는 두 객체&lt;/li&gt;
-  &lt;li&gt;차이점
-    &lt;ul&gt;
-      &lt;li&gt;객채를 접근하는 방법: this, it
-        &lt;ul&gt;
-          &lt;li&gt;run, with, apply -&amp;gt; 자기 자신을 블럭(this)으로 넘기고 this를 사용해 객체에 접근&lt;/li&gt;
-          &lt;li&gt;let, alse -&amp;gt; 자기 자신을(람다) 인자(it)으로 넘기고 it을 사용해 객체에 접근&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;리턴 값
-        &lt;ul&gt;
-          &lt;li&gt;apply, also -&amp;gt; 리시버 객체를 마지막에 리턴(자기 자신을 리턴)&lt;/li&gt;
-          &lt;li&gt;let, run, with -&amp;gt; 람다 함수의 마지막 결과를 리턴(코드 블럭의 결과를 리턴)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;let : 이 함수를 호출한 객체를 이어지는 함수 블록의 인자로 전달한다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;it으로 리시버에 접근하고 람다 함수의 마지막 결과를 리턴&lt;/li&gt;
-  &lt;li&gt;리시버의 여러 함수들을 호출할 떄 사용&lt;/li&gt;
-  &lt;li&gt;리시버 객체의 확장 함수로 사용 -&amp;gt; val length = str?.let {it.length}&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;getPadding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;은&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;패딩&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;값&lt;/span&gt;
-        &lt;span class=&quot;nf&quot;&gt;setPadding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;with : 인자로 받은 객체를 이어지는 함수 블록의 리시버로 전달, block 함수의 결과를 반환&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;this로 리시버에 접근, 람다 함수의 마지막 결과를 리턴(리턴 값을 사용하지 않는 경우에 쓸 것을 권장)&lt;/li&gt;
-  &lt;li&gt;리시버 객체의 확장 함수로 사용하지 않음 -&amp;gt; with(리시버 객체) { 람다 함수}&lt;/li&gt;
-  &lt;li&gt;run과 동일한 기능&lt;/li&gt;
-  &lt;li&gt;인스턴스를 참조연산자 대신 parameter로 받아 사용 ( &amp;lt;-&amp;gt; run과 차이)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;textView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;textView!!!&quot;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;gravity&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Gravity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;CENTER_HORIZONTAL&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;run : 인자가 없는 익명 함수처럼 사용하는 형태와 객체에서 호출하는 형태 제공 함수형 인자 block 을 호출하고 결과반환 또는 호출한 객체를 함수형 인자 block의 리시버로 전달하고 그 결과를 반환한다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;this로 리시버에 접근하고, 람다 함수의 마지막 결과를 리턴&lt;/li&gt;
-  &lt;li&gt;마지막 구문의 결과 값을 반환한다. ( &amp;lt;-&amp;gt; apply와 차이)&lt;/li&gt;
-  &lt;li&gt;with와 동일한 기능&lt;/li&gt;
-  &lt;li&gt;리시버의 확장 함수로 사용 -&amp;gt; 리시버.run { 람다 함수 }&lt;/li&gt;
-  &lt;li&gt;람다함수에서 여러 값을 초기화하고 리턴 값을 어떤 객체의 초기값으로 사용할 때 사용&lt;/li&gt;
-  &lt;li&gt;이미 인스턴스가 만들어진 후에 인스턴스의 함수나 속성을 scope 내에서 사용해야 할 떄 사용한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;AplusB&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-      &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;textView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;와&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;비슷하지만&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;textView&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;의&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;널체크를&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;해야&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;하는경우&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;사용하면&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;좋다&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;textView!!!&quot;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;gravity&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Gravity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;CENTER_HORIZONTAL&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;apply : 이 함수를 호출한 객체를 이어지는 함수 블록의 리시버로 전달한다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;it으로 리시버에 접근하고, 리시버 객체를 리턴&lt;/li&gt;
-  &lt;li&gt;리시버 스스로를 리턴하기 때문에 빌더패턴처럼 연속적으로 함수 호출 가능&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;apply&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;weight&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1f&lt;/span&gt;     &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;를&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;리시버로&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;전달&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;받았기&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;때문에&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;weight&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;이나&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;topMargin&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;바로사용&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;topMargin&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;처리가 끝나면 인스턴스를 반환 : apply, also&lt;/li&gt;
-  &lt;li&gt;처리가 끝나면 최종 값을 반환 : run, let, with(?)&lt;/li&gt;
-  &lt;li&gt;참조 연산자 없이 인스턴스의 변수와 함수 사용 → apply, run&lt;/li&gt;
-  &lt;li&gt;파라미터로 인스턴스를 넘긴 것처럼 it을 통해 인스턴스를 사용 : also, let&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;LiveData 란?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;주어진 lifecycle 내에서 관찰할 수 있는 data holder class.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;get()과 직접 참조(=)의 차이&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MutableLiveData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;()&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LiveData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LiveData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;직접 선언하는 것(b)과 get() = … 으로 선언하는 것(c)의 차이점은, 직접 선언하면 b 와 a 는 서로 동일한 객체를 바라보게 되는 것이고, get() 으로 선언할 경우엔 내부적으로 함수가 호출되고, 해당 함수의 결과 값으로 a 객체를 리턴하는 것.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;by lazy vs lateinit&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;쉽게 설명하자면, var에서만 사용 가능한 lateInit, val에서만 사용 가능한 by lazy.&lt;br /&gt;
-lateInit은 언제든 null을 제외한 값으로 초기화 값을 변경할 수 있지만, by lazy 는 값을 교체하는게 불가능하다.&lt;br /&gt;
-null이 필요할 때를 생각해서 사용해야 한다!&lt;/p&gt;
-
-&lt;h3 id=&quot;by-lazy--initializer-&quot;&gt;by lazy { initializer }&lt;/h3&gt;
-
-&lt;p&gt;지정된 초기화 함수 “initializer” 과 기본 thread-safety 모드인 “LazyThreadSafetyMode.SYNCHRONIZED” 을 사용한 “Lazy” interface의 새 인스턴스를 만든다.
-값의 초기화에서 exception이 발생하면, 다음 access에서 값을 재 초기화를 시도한다.&lt;br /&gt;
-반환된 인스턴스는 동기화하는데 자기 자신을 사용한다. 반환된 인스턴스의 외부 코드로부터 동기화를 하지 마라. 그건 우연히 deadLock을 야기시킬 수 있다. 또한, 이 행동은 나중에 변경될 수도 있다.&lt;/p&gt;
-
-&lt;p&gt;즉, 기본 쓰레드 세잎 모드를 사용해 initializer 함수에 해당하는 새로운 인스턴스를 만들어 사용하는 것이며, kotlin.jvm 에서 동작한다.
-이외 (1)스레드를 컨트롤 할 수 있고, (2)객체를 지정해 동기화할 수도 있다.&lt;/p&gt;
-
-&lt;p&gt;즉, 첫 인스턴스를 생성한 후로는 그 인스턴스의 값 만을 가지고 사용한다.&lt;/p&gt;
-
-&lt;h3 id=&quot;lateinit&quot;&gt;lateInit&lt;/h3&gt;
-
-&lt;p&gt;사용 전 반드시 초기화를 해줘야 한다. 물론 초기화가 되어있는지 확인하는 함수가 있긴 하지만, 초기화 하지 않고 사용할 경우 익셉션이 발생한다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;companion object 란?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;properties(속성)과 functions(함수)가 클래스에 연결되어 있지만, 해당 클래스의 인스턴스에는 연결되어 있지 않은 싱글톤 오브젝트이다. 기본적으로 java의 “static” 키워드와 같지만, 꼬임이 있다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;ex-1 : 기본 사용법 ( 클릭 )&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Cafe&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;companion&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;LATTE&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;latte&quot;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;bestBeverage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LATTE&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    
-&lt;span class=&quot;c1&quot;&gt;// all return &quot;latte&quot;&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;Cafe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Companion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;LATTE&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;Cafe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;LATTE&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;Cafe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;bestBeverage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;ex-1을 보고 아래와 같이 생각할 수 있다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Cafe class의 메소드는 companion object 내에 어떤 프로퍼티든 참조할 수 있다. 마치 프로퍼티가 Cafe class 자체에서 field로 선언된 것 처럼&lt;/li&gt;
-  &lt;li&gt;companion object 내 프로퍼티들은 ContainingClass.PROPERTY_IN_COMPANION_OBJECT 처럼 “statically”하게 참조될 수 있다.&lt;/li&gt;
-  &lt;li&gt;companion object에 대한 기본 이름은 Companion 이다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;ex-2 : companion object 에 이름 붙이기 ( 클릭 )&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Cafe&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;companion&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Beverage&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;LATTE&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;latte&quot;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;bestBeverage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LATTE&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// all return &quot;latte&quot;&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;Cafe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Beverage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;LATTE&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;Cafe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;LATTE&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;Cafe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;bestBeverage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// this no longer compiles&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;Cafe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Companion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;LATTE&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;ex-3 : companion object 내 프로퍼티에 private ( 클릭 )&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Cafe&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;companion&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Beverage&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;LATTE&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;latte&quot;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;bestBeverage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LATTE&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// both of these will give you an error&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;Cafe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Beverage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;LATTE&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;Cafe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;LATTE&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// this still evaluates to &quot;latte&quot;&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;Cafe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;bestBeverage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;companion object 는 최초 한번만 선언되고 두 개 이상 선언이 되지 않는다. 또한, 인터페이스를 상속받아 작업할 수 있다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;ex-4 : interface 상속 ( 클릭 )&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Drinkable&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;drink&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;LATTE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Cafe&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;companion&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Beverage&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Drinkable&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;drink&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;I like coffee&quot;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;LATTE&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;LATTE&quot;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Cafe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;drink&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;가능&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;그럼 일반 object 대신 companion object 를 사용하는 이유는 뭘까?&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;ex-5 : &lt;del&gt;companion&lt;/del&gt; object&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Cafe&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Beverage&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;LATTE&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;latte&quot;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;bestBeverage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Beverage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;LATTE&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;ex-5를 보면 아래와 같은 차이점을 발견할 수 있다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Companion 의 기본 이름이 지정된 companion object와 달리, 일반 object 선언은 이름을 지어야만 한다.&lt;/li&gt;
-  &lt;li&gt;일반 object 내 fields를 참조하기 위해선 객체 이름을 명시적으로 사용한 포함된 클래스를 요구한다. companion object를 가지고, 간단하게 Cafe.LATTE를 만들 수 있지만, 일반 object를 가지고는, Cafe.Beverage.LATTE를 써야만 한다.&lt;/li&gt;
-  &lt;li&gt;Companion object 는 포함된 클래스가 처음 로드될 때 초기화 된다. - 비록 companion object가 사용되지 않더라도. 결과적으로, companion objects는 lazy가 아니다. 위 예제 내 일반 object는 그들이 처름 접근할 때 초기화 된다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;그래서-왜-companion-object를-쓰는-걸까&quot;&gt;그래서 왜 companion object를 쓰는 걸까?&lt;/h3&gt;
-
-&lt;p&gt;“static” 프로퍼티/함수에 접근하기 위한 편리한 약칭을 제공하기 때문. 그게 전부다. 뭔 이유가 있다면, 만약 늦은 초기화를 해야 한다면, 일반 object를 대신 사용해라.&lt;/p&gt;
-
-&lt;hr /&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="android" />
-      
-
-      
-        <summary type="html">코틀린 면접 준비</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">컴퓨터과학 면접 준비</title>
-      <link href="https://lee989898.github.io/ad" rel="alternate" type="text/html" title="컴퓨터과학 면접 준비" />
-      <published>2021-09-02T01:06:00+09:00</published>
-      <updated>2021-09-02T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/ad</id>
-      <content type="html" xml:base="https://lee989898.github.io/ad">&lt;h2 id=&quot;컴퓨터과학-면접-준비&quot;&gt;&lt;strong&gt;컴퓨터과학 면접 준비&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;1분자기소개&lt;/p&gt;
-
-&lt;p&gt;안녕하십니까 명지대학교 컴퓨터공학과 4학년 이준경입니다.
-일단 면접의 기회를 주셔서 고맙습니다
-제가 솝트에 지원하게 된 이유는&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;인성-질문&quot;&gt;&lt;strong&gt;인성 질문&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;자신의 장점과 단점 3가지&lt;/p&gt;
-
-&lt;p&gt;자신의 단점을 극복했던 방법&lt;/p&gt;
-
-&lt;p&gt;협업 중 갈등상황을 겪었던 경험이 있는지, 어떻게 해소했는지&lt;/p&gt;
-
-&lt;p&gt;팀 내에 자기주장이 강한 사람/사기가 없는 사람 이 있을 때 어떻게 해결할 것인가?&lt;/p&gt;
-
-&lt;p&gt;팀 내에 실력적으로 부족한 팀원이 있을 때 어떻게 할 것인가?&lt;/p&gt;
-
-&lt;p&gt;갈등이 일어나지 않게 하기 위해 노력할 부분은 무엇일까?&lt;/p&gt;
-
-&lt;p&gt;협업할 때 지원자와 가장 안 맞는 유형&lt;/p&gt;
-
-&lt;p&gt;협업에서 가장 중요하다고 생각하는 것&lt;/p&gt;
-
-&lt;p&gt;솝트를 통해서 얻고 싶은 3가지&lt;/p&gt;
-
-&lt;p&gt;친구들 사이에서 지원자는 어떤 친구인가?&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;컴퓨터-과학&quot;&gt;&lt;strong&gt;컴퓨터 과학&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;프레임워크와 라이브러리&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;자동차의 뼈대(프레임워크)가 있고 이 뼈대를 기초로 승용차, suv등의 자동차를 완성한다. 여기에 추가적인 기능인 네비게이션이나
-쿠션, 유리 등(라이브러리)을 가져와 차를 꾸민다.&lt;/p&gt;
-
-&lt;h2 id=&quot;프레임워크-란-&quot;&gt;프레임워크 란 ?&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;기본적인 뼈대가 완성되어 있고, 규칙이 존재하는 개발 환경&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;특징&quot;&gt;특징&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;개발자들이 따라야 할 가이드라인을 가진다.&lt;/li&gt;
-  &lt;li&gt;개발할 수 있는 범위가 정해져 있다.&lt;/li&gt;
-  &lt;li&gt;개발자를 위한 다양한 도구들이 지원된다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;장점&quot;&gt;장점&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;개발 편의성이 오르고 시간을 절약할 수 있다.&lt;/li&gt;
-  &lt;li&gt;오류의 폭을 좁힐 수 있다.&lt;/li&gt;
-  &lt;li&gt;어느 정도의 코드 품질을 보장한다.&lt;/li&gt;
-  &lt;li&gt;유지 보수하기 좋다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;단점&quot;&gt;단점&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;프레임워크의 의존도가 늘어나 개발 능력이 저하될 수 있다.&lt;/li&gt;
-  &lt;li&gt;개발자의 자유도가 떨어진다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;라이브러리-란&quot;&gt;라이브러리 란?&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;개발 시 활용 가능한 도구들을 모아 모듈화한 것&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;라이브러리와-api-차이&quot;&gt;라이브러리와 API 차이&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;라이브러리 : 실제로 “실행이 되는 기능”을 담당하는 단편화된 프로그램&lt;/li&gt;
-  &lt;li&gt;API(Application Programming Interface) : 다른 목적으로 개발된 프로그램/라이브러리 들의 특정 기능을 “호출”하기 위해서 인터페이스를 노출시킨 것&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;프레임워크와-라이브러리-&quot;&gt;프레임워크와 라이브러리 ?&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;프레임워크는 단순히 “라이브러리의 집합”은 아니다!&lt;/li&gt;
-  &lt;li&gt;프레임워크는 개발자들의 “환경”을 제한하는 대신 일정 “환경”을 제공&lt;/li&gt;
-  &lt;li&gt;라이브러리는 내가 원하는 코드를 원할 때 원하는 곳에 가져다 넣을 수 있다. → 즉, “환경”은 없고 의도와 목적만이 존재&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;큐와 스택&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;큐queue&quot;&gt;큐(Queue)&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;FIFO(First In First Out), 즉, 선입선출의 방식으로 동작하며, 프로세스 처리, CPU관리 등에 많이 사용된다.&lt;/li&gt;
-  &lt;li&gt;큐에 자료를 한 개 집어 넣는 동작을 인큐(EnQueue)라고 하며, 큐 안에 있는 자료를 한 개 꺼내는 동작을 디큐(DeQueue)라고 한다.&lt;/li&gt;
-  &lt;li&gt;리스트를 이용한 큐 구현(Linear Queue(선형 큐)) 에서는 디큐로 맨 앞자리를 날렸을 때 남은 부분이 앞으로 한 칸씩 땡겨져 오다 보니 속도 측면에서 단점이 있다.&lt;/li&gt;
-  &lt;li&gt;Linear Queue를 보완하기 위해 Circular Queue(원형 큐)가 등장했고, 이는 디큐로 빼 놓은 자리에 인큐로 넣음으로써 낭비를 막는다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;ex) 버스 또는 택시 등 줄 서기, 롤에서 “큐를 돌린다” 등의 예가 있다.&lt;/p&gt;
-
-&lt;h3 id=&quot;스택stack&quot;&gt;스택(Stack)&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;LIFO(Last In First Out), 즉, 후입선출의 방식으로 동작하며, 문서 작업에서 ctrl+z, 캐시 등에 많이 사용된다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;ex) 쌓여 있는 접시 또는 책 등&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;쿠키, 세션, 캐시&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;HTTP(HyperText Transfer Protocol)은 브라우저 같은 응용 프로그램을 통해 사용자와 서버 사이에 전송하는 프로토콜이며, 이는 연결 상태를 유지하지 않는 비 연결 프로토콜이라는 특징을 가짐&lt;/li&gt;
-  &lt;li&gt;사용자의 요청에 따라 서버에 접속해 응답 데이터를 전송한 뒤 연결을 종료시켜 주다 보니, 매 번 재 연결을 해야 했고, 이러한 단점을 해결하기 위해 쿠키나 세션을 사용한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;쿠키cookie&quot;&gt;쿠키(Cookie)&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;사용자의 브라우저에 저장되기 때문에 서버의 자원을 사용할 수 없고, 사용자의 컴퓨터만 있으면 누구나 쿠키 안에 데이터를 확인할 수 있기 때문에 보안성이 낮다.&lt;/li&gt;
-  &lt;li&gt;Cookie는 인터넷 사용자가 특정 웹서버에 접속할 때, 생성되는 개인 아이디와 비밀번호, 방문한 사이트의 정보를 담은 임시 파일로써, Server가 아닌 Client에 텍스트 파일로 저장되어 다음에 해당 웹서버를 찾을 경우 웹서버에서는 그가 누구인지 어떤 정보를 주로 찾았는지 등을 파악할 때 사용&lt;/li&gt;
-  &lt;li&gt;예를 들어, 검색 키워드 정보나 자동 로그인 유지 정보, 팝업 보지 않기, 쇼핑 카트나 위시 리스트 저장, 특정 웹사이트에 방문한 적이 있는지, 또 접속했다면 얼마나 자주 방문했는지 등에 관한 정보들을 담고 있다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;세션session&quot;&gt;세션(Session)&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;클라이언트와 웹 서버간에 네트워크 연결이 지속적으로 유지되고 있는 상태&lt;/li&gt;
-  &lt;li&gt;서버에 접속하지 않는 이상 데이터를 탈취할 수 어렵기 때문에 중요한 데이터를 저장하는데 주로 사용&lt;/li&gt;
-  &lt;li&gt;세션에 관련된 데이터는 서버에 저장 → 쿠키에 비해 보안성이 높음&lt;/li&gt;
-  &lt;li&gt;웹 브라우저의 캐시에 저장되어 브라우저가 닫히거나 서버에서 삭제 시 사라짐&lt;/li&gt;
-  &lt;li&gt;예를 들어, 로그인 정보 유지에 사용&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;캐시cache&quot;&gt;캐시(Cache)&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;데이터나 값을 미리 복사해 임시로 저장해두는 장소를 의미&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Process vs Thread&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;process&quot;&gt;Process&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;운영체제로부터 자원을 할당받는 작업의 단위&lt;/li&gt;
-  &lt;li&gt;컴퓨터에서 실행 중인 컴퓨터 프로그램&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;thread&quot;&gt;Thread&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;프로세스가 할당받은 자원을 이용하는 실행의 단위&lt;/li&gt;
-  &lt;li&gt;하나의 프로세스가 생성되면 하나의 스레드가 같이 생성 → 메인 스레드&lt;/li&gt;
-  &lt;li&gt;여러 개의 스레드를 가질 수 있음 → 멀티 스레드&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;컨텍스트 스위칭 오버헤드 정도&lt;/li&gt;
-  &lt;li&gt;자원 공유 가능 여부&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;MultiThread 에서 작업할 때 발생하는 문제&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Thread 란? 위에 설명 했듯, 프로그램의 흐름을 말한다.&lt;/li&gt;
-  &lt;li&gt;Multi Thread 란? 프로그램의 흐름이 2개 이상인 것을 말한다. 매우 빠른 시간 간격으로 스위칭 되기 때문에 동시( = concurrent )에 실행되는 것처럼 보인다.&lt;/li&gt;
-  &lt;li&gt;Process Synchronization(프로세스 동기화 = Thread Synchronization) 이란? 서로 간에 영향을 주고 받는 데이터들 간에 데이터의 일관성이 유지될 수 있도록 해주는 것!&lt;/li&gt;
-  &lt;li&gt;MultiThead 실행 방법&lt;br /&gt;
-동시성( Concurrency ) : 멀티 작업을 위해 1개의 코어로 스레드마다 돌아가면서 실행하지만, 너무 빨라 독립적으로 돌아가는 것 처럼 보임&lt;br /&gt;
-병렬성( Parallelism ) : 스레드마다 독립적인 core가 할당되어 독립적인 core에서 작업이 이뤄지는 것을 말함&lt;br /&gt;
-코어 &amp;gt; 쓰레드 → 병렬성 보장&lt;br /&gt;
-코어 &amp;lt; 쓰레드 → 병렬설 보장 x, 동시성 보장을 위해 우선순위를 매겨줌 → 쓰레드 스케쥴링&lt;/li&gt;
-  &lt;li&gt;쓰레드 스케쥴링 방식&lt;br /&gt;
-우선 순위( Priority ) 방식 : 우선 순위가 높은( 1 : 낮음, 10 : 높음 ) 쓰레드가 실행을 더 많이 하도록 스케줄링하는 방법&lt;br /&gt;
-순환 할당( Round-Robin ) 방식 : 시간 할당량을 정해 쓰레드를 정해진 시간 만큼만 실행하는 방법으로, JVM 안에서 이루어 지기 떄문에 개발자가 제어할 수 없음&lt;/li&gt;
-  &lt;li&gt;Multi Thread(Thread 2개)에서 하나의 공통된 값을 가져다 쓰면서 변경해, 그럴 경우 값을 유지하는 방법은?&lt;br /&gt;
-3번에서 얘기한 대로, 동기화를 이용하면 된다. 동기화 방법으로 동기화 메소드와 동기화 블록 방법 등이 있다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Hash 란?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Hash 함수 ? Hash 알고리즘을 구현하여 원본 데이터만 넣으면 Hash 값을 내보내 주는 함수&lt;br /&gt;
-Hash 알고리즘 ? 가변적인 데이터의 길이를 고정적인 데이터 길이로 변환해 주는 알고리즘&lt;/p&gt;
-
-&lt;p&gt;Hash 값의 특징 ?&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Hash 값은 원본으로 되돌릴 수 없음( 계산을 통해 원본을 얻어내기 어렵다 → 원본을 알아낼 수 없게 암호화하는 단방향 암호화에 많이 사용 )&lt;/li&gt;
-  &lt;li&gt;원본 데이터가 같으면 Hash 값도 일정( 정해진 알고리즘을 통해 원본 데이터를 규칙에 맞게 변경하므로 원본 데이터가 같으면 Hash도 같다  )&lt;/li&gt;
-  &lt;li&gt;충돌 가능성이 존재( Hash 값은 정해진 길이(길이는 알고리즘마다 다르게 정해짐)의 값 이기 때문에 원본이 다르다고 무조건 다른 값을 만들 순 없다 → 확률이 적다 )&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Hash 알고리즘의 용도 ?&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;무결성의 확인 ?&lt;br /&gt;
-무결성이란 데이터가 변했는지 변하지 않았는지의 여부&lt;br /&gt;
-Hash 알고리즘을 사용하면 원본이 같으면 같은 Hash 값 나오기 때문에, 원본과 Hash 값을 직접 비교할 수 있다는 장점이 있다.&lt;br /&gt;
-아무리 큰 데이터여도 고정된 길이의 Hash 값으로 바꿀 수 있기 때문에 비교 속다가 빠르다는 장점이 있다.&lt;/li&gt;
-  &lt;li&gt;검색 속도를 높이는 용도로 사용 ?&lt;br /&gt;
-예를 들어, 많은 데이터를 가진 DB에서 “chu”를 찾기 위해선 한 글자씩 찾아야 한다. → 퍼포먼스 떨어짐 → Hash 함수를 통해 DB의 데이터를 고정된 크기의 Hash 값을 가진 공간(Bucket)을 만들어 저장하고 원본에 링크해 놓는 다면, 검색 값인 “chu”를 Hash 함수를 거친 Hash 값으로 bucket과 매칭시킨다면, 바로 링크된 원본을 찾아낼 수 있다. → bucket을 만드는 공간이 소요되지만, 검색이 굉장히 빨라지는 장점이 있다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;질문!&lt;br /&gt;
-Hash 값으로 변경되더라도 하나씩 비교해줘야 하는거 같은데, 왜 빠르지?&lt;br /&gt;
-해시 검색을 위해서는 검색에 효율적인 이진 트리 방식을 사용한다. 이를 사용하기 위해서는 모든 값이 같은 크기의 공간에 담을 수 있는 서로 비교 가능한 숫자여야 하기 때문에 &lt;em&gt;Hash 함수를 통해 정수 값으로 만든 후 이진 트리 형태로 정렬하여 검색에 사용&lt;/em&gt;하는 것.&lt;br /&gt;
-Hash 함수는 Hash 형식에 따라 특정 길이(128비트, 256비트, 512비트 등)로 정해져 있다. 이는 해당 길이 만큼의 정수 값으로 변환 시켜주는 것. 따라서 구조적으로 가변적인 길이의 문자열을 1바이트씩 직접 비교하는 것보다 빠릅니다.&lt;/p&gt;
-
-&lt;p&gt;Hash 함수 사용 시 주의점 ?&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Salt 의 사용?&lt;br /&gt;
-보안 목적으로 사용 시 반드시 사용 → 원본 데이터에 첨가(salt)해서 Hash 알고리즘을 통해 salt를 첨가한 Hash 값을 보낸다.&lt;br /&gt;
-→ 즉, 원본 데이터에 salt를 첨가해 Hash 값을 다르게 만들기 위해 사용한다.&lt;br /&gt;
-→ 왜 다르게 하지? → Hash 값을 통해 원본을 알아낼 수 있는 방법이 있다!? → Brute-Forca Attack( 무작위로 문자열을 대입하는 해킹 방법 ) 으로 가능하며, 이는 Hash 함수에 무작위 값을 넣어 나온 Hash 값을 해킹해 낸 Hash 값과 대조하여 원본을 알아내는 것이다.&lt;br /&gt;
-따라서, 아래와 같은 사항을 따르는게 좋다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;1) Salt를 첨가하여 Hash 값을 다르게 한다.&lt;br /&gt;
-2) Salt의 길이를 허용하는 한 길게 함&lt;br /&gt;
-3) Salt를 안전하게 보관함&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Key stretching 의 사용?&lt;br /&gt;
-Hash 함수를 여러 번 통과시키는데 사용 → 이는 Hash 함수를 거쳐 나온 Hash 값을 다른 Hash 함수에 거치는 작업을 반복함으로써 어렵게 하는 방식이다.&lt;/li&gt;
-  &lt;li&gt;충돌의 회피 ?&lt;br /&gt;
-데이터 저장의 목적으로 사용 시 사용 → 단점인 서로 다른 값 이더라도 Hash 값이 같을 확률이 존재! → 보안에도, 데이터 저장에도 큰 문제!! → 이를 위해 아래와 같은 사항이 추가된다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;1) 리스트로 데이터를 관리하는 Chaining&lt;br /&gt;
-2) 위치를 조정하는 Open Addressing&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;RestFul Api ?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;REpresentational State Transfer, 즉, 서버로 자원을 전달 시, 대표적인 “상태”를 함께 주고 그 상태에 맞는 응답을 서버에서 받는 것을 의미한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;rest-&quot;&gt;REST ?&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;HTTP URI(Uniform Resource Identifier)를 통해 자원(Resource)을 명시하고, HTTP Method(POST, GET, PUT, DELETE)를 통해 해당 자원에 대한 CRUD Operation을 적용하는 방식으로 동작&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;rest-api-&quot;&gt;REST API ?&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;REST 기반으로 서비스 API를 구현한 것&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;http-method&quot;&gt;HTTP Method&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;POST : URI 요청 시 리소스 생성을 위해 설계되었기 때문에 body에 데이터를 담아 보내기 때문에 url에 보이지 않는다. 즉, 정보를 생성하기 위해 만들어짐.&lt;/li&gt;
-  &lt;li&gt;GET : 해당 리소스를 조회하게 설계되었기 때문에, 원하는 값을 url에 보여준다. 즉, 정보를 조회하기 위해 만들어짐.&lt;/li&gt;
-  &lt;li&gt;PUT or PATCH or UPDATE : 해당 리소스를 수정&lt;/li&gt;
-  &lt;li&gt;DELETE : 해당 리소스를 삭제&lt;/li&gt;
-&lt;/ul&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="android" />
-      
-
-      
-        <summary type="html">컴퓨터과학 면접 준비</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
       <title type="html">안드로이드 면접 준비</title>
       <link href="https://lee989898.github.io/ad" rel="alternate" type="text/html" title="안드로이드 면접 준비" />
-      <published>2021-09-02T01:06:00+09:00</published>
-      <updated>2021-09-02T01:06:00+09:00</updated>
+      <published>2022-03-19T01:06:00+09:00</published>
+      <updated>2022-03-19T01:06:00+09:00</updated>
       <id>https://lee989898.github.io/ad</id>
       <content type="html" xml:base="https://lee989898.github.io/ad">&lt;h2 id=&quot;안드로이드-면접-준비&quot;&gt;&lt;strong&gt;안드로이드 면접 준비&lt;/strong&gt;&lt;/h2&gt;
 
@@ -1158,6 +505,659 @@ Activity 또는 Fragment 가 종료 될 때 onSaveInstanceState은 onPause 다�
 
       
         <summary type="html">안드로이드 면접 준비</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">코틀린 면접 준비</title>
+      <link href="https://lee989898.github.io/ad" rel="alternate" type="text/html" title="코틀린 면접 준비" />
+      <published>2022-03-18T01:06:00+09:00</published>
+      <updated>2022-03-18T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/ad</id>
+      <content type="html" xml:base="https://lee989898.github.io/ad">&lt;h2 id=&quot;코틀린-면접-준비&quot;&gt;&lt;strong&gt;코틀린 면접 준비&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;코틀린-질문&quot;&gt;&lt;strong&gt;코틀린 질문&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;코틀린 사용의 장점&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;널 안전성&lt;/li&gt;
+  &lt;li&gt;가변/불변 구분&lt;/li&gt;
+  &lt;li&gt;람다 표현식 지원&lt;/li&gt;
+  &lt;li&gt;스트림 API 지원&lt;/li&gt;
+  &lt;li&gt;완벽한 자바 호환성&lt;/li&gt;
+  &lt;li&gt;Java에 비해 훨씬 간결한 코드&lt;/li&gt;
+  &lt;li&gt;객체지향이면서 함수형 프로그래밍 언어&lt;/li&gt;
+  &lt;li&gt;자바와 상호운용 가능 (자바에서 코틀린으로 작성된 클래스를 부를 수 있으며 반대로도 가능)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;클래스, 객체, 인스턴스&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;클래스: 객체를 만들어 내기 위한 설계도 혹은 툴
+객채: 소프트웨어 셰계에 구현할 대상
+인스턴스: 설계도를 바탕으로 소프트웨어 세계에 구현된 구체적인 실체&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Array와 List의 차이&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Array의 경우 고전적인 의미의 배열이며, 고정된 사이즈의 연속된 메모리 공간에 할당된다.&lt;br /&gt;
+따라서 인덱스를 통해 값을 변경하는 것이 가능하며(mutable), 사이즈를 변경하는 것이 불가능하다.&lt;br /&gt;
+List의 경우 크게 List와 MutableList가 있는데, ArrayList또는 LinkedList의 구현체다.
+Default로는 ArrayList의 구현체를 따른다.&lt;br /&gt;
+이름에서도 볼 수 있듯이 List는 Immutable이며 MutableList는 Mutable이다.
+성능이 중요시 되는 부분을 제외하고는 List를 쓰는것이 바람직 하다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Scope Function&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;코틀린에서 제공하는 기본 라이브러리 함수로, 객체를 context내에서 코드 단위 블럭으로 실행하는데 묵적을 가진 함수&lt;br /&gt;
+5개의 스코프 함수가 존재: let, run, with, apply, and also&lt;/p&gt;
+
+&lt;p&gt;리시버와 람다 함수&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;스코프 함수를 사용할 떄 넘겨주는 두 객체&lt;/li&gt;
+  &lt;li&gt;차이점
+    &lt;ul&gt;
+      &lt;li&gt;객채를 접근하는 방법: this, it
+        &lt;ul&gt;
+          &lt;li&gt;run, with, apply -&amp;gt; 자기 자신을 블럭(this)으로 넘기고 this를 사용해 객체에 접근&lt;/li&gt;
+          &lt;li&gt;let, alse -&amp;gt; 자기 자신을(람다) 인자(it)으로 넘기고 it을 사용해 객체에 접근&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;리턴 값
+        &lt;ul&gt;
+          &lt;li&gt;apply, also -&amp;gt; 리시버 객체를 마지막에 리턴(자기 자신을 리턴)&lt;/li&gt;
+          &lt;li&gt;let, run, with -&amp;gt; 람다 함수의 마지막 결과를 리턴(코드 블럭의 결과를 리턴)&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;let : 이 함수를 호출한 객체를 이어지는 함수 블록의 인자로 전달한다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;it으로 리시버에 접근하고 람다 함수의 마지막 결과를 리턴&lt;/li&gt;
+  &lt;li&gt;리시버의 여러 함수들을 호출할 떄 사용&lt;/li&gt;
+  &lt;li&gt;리시버 객체의 확장 함수로 사용 -&amp;gt; val length = str?.let {it.length}&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;getPadding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;은&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;패딩&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;값&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;setPadding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;with : 인자로 받은 객체를 이어지는 함수 블록의 리시버로 전달, block 함수의 결과를 반환&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;this로 리시버에 접근, 람다 함수의 마지막 결과를 리턴(리턴 값을 사용하지 않는 경우에 쓸 것을 권장)&lt;/li&gt;
+  &lt;li&gt;리시버 객체의 확장 함수로 사용하지 않음 -&amp;gt; with(리시버 객체) { 람다 함수}&lt;/li&gt;
+  &lt;li&gt;run과 동일한 기능&lt;/li&gt;
+  &lt;li&gt;인스턴스를 참조연산자 대신 parameter로 받아 사용 ( &amp;lt;-&amp;gt; run과 차이)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;textView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;textView!!!&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;gravity&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Gravity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;CENTER_HORIZONTAL&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;run : 인자가 없는 익명 함수처럼 사용하는 형태와 객체에서 호출하는 형태 제공 함수형 인자 block 을 호출하고 결과반환 또는 호출한 객체를 함수형 인자 block의 리시버로 전달하고 그 결과를 반환한다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;this로 리시버에 접근하고, 람다 함수의 마지막 결과를 리턴&lt;/li&gt;
+  &lt;li&gt;마지막 구문의 결과 값을 반환한다. ( &amp;lt;-&amp;gt; apply와 차이)&lt;/li&gt;
+  &lt;li&gt;with와 동일한 기능&lt;/li&gt;
+  &lt;li&gt;리시버의 확장 함수로 사용 -&amp;gt; 리시버.run { 람다 함수 }&lt;/li&gt;
+  &lt;li&gt;람다함수에서 여러 값을 초기화하고 리턴 값을 어떤 객체의 초기값으로 사용할 때 사용&lt;/li&gt;
+  &lt;li&gt;이미 인스턴스가 만들어진 후에 인스턴스의 함수나 속성을 scope 내에서 사용해야 할 떄 사용한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;AplusB&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+      &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;textView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;와&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;비슷하지만&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;textView&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;의&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;널체크를&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;해야&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;하는경우&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;사용하면&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;좋다&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;textView!!!&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;gravity&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Gravity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;CENTER_HORIZONTAL&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;apply : 이 함수를 호출한 객체를 이어지는 함수 블록의 리시버로 전달한다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;it으로 리시버에 접근하고, 리시버 객체를 리턴&lt;/li&gt;
+  &lt;li&gt;리시버 스스로를 리턴하기 때문에 빌더패턴처럼 연속적으로 함수 호출 가능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;apply&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;weight&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1f&lt;/span&gt;     &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;를&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;리시버로&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;전달&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;받았기&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;때문에&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;weight&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;이나&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;topMargin&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;바로사용&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;topMargin&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;처리가 끝나면 인스턴스를 반환 : apply, also&lt;/li&gt;
+  &lt;li&gt;처리가 끝나면 최종 값을 반환 : run, let, with(?)&lt;/li&gt;
+  &lt;li&gt;참조 연산자 없이 인스턴스의 변수와 함수 사용 → apply, run&lt;/li&gt;
+  &lt;li&gt;파라미터로 인스턴스를 넘긴 것처럼 it을 통해 인스턴스를 사용 : also, let&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;LiveData 란?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;주어진 lifecycle 내에서 관찰할 수 있는 data holder class.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;get()과 직접 참조(=)의 차이&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MutableLiveData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;()&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LiveData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LiveData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;직접 선언하는 것(b)과 get() = … 으로 선언하는 것(c)의 차이점은, 직접 선언하면 b 와 a 는 서로 동일한 객체를 바라보게 되는 것이고, get() 으로 선언할 경우엔 내부적으로 함수가 호출되고, 해당 함수의 결과 값으로 a 객체를 리턴하는 것.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;by lazy vs lateinit&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;쉽게 설명하자면, var에서만 사용 가능한 lateInit, val에서만 사용 가능한 by lazy.&lt;br /&gt;
+lateInit은 언제든 null을 제외한 값으로 초기화 값을 변경할 수 있지만, by lazy 는 값을 교체하는게 불가능하다.&lt;br /&gt;
+null이 필요할 때를 생각해서 사용해야 한다!&lt;/p&gt;
+
+&lt;h3 id=&quot;by-lazy--initializer-&quot;&gt;by lazy { initializer }&lt;/h3&gt;
+
+&lt;p&gt;지정된 초기화 함수 “initializer” 과 기본 thread-safety 모드인 “LazyThreadSafetyMode.SYNCHRONIZED” 을 사용한 “Lazy” interface의 새 인스턴스를 만든다.
+값의 초기화에서 exception이 발생하면, 다음 access에서 값을 재 초기화를 시도한다.&lt;br /&gt;
+반환된 인스턴스는 동기화하는데 자기 자신을 사용한다. 반환된 인스턴스의 외부 코드로부터 동기화를 하지 마라. 그건 우연히 deadLock을 야기시킬 수 있다. 또한, 이 행동은 나중에 변경될 수도 있다.&lt;/p&gt;
+
+&lt;p&gt;즉, 기본 쓰레드 세잎 모드를 사용해 initializer 함수에 해당하는 새로운 인스턴스를 만들어 사용하는 것이며, kotlin.jvm 에서 동작한다.
+이외 (1)스레드를 컨트롤 할 수 있고, (2)객체를 지정해 동기화할 수도 있다.&lt;/p&gt;
+
+&lt;p&gt;즉, 첫 인스턴스를 생성한 후로는 그 인스턴스의 값 만을 가지고 사용한다.&lt;/p&gt;
+
+&lt;h3 id=&quot;lateinit&quot;&gt;lateInit&lt;/h3&gt;
+
+&lt;p&gt;사용 전 반드시 초기화를 해줘야 한다. 물론 초기화가 되어있는지 확인하는 함수가 있긴 하지만, 초기화 하지 않고 사용할 경우 익셉션이 발생한다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;companion object 란?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;properties(속성)과 functions(함수)가 클래스에 연결되어 있지만, 해당 클래스의 인스턴스에는 연결되어 있지 않은 싱글톤 오브젝트이다. 기본적으로 java의 “static” 키워드와 같지만, 꼬임이 있다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ex-1 : 기본 사용법 ( 클릭 )&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Cafe&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;companion&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;LATTE&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;latte&quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;bestBeverage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LATTE&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    
+&lt;span class=&quot;c1&quot;&gt;// all return &quot;latte&quot;&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;Cafe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Companion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;LATTE&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;Cafe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;LATTE&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;Cafe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;bestBeverage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;ex-1을 보고 아래와 같이 생각할 수 있다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Cafe class의 메소드는 companion object 내에 어떤 프로퍼티든 참조할 수 있다. 마치 프로퍼티가 Cafe class 자체에서 field로 선언된 것 처럼&lt;/li&gt;
+  &lt;li&gt;companion object 내 프로퍼티들은 ContainingClass.PROPERTY_IN_COMPANION_OBJECT 처럼 “statically”하게 참조될 수 있다.&lt;/li&gt;
+  &lt;li&gt;companion object에 대한 기본 이름은 Companion 이다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ex-2 : companion object 에 이름 붙이기 ( 클릭 )&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Cafe&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;companion&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Beverage&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;LATTE&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;latte&quot;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;bestBeverage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LATTE&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// all return &quot;latte&quot;&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;Cafe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Beverage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;LATTE&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;Cafe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;LATTE&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;Cafe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;bestBeverage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// this no longer compiles&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;Cafe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Companion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;LATTE&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ex-3 : companion object 내 프로퍼티에 private ( 클릭 )&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Cafe&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;companion&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Beverage&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;LATTE&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;latte&quot;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;bestBeverage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LATTE&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// both of these will give you an error&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;Cafe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Beverage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;LATTE&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;Cafe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;LATTE&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// this still evaluates to &quot;latte&quot;&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;Cafe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;bestBeverage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;companion object 는 최초 한번만 선언되고 두 개 이상 선언이 되지 않는다. 또한, 인터페이스를 상속받아 작업할 수 있다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ex-4 : interface 상속 ( 클릭 )&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Drinkable&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;drink&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;LATTE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Cafe&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;companion&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Beverage&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Drinkable&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;drink&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;I like coffee&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;LATTE&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;LATTE&quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Cafe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;drink&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;가능&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;그럼 일반 object 대신 companion object 를 사용하는 이유는 뭘까?&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ex-5 : &lt;del&gt;companion&lt;/del&gt; object&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Cafe&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Beverage&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;LATTE&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;latte&quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;bestBeverage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Beverage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;LATTE&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;ex-5를 보면 아래와 같은 차이점을 발견할 수 있다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Companion 의 기본 이름이 지정된 companion object와 달리, 일반 object 선언은 이름을 지어야만 한다.&lt;/li&gt;
+  &lt;li&gt;일반 object 내 fields를 참조하기 위해선 객체 이름을 명시적으로 사용한 포함된 클래스를 요구한다. companion object를 가지고, 간단하게 Cafe.LATTE를 만들 수 있지만, 일반 object를 가지고는, Cafe.Beverage.LATTE를 써야만 한다.&lt;/li&gt;
+  &lt;li&gt;Companion object 는 포함된 클래스가 처음 로드될 때 초기화 된다. - 비록 companion object가 사용되지 않더라도. 결과적으로, companion objects는 lazy가 아니다. 위 예제 내 일반 object는 그들이 처름 접근할 때 초기화 된다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;그래서-왜-companion-object를-쓰는-걸까&quot;&gt;그래서 왜 companion object를 쓰는 걸까?&lt;/h3&gt;
+
+&lt;p&gt;“static” 프로퍼티/함수에 접근하기 위한 편리한 약칭을 제공하기 때문. 그게 전부다. 뭔 이유가 있다면, 만약 늦은 초기화를 해야 한다면, 일반 object를 대신 사용해라.&lt;/p&gt;
+
+&lt;hr /&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="android" />
+      
+
+      
+        <summary type="html">코틀린 면접 준비</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">컴퓨터과학 면접 준비</title>
+      <link href="https://lee989898.github.io/ad" rel="alternate" type="text/html" title="컴퓨터과학 면접 준비" />
+      <published>2022-03-17T01:06:00+09:00</published>
+      <updated>2022-03-17T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/ad</id>
+      <content type="html" xml:base="https://lee989898.github.io/ad">&lt;h2 id=&quot;컴퓨터과학-면접-준비&quot;&gt;&lt;strong&gt;컴퓨터과학 면접 준비&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;1분자기소개&lt;/p&gt;
+
+&lt;p&gt;안녕하십니까 명지대학교 컴퓨터공학과 4학년 이준경입니다.
+일단 면접의 기회를 주셔서 고맙습니다
+제가 솝트에 지원하게 된 이유는&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;인성-질문&quot;&gt;&lt;strong&gt;인성 질문&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;자신의 장점과 단점 3가지&lt;/p&gt;
+
+&lt;p&gt;자신의 단점을 극복했던 방법&lt;/p&gt;
+
+&lt;p&gt;협업 중 갈등상황을 겪었던 경험이 있는지, 어떻게 해소했는지&lt;/p&gt;
+
+&lt;p&gt;팀 내에 자기주장이 강한 사람/사기가 없는 사람 이 있을 때 어떻게 해결할 것인가?&lt;/p&gt;
+
+&lt;p&gt;팀 내에 실력적으로 부족한 팀원이 있을 때 어떻게 할 것인가?&lt;/p&gt;
+
+&lt;p&gt;갈등이 일어나지 않게 하기 위해 노력할 부분은 무엇일까?&lt;/p&gt;
+
+&lt;p&gt;협업할 때 지원자와 가장 안 맞는 유형&lt;/p&gt;
+
+&lt;p&gt;협업에서 가장 중요하다고 생각하는 것&lt;/p&gt;
+
+&lt;p&gt;솝트를 통해서 얻고 싶은 3가지&lt;/p&gt;
+
+&lt;p&gt;친구들 사이에서 지원자는 어떤 친구인가?&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;컴퓨터-과학&quot;&gt;&lt;strong&gt;컴퓨터 과학&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;프레임워크와 라이브러리&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;자동차의 뼈대(프레임워크)가 있고 이 뼈대를 기초로 승용차, suv등의 자동차를 완성한다. 여기에 추가적인 기능인 네비게이션이나
+쿠션, 유리 등(라이브러리)을 가져와 차를 꾸민다.&lt;/p&gt;
+
+&lt;h2 id=&quot;프레임워크-란-&quot;&gt;프레임워크 란 ?&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;기본적인 뼈대가 완성되어 있고, 규칙이 존재하는 개발 환경&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;특징&quot;&gt;특징&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;개발자들이 따라야 할 가이드라인을 가진다.&lt;/li&gt;
+  &lt;li&gt;개발할 수 있는 범위가 정해져 있다.&lt;/li&gt;
+  &lt;li&gt;개발자를 위한 다양한 도구들이 지원된다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;장점&quot;&gt;장점&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;개발 편의성이 오르고 시간을 절약할 수 있다.&lt;/li&gt;
+  &lt;li&gt;오류의 폭을 좁힐 수 있다.&lt;/li&gt;
+  &lt;li&gt;어느 정도의 코드 품질을 보장한다.&lt;/li&gt;
+  &lt;li&gt;유지 보수하기 좋다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;단점&quot;&gt;단점&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;프레임워크의 의존도가 늘어나 개발 능력이 저하될 수 있다.&lt;/li&gt;
+  &lt;li&gt;개발자의 자유도가 떨어진다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;라이브러리-란&quot;&gt;라이브러리 란?&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;개발 시 활용 가능한 도구들을 모아 모듈화한 것&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;라이브러리와-api-차이&quot;&gt;라이브러리와 API 차이&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;라이브러리 : 실제로 “실행이 되는 기능”을 담당하는 단편화된 프로그램&lt;/li&gt;
+  &lt;li&gt;API(Application Programming Interface) : 다른 목적으로 개발된 프로그램/라이브러리 들의 특정 기능을 “호출”하기 위해서 인터페이스를 노출시킨 것&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;프레임워크와-라이브러리-&quot;&gt;프레임워크와 라이브러리 ?&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;프레임워크는 단순히 “라이브러리의 집합”은 아니다!&lt;/li&gt;
+  &lt;li&gt;프레임워크는 개발자들의 “환경”을 제한하는 대신 일정 “환경”을 제공&lt;/li&gt;
+  &lt;li&gt;라이브러리는 내가 원하는 코드를 원할 때 원하는 곳에 가져다 넣을 수 있다. → 즉, “환경”은 없고 의도와 목적만이 존재&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;큐와 스택&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;큐queue&quot;&gt;큐(Queue)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;FIFO(First In First Out), 즉, 선입선출의 방식으로 동작하며, 프로세스 처리, CPU관리 등에 많이 사용된다.&lt;/li&gt;
+  &lt;li&gt;큐에 자료를 한 개 집어 넣는 동작을 인큐(EnQueue)라고 하며, 큐 안에 있는 자료를 한 개 꺼내는 동작을 디큐(DeQueue)라고 한다.&lt;/li&gt;
+  &lt;li&gt;리스트를 이용한 큐 구현(Linear Queue(선형 큐)) 에서는 디큐로 맨 앞자리를 날렸을 때 남은 부분이 앞으로 한 칸씩 땡겨져 오다 보니 속도 측면에서 단점이 있다.&lt;/li&gt;
+  &lt;li&gt;Linear Queue를 보완하기 위해 Circular Queue(원형 큐)가 등장했고, 이는 디큐로 빼 놓은 자리에 인큐로 넣음으로써 낭비를 막는다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ex) 버스 또는 택시 등 줄 서기, 롤에서 “큐를 돌린다” 등의 예가 있다.&lt;/p&gt;
+
+&lt;h3 id=&quot;스택stack&quot;&gt;스택(Stack)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;LIFO(Last In First Out), 즉, 후입선출의 방식으로 동작하며, 문서 작업에서 ctrl+z, 캐시 등에 많이 사용된다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ex) 쌓여 있는 접시 또는 책 등&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;쿠키, 세션, 캐시&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;HTTP(HyperText Transfer Protocol)은 브라우저 같은 응용 프로그램을 통해 사용자와 서버 사이에 전송하는 프로토콜이며, 이는 연결 상태를 유지하지 않는 비 연결 프로토콜이라는 특징을 가짐&lt;/li&gt;
+  &lt;li&gt;사용자의 요청에 따라 서버에 접속해 응답 데이터를 전송한 뒤 연결을 종료시켜 주다 보니, 매 번 재 연결을 해야 했고, 이러한 단점을 해결하기 위해 쿠키나 세션을 사용한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;쿠키cookie&quot;&gt;쿠키(Cookie)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;사용자의 브라우저에 저장되기 때문에 서버의 자원을 사용할 수 없고, 사용자의 컴퓨터만 있으면 누구나 쿠키 안에 데이터를 확인할 수 있기 때문에 보안성이 낮다.&lt;/li&gt;
+  &lt;li&gt;Cookie는 인터넷 사용자가 특정 웹서버에 접속할 때, 생성되는 개인 아이디와 비밀번호, 방문한 사이트의 정보를 담은 임시 파일로써, Server가 아닌 Client에 텍스트 파일로 저장되어 다음에 해당 웹서버를 찾을 경우 웹서버에서는 그가 누구인지 어떤 정보를 주로 찾았는지 등을 파악할 때 사용&lt;/li&gt;
+  &lt;li&gt;예를 들어, 검색 키워드 정보나 자동 로그인 유지 정보, 팝업 보지 않기, 쇼핑 카트나 위시 리스트 저장, 특정 웹사이트에 방문한 적이 있는지, 또 접속했다면 얼마나 자주 방문했는지 등에 관한 정보들을 담고 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;세션session&quot;&gt;세션(Session)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;클라이언트와 웹 서버간에 네트워크 연결이 지속적으로 유지되고 있는 상태&lt;/li&gt;
+  &lt;li&gt;서버에 접속하지 않는 이상 데이터를 탈취할 수 어렵기 때문에 중요한 데이터를 저장하는데 주로 사용&lt;/li&gt;
+  &lt;li&gt;세션에 관련된 데이터는 서버에 저장 → 쿠키에 비해 보안성이 높음&lt;/li&gt;
+  &lt;li&gt;웹 브라우저의 캐시에 저장되어 브라우저가 닫히거나 서버에서 삭제 시 사라짐&lt;/li&gt;
+  &lt;li&gt;예를 들어, 로그인 정보 유지에 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;캐시cache&quot;&gt;캐시(Cache)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;데이터나 값을 미리 복사해 임시로 저장해두는 장소를 의미&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Process vs Thread&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;process&quot;&gt;Process&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;운영체제로부터 자원을 할당받는 작업의 단위&lt;/li&gt;
+  &lt;li&gt;컴퓨터에서 실행 중인 컴퓨터 프로그램&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;thread&quot;&gt;Thread&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;프로세스가 할당받은 자원을 이용하는 실행의 단위&lt;/li&gt;
+  &lt;li&gt;하나의 프로세스가 생성되면 하나의 스레드가 같이 생성 → 메인 스레드&lt;/li&gt;
+  &lt;li&gt;여러 개의 스레드를 가질 수 있음 → 멀티 스레드&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;컨텍스트 스위칭 오버헤드 정도&lt;/li&gt;
+  &lt;li&gt;자원 공유 가능 여부&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;MultiThread 에서 작업할 때 발생하는 문제&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Thread 란? 위에 설명 했듯, 프로그램의 흐름을 말한다.&lt;/li&gt;
+  &lt;li&gt;Multi Thread 란? 프로그램의 흐름이 2개 이상인 것을 말한다. 매우 빠른 시간 간격으로 스위칭 되기 때문에 동시( = concurrent )에 실행되는 것처럼 보인다.&lt;/li&gt;
+  &lt;li&gt;Process Synchronization(프로세스 동기화 = Thread Synchronization) 이란? 서로 간에 영향을 주고 받는 데이터들 간에 데이터의 일관성이 유지될 수 있도록 해주는 것!&lt;/li&gt;
+  &lt;li&gt;MultiThead 실행 방법&lt;br /&gt;
+동시성( Concurrency ) : 멀티 작업을 위해 1개의 코어로 스레드마다 돌아가면서 실행하지만, 너무 빨라 독립적으로 돌아가는 것 처럼 보임&lt;br /&gt;
+병렬성( Parallelism ) : 스레드마다 독립적인 core가 할당되어 독립적인 core에서 작업이 이뤄지는 것을 말함&lt;br /&gt;
+코어 &amp;gt; 쓰레드 → 병렬성 보장&lt;br /&gt;
+코어 &amp;lt; 쓰레드 → 병렬설 보장 x, 동시성 보장을 위해 우선순위를 매겨줌 → 쓰레드 스케쥴링&lt;/li&gt;
+  &lt;li&gt;쓰레드 스케쥴링 방식&lt;br /&gt;
+우선 순위( Priority ) 방식 : 우선 순위가 높은( 1 : 낮음, 10 : 높음 ) 쓰레드가 실행을 더 많이 하도록 스케줄링하는 방법&lt;br /&gt;
+순환 할당( Round-Robin ) 방식 : 시간 할당량을 정해 쓰레드를 정해진 시간 만큼만 실행하는 방법으로, JVM 안에서 이루어 지기 떄문에 개발자가 제어할 수 없음&lt;/li&gt;
+  &lt;li&gt;Multi Thread(Thread 2개)에서 하나의 공통된 값을 가져다 쓰면서 변경해, 그럴 경우 값을 유지하는 방법은?&lt;br /&gt;
+3번에서 얘기한 대로, 동기화를 이용하면 된다. 동기화 방법으로 동기화 메소드와 동기화 블록 방법 등이 있다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Hash 란?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Hash 함수 ? Hash 알고리즘을 구현하여 원본 데이터만 넣으면 Hash 값을 내보내 주는 함수&lt;br /&gt;
+Hash 알고리즘 ? 가변적인 데이터의 길이를 고정적인 데이터 길이로 변환해 주는 알고리즘&lt;/p&gt;
+
+&lt;p&gt;Hash 값의 특징 ?&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Hash 값은 원본으로 되돌릴 수 없음( 계산을 통해 원본을 얻어내기 어렵다 → 원본을 알아낼 수 없게 암호화하는 단방향 암호화에 많이 사용 )&lt;/li&gt;
+  &lt;li&gt;원본 데이터가 같으면 Hash 값도 일정( 정해진 알고리즘을 통해 원본 데이터를 규칙에 맞게 변경하므로 원본 데이터가 같으면 Hash도 같다  )&lt;/li&gt;
+  &lt;li&gt;충돌 가능성이 존재( Hash 값은 정해진 길이(길이는 알고리즘마다 다르게 정해짐)의 값 이기 때문에 원본이 다르다고 무조건 다른 값을 만들 순 없다 → 확률이 적다 )&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Hash 알고리즘의 용도 ?&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;무결성의 확인 ?&lt;br /&gt;
+무결성이란 데이터가 변했는지 변하지 않았는지의 여부&lt;br /&gt;
+Hash 알고리즘을 사용하면 원본이 같으면 같은 Hash 값 나오기 때문에, 원본과 Hash 값을 직접 비교할 수 있다는 장점이 있다.&lt;br /&gt;
+아무리 큰 데이터여도 고정된 길이의 Hash 값으로 바꿀 수 있기 때문에 비교 속다가 빠르다는 장점이 있다.&lt;/li&gt;
+  &lt;li&gt;검색 속도를 높이는 용도로 사용 ?&lt;br /&gt;
+예를 들어, 많은 데이터를 가진 DB에서 “chu”를 찾기 위해선 한 글자씩 찾아야 한다. → 퍼포먼스 떨어짐 → Hash 함수를 통해 DB의 데이터를 고정된 크기의 Hash 값을 가진 공간(Bucket)을 만들어 저장하고 원본에 링크해 놓는 다면, 검색 값인 “chu”를 Hash 함수를 거친 Hash 값으로 bucket과 매칭시킨다면, 바로 링크된 원본을 찾아낼 수 있다. → bucket을 만드는 공간이 소요되지만, 검색이 굉장히 빨라지는 장점이 있다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;질문!&lt;br /&gt;
+Hash 값으로 변경되더라도 하나씩 비교해줘야 하는거 같은데, 왜 빠르지?&lt;br /&gt;
+해시 검색을 위해서는 검색에 효율적인 이진 트리 방식을 사용한다. 이를 사용하기 위해서는 모든 값이 같은 크기의 공간에 담을 수 있는 서로 비교 가능한 숫자여야 하기 때문에 &lt;em&gt;Hash 함수를 통해 정수 값으로 만든 후 이진 트리 형태로 정렬하여 검색에 사용&lt;/em&gt;하는 것.&lt;br /&gt;
+Hash 함수는 Hash 형식에 따라 특정 길이(128비트, 256비트, 512비트 등)로 정해져 있다. 이는 해당 길이 만큼의 정수 값으로 변환 시켜주는 것. 따라서 구조적으로 가변적인 길이의 문자열을 1바이트씩 직접 비교하는 것보다 빠릅니다.&lt;/p&gt;
+
+&lt;p&gt;Hash 함수 사용 시 주의점 ?&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Salt 의 사용?&lt;br /&gt;
+보안 목적으로 사용 시 반드시 사용 → 원본 데이터에 첨가(salt)해서 Hash 알고리즘을 통해 salt를 첨가한 Hash 값을 보낸다.&lt;br /&gt;
+→ 즉, 원본 데이터에 salt를 첨가해 Hash 값을 다르게 만들기 위해 사용한다.&lt;br /&gt;
+→ 왜 다르게 하지? → Hash 값을 통해 원본을 알아낼 수 있는 방법이 있다!? → Brute-Forca Attack( 무작위로 문자열을 대입하는 해킹 방법 ) 으로 가능하며, 이는 Hash 함수에 무작위 값을 넣어 나온 Hash 값을 해킹해 낸 Hash 값과 대조하여 원본을 알아내는 것이다.&lt;br /&gt;
+따라서, 아래와 같은 사항을 따르는게 좋다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;1) Salt를 첨가하여 Hash 값을 다르게 한다.&lt;br /&gt;
+2) Salt의 길이를 허용하는 한 길게 함&lt;br /&gt;
+3) Salt를 안전하게 보관함&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Key stretching 의 사용?&lt;br /&gt;
+Hash 함수를 여러 번 통과시키는데 사용 → 이는 Hash 함수를 거쳐 나온 Hash 값을 다른 Hash 함수에 거치는 작업을 반복함으로써 어렵게 하는 방식이다.&lt;/li&gt;
+  &lt;li&gt;충돌의 회피 ?&lt;br /&gt;
+데이터 저장의 목적으로 사용 시 사용 → 단점인 서로 다른 값 이더라도 Hash 값이 같을 확률이 존재! → 보안에도, 데이터 저장에도 큰 문제!! → 이를 위해 아래와 같은 사항이 추가된다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;1) 리스트로 데이터를 관리하는 Chaining&lt;br /&gt;
+2) 위치를 조정하는 Open Addressing&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;RestFul Api ?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;REpresentational State Transfer, 즉, 서버로 자원을 전달 시, 대표적인 “상태”를 함께 주고 그 상태에 맞는 응답을 서버에서 받는 것을 의미한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;rest-&quot;&gt;REST ?&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;HTTP URI(Uniform Resource Identifier)를 통해 자원(Resource)을 명시하고, HTTP Method(POST, GET, PUT, DELETE)를 통해 해당 자원에 대한 CRUD Operation을 적용하는 방식으로 동작&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;rest-api-&quot;&gt;REST API ?&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;REST 기반으로 서비스 API를 구현한 것&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;http-method&quot;&gt;HTTP Method&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;POST : URI 요청 시 리소스 생성을 위해 설계되었기 때문에 body에 데이터를 담아 보내기 때문에 url에 보이지 않는다. 즉, 정보를 생성하기 위해 만들어짐.&lt;/li&gt;
+  &lt;li&gt;GET : 해당 리소스를 조회하게 설계되었기 때문에, 원하는 값을 url에 보여준다. 즉, 정보를 조회하기 위해 만들어짐.&lt;/li&gt;
+  &lt;li&gt;PUT or PATCH or UPDATE : 해당 리소스를 수정&lt;/li&gt;
+  &lt;li&gt;DELETE : 해당 리소스를 삭제&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="android" />
+      
+
+      
+        <summary type="html">컴퓨터과학 면접 준비</summary>
       
 
       

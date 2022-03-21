@@ -221,6 +221,7 @@ into the {body} of the default.hbs template -->
 
 <p>프로그램 수준의 동시 실행 사례는 웹에서 볼 수 있다<br />
 웹 브라우저는 다음과 같은 여러가지 기능을 동시에 실행해야 한다</p>
+
 <ul>
   <li>웹 서버에게 데이터를 주고 받기</li>
   <li>텍스트와 이미지를 스크린에 렌더링하기​</li>
@@ -231,6 +232,7 @@ into the {body} of the default.hbs template -->
 
 <p>문장 수준의 동시 실행은 프로그램 수준의 경우와 매우 다르다<br />
 언어 설계자는 문장 수준의 동시 실행을 위해 다음에 대해 중점을 둔다</p>
+
 <ul>
   <li>데이터를 다수의 메모리에 어떻게 분산시킬 것인가? ​</li>
   <li>어느 문장을 동시 실행할 것인가?</li>
@@ -244,6 +246,7 @@ into the {body} of the default.hbs template -->
 이식성은 하드웨어의 수명이 비교적 짧아지고 있어서, 매우 중요하다</p>
 
 <p>플린은 컴퓨터를 다음과 같이 분류하였다</p>
+
 <ul>
   <li>SISD는 하나의 인스트럭션이 하나의 데이터를 처리하는 것으로, ​프로세서가 하나인 컴퓨터가 이에 속한다</li>
   <li>SIMD는 하나의 인스트럭션으로 여러 데이터를 처리한다. ​벡터 프로세서가 이에 속하며, 벡터 프로세서는 벡터 연산자의 여러 오퍼랜드를 저장하는 여러 개의 레지스터를 갖고 있어서, ​이들 여러 오퍼랜드에 대해 하나의 인스트럭션을 실행한다</li>
@@ -258,9 +261,10 @@ into the {body} of the default.hbs template -->
 
 <p>플린의 분류에 따라, 각각의 머신을 그림으로 표현하면 이 아래 그림과 같다. PU는 프로세싱 유닛으로 싱글 코어 및 멀티코어 프로세서이다</p>
 
-<p>​<img src="/assets/built/images/pl/pl48.png" width="25%" height="50%" title="제목" alt="프로그래밍언어" /></p>
+<p><img src="\assets\built\images\pl\pl48.png" alt="프로그래밍언어" /></p>
 
 <p>동시 실행을 필요로 하는 이유는 다음과 같다</p>
+
 <ul>
   <li>프로그램이 하드웨어를 동시에 사용하도록 설계되었다면, ​멀티 프로세서 머신에서 프로그램의 실행 속도는 빠르다</li>
   <li>프로그램이 컴퓨트 바운드가 아니라면, ​싱글 프로세서 머신에서 실행하더라도, ​동시 실행하도록 짜여진 프로그램은 순차 실행하도록 짜여진 프로그램보다 빠르다</li>
@@ -275,8 +279,7 @@ into the {body} of the default.hbs template -->
 
 <hr />
 
-<p>프로그램이 여러 서브프로그램으로 구성되어 있을 때, ​동일 프로그램 내의 다른 서브프로그램과 동시 실행되는 서브프로그램을 
-Task 또는 Process라고 한다</p>
+<p>프로그램이 여러 서브프로그램으로 구성되어 있을 때, ​동일 프로그램 내의 다른 서브프로그램과 동시 실행되는 서브프로그램을 Task 또는 Process라고 한다</p>
 
 <p>자바에서는 특정 메소드, 즉 run method가 Task의 역할을 하며, ​이 메소드는 쓰레드라고 불리는 객체 내에서 실행된다</p>
 
@@ -292,7 +295,8 @@ Task 또는 Process라고 한다</p>
 <p>만일 TOTAL이 공유 변수이고, ​Task A가 TOTAL+1, Task B가 TOTAL*2고 Task A, B가 동시에 TOTAL을 변경하고자 한다면, ​이들 간에 공유 변수에 대한 레이스 컨디션이 발생한다<br />
 이를 해결하기 위해 상호배제를 보장해 줘야 하는데, ​이때 데드락이 발생할 수 있다. 따라서 데드락 방지책도 함께 제공해야한다</p>
 
-<p>동시 실행을 위한 언어 설계 시, 고려사항은 다음과 같다 ​</p>
+<p>동시 실행을 위한 언어 설계 시, 고려사항은 다음과 같다</p>
+
 <ul>
   <li>경쟁 및 협업 동기화​</li>
   <li>Task 스케줄링​</li>
@@ -312,6 +316,7 @@ Task 또는 Process라고 한다</p>
 <p>협력 동기화를 위해 필요한 공유 버퍼에 대한 연산자는 ​디파짓과 펫치가 있다</p>
 
 <p>먼저 디파짓을 살펴 보면, ​디파짓은 공유 버퍼에 데이터를 넣기 위한 생산자의 액션으로 다음과 같이 진행된다​</p>
+
 <ul>
   <li>버퍼에 빈칸이 있는지 엠티스팟 세마포어를 검사한다​</li>
   <li>만일 적어도 하나 있으면, 디파짓을 실행하고, 엠티스팟의 카운터를 -1 하고, 풀스팟의 카운터를 +1한다 (버퍼에 채워진 칸이 하나 이상 있다는 것을 나타냄)​</li>
@@ -349,6 +354,7 @@ Shared variable을 서로 갱신하겠다고 동시에 요청할 때 발생한�
 <p>세마포어의 사용은 동기화의 신뢰성 문제를 야기한다</p>
 
 <p>모니터는 이와 같이 동기화의 신뢰성 문제를 해결하기 위한 방법으로</p>
+
 <ul>
   <li>공유 데이터 구조를 연산자로 캡슐화하여 ​</li>
   <li>프로그래머로부터 공유 데이터구조의 상세 사항을 숨긴다</li>
@@ -357,6 +363,7 @@ Shared variable을 서로 갱신하겠다고 동시에 요청할 때 발생한�
 <p>이렇게 하여 동기화에 대한 책임을 런타임 시스템으로 돌린다 ​</p>
 
 <p>모니터는 class로 구현될 수 있다​</p>
+
 <ul>
   <li>공유 데이터 타입을 갖는 추상 데이터 타입으로 표현 ​</li>
   <li>이 클래스의 객체에 대한 접근은 액세스 메소드에 동기화 modifier를 추가하여 통제한다</li>
@@ -365,12 +372,13 @@ Shared variable을 서로 갱신하겠다고 동시에 요청할 때 발생한�
 <p>모니터는 concurrent pascal, ada, java 등에서 지원된다</p>
 
 <p>사용자 프로그램은 모니터를 사용하여 공유 버퍼에 접근한다</p>
+
 <ul>
   <li>공유 데이터는 사용자 프로그램 안에 없고, 모니터 안에 있다 ​</li>
   <li>액세스 메커니즘은 모니터(런타임 시스템)의 일부분으로, 상호 배제를 보장한다. 즉, 모니터가 바쁠 땐, 모니터에 대한 호출이 block되고 큐에 들어가서 기다린다</li>
 </ul>
 
-<p>​<img src="/assets/built/images/pl/pl49.png" width="25%" height="50%" title="제목" alt="프로그래밍언어" /></p>
+<p><img src="\assets\built\images\pl\pl49.png" alt="프로그래밍언어" /></p>
 
 <p>위 그림은 모니터를 표현한 것이다. 모니터는 상호배제만을 제공하기 때문에, ​협력 동기화에서 요구되는 프로세스 간의 협력은 프로그래머가 코딩해야 한다</p>
 
@@ -386,6 +394,7 @@ Shared variable을 서로 갱신하겠다고 동시에 요청할 때 발생한�
 <p>Run method는 자바에서 동시 실행 단위로서, ​Run 메소드 코드는 main 메소드, 다른 run 메소드 등과 동시 실행 된다</p>
 
 <p>Run 메소드로 클라스를 정의하는 방법은 두 가지가 있다</p>
+
 <ul>
   <li>첫째 방법은, 쓰레드 클래스의 서브클래스를 정의하여 서브 클라스의 run 메소드로 오버라이드하는 방법이다. 만일 새로운 서브 클래스가 다른 부모를 갖고 있으면, 이 방법은 동작하지 않는다</li>
   <li>둘째 방법은, 다른 부모로부터 상속된 서브 클래스를 정의하고 runnable 인터페이스를 구현하는 방법이다. Runnable은 run 메소드 프로토콜을 제공하기 때문에, runnable로 구현된 어떤 클래스도 run 메소드를 정의한다</li>
@@ -396,6 +405,7 @@ Shared variable을 서로 갱신하겠다고 동시에 요청할 때 발생한�
 <p>​쓰레드 클라스는 동시 실행 자바 프로그램을 생성한다. 쓰레드 클라스는 컨스트럭트, 메소드 등으로 구성된다</p>
 
 <p>쓰레드 클라스의 메소드는 ​</p>
+
 <ul>
   <li>Run 메소드는 쓰레드의 액션을 서술한다​</li>
   <li>Start 메소드는 run 메소드를 호출하여, 그 쓰레드의 동시 실행을 시작한다</li>
@@ -405,12 +415,12 @@ Shared variable을 서로 갱신하겠다고 동시에 요청할 때 발생한�
 
 <p>​아래 코드는 run 메소드로 쓰레드의 액션을 서술하고, ​Start 메소드로 그 쓰레드의 동시 실행을 시작하는 것을 보여준다</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class MyThread extends Thread {​
-public void run() { . . . }​
-}​
-. . .​
-Thread myTh = new MyThread();​
-myTh.start();​
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">MyThread</span> <span class="kd">extends</span> <span class="nc">Thread</span> <span class="o">{</span><span class="err">​</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span> <span class="o">.</span> <span class="o">.</span> <span class="o">.</span> <span class="o">}</span><span class="err">​</span>
+<span class="o">}</span><span class="err">​</span>
+<span class="o">.</span> <span class="o">.</span> <span class="o">.</span><span class="err">​</span>
+<span class="nc">Thread</span> <span class="n">myTh</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MyThread</span><span class="o">();</span><span class="err">​</span>
+<span class="n">myTh</span><span class="o">.</span><span class="na">start</span><span class="o">();</span><span class="err">​</span>
 </code></pre></div></div>
 
 <p>Yield 메소드는 동시 실행중인 쓰레드로부터 프로세서의 자발적인 포기를 요구한다
@@ -420,13 +430,13 @@ Sleep 메소드는 쓰레드가 지정된 시간이 지난 후에 block되기를
 Join 메소드는 메소드에게, ​다른 쓰레드의 run 메소드가 종료될 때까지, ​실행을 msec 단위로 지연시킬 것을 강요한다
 아래 코드는 join 메소드의 사용 예를 보여준다</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public void run() {​
-Thread myTh = new Thread();​
-myTh.start();​
-// do part of the computation of this thread​
-myTh.join(); // Wait for myTh to complete​
-// do the rest of the computation of this thread​
-}​
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span><span class="err">​</span>
+<span class="nc">Thread</span> <span class="n">myTh</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Thread</span><span class="o">();</span><span class="err">​</span>
+<span class="n">myTh</span><span class="o">.</span><span class="na">start</span><span class="o">();</span><span class="err">​</span>
+<span class="c1">// do part of the computation of this thread​</span>
+<span class="n">myTh</span><span class="o">.</span><span class="na">join</span><span class="o">();</span> <span class="c1">// Wait for myTh to complete​</span>
+<span class="c1">// do the rest of the computation of this thread​</span>
+<span class="o">}</span><span class="err">​</span>
 </code></pre></div></div>
 
 <p>세마포어 클라스는 카운팅 세마포어를 구현한다<br />
@@ -441,13 +451,13 @@ release()는 세마포어 +1 한다<br />
 ManageBuf에서 디파짓과 펫치를 synchronize로 정의하여, ​동일한 객체에 대해 실행할 때 서로 방해하는 것을 방지한다<br />
 아래 코드는 모니터 개념으로 구현된 ManageBuf에서 메소드가 synchronized로 지정된 예를 보여준다</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class ManageBuf {​
-  private int [100] buf;​
-  . . .​
-  public synchronized void deposit(int item) { . . . }​
-  public synchronized int fetch() { . . . }​
-  . . .​
-}​
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">ManageBuf</span> <span class="o">{</span><span class="err">​</span>
+  <span class="kd">private</span> <span class="kt">int</span> <span class="o">[</span><span class="mi">100</span><span class="o">]</span> <span class="n">buf</span><span class="o">;</span><span class="err">​</span>
+  <span class="o">.</span> <span class="o">.</span> <span class="o">.</span><span class="err">​</span>
+  <span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">void</span> <span class="nf">deposit</span><span class="o">(</span><span class="kt">int</span> <span class="n">item</span><span class="o">)</span> <span class="o">{</span> <span class="o">.</span> <span class="o">.</span> <span class="o">.</span> <span class="o">}</span><span class="err">​</span>
+  <span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">int</span> <span class="nf">fetch</span><span class="o">()</span> <span class="o">{</span> <span class="o">.</span> <span class="o">.</span> <span class="o">.</span> <span class="o">}</span><span class="err">​</span>
+  <span class="o">.</span> <span class="o">.</span> <span class="o">.</span><span class="err">​</span>
+<span class="o">}</span><span class="err">​</span>
 </code></pre></div></div>
 
 <p>모니터는 상호배제를 구현하므로, 프로세스 간의 협력적 동기화를 구현하지 못한다<br />
@@ -473,8 +483,6 @@ lock 메소드는 try 블록을 사용하여 크리티칼 코드(크리티칼 �
 
 <p>고성능 포트란에서 두 개의 리스트에서 ​서로 대응되는 요소 간의 연산을 병렬 처리하고자 할 때 다음과 같은 문장이 추가된다<br />
 PROCESSOR proc(n) -&gt; 배열 처리 문장을 동시 실행(병렬 처리)하기 위해 프로세서 n개를 할당 ​DISTRIBUTE (BLOCK vs. CYCLIC) -&gt; 같은 크기의 블록으로 나누어져 프로세서에 할당, 돌아가면서 하나씩 프로세서에 할당 ​ALIGN array1_elt WITH array2_elt -&gt; 배열1에 배열2를 대응시킴</p>
-
-<hr />
 
                 </div>
             </section>
@@ -585,6 +593,20 @@ PROCESSOR proc(n) -&gt; 배열 처리 문장을 동시 실행(병렬 처리)하�
                         <div class="read-next-card-content">
                             <ul>
                                 
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
                                 
                                   
                                     
@@ -808,18 +830,6 @@ PROCESSOR proc(n) -&gt; 배열 처리 문장을 동시 실행(병렬 처리)하�
                                         
                                         
                                     
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
                                   
                                 
                                   

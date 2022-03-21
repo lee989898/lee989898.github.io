@@ -315,20 +315,20 @@ into the {body} of the default.hbs template -->
   </li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Best-First-Branch-and-Bound(state-space-tree T)​
-// 입력: T – 상태 공간 트리​
-// 출력: 최적 해의 값​
-1  initialize(PQ) // PQ를 빈 대기열로 초기화​
-2  v = T의 루트 노드​
-3  best = value(v)​
-4  insert(PQ, v)           // 노드 v를 PQ에 삽입​
-5  while (not empty(PQ)) { // PQ에 노드들이 남아 있는지 확인​
-6    v = remove(PQ) // PQ에서 최고 한계값을 가진 노드를 제거​
-7    if (bound(v) &gt; best) // 노드 v가 유망한지 확인​
-8       for (each child u of v) {​
-9           if (value(u) &gt; best) best = value(u)​
-10          if (bound(u) &gt; best) insert(PQ, u)  }  }​
-11  return best​
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Best</span><span class="o">-</span><span class="nc">First</span><span class="o">-</span><span class="nc">Branch</span><span class="o">-</span><span class="n">and</span><span class="o">-</span><span class="nc">Bound</span><span class="o">(</span><span class="n">state</span><span class="o">-</span><span class="n">space</span><span class="o">-</span><span class="n">tree</span> <span class="no">T</span><span class="o">)</span><span class="err">​</span>
+<span class="c1">// 입력: T – 상태 공간 트리​</span>
+<span class="c1">// 출력: 최적 해의 값​</span>
+<span class="mi">1</span>  <span class="n">initialize</span><span class="o">(</span><span class="no">PQ</span><span class="o">)</span> <span class="c1">// PQ를 빈 대기열로 초기화​</span>
+<span class="mi">2</span>  <span class="n">v</span> <span class="o">=</span> <span class="nc">T의</span> <span class="n">루트</span> <span class="n">노드</span><span class="err">​</span>
+<span class="mi">3</span>  <span class="n">best</span> <span class="o">=</span> <span class="n">value</span><span class="o">(</span><span class="n">v</span><span class="o">)</span><span class="err">​</span>
+<span class="mi">4</span>  <span class="n">insert</span><span class="o">(</span><span class="no">PQ</span><span class="o">,</span> <span class="n">v</span><span class="o">)</span>           <span class="c1">// 노드 v를 PQ에 삽입​</span>
+<span class="mi">5</span>  <span class="k">while</span> <span class="o">(</span><span class="n">not</span> <span class="nf">empty</span><span class="o">(</span><span class="no">PQ</span><span class="o">))</span> <span class="o">{</span> <span class="c1">// PQ에 노드들이 남아 있는지 확인​</span>
+<span class="mi">6</span>    <span class="n">v</span> <span class="o">=</span> <span class="n">remove</span><span class="o">(</span><span class="no">PQ</span><span class="o">)</span> <span class="c1">// PQ에서 최고 한계값을 가진 노드를 제거​</span>
+<span class="mi">7</span>    <span class="k">if</span> <span class="o">(</span><span class="n">bound</span><span class="o">(</span><span class="n">v</span><span class="o">)</span> <span class="o">&gt;</span> <span class="n">best</span><span class="o">)</span> <span class="c1">// 노드 v가 유망한지 확인​</span>
+<span class="mi">8</span>       <span class="k">for</span> <span class="o">(</span><span class="n">each</span> <span class="n">child</span> <span class="n">u</span> <span class="n">of</span> <span class="n">v</span><span class="o">)</span> <span class="o">{</span><span class="err">​</span>
+<span class="mi">9</span>           <span class="k">if</span> <span class="o">(</span><span class="n">value</span><span class="o">(</span><span class="n">u</span><span class="o">)</span> <span class="o">&gt;</span> <span class="n">best</span><span class="o">)</span> <span class="n">best</span> <span class="o">=</span> <span class="n">value</span><span class="o">(</span><span class="n">u</span><span class="o">)</span><span class="err">​</span>
+<span class="mi">10</span>          <span class="k">if</span> <span class="o">(</span><span class="n">bound</span><span class="o">(</span><span class="n">u</span><span class="o">)</span> <span class="o">&gt;</span> <span class="n">best</span><span class="o">)</span> <span class="n">insert</span><span class="o">(</span><span class="no">PQ</span><span class="o">,</span> <span class="n">u</span><span class="o">)</span>  <span class="o">}</span>  <span class="o">}</span><span class="err">​</span>
+<span class="mi">11</span>  <span class="k">return</span> <span class="n">best</span><span class="err">​</span>
 </code></pre></div></div>
 
 <hr />
@@ -388,47 +388,46 @@ into the {body} of the default.hbs template -->
   </li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>KnapsackBandB(N, Wt[0 . . N – 1], Val[0 . . N – 1], C)​
-// 입력: N – 물건들의 수​
-// Wt[0 . . N – 1]– 각 물건의 무게를 저장하는 배열​
-// Val[0 . . N – 1] – 각 물건의 가치를 저장하는 배열​
-// C – 배낭의 용량​
-// 출력: 배낭에 넣을 수 있는 물건들의 최대 가치​
-1  initialize(PQ) // PQ를 빈 대기열로 초기화​
-2  maxValue = 0 // maxValue를 0으로 초기화​
-3  root.level = 0​
-4  root.weight = 0​
-5  root.value = 0
-6  root.bound = computeBound(root) // 루트 노드의 한계값 계산​
-7  insert(PQ, root)          // root를 PQ에 삽입
-8  while (not empty(PQ)) {          // PQ가 비어 있지 않은 동안 반복​
-9    v = remove(PQ)          // PQ에서 최대 한계값을 가진 노드 v를 끄집어 낸다​
-10   if (v.bound &gt; maxValue) {          // 노드 v가 유망하면 확장​
-11      u.level = v.level + 1          // 노드 u를 노드 v의 자식 노드로 만든다​
-12      u.weight = v.weight + Wt[v.level] // u는 다음 물건을 넣는 경우​
-13      u.value = v.value + Val[v.level];​
-14      if (u.weight &lt;= C and u.value &gt; maxValue)​
-15         maxValue = u.value                // maxValue를 더 나은 해의 값으로 바꾼다​
-16      u.bound = computeBound(u) // 자식 노드의 한계값을 계산​
-17      if (u.bound &gt; maxValue)​
-18         insert(PQ, u);  // u가 유망하므로 PQ에 삽입​
-19      w.level = v.level + 1                 // 노드 w는 다음 물건을 넣지 않는 경우​
-20      w.weight = v.weight  ​
-21      w.value = v.value​
-22      w.bound = computeBound(w) // 자식 노드의 한계값 계산​
-23      if (w.bound &gt; maxValue)​
-24         insert(PQ, w);  // w가 유망하므로 PQ에 삽입​
-     }}​
-25  return maxValue 
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">KnapsackBandB</span><span class="o">(</span><span class="no">N</span><span class="o">,</span> <span class="nc">Wt</span><span class="o">[</span><span class="mi">0</span> <span class="o">.</span> <span class="o">.</span> <span class="no">N</span> <span class="err">–</span> <span class="mi">1</span><span class="o">],</span> <span class="nc">Val</span><span class="o">[</span><span class="mi">0</span> <span class="o">.</span> <span class="o">.</span> <span class="no">N</span> <span class="err">–</span> <span class="mi">1</span><span class="o">],</span> <span class="no">C</span><span class="o">)</span><span class="err">​</span>
+<span class="c1">// 입력: N – 물건들의 수​</span>
+<span class="c1">// Wt[0 . . N – 1]– 각 물건의 무게를 저장하는 배열​</span>
+<span class="c1">// Val[0 . . N – 1] – 각 물건의 가치를 저장하는 배열​</span>
+<span class="c1">// C – 배낭의 용량​</span>
+<span class="c1">// 출력: 배낭에 넣을 수 있는 물건들의 최대 가치​</span>
+<span class="mi">1</span>  <span class="n">initialize</span><span class="o">(</span><span class="no">PQ</span><span class="o">)</span> <span class="c1">// PQ를 빈 대기열로 초기화​</span>
+<span class="mi">2</span>  <span class="n">maxValue</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">// maxValue를 0으로 초기화​</span>
+<span class="mi">3</span>  <span class="n">root</span><span class="o">.</span><span class="na">level</span> <span class="o">=</span> <span class="mi">0</span><span class="err">​</span>
+<span class="mi">4</span>  <span class="n">root</span><span class="o">.</span><span class="na">weight</span> <span class="o">=</span> <span class="mi">0</span><span class="err">​</span>
+<span class="mi">5</span>  <span class="n">root</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="mi">6</span>  <span class="n">root</span><span class="o">.</span><span class="na">bound</span> <span class="o">=</span> <span class="n">computeBound</span><span class="o">(</span><span class="n">root</span><span class="o">)</span> <span class="c1">// 루트 노드의 한계값 계산​</span>
+<span class="mi">7</span>  <span class="n">insert</span><span class="o">(</span><span class="no">PQ</span><span class="o">,</span> <span class="n">root</span><span class="o">)</span>          <span class="c1">// root를 PQ에 삽입</span>
+<span class="mi">8</span>  <span class="k">while</span> <span class="o">(</span><span class="n">not</span> <span class="nf">empty</span><span class="o">(</span><span class="no">PQ</span><span class="o">))</span> <span class="o">{</span>          <span class="c1">// PQ가 비어 있지 않은 동안 반복​</span>
+<span class="mi">9</span>    <span class="n">v</span> <span class="o">=</span> <span class="n">remove</span><span class="o">(</span><span class="no">PQ</span><span class="o">)</span>          <span class="c1">// PQ에서 최대 한계값을 가진 노드 v를 끄집어 낸다​</span>
+<span class="mi">10</span>   <span class="k">if</span> <span class="o">(</span><span class="n">v</span><span class="o">.</span><span class="na">bound</span> <span class="o">&gt;</span> <span class="n">maxValue</span><span class="o">)</span> <span class="o">{</span>          <span class="c1">// 노드 v가 유망하면 확장​</span>
+<span class="mi">11</span>      <span class="n">u</span><span class="o">.</span><span class="na">level</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="na">level</span> <span class="o">+</span> <span class="mi">1</span>          <span class="c1">// 노드 u를 노드 v의 자식 노드로 만든다​</span>
+<span class="mi">12</span>      <span class="n">u</span><span class="o">.</span><span class="na">weight</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="na">weight</span> <span class="o">+</span> <span class="nc">Wt</span><span class="o">[</span><span class="n">v</span><span class="o">.</span><span class="na">level</span><span class="o">]</span> <span class="c1">// u는 다음 물건을 넣는 경우​</span>
+<span class="mi">13</span>      <span class="n">u</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="na">value</span> <span class="o">+</span> <span class="nc">Val</span><span class="o">[</span><span class="n">v</span><span class="o">.</span><span class="na">level</span><span class="o">];</span><span class="err">​</span>
+<span class="mi">14</span>      <span class="k">if</span> <span class="o">(</span><span class="n">u</span><span class="o">.</span><span class="na">weight</span> <span class="o">&lt;=</span> <span class="no">C</span> <span class="n">and</span> <span class="n">u</span><span class="o">.</span><span class="na">value</span> <span class="o">&gt;</span> <span class="n">maxValue</span><span class="o">)</span><span class="err">​</span>
+<span class="mi">15</span>         <span class="n">maxValue</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="na">value</span>                <span class="c1">// maxValue를 더 나은 해의 값으로 바꾼다​</span>
+<span class="mi">16</span>      <span class="n">u</span><span class="o">.</span><span class="na">bound</span> <span class="o">=</span> <span class="n">computeBound</span><span class="o">(</span><span class="n">u</span><span class="o">)</span> <span class="c1">// 자식 노드의 한계값을 계산​</span>
+<span class="mi">17</span>      <span class="k">if</span> <span class="o">(</span><span class="n">u</span><span class="o">.</span><span class="na">bound</span> <span class="o">&gt;</span> <span class="n">maxValue</span><span class="o">)</span><span class="err">​</span>
+<span class="mi">18</span>         <span class="n">insert</span><span class="o">(</span><span class="no">PQ</span><span class="o">,</span> <span class="n">u</span><span class="o">);</span>  <span class="c1">// u가 유망하므로 PQ에 삽입​</span>
+<span class="mi">19</span>      <span class="n">w</span><span class="o">.</span><span class="na">level</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="na">level</span> <span class="o">+</span> <span class="mi">1</span>                 <span class="c1">// 노드 w는 다음 물건을 넣지 않는 경우​</span>
+<span class="mi">20</span>      <span class="n">w</span><span class="o">.</span><span class="na">weight</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="na">weight</span>  <span class="err">​</span>
+<span class="mi">21</span>      <span class="n">w</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="na">value</span><span class="err">​</span>
+<span class="mi">22</span>      <span class="n">w</span><span class="o">.</span><span class="na">bound</span> <span class="o">=</span> <span class="n">computeBound</span><span class="o">(</span><span class="n">w</span><span class="o">)</span> <span class="c1">// 자식 노드의 한계값 계산​</span>
+<span class="mi">23</span>      <span class="k">if</span> <span class="o">(</span><span class="n">w</span><span class="o">.</span><span class="na">bound</span> <span class="o">&gt;</span> <span class="n">maxValue</span><span class="o">)</span><span class="err">​</span>
+<span class="mi">24</span>         <span class="n">insert</span><span class="o">(</span><span class="no">PQ</span><span class="o">,</span> <span class="n">w</span><span class="o">);</span>  <span class="c1">// w가 유망하므로 PQ에 삽입​</span>
+     <span class="o">}}</span><span class="err">​</span>
+<span class="mi">25</span>  <span class="k">return</span> <span class="n">maxValue</span> 
 
-computeBound(u) // 노드 u의 한계값을 계산
-// 입력: u - 트리의 노드
-// 출력: u의 한계값
-1 if(u.weight &gt;= C) return 0
-2 else if(u.level &lt; N)
-            return u.value + (C - u.wight) x (Val[u.level]/Wt[u.leve])
-3 else return u.value
-
+<span class="nf">computeBound</span><span class="o">(</span><span class="n">u</span><span class="o">)</span> <span class="c1">// 노드 u의 한계값을 계산</span>
+<span class="c1">// 입력: u - 트리의 노드</span>
+<span class="c1">// 출력: u의 한계값</span>
+<span class="mi">1</span> <span class="k">if</span><span class="o">(</span><span class="n">u</span><span class="o">.</span><span class="na">weight</span> <span class="o">&gt;=</span> <span class="no">C</span><span class="o">)</span> <span class="k">return</span> <span class="mi">0</span>
+<span class="mi">2</span> <span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="n">u</span><span class="o">.</span><span class="na">level</span> <span class="o">&lt;</span> <span class="no">N</span><span class="o">)</span>
+            <span class="k">return</span> <span class="n">u</span><span class="o">.</span><span class="na">value</span> <span class="o">+</span> <span class="o">(</span><span class="no">C</span> <span class="o">-</span> <span class="n">u</span><span class="o">.</span><span class="na">wight</span><span class="o">)</span> <span class="n">x</span> <span class="o">(</span><span class="nc">Val</span><span class="o">[</span><span class="n">u</span><span class="o">.</span><span class="na">level</span><span class="o">]/</span><span class="nc">Wt</span><span class="o">[</span><span class="n">u</span><span class="o">.</span><span class="na">leve</span><span class="o">])</span>
+<span class="mi">3</span> <span class="k">else</span> <span class="k">return</span> <span class="n">u</span><span class="o">.</span><span class="na">value</span>
 </code></pre></div></div>
 
 <ul>
@@ -503,73 +502,71 @@ computeBound(u) // 노드 u의 한계값을 계산
   <p>일 배정 분기 한정 알고리즘</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>JobAssignmentBandB(N, C[0 . . N – 1, 0 . . N – 1])​
-// 입력: N – 사람들(일들)의 수​
-//        C[0 . . N – 1, 0 . . N – 1]) – 특정 사람에게 특정 일을 배정하는 비용 배열​
-// 출력: 일 배정 결과와 최소 배정 비용​
-1  Initialize(queue) // queue를 빈 대기열로 초기화​
-// 루트 노드의 값들을 초기화​
-2  root.personNumber = -1​
-3  root.jobNumber = -1​
-4  root.sumAssignedCost = 0​
-5  root.parent = null​
-6  for (i = 0; i &lt; N; i++) root.assigned[i] = false​
-// 루트 노드의 한계값 계산​
-7  root.bound = computeBound(-1, -1, root.assigned)​
-// 루트 노드를 queue에 삽입​
-8  queue.insert(root)
-// queue가 비어 있지 않은 한 한계값이 최소인 살아 있는 노드를 ​
-// 찾아서 그 노드의 자식 노드들을 queue에 추가​
-9  while ( not queue.empty( )) {​
-      // 최소 한계값을 가진 노드를 queue에서 끄집어 낸다​
-10   minNode = queue.remove( )​
-11   i = minNode.personNumber + 1  // i는 일을 배정할 다음 사람​
-12   if (i = N) {​
-13      모든 사람들에게 일들이 배정된 결과를 출력한다​
-14      최소 배정 비용을 반환한다
-      }
-// 사람 i에 배정 가능한 일을 배정하는 모든 자식 노드를 만들어 queue에 추가​
-15  for (j = 0; j &lt; N; j++) {​
-16      if ( not minNode.assigned[j] ) { // 일 j가 배정되지 않았는지 확인 ​
-17         child.personNumber = i​
-18         child.jobNumber = j​
-19         for (k = 0; k &lt; N; k++) child.assigned[k] = minNode.assigned[k]​
-20         child.assigned[j] = true
-21         child.parent = minNode​
-            // 배정된 일들의 총 비용에 새로 배정된 일의 비용을 더한다​
-22         child.sumAssignedCost = minNode.sumAssignedCost + C[i][j]​
-            // 새 자식 노드의 한계값 계산​
-23         child.bound = child.sumAssignedCost + computeBound(i, j, child.assigned)​
-            // 새 자식 노드를 queue에 추가​
-24        queue.insert(child)  }​
-        }​
-     }
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">JobAssignmentBandB</span><span class="o">(</span><span class="no">N</span><span class="o">,</span> <span class="no">C</span><span class="o">[</span><span class="mi">0</span> <span class="o">.</span> <span class="o">.</span> <span class="no">N</span> <span class="err">–</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span> <span class="o">.</span> <span class="o">.</span> <span class="no">N</span> <span class="err">–</span> <span class="mi">1</span><span class="o">])</span><span class="err">​</span>
+<span class="c1">// 입력: N – 사람들(일들)의 수​</span>
+<span class="c1">//        C[0 . . N – 1, 0 . . N – 1]) – 특정 사람에게 특정 일을 배정하는 비용 배열​</span>
+<span class="c1">// 출력: 일 배정 결과와 최소 배정 비용​</span>
+<span class="mi">1</span>  <span class="nc">Initialize</span><span class="o">(</span><span class="n">queue</span><span class="o">)</span> <span class="c1">// queue를 빈 대기열로 초기화​</span>
+<span class="c1">// 루트 노드의 값들을 초기화​</span>
+<span class="mi">2</span>  <span class="n">root</span><span class="o">.</span><span class="na">personNumber</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="err">​</span>
+<span class="mi">3</span>  <span class="n">root</span><span class="o">.</span><span class="na">jobNumber</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="err">​</span>
+<span class="mi">4</span>  <span class="n">root</span><span class="o">.</span><span class="na">sumAssignedCost</span> <span class="o">=</span> <span class="mi">0</span><span class="err">​</span>
+<span class="mi">5</span>  <span class="n">root</span><span class="o">.</span><span class="na">parent</span> <span class="o">=</span> <span class="kc">null</span><span class="err">​</span>
+<span class="mi">6</span>  <span class="k">for</span> <span class="o">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">N</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="n">root</span><span class="o">.</span><span class="na">assigned</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="kc">false</span><span class="err">​</span>
+<span class="c1">// 루트 노드의 한계값 계산​</span>
+<span class="mi">7</span>  <span class="n">root</span><span class="o">.</span><span class="na">bound</span> <span class="o">=</span> <span class="n">computeBound</span><span class="o">(-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="n">root</span><span class="o">.</span><span class="na">assigned</span><span class="o">)</span><span class="err">​</span>
+<span class="c1">// 루트 노드를 queue에 삽입​</span>
+<span class="mi">8</span>  <span class="n">queue</span><span class="o">.</span><span class="na">insert</span><span class="o">(</span><span class="n">root</span><span class="o">)</span>
+<span class="c1">// queue가 비어 있지 않은 한 한계값이 최소인 살아 있는 노드를 ​</span>
+<span class="c1">// 찾아서 그 노드의 자식 노드들을 queue에 추가​</span>
+<span class="mi">9</span>  <span class="k">while</span> <span class="o">(</span> <span class="n">not</span> <span class="n">queue</span><span class="o">.</span><span class="na">empty</span><span class="o">(</span> <span class="o">))</span> <span class="o">{</span><span class="err">​</span>
+      <span class="c1">// 최소 한계값을 가진 노드를 queue에서 끄집어 낸다​</span>
+<span class="mi">10</span>   <span class="n">minNode</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span> <span class="o">)</span><span class="err">​</span>
+<span class="mi">11</span>   <span class="n">i</span> <span class="o">=</span> <span class="n">minNode</span><span class="o">.</span><span class="na">personNumber</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1">// i는 일을 배정할 다음 사람​</span>
+<span class="mi">12</span>   <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">=</span> <span class="no">N</span><span class="o">)</span> <span class="o">{</span><span class="err">​</span>
+<span class="mi">13</span>      <span class="n">모든</span> <span class="n">사람들에게</span> <span class="n">일들이</span> <span class="n">배정된</span> <span class="n">결과를</span> <span class="n">출력한다</span><span class="err">​</span>
+<span class="mi">14</span>      <span class="n">최소</span> <span class="n">배정</span> <span class="n">비용을</span> <span class="n">반환한다</span>
+      <span class="o">}</span>
+<span class="c1">// 사람 i에 배정 가능한 일을 배정하는 모든 자식 노드를 만들어 queue에 추가​</span>
+<span class="mi">15</span>  <span class="k">for</span> <span class="o">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="no">N</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span><span class="err">​</span>
+<span class="mi">16</span>      <span class="k">if</span> <span class="o">(</span> <span class="n">not</span> <span class="n">minNode</span><span class="o">.</span><span class="na">assigned</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">)</span> <span class="o">{</span> <span class="c1">// 일 j가 배정되지 않았는지 확인 ​</span>
+<span class="mi">17</span>         <span class="n">child</span><span class="o">.</span><span class="na">personNumber</span> <span class="o">=</span> <span class="n">i</span><span class="err">​</span>
+<span class="mi">18</span>         <span class="n">child</span><span class="o">.</span><span class="na">jobNumber</span> <span class="o">=</span> <span class="n">j</span><span class="err">​</span>
+<span class="mi">19</span>         <span class="k">for</span> <span class="o">(</span><span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="no">N</span><span class="o">;</span> <span class="n">k</span><span class="o">++)</span> <span class="n">child</span><span class="o">.</span><span class="na">assigned</span><span class="o">[</span><span class="n">k</span><span class="o">]</span> <span class="o">=</span> <span class="n">minNode</span><span class="o">.</span><span class="na">assigned</span><span class="o">[</span><span class="n">k</span><span class="o">]</span><span class="err">​</span>
+<span class="mi">20</span>         <span class="n">child</span><span class="o">.</span><span class="na">assigned</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="mi">21</span>         <span class="n">child</span><span class="o">.</span><span class="na">parent</span> <span class="o">=</span> <span class="n">minNode</span><span class="err">​</span>
+            <span class="c1">// 배정된 일들의 총 비용에 새로 배정된 일의 비용을 더한다​</span>
+<span class="mi">22</span>         <span class="n">child</span><span class="o">.</span><span class="na">sumAssignedCost</span> <span class="o">=</span> <span class="n">minNode</span><span class="o">.</span><span class="na">sumAssignedCost</span> <span class="o">+</span> <span class="no">C</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span><span class="err">​</span>
+            <span class="c1">// 새 자식 노드의 한계값 계산​</span>
+<span class="mi">23</span>         <span class="n">child</span><span class="o">.</span><span class="na">bound</span> <span class="o">=</span> <span class="n">child</span><span class="o">.</span><span class="na">sumAssignedCost</span> <span class="o">+</span> <span class="n">computeBound</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">,</span> <span class="n">child</span><span class="o">.</span><span class="na">assigned</span><span class="o">)</span><span class="err">​</span>
+            <span class="c1">// 새 자식 노드를 queue에 추가​</span>
+<span class="mi">24</span>        <span class="n">queue</span><span class="o">.</span><span class="na">insert</span><span class="o">(</span><span class="n">child</span><span class="o">)</span>  <span class="o">}</span><span class="err">​</span>
+        <span class="o">}</span><span class="err">​</span>
+     <span class="o">}</span>
 
-computeBound(x,y,assigned)
-// 입력: x - 방금 배정된 사람의 번호
-//      y - 방금 배정된 일의 번호
-//      assigned - 사람들에 일들의 배정 여부를 알려 주는 배열
-// 출력: 남은 사람들에게 남은 일들을 배정하는 데 드는 총 비용의 하한
-1 bound = 0
-2 for (i = x + 1; i &lt; N; i++){
-3       minCost = $\infty$
-4       minIndex = -1
-5       for ( j = 0; j &lt; N; j ++){ // 사람 i에 일을 배정하는 최소 비용을 찾는다
-6           if(not assigned[j] and (j !=y) and C[i][j] &lt; minCost){
-7               minIndex = j
-8               minCost = C[i][j]}}
-            bound = bound + minCost // 다음 사람에게 배정 가능한 일의 최소 비용을
-                                    // 더한다
-            }
-9 return bound
+<span class="n">computeBound</span><span class="o">(</span><span class="n">x</span><span class="o">,</span><span class="n">y</span><span class="o">,</span><span class="n">assigned</span><span class="o">)</span>
+<span class="c1">// 입력: x - 방금 배정된 사람의 번호</span>
+<span class="c1">//      y - 방금 배정된 일의 번호</span>
+<span class="c1">//      assigned - 사람들에 일들의 배정 여부를 알려 주는 배열</span>
+<span class="c1">// 출력: 남은 사람들에게 남은 일들을 배정하는 데 드는 총 비용의 하한</span>
+<span class="mi">1</span> <span class="n">bound</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="mi">2</span> <span class="k">for</span> <span class="o">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">N</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+<span class="mi">3</span>       <span class="n">minCost</span> <span class="o">=</span> <span class="err">$\</span><span class="n">infty</span><span class="err">$</span>
+<span class="mi">4</span>       <span class="n">minIndex</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="mi">5</span>       <span class="k">for</span> <span class="o">(</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="no">N</span><span class="o">;</span> <span class="n">j</span> <span class="o">++){</span> <span class="c1">// 사람 i에 일을 배정하는 최소 비용을 찾는다</span>
+<span class="mi">6</span>           <span class="k">if</span><span class="o">(</span><span class="n">not</span> <span class="n">assigned</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="nf">and</span> <span class="o">(</span><span class="n">j</span> <span class="o">!=</span><span class="n">y</span><span class="o">)</span> <span class="n">and</span> <span class="no">C</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">minCost</span><span class="o">){</span>
+<span class="mi">7</span>               <span class="n">minIndex</span> <span class="o">=</span> <span class="n">j</span>
+<span class="mi">8</span>               <span class="n">minCost</span> <span class="o">=</span> <span class="no">C</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]}}</span>
+            <span class="n">bound</span> <span class="o">=</span> <span class="n">bound</span> <span class="o">+</span> <span class="n">minCost</span> <span class="c1">// 다음 사람에게 배정 가능한 일의 최소 비용을</span>
+                                    <span class="c1">// 더한다</span>
+            <span class="o">}</span>
+<span class="mi">9</span> <span class="k">return</span> <span class="n">bound</span>
 
 </code></pre></div></div>
 
 <ul>
   <li>시간복잡도: O(N!)</li>
 </ul>
-
-<hr />
 
                 </div>
             </section>
@@ -680,6 +677,20 @@ computeBound(x,y,assigned)
                         <div class="read-next-card-content">
                             <ul>
                                 
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
                                 
                                   
                                 
@@ -845,18 +856,6 @@ computeBound(x,y,assigned)
                                         
                                         
                                     
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
                                   
                                 
                                   
