@@ -282,7 +282,7 @@ into the {body} of the default.hbs template -->
 <ul>
   <li>Every signal has a name​
     <ul>
-      <li>Begins with ‘SIG’​</li>
+      <li>Begins with ‘SIG’</li>
     </ul>
   </li>
   <li>Signals are all defined by positive integers (signal numbers) in the header <signal.h> and <siglist.h>​</siglist.h></signal.h></li>
@@ -353,10 +353,10 @@ into the {body} of the default.hbs template -->
   <li>Linux Signal List</li>
 </ul>
 
-<p><img src="/assets/built/images/st/st13.png" width="50%" height="25%" title="제목" alt="시스템프러그래밍" /> 
-<img src="/assets/built/images/st/st14.png" width="50%" height="25%" title="제목" alt="시스템프러그래밍" /> 
-<img src="/assets/built/images/st/st15.png" width="50%" height="25%" title="제목" alt="시스템프러그래밍" /> 
-<img src="/assets/built/images/st/st16.png" width="50%" height="25%" title="제목" alt="시스템프러그래밍" /></p>
+<p><img src="\assets\built\images\st\st13.png" alt="시스템프로그래밍" />
+<img src="\assets\built\images\st\st14.png" alt="시스템프로그래밍" />
+<img src="\assets\built\images\st\st15.png" alt="시스템프로그래밍" />
+<img src="\assets\built\images\st\st16.png" alt="시스템프로그래밍" /></p>
 
 <hr />
 
@@ -364,16 +364,27 @@ into the {body} of the default.hbs template -->
   <p>signal()</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;signal.h&gt;​
-
-void (*signal(int signo, void(*func)(int))) (int)​
-    반환: 정상이면 신호의 이전 처리, 오류 시 SIG_ERR ​ + signal function은 signal "signo" 수신과 관련된 기본 동작을 수정한다
-+ signo: signal number를 나타낸다​
-+ func:​
-    + 신호 수신 시 사용자 정의 함수(signal handler) 호출
-    + SIG_IGN: signal를 무시
-    + SIG_DFL: default action을 취한다 + signal handler에 단일 정수 인수(signal number)가 전달되고 아무 것도 반환하지 않습니다
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;signal.h&gt;​
+</span>
+<span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">signal</span><span class="p">(</span><span class="kt">int</span> <span class="n">signo</span><span class="p">,</span> <span class="kt">void</span><span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="kt">int</span><span class="p">)))</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="err">​</span>
+  <span class="err">반환</span><span class="o">:</span> <span class="err">정상이면</span> <span class="err">신호의</span> <span class="err">이전</span> <span class="err">처리</span><span class="p">,</span> <span class="err">오류</span> <span class="err">시</span> <span class="n">SIG_ERR</span>
 </code></pre></div></div>
+
+<ul>
+  <li>signal function은 signal “signo” 수신과 관련된 기본 동작을 수정한다
+    <ul>
+      <li>signo: signal number를 나타낸다​</li>
+      <li>func:​
+        <ul>
+          <li>신호 수신 시 사용자 정의 함수(signal handler) 호출</li>
+          <li>SIG_IGN: signal를 무시</li>
+          <li>SIG_DFL: default action을 취한다</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>signal handler에 단일 정수 인수(signal number)가 전달되고 아무 것도 반환하지 않습니다</li>
+</ul>
 
 <hr />
 
@@ -381,11 +392,11 @@ void (*signal(int signo, void(*func)(int))) (int)​
   <p>kill()</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt;​
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt;​
 #include &lt;signal.h&gt;​
-
-int kill(pid_t pid, int signo);​
-    반환: 정상이면 0, 오류시 1
+</span>
+<span class="kt">int</span> <span class="nf">kill</span><span class="p">(</span><span class="n">pid_t</span> <span class="n">pid</span><span class="p">,</span> <span class="kt">int</span> <span class="n">signo</span><span class="p">);</span><span class="err">​</span>
+  <span class="err">반환</span><span class="o">:</span> <span class="err">정상이면</span> <span class="mi">0</span><span class="p">,</span> <span class="err">오류시</span> <span class="mi">1</span>
 </code></pre></div></div>
 
 <ul>
@@ -422,20 +433,18 @@ int kill(pid_t pid, int signo);​
   <p>killpg()</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;signal.h&gt;​
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;signal.h&gt;​
+</span>
+<span class="kt">int</span> <span class="n">killpg</span><span class="p">(</span><span class="kt">int</span> <span class="n">pgrp</span><span class="p">,</span> <span class="kt">int</span> <span class="n">sig</span><span class="p">)</span><span class="err">​</span>
 
-int killpg(int pgrp, int sig)​
-
-// int pgrp -&gt; 프로세스 그룹 ID​
-// int  sig -&gt; 시그널 번호​
+<span class="c1">// int pgrp -&gt; 프로세스 그룹 ID​</span>
+<span class="c1">// int  sig -&gt; 시그널 번호​</span>
 </code></pre></div></div>
 
 <ul>
   <li>프로세스 그룹으로 시그널을 보냄​</li>
   <li>반환값 : 정상 종료시에는 0, 에러 발생시 -1​</li>
 </ul>
-
-<hr />
 
                 </div>
             </section>

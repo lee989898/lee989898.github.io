@@ -297,7 +297,7 @@ into the {body} of the default.hbs template -->
   </li>
 </ul>
 
-<p><img src="/assets/built/images/st/st17.png" width="50%" height="25%" title="제목" alt="시스템프로그래밍" /></p>
+<p><img src="\assets\built\images\st\st17.png" alt="시스템프로그래밍" /></p>
 
 <ul>
   <li>Long pipes:​
@@ -339,8 +339,8 @@ into the {body} of the default.hbs template -->
   <p>Pipe: pipe() system call</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;unistd.h&gt;
-int pipe(int fd[2]) // int fd[2]; 파일 디스크립터
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;unistd.h&gt;
+</span><span class="kt">int</span> <span class="n">pipe</span><span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="c1">// int fd[2]; 파일 디스크립터</span>
 </code></pre></div></div>
 
 <ul>
@@ -359,10 +359,10 @@ int pipe(int fd[2]) // int fd[2]; 파일 디스크립터
   <p>Pipe: popen()</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;stdio.h&gt;
-
-FILE *popen(const char *cmdstring, const char *type);
-    반환값: 정상이면 파일 포인터, 오류 시 NULL
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+</span>
+<span class="kt">FILE</span> <span class="o">*</span><span class="nf">popen</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">cmdstring</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">type</span><span class="p">);</span>
+    <span class="err">반환값</span><span class="o">:</span> <span class="err">정상이면</span> <span class="err">파일</span> <span class="err">포인터</span><span class="p">,</span> <span class="err">오류</span> <span class="err">시</span> <span class="nb">NULL</span>
 </code></pre></div></div>
 
 <ul>
@@ -379,10 +379,10 @@ FILE *popen(const char *cmdstring, const char *type);
   <p>Pipe: pclose()</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;stdio.h&gt;
-
-int pclose(FILE *fp);
-    반환값: cmdstring의 종료 상태 또는 오류 시 -1
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">pclose</span><span class="p">(</span><span class="kt">FILE</span> <span class="o">*</span><span class="n">fp</span><span class="p">);</span>
+  <span class="err">반환값</span><span class="o">:</span> <span class="n">cmdstring</span><span class="err">의</span> <span class="err">종료</span> <span class="err">상태</span> <span class="err">또는</span> <span class="err">오류</span> <span class="err">시</span> <span class="o">-</span><span class="mi">1</span>
 </code></pre></div></div>
 
 <ul>
@@ -402,11 +402,11 @@ int pclose(FILE *fp);
   <li>관련 없는 프로세스 간에 사용 가능</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt;    
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt;    
 #include &lt;sys/stat.h&gt;
-
-int mkfifo(const char *filename, mode_t mode);
-정상이면 0, 오류시 -1을 반환한다
+</span>
+<span class="kt">int</span> <span class="nf">mkfifo</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">filename</span><span class="p">,</span> <span class="n">mode_t</span> <span class="n">mode</span><span class="p">);</span>
+<span class="err">정상이면</span> <span class="mi">0</span><span class="p">,</span> <span class="err">오류시</span> <span class="o">-</span><span class="mi">1</span><span class="err">을</span> <span class="err">반환한다</span>
 </code></pre></div></div>
 
 <ul>
@@ -444,12 +444,12 @@ int mkfifo(const char *filename, mode_t mode);
   <li>tee(1)은 표준 입력을 표준 출력과 명령줄에 명명된 파일 모두에 복사한다</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkfifo fifo1​
-$ prog3 &lt; fifo1 &amp;​
-$ prog1 &lt; infile | tee fifo1 | prog2
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">\$</span> <span class="n">mkfifo</span> <span class="n">fifo1</span><span class="err">​</span>
+<span class="err">$</span> <span class="n">prog3</span> <span class="o">&lt;</span> <span class="n">fifo1</span> <span class="o">&amp;</span><span class="err">​</span>
+<span class="err">$</span> <span class="n">prog1</span> <span class="o">&lt;</span> <span class="n">infile</span> <span class="o">|</span> <span class="n">tee</span> <span class="n">fifo1</span> <span class="o">|</span> <span class="n">prog2</span>
 </code></pre></div></div>
 
-<p><img src="/assets/built/images/st/st18.png" width="50%" height="25%" title="제목" alt="시스템프로그래밍" /></p>
+<p><img src="\assets\built\images\st\st18.png" alt="시스템프로그래밍" /></p>
 
 <hr />
 
@@ -463,7 +463,7 @@ $ prog1 &lt; infile | tee fifo1 | prog2
   <li>문제: 서버가 단일 “well-known” FIFO를 사용하여 클라이언트에 응답할 수 없음</li>
 </ul>
 
-<p><img src="/assets/built/images/st/st19.png" width="50%" height="25%" title="제목" alt="시스템프로그래밍" /></p>
+<p><img src="\assets\built\images\st\st19.png" alt="시스템프로그래밍" /></p>
 
 <ul>
   <li>서버는 클라이언트별 FIFO를 사용하여 응답할 수 있도록 각 클라이언트에 대해 FIFO를 생성한다
@@ -478,9 +478,7 @@ $ prog1 &lt; infile | tee fifo1 | prog2
   </li>
 </ul>
 
-<p><img src="/assets/built/images/st/st20.png" width="50%" height="25%" title="제목" alt="시스템프로그래밍" /></p>
-
-<hr />
+<p><img src="\assets\built\images\st\st20.png" alt="시스템프로그래밍" /></p>
 
                 </div>
             </section>

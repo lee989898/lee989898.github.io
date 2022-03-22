@@ -218,7 +218,7 @@ into the {body} of the default.hbs template -->
 
 <hr />
 
-<p><img src="/assets/built/images/st/st08.png" width="50%" height="25%" title="제목" alt="시스템프로그래밍" /></p>
+<p><img src="\assets\built\images\st\st08.png" alt="시스템프로그래밍" /></p>
 
 <hr />
 
@@ -241,7 +241,7 @@ into the {body} of the default.hbs template -->
   </li>
 </ul>
 
-<p><img src="/assets/built/images/st/st09.png" width="50%" height="25%" title="제목" alt="시스템프로그래밍" /></p>
+<p><img src="\assets\built\images\st\st09.png" alt="시스템프로그래밍" /></p>
 
 <hr />
 
@@ -271,7 +271,7 @@ into the {body} of the default.hbs template -->
   </li>
 </ul>
 
-<p><img src="/assets/built/images/st/st10.png" width="50%" height="25%" title="제목" alt="시스템프로그래밍" /></p>
+<p><img src="\assets\built\images\st\st10.png" alt="시스템프로그래밍" /></p>
 
 <ul>
   <li>Directory file의 data block 내용으로는  (i-node no, file name) entry 들이 기록된다.</li>
@@ -318,9 +318,9 @@ into the {body} of the default.hbs template -->
   <p>link() / unlink()</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;unistd.h&gt;
-
-int link(const char * cur_path, const cbar * new_path)
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;unistd.h&gt;
+</span>
+<span class="kt">int</span> <span class="n">link</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">cur_path</span><span class="p">,</span> <span class="k">const</span> <span class="n">cbar</span> <span class="o">*</span> <span class="n">new_path</span><span class="p">)</span>
 </code></pre></div></div>
 
 <ul>
@@ -353,9 +353,9 @@ int link(const char * cur_path, const cbar * new_path)
   <p>remove()</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;unistd.h&gt;
-
-int remove(const char *pathname);
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;unistd.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">remove</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">pathname</span><span class="p">);</span>
 </code></pre></div></div>
 
 <ul>
@@ -381,9 +381,9 @@ int remove(const char *pathname);
   <p>rename()</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;stdio.h&gt;
-
-int rename(const char *oldname, const char *newname);
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">rename</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">oldname</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">newname</span><span class="p">);</span>
 </code></pre></div></div>
 
 <ul>
@@ -408,10 +408,10 @@ int rename(const char *oldname, const char *newname);
   <p>umask()​</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt;
 #include &lt;sys/stat.h&gt;
-
-mode_t umask(mode_t newmask);
+</span>
+<span class="n">mode_t</span> <span class="nf">umask</span><span class="p">(</span><span class="n">mode_t</span> <span class="n">newmask</span><span class="p">);</span>
 </code></pre></div></div>
 
 <ul>
@@ -448,12 +448,12 @@ mode_t umask(mode_t newmask);
   <p>chmod() / fchmod()​</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt;
 #include &lt;sys/stat.h&gt;
 #include &lt;unistd.h&gt;
-
-int chmod(const char *pathname, mode_t mode);
-int fchmod(int fd, mode_t mode);
+</span>
+<span class="kt">int</span> <span class="nf">chmod</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">pathname</span><span class="p">,</span> <span class="n">mode_t</span> <span class="n">mode</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">fchmod</span><span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">,</span> <span class="n">mode_t</span> <span class="n">mode</span><span class="p">);</span>
 </code></pre></div></div>
 
 <ul>
@@ -483,11 +483,11 @@ int fchmod(int fd, mode_t mode);
   <p>truncate() / ftruncate()​</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt;
 #include &lt;unistd.h&gt;
-
-int truncate(const char *pathname, size_t length);
-int ftruncate(int fd, size_t length);
+</span>
+<span class="kt">int</span> <span class="nf">truncate</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">pathname</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">length</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">ftruncate</span><span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">length</span><span class="p">);</span>
 </code></pre></div></div>
 
 <ul>
@@ -513,11 +513,11 @@ int ftruncate(int fd, size_t length);
   <p>utime()​</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt;​
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt;​
 #include &lt;unistd.h&gt;​
 #include &lt;utime.h&gt;​
-
-int utime(const char *pathname, struct utimebuf *times);
+</span>
+<span class="kt">int</span> <span class="nf">utime</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">pathname</span><span class="p">,</span> <span class="k">struct</span> <span class="n">utimebuf</span> <span class="o">*</span><span class="n">times</span><span class="p">);</span>
 </code></pre></div></div>
 
 <ul>
@@ -531,16 +531,18 @@ int utime(const char *pathname, struct utimebuf *times);
   <li>매개변수
     <ul>
       <li>pathname: 파일의 경로명</li>
-      <li>
-        <p>시간: 마지막 액세스 시간 및 수정 시간</p>
-
-        <p>struct utimebuf​{​
-time_t    actime;        /* access time <em>/​
-time_t    modtime;       /</em> modify time */​
-};</p>
-      </li>
+      <li>시간: 마지막 액세스 시간 및 수정 시간</li>
     </ul>
   </li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">struct</span> <span class="n">utimebuf</span><span class="err">​</span><span class="p">{</span><span class="err">​</span>
+ <span class="kt">time_t</span>    <span class="n">actime</span><span class="p">;</span>        <span class="cm">/* access time */</span><span class="err">​</span>
+ <span class="kt">time_t</span>    <span class="n">modtime</span><span class="p">;</span>       <span class="cm">/* modify time */</span><span class="err">​</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ul>
   <li>각 필드는 1970-1-1 00:00 부터 현재까지의 경과 시간을 초로 환산한 값​</li>
 </ul>
 
@@ -558,18 +560,16 @@ time_t    modtime;       /</em> modify time */​
       <li>차이 creat() 및 open()을 사용하여 디렉토리를 생성할 수 없음 -&gt; 그렇게 하려면 mkdir() 필요</li>
     </ul>
   </li>
-  <li>
-    <p>각 디렉토리 항목에는 i-노드 번호와 파일 이름이 있다.</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;dirent.h&gt; ​
-
-struct dirent {​
-ino_t d_ino;          /* i-node number */​
-char  d_name[ ];  /* filename */​
-}
-</code></pre></div>    </div>
-  </li>
+  <li>각 디렉토리 항목에는 i-노드 번호와 파일 이름이 있다.</li>
 </ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;dirent.h&gt; ​
+</span>
+<span class="k">struct</span> <span class="n">dirent</span> <span class="p">{</span><span class="err">​</span>
+ <span class="n">ino_t</span> <span class="n">d_ino</span><span class="p">;</span>          <span class="cm">/* i-node number */</span><span class="err">​</span>
+ <span class="kt">char</span>  <span class="n">d_name</span><span class="p">[</span> <span class="p">];</span>  <span class="cm">/* filename */</span><span class="err">​</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <hr />
 
@@ -577,10 +577,10 @@ char  d_name[ ];  /* filename */​
   <p>mkdir()</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/stat.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/stat.h&gt;
 #include &lt;unistd.h&gt;
-
-int mkdir(const char *pathname, mode_t mode);
+</span>
+<span class="kt">int</span> <span class="nf">mkdir</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">pathname</span><span class="p">,</span> <span class="n">mode_t</span> <span class="n">mode</span><span class="p">);</span>
 </code></pre></div></div>
 
 <ul>
@@ -606,17 +606,17 @@ int mkdir(const char *pathname, mode_t mode);
   <p>opendir() / readdir() / closedir() / rewinddir()</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt;​
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt;​
 #include &lt;dirent.h&gt;​
-typedef struct dirent Dirent;​
+</span><span class="k">typedef</span> <span class="k">struct</span> <span class="n">dirent</span> <span class="n">Dirent</span><span class="p">;</span><span class="err">​</span>
 
-DIR *opendir(const char *pathname);​
+<span class="kt">DIR</span> <span class="o">*</span><span class="nf">opendir</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">pathname</span><span class="p">);</span><span class="err">​</span>
 
-dirent *readdir(DIR *dir_fd);​
+<span class="n">dirent</span> <span class="o">*</span><span class="nf">readdir</span><span class="p">(</span><span class="kt">DIR</span> <span class="o">*</span><span class="n">dir_fd</span><span class="p">);</span><span class="err">​</span>
 
-int closedir(DIR *dir_fd);​
+<span class="kt">int</span> <span class="nf">closedir</span><span class="p">(</span><span class="kt">DIR</span> <span class="o">*</span><span class="n">dir_fd</span><span class="p">);</span><span class="err">​</span>
 
-void rewinddir (DIR *dir_fd); 
+<span class="kt">void</span> <span class="nf">rewinddir</span> <span class="p">(</span><span class="kt">DIR</span> <span class="o">*</span><span class="n">dir_fd</span><span class="p">);</span> 
 </code></pre></div></div>
 
 <ul>
@@ -644,9 +644,9 @@ void rewinddir (DIR *dir_fd);
   <p>rmdir()</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;unistd.h&gt;​
-
-int rmdir(const char *pathname);
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;unistd.h&gt;​
+</span>    
+<span class="kt">int</span> <span class="nf">rmdir</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">pathname</span><span class="p">);</span>
 </code></pre></div></div>
 
 <ul>
@@ -671,9 +671,9 @@ int rmdir(const char *pathname);
   <p>chdir()</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;unistd.h&gt;​​
-
-int chdir(const char *pathname);
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;unistd.h&gt;​​
+</span>
+<span class="kt">int</span> <span class="nf">chdir</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">pathname</span><span class="p">);</span>
 </code></pre></div></div>
 
 <ul>
@@ -697,9 +697,9 @@ int chdir(const char *pathname);
   <p>getcwd()​</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;unistd.h&gt;​
-
-char *getcwd(char *buf, size_t size);​
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;unistd.h&gt;​
+</span>
+<span class="kt">char</span> <span class="o">*</span><span class="nf">getcwd</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">);</span><span class="err">​</span>
 </code></pre></div></div>
 
 <ul>
@@ -746,14 +746,15 @@ char *getcwd(char *buf, size_t size);​
       <li>access, chdir, chmod, chown, creat, exec, link, mkdir, mkfifo, open, opendir, pathconf, stat, truncate 등​</li>
     </ul>
   </li>
-  <li>
-    <p>symlink()</p>
+  <li>symlink()</li>
+</ul>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  #include &lt;unistd.h&gt;​
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;unistd.h&gt;​
+</span>
+<span class="kt">int</span> <span class="nf">symlink</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">realname</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">symname</span><span class="p">);</span>
+</code></pre></div></div>
 
-  int symlink(const char *realname, const char *symname);
-</code></pre></div>    </div>
-  </li>
+<ul>
   <li>반환 값
     <ul>
       <li>성공 : 0</li>
@@ -766,14 +767,15 @@ char *getcwd(char *buf, size_t size);​
       <li>symname : 심볼릭 링크의 경로명</li>
     </ul>
   </li>
-  <li>
-    <p>readlink()</p>
+  <li>readlink()</li>
+</ul>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  #include &lt;unistd.h&gt;​
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;unistd.h&gt;​
+</span>
+<span class="kt">int</span> <span class="nf">readlink</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">pathname</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="kt">int</span> <span class="n">bufsize</span><span class="p">);</span><span class="err">​</span>
+</code></pre></div></div>
 
-  int readlink(const char *pathname, char *buf, int bufsize);​
-</code></pre></div>    </div>
-  </li>
+<ul>
   <li>심볼릭 링크 파일의 내용을 읽는 함수​
     <ul>
       <li>symlink() 에서 저장된 actualpath 가 buf에 채워진다​</li>

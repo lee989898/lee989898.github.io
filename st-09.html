@@ -245,13 +245,12 @@ into the {body} of the default.hbs template -->
     <p>INET(Internet) 도메인에서는 socket 이름으로 포트번호 사용​</p>
     <ul>
       <li>Well-known port: ftp는 21번, telnet은 23번, 등등. ​</li>
-      <li>통신 상대 프로세스가 속한 컴퓨터 시스템 이름(IP address) + 
-  포트 번호</li>
+      <li>통신 상대 프로세스가 속한 컴퓨터 시스템 이름(IP address) + 포트 번호</li>
     </ul>
   </li>
 </ul>
 
-<p><img src="/assets/built/images/st/st21.png" width="50%" height="25%" title="제목" alt="시스템프로그래밍" /></p>
+<p><img src="\assets\built\images\st\st21.png" alt="시스템프로그래밍" /></p>
 
 <blockquote>
   <p>Stream Socket을 이용한 IPC</p>
@@ -299,7 +298,7 @@ into the {body} of the default.hbs template -->
   </li>
 </ul>
 
-<p><img src="/assets/built/images/st/st22.png" width="50%" height="25%" title="제목" alt="시스템프로그래밍" /></p>
+<p><img src="\assets\built\images\st\st22.png" alt="시스템프로그래밍" /></p>
 
 <blockquote>
   <p>Datagram Socket을 이용한 IPC</p>
@@ -348,10 +347,10 @@ into the {body} of the default.hbs template -->
   <p>socket() system call</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt;​
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt;​
 #include &lt;sys/socket.h&gt;​
-
-int socket(int domain, int type, int protocol)
+</span>
+<span class="kt">int</span> <span class="n">socket</span><span class="p">(</span><span class="kt">int</span> <span class="n">domain</span><span class="p">,</span> <span class="kt">int</span> <span class="n">type</span><span class="p">,</span> <span class="kt">int</span> <span class="n">protocol</span><span class="p">)</span>
 
 </code></pre></div></div>
 
@@ -387,10 +386,10 @@ int socket(int domain, int type, int protocol)
   <p>bind() system call​</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt;​
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt;​
 #include &lt;sys/socket.h&gt;​
-
-int bind(int sockfd, struct sockaddr *my_addr, int len)
+</span>
+<span class="kt">int</span> <span class="n">bind</span><span class="p">(</span><span class="kt">int</span> <span class="n">sockfd</span><span class="p">,</span> <span class="k">struct</span> <span class="n">sockaddr</span> <span class="o">*</span><span class="n">my_addr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">len</span><span class="p">)</span>
 </code></pre></div></div>
 
 <ul>
@@ -406,60 +405,64 @@ int bind(int sockfd, struct sockaddr *my_addr, int len)
     </ul>
   </li>
   <li>int len :  이름이 붙여진 구조체(*my_addr)의 길이​</li>
-  <li>Unix Domain에서 socket의 주소 정보는 socketaddr_un 구조체에서 정의​
-```
-#include &lt;sys/un.h&gt;​
-#define UNIX_PATH_MAX 108​</li>
+  <li>Unix Domain에서 socket의 주소 정보는 socketaddr_un 구조체에서 정의​</li>
 </ul>
 
-<p>struct sockaddr_un {​
-    sa_family_t   sun_family;     /* sa_family_t는 short과 같은 타입<em>/​
-     /</em> PF_UNIX 설정 <em>/​
-    char sun_path[UNIX_PATH_MAX];   /</em> 경로명 */​</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/un.h&gt;​
+#define UNIX_PATH_MAX 108​
+</span>
+<span class="k">struct</span> <span class="n">sockaddr_un</span> <span class="p">{</span><span class="err">​</span>
+    <span class="n">sa_family_t</span>   <span class="n">sun_family</span><span class="p">;</span>     <span class="cm">/* sa_family_t는 short과 같은 타입*/</span><span class="err">​</span>
+     <span class="cm">/* PF_UNIX 설정 */</span><span class="err">​</span>
+    <span class="kt">char</span> <span class="n">sun_path</span><span class="p">[</span><span class="n">UNIX_PATH_MAX</span><span class="p">];</span>   <span class="cm">/* 경로명 */</span><span class="err">​</span>
 
-<p>};</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+ Inet Domain에서 socket의 주소 정보는 socketaddr_in 구조체에서 정의​
-
+<span class="p">};</span> 
 </code></pre></div></div>
-<p>#include &lt;netinet/in.h&gt;​</p>
 
-<p>struct sockaddr_in {​
-    sa_family_t     sin_family;   /* PF_INET 설정 <em>/
-    u_int16_t        sin_port;      /</em> 포트 번호 <em>/​
-    struct in_addr   sin_addr;    /</em> IP 주소 */​</p>
+<ul>
+  <li>Inet Domain에서 socket의 주소 정보는 socketaddr_in 구조체에서 정의​</li>
+</ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>}; ​ struct in_addr { u_int32_t  s_addr; };  /* IP 주소 */ ```
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;netinet/in.h&gt;​
+</span>
+<span class="k">struct</span> <span class="n">sockaddr_in</span> <span class="p">{</span><span class="err">​</span>
+    <span class="n">sa_family_t</span>     <span class="n">sin_family</span><span class="p">;</span>   <span class="cm">/* PF_INET 설정 */</span>
+    <span class="n">u_int16_t</span>        <span class="n">sin_port</span><span class="p">;</span>      <span class="cm">/* 포트 번호 */</span><span class="err">​</span>
+    <span class="k">struct</span> <span class="n">in_addr</span>   <span class="n">sin_addr</span><span class="p">;</span>    <span class="cm">/* IP 주소 */</span><span class="err">​</span>
+
+    <span class="p">};</span> <span class="err">​</span>
+<span class="k">struct</span> <span class="n">in_addr</span> <span class="p">{</span> <span class="n">u_int32_t</span>  <span class="n">s_addr</span><span class="p">;</span> <span class="p">};</span>  <span class="cm">/* IP 주소 */</span>
 </code></pre></div></div>
 
 <blockquote>
   <p>connect() system call</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;netinet/in.h&gt;​
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;netinet/in.h&gt;​
 #include &lt;sys/types.h&gt;​
 #include &lt;sys/socket.h&gt;​
-
-int connect(int sockfd, const struct socketaddr *serv_addr, socklen_t addr_len)
+</span>
+<span class="kt">int</span> <span class="n">connect</span><span class="p">(</span><span class="kt">int</span> <span class="n">sockfd</span><span class="p">,</span> <span class="k">const</span> <span class="k">struct</span> <span class="n">socketaddr</span> <span class="o">*</span><span class="n">serv_addr</span><span class="p">,</span> <span class="n">socklen_t</span> <span class="n">addr_len</span><span class="p">)</span>
 </code></pre></div></div>
+
 <ul>
   <li>스트림 소켓 이용시 client에서 호출 (서버에 접속 요청)​</li>
   <li>정상 종료시 0을 반환, 에러시 -1 반환​
     <ul>
       <li>int sockfd : socket 파일 디스크립터를 지정​</li>
       <li>struct sockaddr *serv_addr : 접속하고 싶은 서버의 소켓 주소 정보 ​</li>
-      <li>socklen_t addr_len : 서버의 소켓 주소 정보 구조체의 길이​
-​
-        <blockquote>
-          <p>listen() system call</p>
-        </blockquote>
-      </li>
+      <li>socklen_t addr_len : 서버의 소켓 주소 정보 구조체의 길이​</li>
     </ul>
   </li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/socket.h&gt;​
+<blockquote>
+  <p>listen() system call</p>
+</blockquote>
 
-int listen(int sockfd, int backlog)
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/socket.h&gt;​
+</span>
+<span class="kt">int</span> <span class="n">listen</span><span class="p">(</span><span class="kt">int</span> <span class="n">sockfd</span><span class="p">,</span> <span class="kt">int</span> <span class="n">backlog</span><span class="p">)</span>
 </code></pre></div></div>
 
 <ul>
@@ -472,10 +475,10 @@ int listen(int sockfd, int backlog)
   <p>accept() system call</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt;​
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt;​
 #include &lt;sys/socket.h&gt;​
-
-int accept(int sockfd, struct sockaddr *client_addr, socklen_t *addrlen)
+</span>
+<span class="kt">int</span> <span class="n">accept</span><span class="p">(</span><span class="kt">int</span> <span class="n">sockfd</span><span class="p">,</span> <span class="k">struct</span> <span class="n">sockaddr</span> <span class="o">*</span><span class="n">client_addr</span><span class="p">,</span> <span class="n">socklen_t</span> <span class="o">*</span><span class="n">addrlen</span><span class="p">)</span>
 </code></pre></div></div>
 
 <ul>
@@ -490,10 +493,10 @@ int accept(int sockfd, struct sockaddr *client_addr, socklen_t *addrlen)
   <p>send() system call</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt;​
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt;​
 #include &lt;sys/socket.h&gt;​
-
-int send(int sockfd, const void *buf, size_t len, int flags)
+</span>
+<span class="kt">int</span> <span class="n">send</span><span class="p">(</span><span class="kt">int</span> <span class="n">sockfd</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">len</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flags</span><span class="p">)</span>
 </code></pre></div></div>
 
 <ul>
@@ -509,10 +512,10 @@ int send(int sockfd, const void *buf, size_t len, int flags)
   <p>recv() system call</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt;​
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt;​
 #include &lt;sys/socket.h&gt;​
-
-int recv(int sockfd, void *buf, size_t len, int flags)
+</span>
+<span class="kt">int</span> <span class="n">recv</span><span class="p">(</span><span class="kt">int</span> <span class="n">sockfd</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">len</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flags</span><span class="p">)</span>
 </code></pre></div></div>
 
 <ul>
@@ -528,10 +531,10 @@ int recv(int sockfd, void *buf, size_t len, int flags)
   <p>sendto() system call​</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt;
 #include &lt;sys/socket.h&gt;​
-
-int sendto(int sockfd, const void *buf, size_t len, int flags, const struct sockaddr *to, socklen_t tolen)
+</span>
+<span class="kt">int</span> <span class="n">sendto</span><span class="p">(</span><span class="kt">int</span> <span class="n">sockfd</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">len</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flags</span><span class="p">,</span> <span class="k">const</span> <span class="k">struct</span> <span class="n">sockaddr</span> <span class="o">*</span><span class="n">to</span><span class="p">,</span> <span class="n">socklen_t</span> <span class="n">tolen</span><span class="p">)</span>
 </code></pre></div></div>
 
 <ul>
@@ -549,11 +552,12 @@ int sendto(int sockfd, const void *buf, size_t len, int flags, const struct sock
   <p>recvfrom() system call</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt;​
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt;​
 #include &lt;sys/socket.h&gt;​
-
-int recvfrom(int sockfd, void *buf, size_t len, int flags, struct sockaddr *from, socklen_t *fromlen)
+</span>
+<span class="kt">int</span> <span class="n">recvfrom</span><span class="p">(</span><span class="kt">int</span> <span class="n">sockfd</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">len</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flags</span><span class="p">,</span> <span class="k">struct</span> <span class="n">sockaddr</span> <span class="o">*</span><span class="n">from</span><span class="p">,</span> <span class="n">socklen_t</span> <span class="o">*</span><span class="n">fromlen</span><span class="p">)</span>
 </code></pre></div></div>
+
 <ul>
   <li>Recvfrom() : 데이터그램 소켓에서 데이터 받음​</li>
   <li>정상 종료시 실제 받은 바이트 수를 반환, 에러시 -1 반환​</li>
@@ -603,24 +607,21 @@ int recvfrom(int sockfd, void *buf, size_t len, int flags, struct sockaddr *from
     </ul>
   </li>
   <li>Steps 1-1, 1-2 atomic 연산이어야 한다</li>
-  <li>세마포어는 하나 이상의 세마포어 값의 집합으로 정의되다
-    <ul>
-      <li>세마포어가 생성될 때 집합에 값의 개수도 지정된다</li>
-    </ul>
-  </li>
+  <li>세마포어는 하나 이상의 세마포어 값의 집합으로 정의되다</li>
+  <li>세마포어가 생성될 때 집합에 값의 개수도 지정된다</li>
 </ul>
 
-<p><img src="/assets/built/images/st/st23.png" width="50%" height="25%" title="제목" alt="시스템프로그래밍" /></p>
+<p><img src="\assets\built\images\st\st23.png" alt="시스템프로그래밍" /></p>
 
 <blockquote>
   <p>Functions</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/sem.h&gt;​
-
-int semget(key_t key, int num_sems, int sem_flags);​
-int semctl(int sem_id, int sem_num, int command, …);​
-int semop(int sem_id, struct sembuf *sem_ops, size_t num_sem_ops);
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/sem.h&gt;​
+</span>
+<span class="kt">int</span> <span class="nf">semget</span><span class="p">(</span><span class="n">key_t</span> <span class="n">key</span><span class="p">,</span> <span class="kt">int</span> <span class="n">num_sems</span><span class="p">,</span> <span class="kt">int</span> <span class="n">sem_flags</span><span class="p">);</span><span class="err">​</span>
+<span class="kt">int</span> <span class="nf">semctl</span><span class="p">(</span><span class="kt">int</span> <span class="n">sem_id</span><span class="p">,</span> <span class="kt">int</span> <span class="n">sem_num</span><span class="p">,</span> <span class="kt">int</span> <span class="n">command</span><span class="p">,</span> <span class="err">…</span><span class="p">);</span><span class="err">​</span>
+<span class="kt">int</span> <span class="nf">semop</span><span class="p">(</span><span class="kt">int</span> <span class="n">sem_id</span><span class="p">,</span> <span class="k">struct</span> <span class="n">sembuf</span> <span class="o">*</span><span class="n">sem_ops</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">num_sem_ops</span><span class="p">);</span>
 </code></pre></div></div>
 
 <ul>
@@ -652,18 +653,18 @@ int semop(int sem_id, struct sembuf *sem_ops, size_t num_sem_ops);
   <li>공유 메모리 세그먼트에 대한 액세스를 동기화해야 함 -&gt; 세마포어가 사용됨</li>
 </ul>
 
-<p><img src="/assets/built/images/st/st24.png" width="50%" height="25%" title="제목" alt="시스템프로그래밍" /></p>
+<p><img src="\assets\built\images\st\st24.png" alt="시스템프로그래밍" /></p>
 
 <blockquote>
   <p>Functions</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt; ​
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt; ​
 #include &lt;sys/ipc.h&gt; ​
 #include &lt;sys/shm.h&gt; ​
-
-int shmget(key_t key, int size, int flag); ​
-        Returns: shared memory ID if OK, -1 on error
+</span>
+<span class="kt">int</span> <span class="nf">shmget</span><span class="p">(</span><span class="n">key_t</span> <span class="n">key</span><span class="p">,</span> <span class="kt">int</span> <span class="n">size</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flag</span><span class="p">);</span> <span class="err">​</span>
+        <span class="n">Returns</span><span class="o">:</span> <span class="n">shared</span> <span class="n">memory</span> <span class="n">ID</span> <span class="k">if</span> <span class="n">OK</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="n">on</span> <span class="n">error</span>
 </code></pre></div></div>
 
 <ul>
@@ -672,24 +673,24 @@ int shmget(key_t key, int size, int flag); ​
   <li>Flag : ipc_perm.mode​</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt; ​
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt; ​
 #include &lt;sys/ipc.h&gt; ​
 #include &lt;sys/shm.h&gt; ​
-
-int shmctl(int shmid, int cmd, struct shmid_ds *buf);​
-        Returns: 0 if OK, -1 on error
+</span>
+<span class="kt">int</span> <span class="nf">shmctl</span><span class="p">(</span><span class="kt">int</span> <span class="n">shmid</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cmd</span><span class="p">,</span> <span class="k">struct</span> <span class="n">shmid_ds</span> <span class="o">*</span><span class="n">buf</span><span class="p">);</span><span class="err">​</span>
+        <span class="n">Returns</span><span class="o">:</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">OK</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="n">on</span> <span class="n">error</span>
 </code></pre></div></div>
 
 <ul>
   <li>다양한 공유 메모리 작업​</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt; ​
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt; ​
 #include &lt;sys/ipc.h&gt; ​
 #include &lt;sys/shm.h&gt; ​
-
-void *shmat (int shmid, void *addr, int flag); ​
-        Returns: pointer to shared memory segment if OK, -1 on error
+</span>
+<span class="kt">void</span> <span class="o">*</span><span class="nf">shmat</span> <span class="p">(</span><span class="kt">int</span> <span class="n">shmid</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">addr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flag</span><span class="p">);</span> <span class="err">​</span>
+        <span class="n">Returns</span><span class="o">:</span> <span class="n">pointer</span> <span class="n">to</span> <span class="n">shared</span> <span class="n">memory</span> <span class="n">segment</span> <span class="k">if</span> <span class="n">OK</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="n">on</span> <span class="n">error</span>
 </code></pre></div></div>
 
 <ul>
@@ -716,12 +717,12 @@ void *shmat (int shmid, void *addr, int flag); ​
   </li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt; ​
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt; ​
 #include &lt;sys/ipc.h&gt; ​
 #include &lt;sys/shm.h&gt; ​
-
-void shmdt (void *addr); ​
-        Returns: 0 if OK, -1 on error
+</span>
+<span class="kt">void</span> <span class="nf">shmdt</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">addr</span><span class="p">);</span> <span class="err">​</span>
+        <span class="n">Returns</span><span class="o">:</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">OK</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="n">on</span> <span class="n">error</span>
 </code></pre></div></div>
 
 <ul>
@@ -747,12 +748,12 @@ void shmdt (void *addr); ​
   <li>Fetching order: based on type</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt; ​
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt; ​
 #include &lt;sys/ipc.h&gt; ​
 #include &lt;sys/msg.h&gt; ​
-
-int msgget(key_t key, int flag); ​
-        Returns: msg queue ID if OK, -1 on error
+</span>
+<span class="kt">int</span> <span class="nf">msgget</span><span class="p">(</span><span class="n">key_t</span> <span class="n">key</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flag</span><span class="p">);</span> <span class="err">​</span>
+        <span class="n">Returns</span><span class="o">:</span> <span class="n">msg</span> <span class="n">queue</span> <span class="n">ID</span> <span class="k">if</span> <span class="n">OK</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="n">on</span> <span class="n">error</span>
 </code></pre></div></div>
 
 <ul>
@@ -760,17 +761,17 @@ int msgget(key_t key, int flag); ​
   <li>Flag : ipc_perm.mode​</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt; ​
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt; ​
 #include &lt;sys/ipc.h&gt; ​
 #include &lt;sys/msg.h&gt; ​
-​
-int msgsnd(int msqid, const void *ptr, size_t nbytes, int flag); ​
-        Returns: 0 if OK, -1 on error
+</span><span class="err">​</span>
+<span class="kt">int</span> <span class="nf">msgsnd</span><span class="p">(</span><span class="kt">int</span> <span class="n">msqid</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">ptr</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">nbytes</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flag</span><span class="p">);</span> <span class="err">​</span>
+        <span class="n">Returns</span><span class="o">:</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">OK</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="n">on</span> <span class="n">error</span>
 
-struct mymesg {​
-  long mtype;         /* positive message type */​
-  char mtext[512];    /* message data, of length nbytes */​
-};
+<span class="k">struct</span> <span class="n">mymesg</span> <span class="p">{</span><span class="err">​</span>
+  <span class="kt">long</span> <span class="n">mtype</span><span class="p">;</span>         <span class="cm">/* positive message type */</span><span class="err">​</span>
+  <span class="kt">char</span> <span class="n">mtext</span><span class="p">[</span><span class="mi">512</span><span class="p">];</span>    <span class="cm">/* message data, of length nbytes */</span><span class="err">​</span>
+<span class="p">};</span>
 </code></pre></div></div>
 
 <ul>
@@ -779,12 +780,12 @@ struct mymesg {​
   <li>nbytes : 메시지 데이터의 길이</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt; ​
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt; ​
 #include &lt;sys/ipc.h&gt; ​
 #include &lt;sys/msg.h&gt; ​
-
-int msgrcv(int msqid, void *ptr, size_t nbytes, long type, int flag); ​
-        Returns: data size in message if OK, -1 on error
+</span>
+<span class="kt">int</span> <span class="nf">msgrcv</span><span class="p">(</span><span class="kt">int</span> <span class="n">msqid</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">ptr</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">nbytes</span><span class="p">,</span> <span class="kt">long</span> <span class="n">type</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flag</span><span class="p">);</span> <span class="err">​</span>
+        <span class="n">Returns</span><span class="o">:</span> <span class="n">data</span> <span class="n">size</span> <span class="n">in</span> <span class="n">message</span> <span class="k">if</span> <span class="n">OK</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="n">on</span> <span class="n">error</span>
 </code></pre></div></div>
 
 <ul>
@@ -793,8 +794,6 @@ int msgrcv(int msqid, void *ptr, size_t nbytes, long type, int flag); ​
   <li>type &gt; 0 : 메시지 유형이 유형과 동일한 큐의 첫 번째 메시지가 반환된다</li>
   <li>type &lt; 0 : 메시지 유형이 유형의 절대값보다 작거나 같은 가장 낮은 값인 큐의 첫 번째 메시지가 반환된다</li>
 </ul>
-
-<hr />
 
                 </div>
             </section>

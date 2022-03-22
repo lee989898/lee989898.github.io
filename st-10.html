@@ -232,7 +232,7 @@ into the {body} of the default.hbs template -->
   </li>
 </ul>
 
-<p><img src="/assets/built/images/st/st25.png" width="50%" height="25%" title="제목" alt="시스템프로그래밍" /></p>
+<p><img src="\assets\built\images\st\st25.png" alt="시스템프로그래밍" /></p>
 
 <ul>
   <li>Process는 실행을 위하여 resource들이 필요하며 실행 상태를 메모리에 저장 ​
@@ -251,7 +251,7 @@ into the {body} of the default.hbs template -->
   </li>
 </ul>
 
-<p><img src="/assets/built/images/st/st26.png" width="50%" height="25%" title="제목" alt="시스템프로그래밍" /></p>
+<p><img src="\assets\built\images\st\st26.png" alt="시스템프로그래밍" /></p>
 
 <ul>
   <li>공통 스레드 구현​
@@ -384,17 +384,17 @@ into the {body} of the default.hbs template -->
   </li>
 </ul>
 
-<p><img src="/assets/built/images/st/st27.png" width="50%" height="25%" title="제목" alt="시스템프로그래밍" /></p>
+<p><img src="\assets\built\images\st\st27.png" alt="시스템프로그래밍" /></p>
 
 <blockquote>
   <p>스레드 생성</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int pthread_create (​
-  pthread_t   *thread, // 생성된 스레드의 핸들 ​
-  pthread_attr_t   *attr, // 스레드 속성을 지정하는 인자​
-  void   *(*start_routine) (void *), // 스레드 시작함수(start routine) 주소​
-  void   *arg ) // 스레드 시작 함수의 인자(들)
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">pthread_create</span> <span class="p">(</span><span class="err">​</span>
+  <span class="n">pthread_t</span>   <span class="o">*</span><span class="kr">thread</span><span class="p">,</span> <span class="c1">// 생성된 스레드의 핸들 ​</span>
+  <span class="n">pthread_attr_t</span>   <span class="o">*</span><span class="n">attr</span><span class="p">,</span> <span class="c1">// 스레드 속성을 지정하는 인자​</span>
+  <span class="kt">void</span>   <span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="n">start_routine</span><span class="p">)</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">),</span> <span class="c1">// 스레드 시작함수(start routine) 주소​</span>
+  <span class="kt">void</span>   <span class="o">*</span><span class="n">arg</span> <span class="p">)</span> <span class="c1">// 스레드 시작 함수의 인자(들)</span>
 </code></pre></div></div>
 
 <ul>
@@ -446,7 +446,7 @@ into the {body} of the default.hbs template -->
   <p>스레드 종료</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void  pthread_exit(void   *retval);​
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span>  <span class="nf">pthread_exit</span><span class="p">(</span><span class="kt">void</span>   <span class="o">*</span><span class="n">retval</span><span class="p">);</span><span class="err">​</span>
 </code></pre></div></div>
 
 <ul>
@@ -461,7 +461,7 @@ into the {body} of the default.hbs template -->
   </li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int  pthread_join(pthread_t   thrd,   void   **thread_return);
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span>  <span class="nf">pthread_join</span><span class="p">(</span><span class="n">pthread_t</span>   <span class="n">thrd</span><span class="p">,</span>   <span class="kt">void</span>   <span class="o">**</span><span class="n">thread_return</span><span class="p">);</span>
 </code></pre></div></div>
 
 <ul>
@@ -499,7 +499,7 @@ into the {body} of the default.hbs template -->
   <p>스레드 Detach</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int   pthread_detach(pthread_t   thrd);
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span>   <span class="nf">pthread_detach</span><span class="p">(</span><span class="n">pthread_t</span>   <span class="n">thrd</span><span class="p">);</span>
 </code></pre></div></div>
 
 <ul>
@@ -512,14 +512,16 @@ into the {body} of the default.hbs template -->
         </ul>
       </li>
       <li>Detach 된 스레드에 pthread_join()를 호출하면 error 발생​</li>
-      <li>Detach 된 스레드는 pthread_join() 호출 없이 할당되었던 resources 들이 반납됨 
-​
-        <blockquote>
-          <p>스레드 Attribute</p>
-        </blockquote>
-      </li>
+      <li>Detach 된 스레드는 pthread_join() 호출 없이 할당되었던 resources 들이 반납됨</li>
     </ul>
   </li>
+</ul>
+
+<blockquote>
+  <p>스레드 Attribute</p>
+</blockquote>
+
+<ul>
   <li>스레드의 attribute는 스레드가 생성될 때 설정됨
     <ul>
       <li>이미 생성된 스레드의 attribute 값을 바꾸는 것은 제한적인 경우에만 가능 ​</li>
@@ -604,11 +606,11 @@ into the {body} of the default.hbs template -->
   <li>Mutex 사용 절차</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pthread_mutex_t mutex; // 뮤텍스 선언​
-Pthread_mutex_init(&amp;mutex); // 뮤텍스 초기화 작업​
-pthread_mutex_lock(mutex); // 뮤텍스 잠금​
-... // 공유데이터(크리티컬 영역) 액세스​
-pthread_mutex_unlock(mutex); // 뮤텍스 잠금 해제​
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pthread_mutex_t</span> <span class="n">mutex</span><span class="p">;</span> <span class="c1">// 뮤텍스 선언​</span>
+<span class="n">Pthread_mutex_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mutex</span><span class="p">);</span> <span class="c1">// 뮤텍스 초기화 작업​</span>
+<span class="n">pthread_mutex_lock</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span> <span class="c1">// 뮤텍스 잠금​</span>
+<span class="p">...</span> <span class="c1">// 공유데이터(크리티컬 영역) 액세스​</span>
+<span class="n">pthread_mutex_unlock</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span> <span class="c1">// 뮤텍스 잠금 해제​</span>
 </code></pre></div></div>
 
 <blockquote>
@@ -652,8 +654,8 @@ pthread_mutex_unlock(mutex); // 뮤텍스 잠금 해제​
   <li>안전하게 mutex를 삭제하기 위해서는 삭제 전에 무조건 mutex를 해제해야 함​</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pthread_mutex_unlock(&amp;mutex);​
-pthread_mutex_destory(&amp;mutex);
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pthread_mutex_unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mutex</span><span class="p">);</span><span class="err">​</span>
+<span class="n">pthread_mutex_destory</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mutex</span><span class="p">);</span>
 </code></pre></div></div>
 
 <blockquote>
@@ -788,8 +790,9 @@ pthread_mutex_destory(&amp;mutex);
   <li>Unnamed semaphore의 초기화​</li>
 </ul>
 
-<p>sem_t *sem;​<br />
-int sem_init(sem_t *sem, int pshared, unsigned int value);</p>
+<p>sem_t <em>sem;​<br />
+int sem_init(sem_t</em>sem, int pshared, unsigned int value);</p>
+
 <ul>
   <li>sem : 세마포어 객체​</li>
   <li>pshared : 다른 스레드와 공유할 것인지의 여부​</li>
@@ -798,6 +801,7 @@ int sem_init(sem_t *sem, int pshared, unsigned int value);</p>
 </ul>
 
 <p>Unnamed semaphore의 종료​</p>
+
 <ul>
   <li>
     <p>sem_destroy(&amp;sem)</p>
@@ -821,8 +825,8 @@ int sem_init(sem_t *sem, int pshared, unsigned int value);</p>
   </li>
 </ul>
 
-<p>int sem_wait(sem_t *sem);​<br />
-int sem_trywait(sem_t *sem);</p>
+<p>int sem_wait(sem_t <em>sem);​<br />
+int sem_trywait(sem_t</em>sem);</p>
 
 <ul>
   <li>
@@ -831,7 +835,7 @@ int sem_post(sem_t *sem);</p>
   </li>
   <li>
     <p>현재 세마포어의 값을 읽는 함수<br />
-int sem_getvalue(sem_t *sem, int *sval);</p>
+int sem_getvalue(sem_t <em>sem, int</em> sval);</p>
   </li>
 </ul>
 
@@ -859,6 +863,7 @@ pthread_cond_t cond;​</li>
 <p>pthread_cond_init(&amp;cond, NULL); // 함수를 이용한 초기화​</p>
 
 <p>pthread_cond_t cond = PTHREAD_COND_INITIALIZER; // 매크로를 이용​</p>
+
 <ul>
   <li>조건변수의 삭제​</li>
 </ul>
@@ -869,7 +874,8 @@ pthread_cond_t cond;​</li>
   <li>조건변수를 기다리는 함수​</li>
 </ul>
 
-<p>int pthread_cond_wait(pthread_cond_t *cond, pthread_mutex_t *mutex);​</p>
+<p>int pthread_cond_wait(pthread_cond_t <em>cond, pthread_mutex_t</em>mutex);​</p>
+
 <ul>
   <li>cond : 조건 알림이 발생할 때까지 대기​</li>
   <li>mutex : mutex가 cond를 제어​</li>
@@ -907,8 +913,6 @@ int pthread_cond_signal(pthread_cond_t *cond);</li>
     </ul>
   </li>
 </ul>
-
-<hr />
 
                 </div>
             </section>

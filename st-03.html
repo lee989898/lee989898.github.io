@@ -218,17 +218,18 @@ into the {body} of the default.hbs template -->
 
 <ul>
   <li>open()은 버퍼 공간을 확보하여 파일을 읽거나 쓸 때 사용한다</li>
-  <li>
-    <p>파일이 존재하지 않을 경우 open()에 의해 새로운 파일이 만들어지기도 한다</p>
+  <li>파일이 존재하지 않을 경우 open()에 의해 새로운 파일이 만들어지기도 한다</li>
+</ul>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt;
 #include &lt;sys/stat.h&gt;
 #include &lt;fcntl.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">open</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">pathname</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flags</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">open</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">pathname</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flags</span><span class="p">,</span> <span class="n">mode_t</span> <span class="n">mode</span><span class="p">);</span>
+</code></pre></div></div>
 
-int open(const char *pathname, int flags);
-int open(const char *pathname, int flags, mode_t mode);
-</code></pre></div>    </div>
-  </li>
+<ul>
   <li>pathname: 경로(path)명을 포함한 파일의 이름 또는 장치 이름</li>
 </ul>
 
@@ -301,7 +302,7 @@ int open(const char *pathname, int flags, mode_t mode);
     <ul>
       <li>mode_t 타입(unsigned int)</li>
       <li>새로운 파일을 만들 대만 필요</li>
-      <li>Flag에 O_CREAT를 지정한 경우에만 필요 <img src="/assets/built/images/st/st05.png" width="50%" height="25%" title="제목" alt="시스템프러그래밍" /></li>
+      <li>Flag에 O_CREAT를 지정한 경우에만 필요 <img src="\assets\built\images\st\st05.png" alt="시스템프로그래밍" /></li>
       <li>0~8비트 : 파일의 보호 모드</li>
       <li>sticky 비트(공유모드)
         <ul>
@@ -442,9 +443,9 @@ fd = open(“afile”, O_RDWR|O_CREAT,S_IRUSR|S_IWUSR);</p>
   <p>close(): 닫기</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;unistd.h&gt;
-
-int close(int fd);
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;unistd.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">close</span><span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">);</span>
 </code></pre></div></div>
 
 <ul>
@@ -495,9 +496,9 @@ int close(int fd);
   <p>read(): 읽기</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;unistd.h&gt;
-
-ssize_t read(int filedes, void *buf, size_t nbytes);
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;unistd.h&gt;
+</span>
+<span class="kt">ssize_t</span> <span class="nf">read</span><span class="p">(</span><span class="kt">int</span> <span class="n">filedes</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">nbytes</span><span class="p">);</span>
 </code></pre></div></div>
 
 <ul>
@@ -517,6 +518,7 @@ ssize_t read(int filedes, void *buf, size_t nbytes);
 </ul>
 
 <p>ssize_t  read (int filedes,  void *buf, size_t nbytes);​</p>
+
 <ul>
   <li>size_t  : unsigned integer (unistd.h에서 정의)​</li>
   <li>ssize_t : signed integer (unistd.h에서 정의)</li>
@@ -612,7 +614,7 @@ ssize_t read(int filedes, void *buf, size_t nbytes);
   <p>Disk</p>
 </blockquote>
 
-<p><img src="/assets/built/images/st/st06.png" width="50%" height="25%" title="제목" alt="시스템프러그래밍" /></p>
+<p><img src="\assets\built\images\st\st06.png" alt="시스템프로그래밍" /></p>
 
 <ul>
   <li>Disk들은 platters들로 구성되어 있으며, 각 platter는 두개의 표면(surface)을 갖는다.​
@@ -669,7 +671,7 @@ close(0);​<br />
 dup(fdin);​<br />
 close(fdin);</p>
 
-<p><img src="/assets/built/images/st/st07.png" width="50%" height="25%" title="제목" alt="시스템프러그래밍" /></p>
+<p><img src="\assets\built\images\st\st07.png" alt="시스템프로그래밍" /></p>
 
 <hr />
 
@@ -677,12 +679,12 @@ close(fdin);</p>
   <p>stat(), fstat(), lstat(): 파일 조작</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sys/types.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt;
 #include &lt;sys/stat.h&gt;
-
-int stat(const char * pathname, struct stat *buf);
-int fstat(int fd, struct stat *buf);
-int lstat(const char * pathname, struct stat * buf);
+</span>
+<span class="kt">int</span> <span class="nf">stat</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">pathname</span><span class="p">,</span> <span class="k">struct</span> <span class="n">stat</span> <span class="o">*</span><span class="n">buf</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">fstat</span><span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">,</span> <span class="k">struct</span> <span class="n">stat</span> <span class="o">*</span><span class="n">buf</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">lstat</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">pathname</span><span class="p">,</span> <span class="k">struct</span> <span class="n">stat</span> <span class="o">*</span> <span class="n">buf</span><span class="p">);</span>
 </code></pre></div></div>
 
 <ul>
@@ -694,37 +696,32 @@ int lstat(const char * pathname, struct stat * buf);
   <li>
     <p>lstat()는 대상 파일이 심볼릭 링크(symbolic link)인 경우에 링크가 나타내는 파일이 아니라 링크 자신의 상태를 가져온다​</p>
   </li>
-  <li>
-    <p>stat 구조체 내용</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  struct  stat {​
-    mode_t   st_mode; 파일 모드에 대한 정보​
-    ino_t      st_ino; 파일의 I-node 번호​
-    dev_t      st_dev; I-node가 있는 디바이스의 디바이스번호​
-    dev_t st_rdev; 디바이스번호(디바이스 파일의 경우)​
-    nlink_t st_nlink;  파일에 관련된 링크의 수​
-    uid_t st_uid;    소유자의 사용자 ID​
-    gid_t st_gid;    소유자의 그룹 ID​
-    off_t st_size;   파일크기(바이트 수)​
-    time_t st_atime;  최종 엑세스 시각​
-    time_t st_mtime; 최종 변경 시각​
-    time_t st_ctime;  최종 상태 변경 시각​
-    blksize_t st_blksize; 파일 시스템의 블록 크기​
-    blkcnt_t st_blocks; 할당된 블록수​
-    };
-</code></pre></div>    </div>
-  </li>
+  <li>stat 구조체 내용</li>
 </ul>
 
-<hr />
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">struct</span>  <span class="n">stat</span> <span class="p">{</span><span class="err">​</span>
+ <span class="n">mode_t</span>   <span class="n">st_mode</span><span class="p">;</span> <span class="err">파일</span> <span class="err">모드에</span> <span class="err">대한</span> <span class="err">정보​</span>
+ <span class="n">ino_t</span>      <span class="n">st_ino</span><span class="p">;</span> <span class="err">파일의</span> <span class="n">I</span><span class="o">-</span><span class="n">node</span> <span class="err">번호​</span>
+ <span class="n">dev_t</span>      <span class="n">st_dev</span><span class="p">;</span> <span class="n">I</span><span class="o">-</span><span class="n">node</span><span class="err">가</span> <span class="err">있는</span> <span class="err">디바이스의</span> <span class="err">디바이스번호​</span>
+ <span class="n">dev_t</span> <span class="n">st_rdev</span><span class="p">;</span> <span class="err">디바이스번호</span><span class="p">(</span><span class="err">디바이스</span> <span class="err">파일의</span> <span class="err">경우</span><span class="p">)</span><span class="err">​</span>
+ <span class="n">nlink_t</span> <span class="n">st_nlink</span><span class="p">;</span>  <span class="err">파일에</span> <span class="err">관련된</span> <span class="err">링크의</span> <span class="err">수​</span>
+ <span class="n">uid_t</span> <span class="n">st_uid</span><span class="p">;</span>    <span class="err">소유자의</span> <span class="err">사용자</span> <span class="n">ID</span><span class="err">​</span>
+ <span class="n">gid_t</span> <span class="n">st_gid</span><span class="p">;</span>    <span class="err">소유자의</span> <span class="err">그룹</span> <span class="n">ID</span><span class="err">​</span>
+ <span class="kt">off_t</span> <span class="n">st_size</span><span class="p">;</span>   <span class="err">파일크기</span><span class="p">(</span><span class="err">바이트</span> <span class="err">수</span><span class="p">)</span><span class="err">​</span>
+ <span class="kt">time_t</span> <span class="n">st_atime</span><span class="p">;</span>  <span class="err">최종</span> <span class="err">엑세스</span> <span class="err">시각​</span>
+ <span class="kt">time_t</span> <span class="n">st_mtime</span><span class="p">;</span> <span class="err">최종</span> <span class="err">변경</span> <span class="err">시각​</span>
+ <span class="kt">time_t</span> <span class="n">st_ctime</span><span class="p">;</span>  <span class="err">최종</span> <span class="err">상태</span> <span class="err">변경</span> <span class="err">시각​</span>
+ <span class="n">blksize_t</span> <span class="n">st_blksize</span><span class="p">;</span> <span class="err">파일</span> <span class="err">시스템의</span> <span class="err">블록</span> <span class="err">크기​</span>
+ <span class="n">blkcnt_t</span> <span class="n">st_blocks</span><span class="p">;</span> <span class="err">할당된</span> <span class="err">블록수​</span>
+<span class="p">};</span>  
+<span class="o">---</span>
 
-<blockquote>
-  <p>access(): 파일에 대한 액세스 권한 검사</p>
-</blockquote>
+<span class="o">&gt;</span> <span class="n">access</span><span class="p">()</span><span class="o">:</span> <span class="err">파일에</span> <span class="err">대한</span> <span class="err">액세스</span> <span class="err">권한</span> <span class="err">검사</span>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;unistd.h&gt;
-
-int access(const char * pathname, int mode);
+<span class="err">```</span><span class="n">c</span>
+<span class="cp">#include &lt;unistd.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">access</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">pathname</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mode</span><span class="p">);</span>
 </code></pre></div></div>
 
 <ul>
