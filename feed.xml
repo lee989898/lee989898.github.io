@@ -1,10 +1,584 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lee989898.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lee989898.github.io/" rel="alternate" type="text/html" /><updated>2022-03-22T21:10:12+09:00</updated><id>https://lee989898.github.io/feed.xml</id><title type="html">LEE</title><subtitle>공부 블로그</subtitle><entry><title type="html">리눅스 사용자 계정과 권한 체계, 쉘 기본</title><link href="https://lee989898.github.io/sc2-03" rel="alternate" type="text/html" title="리눅스 사용자 계정과 권한 체계, 쉘 기본" /><published>2022-03-21T01:06:00+09:00</published><updated>2022-03-21T01:06:00+09:00</updated><id>https://lee989898.github.io/sc2-03</id><content type="html" xml:base="https://lee989898.github.io/sc2-03">&lt;h2 id=&quot;리눅스-사용자-계정과-권한-체계-쉘-기본&quot;&gt;&lt;strong&gt;리눅스: 사용자 계정과 권한 체계, 쉘 기본&lt;/strong&gt;&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lee989898.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lee989898.github.io/" rel="alternate" type="text/html" /><updated>2022-03-23T12:42:32+09:00</updated><id>https://lee989898.github.io/feed.xml</id><title type="html">LEE</title><subtitle>공부 블로그</subtitle><entry><title type="html">리눅스 사용자 계정과 권한 체계, 쉘 기본</title><link href="https://lee989898.github.io/sc2-03" rel="alternate" type="text/html" title="리눅스 사용자 계정과 권한 체계, 쉘 기본" /><published>2022-03-21T01:06:00+09:00</published><updated>2022-03-21T01:06:00+09:00</updated><id>https://lee989898.github.io/sc2-03</id><content type="html" xml:base="https://lee989898.github.io/sc2-03">&lt;h2 id=&quot;리눅스-사용자-계정과-권한-체계-쉘-기본&quot;&gt;&lt;strong&gt;리눅스: 사용자 계정과 권한 체계, 쉘 기본&lt;/strong&gt;&lt;/h2&gt;
 
 &lt;hr /&gt;
 
-&lt;h3 id=&quot;__&quot;&gt;&lt;em&gt;__&lt;/em&gt;&lt;/h3&gt;
+&lt;h2 id=&quot;리눅스유닉스-파일-시스템&quot;&gt;&lt;strong&gt;리눅스/유닉스 파일 시스템&lt;/strong&gt;&lt;/h2&gt;
 
-&lt;hr /&gt;</content><author><name>lee989898</name></author><category term="security2" /><summary type="html">리눅스: 사용자 계정과 권한 체계, 쉘 기본</summary></entry><entry><title type="html">안드로이드 면접 준비</title><link href="https://lee989898.github.io/ad" rel="alternate" type="text/html" title="안드로이드 면접 준비" /><published>2022-03-19T01:06:00+09:00</published><updated>2022-03-19T01:06:00+09:00</updated><id>https://lee989898.github.io/ad</id><content type="html" xml:base="https://lee989898.github.io/ad">&lt;h2 id=&quot;안드로이드-면접-준비&quot;&gt;&lt;strong&gt;안드로이드 면접 준비&lt;/strong&gt;&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;리눅스/유닉스 파일 시스템은 디렉토리와 파일로 구성&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;디렉토리&lt;/th&gt;
+      &lt;th&gt;내용&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;/&lt;/td&gt;
+      &lt;td&gt;파일 시스템 트리 구조의 최상위 디렉토리이다&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;/etc&lt;/td&gt;
+      &lt;td&gt;시스템의 환경 설정 및 주요 설정 파일을 담고있다 (passwd, shadow 등)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;dev&lt;/td&gt;
+      &lt;td&gt;프린터 같은 물리적인 장치를 다루기 위한 특수 파일을 담고있다&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;/usr/bin&lt;/td&gt;
+      &lt;td&gt;쉘 명령어 실행 파일 등 기본적으로 실행 가능한 파일을 담고 있다 (ls, mv, cp, pwd 등)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;/usr/include&lt;/td&gt;
+      &lt;td&gt;주요 라이브러리 헤더파일이 저장되는 디렉토리이다&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;/usr/lib&lt;/td&gt;
+      &lt;td&gt;라이브러리에 대한 shared object 파일(.so)이 저장되는 디렉토리&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;/usr/sbin&lt;/td&gt;
+      &lt;td&gt;시스템 관리 명령어가 저장되는 디렉터리&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;/home&lt;/td&gt;
+      &lt;td&gt;사용자 홈 디렉터리가 저장되는 디렉터리&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;tmp&lt;/td&gt;
+      &lt;td&gt;프로그램 실행 및 설치 시 생성되는 임시 파일을 담고있다. 이 디렉터리에 파일을 저장하면 재부팅 시 임의로 삭제될 수 있다&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;/var&lt;/td&gt;
+      &lt;td&gt;시스템 로그가 저장되는 디렉터리이다&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;/proc&lt;/td&gt;
+      &lt;td&gt;실행중인 프로세스 정보를 담고 있는 파일들이 저장됨. 실행 중인 각 프로세스 id마다 파일이 존재&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;리눅스유닉스의-계정과-권한-체계&quot;&gt;&lt;strong&gt;리눅스/유닉스의 계정과 권한 체계&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;로그인: 아이디와 패스워드 입력을 통해 자신이 누군지 밝히고, 그에 따른 권한을 부여 받아 시스템 사용을 허가 받는 과정&lt;/li&gt;
+  &lt;li&gt;리눅스 시스템의 계정과 권한 체계: root라고 불리는 관리자와 일반 사용자 계정으로 구분. 모든 계정 정보가 /etc/passwd 파일에 저장됨&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;vi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;etc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;passwd&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc3.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;/etc/passwd 파일&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc4.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;사용자 계정명&lt;/li&gt;
+  &lt;li&gt;패스워드가 암호화되어 /etc/shadow 파일에 저장되어 있음을 나타냄&lt;/li&gt;
+  &lt;li&gt;사용자 번호(UID, User ID)&lt;/li&gt;
+  &lt;li&gt;그룹 번호(GID, Group ID)&lt;/li&gt;
+  &lt;li&gt;사용자의 이름이다&lt;/li&gt;
+  &lt;li&gt;사용자의 홈 디렉터리 나타냄
+    &lt;ul&gt;
+      &lt;li&gt;관리자의 홈 디렉터리는 /root이다&lt;/li&gt;
+      &lt;li&gt;일반 사용자의 홈 디렉터리는 /hoom/seed 같이 /home 디렉터리 하위에 위치한다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;사용자 계정 로그인 쉘을 지정. 기본 설정은 /bin/bash 쉘&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;리눅스에서 관리자는 UID를 0번으로 부여받고 일반 사용자는 그 외의 번호를 부여 받는데 보통 500번 또는 1000번 이상을 부여 받는다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;/etc/shadow 파일&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;각 사용자 계정의 패스워드가 암호화 된 상태로 저장되어 있음&lt;/li&gt;
+  &lt;li&gt;사용자 계정 seed에 대한 정보 예&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc5.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;주요 필드&lt;/th&gt;
+      &lt;th&gt;설명&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;사용자 계정명&lt;/td&gt;
+      &lt;td&gt;첫번째 필드는 사용자 계정명을 나타냄&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;암호화된 패스워드&lt;/td&gt;
+      &lt;td&gt;두번째 필드는 암호화된 패스워드를 나타냄. $로 아래와 같이 추가 구분 &amp;lt;/br&amp;gt; $algoritihm_id$salt$hash_value_of_password &amp;lt;/br&amp;gt; &amp;gt; algorithm_id: 패스워드 해쉬값 계산에 사용된 암호학적 해쉬 함수 종류를 나타냄(MD5, BlowFish, SHA-256, SHA-512 등) &amp;lt;/br&amp;gt; &amp;gt; salt 패스워드 해쉬값 계산에 사용된 랜덤값 &amp;lt;/br&amp;gt; hash_value_of_password: 사용자 패스워드 및 salt를 입력으로 해쉬 함수를 통해 계산된 값 &amp;lt;/br&amp;gt; 패스워드 필드에 *, ! 등이 설정될 수도 있음 &amp;lt;/br&amp;gt; *: 패스워드가 잠긴 상태로 일반적인 방식의 로그인은 불가하지만 별도의 인증 방식을 사용하여 로그인을 하루 수는 있음 &amp;lt;/br&amp;gt; !: 패스워드가 잠긴 상태로 일반적인 방식의 로그인은 불가함. 또는 사용자 계정을 생성하고 패스워드를 설정하지 않은 상태이기도 함&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;마지막 변경&lt;/td&gt;
+      &lt;td&gt;마지막으로 패스워드를 변경한 날을 1970년 1월1일 기준으로 일수로 표시함. 위 예에서는 마지막으로 패스워드를 변경한 날은 1970년 1월1일 이후 18950일이 지났음을 의미&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;패스워드 최소 사용기간&lt;/td&gt;
+      &lt;td&gt;패스워드를 변경한 이후 최소 이 정도의 기간은 사용해야함을 의미&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;패스워드 최대 사용기간&lt;/td&gt;
+      &lt;td&gt;패스워드를 변경한 이후 만료되는 일수를 나타냄. 보안을 위해 주기적으로 패스워드 변경이 필요한 경우 활용&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;경고&lt;/td&gt;
+      &lt;td&gt;패스워드 만료일 몇일 전에 경고 알림할건지를 설정&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;비활성화&lt;/td&gt;
+      &lt;td&gt;패스워드가 만료된 이후에 계정이 잠기기 전까지 비활성 일수를 나타냄. 해당 비활성 기간 동안 패스워드를 변경해야 계정이 잠기지 않음&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;만료일&lt;/td&gt;
+      &lt;td&gt;계정이 만료되는 날짜를 1970년 1월1일 기준으로 일수로 표시&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;패스워드 해쉬값 계산 과정&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc36.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;사용자 로그인 시 패스워드 검증 과정(/etc/shadow 파일에서 사용자 패스워드 해쉬값, 해쉬 함수 ID, salt 값을 읽어 온다)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc37.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;만약 salt 없이 패스워드만을 입력으로 해쉬값을 계산한다면?
+    &lt;ul&gt;
+      &lt;li&gt;패스워드가 동일하면 그 해쉬값도 동일하다&lt;/li&gt;
+      &lt;li&gt;공격자는 shadow 파일에 해쉬값들을 비교하는 것만으로 동일한 패스워드가 사용된 사용자 계정을 알아낼 수 있다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;패스워드 크래킹 공격 비용을 높이는 효과
+    &lt;ul&gt;
+      &lt;li&gt;레인보우 테이블을 이용한 패스워드 크래킹 공격: 일반적으로 많이 사용되는 패턴의 패스워드에 대한 해쉬값을 미리 계산해두는 방식&lt;/li&gt;
+      &lt;li&gt;만약 salt가 사용되지 않는다면 공격자는 모든 고려 대상 패스워드 각각에 대한 해쉬값을 게산하면 됨&lt;/li&gt;
+      &lt;li&gt;salt가 사용되면 모든 고려 대상 패스워드 및 모든 가능한 salt 값에 대해 미리 해쉬값을 계산해두어야 함 -&amp;gt; 공격 비용이 훨씬 높아짐&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;al&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;etc&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc38.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc39.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;파일 속성&lt;/th&gt;
+      &lt;th&gt;파일 소유자&lt;/th&gt;
+      &lt;th&gt;권한 그룹 권한&lt;/th&gt;
+      &lt;th&gt;일반(Others)권한&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;d&lt;/td&gt;
+      &lt;td&gt;rwx&lt;/td&gt;
+      &lt;td&gt;r-x&lt;/td&gt;
+      &lt;td&gt;r-x&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;문자&lt;/th&gt;
+      &lt;th&gt;파일 속성&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;d&lt;/td&gt;
+      &lt;td&gt;디렉터리 파일(Dirctory File)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;일반 정규 파일(Regular File)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;l&lt;/td&gt;
+      &lt;td&gt;링크되어 있는 파일(Symbolic Link File)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;c&lt;/td&gt;
+      &lt;td&gt;버퍼에 저장되지 않은 특수 파일(Character File)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;b&lt;/td&gt;
+      &lt;td&gt;버퍼링된 특수 파일(Block File)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;s&lt;/td&gt;
+      &lt;td&gt;소켓 기능을 하는 파일(Socket File)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;p&lt;/td&gt;
+      &lt;td&gt;파이프 기능을 수행하는 파일(Pipe File)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;파일의 소유자에게 허용되는 권한
+    &lt;ul&gt;
+      &lt;li&gt;rwx는 파일의 소유자에 대한 접근 권한&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;파일 소유자와 같은 그룹에 속한 사용자에게 허용되는 권한
+    &lt;ul&gt;
+      &lt;li&gt;r-x는 그룹에 대한 접근 권한&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;일반(Others) 권한
+    &lt;ul&gt;
+      &lt;li&gt;r-x는 파일 소유자 및 그룹에 속하지 않는 사용자들(others)에 대한 접근 권한&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;rwx의 r,w,x는 각각 읽기(Read), 쓰기(Write), 실행하기(eXecution)가 해당 사용자에게 허용됨을 의미
+    &lt;ul&gt;
+      &lt;li&gt;read, write, execution 각각에 대해 허용할지 말지를 3개의 플래그 비트로 표현&lt;/li&gt;
+      &lt;li&gt;r: 4(2진수 100)&lt;/li&gt;
+      &lt;li&gt;w: 2(2진수 10)&lt;/li&gt;
+      &lt;li&gt;x: 1(2진수 1)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;rwx = (2진수 111) = (10진수 7)
+    &lt;ul&gt;
+      &lt;li&gt;read, write, execution 권한이 모두 허용됨을 의미&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;rwxrwxrwx = (2진수 111111111) = (10진수 777)
+    &lt;ul&gt;
+      &lt;li&gt;파일의 소유자, 그룹, others 모두에 대해 해당 파일에 대한 읽기, 쓰기, 실행 권한이 허용됨을 의미&lt;/li&gt;
+      &lt;li&gt;할 수 있으며, 권한을 777이라고 읽음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;rwxr-x-r-x = (2진수 111101001) = (10진수 755)
+    &lt;ul&gt;
+      &lt;li&gt;파일 소유자에게 읽기, 쓰기, 실행 권한 모두 허용됨&lt;/li&gt;
+      &lt;li&gt;그룹 &amp;amp; others에게는 읽기, 실행 권한만 혀용되며, 쓰기 권한은 허용안됨&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;rwxr-x–x = (2진수 111101001) = (10진수 751)
+    &lt;ul&gt;
+      &lt;li&gt;파일 소유자에게는 읽기, 쓰기, 실행 권한 모두 허용됨&lt;/li&gt;
+      &lt;li&gt;그룹에게는 읽기, 실행 권한만 허용되며, 쓰기 권한은 허용안됨&lt;/li&gt;
+      &lt;li&gt;Others에게는 실행 권한만 허용되며, 읽기, 쓰기는 허용안됨&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;쉘shell&quot;&gt;&lt;strong&gt;쉘(shell)&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;사용자와 운영체제 간 상호 작용을 위한 command line interface를 제공하는 프로그램&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;사용자 입력 명령어 처리기(command line interpreter)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;쉘 종류
+    &lt;ul&gt;
+      &lt;li&gt;Windows PowerShell&lt;/li&gt;
+      &lt;li&gt;Linux/Unix sh, csh, bash, ksh etc.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;쉘(shell): 기본 명령어&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;pwd: print working directory&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc6.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;cd: change directory&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc7.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ls: 현재 디렉터리에 속한 파일 및 서브 디렉터리를 나열해서 보여줌
+    &lt;ul&gt;
+      &lt;li&gt;ls -l: 퍼미션, 소유자, 그룹, 파일크기 등 파일에 대한 자세한 내용을 출력&lt;/li&gt;
+      &lt;li&gt;ls -a: 숨겨진 파일이나 디렉터리도 보여줌&lt;/li&gt;
+      &lt;li&gt;ls -al 같이 둘 이상의 옵션을 복합적으로 줄 수도 있음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc8.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;mv: “move”의 약자로 파일이나 디렉토리를 원하는 곳으로 옮기거나, 이름을 변경할 떄 사용할 수 있는 명령어&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc9.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;cp: “copy”의 약자로 파일이나 디렉토리를 원하는 곳에 원하는 이름으로 복사하기 위한 명령어&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc10.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;echo: 인수로 주어진 문자열이나 환경변수 값을 출력해주는 명령어&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc11.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;cat: 하나 이상의 파일을 연결해서 출력해주는 명령어&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc12.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;tail: 파일의 마지막 행을 기준으로 지정한 행까지의 파일 내용 일부를 출력해준다. 아무 옵션을 주지 않으면 기본적으로 10개 행을 출력&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc13.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;mkdir: “make directory”의 약자로 새로운 디렉토리를 만들 수 있는 명령어&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc14.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;touch &lt;파일명&gt; : 현재 디렉토리에 주어진 &lt;파일명&gt;의 새로운 파일을 생성해주는 명령어&lt;/파일명&gt;&lt;/파일명&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;rm: remove의 약자로 파일과 디렉토리 삭제에 사용되는 명령어&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc15.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;clear: 쉘 창에 있는 기록을 모두 지워주는 명령어&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;chown: 파일이나 디렉토리의 소유권자 및 그룹식별자를 바꾸는 명령어&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc16.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;chmod: “change mode” 약자로 파일이나 디렉토리의 퍼미션을 수정하기 위한 명령어&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc17.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;sudo: 일반 사용자가 root 권한을 잠시 빌려 명령을 실행할 수 있도록 하는 명령어이다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc18.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;umask: 파일이나 디렉터리 생성 시 기본 접근권한을 설정할떄 사용하는 명령어
+    &lt;ul&gt;
+      &lt;li&gt;기본 파일 생성 시 최고 권한이 666이며, 디렉터리의 생성 시 최고 권한은 777이다&lt;/li&gt;
+      &lt;li&gt;파일 및 디렉터리 생성 시 기본 권한은 가능한 최고 권한에서 umask 값을 빼준 값이다&lt;/li&gt;
+      &lt;li&gt;기본 파일은 660-002=664가, 디렉터리는 777-002=775가 된다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc19.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;id: 현재 실행중인 쉘에 로그인 된 사용자 ID, 그룹 ID 등을 출력해주는 명령어
+    &lt;ul&gt;
+      &lt;li&gt;일반 사용자 계정으로 로그인한 경우
+&lt;img src=&quot;\assets\built\images\sc2\sc20.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/li&gt;
+      &lt;li&gt;root 사용자로 로그인한 경우
+&lt;img src=&quot;\assets\built\images\sc2\sc21.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;grep: 특정 파일 내에서 지정한 패턴을 가진 문자열을 찾은 후, 해당 문자열을 출력해주는 명령어. 패턴에는 정규표현식의 패턴을 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc22.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;find: 파일 시스템에서 인자로 주어진 파일 및 디렉토리를 찾는 명령어
+    &lt;ul&gt;
+      &lt;li&gt;파일명으로 찾기(-name)
+        &lt;ul&gt;
+          &lt;li&gt;find . -name “*txt” 현재 디렉터리(모든 하위 디렉터리 포함)에서 확장자가 .txt인 파일 모두 찾음&lt;/li&gt;
+          &lt;li&gt;find . -name “*txt” -delete 현재 디렉터리에서 확장자가 .txt인 파일 모두 찾은 다음 삭제&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;타입으로 찾기(-type)
+        &lt;ul&gt;
+          &lt;li&gt;find . -name “*test” -type d 현재 디렉터리에서 이름에 test가 포함된 모든 디렉터리 찾기&lt;/li&gt;
+          &lt;li&gt;find . -type f 현재 디렉터리에서 모든 파일 찾기&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;파일 크기로 찾기(-empth, -size)
+        &lt;ul&gt;
+          &lt;li&gt;find . -empty 현재 디렉터리에서 빈 디렉터리 또는 크기가 0인 파일 찾ㄱ기&lt;/li&gt;
+          &lt;li&gt;find . -size + 1024c 현재 디렉터리에서 1024byte 보다 큰 파일 찾기&lt;/li&gt;
+          &lt;li&gt;find . -size + 1k -size -10k 1kb 보다 크고 10kb 보다 작은 파일 찾기&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;man: 명령어를 어떻게 쓰는지 설명해주는 내용을 출력해주는 명령어
+    &lt;ul&gt;
+      &lt;li&gt;main ls 실행 결과로 보여지는 내용&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc23.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Redirection: &amp;gt;, »를 사용해서 주어진 명령 실행 결과로 출력되는 내용이 파일에 쓰여지도록 할 수 있다
+    &lt;ul&gt;
+      &lt;li&gt;&amp;gt;: overwrite, »: append&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc27.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Pipeline: 첫번쨰 명령 (&lt;/td&gt;
+          &lt;td&gt;기호 왼쪽) 실행 결과가 두번째 명령 (&lt;/td&gt;
+          &lt;td&gt;기호 오른쪽)으로 넘겨지도록 한다&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc28.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;심볼릭링크 생성&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;심볼릭링크 생성 명령어&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-ㅊ&quot;&gt;ln -s 우너본 링크파일
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;원본 파일 확인&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc24.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;심볼릭 링크 설정 및 확인&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc25.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;하드링크와 차이&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc26.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;하드 링크 파일의 inode number는 원본과 같다&lt;/li&gt;
+  &lt;li&gt;디스크 상에서 근본적으로 같은 파일이라 할 수 있다&lt;/li&gt;
+  &lt;li&gt;반면 심볼릭 링크는 디스크 상에서 다른 파일이며, 바로가기 파일이라 할 수 있다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;쉘 스크립트&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;파일에 쉘 명령어들을 나열해서 순차적으로 실행되도록 하는 것&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;쉘 스크립트 예시
+    &lt;ul&gt;
+      &lt;li&gt;#!/bin/sh: 파일에 작성된 내용은 쉘 스크립트라는 것을 시스템에 알려주는 역할
+&lt;img src=&quot;\assets\built\images\sc2\sc29.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/li&gt;
+      &lt;li&gt;아래 두가지 방법 중 하나로 쉘 스크립트 실행
+&lt;img src=&quot;\assets\built\images\sc2\sc30.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;
+&lt;img src=&quot;\assets\built\images\sc2\sc31.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;read로 입력, echo로 출력&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc32.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;변수 활용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc33.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;특별한 변수&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc34.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;배열&lt;/li&gt;
+  &lt;li&gt;조건문: if elif else if, case문&lt;/li&gt;
+  &lt;li&gt;반목문: for, while, until&lt;/li&gt;
+  &lt;li&gt;함수&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>lee989898</name></author><category term="systemcloud" /><summary type="html">리눅스: 사용자 계정과 권한 체계, 쉘 기본</summary></entry><entry><title type="html">안드로이드 면접 준비</title><link href="https://lee989898.github.io/ad" rel="alternate" type="text/html" title="안드로이드 면접 준비" /><published>2022-03-19T01:06:00+09:00</published><updated>2022-03-19T01:06:00+09:00</updated><id>https://lee989898.github.io/ad</id><content type="html" xml:base="https://lee989898.github.io/ad">&lt;h2 id=&quot;안드로이드-면접-준비&quot;&gt;&lt;strong&gt;안드로이드 면접 준비&lt;/strong&gt;&lt;/h2&gt;
 
 &lt;hr /&gt;
 
@@ -1229,7 +1803,7 @@ Hash 함수를 여러 번 통과시키는데 사용 → 이는 Hash 함수를 �
   &lt;li&gt;보안 목적에는 개체의 행동을 유일하게 추적해서 찾아낼 수 있어야 한다는 사항이 포함되어야 한다. 여기에는 부인 방지(메시지의 송수신이나 교환 후, 또는 통신이나 처리가 실행된 후에 그 사실을 사후에 증명함으로써 사실 부인을 방지하는 보안 기술), 억제, 결함분리, 침입탐지예방, 사후복구와 법적인 조치 등이 포함된다&lt;/li&gt;
   &lt;li&gt;진정으로 안전한 시스템을 만든다는 것은 불가능하기 때문에, 보안 침해에 대한 책임 소재를 추적할 수 있어야만 한다&lt;/li&gt;
   &lt;li&gt;시스템은 반드시 이들의 활동 상황을 기록하고, 나중에 포렌식 분석을 통해 보안 침해를 추적할 수 있거나 전송과 관련된 분쟁을 해결할 수 있도록 해야한다&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>lee989898</name></author><category term="security2" /><summary type="html">정보보안 기본 3원칙</summary></entry><entry><title type="html">블록체인 이란</title><link href="https://lee989898.github.io/bc-01" rel="alternate" type="text/html" title="블록체인 이란" /><published>2022-03-09T01:06:00+09:00</published><updated>2022-03-09T01:06:00+09:00</updated><id>https://lee989898.github.io/bc-01</id><content type="html" xml:base="https://lee989898.github.io/bc-01">&lt;h2 id=&quot;블록체인이란&quot;&gt;&lt;strong&gt;블록체인이란&lt;/strong&gt;&lt;/h2&gt;
+&lt;/ul&gt;</content><author><name>lee989898</name></author><category term="systemcloud" /><summary type="html">정보보안 기본 3원칙</summary></entry><entry><title type="html">블록체인 이란</title><link href="https://lee989898.github.io/bc-01" rel="alternate" type="text/html" title="블록체인 이란" /><published>2022-03-09T01:06:00+09:00</published><updated>2022-03-09T01:06:00+09:00</updated><id>https://lee989898.github.io/bc-01</id><content type="html" xml:base="https://lee989898.github.io/bc-01">&lt;h2 id=&quot;블록체인이란&quot;&gt;&lt;strong&gt;블록체인이란&lt;/strong&gt;&lt;/h2&gt;
 
 &lt;hr /&gt;
 
@@ -1635,7 +2209,7 @@ Hash 함수를 여러 번 통과시키는데 사용 → 이는 Hash 함수를 �
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc1.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;
-&lt;img src=&quot;\assets\built\images\sc2\sc2.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;</content><author><name>lee989898</name></author><category term="security2" /><summary type="html">정보보호 동향(해킹과 보안)</summary></entry><entry><title type="html">FPinPython</title><link href="https://lee989898.github.io/pl-21" rel="alternate" type="text/html" title="FPinPython" /><published>2021-12-05T19:18:00+09:00</published><updated>2021-12-05T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-21</id><content type="html" xml:base="https://lee989898.github.io/pl-21">&lt;h3 id=&quot;fpinpython&quot;&gt;&lt;strong&gt;FPinPython&lt;/strong&gt;&lt;/h3&gt;
+&lt;img src=&quot;\assets\built\images\sc2\sc2.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;</content><author><name>lee989898</name></author><category term="systemcloud" /><summary type="html">정보보호 동향(해킹과 보안)</summary></entry><entry><title type="html">FPinPython</title><link href="https://lee989898.github.io/pl-21" rel="alternate" type="text/html" title="FPinPython" /><published>2021-12-05T19:18:00+09:00</published><updated>2021-12-05T19:18:00+09:00</updated><id>https://lee989898.github.io/pl-21</id><content type="html" xml:base="https://lee989898.github.io/pl-21">&lt;h3 id=&quot;fpinpython&quot;&gt;&lt;strong&gt;FPinPython&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
 
