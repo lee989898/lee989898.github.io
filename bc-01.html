@@ -463,6 +463,350 @@ into the {body} of the default.hbs template -->
 
 <p><img src="\assets\built\images\bc\bc6.png" alt="블록체인" /></p>
 
+<blockquote>
+  <p>Hash &amp; Cryptographic Hash</p>
+</blockquote>
+
+<ul>
+  <li>Hash
+    <ul>
+      <li>임의의 길이의 Input을 고정된 길이 output으로 변환</li>
+      <li>Input값들을 균등하게 변환시켜줌</li>
+      <li>Constant-time search를 위해서 사용</li>
+      <li>EX: mod p</li>
+    </ul>
+  </li>
+  <li>Cryptographic Hash (Secure Hash)
+    <ul>
+      <li>One-way function</li>
+      <li>Each to compute</li>
+      <li>Collision Resistance (weak or strong)
+        <ul>
+          <li>같은 Hash값을 갖는 input을 찾을 수 없다</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Bitcoin uses SHA256</li>
+  <li>Ehtereum sues Keccak256(SHA3 원형)</li>
+</ul>
+
+<p><img src="\assets\built\images\bc\bc7.png" alt="블록체인" /></p>
+
+<blockquote>
+  <p>Proof of Work puzzle</p>
+</blockquote>
+
+<ul>
+  <li>주어진 d에 대해서, 그 Hash값이 d개 이상의 0으로 시작하도록(&lt;$2^{256-d}$)하는 M을 찾는 문제</li>
+  <li>Secure hash에 대한 유일한 해답은 brute-force 방법</li>
+  <li>d(difficulty)가 증가할 수록 기하급수적으로 오래걸림</li>
+</ul>
+
+<p><img src="\assets\built\images\bc\bc8.png" alt="블록체인" /></p>
+
+<blockquote>
+  <p>Origin of Proof-of-Work: Hashcash</p>
+</blockquote>
+
+<ul>
+  <li>Cynthia Dwork에서 제안함</li>
+  <li>Hashcash는 Adam Back이 제안함</li>
+  <li>이메일을 보내면 PoW 비용이 발생한다
+    <ul>
+      <li>&lt; counter &gt;를 찾는다. SHA-1(1:20:&lt; time &gt;:&lt; recipient &gt;:&lt; rand &gt;:&lt; counter &gt;)=$0^{20}${0,$1^{140}$}</li>
+      <li>1초 정도 걸린다</li>
+    </ul>
+  </li>
+  <li>리시버는 이메일을 받는다 오직
+    <ul>
+      <li>&lt; time &gt;이 최근(2-days), &lt; recipient &gt;가 맞을떄</li>
+      <li>그리고 유효한 PoW일때</li>
+    </ul>
+  </li>
+  <li>이것으로 스팸을 예방할 수 있다</li>
+</ul>
+
+<blockquote>
+  <p>Merkle Tree</p>
+</blockquote>
+
+<ul>
+  <li>다수의 데이터(tx)의 hash를 계산하되, 특정 데이터(tx)의 포함 여부를 빠르게 (log N) 검사할 수 있는 기술</li>
+  <li>Block Header에 transaction Merkle 해시값만 저장</li>
+  <li>HK의 포함확인을 위해서 모든 15개 다른 데이터가 필요하지 않고 4개의 데이터만 필요</li>
+</ul>
+
+<hr />
+
+<h3 id="cryptocurrency"><strong>Cryptocurrency</strong></h3>
+
+<hr />
+
+<blockquote>
+  <p>Electronic Money Problem</p>
+</blockquote>
+
+<ul>
+  <li>Electronic money
+    <ul>
+      <li>모든 Cash Flow를 추적하여 모든사람의 자산을 파악 (Transaction)</li>
+      <li>모두가 신뢰할 수 있는 정보 (Consensus)</li>
+    </ul>
+  </li>
+  <li>Easy solution
+    <ul>
+      <li>모든 Transaction을 Trusted Third Party(TTP)를 통해서 실행</li>
+      <li>TTP에 대한 신뢰가 필요</li>
+    </ul>
+  </li>
+  <li>Hard solution
+    <ul>
+      <li>distributed solution (누구의 도움도 없이 거래. 현재 Cash와 같음)</li>
+    </ul>
+  </li>
+  <li>왜 어려울까?
+    <ul>
+      <li>Double spending(중복지불)을 감지할 수 없음</li>
+      <li>Bitcoin은 consensus algorithm으로 해결</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>How Bitcoin works (without Why)</p>
+</blockquote>
+
+<ul>
+  <li>cash flow를 transaction chain에 기록</li>
+  <li>유효한 tx(no double spending)은 block에 저장</li>
+  <li>각 block은 chain으로 연결됨</li>
+  <li>모두(대다수)가 합의한 (가장 긴)block chain만 신뢰</li>
+  <li>Hash-point -&gt;
+    <ul>
+      <li>이전 tx/block의 hash 값을 다음 tx/block에 기록</li>
+      <li>중간의 tx/block이 수정되면 연결이 끊어짐</li>
+    </ul>
+  </li>
+  <li>P2P 네트워크로 tx/block 교환</li>
+  <li>각 tx은 지불자가 서명</li>
+  <li>각 tx은 수신자의 공개키(의 hash) 표기</li>
+  <li>Miner가 유효한 tx를 모아서 block 생성</li>
+  <li>가장 긴 blockchain에 추가 (append)</li>
+  <li>PoW을 푼 block만 유효함</li>
+  <li>Longest block-chain이 consensus 획득</li>
+</ul>
+
+<blockquote>
+  <p>Why Bitcoin works</p>
+</blockquote>
+
+<ul>
+  <li>공개 암호화 (ECCDSA)
+    <ul>
+      <li>Authenticity, Non-repudiation</li>
+    </ul>
+  </li>
+  <li>Cryptographic hash (SHA256/ RIPE256)
+    <ul>
+      <li>트랜잭션 및 블록의 무결성</li>
+    </ul>
+  </li>
+  <li>합의 알고리즘 (Prrof of Work)
+    <ul>
+      <li>민주적 진실성</li>
+      <li>공격자는 자신의 취향에 맞는 블록체인을 만들 수 없다
+        <ul>
+          <li>공격자가 다른 사람보다 수적으로 열등하다</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="\assets\built\images\bc\bc9.png" alt="블록체인" /></p>
+
+<hr />
+
+<h3 id="beyond-cryptocurrency"><strong>Beyond Cryptocurrency</strong></h3>
+
+<hr />
+
+<blockquote>
+  <p>After Bitcoin</p>
+</blockquote>
+
+<ul>
+  <li>Bitcoin in 2009, 2년후(2011) 첫 Altcoin 등장 &gt; 600개 이상의 Altcoin 생겼다</li>
+  <li>MatkeyCap
+    <ul>
+      <li>단위가치 * 총 volume</li>
+      <li>Bitcoin &gt; Ethereum &gt; Ripple</li>
+    </ul>
+  </li>
+  <li>대부분이 Bitcoin, Litecoin, Ethereum의 fork버전</li>
+  <li>차이점
+    <ul>
+      <li>Scripting language</li>
+      <li>Transaction 관리</li>
+      <li>추가기능 및 보안기능</li>
+      <li>Mining 여부</li>
+      <li>Consensus 알고리즘</li>
+      <li>단순 파라미터 차이</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>Taxonomy of Altcoins</p>
+</blockquote>
+
+<ul>
+  <li>Purposes
+    <ul>
+      <li>Cryptocurrency-only: Bitcoin</li>
+      <li>Cryptocurrency &amp; Business logic: Ethereum</li>
+      <li>Business logic only: Hyperledger</li>
+    </ul>
+  </li>
+  <li>Accessibility
+    <ul>
+      <li>Public block chain</li>
+      <li>Private block chain</li>
+      <li>Permissioned (consortium) block chain</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>Namecoin</p>
+</blockquote>
+
+<p><img src="\assets\built\images\bc\bc10.png" alt="블록체인" /></p>
+
+<ul>
+  <li>분산 도메인 이름 서비스</li>
+  <li>첫번째 Altcoin(2011)</li>
+  <li>“*.bit” 웹사이트용 Chrome/Firefox용 플러그인</li>
+  <li>싸다 (5 cents) for, no cost</li>
+  <li>도메인 판매 가능</li>
+  <li>병합 채굴</li>
+</ul>
+
+<blockquote>
+  <p>Litecoin</p>
+</blockquote>
+
+<p><img src="\assets\built\images\bc\bc11.png" alt="블록체인" /></p>
+
+<ul>
+  <li>첫 번째 메모리 하드 마이닝 퍼즐 (2011)
+    <ul>
+      <li>Bitcoin: 계산이 어려운 마이닝 퍼즐</li>
+      <li>블록이 2.5분마다 생성 (Bitcoin: 10min)</li>
+      <li>두번째로 많이 fork되었다</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>PeerCoin</p>
+</blockquote>
+
+<p><img src="\assets\built\images\bc\bc12.png" alt="블록체인" /></p>
+
+<ul>
+  <li>최초의 지분 증명(PoS) 채굴 퍼즐(2012)</li>
+  <li>Mining: 코인을 이용한 거래
+    <ul>
+      <li>사용하지 않은 코인이 많을수록 당첨 확률이 높아진다</li>
+      <li>실제로 PoW와 하이브리드</li>
+    </ul>
+  </li>
+  <li>완전히 분산되지 않음
+    <ul>
+      <li>신뢰할 수 있는 주소는 체크포인트에 서명한다</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>DogeCoin</p>
+</blockquote>
+
+<p><img src="\assets\built\images\bc\bc13.png" alt="블록체인" /></p>
+
+<ul>
+  <li>단순히 암호화폐를 즐기기 위해(2013)</li>
+  <li>많은 마케팅 캠페인</li>
+  <li>랜덤 블록 보상
+    <ul>
+      <li>각 블록 보너스는 무작위입니다: PRG(이전 블록 해시)</li>
+      <li>예측 가능하므로 채굴자가 낮을 때 discurage 된다</li>
+      <li>Removed after a few months</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>Monero</p>
+</blockquote>
+
+<p><img src="\assets\built\images\bc\bc14.png" alt="블록체인" /></p>
+
+<ul>
+  <li>더 높은 개인 정보 보호 수준</li>
+  <li>비트코인은 가명만 지원</li>
+  <li>Monero는 “반지 서명”을 사용
+    <ul>
+      <li>여러 참가자의 조합</li>
+    </ul>
+  </li>
+  <li>대체 동전
+    <ul>
+      <li>비트코인 추적/식별 가능</li>
+      <li>추적할 수 없는 모네로 코인</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>Cardano</p>
+</blockquote>
+
+<p><img src="\assets\built\images\bc\bc15.png" alt="블록체인" /></p>
+
+<ul>
+  <li>최초의 입증 가능한 보안 PoS 알고리즘: Ouroboros(2015)</li>
+  <li>사용자 개인 정보 보호</li>
+  <li>현재 시가총액 상위 5위</li>
+  <li>빠른 속도</li>
+  <li>Layered
+    <ul>
+      <li>정산 계층: 사용자가 교환</li>
+      <li>제어 계층: 신뢰할 수 있는 계산 프레임워크</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>Etherum</p>
+</blockquote>
+
+<p><img src="\assets\built\images\bc\bc16.png" alt="블록체인" /></p>
+
+<ul>
+  <li>최초의 스마트 계약 암호화폐(2013)</li>
+  <li>Turing-complete 언어로 된 스마트 계약</li>
+  <li>여러 스마트 계약이 컴퓨터 프로그램을 작동
+    <ul>
+      <li>네트워크에 설치됨</li>
+      <li>Ether로 구동되는 실행</li>
+    </ul>
+  </li>
+  <li>스마트 계약을 사용하는 DApp 허용</li>
+</ul>
+
                 </div>
             </section>
 

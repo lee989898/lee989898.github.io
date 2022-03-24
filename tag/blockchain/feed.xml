@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/blockchain/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-03-23T12:42:32+09:00</updated>
+  <updated>2022-03-24T20:53:54+09:00</updated>
   <id>https://lee989898.github.io/tag/blockchain/feed.xml</id>
 
   
@@ -265,7 +265,351 @@
   &lt;li&gt;RSA보다 10배 적은 키로 비슷한 보안성 유지&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\bc\bc6.png&quot; alt=&quot;블록체인&quot; /&gt;&lt;/p&gt;</content>
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\bc\bc6.png&quot; alt=&quot;블록체인&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Hash &amp;amp; Cryptographic Hash&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Hash
+    &lt;ul&gt;
+      &lt;li&gt;임의의 길이의 Input을 고정된 길이 output으로 변환&lt;/li&gt;
+      &lt;li&gt;Input값들을 균등하게 변환시켜줌&lt;/li&gt;
+      &lt;li&gt;Constant-time search를 위해서 사용&lt;/li&gt;
+      &lt;li&gt;EX: mod p&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Cryptographic Hash (Secure Hash)
+    &lt;ul&gt;
+      &lt;li&gt;One-way function&lt;/li&gt;
+      &lt;li&gt;Each to compute&lt;/li&gt;
+      &lt;li&gt;Collision Resistance (weak or strong)
+        &lt;ul&gt;
+          &lt;li&gt;같은 Hash값을 갖는 input을 찾을 수 없다&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Bitcoin uses SHA256&lt;/li&gt;
+  &lt;li&gt;Ehtereum sues Keccak256(SHA3 원형)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\bc\bc7.png&quot; alt=&quot;블록체인&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Proof of Work puzzle&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;주어진 d에 대해서, 그 Hash값이 d개 이상의 0으로 시작하도록(&amp;lt;$2^{256-d}$)하는 M을 찾는 문제&lt;/li&gt;
+  &lt;li&gt;Secure hash에 대한 유일한 해답은 brute-force 방법&lt;/li&gt;
+  &lt;li&gt;d(difficulty)가 증가할 수록 기하급수적으로 오래걸림&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\bc\bc8.png&quot; alt=&quot;블록체인&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Origin of Proof-of-Work: Hashcash&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Cynthia Dwork에서 제안함&lt;/li&gt;
+  &lt;li&gt;Hashcash는 Adam Back이 제안함&lt;/li&gt;
+  &lt;li&gt;이메일을 보내면 PoW 비용이 발생한다
+    &lt;ul&gt;
+      &lt;li&gt;&amp;lt; counter &amp;gt;를 찾는다. SHA-1(1:20:&amp;lt; time &amp;gt;:&amp;lt; recipient &amp;gt;:&amp;lt; rand &amp;gt;:&amp;lt; counter &amp;gt;)=$0^{20}${0,$1^{140}$}&lt;/li&gt;
+      &lt;li&gt;1초 정도 걸린다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;리시버는 이메일을 받는다 오직
+    &lt;ul&gt;
+      &lt;li&gt;&amp;lt; time &amp;gt;이 최근(2-days), &amp;lt; recipient &amp;gt;가 맞을떄&lt;/li&gt;
+      &lt;li&gt;그리고 유효한 PoW일때&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;이것으로 스팸을 예방할 수 있다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Merkle Tree&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;다수의 데이터(tx)의 hash를 계산하되, 특정 데이터(tx)의 포함 여부를 빠르게 (log N) 검사할 수 있는 기술&lt;/li&gt;
+  &lt;li&gt;Block Header에 transaction Merkle 해시값만 저장&lt;/li&gt;
+  &lt;li&gt;HK의 포함확인을 위해서 모든 15개 다른 데이터가 필요하지 않고 4개의 데이터만 필요&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;cryptocurrency&quot;&gt;&lt;strong&gt;Cryptocurrency&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Electronic Money Problem&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Electronic money
+    &lt;ul&gt;
+      &lt;li&gt;모든 Cash Flow를 추적하여 모든사람의 자산을 파악 (Transaction)&lt;/li&gt;
+      &lt;li&gt;모두가 신뢰할 수 있는 정보 (Consensus)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Easy solution
+    &lt;ul&gt;
+      &lt;li&gt;모든 Transaction을 Trusted Third Party(TTP)를 통해서 실행&lt;/li&gt;
+      &lt;li&gt;TTP에 대한 신뢰가 필요&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Hard solution
+    &lt;ul&gt;
+      &lt;li&gt;distributed solution (누구의 도움도 없이 거래. 현재 Cash와 같음)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;왜 어려울까?
+    &lt;ul&gt;
+      &lt;li&gt;Double spending(중복지불)을 감지할 수 없음&lt;/li&gt;
+      &lt;li&gt;Bitcoin은 consensus algorithm으로 해결&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;How Bitcoin works (without Why)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;cash flow를 transaction chain에 기록&lt;/li&gt;
+  &lt;li&gt;유효한 tx(no double spending)은 block에 저장&lt;/li&gt;
+  &lt;li&gt;각 block은 chain으로 연결됨&lt;/li&gt;
+  &lt;li&gt;모두(대다수)가 합의한 (가장 긴)block chain만 신뢰&lt;/li&gt;
+  &lt;li&gt;Hash-point -&amp;gt;
+    &lt;ul&gt;
+      &lt;li&gt;이전 tx/block의 hash 값을 다음 tx/block에 기록&lt;/li&gt;
+      &lt;li&gt;중간의 tx/block이 수정되면 연결이 끊어짐&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;P2P 네트워크로 tx/block 교환&lt;/li&gt;
+  &lt;li&gt;각 tx은 지불자가 서명&lt;/li&gt;
+  &lt;li&gt;각 tx은 수신자의 공개키(의 hash) 표기&lt;/li&gt;
+  &lt;li&gt;Miner가 유효한 tx를 모아서 block 생성&lt;/li&gt;
+  &lt;li&gt;가장 긴 blockchain에 추가 (append)&lt;/li&gt;
+  &lt;li&gt;PoW을 푼 block만 유효함&lt;/li&gt;
+  &lt;li&gt;Longest block-chain이 consensus 획득&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Why Bitcoin works&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;공개 암호화 (ECCDSA)
+    &lt;ul&gt;
+      &lt;li&gt;Authenticity, Non-repudiation&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Cryptographic hash (SHA256/ RIPE256)
+    &lt;ul&gt;
+      &lt;li&gt;트랜잭션 및 블록의 무결성&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;합의 알고리즘 (Prrof of Work)
+    &lt;ul&gt;
+      &lt;li&gt;민주적 진실성&lt;/li&gt;
+      &lt;li&gt;공격자는 자신의 취향에 맞는 블록체인을 만들 수 없다
+        &lt;ul&gt;
+          &lt;li&gt;공격자가 다른 사람보다 수적으로 열등하다&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\bc\bc9.png&quot; alt=&quot;블록체인&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;beyond-cryptocurrency&quot;&gt;&lt;strong&gt;Beyond Cryptocurrency&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;After Bitcoin&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bitcoin in 2009, 2년후(2011) 첫 Altcoin 등장 &amp;gt; 600개 이상의 Altcoin 생겼다&lt;/li&gt;
+  &lt;li&gt;MatkeyCap
+    &lt;ul&gt;
+      &lt;li&gt;단위가치 * 총 volume&lt;/li&gt;
+      &lt;li&gt;Bitcoin &amp;gt; Ethereum &amp;gt; Ripple&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;대부분이 Bitcoin, Litecoin, Ethereum의 fork버전&lt;/li&gt;
+  &lt;li&gt;차이점
+    &lt;ul&gt;
+      &lt;li&gt;Scripting language&lt;/li&gt;
+      &lt;li&gt;Transaction 관리&lt;/li&gt;
+      &lt;li&gt;추가기능 및 보안기능&lt;/li&gt;
+      &lt;li&gt;Mining 여부&lt;/li&gt;
+      &lt;li&gt;Consensus 알고리즘&lt;/li&gt;
+      &lt;li&gt;단순 파라미터 차이&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Taxonomy of Altcoins&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Purposes
+    &lt;ul&gt;
+      &lt;li&gt;Cryptocurrency-only: Bitcoin&lt;/li&gt;
+      &lt;li&gt;Cryptocurrency &amp;amp; Business logic: Ethereum&lt;/li&gt;
+      &lt;li&gt;Business logic only: Hyperledger&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Accessibility
+    &lt;ul&gt;
+      &lt;li&gt;Public block chain&lt;/li&gt;
+      &lt;li&gt;Private block chain&lt;/li&gt;
+      &lt;li&gt;Permissioned (consortium) block chain&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Namecoin&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\bc\bc10.png&quot; alt=&quot;블록체인&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;분산 도메인 이름 서비스&lt;/li&gt;
+  &lt;li&gt;첫번째 Altcoin(2011)&lt;/li&gt;
+  &lt;li&gt;“*.bit” 웹사이트용 Chrome/Firefox용 플러그인&lt;/li&gt;
+  &lt;li&gt;싸다 (5 cents) for, no cost&lt;/li&gt;
+  &lt;li&gt;도메인 판매 가능&lt;/li&gt;
+  &lt;li&gt;병합 채굴&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Litecoin&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\bc\bc11.png&quot; alt=&quot;블록체인&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;첫 번째 메모리 하드 마이닝 퍼즐 (2011)
+    &lt;ul&gt;
+      &lt;li&gt;Bitcoin: 계산이 어려운 마이닝 퍼즐&lt;/li&gt;
+      &lt;li&gt;블록이 2.5분마다 생성 (Bitcoin: 10min)&lt;/li&gt;
+      &lt;li&gt;두번째로 많이 fork되었다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;PeerCoin&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\bc\bc12.png&quot; alt=&quot;블록체인&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;최초의 지분 증명(PoS) 채굴 퍼즐(2012)&lt;/li&gt;
+  &lt;li&gt;Mining: 코인을 이용한 거래
+    &lt;ul&gt;
+      &lt;li&gt;사용하지 않은 코인이 많을수록 당첨 확률이 높아진다&lt;/li&gt;
+      &lt;li&gt;실제로 PoW와 하이브리드&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;완전히 분산되지 않음
+    &lt;ul&gt;
+      &lt;li&gt;신뢰할 수 있는 주소는 체크포인트에 서명한다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;DogeCoin&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\bc\bc13.png&quot; alt=&quot;블록체인&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;단순히 암호화폐를 즐기기 위해(2013)&lt;/li&gt;
+  &lt;li&gt;많은 마케팅 캠페인&lt;/li&gt;
+  &lt;li&gt;랜덤 블록 보상
+    &lt;ul&gt;
+      &lt;li&gt;각 블록 보너스는 무작위입니다: PRG(이전 블록 해시)&lt;/li&gt;
+      &lt;li&gt;예측 가능하므로 채굴자가 낮을 때 discurage 된다&lt;/li&gt;
+      &lt;li&gt;Removed after a few months&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Monero&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\bc\bc14.png&quot; alt=&quot;블록체인&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;더 높은 개인 정보 보호 수준&lt;/li&gt;
+  &lt;li&gt;비트코인은 가명만 지원&lt;/li&gt;
+  &lt;li&gt;Monero는 “반지 서명”을 사용
+    &lt;ul&gt;
+      &lt;li&gt;여러 참가자의 조합&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;대체 동전
+    &lt;ul&gt;
+      &lt;li&gt;비트코인 추적/식별 가능&lt;/li&gt;
+      &lt;li&gt;추적할 수 없는 모네로 코인&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Cardano&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\bc\bc15.png&quot; alt=&quot;블록체인&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;최초의 입증 가능한 보안 PoS 알고리즘: Ouroboros(2015)&lt;/li&gt;
+  &lt;li&gt;사용자 개인 정보 보호&lt;/li&gt;
+  &lt;li&gt;현재 시가총액 상위 5위&lt;/li&gt;
+  &lt;li&gt;빠른 속도&lt;/li&gt;
+  &lt;li&gt;Layered
+    &lt;ul&gt;
+      &lt;li&gt;정산 계층: 사용자가 교환&lt;/li&gt;
+      &lt;li&gt;제어 계층: 신뢰할 수 있는 계산 프레임워크&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Etherum&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\bc\bc16.png&quot; alt=&quot;블록체인&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;최초의 스마트 계약 암호화폐(2013)&lt;/li&gt;
+  &lt;li&gt;Turing-complete 언어로 된 스마트 계약&lt;/li&gt;
+  &lt;li&gt;여러 스마트 계약이 컴퓨터 프로그램을 작동
+    &lt;ul&gt;
+      &lt;li&gt;네트워크에 설치됨&lt;/li&gt;
+      &lt;li&gt;Ether로 구동되는 실행&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;스마트 계약을 사용하는 DApp 허용&lt;/li&gt;
+&lt;/ul&gt;</content>
 
       
       
