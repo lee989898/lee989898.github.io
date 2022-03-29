@@ -815,6 +815,201 @@ into the {body} of the default.hbs template -->
   <li>함수</li>
 </ul>
 
+<blockquote>
+  <p>sudo 명령어</p>
+</blockquote>
+
+<ul>
+  <li>다른 사용자 권한, 보통은 root 사용자 권한으로 프로그램을 실행할 수 있도록 하는 명령어이다</li>
+  <li>sudo 명령어를 사용하면 일반 사용자가 root 사용자 자격으로 프로그램을 실행할 수 있기 때문에 보안에 대한 고려가 반드시 필요</li>
+  <li>/etc/sudoers 파일: 어느 사용자/그룹에게 어떤 프로그램 실행에 대해서 sudo 사용을 허용할 것인지에 대한 룰을 설정</li>
+</ul>
+
+<hr />
+
+<h2 id="set-uid-privileged-programs"><strong>Set-UID Privileged Programs</strong></h2>
+
+<blockquote>
+  <p>권한 있는 프로그램의 필요성</p>
+</blockquote>
+
+<ul>
+  <li>비밀번호 딜레마
+    <ul>
+      <li>/etc/shadow 파일의 권한: <img src="\assets\built\images\sc2\sc40.png" alt="시스템클라우드보안" /></li>
+      <li>일반 사용자는 비밀번호를 어떻게 변경할까? <img src="\assets\built\images\sc2\sc41.png" alt="시스템클라우드보안" /></li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>Two-Tier 접근</p>
+</blockquote>
+
+<ul>
+  <li>세분화된 액세스 구현 운영 체제의 제어가 OS를 만든다 -&gt; 너무 복잡하다</li>
+  <li>OS는 extension에 의존하여 세분화된 액세스 제어한다</li>
+  <li>권한 있는 프로그램은 그러한 extension이다</li>
+</ul>
+
+<p><img src="\assets\built\images\sc2\sc42.png" alt="시스템클라우드보안" /></p>
+
+<blockquote>
+  <p>Privileged 프로그램의 종류</p>
+</blockquote>
+
+<ul>
+  <li>Daemons
+    <ul>
+      <li>백그라운드에서 실행되는 컴퓨터 프로그램</li>
+      <li>루트 또는 기타 권한이 있는 사용자로 실행해야 한다</li>
+    </ul>
+  </li>
+  <li>Set-UID Programs
+    <ul>
+      <li>UNIX 시스템에서 널리 사용</li>
+      <li>특수 비트로 표시된 프로그램</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>슈퍼맨 이야기</p>
+</blockquote>
+
+<ul>
+  <li>Power Suit
+    <ul>
+      <li>슈퍼피플: 그들에게 직접 힘을 준다</li>
+      <li>이슈: 나쁜 슈퍼피플</li>
+    </ul>
+  </li>
+  <li>Power Suit 2.0
+    <ul>
+      <li>컴퓨터 칩</li>
+      <li>특정 작업</li>
+      <li>사전 프로그래밍된 작업에서 벗어날 방법 없음</li>
+    </ul>
+  </li>
+  <li>Set-UID 매커니즘 : 파워 슈트 메커니즘 리눅스 OS에서 구현</li>
+</ul>
+
+<blockquote>
+  <p>Set-UID Concept</p>
+</blockquote>
+
+<ul>
+  <li>사용자가 프로그램 소유자의 권한으로 프로그램을 실행할 수 있도록 허용한다</li>
+  <li>사용자가 일시적으로 상승된 권한으로 프로그램을 실행할 수 있도록 허용</li>
+  <li>Example: the passwd program</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">ls</span> <span class="o">-</span><span class="n">l</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">passwd</span>
+<span class="o">-</span><span class="n">rwsr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span> <span class="mi">1</span> <span class="n">root</span> <span class="n">root</span> <span class="mi">41284</span> <span class="n">Sep</span> <span class="mi">12</span> <span class="mi">2012</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">passwd</span>
+</code></pre></div></div>
+
+<ul>
+  <li>모든 프로세스에는 두 개의 사용자 ID가 있다</li>
+  <li>Real UID (RUID): 프로세스의 실제 소유자 식별</li>
+  <li>Effective UID (EUID): 프로세스의 권한을 식별
+    <ul>
+      <li>액세스 제어는 EUD를 기반으로 한다</li>
+    </ul>
+  </li>
+  <li>일반 프로그램이 실행될 때 RUID = EUID,프로그램을 실행하는 사용자의 ID로 둘 다 동일하다</li>
+  <li>Set-UID가 실행되면 RUID ≠ EUID. RUID는 여전히 같다. 사용자 ID이지만 EUID는 프로그램 소유자 ID와 동일하다
+    <ul>
+      <li>프로그램이 root에 의해 소유된 경우 프로그램은 root 권한으로 실행된다</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>프로그램을 Set-UID로 전환</p>
+</blockquote>
+
+<ul>
+  <li>소유자 변경 -&gt; root에 대한 파일로 <img src="\assets\built\images\sc2\sc43.png" alt="시스템클라우드보안" /></li>
+  <li>활성화하기 전에 Set-UID 비트 <img src="\assets\built\images\sc2\sc44.png" alt="시스템클라우드보안" /></li>
+  <li>활성화 후 Set-UID 비트 <img src="\assets\built\images\sc2\sc45.png" alt="시스템클라우드보안" /></li>
+</ul>
+
+<blockquote>
+  <p>작동 원리</p>
+</blockquote>
+
+<p>Set-UID 프로그램은 Set-UID 비트라고 하는 단일 비트인 특수 마킹을 제외하고는 다른 프로그램과 같다</p>
+
+<p><img src="\assets\built\images\sc2\sc46.png" alt="시스템클라우드보안" />
+<img src="\assets\built\images\sc2\sc47.png" alt="시스템클라우드보안" /></p>
+
+<blockquote>
+  <p>UID 설정 예</p>
+</blockquote>
+
+<p>privileged program 아님</p>
+
+<p><img src="\assets\built\images\sc2\sc48.png" alt="시스템클라우드보안" /></p>
+
+<p>privileged program 임</p>
+
+<p><img src="\assets\built\images\sc2\sc49.png" alt="시스템클라우드보안" /></p>
+
+<p>privileged program 이지만 root privilege는 아님</p>
+
+<p><img src="\assets\built\images\sc2\sc50.png" alt="시스템클라우드보안" /></p>
+
+<blockquote>
+  <p>Set-UID는 어떻게 안전한가?</p>
+</blockquote>
+
+<ul>
+  <li>일반 사용자가 권한을 에스컬레이션할 수 있다
+    <ul>
+      <li>권한을 직접 부여하는 것과는 다르다(sudo 명령)</li>
+      <li>제한된 행동 – 슈퍼맨이 디자인한 컴퓨터 칩과 유사</li>
+    </ul>
+  </li>
+  <li>모든 프로그램을 Set-UID로 전환하는 것은 안전하지 않다
+    <ul>
+      <li>예: /bin/sh</li>
+      <li>예: vi</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>슈퍼맨에 대한 공격</p>
+</blockquote>
+
+<ul>
+  <li>사용자가 코딩된 작업만 수행할 수 있다고 가정할 수 없음
+    <ul>
+      <li>개발자의 코딩 결함</li>
+    </ul>
+  </li>
+  <li>슈퍼맨 말로이
+    <ul>
+      <li>북쪽으로 비행한 다음 좌회전</li>
+      <li>이 코드를 어떻게 악용하는가?</li>
+    </ul>
+  </li>
+  <li>슈퍼맨 말로리
+    <ul>
+      <li>북쪽으로 날아 서쪽으로 회전</li>
+      <li>이 코드를 어떻게 악용하는가?</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="\assets\built\images\sc2\sc51.png" alt="시스템클라우드보안" /></p>
+
+<blockquote>
+  <p>Set-UID 프로그램의 표면 공격</p>
+</blockquote>
+
+<p><img src="\assets\built\images\sc2\sc52.png" alt="시스템클라우드보안" /></p>
+
                 </div>
             </section>
 
@@ -924,6 +1119,8 @@ into the {body} of the default.hbs template -->
                         <div class="read-next-card-content">
                             <ul>
                                 
+                                
+                                  
                                 
                                   
                                     
@@ -1111,6 +1308,57 @@ into the {body} of the default.hbs template -->
             
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/bc-02">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/blockchain-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/bc-02">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Blockchain</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">Bitcoin, white paper</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>Introduction
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="lee989898" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/lee989898/">lee989898</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      1 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
             
 
             <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->

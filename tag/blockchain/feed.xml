@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/blockchain/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-03-24T20:53:54+09:00</updated>
+  <updated>2022-03-29T20:23:21+09:00</updated>
   <id>https://lee989898.github.io/tag/blockchain/feed.xml</id>
 
   
@@ -30,6 +30,103 @@
   
   
 
+  
+    <entry>
+      <title type="html">Bitcoin, white paper</title>
+      <link href="https://lee989898.github.io/bc-02" rel="alternate" type="text/html" title="Bitcoin, white paper" />
+      <published>2022-03-29T01:06:00+09:00</published>
+      <updated>2022-03-29T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/bc-02</id>
+      <content type="html" xml:base="https://lee989898.github.io/bc-02">&lt;h2 id=&quot;introduction&quot;&gt;&lt;strong&gt;Introduction&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Introduction&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;TTP 기반 금융시스템의 한계
+    &lt;ul&gt;
+      &lt;li&gt;non-reversible 거래는 불가&lt;/li&gt;
+      &lt;li&gt;mediation 비용은 거래 비용을 증가 시킴&lt;/li&gt;
+      &lt;li&gt;TTP 없이 통신을 통한 결제 수단 없음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;새로운 전자결제시스템이 필요
+    &lt;ul&gt;
+      &lt;li&gt;신뢰가 아닌 암호화 증명 기반&lt;/li&gt;
+      &lt;li&gt;사실상 계산할 수 없는 되돌릴 수 없는 트랜잭션&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;이중 지출 문제 해결
+    &lt;ul&gt;
+      &lt;li&gt;P2P 분산 타임스탬프 서버는 트랜잭션의 만성적 순서를 계산적으로 증명한다&lt;/li&gt;
+      &lt;li&gt;정직한 노드 만큼 보안성이 높다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Transactions&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\bc\bc17.png&quot; alt=&quot;블록체인&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Coin = 일련의 디지털 서명&lt;/li&gt;
+  &lt;li&gt;T ${x_i}$ : A는 B에게 코인을 전송한다
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;table&gt;
+          &lt;tbody&gt;
+            &lt;tr&gt;
+              &lt;td&gt;Coin += $Pub_B$, H ( T $x_{i-1}$&lt;/td&gt;
+              &lt;td&gt;$Pub_B$ ), $Sign_A$ H ( T $x_{i-1}$&lt;/td&gt;
+              &lt;td&gt;$Pub_B$ )&lt;/td&gt;
+            &lt;/tr&gt;
+          &lt;/tbody&gt;
+        &lt;/table&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;One can
+    &lt;ul&gt;
+      &lt;li&gt;$Tx_i^,$ 지출이 $Tx_{i-1}^,$’s 수신자 인지 확인&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;One cannot
+    &lt;ul&gt;
+      &lt;li&gt;$Tx_{i-1}^,$’s 수신자가 한번만 지출한지 확인&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="blockchain" />
+      
+
+      
+        <summary type="html">Introduction</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">블록체인 이란</title>
