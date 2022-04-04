@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lee989898.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lee989898.github.io/" rel="alternate" type="text/html" /><updated>2022-03-29T20:23:21+09:00</updated><id>https://lee989898.github.io/feed.xml</id><title type="html">LEE</title><subtitle>공부 블로그</subtitle><entry><title type="html">Bitcoin, white paper</title><link href="https://lee989898.github.io/bc-02" rel="alternate" type="text/html" title="Bitcoin, white paper" /><published>2022-03-29T01:06:00+09:00</published><updated>2022-03-29T01:06:00+09:00</updated><id>https://lee989898.github.io/bc-02</id><content type="html" xml:base="https://lee989898.github.io/bc-02">&lt;h2 id=&quot;introduction&quot;&gt;&lt;strong&gt;Introduction&lt;/strong&gt;&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lee989898.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lee989898.github.io/" rel="alternate" type="text/html" /><updated>2022-04-04T21:18:00+09:00</updated><id>https://lee989898.github.io/feed.xml</id><title type="html">LEE</title><subtitle>공부 블로그</subtitle><entry><title type="html">Bitcoin, white paper</title><link href="https://lee989898.github.io/bc-02" rel="alternate" type="text/html" title="Bitcoin, white paper" /><published>2022-03-29T01:06:00+09:00</published><updated>2022-03-29T01:06:00+09:00</updated><id>https://lee989898.github.io/bc-02</id><content type="html" xml:base="https://lee989898.github.io/bc-02">&lt;h2 id=&quot;introduction&quot;&gt;&lt;strong&gt;Introduction&lt;/strong&gt;&lt;/h2&gt;
 
 &lt;hr /&gt;
 
@@ -59,6 +59,26 @@
   &lt;li&gt;One cannot
     &lt;ul&gt;
       &lt;li&gt;$Tx_{i-1}^,$’s 수신자가 한번만 지출한지 확인&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Double Spending&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;TTP (mint) model
+    &lt;ul&gt;
+      &lt;li&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Distributed way
+    &lt;ul&gt;
+      &lt;li&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;</content><author><name>lee989898</name></author><category term="blockchain" /><summary type="html">Introduction</summary></entry><entry><title type="html">리눅스 사용자 계정과 권한 체계, 쉘 기본</title><link href="https://lee989898.github.io/sc2-03" rel="alternate" type="text/html" title="리눅스 사용자 계정과 권한 체계, 쉘 기본" /><published>2022-03-21T01:06:00+09:00</published><updated>2022-03-21T01:06:00+09:00</updated><id>https://lee989898.github.io/sc2-03</id><content type="html" xml:base="https://lee989898.github.io/sc2-03">&lt;h2 id=&quot;리눅스-사용자-계정과-권한-체계-쉘-기본&quot;&gt;&lt;strong&gt;리눅스: 사용자 계정과 권한 체계, 쉘 기본&lt;/strong&gt;&lt;/h2&gt;
