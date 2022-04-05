@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/author/lee989898/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-04-04T21:18:00+09:00</updated>
+  <updated>2022-04-05T23:12:24+09:00</updated>
   <id>https://lee989898.github.io/author/lee989898/feed.xml</id>
 
   
@@ -120,7 +120,11 @@
       &lt;li&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content>
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+
+&lt;/blockquote&gt;</content>
 
       
       
@@ -744,192 +748,7 @@
   &lt;li&gt;다른 사용자 권한, 보통은 root 사용자 권한으로 프로그램을 실행할 수 있도록 하는 명령어이다&lt;/li&gt;
   &lt;li&gt;sudo 명령어를 사용하면 일반 사용자가 root 사용자 자격으로 프로그램을 실행할 수 있기 때문에 보안에 대한 고려가 반드시 필요&lt;/li&gt;
   &lt;li&gt;/etc/sudoers 파일: 어느 사용자/그룹에게 어떤 프로그램 실행에 대해서 sudo 사용을 허용할 것인지에 대한 룰을 설정&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;set-uid-privileged-programs&quot;&gt;&lt;strong&gt;Set-UID Privileged Programs&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;권한 있는 프로그램의 필요성&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;비밀번호 딜레마
-    &lt;ul&gt;
-      &lt;li&gt;/etc/shadow 파일의 권한: &lt;img src=&quot;\assets\built\images\sc2\sc40.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/li&gt;
-      &lt;li&gt;일반 사용자는 비밀번호를 어떻게 변경할까? &lt;img src=&quot;\assets\built\images\sc2\sc41.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Two-Tier 접근&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;세분화된 액세스 구현 운영 체제의 제어가 OS를 만든다 -&amp;gt; 너무 복잡하다&lt;/li&gt;
-  &lt;li&gt;OS는 extension에 의존하여 세분화된 액세스 제어한다&lt;/li&gt;
-  &lt;li&gt;권한 있는 프로그램은 그러한 extension이다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc42.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Privileged 프로그램의 종류&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Daemons
-    &lt;ul&gt;
-      &lt;li&gt;백그라운드에서 실행되는 컴퓨터 프로그램&lt;/li&gt;
-      &lt;li&gt;루트 또는 기타 권한이 있는 사용자로 실행해야 한다&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Set-UID Programs
-    &lt;ul&gt;
-      &lt;li&gt;UNIX 시스템에서 널리 사용&lt;/li&gt;
-      &lt;li&gt;특수 비트로 표시된 프로그램&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;슈퍼맨 이야기&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Power Suit
-    &lt;ul&gt;
-      &lt;li&gt;슈퍼피플: 그들에게 직접 힘을 준다&lt;/li&gt;
-      &lt;li&gt;이슈: 나쁜 슈퍼피플&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Power Suit 2.0
-    &lt;ul&gt;
-      &lt;li&gt;컴퓨터 칩&lt;/li&gt;
-      &lt;li&gt;특정 작업&lt;/li&gt;
-      &lt;li&gt;사전 프로그래밍된 작업에서 벗어날 방법 없음&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Set-UID 매커니즘 : 파워 슈트 메커니즘 리눅스 OS에서 구현&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Set-UID Concept&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;사용자가 프로그램 소유자의 권한으로 프로그램을 실행할 수 있도록 허용한다&lt;/li&gt;
-  &lt;li&gt;사용자가 일시적으로 상승된 권한으로 프로그램을 실행할 수 있도록 허용&lt;/li&gt;
-  &lt;li&gt;Example: the passwd program&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;usr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;passwd&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rwsr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;41284&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Sep&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2012&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;usr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;passwd&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;모든 프로세스에는 두 개의 사용자 ID가 있다&lt;/li&gt;
-  &lt;li&gt;Real UID (RUID): 프로세스의 실제 소유자 식별&lt;/li&gt;
-  &lt;li&gt;Effective UID (EUID): 프로세스의 권한을 식별
-    &lt;ul&gt;
-      &lt;li&gt;액세스 제어는 EUD를 기반으로 한다&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;일반 프로그램이 실행될 때 RUID = EUID,프로그램을 실행하는 사용자의 ID로 둘 다 동일하다&lt;/li&gt;
-  &lt;li&gt;Set-UID가 실행되면 RUID ≠ EUID. RUID는 여전히 같다. 사용자 ID이지만 EUID는 프로그램 소유자 ID와 동일하다
-    &lt;ul&gt;
-      &lt;li&gt;프로그램이 root에 의해 소유된 경우 프로그램은 root 권한으로 실행된다&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;프로그램을 Set-UID로 전환&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;소유자 변경 -&amp;gt; root에 대한 파일로 &lt;img src=&quot;\assets\built\images\sc2\sc43.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;활성화하기 전에 Set-UID 비트 &lt;img src=&quot;\assets\built\images\sc2\sc44.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;활성화 후 Set-UID 비트 &lt;img src=&quot;\assets\built\images\sc2\sc45.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;작동 원리&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Set-UID 프로그램은 Set-UID 비트라고 하는 단일 비트인 특수 마킹을 제외하고는 다른 프로그램과 같다&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc46.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;
-&lt;img src=&quot;\assets\built\images\sc2\sc47.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;UID 설정 예&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;privileged program 아님&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc48.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;privileged program 임&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc49.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;privileged program 이지만 root privilege는 아님&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc50.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Set-UID는 어떻게 안전한가?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;일반 사용자가 권한을 에스컬레이션할 수 있다
-    &lt;ul&gt;
-      &lt;li&gt;권한을 직접 부여하는 것과는 다르다(sudo 명령)&lt;/li&gt;
-      &lt;li&gt;제한된 행동 – 슈퍼맨이 디자인한 컴퓨터 칩과 유사&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;모든 프로그램을 Set-UID로 전환하는 것은 안전하지 않다
-    &lt;ul&gt;
-      &lt;li&gt;예: /bin/sh&lt;/li&gt;
-      &lt;li&gt;예: vi&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;슈퍼맨에 대한 공격&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;사용자가 코딩된 작업만 수행할 수 있다고 가정할 수 없음
-    &lt;ul&gt;
-      &lt;li&gt;개발자의 코딩 결함&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;슈퍼맨 말로이
-    &lt;ul&gt;
-      &lt;li&gt;북쪽으로 비행한 다음 좌회전&lt;/li&gt;
-      &lt;li&gt;이 코드를 어떻게 악용하는가?&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;슈퍼맨 말로리
-    &lt;ul&gt;
-      &lt;li&gt;북쪽으로 날아 서쪽으로 회전&lt;/li&gt;
-      &lt;li&gt;이 코드를 어떻게 악용하는가?&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc51.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Set-UID 프로그램의 표면 공격&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc52.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;</content>
+&lt;/ul&gt;</content>
 
       
       
