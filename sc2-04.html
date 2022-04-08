@@ -11,7 +11,7 @@
 
 
 
-    <title>리눅스 사용자 계정과 권한 체계, 쉘 기본</title>
+    <title>Set-UID Privileged Programs</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -49,7 +49,7 @@
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="공부 블로그" />
     <link rel="shortcut icon" href="https://lee989898.github.io/assets/built/images/favicon.jpg" type="image/png" />
-    <link rel="canonical" href="https://lee989898.github.io/sc2-03" />
+    <link rel="canonical" href="https://lee989898.github.io/sc2-04" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
     
@@ -83,18 +83,18 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="리눅스 사용자 계정과 권한 체계, 쉘 기본" />
-    <meta property="og:description" content="리눅스: 사용자 계정과 권한 체계, 쉘 기본 리눅스/유닉스 파일 시스템 리눅스/유닉스 파일 시스템은 디렉토리와 파일로 구성 디렉토리 내용 / 파일 시스템 트리 구조의 최상위 디렉토리이다 /etc 시스템의 환경 설정 및 주요 설정 파일을 담고있다 (passwd, shadow 등) dev 프린터 같은 물리적인 장치를 다루기 위한 특수 파일을 담고있다 /usr/bin 쉘 명령어" />
-    <meta property="og:url" content="https://lee989898.github.io/sc2-03" />
+    <meta property="og:title" content="Set-UID Privileged Programs" />
+    <meta property="og:description" content="Set-UID Privileged Programs 권한 있는 프로그램의 필요성 비밀번호 딜레마 /etc/shadow 파일의 권한: 일반 사용자는 비밀번호를 어떻게 변경할까? Two-Tier 접근 세분화된 액세스 구현 운영 체제의 제어가 OS를 만든다 -&gt; 너무 복잡하다 OS는 extension에 의존하여 세분화된 액세스 제어한다 권한 있는 프로그램은 그러한 extension이다 Privileged 프로그램의 종류 Daemons 백그라운드에서 실행되는 컴퓨터 프로그램 루트" />
+    <meta property="og:url" content="https://lee989898.github.io/sc2-04" />
     <meta property="og:image" content="https://lee989898.github.io/assets/built/images/systemcloud-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2022-03-21T01:06:00+09:00" />
-    <meta property="article:modified_time" content="2022-03-21T01:06:00+09:00" />
+    <meta property="article:published_time" content="2022-04-06T01:06:00+09:00" />
+    <meta property="article:modified_time" content="2022-04-06T01:06:00+09:00" />
     <meta property="article:tag" content="Systemcloud" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="리눅스 사용자 계정과 권한 체계, 쉘 기본" />
-    <meta name="twitter:description" content="리눅스: 사용자 계정과 권한 체계, 쉘 기본 리눅스/유닉스 파일 시스템 리눅스/유닉스 파일 시스템은 디렉토리와 파일로 구성 디렉토리 내용 / 파일 시스템 트리 구조의 최상위 디렉토리이다 /etc 시스템의 환경 설정 및 주요 설정 파일을 담고있다 (passwd, shadow 등) dev 프린터 같은 물리적인 장치를 다루기 위한 특수 파일을 담고있다 /usr/bin 쉘 명령어" />
+    <meta name="twitter:title" content="Set-UID Privileged Programs" />
+    <meta name="twitter:description" content="Set-UID Privileged Programs 권한 있는 프로그램의 필요성 비밀번호 딜레마 /etc/shadow 파일의 권한: 일반 사용자는 비밀번호를 어떻게 변경할까? Two-Tier 접근 세분화된 액세스 구현 운영 체제의 제어가 OS를 만든다 -&gt; 너무 복잡하다 OS는 extension에 의존하여 세분화된 액세스 제어한다 권한 있는 프로그램은 그러한 extension이다 Privileged 프로그램의 종류 Daemons 백그라운드에서 실행되는 컴퓨터 프로그램 루트" />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
     <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/systemcloud-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -115,7 +115,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
         "name": "LEE",
         "logo": "https://lee989898.github.io/"
     },
-    "url": "https://lee989898.github.io/sc2-03",
+    "url": "https://lee989898.github.io/sc2-04",
     "image": {
         "@type": "ImageObject",
         "url": "https://lee989898.github.io/assets/built/images/systemcloud-logo.png",
@@ -124,9 +124,9 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://lee989898.github.io/sc2-03"
+        "@id": "https://lee989898.github.io/sc2-04"
     },
-    "description": "리눅스: 사용자 계정과 권한 체계, 쉘 기본 리눅스/유닉스 파일 시스템 리눅스/유닉스 파일 시스템은 디렉토리와 파일로 구성 디렉토리 내용 / 파일 시스템 트리 구조의 최상위 디렉토리이다 /etc 시스템의 환경 설정 및 주요 설정 파일을 담고있다 (passwd, shadow 등) dev 프린터 같은 물리적인 장치를 다루기 위한 특수 파일을 담고있다 /usr/bin 쉘 명령어"
+    "description": "Set-UID Privileged Programs 권한 있는 프로그램의 필요성 비밀번호 딜레마 /etc/shadow 파일의 권한: 일반 사용자는 비밀번호를 어떻게 변경할까? Two-Tier 접근 세분화된 액세스 구현 운영 체제의 제어가 OS를 만든다 -&gt; 너무 복잡하다 OS는 extension에 의존하여 세분화된 액세스 제어한다 권한 있는 프로그램은 그러한 extension이다 Privileged 프로그램의 종류 Daemons 백그라운드에서 실행되는 컴퓨터 프로그램 루트"
 }
     </script>
 
@@ -139,7 +139,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="리눅스 사용자 계정과 권한 체계, 쉘 기본" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Set-UID Privileged Programs" href="/feed.xml" />
 
 
 </head>
@@ -212,7 +212,7 @@ into the {body} of the default.hbs template -->
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="21 March 2022">21 March 2022</time>
+                    <time class="post-full-meta-date" datetime=" 6 April 2022"> 6 April 2022</time>
                     
                         <span class="date-divider">/</span>
                         
@@ -222,7 +222,7 @@ into the {body} of the default.hbs template -->
                         
                     
                 </section>
-                <h1 class="post-full-title">리눅스 사용자 계정과 권한 체계, 쉘 기본</h1>
+                <h1 class="post-full-title">Set-UID Privileged Programs</h1>
             </header>
 
             <!--
@@ -233,597 +233,293 @@ into the {body} of the default.hbs template -->
             -->
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <h2 id="리눅스-사용자-계정과-권한-체계-쉘-기본"><strong>리눅스: 사용자 계정과 권한 체계, 쉘 기본</strong></h2>
+                    <h2 id="set-uid-privileged-programs"><strong>Set-UID Privileged Programs</strong></h2>
 
 <hr />
 
-<h2 id="리눅스유닉스-파일-시스템"><strong>리눅스/유닉스 파일 시스템</strong></h2>
-
-<ul>
-  <li>리눅스/유닉스 파일 시스템은 디렉토리와 파일로 구성</li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th>디렉토리</th>
-      <th>내용</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>/</td>
-      <td>파일 시스템 트리 구조의 최상위 디렉토리이다</td>
-    </tr>
-    <tr>
-      <td>/etc</td>
-      <td>시스템의 환경 설정 및 주요 설정 파일을 담고있다 (passwd, shadow 등)</td>
-    </tr>
-    <tr>
-      <td>dev</td>
-      <td>프린터 같은 물리적인 장치를 다루기 위한 특수 파일을 담고있다</td>
-    </tr>
-    <tr>
-      <td>/usr/bin</td>
-      <td>쉘 명령어 실행 파일 등 기본적으로 실행 가능한 파일을 담고 있다 (ls, mv, cp, pwd 등)</td>
-    </tr>
-    <tr>
-      <td>/usr/include</td>
-      <td>주요 라이브러리 헤더파일이 저장되는 디렉토리이다</td>
-    </tr>
-    <tr>
-      <td>/usr/lib</td>
-      <td>라이브러리에 대한 shared object 파일(.so)이 저장되는 디렉토리</td>
-    </tr>
-    <tr>
-      <td>/usr/sbin</td>
-      <td>시스템 관리 명령어가 저장되는 디렉터리</td>
-    </tr>
-    <tr>
-      <td>/home</td>
-      <td>사용자 홈 디렉터리가 저장되는 디렉터리</td>
-    </tr>
-    <tr>
-      <td>tmp</td>
-      <td>프로그램 실행 및 설치 시 생성되는 임시 파일을 담고있다. 이 디렉터리에 파일을 저장하면 재부팅 시 임의로 삭제될 수 있다</td>
-    </tr>
-    <tr>
-      <td>/var</td>
-      <td>시스템 로그가 저장되는 디렉터리이다</td>
-    </tr>
-    <tr>
-      <td>/proc</td>
-      <td>실행중인 프로세스 정보를 담고 있는 파일들이 저장됨. 실행 중인 각 프로세스 id마다 파일이 존재</td>
-    </tr>
-  </tbody>
-</table>
-
-<hr />
-
-<h2 id="리눅스유닉스의-계정과-권한-체계"><strong>리눅스/유닉스의 계정과 권한 체계</strong></h2>
-
-<ul>
-  <li>로그인: 아이디와 패스워드 입력을 통해 자신이 누군지 밝히고, 그에 따른 권한을 부여 받아 시스템 사용을 허가 받는 과정</li>
-  <li>리눅스 시스템의 계정과 권한 체계: root라고 불리는 관리자와 일반 사용자 계정으로 구분. 모든 계정 정보가 /etc/passwd 파일에 저장됨</li>
-</ul>
-
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">vi</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">passwd</span>
-</code></pre></div></div>
-
-<p><img src="\assets\built\images\sc2\sc3.png" alt="시스템클라우드보안" /></p>
-
 <blockquote>
-  <p>/etc/passwd 파일</p>
-</blockquote>
-
-<p><img src="\assets\built\images\sc2\sc4.png" alt="시스템클라우드보안" /></p>
-
-<ol>
-  <li>사용자 계정명</li>
-  <li>패스워드가 암호화되어 /etc/shadow 파일에 저장되어 있음을 나타냄</li>
-  <li>사용자 번호(UID, User ID)</li>
-  <li>그룹 번호(GID, Group ID)</li>
-  <li>사용자의 이름이다</li>
-  <li>사용자의 홈 디렉터리 나타냄
-    <ul>
-      <li>관리자의 홈 디렉터리는 /root이다</li>
-      <li>일반 사용자의 홈 디렉터리는 /hoom/seed 같이 /home 디렉터리 하위에 위치한다</li>
-    </ul>
-  </li>
-  <li>사용자 계정 로그인 쉘을 지정. 기본 설정은 /bin/bash 쉘</li>
-</ol>
-
-<ul>
-  <li>리눅스에서 관리자는 UID를 0번으로 부여받고 일반 사용자는 그 외의 번호를 부여 받는데 보통 500번 또는 1000번 이상을 부여 받는다</li>
-</ul>
-
-<blockquote>
-  <p>/etc/shadow 파일</p>
+  <p>권한 있는 프로그램의 필요성</p>
 </blockquote>
 
 <ul>
-  <li>각 사용자 계정의 패스워드가 암호화 된 상태로 저장되어 있음</li>
-  <li>사용자 계정 seed에 대한 정보 예</li>
-</ul>
-
-<p><img src="\assets\built\images\sc2\sc5.png" alt="시스템클라우드보안" /></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>주요 필드</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>사용자 계정명</td>
-      <td>첫번째 필드는 사용자 계정명을 나타냄</td>
-    </tr>
-    <tr>
-      <td>암호화된 패스워드</td>
-      <td>두번째 필드는 암호화된 패스워드를 나타냄. $로 아래와 같이 추가 구분 &lt;/br&gt; $algoritihm_id$salt$hash_value_of_password &lt;/br&gt; &gt; algorithm_id: 패스워드 해쉬값 계산에 사용된 암호학적 해쉬 함수 종류를 나타냄(MD5, BlowFish, SHA-256, SHA-512 등) &lt;/br&gt; &gt; salt 패스워드 해쉬값 계산에 사용된 랜덤값 &lt;/br&gt; hash_value_of_password: 사용자 패스워드 및 salt를 입력으로 해쉬 함수를 통해 계산된 값 &lt;/br&gt; 패스워드 필드에 *, ! 등이 설정될 수도 있음 &lt;/br&gt; *: 패스워드가 잠긴 상태로 일반적인 방식의 로그인은 불가하지만 별도의 인증 방식을 사용하여 로그인을 하루 수는 있음 &lt;/br&gt; !: 패스워드가 잠긴 상태로 일반적인 방식의 로그인은 불가함. 또는 사용자 계정을 생성하고 패스워드를 설정하지 않은 상태이기도 함</td>
-    </tr>
-    <tr>
-      <td>마지막 변경</td>
-      <td>마지막으로 패스워드를 변경한 날을 1970년 1월1일 기준으로 일수로 표시함. 위 예에서는 마지막으로 패스워드를 변경한 날은 1970년 1월1일 이후 18950일이 지났음을 의미</td>
-    </tr>
-    <tr>
-      <td>패스워드 최소 사용기간</td>
-      <td>패스워드를 변경한 이후 최소 이 정도의 기간은 사용해야함을 의미</td>
-    </tr>
-    <tr>
-      <td>패스워드 최대 사용기간</td>
-      <td>패스워드를 변경한 이후 만료되는 일수를 나타냄. 보안을 위해 주기적으로 패스워드 변경이 필요한 경우 활용</td>
-    </tr>
-    <tr>
-      <td>경고</td>
-      <td>패스워드 만료일 몇일 전에 경고 알림할건지를 설정</td>
-    </tr>
-    <tr>
-      <td>비활성화</td>
-      <td>패스워드가 만료된 이후에 계정이 잠기기 전까지 비활성 일수를 나타냄. 해당 비활성 기간 동안 패스워드를 변경해야 계정이 잠기지 않음</td>
-    </tr>
-    <tr>
-      <td>만료일</td>
-      <td>계정이 만료되는 날짜를 1970년 1월1일 기준으로 일수로 표시</td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p>패스워드 해쉬값 계산 과정</p>
-</blockquote>
-
-<p><img src="\assets\built\images\sc2\sc36.png" alt="시스템클라우드보안" /></p>
-
-<ul>
-  <li>사용자 로그인 시 패스워드 검증 과정(/etc/shadow 파일에서 사용자 패스워드 해쉬값, 해쉬 함수 ID, salt 값을 읽어 온다)</li>
-</ul>
-
-<p><img src="\assets\built\images\sc2\sc37.png" alt="시스템클라우드보안" /></p>
-
-<ul>
-  <li>만약 salt 없이 패스워드만을 입력으로 해쉬값을 계산한다면?
+  <li>비밀번호 딜레마
     <ul>
-      <li>패스워드가 동일하면 그 해쉬값도 동일하다</li>
-      <li>공격자는 shadow 파일에 해쉬값들을 비교하는 것만으로 동일한 패스워드가 사용된 사용자 계정을 알아낼 수 있다</li>
-    </ul>
-  </li>
-  <li>패스워드 크래킹 공격 비용을 높이는 효과
-    <ul>
-      <li>레인보우 테이블을 이용한 패스워드 크래킹 공격: 일반적으로 많이 사용되는 패턴의 패스워드에 대한 해쉬값을 미리 계산해두는 방식</li>
-      <li>만약 salt가 사용되지 않는다면 공격자는 모든 고려 대상 패스워드 각각에 대한 해쉬값을 게산하면 됨</li>
-      <li>salt가 사용되면 모든 고려 대상 패스워드 및 모든 가능한 salt 값에 대해 미리 해쉬값을 계산해두어야 함 -&gt; 공격 비용이 훨씬 높아짐</li>
-    </ul>
-  </li>
-</ul>
-
-<hr />
-
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ls</span> <span class="o">-</span><span class="n">al</span> <span class="o">/</span><span class="n">etc</span>
-</code></pre></div></div>
-
-<p><img src="\assets\built\images\sc2\sc38.png" alt="시스템클라우드보안" /></p>
-
-<p><img src="\assets\built\images\sc2\sc39.png" alt="시스템클라우드보안" /></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>파일 속성</th>
-      <th>파일 소유자</th>
-      <th>권한 그룹 권한</th>
-      <th>일반(Others)권한</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>d</td>
-      <td>rwx</td>
-      <td>r-x</td>
-      <td>r-x</td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th>문자</th>
-      <th>파일 속성</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>d</td>
-      <td>디렉터리 파일(Dirctory File)</td>
-    </tr>
-    <tr>
-      <td>-</td>
-      <td>일반 정규 파일(Regular File)</td>
-    </tr>
-    <tr>
-      <td>l</td>
-      <td>링크되어 있는 파일(Symbolic Link File)</td>
-    </tr>
-    <tr>
-      <td>c</td>
-      <td>버퍼에 저장되지 않은 특수 파일(Character File)</td>
-    </tr>
-    <tr>
-      <td>b</td>
-      <td>버퍼링된 특수 파일(Block File)</td>
-    </tr>
-    <tr>
-      <td>s</td>
-      <td>소켓 기능을 하는 파일(Socket File)</td>
-    </tr>
-    <tr>
-      <td>p</td>
-      <td>파이프 기능을 수행하는 파일(Pipe File)</td>
-    </tr>
-  </tbody>
-</table>
-
-<ul>
-  <li>파일의 소유자에게 허용되는 권한
-    <ul>
-      <li>rwx는 파일의 소유자에 대한 접근 권한</li>
-    </ul>
-  </li>
-  <li>파일 소유자와 같은 그룹에 속한 사용자에게 허용되는 권한
-    <ul>
-      <li>r-x는 그룹에 대한 접근 권한</li>
-    </ul>
-  </li>
-  <li>일반(Others) 권한
-    <ul>
-      <li>r-x는 파일 소유자 및 그룹에 속하지 않는 사용자들(others)에 대한 접근 권한</li>
-    </ul>
-  </li>
-  <li>rwx의 r,w,x는 각각 읽기(Read), 쓰기(Write), 실행하기(eXecution)가 해당 사용자에게 허용됨을 의미
-    <ul>
-      <li>read, write, execution 각각에 대해 허용할지 말지를 3개의 플래그 비트로 표현</li>
-      <li>r: 4(2진수 100)</li>
-      <li>w: 2(2진수 10)</li>
-      <li>x: 1(2진수 1)</li>
-    </ul>
-  </li>
-  <li>rwx = (2진수 111) = (10진수 7)
-    <ul>
-      <li>read, write, execution 권한이 모두 허용됨을 의미</li>
-    </ul>
-  </li>
-  <li>rwxrwxrwx = (2진수 111111111) = (10진수 777)
-    <ul>
-      <li>파일의 소유자, 그룹, others 모두에 대해 해당 파일에 대한 읽기, 쓰기, 실행 권한이 허용됨을 의미</li>
-      <li>할 수 있으며, 권한을 777이라고 읽음</li>
-    </ul>
-  </li>
-  <li>rwxr-x-r-x = (2진수 111101001) = (10진수 755)
-    <ul>
-      <li>파일 소유자에게 읽기, 쓰기, 실행 권한 모두 허용됨</li>
-      <li>그룹 &amp; others에게는 읽기, 실행 권한만 혀용되며, 쓰기 권한은 허용안됨</li>
-    </ul>
-  </li>
-  <li>rwxr-x–x = (2진수 111101001) = (10진수 751)
-    <ul>
-      <li>파일 소유자에게는 읽기, 쓰기, 실행 권한 모두 허용됨</li>
-      <li>그룹에게는 읽기, 실행 권한만 허용되며, 쓰기 권한은 허용안됨</li>
-      <li>Others에게는 실행 권한만 허용되며, 읽기, 쓰기는 허용안됨</li>
-    </ul>
-  </li>
-</ul>
-
-<hr />
-
-<h2 id="쉘shell"><strong>쉘(shell)</strong></h2>
-
-<ul>
-  <li>사용자와 운영체제 간 상호 작용을 위한 command line interface를 제공하는 프로그램</li>
-  <li>
-    <p>사용자 입력 명령어 처리기(command line interpreter)</p>
-  </li>
-  <li>쉘 종류
-    <ul>
-      <li>Windows PowerShell</li>
-      <li>Linux/Unix sh, csh, bash, ksh etc.</li>
+      <li>/etc/shadow 파일의 권한: <img src="\assets\built\images\sc2\sc40.png" alt="시스템클라우드보안" /></li>
+      <li>일반 사용자는 비밀번호를 어떻게 변경할까? <img src="\assets\built\images\sc2\sc41.png" alt="시스템클라우드보안" /></li>
     </ul>
   </li>
 </ul>
 
 <blockquote>
-  <p>쉘(shell): 기본 명령어</p>
+  <p>Two-Tier 접근</p>
 </blockquote>
 
 <ul>
-  <li>pwd: print working directory</li>
+  <li>세분화된 액세스 구현 운영 체제의 제어가 OS를 만든다 -&gt; 너무 복잡하다</li>
+  <li>OS는 extension에 의존하여 세분화된 액세스 제어한다</li>
+  <li>권한 있는 프로그램은 그러한 extension이다</li>
 </ul>
 
-<p><img src="\assets\built\images\sc2\sc6.png" alt="시스템클라우드보안" /></p>
+<p><img src="\assets\built\images\sc2\sc42.png" alt="시스템클라우드보안" /></p>
+
+<blockquote>
+  <p>Privileged 프로그램의 종류</p>
+</blockquote>
 
 <ul>
-  <li>cd: change directory</li>
-</ul>
-
-<p><img src="\assets\built\images\sc2\sc7.png" alt="시스템클라우드보안" /></p>
-
-<ul>
-  <li>ls: 현재 디렉터리에 속한 파일 및 서브 디렉터리를 나열해서 보여줌
+  <li>Daemons
     <ul>
-      <li>ls -l: 퍼미션, 소유자, 그룹, 파일크기 등 파일에 대한 자세한 내용을 출력</li>
-      <li>ls -a: 숨겨진 파일이나 디렉터리도 보여줌</li>
-      <li>ls -al 같이 둘 이상의 옵션을 복합적으로 줄 수도 있음</li>
+      <li>백그라운드에서 실행되는 컴퓨터 프로그램</li>
+      <li>루트 또는 기타 권한이 있는 사용자로 실행해야 한다</li>
+    </ul>
+  </li>
+  <li>Set-UID Programs
+    <ul>
+      <li>UNIX 시스템에서 널리 사용</li>
+      <li>특수 비트로 표시된 프로그램</li>
     </ul>
   </li>
 </ul>
 
-<p><img src="\assets\built\images\sc2\sc8.png" alt="시스템클라우드보안" /></p>
+<blockquote>
+  <p>슈퍼맨 이야기</p>
+</blockquote>
 
 <ul>
-  <li>mv: “move”의 약자로 파일이나 디렉토리를 원하는 곳으로 옮기거나, 이름을 변경할 떄 사용할 수 있는 명령어</li>
+  <li>Power Suit
+    <ul>
+      <li>슈퍼피플: 그들에게 직접 힘을 준다</li>
+      <li>이슈: 나쁜 슈퍼피플</li>
+    </ul>
+  </li>
+  <li>Power Suit 2.0
+    <ul>
+      <li>컴퓨터 칩</li>
+      <li>특정 작업</li>
+      <li>사전 프로그래밍된 작업에서 벗어날 방법 없음</li>
+    </ul>
+  </li>
+  <li>Set-UID 매커니즘 : 파워 슈트 메커니즘 리눅스 OS에서 구현</li>
 </ul>
 
-<p><img src="\assets\built\images\sc2\sc9.png" alt="시스템클라우드보안" /></p>
+<blockquote>
+  <p>Set-UID Concept</p>
+</blockquote>
 
 <ul>
-  <li>cp: “copy”의 약자로 파일이나 디렉토리를 원하는 곳에 원하는 이름으로 복사하기 위한 명령어</li>
+  <li>사용자가 프로그램 소유자의 권한으로 프로그램을 실행할 수 있도록 허용한다</li>
+  <li>사용자가 일시적으로 상승된 권한으로 프로그램을 실행할 수 있도록 허용</li>
+  <li>Example: the passwd program</li>
 </ul>
 
-<p><img src="\assets\built\images\sc2\sc10.png" alt="시스템클라우드보안" /></p>
-
-<ul>
-  <li>echo: 인수로 주어진 문자열이나 환경변수 값을 출력해주는 명령어</li>
-</ul>
-
-<p><img src="\assets\built\images\sc2\sc11.png" alt="시스템클라우드보안" /></p>
-
-<ul>
-  <li>cat: 하나 이상의 파일을 연결해서 출력해주는 명령어</li>
-</ul>
-
-<p><img src="\assets\built\images\sc2\sc12.png" alt="시스템클라우드보안" /></p>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">ls</span> <span class="o">-</span><span class="n">l</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">passwd</span>
+<span class="o">-</span><span class="n">rwsr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span> <span class="mi">1</span> <span class="n">root</span> <span class="n">root</span> <span class="mi">41284</span> <span class="n">Sep</span> <span class="mi">12</span> <span class="mi">2012</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">passwd</span>
 </code></pre></div></div>
 
 <ul>
-  <li>tail: 파일의 마지막 행을 기준으로 지정한 행까지의 파일 내용 일부를 출력해준다. 아무 옵션을 주지 않으면 기본적으로 10개 행을 출력</li>
-</ul>
-
-<p><img src="\assets\built\images\sc2\sc13.png" alt="시스템클라우드보안" /></p>
-
-<ul>
-  <li>mkdir: “make directory”의 약자로 새로운 디렉토리를 만들 수 있는 명령어</li>
-</ul>
-
-<p><img src="\assets\built\images\sc2\sc14.png" alt="시스템클라우드보안" /></p>
-
-<ul>
-  <li>
-    <p>touch <파일명> : 현재 디렉토리에 주어진 <파일명>의 새로운 파일을 생성해주는 명령어</파일명></파일명></p>
-  </li>
-  <li>
-    <p>rm: remove의 약자로 파일과 디렉토리 삭제에 사용되는 명령어</p>
-  </li>
-</ul>
-
-<p><img src="\assets\built\images\sc2\sc15.png" alt="시스템클라우드보안" /></p>
-
-<ul>
-  <li>
-    <p>clear: 쉘 창에 있는 기록을 모두 지워주는 명령어</p>
-  </li>
-  <li>
-    <p>chown: 파일이나 디렉토리의 소유권자 및 그룹식별자를 바꾸는 명령어</p>
-  </li>
-</ul>
-
-<p><img src="\assets\built\images\sc2\sc16.png" alt="시스템클라우드보안" /></p>
-
-<ul>
-  <li>chmod: “change mode” 약자로 파일이나 디렉토리의 퍼미션을 수정하기 위한 명령어</li>
-</ul>
-
-<p><img src="\assets\built\images\sc2\sc17.png" alt="시스템클라우드보안" /></p>
-
-<ul>
-  <li>sudo: 일반 사용자가 root 권한을 잠시 빌려 명령을 실행할 수 있도록 하는 명령어이다</li>
-</ul>
-
-<p><img src="\assets\built\images\sc2\sc18.png" alt="시스템클라우드보안" /></p>
-
-<ul>
-  <li>umask: 파일이나 디렉터리 생성 시 기본 접근권한을 설정할떄 사용하는 명령어
+  <li>모든 프로세스에는 두 개의 사용자 ID가 있다</li>
+  <li>Real UID (RUID): 프로세스의 실제 소유자 식별</li>
+  <li>Effective UID (EUID): 프로세스의 권한을 식별
     <ul>
-      <li>기본 파일 생성 시 최고 권한이 666이며, 디렉터리의 생성 시 최고 권한은 777이다</li>
-      <li>파일 및 디렉터리 생성 시 기본 권한은 가능한 최고 권한에서 umask 값을 빼준 값이다</li>
-      <li>기본 파일은 660-002=664가, 디렉터리는 777-002=775가 된다</li>
+      <li>액세스 제어는 EUD를 기반으로 한다</li>
+    </ul>
+  </li>
+  <li>일반 프로그램이 실행될 때 RUID = EUID,프로그램을 실행하는 사용자의 ID로 둘 다 동일하다</li>
+  <li>Set-UID가 실행되면 RUID ≠ EUID. RUID는 여전히 같다. 사용자 ID이지만 EUID는 프로그램 소유자 ID와 동일하다
+    <ul>
+      <li>프로그램이 root에 의해 소유된 경우 프로그램은 root 권한으로 실행된다</li>
     </ul>
   </li>
 </ul>
 
-<p><img src="\assets\built\images\sc2\sc19.png" alt="시스템클라우드보안" /></p>
+<blockquote>
+  <p>프로그램을 Set-UID로 전환</p>
+</blockquote>
 
 <ul>
-  <li>id: 현재 실행중인 쉘에 로그인 된 사용자 ID, 그룹 ID 등을 출력해주는 명령어
-    <ul>
-      <li>일반 사용자 계정으로 로그인한 경우
-<img src="\assets\built\images\sc2\sc20.png" alt="시스템클라우드보안" /></li>
-      <li>root 사용자로 로그인한 경우
-<img src="\assets\built\images\sc2\sc21.png" alt="시스템클라우드보안" /></li>
-    </ul>
-  </li>
-  <li>grep: 특정 파일 내에서 지정한 패턴을 가진 문자열을 찾은 후, 해당 문자열을 출력해주는 명령어. 패턴에는 정규표현식의 패턴을 사용</li>
+  <li>소유자 변경 -&gt; root에 대한 파일로 <img src="\assets\built\images\sc2\sc43.png" alt="시스템클라우드보안" /></li>
+  <li>활성화하기 전에 Set-UID 비트 <img src="\assets\built\images\sc2\sc44.png" alt="시스템클라우드보안" /></li>
+  <li>활성화 후 Set-UID 비트 <img src="\assets\built\images\sc2\sc45.png" alt="시스템클라우드보안" /></li>
 </ul>
 
-<p><img src="\assets\built\images\sc2\sc22.png" alt="시스템클라우드보안" /></p>
+<blockquote>
+  <p>작동 원리</p>
+</blockquote>
+
+<p>Set-UID 프로그램은 Set-UID 비트라고 하는 단일 비트인 특수 마킹을 제외하고는 다른 프로그램과 같다</p>
+
+<p><img src="\assets\built\images\sc2\sc46.png" alt="시스템클라우드보안" />
+<img src="\assets\built\images\sc2\sc47.png" alt="시스템클라우드보안" /></p>
+
+<blockquote>
+  <p>UID 설정 예</p>
+</blockquote>
+
+<p>privileged program 아님</p>
+
+<p><img src="\assets\built\images\sc2\sc48.png" alt="시스템클라우드보안" /></p>
+
+<p>privileged program 임</p>
+
+<p><img src="\assets\built\images\sc2\sc49.png" alt="시스템클라우드보안" /></p>
+
+<p>privileged program 이지만 root privilege는 아님</p>
+
+<p><img src="\assets\built\images\sc2\sc50.png" alt="시스템클라우드보안" /></p>
+
+<blockquote>
+  <p>Set-UID는 어떻게 안전한가?</p>
+</blockquote>
 
 <ul>
-  <li>find: 파일 시스템에서 인자로 주어진 파일 및 디렉토리를 찾는 명령어
+  <li>일반 사용자가 권한을 에스컬레이션할 수 있다
     <ul>
-      <li>파일명으로 찾기(-name)
+      <li>권한을 직접 부여하는 것과는 다르다(sudo 명령)</li>
+      <li>제한된 행동 – 슈퍼맨이 디자인한 컴퓨터 칩과 유사</li>
+    </ul>
+  </li>
+  <li>모든 프로그램을 Set-UID로 전환하는 것은 안전하지 않다
+    <ul>
+      <li>예: /bin/sh</li>
+      <li>예: vi</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>슈퍼맨에 대한 공격</p>
+</blockquote>
+
+<ul>
+  <li>사용자가 코딩된 작업만 수행할 수 있다고 가정할 수 없음
+    <ul>
+      <li>개발자의 코딩 결함</li>
+    </ul>
+  </li>
+  <li>슈퍼맨 말로이
+    <ul>
+      <li>북쪽으로 비행한 다음 좌회전</li>
+      <li>이 코드를 어떻게 악용하는가?</li>
+    </ul>
+  </li>
+  <li>슈퍼맨 말로리
+    <ul>
+      <li>북쪽으로 날아 서쪽으로 회전</li>
+      <li>이 코드를 어떻게 악용하는가?</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="\assets\built\images\sc2\sc51.png" alt="시스템클라우드보안" /></p>
+
+<blockquote>
+  <p>Set-UID 프로그램의 표면 공격</p>
+</blockquote>
+
+<p><img src="\assets\built\images\sc2\sc52.png" alt="시스템클라우드보안" /></p>
+
+<blockquote>
+  <p>사용자 Input을 통한 공격</p>
+</blockquote>
+
+<p>사용자 Input: 명시적 입력</p>
+
+<ul>
+  <li>버퍼 오버 플로우
+    <ul>
+      <li>악성코드 실행을 위한 버퍼 오버플로우</li>
+    </ul>
+  </li>
+  <li>형식 문자열 취약점
+    <ul>
+      <li>사용자 입력을 형식 문자열로 사용하여 프로그램 동작 변경</li>
+    </ul>
+  </li>
+  <li>CHSH – 쉘 변경
+    <ul>
+      <li>기본 셸 프로그램을 변경할 수 있는 Set-UID 프로그램</li>
+      <li>쉘 프로그램은 /etc/passwd 파일에 저장된다</li>
+    </ul>
+  </li>
+  <li>문제
+    <ul>
+      <li>사용자 입력 삭제 실패</li>
+      <li>공격자가 새 루트 계정을 만들 수 있음</li>
+    </ul>
+  </li>
+  <li>공격
+<img src="\assets\built\images\sc2\sc53.png" alt="시스템클라우드보안" /></li>
+</ul>
+
+<blockquote>
+  <p>시스템 Input을 통한 공격</p>
+</blockquote>
+
+<ul>
+  <li>경쟁 조건
+    <ul>
+      <li>권한이 없는 파일에서 권한 있는 파일에 대한 심볼릭 링크</li>
+      <li>인플루언서 프로그램</li>
+      <li>world writable 폴더 내부에 쓰기</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>환경변수를 통한 공격</p>
+</blockquote>
+
+<ul>
+  <li>동작은 내부에 표시되지 않는 입력의 영향을 받을 수 있다</li>
+  <li>
+    <p>환경 변수 : 사용자가 실행하기 전에 설정할 수 있다</p>
+  </li>
+  <li>PATH 환경 변수
+    <ul>
+      <li>사용자가 명령의 전체 경로 제공하지 않은 경우 쉘 프로그램에서 명령을 찾는 데 사용한다</li>
+      <li>system(): /bin/sh를 먼저 호출한다</li>
+      <li>system(“ls”)
         <ul>
-          <li>find . -name “*txt” 현재 디렉터리(모든 하위 디렉터리 포함)에서 확장자가 .txt인 파일 모두 찾음</li>
-          <li>find . -name “*txt” -delete 현재 디렉터리에서 확장자가 .txt인 파일 모두 찾은 다음 삭제</li>
-        </ul>
-      </li>
-      <li>타입으로 찾기(-type)
-        <ul>
-          <li>find . -name “*test” -type d 현재 디렉터리에서 이름에 test가 포함된 모든 디렉터리 찾기</li>
-          <li>find . -type f 현재 디렉터리에서 모든 파일 찾기</li>
-        </ul>
-      </li>
-      <li>파일 크기로 찾기(-empth, -size)
-        <ul>
-          <li>find . -empty 현재 디렉터리에서 빈 디렉터리 또는 크기가 0인 파일 찾ㄱ기</li>
-          <li>find . -size + 1024c 현재 디렉터리에서 1024byte 보다 큰 파일 찾기</li>
-          <li>find . -size + 1k -size -10k 1kb 보다 크고 10kb 보다 작은 파일 찾기</li>
+          <li>/bin/sh는 PATH 환경 변수를 사용하여 “ls”를 찾는다</li>
+          <li>공격자는 PATH 변수를 조작하고 “ls” 명령을 찾는 방법을 제어할 수 있다</li>
         </ul>
       </li>
     </ul>
   </li>
-  <li>man: 명령어를 어떻게 쓰는지 설명해주는 내용을 출력해주는 명령어
+</ul>
+
+<blockquote>
+  <p>Capability Leaking</p>
+</blockquote>
+
+<ul>
+  <li>몇몇 경우에 권한 있는 프로그램은 실행중에 스스로 다운그레이드 한다</li>
+  <li>예: su 프로그램
     <ul>
-      <li>main ls 실행 결과로 보여지는 내용</li>
+      <li>권한이 있는 Set-UID 프로그램이다</li>
+      <li>한 사용자가 다른 사용자로 전환할 수 있다(예: user1에서 user2로)</li>
+      <li>프로그램은 루트로 EUID를, user1로 RUID로 시작한다</li>
+      <li>비밀번호 확인 후, EUID와 RUID는 모두 user2가 됩니다(권한을 통해 다운그레이드)</li>
+    </ul>
+  </li>
+  <li>이러한 프로그램은 기능 누출로 이어질 수 있다
+    <ul>
+      <li>프로그램은 다운그레이드하기 전에 권한 있는 기능을 정리하지 못할 수 있다</li>
     </ul>
   </li>
 </ul>
 
-<p><img src="\assets\built\images\sc2\sc23.png" alt="시스템클라우드보안" /></p>
-
-<ul>
-  <li>Redirection: &gt;, »를 사용해서 주어진 명령 실행 결과로 출력되는 내용이 파일에 쓰여지도록 할 수 있다
-    <ul>
-      <li>&gt;: overwrite, »: append</li>
-    </ul>
-  </li>
-</ul>
-
-<p><img src="\assets\built\images\sc2\sc27.png" alt="시스템클라우드보안" /></p>
-
-<ul>
-  <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>Pipeline: 첫번쨰 명령 (</td>
-          <td>기호 왼쪽) 실행 결과가 두번째 명령 (</td>
-          <td>기호 오른쪽)으로 넘겨지도록 한다</td>
-        </tr>
-      </tbody>
-    </table>
-  </li>
-</ul>
-
-<p><img src="\assets\built\images\sc2\sc28.png" alt="시스템클라우드보안" /></p>
-
 <blockquote>
-  <p>심볼릭링크 생성</p>
+  <p>Capability Leaking을 통한 공격: 예</p>
 </blockquote>
 
-<ul>
-  <li>심볼릭링크 생성 명령어</li>
-</ul>
+<p>sudo chown root ./prog
+sudo chmod 4755 ./prog</p>
 
-<pre><code class="language-ㅊ">ln -s 우너본 링크파일
-</code></pre>
+<p>운영체제에서 실행 중인 프로세스에대해서 접근제어를 적용할대는 EUID를 기준으로 이 프로세스가 현쟈 하고자 하는 오퍼레이션을 허용할지 말지를 결정한다<br />
+EUID를 기준으로 시스템의 접근제어가 이루어진다</p>
 
-<ul>
-  <li>원본 파일 확인</li>
-</ul>
-
-<p><img src="\assets\built\images\sc2\sc24.png" alt="시스템클라우드보안" /></p>
-
-<ul>
-  <li>심볼릭 링크 설정 및 확인</li>
-</ul>
-
-<p><img src="\assets\built\images\sc2\sc25.png" alt="시스템클라우드보안" /></p>
-
-<ul>
-  <li>하드링크와 차이</li>
-</ul>
-
-<p><img src="\assets\built\images\sc2\sc26.png" alt="시스템클라우드보안" /></p>
-
-<ul>
-  <li>하드 링크 파일의 inode number는 원본과 같다</li>
-  <li>디스크 상에서 근본적으로 같은 파일이라 할 수 있다</li>
-  <li>반면 심볼릭 링크는 디스크 상에서 다른 파일이며, 바로가기 파일이라 할 수 있다</li>
-</ul>
-
-<blockquote>
-  <p>쉘 스크립트</p>
-</blockquote>
-
-<ul>
-  <li>
-    <p>파일에 쉘 명령어들을 나열해서 순차적으로 실행되도록 하는 것</p>
-  </li>
-  <li>쉘 스크립트 예시
-    <ul>
-      <li>#!/bin/sh: 파일에 작성된 내용은 쉘 스크립트라는 것을 시스템에 알려주는 역할
-<img src="\assets\built\images\sc2\sc29.png" alt="시스템클라우드보안" /></li>
-      <li>아래 두가지 방법 중 하나로 쉘 스크립트 실행
-<img src="\assets\built\images\sc2\sc30.png" alt="시스템클라우드보안" />
-<img src="\assets\built\images\sc2\sc31.png" alt="시스템클라우드보안" /></li>
-    </ul>
-  </li>
-  <li>read로 입력, echo로 출력</li>
-</ul>
-
-<p><img src="\assets\built\images\sc2\sc32.png" alt="시스템클라우드보안" /></p>
-
-<ul>
-  <li>변수 활용</li>
-</ul>
-
-<p><img src="\assets\built\images\sc2\sc33.png" alt="시스템클라우드보안" /></p>
-
-<ul>
-  <li>특별한 변수</li>
-</ul>
-
-<p><img src="\assets\built\images\sc2\sc34.png" alt="시스템클라우드보안" /></p>
-
-<ul>
-  <li>배열</li>
-  <li>조건문: if elif else if, case문</li>
-  <li>반목문: for, while, until</li>
-  <li>함수</li>
-</ul>
-
-<blockquote>
-  <p>sudo 명령어</p>
-</blockquote>
-
-<ul>
-  <li>다른 사용자 권한, 보통은 root 사용자 권한으로 프로그램을 실행할 수 있도록 하는 명령어이다</li>
-  <li>sudo 명령어를 사용하면 일반 사용자가 root 사용자 자격으로 프로그램을 실행할 수 있기 때문에 보안에 대한 고려가 반드시 필요</li>
-  <li>/etc/sudoers 파일: 어느 사용자/그룹에게 어떤 프로그램 실행에 대해서 sudo 사용을 허용할 것인지에 대한 룰을 설정</li>
-</ul>
+<p>set-uid를 통해 공격이 들어오기 때문에 Set-UID 비트를 해제한다 . 공격의 예로는 시스템 인풋, 유저 인풋, 환경 변수가 있다</p>
 
                 </div>
             </section>
@@ -890,9 +586,9 @@ into the {body} of the default.hbs template -->
                     <div id="disqus_thread"></div>
                     <script>
                         var disqus_config = function () {
-                            var this_page_url = 'https://lee989898.github.io/sc2-03';
-                            var this_page_identifier = '/sc2-03';
-                            var this_page_title = '리눅스 사용자 계정과 권한 체계, 쉘 기본';
+                            var this_page_url = 'https://lee989898.github.io/sc2-04';
+                            var this_page_identifier = '/sc2-04';
+                            var this_page_title = 'Set-UID Privileged Programs';
                         };
                         (function() {
                             var d = document, s = d.createElement('script');
@@ -937,16 +633,16 @@ into the {body} of the default.hbs template -->
                                 
                                   
                                     
-                                        
-                                        
-                                            <li><a href="/sc2-04">Set-UID Privileged Programs</a></li>
-                                        
+                                  
+                                
+                                  
+                                
+                                  
                                     
-                                  
-                                
-                                  
-                                
-                                  
+                                        
+                                        
+                                            <li><a href="/sc2-03">리눅스 사용자 계정과 권한 체계, 쉘 기본</a></li>
+                                        
                                     
                                   
                                 
@@ -1133,6 +829,9 @@ into the {body} of the default.hbs template -->
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
             
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
                 
 
     <article class="post-card post-template">
@@ -1176,61 +875,7 @@ into the {body} of the default.hbs template -->
                 <span class="reading-time">
                     
                     
-                      3 min read
-                    
-                </span>
-            </footer>
-        </div>
-    </article>
-
-            
-
-            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
-            
-                
-
-    <article class="post-card post-template">
-        
-            <a class="post-card-image-link" href="/ad">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/android-logo.png)"></div>
-            </a>
-        
-        <div class="post-card-content">
-            <a class="post-card-content-link" href="/ad">
-                <header class="post-card-header">
-                    
-                        
-                            
-                                <span class="post-card-tags">Android</span>
-                            
-                        
-                    
-
-                    <h2 class="post-card-title">안드로이드 면접 준비</h2>
-                </header>
-                <section class="post-card-excerpt">
-                    
-                        <p>안드로이드 면접 준비
-
-</p>
-                    
-                </section>
-            </a>
-            <footer class="post-card-meta">
-                
-                    
-                        
-                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="lee989898" />
-                        
-                        <span class="post-card-author">
-                            <a href="/author/lee989898/">lee989898</a>
-                        </span>
-                    
-                
-                <span class="reading-time">
-                    
-                    
-                      15 min read
+                      2 min read
                     
                 </span>
             </footer>
@@ -1252,18 +897,18 @@ into the {body} of the default.hbs template -->
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">리눅스 사용자 계정과 권한 체계, 쉘 기본</div>
+    <div class="floating-header-title">Set-UID Privileged Programs</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%EB%A6%AC%EB%88%85%EC%8A%A4+%EC%82%AC%EC%9A%A9%EC%9E%90+%EA%B3%84%EC%A0%95%EA%B3%BC+%EA%B6%8C%ED%95%9C+%EC%B2%B4%EA%B3%84%2C+%EC%89%98+%EA%B8%B0%EB%B3%B8&amp;url=https://lee989898.github.io/sc2-03"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Set-UID+Privileged+Programs&amp;url=https://lee989898.github.io/sc2-04"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://lee989898.github.io/sc2-03"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://lee989898.github.io/sc2-04"
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
 

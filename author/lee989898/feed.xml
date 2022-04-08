@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/author/lee989898/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-04-05T23:12:24+09:00</updated>
+  <updated>2022-04-08T10:04:00+09:00</updated>
   <id>https://lee989898.github.io/author/lee989898/feed.xml</id>
 
   
@@ -30,6 +30,326 @@
   
   
 
+  
+    <entry>
+      <title type="html">Set-UID Privileged Programs</title>
+      <link href="https://lee989898.github.io/sc2-04" rel="alternate" type="text/html" title="Set-UID Privileged Programs" />
+      <published>2022-04-06T01:06:00+09:00</published>
+      <updated>2022-04-06T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc2-04</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc2-04">&lt;h2 id=&quot;set-uid-privileged-programs&quot;&gt;&lt;strong&gt;Set-UID Privileged Programs&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;권한 있는 프로그램의 필요성&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;비밀번호 딜레마
+    &lt;ul&gt;
+      &lt;li&gt;/etc/shadow 파일의 권한: &lt;img src=&quot;\assets\built\images\sc2\sc40.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/li&gt;
+      &lt;li&gt;일반 사용자는 비밀번호를 어떻게 변경할까? &lt;img src=&quot;\assets\built\images\sc2\sc41.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Two-Tier 접근&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;세분화된 액세스 구현 운영 체제의 제어가 OS를 만든다 -&amp;gt; 너무 복잡하다&lt;/li&gt;
+  &lt;li&gt;OS는 extension에 의존하여 세분화된 액세스 제어한다&lt;/li&gt;
+  &lt;li&gt;권한 있는 프로그램은 그러한 extension이다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc42.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Privileged 프로그램의 종류&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Daemons
+    &lt;ul&gt;
+      &lt;li&gt;백그라운드에서 실행되는 컴퓨터 프로그램&lt;/li&gt;
+      &lt;li&gt;루트 또는 기타 권한이 있는 사용자로 실행해야 한다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Set-UID Programs
+    &lt;ul&gt;
+      &lt;li&gt;UNIX 시스템에서 널리 사용&lt;/li&gt;
+      &lt;li&gt;특수 비트로 표시된 프로그램&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;슈퍼맨 이야기&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Power Suit
+    &lt;ul&gt;
+      &lt;li&gt;슈퍼피플: 그들에게 직접 힘을 준다&lt;/li&gt;
+      &lt;li&gt;이슈: 나쁜 슈퍼피플&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Power Suit 2.0
+    &lt;ul&gt;
+      &lt;li&gt;컴퓨터 칩&lt;/li&gt;
+      &lt;li&gt;특정 작업&lt;/li&gt;
+      &lt;li&gt;사전 프로그래밍된 작업에서 벗어날 방법 없음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Set-UID 매커니즘 : 파워 슈트 메커니즘 리눅스 OS에서 구현&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Set-UID Concept&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;사용자가 프로그램 소유자의 권한으로 프로그램을 실행할 수 있도록 허용한다&lt;/li&gt;
+  &lt;li&gt;사용자가 일시적으로 상승된 권한으로 프로그램을 실행할 수 있도록 허용&lt;/li&gt;
+  &lt;li&gt;Example: the passwd program&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;usr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;passwd&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rwsr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;41284&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Sep&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2012&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;usr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;passwd&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;모든 프로세스에는 두 개의 사용자 ID가 있다&lt;/li&gt;
+  &lt;li&gt;Real UID (RUID): 프로세스의 실제 소유자 식별&lt;/li&gt;
+  &lt;li&gt;Effective UID (EUID): 프로세스의 권한을 식별
+    &lt;ul&gt;
+      &lt;li&gt;액세스 제어는 EUD를 기반으로 한다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;일반 프로그램이 실행될 때 RUID = EUID,프로그램을 실행하는 사용자의 ID로 둘 다 동일하다&lt;/li&gt;
+  &lt;li&gt;Set-UID가 실행되면 RUID ≠ EUID. RUID는 여전히 같다. 사용자 ID이지만 EUID는 프로그램 소유자 ID와 동일하다
+    &lt;ul&gt;
+      &lt;li&gt;프로그램이 root에 의해 소유된 경우 프로그램은 root 권한으로 실행된다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;프로그램을 Set-UID로 전환&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;소유자 변경 -&amp;gt; root에 대한 파일로 &lt;img src=&quot;\assets\built\images\sc2\sc43.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;활성화하기 전에 Set-UID 비트 &lt;img src=&quot;\assets\built\images\sc2\sc44.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;활성화 후 Set-UID 비트 &lt;img src=&quot;\assets\built\images\sc2\sc45.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;작동 원리&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Set-UID 프로그램은 Set-UID 비트라고 하는 단일 비트인 특수 마킹을 제외하고는 다른 프로그램과 같다&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc46.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;
+&lt;img src=&quot;\assets\built\images\sc2\sc47.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;UID 설정 예&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;privileged program 아님&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc48.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;privileged program 임&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc49.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;privileged program 이지만 root privilege는 아님&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc50.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Set-UID는 어떻게 안전한가?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;일반 사용자가 권한을 에스컬레이션할 수 있다
+    &lt;ul&gt;
+      &lt;li&gt;권한을 직접 부여하는 것과는 다르다(sudo 명령)&lt;/li&gt;
+      &lt;li&gt;제한된 행동 – 슈퍼맨이 디자인한 컴퓨터 칩과 유사&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;모든 프로그램을 Set-UID로 전환하는 것은 안전하지 않다
+    &lt;ul&gt;
+      &lt;li&gt;예: /bin/sh&lt;/li&gt;
+      &lt;li&gt;예: vi&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;슈퍼맨에 대한 공격&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;사용자가 코딩된 작업만 수행할 수 있다고 가정할 수 없음
+    &lt;ul&gt;
+      &lt;li&gt;개발자의 코딩 결함&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;슈퍼맨 말로이
+    &lt;ul&gt;
+      &lt;li&gt;북쪽으로 비행한 다음 좌회전&lt;/li&gt;
+      &lt;li&gt;이 코드를 어떻게 악용하는가?&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;슈퍼맨 말로리
+    &lt;ul&gt;
+      &lt;li&gt;북쪽으로 날아 서쪽으로 회전&lt;/li&gt;
+      &lt;li&gt;이 코드를 어떻게 악용하는가?&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc51.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Set-UID 프로그램의 표면 공격&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc52.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;사용자 Input을 통한 공격&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;사용자 Input: 명시적 입력&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;버퍼 오버 플로우
+    &lt;ul&gt;
+      &lt;li&gt;악성코드 실행을 위한 버퍼 오버플로우&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;형식 문자열 취약점
+    &lt;ul&gt;
+      &lt;li&gt;사용자 입력을 형식 문자열로 사용하여 프로그램 동작 변경&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;CHSH – 쉘 변경
+    &lt;ul&gt;
+      &lt;li&gt;기본 셸 프로그램을 변경할 수 있는 Set-UID 프로그램&lt;/li&gt;
+      &lt;li&gt;쉘 프로그램은 /etc/passwd 파일에 저장된다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;문제
+    &lt;ul&gt;
+      &lt;li&gt;사용자 입력 삭제 실패&lt;/li&gt;
+      &lt;li&gt;공격자가 새 루트 계정을 만들 수 있음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;공격
+&lt;img src=&quot;\assets\built\images\sc2\sc53.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;시스템 Input을 통한 공격&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;경쟁 조건
+    &lt;ul&gt;
+      &lt;li&gt;권한이 없는 파일에서 권한 있는 파일에 대한 심볼릭 링크&lt;/li&gt;
+      &lt;li&gt;인플루언서 프로그램&lt;/li&gt;
+      &lt;li&gt;world writable 폴더 내부에 쓰기&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;환경변수를 통한 공격&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;동작은 내부에 표시되지 않는 입력의 영향을 받을 수 있다&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;환경 변수 : 사용자가 실행하기 전에 설정할 수 있다&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;PATH 환경 변수
+    &lt;ul&gt;
+      &lt;li&gt;사용자가 명령의 전체 경로 제공하지 않은 경우 쉘 프로그램에서 명령을 찾는 데 사용한다&lt;/li&gt;
+      &lt;li&gt;system(): /bin/sh를 먼저 호출한다&lt;/li&gt;
+      &lt;li&gt;system(“ls”)
+        &lt;ul&gt;
+          &lt;li&gt;/bin/sh는 PATH 환경 변수를 사용하여 “ls”를 찾는다&lt;/li&gt;
+          &lt;li&gt;공격자는 PATH 변수를 조작하고 “ls” 명령을 찾는 방법을 제어할 수 있다&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Capability Leaking&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;몇몇 경우에 권한 있는 프로그램은 실행중에 스스로 다운그레이드 한다&lt;/li&gt;
+  &lt;li&gt;예: su 프로그램
+    &lt;ul&gt;
+      &lt;li&gt;권한이 있는 Set-UID 프로그램이다&lt;/li&gt;
+      &lt;li&gt;한 사용자가 다른 사용자로 전환할 수 있다(예: user1에서 user2로)&lt;/li&gt;
+      &lt;li&gt;프로그램은 루트로 EUID를, user1로 RUID로 시작한다&lt;/li&gt;
+      &lt;li&gt;비밀번호 확인 후, EUID와 RUID는 모두 user2가 됩니다(권한을 통해 다운그레이드)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;이러한 프로그램은 기능 누출로 이어질 수 있다
+    &lt;ul&gt;
+      &lt;li&gt;프로그램은 다운그레이드하기 전에 권한 있는 기능을 정리하지 못할 수 있다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Capability Leaking을 통한 공격: 예&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;sudo chown root ./prog
+sudo chmod 4755 ./prog&lt;/p&gt;
+
+&lt;p&gt;운영체제에서 실행 중인 프로세스에대해서 접근제어를 적용할대는 EUID를 기준으로 이 프로세스가 현쟈 하고자 하는 오퍼레이션을 허용할지 말지를 결정한다&lt;br /&gt;
+EUID를 기준으로 시스템의 접근제어가 이루어진다&lt;/p&gt;
+
+&lt;p&gt;set-uid를 통해 공격이 들어오기 때문에 Set-UID 비트를 해제한다 . 공격의 예로는 시스템 인풋, 유저 인풋, 환경 변수가 있다&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="systemcloud" />
+      
+
+      
+        <summary type="html">Set-UID Privileged Programs</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">Bitcoin, white paper</title>
@@ -71,7 +391,7 @@
   &lt;p&gt;Transactions&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\bc\bc17.png&quot; alt=&quot;블록체인&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\bc\bc18.png&quot; alt=&quot;블록체인&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Coin = 일련의 디지털 서명&lt;/li&gt;
@@ -109,22 +429,244 @@
 &lt;ul&gt;
   &lt;li&gt;TTP (mint) model
     &lt;ul&gt;
-      &lt;li&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;/li&gt;
+      &lt;li&gt;TTP는 이중 지출에 대한 모든 거래를 확인해야 한다&lt;/li&gt;
+      &lt;li&gt;TTP는 새로운 코인을 발행하고 TTP에서 발행한 코인만 신뢰할 수 있다&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;Distributed way
     &lt;ul&gt;
-      &lt;li&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;/li&gt;
+      &lt;li&gt;Payee는 지급인이 처음르로 트랜잭션에 서명했는지 확인한다&lt;/li&gt;
+      &lt;li&gt;Payee는 모든 거래를 알아야 하므로 알려져야 한다&lt;/li&gt;
+      &lt;li&gt;모든 참여자는 거래의 단일 주문 기록에 동의해야 한다&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;blockquote&gt;
+  &lt;p&gt;Timestamp Server&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;/blockquote&gt;</content>
+&lt;ul&gt;
+  &lt;li&gt;타임스탬프 서버 게시
+    &lt;ul&gt;
+      &lt;li&gt;Ht = 해쉬(H-1, Blockt)&lt;/li&gt;
+      &lt;li&gt;Blockt = 시간 t에 존재했던 항목 집합&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;신문이나 게시판에 게시
+    &lt;ul&gt;
+      &lt;li&gt;à 중앙 집중식 타임스탬프 서버 = TTP ?&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\bc\bc17.png&quot; alt=&quot;블록체인&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Proof of Work&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;목표: 분산 타임스탬프 서버&lt;/li&gt;
+  &lt;li&gt;Proof-of-work
+    &lt;ul&gt;
+      &lt;li&gt;0비트 시작 값으로 해시되는 값 찾기
+        &lt;ul&gt;
+          &lt;li&gt;시작 0비트 수만큼 기하급수적으로 어렵다&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;하나의 해싱으로 확인됨&lt;/li&gt;
+      &lt;li&gt;해시캐시&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;비트코인 PoW
+    &lt;ul&gt;
+      &lt;li&gt;Nonce 찾기
+        &lt;ul&gt;
+          &lt;li&gt;H(Blockt) = {0}n{0,1}*
+            &lt;ul&gt;
+              &lt;li&gt;
+                &lt;table&gt;
+                  &lt;tbody&gt;
+                    &lt;tr&gt;
+                      &lt;td&gt;where Blockt := H(Blockt-1)&lt;/td&gt;
+                      &lt;td&gt;Tx’s&lt;/td&gt;
+                      &lt;td&gt;Nonce&lt;/td&gt;
+                    &lt;/tr&gt;
+                  &lt;/tbody&gt;
+                &lt;/table&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;비트코인 PoW 해결
+    &lt;ul&gt;
+      &lt;li&gt;Block&amp;gt;=t에 대한 PoW를 다시 실행하지 않고 블록을 변경할 수 없다&lt;/li&gt;
+      &lt;li&gt;CPU 과반수 의사 결정당 투표 구현
+        &lt;ul&gt;
+          &lt;li&gt;Longest chain wins&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;이동 목표: 시간당 평균 블록 수 = 6을 유지하기 위해 n 증가&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;해시캐쉬&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Cynthia Dwork이 제안함&lt;/li&gt;
+  &lt;li&gt;Adam Back이 해시캐쉬 제안&lt;/li&gt;
+  &lt;li&gt;이메일을 보내면 PoW 비용이 발생한다
+    &lt;ul&gt;
+      &lt;li&gt;&amp;lt; counter &amp;gt; 찾기
+        &lt;ul&gt;
+          &lt;li&gt;SHA-1(1:20:&amp;lt; time &amp;gt;:&amp;lt; recipient &amp;gt;:&amp;lt; rand &amp;gt;:&amp;lt; counter &amp;gt;)= ${10}^{(20)}$ ${0,1}^{140}$&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;약 1초 걸린다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;수신자는 다음 경우에만 이메일을 수락한다
+    &lt;ul&gt;
+      &lt;li&gt;&amp;lt; time &amp;gt;은 최근(2일), &amp;lt; recipient &amp;gt;는 맞을때&lt;/li&gt;
+      &lt;li&gt;유효한 PoW&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;이것은 스팸 발송자를 방지한다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;네트워크&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;새로운 트랜잭션은 모든 노드에 브로드캐스트된다&lt;/li&gt;
+  &lt;li&gt;각 노드는 새로운 트랜잭션을 블록으로 수집한다&lt;/li&gt;
+  &lt;li&gt;각 노드는 각각의 블록에서 어려운 proof-of-work을 찾기 위해 노력합니다.&lt;/li&gt;
+  &lt;li&gt;노드가 proof-of-work를 찾으면 모든 노드들에 브로드캐스트 한다&lt;/li&gt;
+  &lt;li&gt;노드는 모든 트랜잭션이 다음과 같은 경우에만 블록을 수락한다. 유효하며 아직 사용하지 않았을 때&lt;/li&gt;
+  &lt;li&gt;노드는 다음 블록을 체인에 만들며 받아들인 블록의 이전 해쉬 값을 이용하며 블록을 허용한다&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;인센티브&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;노드는 인센티브를 얻을 수 있다
+    &lt;ul&gt;
+      &lt;li&gt;블록의 첫 번째 트랜잭션은 블록의 새 코인을 시작한다&lt;/li&gt;
+      &lt;li&gt;거래 수수료 = input – output의 트랜잭션&lt;/li&gt;
+      &lt;li&gt;충분한 비트코인이 만들어 졌으면 트랜잭션 수수료만이 인센티브이다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;인센티브는 공격자들이 공격하지 않고 참여하게 장려한다
+    &lt;ul&gt;
+      &lt;li&gt;시스템을 훼손하는 것보다 수익성이 높기 때문이다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Reclaiming Disk Space&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;블록 체인이 늘어나면 디스크를 소진할 수 있다&lt;/li&gt;
+  &lt;li&gt;충분한 블록에 묻힌 오래된 거래는 폐기될 수 있다
+    &lt;ul&gt;
+      &lt;li&gt;그러나 블록의 해시를 변경하여 대량의 복잡함이 생긴다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Merkle Tree를 사용하여 일련의 트랜잭션 해시
+    &lt;ul&gt;
+      &lt;li&gt;트랜잭션 세트(예: 분기)는 영향을 주지 않고 정리할 수 있다. 트리의 루트 해시&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\bc\bc19.png&quot; alt=&quot;블록체인&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Simplified Payment Verification&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;노드(광부)는 이중 지출에 대한 지불을 확인할 수 있다
+    &lt;ul&gt;
+      &lt;li&gt;가장 긴 체인의 모든 블록과 트랜잭션을 가지고 있기 때문에&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;사용자(채굴자가 아님)는 다음을 통해 간소화된 검증을 수행할 수 있다
+    &lt;ul&gt;
+      &lt;li&gt;가장 긴 체인의 블록 헤더만 유지&lt;/li&gt;
+      &lt;li&gt;트랜잭션의 MTree 브랜치를 확인하기 위해 가져온다&lt;/li&gt;
+      &lt;li&gt;트랜잭션이 MTree와 일치하는지 확인&lt;/li&gt;
+      &lt;li&gt;블록 생성자가 트랜잭션을 확인했으며 블록이 가장 긴 사슬에서 받아들여진다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\bc\bc20.png&quot; alt=&quot;블록체인&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Combining and Splitting Value&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;값 결합/분할을 허용하려면
+    &lt;ul&gt;
+      &lt;li&gt;트랜잭션에 여러 입력/출력이 포함됨&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;최대 2개 출력
+    &lt;ul&gt;
+      &lt;li&gt;결제 1개&lt;/li&gt;
+      &lt;li&gt;보낸 사람에게 다시 한 번&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Privacy&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;TTP 모델은 액세스 제어를 통해 개인 정보를 보호한다&lt;/li&gt;
+  &lt;li&gt;Bitcoin 개인 정보는 다음으로 보호된다
+    &lt;ul&gt;
+      &lt;li&gt;거래당 생성된 공개 키의 익명성&lt;/li&gt;
+      &lt;li&gt;모든 거래가 공개적으로 발표되었음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;그러나 일부 거래간 연계는 불가피
+    &lt;ul&gt;
+      &lt;li&gt;트랜잭션당 다중 입력을 사용할 때&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\bc\bc21.png&quot; alt=&quot;블록체인&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Probability&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Why probability?
+    &lt;ul&gt;
+      &lt;li&gt;블록체인 proof-of-work은 확률을 기반으로 한다&lt;/li&gt;
+      &lt;li&gt;따라서 블록체인 보안은 확률에 기반한다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;이중 지출 공격 성공 확률은?&lt;/li&gt;
+&lt;/ul&gt;</content>
 
       
       
@@ -1592,234 +2134,6 @@ null이 필요할 때를 생각해서 사용해야 한다!&lt;/p&gt;
     </entry>
   
     <entry>
-      <title type="html">정보보안 기본 3원칙</title>
-      <link href="https://lee989898.github.io/sc2-02" rel="alternate" type="text/html" title="정보보안 기본 3원칙" />
-      <published>2022-03-17T01:06:00+09:00</published>
-      <updated>2022-03-17T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/sc2-02</id>
-      <content type="html" xml:base="https://lee989898.github.io/sc2-02">&lt;h2 id=&quot;정보보안-기본-3원칙&quot;&gt;&lt;strong&gt;정보보안 기본 3원칙&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;정보보안이란&quot;&gt;&lt;strong&gt;정보보안이란?&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;정보보안의 목적&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;정보시스템을 내, 외부에 존재하는 위협으로부터 안전하게 보호&lt;/li&gt;
-  &lt;li&gt;정보가 생성되어 소멸되기까지 그 처리 및 유통의 생명 주기 전반(정보의 수집, 가공, 저장, 검색, 송신, 수신 등)에 정보의
-훼손, 변조, 유출 등을 방지하기 위한 관리적, 기술적 수단을 강구&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;정보보안의 기본 3원칙&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;다음의 3가지 기본 원칙이 보장되어야 정보시스템을 내,외부에 존재하는 위협으로부터 안전하게 보호 가능&lt;/li&gt;
-  &lt;li&gt;기밀성, 무결성, 가용성&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;정보보안의-기본-3원칙-기밀성confidentiality&quot;&gt;&lt;strong&gt;정보보안의 기본 3원칙: 기밀성(Confidentiality)&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;기밀성(Confidentiality)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;오직 인가된 사용자, 인가된 프로세스, 인가된 시스템만이 알 필요성에 근거하여 주어진 정보/시스템에 접근이 허용되어야 한다는 원칙&lt;/li&gt;
-  &lt;li&gt;기밀성은 데이터 처리의 모든 접속점에서 필요한 수준의 비밀 엄수가 강제되도록 하고, 허가받지 않은 정보 유출을 방지하는 것을 보장&lt;/li&gt;
-  &lt;li&gt;이러한 수준의 기밀성은 데이터가 네트워크 내의 시스템과 장비에 보관되어 있을 때나 데이터가 전송될 떄 그리고 데이터가 목적지에 도달한 이후에도 유지되어야 함&lt;/li&gt;
-  &lt;li&gt;기밀성을 보장하기 위한 보안 기술에는 암호화, 접근 제어 등이 있다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;기밀성을 위협하는 공격&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;스누핑(Snooping)
-    &lt;ul&gt;
-      &lt;li&gt;사전적 의미는 “기웃거리다, 캐 묻다”&lt;/li&gt;
-      &lt;li&gt;정보에 대한 비인가 접근 또는 정보의 도청(획득)을 의미&lt;/li&gt;
-      &lt;li&gt;전송 중인 정보를 도청하여 공격자의 이익을 위해 사용하는 것&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;트래픽 분석(Traffic Analysis)
-    &lt;ul&gt;
-      &lt;li&gt;전송 중인 정보(메시지)는 암호화를 통해 내용을 숨길 수 있다&lt;/li&gt;
-      &lt;li&gt;공격자는 IP주소, 라우팅 경로 등을 통해 통신자의 위치와 실체, 정보 전송의 횟수와 길이 등을 통해 정보 내용을 추측할 수 있다&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;__정보보안의-기본-3원칙-무결성integrity&quot;&gt;__정보보안의 기본 3원칙: 무결성(Integrity)&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;무결성(Integrity)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;인가 받지 않은 사용자에 의해 정보의 내용이 불법적으로 위변조되지 않도록 보호되어야 하는 성질
-    &lt;ul&gt;
-      &lt;li&gt;네트워크를 통하여 송수신되는 정보의 무결성 볼호&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;무결성 왜곡이 항상 악의적인 행동의 결과로 나타나는 것은 아니다. 전력 차단과 같은 시스템 중단이 정보에 예상치 못한 변형 가능&lt;/li&gt;
-  &lt;li&gt;무결성을 보장하기 위한 보안 기술에는 접근 제어, 메시지 인증 등이 있으며, 정보가 이미 변경되었거나 변경 위험이 있을 때에는 이러한 변경을 탐지하여 복구할 수 있는 침입 탐지, 백업 등의 기술이 필요&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;무결성을 위협하는 공격&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;정보수정(Modification)
-    &lt;ul&gt;
-      &lt;li&gt;공격자는 정보를 가로챈 후, 자신에게 유리하도록 정보를 변경&lt;/li&gt;
-      &lt;li&gt;고객이 은행으로 송긍 메시지를 전송할 때 공격자는 메시지를 가로채어 자신의 계좌로 입금되도록 변경&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;재전송
-    &lt;ul&gt;
-      &lt;li&gt;공격자는 정보(메시지)를 획득한 후, 나중에 그 메시지를 다시 사용&lt;/li&gt;
-      &lt;li&gt;고객이 은행에게 자신의 계좌에서 공격자에게 지불하도록 요청하는 메시지를 전송하고, 은행을 이를 수행할 때,&lt;/li&gt;
-      &lt;li&gt;공격자는 지불요청 메시지를 가로채어 보관한 후, 나중에 다시 지불요청 메시지를 은행으로 보내어 부당하게 입금을 재차 요구&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;__정보보안의-기본-3원칙-가용성availability&quot;&gt;__정보보안의 기본 3원칙: 가용성(Availability)&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;가용성(Availability)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;합법적인 사용자가 필요로 하는 시점에 정보나 시스템 서비스가 지체 없이 즉각적으로 제공될 수 있도록 하는 것&lt;/li&gt;
-  &lt;li&gt;예. 인터넷 뱅킹 서비스 가용성
-    &lt;ul&gt;
-      &lt;li&gt;고객이 요청하는 시점에 정상적인 뱅킹 서비스가 이루어져야 함&lt;/li&gt;
-      &lt;li&gt;가용성이 깨질 경우 고객의 금전적 피해 및 인터넷 뱅킹 사업의 손실 초래&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;가용성을 확보하기 위해서는 데이터의 백업, 중복성의 유지, 물리적 위협 요소로부터의 보호 등의 보안기술을 적용&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;가용성을 위협하는 공격&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;서비스 거부(Denial of Service: DoS)
-    &lt;ul&gt;
-      &lt;li&gt;시스템이나 네트워크가 정상적으로 사용되지 못하도록 방해&lt;/li&gt;
-      &lt;li&gt;예) 공격자가 특정 목적지로 향하는 정보(메시지)를 막거나, 과다 전송으로 시스템이나 네트워크를 마비&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;랜섬웨어(Ransomeware)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;__정보보안의-기본-5원칙-인증성authenticity&quot;&gt;__정보보안의 기본 5원칙: 인증성(Authenticity)&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;인증성(Authenticity) or 보증(Assurance)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;진짜라는 성질을 확인할 수 있고, 확인 및 신뢰할 수 있다는 것을 의미한다. 그리고 전송 메시지 출저 유효성에 대한 확신 보장&lt;/li&gt;
-  &lt;li&gt;사용자가 정말 그 사용자인지와 시스템에 도착한 메시지가 정말로 신뢰할 수 있는 출저에서부터 온 것인지를 확인할 수 있는 것을 의미&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;정보보안의-기본-5원칙-인증성authenticity&quot;&gt;&lt;strong&gt;정보보안의 기본 5원칙: 인증성(Authenticity)&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;인증성(Authenticity) or 보증(Assurance)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;진짜라는 성질을 확인할 수 있고, 확인 및 신뢰할 수 있다는 것을 의믜한다. 그리고 전송 메시지 출처 유효성에 대한 확신 보장&lt;/li&gt;
-  &lt;li&gt;사용자가 정말 그 사용자인지와 시스템에 도착한 메시지가 정말로 신뢰할 수 있는 출처에서부터 온 것인지를 확인할 수 있는 것을 의미&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;인증성을 위협하는 공격&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;신분위장
-    &lt;ul&gt;
-      &lt;li&gt;공격자는 다른 사람의 실체로 위장하여 정보를 획득&lt;/li&gt;
-      &lt;li&gt;사용자가 은행에 접속하려고 할 떄, 공격자의 fake 은행 사이트에 접속하도록 유도해서, 사용자의 금융정보(계좌번호, 비밀번호 등)를 탈취&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;__정보보안의-기본-5원칙-책임성accountability&quot;&gt;__정보보안의 기본 5원칙: 책임성(Accountability)&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;책임성(Accountability)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;보안 목적에는 개체의 행동을 유일하게 추적해서 찾아낼 수 있어야 한다는 사항이 포함되어야 한다. 여기에는 부인 방지(메시지의 송수신이나 교환 후, 또는 통신이나 처리가 실행된 후에 그 사실을 사후에 증명함으로써 사실 부인을 방지하는 보안 기술), 억제, 결함분리, 침입탐지예방, 사후복구와 법적인 조치 등이 포함된다&lt;/li&gt;
-  &lt;li&gt;진정으로 안전한 시스템을 만든다는 것은 불가능하기 때문에, 보안 침해에 대한 책임 소재를 추적할 수 있어야만 한다&lt;/li&gt;
-  &lt;li&gt;시스템은 반드시 이들의 활동 상황을 기록하고, 나중에 포렌식 분석을 통해 보안 침해를 추적할 수 있거나 전송과 관련된 분쟁을 해결할 수 있도록 해야한다&lt;/li&gt;
-&lt;/ul&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="systemcloud" />
-      
-
-      
-        <summary type="html">정보보안 기본 3원칙</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
       <title type="html">컴퓨터과학 면접 준비</title>
       <link href="https://lee989898.github.io/ad" rel="alternate" type="text/html" title="컴퓨터과학 면접 준비" />
       <published>2022-03-17T01:06:00+09:00</published>
@@ -2131,6 +2445,234 @@ Hash 함수를 여러 번 통과시키는데 사용 → 이는 Hash 함수를 �
 
       
         <summary type="html">컴퓨터과학 면접 준비</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">정보보안 기본 3원칙</title>
+      <link href="https://lee989898.github.io/sc2-02" rel="alternate" type="text/html" title="정보보안 기본 3원칙" />
+      <published>2022-03-17T01:06:00+09:00</published>
+      <updated>2022-03-17T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc2-02</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc2-02">&lt;h2 id=&quot;정보보안-기본-3원칙&quot;&gt;&lt;strong&gt;정보보안 기본 3원칙&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;정보보안이란&quot;&gt;&lt;strong&gt;정보보안이란?&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;정보보안의 목적&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;정보시스템을 내, 외부에 존재하는 위협으로부터 안전하게 보호&lt;/li&gt;
+  &lt;li&gt;정보가 생성되어 소멸되기까지 그 처리 및 유통의 생명 주기 전반(정보의 수집, 가공, 저장, 검색, 송신, 수신 등)에 정보의
+훼손, 변조, 유출 등을 방지하기 위한 관리적, 기술적 수단을 강구&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;정보보안의 기본 3원칙&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;다음의 3가지 기본 원칙이 보장되어야 정보시스템을 내,외부에 존재하는 위협으로부터 안전하게 보호 가능&lt;/li&gt;
+  &lt;li&gt;기밀성, 무결성, 가용성&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;정보보안의-기본-3원칙-기밀성confidentiality&quot;&gt;&lt;strong&gt;정보보안의 기본 3원칙: 기밀성(Confidentiality)&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;기밀성(Confidentiality)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;오직 인가된 사용자, 인가된 프로세스, 인가된 시스템만이 알 필요성에 근거하여 주어진 정보/시스템에 접근이 허용되어야 한다는 원칙&lt;/li&gt;
+  &lt;li&gt;기밀성은 데이터 처리의 모든 접속점에서 필요한 수준의 비밀 엄수가 강제되도록 하고, 허가받지 않은 정보 유출을 방지하는 것을 보장&lt;/li&gt;
+  &lt;li&gt;이러한 수준의 기밀성은 데이터가 네트워크 내의 시스템과 장비에 보관되어 있을 때나 데이터가 전송될 떄 그리고 데이터가 목적지에 도달한 이후에도 유지되어야 함&lt;/li&gt;
+  &lt;li&gt;기밀성을 보장하기 위한 보안 기술에는 암호화, 접근 제어 등이 있다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;기밀성을 위협하는 공격&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;스누핑(Snooping)
+    &lt;ul&gt;
+      &lt;li&gt;사전적 의미는 “기웃거리다, 캐 묻다”&lt;/li&gt;
+      &lt;li&gt;정보에 대한 비인가 접근 또는 정보의 도청(획득)을 의미&lt;/li&gt;
+      &lt;li&gt;전송 중인 정보를 도청하여 공격자의 이익을 위해 사용하는 것&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;트래픽 분석(Traffic Analysis)
+    &lt;ul&gt;
+      &lt;li&gt;전송 중인 정보(메시지)는 암호화를 통해 내용을 숨길 수 있다&lt;/li&gt;
+      &lt;li&gt;공격자는 IP주소, 라우팅 경로 등을 통해 통신자의 위치와 실체, 정보 전송의 횟수와 길이 등을 통해 정보 내용을 추측할 수 있다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;__정보보안의-기본-3원칙-무결성integrity&quot;&gt;__정보보안의 기본 3원칙: 무결성(Integrity)&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;무결성(Integrity)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;인가 받지 않은 사용자에 의해 정보의 내용이 불법적으로 위변조되지 않도록 보호되어야 하는 성질
+    &lt;ul&gt;
+      &lt;li&gt;네트워크를 통하여 송수신되는 정보의 무결성 볼호&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;무결성 왜곡이 항상 악의적인 행동의 결과로 나타나는 것은 아니다. 전력 차단과 같은 시스템 중단이 정보에 예상치 못한 변형 가능&lt;/li&gt;
+  &lt;li&gt;무결성을 보장하기 위한 보안 기술에는 접근 제어, 메시지 인증 등이 있으며, 정보가 이미 변경되었거나 변경 위험이 있을 때에는 이러한 변경을 탐지하여 복구할 수 있는 침입 탐지, 백업 등의 기술이 필요&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;무결성을 위협하는 공격&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;정보수정(Modification)
+    &lt;ul&gt;
+      &lt;li&gt;공격자는 정보를 가로챈 후, 자신에게 유리하도록 정보를 변경&lt;/li&gt;
+      &lt;li&gt;고객이 은행으로 송긍 메시지를 전송할 때 공격자는 메시지를 가로채어 자신의 계좌로 입금되도록 변경&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;재전송
+    &lt;ul&gt;
+      &lt;li&gt;공격자는 정보(메시지)를 획득한 후, 나중에 그 메시지를 다시 사용&lt;/li&gt;
+      &lt;li&gt;고객이 은행에게 자신의 계좌에서 공격자에게 지불하도록 요청하는 메시지를 전송하고, 은행을 이를 수행할 때,&lt;/li&gt;
+      &lt;li&gt;공격자는 지불요청 메시지를 가로채어 보관한 후, 나중에 다시 지불요청 메시지를 은행으로 보내어 부당하게 입금을 재차 요구&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;__정보보안의-기본-3원칙-가용성availability&quot;&gt;__정보보안의 기본 3원칙: 가용성(Availability)&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;가용성(Availability)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;합법적인 사용자가 필요로 하는 시점에 정보나 시스템 서비스가 지체 없이 즉각적으로 제공될 수 있도록 하는 것&lt;/li&gt;
+  &lt;li&gt;예. 인터넷 뱅킹 서비스 가용성
+    &lt;ul&gt;
+      &lt;li&gt;고객이 요청하는 시점에 정상적인 뱅킹 서비스가 이루어져야 함&lt;/li&gt;
+      &lt;li&gt;가용성이 깨질 경우 고객의 금전적 피해 및 인터넷 뱅킹 사업의 손실 초래&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;가용성을 확보하기 위해서는 데이터의 백업, 중복성의 유지, 물리적 위협 요소로부터의 보호 등의 보안기술을 적용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;가용성을 위협하는 공격&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;서비스 거부(Denial of Service: DoS)
+    &lt;ul&gt;
+      &lt;li&gt;시스템이나 네트워크가 정상적으로 사용되지 못하도록 방해&lt;/li&gt;
+      &lt;li&gt;예) 공격자가 특정 목적지로 향하는 정보(메시지)를 막거나, 과다 전송으로 시스템이나 네트워크를 마비&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;랜섬웨어(Ransomeware)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;__정보보안의-기본-5원칙-인증성authenticity&quot;&gt;__정보보안의 기본 5원칙: 인증성(Authenticity)&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;인증성(Authenticity) or 보증(Assurance)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;진짜라는 성질을 확인할 수 있고, 확인 및 신뢰할 수 있다는 것을 의미한다. 그리고 전송 메시지 출저 유효성에 대한 확신 보장&lt;/li&gt;
+  &lt;li&gt;사용자가 정말 그 사용자인지와 시스템에 도착한 메시지가 정말로 신뢰할 수 있는 출저에서부터 온 것인지를 확인할 수 있는 것을 의미&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;정보보안의-기본-5원칙-인증성authenticity&quot;&gt;&lt;strong&gt;정보보안의 기본 5원칙: 인증성(Authenticity)&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;인증성(Authenticity) or 보증(Assurance)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;진짜라는 성질을 확인할 수 있고, 확인 및 신뢰할 수 있다는 것을 의믜한다. 그리고 전송 메시지 출처 유효성에 대한 확신 보장&lt;/li&gt;
+  &lt;li&gt;사용자가 정말 그 사용자인지와 시스템에 도착한 메시지가 정말로 신뢰할 수 있는 출처에서부터 온 것인지를 확인할 수 있는 것을 의미&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;인증성을 위협하는 공격&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;신분위장
+    &lt;ul&gt;
+      &lt;li&gt;공격자는 다른 사람의 실체로 위장하여 정보를 획득&lt;/li&gt;
+      &lt;li&gt;사용자가 은행에 접속하려고 할 떄, 공격자의 fake 은행 사이트에 접속하도록 유도해서, 사용자의 금융정보(계좌번호, 비밀번호 등)를 탈취&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;__정보보안의-기본-5원칙-책임성accountability&quot;&gt;__정보보안의 기본 5원칙: 책임성(Accountability)&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;책임성(Accountability)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;보안 목적에는 개체의 행동을 유일하게 추적해서 찾아낼 수 있어야 한다는 사항이 포함되어야 한다. 여기에는 부인 방지(메시지의 송수신이나 교환 후, 또는 통신이나 처리가 실행된 후에 그 사실을 사후에 증명함으로써 사실 부인을 방지하는 보안 기술), 억제, 결함분리, 침입탐지예방, 사후복구와 법적인 조치 등이 포함된다&lt;/li&gt;
+  &lt;li&gt;진정으로 안전한 시스템을 만든다는 것은 불가능하기 때문에, 보안 침해에 대한 책임 소재를 추적할 수 있어야만 한다&lt;/li&gt;
+  &lt;li&gt;시스템은 반드시 이들의 활동 상황을 기록하고, 나중에 포렌식 분석을 통해 보안 침해를 추적할 수 있거나 전송과 관련된 분쟁을 해결할 수 있도록 해야한다&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="systemcloud" />
+      
+
+      
+        <summary type="html">정보보안 기본 3원칙</summary>
       
 
       
@@ -3433,111 +3975,6 @@ While 룹을 이용한 것은 거의 명령형 코드로 보이지만, ​함수
 
       
         <summary type="html">FPinPython</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">__IPSEC__</title>
-      <link href="https://lee989898.github.io/sc-21" rel="alternate" type="text/html" title="__IPSEC__" />
-      <published>2021-12-03T01:06:00+09:00</published>
-      <updated>2021-12-03T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/sc-21</id>
-      <content type="html" xml:base="https://lee989898.github.io/sc-21">&lt;h3 id=&quot;ipsec&quot;&gt;&lt;strong&gt;IPSEC&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;IPSEC&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;IP 주소 위장 방지(출발지 인증)​&lt;/li&gt;
-  &lt;li&gt;IP 데이터그램의 변경 및 재전송 방지​&lt;/li&gt;
-  &lt;li&gt;IP 데이터 그램을 위한 기밀성, 무결성 제공​&lt;/li&gt;
-  &lt;li&gt;보안  프로토콜 선택(시스템들이 필요로 하는)​&lt;/li&gt;
-  &lt;li&gt;암호 알고리즘 선택(선택된 프로토콜에서 사용되도록)​&lt;/li&gt;
-  &lt;li&gt;암호키 생성,분배(요청된 서비스의 제공에 필요) ​&lt;/li&gt;
-  &lt;li&gt;Application​
-    &lt;ul&gt;
-      &lt;li&gt;VPN (virtual Private Network): 가상 전용회선​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;IPSEC 구성&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;IPsec AH(인증 헤더) 프로토콜​
-    &lt;ul&gt;
-      &lt;li&gt;데이터 근원 인증,비연결형 무결성 제공 ​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;캡슐화 보안페이로드 (ESP ) – 데이터기밀성, 제한된 트래칙 흐름 기밀성, 비연결형 무결성, 데이터 근원인증, 재전송공격 방지 제공​&lt;/li&gt;
-  &lt;li&gt;IKE 프로토콜 ​
-    &lt;ul&gt;
-      &lt;li&gt;통신당사자간 키관리 프로토콜​&lt;/li&gt;
-      &lt;li&gt;암호알고리즘 선택협상, 키분배 위해 사용​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Transport and Tunnel Modes&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc\sc34.png&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Transport mode​
-    &lt;ul&gt;
-      &lt;li&gt;End to end between hosts​&lt;/li&gt;
-      &lt;li&gt;관련 hosts들이 IPSec을 지원해야​&lt;/li&gt;
-      &lt;li&gt;IP 상위 프로토콜 (TCP, Application) 안전하게 전송​&lt;/li&gt;
-      &lt;li&gt;IP header에 IPSec header정보 추가​&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc\sc35.png&quot; alt=&quot;컴퓨터보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Tunnel mode​
-    &lt;ul&gt;
-      &lt;li&gt;터널내의 모든 IP 트래픽 보호​&lt;/li&gt;
-      &lt;li&gt;터널의 시작,종류 지점에 IPSec gateway​&lt;/li&gt;
-      &lt;li&gt;터널 시작 gateway에서 새 IP header와 Ipsec header 추가하고, 종료 gateway에서 제거​&lt;/li&gt;
-      &lt;li&gt;라우터가 내부 패킷을 검사하지 않음&lt;/li&gt;
-      &lt;li&gt;소스 및 목적지 주소가 다를 수 있음&lt;/li&gt;
-      &lt;li&gt;방화벽에서 구현 가능&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="security" />
-      
-
-      
-        <summary type="html">IPSEC</summary>
       
 
       
