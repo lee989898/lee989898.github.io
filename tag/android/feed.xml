@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/android/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-04-08T10:04:00+09:00</updated>
+  <updated>2022-04-09T09:06:30+09:00</updated>
   <id>https://lee989898.github.io/tag/android/feed.xml</id>
 
   
@@ -30,6 +30,194 @@
   
   
 
+  
+    <entry>
+      <title type="html">1차 세미나</title>
+      <link href="https://lee989898.github.io/ad" rel="alternate" type="text/html" title="1차 세미나" />
+      <published>2022-04-09T01:06:00+09:00</published>
+      <updated>2022-04-09T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/ad</id>
+      <content type="html" xml:base="https://lee989898.github.io/ad">&lt;h2 id=&quot;1차-세미나&quot;&gt;&lt;strong&gt;1차 세미나&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;android-studio&quot;&gt;&lt;strong&gt;Android Studio&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Androidmanifest.xml: 앱에 대한 기본 정보를 정의&lt;/li&gt;
+  &lt;li&gt;java: 프로젝트의 코드가 들어감&lt;/li&gt;
+  &lt;li&gt;res: 안드로이드 각종 자료(이미지, 레이아웃, 문자열 등)을 모아 관리하는 곳&lt;/li&gt;
+  &lt;li&gt;Gradle Scripts: 안드로이드 프로젝트 빌드 방법을 정의하는 곳&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;minSdk란?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;애플리케이션이 실행하는데 필요한 최소 API 레벨&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;성능을 향상시키는 여러가지 획기적인 기술도입이 있었던 버전21(롤리팝)&lt;/li&gt;
+  &lt;li&gt;런타임 퍼미션을 사용하는 버전 23(마시멜로)&lt;/li&gt;
+  &lt;li&gt;개인적으로 개발하는 어플이라면 버전26(오레오) (API 26 이전의 백그라운드 실행방식을 고려하지 않아도 되는 장점이 있음!)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\ad\ad01.png&quot; alt=&quot;안드로이드&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;__view--viewgroup&quot;&gt;__View &amp;amp; ViewGroup&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ViewGroup: Layout. 뷰 그룹은 뷰를 담는 그릇&lt;/li&gt;
+  &lt;li&gt;View: Widget, 사용자 눈에 보이는 화면의 모든 구성요소(Ex)  TextView, Button, EditText)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\ad\ad02.png&quot; alt=&quot;안드로이드&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ViewGroup도 View를 상속받아 만든 class이다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\ad\ad03.png&quot; alt=&quot;안드로이드&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;xml&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;xml의 아이템은 이름과 속성을 가진다&lt;/li&gt;
+  &lt;li&gt;xml은 부모 자식 관계가 있다&lt;/li&gt;
+  &lt;li&gt;layout_width(View의 너비), layout_hegiht(View의 높이)
+    &lt;ul&gt;
+      &lt;li&gt;match_parent: View의 크기를 부모뷰의 크기만큼 설정&lt;/li&gt;
+      &lt;li&gt;wrap_content: View의 크기를 Content 크기만큼 설정&lt;/li&gt;
+      &lt;li&gt;정수 dp: 정수만큼의 고정적인 크기를 Content 크기만큼 설정&lt;/li&gt;
+      &lt;li&gt;0dp: margin값을 제외한 영역 전체 크기를 차지(match_constraint)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;margin: 해당 뷰를 기준으로 다른 뷰로부터 어느정도 떨어질 것인가?&lt;/li&gt;
+  &lt;li&gt;padding: 해당 뷰 내부 Content로부터 얼마나 떨어질 것인가?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;constraint-layout&quot;&gt;&lt;strong&gt;Constraint Layout&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;상대적인 제약을 통해 View/ViewGroup을 배치한다&lt;/li&gt;
+  &lt;li&gt;Widget의 가로/세로 모두가 제약에 걸려야 한다&lt;/li&gt;
+  &lt;li&gt;RelativeLayout에서 확장된 Layout입니다&lt;/li&gt;
+  &lt;li&gt;bias: 한쪽으로 치우치게 하기&lt;/li&gt;
+  &lt;li&gt;만약 왼쪽 12dp 마진을 제외하고 나머지 오른쪽 빈 공간을 꽉 채우고 싶다면 -&amp;gt; layout_width=0dp(=match_constraint) (match_parent와 다르다)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;__activity와-viewbinding&quot;&gt;__Activity와 ViewBinding&lt;/h3&gt;
+
+&lt;p&gt;UI를 그리는 XML + 각 View의 기능과 동작방식을 정의한 코드 = 어플리케이션&lt;/p&gt;
+
+&lt;p&gt;View의 기능과 동작을 정의하는 코드를 Activity 클래스에 작성한다&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Activity란?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;사용자 인터페이스 화면을 구성하는 컴포넌트&lt;/li&gt;
+  &lt;li&gt;앱의 상태변화가 일어날 때마다 생명 주기의 특정 단계에 해당하는 특정 콜백 메서드를 호출함&lt;/li&gt;
+  &lt;li&gt;xml로 작성된 UI를 그리는 창을 제공함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;생명주기&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\ad\ad04.png&quot; alt=&quot;안드로이드&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;생명주기: 컴포넌트가 메모리에 들어가서 소멸되기까지의 과정&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;액티비티 실행전: onCreate() -&amp;gt; onStart() -&amp;gt; onResume()&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;액티비티 종료전: onPause() -&amp;gt; onStop -&amp;gt; onDestroy()&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;onCreate(): Activity의 EntryPoint
+    &lt;ul&gt;
+      &lt;li&gt;onCreate의 경우 반드시 구현되어야 하는 부분으로, Activity를 만들때 단 한번 만 하는 작업을 이곳에서 많이 해준다. 따라서 뷰 초기화나, 리스너 설정 등등을 이 부분에서 하게 되고, 자연스럽게 많은 코드가 onCreate에 작성되곤 한다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;onStart(): 화면이 사용자에게 보여질 떄 호출된다&lt;/li&gt;
+  &lt;li&gt;onResume(): 화면이 사용자와 상호작용하는 시점에 호출된다&lt;/li&gt;
+  &lt;li&gt;onPause(): 팝업이나 다이얼로그로 인해 화면의 일부가 가려졌을 떄 호출된다&lt;/li&gt;
+  &lt;li&gt;onStop(): 화면 전환등으로 Activity가 더이상 사용자에게 보여지지 않을 떄 호출된다&lt;/li&gt;
+  &lt;li&gt;onDestroy(): Activity가 사용자나 시스템에 의해 완전히 종료될 떄 호출된다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;SetContentView()란?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;레이아웃 xml의 내용을 파싱하여 뷰를 생성하고, 뷰에 정의된 속성을 설정하는 함수&lt;/li&gt;
+  &lt;li&gt;우리가 만든 xml의 View를 참조하기 위해선 레이아웃 xml을 메모리에 객체화 시켜야 한다&lt;/li&gt;
+  &lt;li&gt;안드로이드에서는 setContentView()라는 함수를 통해 xml을 객체화 시킨다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ViewBinding이란?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;findViewById()라는 함수는 상당히 무겁다 또한 null값에 상대적으로 안전하지 않다 -&amp;gt; ViewBinding&lt;/li&gt;
+  &lt;li&gt;각 XML 레이아웃 파일마다 Binding 클래스(Binding 클래스의 객체에는 상응하는 레이아웃파일의 ID가 있는 모든 뷰의 직접 참조가 포함된다)를 생성하는 기능 (또 ID가 없는 뷰의 경우 참조가 생기지 않아 안전하다)&lt;/li&gt;
+  &lt;li&gt;사용하려면 build.gradle module에 아래 코드를 추가해야한다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\ad\ad05.png&quot; alt=&quot;안드로이드&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ViewBinding 사용하기&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\ad\ad06.png&quot; alt=&quot;안드로이드&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;intent를-통한-화면전환&quot;&gt;&lt;strong&gt;Intent를 통한 화면전환&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;화면(Activity)의 전환을 담당하는 메시징 객체 Intent&lt;/li&gt;
+  &lt;li&gt;startActivity()에 생성한 Intent 객체를 파리미터 값으로 넣어 호출 (Intent(context, 호출할 액티비티::class.java))&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="android" />
+      
+
+      
+        <summary type="html">1차 세미나</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">안드로이드 면접 준비</title>

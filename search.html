@@ -201,6 +201,15 @@ into the {body} of the default.hbs template -->
 <script>
     window.store = {
     
+    "ad": {
+        "title": "1차 세미나",
+            "author": "lee989898",
+            "category": "",
+            "content": "1차 세미나Android Studio  Androidmanifest.xml: 앱에 대한 기본 정보를 정의  java: 프로젝트의 코드가 들어감  res: 안드로이드 각종 자료(이미지, 레이아웃, 문자열 등)을 모아 관리하는 곳  Gradle Scripts: 안드로이드 프로젝트 빌드 방법을 정의하는 곳  minSdk란?애플리케이션이 실행하는데 필요한 최소 API 레벨  성능을 향상시키는 여러가지 획기적인 기술도입이 있었던 버전21(롤리팝)  런타임 퍼미션을 사용하는 버전 23(마시멜로)  개인적으로 개발하는 어플이라면 버전26(오레오) (API 26 이전의 백그라운드 실행방식을 고려하지 않아도 되는 장점이 있음!)__View &amp; ViewGroup  ViewGroup: Layout. 뷰 그룹은 뷰를 담는 그릇  View: Widget, 사용자 눈에 보이는 화면의 모든 구성요소(Ex)  TextView, Button, EditText)  ViewGroup도 View를 상속받아 만든 class이다  xml  xml의 아이템은 이름과 속성을 가진다  xml은 부모 자식 관계가 있다  layout_width(View의 너비), layout_hegiht(View의 높이)          match_parent: View의 크기를 부모뷰의 크기만큼 설정      wrap_content: View의 크기를 Content 크기만큼 설정      정수 dp: 정수만큼의 고정적인 크기를 Content 크기만큼 설정      0dp: margin값을 제외한 영역 전체 크기를 차지(match_constraint)        margin: 해당 뷰를 기준으로 다른 뷰로부터 어느정도 떨어질 것인가?  padding: 해당 뷰 내부 Content로부터 얼마나 떨어질 것인가?Constraint Layout  상대적인 제약을 통해 View/ViewGroup을 배치한다  Widget의 가로/세로 모두가 제약에 걸려야 한다  RelativeLayout에서 확장된 Layout입니다  bias: 한쪽으로 치우치게 하기  만약 왼쪽 12dp 마진을 제외하고 나머지 오른쪽 빈 공간을 꽉 채우고 싶다면 -&gt; layout_width=0dp(=match_constraint) (match_parent와 다르다)__Activity와 ViewBindingUI를 그리는 XML + 각 View의 기능과 동작방식을 정의한 코드 = 어플리케이션View의 기능과 동작을 정의하는 코드를 Activity 클래스에 작성한다  Activity란?  사용자 인터페이스 화면을 구성하는 컴포넌트  앱의 상태변화가 일어날 때마다 생명 주기의 특정 단계에 해당하는 특정 콜백 메서드를 호출함  xml로 작성된 UI를 그리는 창을 제공함  생명주기      생명주기: 컴포넌트가 메모리에 들어가서 소멸되기까지의 과정    액티비티 실행전: onCreate() -&gt; onStart() -&gt; onResume()      액티비티 종료전: onPause() -&gt; onStop -&gt; onDestroy()    onCreate(): Activity의 EntryPoint          onCreate의 경우 반드시 구현되어야 하는 부분으로, Activity를 만들때 단 한번 만 하는 작업을 이곳에서 많이 해준다. 따라서 뷰 초기화나, 리스너 설정 등등을 이 부분에서 하게 되고, 자연스럽게 많은 코드가 onCreate에 작성되곤 한다        onStart(): 화면이 사용자에게 보여질 떄 호출된다  onResume(): 화면이 사용자와 상호작용하는 시점에 호출된다  onPause(): 팝업이나 다이얼로그로 인해 화면의 일부가 가려졌을 떄 호출된다  onStop(): 화면 전환등으로 Activity가 더이상 사용자에게 보여지지 않을 떄 호출된다  onDestroy(): Activity가 사용자나 시스템에 의해 완전히 종료될 떄 호출된다  SetContentView()란?  레이아웃 xml의 내용을 파싱하여 뷰를 생성하고, 뷰에 정의된 속성을 설정하는 함수  우리가 만든 xml의 View를 참조하기 위해선 레이아웃 xml을 메모리에 객체화 시켜야 한다  안드로이드에서는 setContentView()라는 함수를 통해 xml을 객체화 시킨다  ViewBinding이란?  findViewById()라는 함수는 상당히 무겁다 또한 null값에 상대적으로 안전하지 않다 -&gt; ViewBinding  각 XML 레이아웃 파일마다 Binding 클래스(Binding 클래스의 객체에는 상응하는 레이아웃파일의 ID가 있는 모든 뷰의 직접 참조가 포함된다)를 생성하는 기능 (또 ID가 없는 뷰의 경우 참조가 생기지 않아 안전하다)  사용하려면 build.gradle module에 아래 코드를 추가해야한다  ViewBinding 사용하기Intent를 통한 화면전환  화면(Activity)의 전환을 담당하는 메시징 객체 Intent  startActivity()에 생성한 Intent 객체를 파리미터 값으로 넣어 호출 (Intent(context, 호출할 액티비티::class.java))",
+        "url": "/ad"
+    }
+    ,
+    
     "sc2-04": {
         "title": "Set-UID Privileged Programs",
             "author": "lee989898",
