@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/android/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-04-09T09:06:30+09:00</updated>
+  <updated>2022-04-12T21:53:28+09:00</updated>
   <id>https://lee989898.github.io/tag/android/feed.xml</id>
 
   
@@ -30,6 +30,165 @@
   
   
 
+  
+    <entry>
+      <title type="html">MVVM</title>
+      <link href="https://lee989898.github.io/ad" rel="alternate" type="text/html" title="MVVM" />
+      <published>2022-04-11T01:06:00+09:00</published>
+      <updated>2022-04-11T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/ad</id>
+      <content type="html" xml:base="https://lee989898.github.io/ad">&lt;h2 id=&quot;mvvm&quot;&gt;&lt;strong&gt;MVVM&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;디자인패턴을 쓰는 이유&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;디자인 패턴은 소프트웨어 개발 방법을 문서로 공식화한 것인데, 디자인 패턴이란 한마디로 패턴이다. 기존에 앱을 만들면서 사람들이 여러가지 공법들을 적용해서 문제를 해결해 나갔는데, 이렇게 기존의 많은 개발자들이 쌓아놓은 경험을 통해서 쌓인 정리되어있는 패턴으로 만들면 일정한 규칙에 의해서 문제를 해결해 나가기에 코드의 가독성도 좋아지고 일정한 패턴으로 짜여져있어 테스트도 쉬워지고 타인의 코드를 봐도 이해하는데 쉽다. 또한 유지보수하는데 굉장히 유용하게 된다&lt;/p&gt;
+
+&lt;p&gt;협업을 위해서 어느 위치에 어떤 로직이 들어있나를 미리 정의해 놓으면&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;비슷한 코드를 보고 알아보기 쉬워짐&lt;/li&gt;
+  &lt;li&gt;유지보수가 수월해짐&lt;/li&gt;
+  &lt;li&gt;코드들의 역할분리가 명확해짐 (객체간의 관심사 분리)&lt;/li&gt;
+  &lt;li&gt;의존관계과 분리됨 (변화에 유연함 새로운 기능이나 코드가 좀 바뀌어도 코드가 유지됨)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;아래는 위키피다이의 설명이다&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;소프트웨어 개발 방법에서 사용되는 디자인 패턴은, 프로그램 개발에서 자주 나타나는 과제를 해결하기 위한 방법 중 하나로, 과거의 소프트웨어 개발 과정에서 발견된 설계의 노하우를 축적하여 이름을 붙여, 이후에 재이용하기 좋은 형태로 특정의 규약을 묶어서 정리한 것이다. 알고리즘과 같이 프로그램 코드로 바로 변환될 수 있는 형태는 아니지만, 특정한 상황에서 구조적인 문제를 해결하는 방식을 설명해준다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;처음 개발할때 안드로이드 개발을 하면 스파게티 코드를 짜서 나중에 봤을떄 답도 없었던 기억이 있는데, 간단한 앱에서는 문제가 없을수 있지만 디자인 패턴없이 복잡한 로직의 앱을 만들다보면 수정사항이 있을 떄마다 화면을 구성하는 코드와 비지니스 로직이 들어간 코드를 매번 동시에 수정해야한다. (ex) xml파일이랑 액티비티 파일)
+이 말은 서로간의 의존성이 강하다는 것이다. 의존성이 강해질수록 유지보수가 힘들기에 이러한 의존성을 해결하는 방법으로 model과 view의 관계를 해결하는 mvp, mvvm 같은 여러 패턴을 사용한다&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;MVVM&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;MVVM패턴이란 Model, View, ViewModel의 줄임말이다. 하나의 소프트웨어를 최대한 기능적으로 작은 단위로 나누어 테스트가 쉽고 큰 프로젝트도 상대적으로 관리하기가 좋은 구조이다&lt;/p&gt;
+
+&lt;p&gt;MVVM이 나오게 된 과정&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;처음 스파게티 코드&lt;/li&gt;
+  &lt;li&gt;mvc 스파게티 코드와 다를 바 없다. 안드로이드 특성상 뷰와 컨트롤러 자체가 모두 액티비티, 프래그먼트에 포함되어 있기 때문이다. 컨트롤러가 코틀린 파일이고 view가 xml이 된다. 모델은 따로 분리되어있지만 어차피 코틀린 파일에서 직접호출하여 결합도는 높다&lt;/li&gt;
+  &lt;li&gt;mvp 액티비티/프래그먼트 자체가 뷰이다. 프리젠터는 따로 클래스 자체가 분리된것이다. 뷰는 프리젠터에 일을 시키고 프리젠터는 모델에서 정보를 가져온다. 데이터 프리젠터가 가공해서 뷰에 넘겨준다. (개선점: 뷰량 모델을 완전히 분리하게 됨) (문제점: 프리젠터가 너무 커지고 뷰랑 프리젠터에 양방향 의존성이 생겨 1:1 관계가 만들어져서 재활용이 안된다)&lt;/li&gt;
+  &lt;li&gt;그래서 mvvvm이 나왔다. 뷰는 뷰모델을 알지만 뷰모델은 뷰가 뭔지 모름 어디서 쓰이는지 그걸 느슨하게 데이터 바인딩으로 묶어 놓음, 뷰에 대한 상태 같은 것들을 뷰모델에 박아놓음, 뷰는 뷰모델을 관찰하고 있고 변경점이 생기면 뷰가 알아채서 스스로 갱신하는 것이 mvvm이다. 근데 사실 여기에 바인더라는 레이어가 뷰랑 뷰모델 사이에 숨어있다-&amp;gt; 안드로이드에서는 데이터 바인딩으로 지원한다. 데이터 바인딩을 안쓰면 그건 그냥 mvp로 봐도 무방하다. 그리고 Viewmodel은 aac의 뷰모델이 아니다 -&amp;gt; aac뷰모델은 안드로이드 라이프사이클에 종속되고 사실상 가로뷰 세로뷰 다른뷰라고 봐도 무방하다. 다시 정리하자면 뷰와 모델은 이미 mvp에서 분리되었고 뷰랑 뷰모델을 분리시키는 것이 mvvm의 목표이다 결론은 xml로 다 옮기자&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\ad\ad07.png&quot; alt=&quot;안드로이드&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;기본적인 mvvm구조인데&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;View
+    &lt;ul&gt;
+      &lt;li&gt;사용자에게 보여지는 UI 부분이다&lt;/li&gt;
+      &lt;li&gt;View는 액티비티나 프래그먼트 같은 화면에 표현되는 레이아웃을 정의함&lt;/li&gt;
+      &lt;li&gt;View는 기본적으로 데이터를 보여주기만 해야 해서 비즈니스 로직을 포함하지 않지만 UI 변경과 관련된 일부 로직은 포함될 수 있음
+(안드로이드는 다른 플랫폼과는 다르게 생명주기라는 특수한 순서를 가지고 있기 때문에 이것을 처리하는 것만으로도 View는 상당히 복잡해지기 때문임)&lt;/li&gt;
+      &lt;li&gt;View는 ViewModel을 관찰하고 있다가 상태 변화가 전달되면 화면을 갱신해야함&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;ViewModel
+    &lt;ul&gt;
+      &lt;li&gt;View를 표현하기 위해 만든 View를 위한 Model이다. View를 나타내 주기 위한 Model이자 View를 나타내기 위한 데이터 처리를 하는 부분이다&lt;/li&gt;
+      &lt;li&gt;View와 Model 사이의 매개체 역할음 함&lt;/li&gt;
+      &lt;li&gt;모든 View와 관련된 비즈니스 로직은 이 곳에 들어가게 되며 데이터를 잘 가공해서 View에서 뿌리기 쉬운 Model로 바꾸는 역할을 함&lt;/li&gt;
+      &lt;li&gt;View와 ViewModel은 MVP와는 다르게 1:n의 관계를 가질 수 있으며 여러 개의 프래그먼트가 하나의 ViewModel을 가질 수 있음&lt;/li&gt;
+      &lt;li&gt;ViewModel은 View가 데이터 바인딩 할 수 있는 속성과 명령으로 구성되어 있음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Model
+    &lt;ul&gt;
+      &lt;li&gt;어플리케이션에서 사용되는 데이터와 그 데이터를 처리하는 부분이다&lt;/li&gt;
+      &lt;li&gt;MVC의 Model과 역할은 동일하다&lt;/li&gt;
+      &lt;li&gt;DataModel이라고도 하며 DB, Network, SharedPreference 등 다양한 데이터 소스로부터 필요한 데이터를 준비함&lt;/li&gt;
+      &lt;li&gt;ViewModel에서 데이터를 가져갈 수 있게 데이터를 준비하고 그에 대한 “이벤트”를 보냄&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;동작&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;사용자의 Action들은 View를 통해 들어오게 된다&lt;/li&gt;
+  &lt;li&gt;View에 Action이 들어오면, Command 패턴(실행될 기능을 캡슐화함으로써 주어진 여러 기능을 실행할 수 있는 재사용성이 높은 클래스를 설계하는 패턴)으로 View Model에 Action을 전달합니다&lt;/li&gt;
+  &lt;li&gt;View Model은 Model에게 데이터를 요청한다&lt;/li&gt;
+  &lt;li&gt;Model은 View Model에게 요청받은 데이터를 응답한다&lt;/li&gt;
+  &lt;li&gt;View Model은 응답 받은 데이터를 가공하여 저장한다&lt;/li&gt;
+  &lt;li&gt;View는 View Model과 Data Binding 하여 화면을 나타낸다&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;모든 입력들은 View로  전달되며 ViewModel은 입력에 해당하는 Presentation Logic (말 그대로 보여주기 위한 로직, 화면상의 디자인 구성을 위한 로직, ex) 게시판에서의 표시하기 위한 for문 등의 사용 &amp;lt;-&amp;gt; 비즈니스 로직: 백엔드에서 일어나는 각종 처리를 일컫는 말)을 처리하여 View에 데이터를 전달한다.&lt;br /&gt;
+ViewModel은 View를 따로 참조하지 않기 때문에 독립적으로 ViewModel과 View는 1:n의 관계이다. (자유롭다)&lt;/p&gt;
+
+&lt;p&gt;따라서 View는 자신이 이용할 ViewModel을 선택해 데이터를 바인딩하여 업데이트를 받게 된다
+그 후 Model이 상태 및 데이터가 변경되면 해당하는 ViewModel을 이용하는 View가 자동으로 업데이트 된다&lt;br /&gt;
+마지막으로 ViewModel은 View를 나타내기 위한 Model이자, View의 Presentaition Logic을 처리한다&lt;br /&gt;
+MVP와 마찬가지로 M-V 사이의 의존성이 없고, MVP처럼 V-VM이 1:1 관계가 아닌 독립적이기 때문에 이 둘 사이의 의존성도 없다&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;결론&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;MVVM 패턴은 Command 패턴과 Data Binding 두 가지 패턴을 사용하여 구현된다&lt;br /&gt;
+Command 패턴과 Data Binding을 이용하여 View와 View Model 사이의 의존성을 없앤다&lt;/p&gt;
+
+&lt;p&gt;뷰는 뷰모델을 알지만 뷰모델은 뷰가 뭔지, 어디서 쓰이는지 모른다. 그걸 느슨하게 데이터 바인딩으로 묶어논다&lt;br /&gt;
+뷰에 대한 상태 같은 것들을 뷰모델에 저장한다&lt;br /&gt;
+뷰는 뷰모델을 관찰하고 있고 변경점이 생기면 뷰가 알아채서 스스로 갱신하는 것이 MVVM이다&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;장점&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;각각의 부분은 독립적이기 때문에 모듈화 하여 개발할 수 있다&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;단점&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;View Model의 설계가 쉽지 않다&lt;/li&gt;
+  &lt;li&gt;특정 아키텍처로 개발을 시작하면 다른 아키텍쳐로 변환이 거의 불가능하다 -&amp;gt; 프로젝트를 다시 만드는 수준&lt;/li&gt;
+  &lt;li&gt;프로젝트에 아키텍쳐별 상성있어서 나중에 프로젝트가 안맞다고 꺠닳으면 늦는다 -&amp;gt; 비효율적인 코드 생성&lt;/li&gt;
+  &lt;li&gt;생산속도 엄청나게 느려진다 -&amp;gt; 기능 하나 만들때마다 파일을 엄청 많이 만들어야한다. 레이어 마다 파일들을 만들어야 해서 보일러 플레이트 코드(최소한의 변경으로 여러곳에서 재사용되며, 반복적으로 비슷한 형태를 띄는 코드)가 양산된다&lt;/li&gt;
+&lt;/ol&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="android" />
+      
+
+      
+        <summary type="html">MVVM</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">1차 세미나</title>

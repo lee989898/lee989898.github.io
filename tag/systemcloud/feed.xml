@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/systemcloud/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-04-09T09:06:30+09:00</updated>
+  <updated>2022-04-12T21:53:28+09:00</updated>
   <id>https://lee989898.github.io/tag/systemcloud/feed.xml</id>
 
   
@@ -30,6 +30,210 @@
   
   
 
+  
+    <entry>
+      <title type="html">환경변수와 공격들</title>
+      <link href="https://lee989898.github.io/sc2-05" rel="alternate" type="text/html" title="환경변수와 공격들" />
+      <published>2022-04-11T01:06:00+09:00</published>
+      <updated>2022-04-11T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/sc2-05</id>
+      <content type="html" xml:base="https://lee989898.github.io/sc2-05">&lt;blockquote&gt;
+  &lt;p&gt;Environment Variables&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;동적으로 이름지어진 값의 집합&lt;/li&gt;
+  &lt;li&gt;프로세스가 진행되는 운영 환경의 일부&lt;/li&gt;
+  &lt;li&gt;실행 중인 프로세스가 동작하는 방식에 영향&lt;/li&gt;
+  &lt;li&gt;Unix에 도입되었으며 Microsoft Windows에서도 채택됨&lt;/li&gt;
+  &lt;li&gt;ex) PATH 변수
+    &lt;ul&gt;
+      &lt;li&gt;프로그램이 실행될 때 쉘 프로세스는 환경을 사용한다. 전체 경로가 제공되지 않은 경우 변수를 사용하여 프로그램이 있는 위치를 찾는다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;환경 변수에 접근하는 방법&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;방법 1: 메인 함수에서&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc54.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;방법 2: 전역 변수를 사용하여&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc55.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;프로세스는 어떻게 환경 변수를 얻을까?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;프로세스는 두가지 방법으로 환경 변수를 가져온다&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;fokr() 시스템 호출을 사용하여 새 프로세스가 생성되면 자식 프로세스는 부모 프로세스의 환경 변수를 상속한다&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;프로세스가 자체적으로 새 프로그램을 실행하는 경우 일반적으로 execve 시스템 호출을 사용한다. 이경우 메모리 공간을 덮어쓰고 모든 이전 환경 변수가 사라진다. execve()는 전달하기 위해 특별한 방식으로 호출 될 수 있다&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;execve() 호출 시 환경 변수 전달:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc56.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;execve()와 환경변수&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;프로그램은 새로운 프로그램 /usr/bin/env, 현재 프로세스의 환경 변수를 출력한다&lt;br /&gt;
+새로운 변수 newenv를 3번째로 사용&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc57.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;
+&lt;img src=&quot;\assets\built\images\sc2\sc58.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;환경 변수의 메모리 위치&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc59.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;envp 및 환경은 처음에는 같은 장소를 가리킨다&lt;/li&gt;
+  &lt;li&gt;envp는 내부에서 메인 함수에서 액세스할 수 있다. Environ은 전역 변수&lt;/li&gt;
+  &lt;li&gt;환경 변수에 변경 사항이 있을 때(예: 새로 추가됨), 환경변수의 저장 위치는 힙으로 바뀔 수 있다, 그래서 environ은 변경될 것이다(envp는 바뀌지 않는다)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;셸 변수 및 환경 변수&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;사람들은 종종 쉘 변수와 환경 변수를 똑같다고 착각한다&lt;/li&gt;
+  &lt;li&gt;쉘 변수
+    &lt;ul&gt;
+      &lt;li&gt;쉘에서 사용하는 내부 변수&lt;/li&gt;
+      &lt;li&gt;쉘은 사용자가 쉘을 생성, 할당 및 삭제할 수 있도록 내장 명령을 제공한다&lt;/li&gt;
+      &lt;li&gt;예제에서는 FOO라는 쉘 변수를 생성한다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;쉘 프로그램이 시작될 때 환경 변수를 자체 쉘에 복사합니다. 자체 쉘 변수에 대한 변경 사항은 반영되지 않는다, 아래 그림은 그 예이다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc61.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc60.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;아래 사진은 쉘 변수가 자식 프로세스의 환경 변수에 영향을 미치는 방법을 보여준다&lt;/li&gt;
+  &lt;li&gt;또한 부모 쉘의 환경 변수가 자식 프로세스의 환경 변수가 되는 것을 보여준다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc62.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;쉘 프롬프트에 env를 입력하면 쉘은 자식 프로세스를 생성한다&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc63.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;/proc 파일 시스템에 대한 참고 사항&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;/proc은 Linux의 가상 파일 시스템이다.프로세스 ID를 디렉터리 이름으로 사용 하여 디렉토리를 포함한다&lt;/li&gt;
+  &lt;li&gt;각 프로세스 디렉토리에는 Environ이라는 가상 파일이 포함되어 있다. 프로세스의 환경
+    &lt;ul&gt;
+      &lt;li&gt;예를 들어 가상 파일 /proc/932/environ은 다음과 같은 환경 변수를 포함한다. 프로세스 932&lt;/li&gt;
+      &lt;li&gt;“strings /proc/\(/environ&quot; 명령은 현재 프로세스의 환경변수를 출력한다. (셸은\)를 자체 프로세스 ID로 대체함)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;env 프로그램은 bash 셸에서 호출될 때 자식 프로세스에서 실행된다. 따라서 자기 것이 아닌 쉘의 자식 환경 변수를 출력한다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;환경 변수에 대한 공격&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;환경변수를 숨은 의도로 사용하면 매우 위험하다&lt;/li&gt;
+  &lt;li&gt;사용자가 환경 변수를 설정할 수 있기 때문에 그것들은 Set-UId 프로그램 공격의 일부가 된다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc64.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Dynamic Linker를 통한 공격&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Linking은 프로그램에서 참조하는 외부 라이브러리 코드를 찾는 것이다&lt;/li&gt;
+  &lt;li&gt;링크는 런타임 또는 컴파일 시간 동안 수행할 수 있다
+    &lt;ul&gt;
+      &lt;li&gt;Dynamic Linking: 환경 변수를 사용하며, 공격 surface의 일부가 된다&lt;/li&gt;
+      &lt;li&gt;Static Linking&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;다음 예를 사용하여 정적 및 동적을 구별한다. 연결:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc65.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Static Linking
+    &lt;ul&gt;
+      &lt;li&gt;링커는 프로그램 코드와 라이브러리 코드를 결합한다. printf() 함수를 포함하여&lt;/li&gt;
+      &lt;li&gt;정적 컴파일된 프로그램의 크기가 100배임을 알 수 있다. 동적 프로그램보다 크다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc66.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Dynamic Linking
+    &lt;ul&gt;
+      &lt;li&gt;Linking은 런타임 중에 수행된다
+        &lt;ul&gt;
+          &lt;li&gt;공유 라이브러리(Windows의 DLL)&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;동적 연결로 컴파일된 프로그램이 실행되기 전에 해당 실행 파일이 메모리에 먼저 로드됨&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc67.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;“ldd” 명령을 사용하여 어떤 공유 라이브러리가 의존하는 지 확인할 수 있다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc68.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="systemcloud" />
+      
+
+      
+        <summary type="html">Environment Variables</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">Set-UID Privileged Programs</title>
@@ -323,7 +527,7 @@ sudo chmod 4755 ./prog&lt;/p&gt;
 &lt;p&gt;운영체제에서 실행 중인 프로세스에대해서 접근제어를 적용할대는 EUID를 기준으로 이 프로세스가 현쟈 하고자 하는 오퍼레이션을 허용할지 말지를 결정한다&lt;br /&gt;
 EUID를 기준으로 시스템의 접근제어가 이루어진다&lt;/p&gt;
 
-&lt;p&gt;set-uid를 통해 공격이 들어오기 때문에 Set-UID 비트를 해제한다 . 공격의 예로는 시스템 인풋, 유저 인풋, 환경 변수가 있다&lt;/p&gt;</content>
+&lt;p&gt;set-uid를 통해 공격이 들어오기 때문에 Set-UID 비트를 해제한다. 공격의 예로는 시스템 인풋, 유저 인풋, 환경 변수가 있다&lt;/p&gt;</content>
 
       
       
