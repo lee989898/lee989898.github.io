@@ -1,4 +1,454 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lee989898.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lee989898.github.io/" rel="alternate" type="text/html" /><updated>2022-04-12T21:53:28+09:00</updated><id>https://lee989898.github.io/feed.xml</id><title type="html">LEE</title><subtitle>공부 블로그</subtitle><entry><title type="html">MVVM</title><link href="https://lee989898.github.io/ad" rel="alternate" type="text/html" title="MVVM" /><published>2022-04-11T01:06:00+09:00</published><updated>2022-04-11T01:06:00+09:00</updated><id>https://lee989898.github.io/ad</id><content type="html" xml:base="https://lee989898.github.io/ad">&lt;h2 id=&quot;mvvm&quot;&gt;&lt;strong&gt;MVVM&lt;/strong&gt;&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://lee989898.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lee989898.github.io/" rel="alternate" type="text/html" /><updated>2022-04-13T20:50:24+09:00</updated><id>https://lee989898.github.io/feed.xml</id><title type="html">LEE</title><subtitle>공부 블로그</subtitle><entry><title type="html">2차 세미나</title><link href="https://lee989898.github.io/ad" rel="alternate" type="text/html" title="2차 세미나" /><published>2022-04-13T01:06:00+09:00</published><updated>2022-04-13T01:06:00+09:00</updated><id>https://lee989898.github.io/ad</id><content type="html" xml:base="https://lee989898.github.io/ad">&lt;h2 id=&quot;2차-세미나&quot;&gt;&lt;strong&gt;2차 세미나&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;1차-세미나-확장하기&quot;&gt;&lt;strong&gt;1차 세미나 확장하기&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Activity를 만들 떄 어디에 어떤게 추가될까?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;자동으로 Activity를 만들 떄 android studio가 우리가 만드는 Activity를 manifest파일에 추가해준다&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\ad\ad08.png&quot; alt=&quot;안드로이드&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\ad\ad09.png&quot; alt=&quot;안드로이드&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위와 같은 화면의 전환을 담당하는 메시징 객체 Intent&lt;br /&gt;
+Intent 객체를 이용해 다른 액티비티를 호출하고 화면의 전환을 할 수 있다&lt;/p&gt;
+
+&lt;p&gt;인텐트에는 명시적 인텐트, 암시적 인텐트 2가지 유형이 있다&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;명시적 인텐트: 내가 시작하려는 구성요소가 무엇인지 명시적으로 지정할때 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\ad\ad10.png&quot; alt=&quot;안드로이드&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;암시적 인텐트: 내가 하려는 인텐트의 활동과 데이터를 지정하긴 했는데 호출할 대상이 달라질 수 있는 경우 사용, 쉽게 말하면 어떤 활동과 데이터를 보낼지는 있는데 무엇을 켜야할지 모를때 사용한다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\ad\ad11.png&quot; alt=&quot;안드로이드&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;백스택이란?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;액티비티들은 실행된 순서대로 스택에 차곡차곡 쌓이는데,  이때 이 스택을 백스택이라고 한다&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\ad\ad12.png&quot; alt=&quot;안드로이드&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;startActivity()는 액티비를 호출하는 함수이고, finish()는 액티비티를 (destroy)종료 하는 함수이다&lt;br /&gt;
+startActivity() 함수만 사용해서 Activity를 전환한다면&lt;br /&gt;
+ex) 버튼을 클릭해서 화면 전환시 : 로그인 화면 -&amp;gt; 회원가입 화면 -&amp;gt; 로그인 화면&lt;br /&gt;
+뒤로가기 버튼 클릭시: 앱꺼짐 &amp;lt;- 로그인 화면 &amp;lt;- 회원가입 화면 &amp;lt;- 로그인 화면&lt;/p&gt;
+
+&lt;p&gt;finish() 함수를 사용할 경우: 스택 관리를 통해 화면전환을 관리할 수 있다&lt;br /&gt;
+ex) 버튼을 클릭해서 화면 전환시: 로그인 화면 -&amp;gt; 회원가입 화면, 로그인 화면 &amp;lt;- 회원가입 화면&lt;br /&gt;
+뒤로가기 버튼 클릭시: 업꺼짐 &amp;lt;- 로그인 화면&lt;/p&gt;
+
+&lt;h3 id=&quot;fragment&quot;&gt;&lt;strong&gt;Fragment&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;액태비티 만으로 개발을 한다면 윗 부분은 같은 화면이고 아래 부분만 다른 화면을 만들어야 하면 다른 액티비티에 같은 뷰를 또 만들어야 해서 비효율 적이다&lt;br /&gt;
+중복되는 화면을 처리하고 싶고 다양한 기기에 적용하고 싶을 때 fragment를 이용한다&lt;br /&gt;
+Fragment: fragment UI를 개별적으로 분할할 수 있도록 하여 Acitivty UI에 모듈성과 재사용성을 올려준다&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Fragment의 특징&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Fragment는 자체 레이아웃, 자체 생명주기, 자체 이벤트 처리를 가질 수 있다&lt;/li&gt;
+  &lt;li&gt;여러 Activity에서 하나의 Fragment를 사용해서 UI 표현 가능 -&amp;gt; 재사용성이 뛰어나다&lt;/li&gt;
+  &lt;li&gt;런타임 동안 Acitivty 내에서 Fragment의 추가/교체/삭제 가능&lt;/li&gt;
+  &lt;li&gt;Fragment는 독립적으로 존재할 수 없고, 반드시 Activity나 다른 Fragment에 호스팅 되어야 한다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\ad\ad13.png&quot; alt=&quot;안드로이드&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Fragment의 생명주기&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\ad\ad14.png&quot; alt=&quot;안드로이드&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;onCreate(): Fragment가 생성될 때 호출(UI 초기화는 불가능) (Fragment 생성)&lt;/li&gt;
+  &lt;li&gt;onCreateView(): Fragment의 뷰를 그리는 시점. 뷰 관련된 초기화가 이루어짐(대부분의 코드는 우선 여기서 작성) (뷰 생성)&lt;/li&gt;
+  &lt;li&gt;onViewCreated(): onActivityCreated가 Deprecated되고 추가된 콜백 메소드, View가 만들어지고 난 후이며 이때부터 Fragment가 Activity에 온전히 접근 가능&lt;/li&gt;
+  &lt;li&gt;onDestroyView(): Fragment의 뷰가 소멸되는 시점(Fragment가 소멸되는건 아님) (뷰 소멸)&lt;/li&gt;
+  &lt;li&gt;onDestroy(): Activity 또는 Fragment가 소멸될 때 호출 (Fragment 소멸)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Fragment&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;return inflater.inflate(R.layout.fragment_sample, container, fasle): xml을 메모리에 객체화 시키는 함수, xml 리소스 정보를 해석하여 View를 생성하고 rootView를 리턴한다&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;만약 ViewGroup이 FramLayout이라면 ConstraintLayout으로 바꾸면 된다&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Activity내에서 Fragment를 띄우기 위해서는 xml 파일에 FragmentContainerView를 추가하면 된다&lt;/li&gt;
+  &lt;li&gt;android:name=”com.lee989898.soptlee.SampleFragment”처럼 android:name 속성을 통해 xml상에서 바로 Fragment를 inflate 시킬 수도 있지만 유연하지 못하다&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Activity 레이아웃 내의 Fragment UI 위치를 지정할 때는 FragmentContainerView를 사용하길 권장한다&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Fragment Transaction: 액티비티에서 프래그먼트를 추가,교체,삭제 작업을 수행하기 위해 사용한다
+    &lt;ul&gt;
+      &lt;li&gt;FragmentManager 클래스에 구현되어 있음&lt;/li&gt;
+      &lt;li&gt;수행한 트랜잭션의 상태를 백스택에 저장 가능&lt;/li&gt;
+      &lt;li&gt;Fragment 전환 애니메이션 설정 가능&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;실습&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Fragment Transaction을 이용해서 Fragment를 Acitivty에 추가하고 교체하기&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;SampleActivity.kt&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.lee989898.soptlee&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;androidx.appcompat.app.AppCompatActivity&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.os.Bundle&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.lee989898.soptlee.databinding.ActivitySampleBinding&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SampleActivity&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AppCompatActivity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;companion&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;FIRST_POSITION&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;SECOND_POSITION&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;position&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FIRST_POSITION&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;lateinit&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ActivitySampleBinding&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Bundle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ActivitySampleBinding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;inflate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layoutInflater&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;setContentView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;nf&quot;&gt;initTransactionEvent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initTransactionEvent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;fragment1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SampleFragment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;fragment2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SampleFragment2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;supportFragmentManager&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;beginTransaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fragment_main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fragment1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;commit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;btnFragment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setOnClickListener&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;transaction&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;supportFragmentManager&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;beginTransaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+            &lt;span class=&quot;k&quot;&gt;when&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+                &lt;span class=&quot;nc&quot;&gt;FIRST_POSITION&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fragment_main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fragment2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;position&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SECOND_POSITION&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+                &lt;span class=&quot;nc&quot;&gt;SECOND_POSITION&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fragment_main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fragment1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;position&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FIRST_POSITION&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;commit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;add(): 프래그먼트를 추가&lt;/li&gt;
+  &lt;li&gt;replace(): 이전 프래그먼트를 제거 후 추가(교체)&lt;/li&gt;
+  &lt;li&gt;SupportFragmentManager로 FragmentManage를 호출&lt;/li&gt;
+  &lt;li&gt;beginTransation()을 통해 트랜잭션 작업(추가/교체/삭제)생성&lt;/li&gt;
+  &lt;li&gt;commit()을 통해 작업을 수행&lt;/li&gt;
+  &lt;li&gt;가독성을 위해 상수 값 선언(자바에서 static final과 유사)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Fragment에서 ViewBinding 사용법&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Activiy와 같은 방식으로 만들면 안된다&lt;br /&gt;
+Fragment View(화면)의 생명주기가 Fragment 자제의 생명주기보다 짧기 때문에 View는 죽어도 Fragment 자체는 살아있는 상황이 생길 수 있다&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\ad\ad15.png&quot; alt=&quot;안드로이드&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Fragment를 보유한 Activity가 화면 회전을 할 떄 (화면 회전시 Activity는 OnDestroy()를 호출 했다가 다시 onCreate()를 호출한다)&lt;br /&gt;
+Activity는 onDestroy() 되었지만 그 안에 Fragment인 경우 onDestroyView()까지만 호출되고 onDestroy()가 호출되지 않는다&lt;/p&gt;
+
+&lt;p&gt;Binding은 뷰참조를 하기 위해 생성하는 것인데 Fragment는 살아있고 Fragment의 View가 파괴된다면?&lt;br /&gt;
+만약 Fragment에서 onDestroy()가 호출되지 않고 onDestroyView()만 호출된다면, Fragment는 계속 살아있으니깐 binding 변수에는 다시 onCreateView()가 호출되기 전까지 이미 죽은 View가 계속 참조될 수 있다. 이럴 경우 분명히 죽어야 되는데 죽지않은 좀비 객체가 생기게 된다. 이러한 좀비 객체의 발생은 휴대폰의 메모리 누수를 유발하게 된다&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\ad\ad16.png&quot; alt=&quot;안드로이드&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;구글 공식문서에서는 Property(filed + getter + setter)을 이용해서 해결한다&lt;br /&gt;
+앨비스 연산자를 활용해서 private val binding get() = _binding ?: error(“Binding이 초기화 되지 않았습니다.”)처럼 작성도 가능하다&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\ad\ad17.png&quot; alt=&quot;안드로이드&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;recyclerview&quot;&gt;&lt;strong&gt;RecyclerView&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;RecyclerView: 앱에서의 List를 표현할 떄 사용하는 뷰&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;가로/세로/격자방향을 지원&lt;/li&gt;
+  &lt;li&gt;ItemDecoration을 이용해 동적인 데코레이션 가능&lt;/li&gt;
+  &lt;li&gt;ItemAnimator를 이용해 애니메이션을 넣을 수 있다&lt;/li&gt;
+  &lt;li&gt;이름 그대로 View를 재사용하기 때문에 효율적&lt;/li&gt;
+  &lt;li&gt;ListView보다 유연 -&amp;gt; 커스텀이 편함&lt;/li&gt;
+  &lt;li&gt;ViewHolder 패턴이 강제 되기 때문에 스크롤 시 마다 View를 Create하는게 아닌 재활용을 할 수 있다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\ad\ad18.png&quot; alt=&quot;안드로이드&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;RecylcerView 작업 순서&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;item 하나의 UI를 확인&lt;/li&gt;
+  &lt;li&gt;확인한 하나의 UI Layout 파일 만들기&lt;/li&gt;
+  &lt;li&gt;item data class 만들기&lt;/li&gt;
+  &lt;li&gt;UI의 요소가 들고있는 ViewHolder 만들기&lt;/li&gt;
+  &lt;li&gt;RecyclerView Adapter 만들기&lt;/li&gt;
+  &lt;li&gt;RecyclerView 배치&lt;/li&gt;
+  &lt;li&gt;RecyclerView item 배치 확인하기 (LayoutManager)&lt;/li&gt;
+  &lt;li&gt;RecyclerView Adater 연결하기&lt;/li&gt;
+  &lt;li&gt;Adapter 데이터 갱신하기&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;1.아이템 레이아웃 만들기&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;item_sample_list.xml&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;?&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xml&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.0&quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;encoding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;androidx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;constraintlayout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;widget&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ConstraintLayout&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;xmlns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.android.com/apk/res/android&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;xmlns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.android.com/apk/res-auto&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;xmlns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tools&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.android.com/tools&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;wrap_content&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;paddingVertical&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;10dp&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ImageView&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/iv_profile&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0dp&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0dp&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@drawable/profile&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_constraintBottom_toBottomOf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;parent&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_constraintDimensionRatio&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1:1&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_constraintStart_toStartOf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;parent&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_constraintTop_toTopOf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;parent&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_constraintWidth_percent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0.25&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;/&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;TextView&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/tv_name&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;wrap_content&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;wrap_content&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_marginStart&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;20dp&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;textColor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@color/black&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;textSize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;20sp&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_constraintStart_toEndOf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@id/iv_profile&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_constraintTop_toTopOf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@id/iv_profile&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;tools&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;이름&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;/&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;TextView&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/tv_introduce&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;wrap_content&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;wrap_content&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;textColor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@color/black&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;textSize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;14sp&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_constraintBottom_toBottomOf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;parent&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_constraintStart_toStartOf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@id/tv_name&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_constraintTop_toBottomOf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@id/tv_name&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;tools&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;자기 소개 텍스트 입니다&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;/&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;androidx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;constraintlayout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;widget&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ConstraintLayout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;tools: 레이아웃 편집기 상에서는 preview에 반영되어 나타나지만 컴파일 시에는 앱에 반영되지 않는 속성(미리보기 속성)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2.데이터 클래스 만들기&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;UserData.kt&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.lee989898.soptlee&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;data class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UserData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;introduction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Data ckass: kotlin에서 제공하는 데이터만을 다루는 클래스&lt;br /&gt;
+Data들은 어디다 띄워야 할까? -&amp;gt; ViewHolder가 가지고 있는 View(Item Layout)안에 넣어주면 된다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ViewHolder: RecyclerView의 재활용 되는 Item Layout(View)을 붙잡고 관리하는 역할&lt;br /&gt;
+Adapter에서 전달받은 데이터를 Item Layout에 Bind 시켜주는 역할&lt;br /&gt;
+한 번 ViewHolder가 생성되고 나면 계속해서 재활용 된다&lt;/p&gt;
+
+&lt;p&gt;Adapter: ViewHolder를 생성하고 ItemLayout을 ViewHolder에 넘겨준다&lt;br /&gt;
+리스트로 보여줄 Data를 각 ViewHodelr에 전달해준다&lt;/p&gt;
+
+&lt;p&gt;3.ViewHodelr와 Adapter 만들기&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.lee989898.soptlee&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.view.LayoutInflater&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.view.ViewGroup&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;androidx.recyclerview.widget.RecyclerView&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.lee989898.soptlee.databinding.ItemSampleListBinding&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FollowerAdapter&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;RecyclerView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Adapter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;FollowerAdapter&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;FollowerViewHolder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;userList&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mutableListOf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;UserData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;()&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCreateViewHolder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ViewGroup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;viewType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FollowerViewHolder&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;binding&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;
+            &lt;span class=&quot;nc&quot;&gt;ItemSampleListBinding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;inflate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;LayoutInflater&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FollowerViewHolder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onBindViewHolder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;holder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FollowerViewHolder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;holder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;onBind&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;userList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getItemCount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Int&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;userList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;
+
+
+    &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FollowerViewHolder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ItemSampleListBinding&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;RecyclerView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ViewHolder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onBind&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UserData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tvName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tvIntroduce&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;introduction&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ViewHolder 코드 분석
+    &lt;ul&gt;
+      &lt;li&gt;class FollwerViewHolder에서 Binding 객체를 생성자로 가지게 만들고, RecyclerView.ViewHolder 클래스 상속 이 때 RecyclerView.ViewHodler 클래스로 생성자로 View를 요구하므로, binding.root(root뷰)를 넘겨준다&lt;/li&gt;
+      &lt;li&gt;onBind 함수는 ViewHolder가 가진 View에 Adapter로 부터 전달받은 데이터를 붙여주는 함수(onBindViewHolder 호출 시 실행되는 함수)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Adapter 코드 분석
+    &lt;ul&gt;
+      &lt;li&gt;RecyclerView.Adapter()를 상속 받는다, &amp;lt;&amp;gt;안에 해당 Adapter가 데이터를 전달할 ViewHolder 클래스 작성&lt;/li&gt;
+      &lt;li&gt;getItemCount(): RecyclerView로 보여줄 전체 데이터의 개수 반환&lt;/li&gt;
+      &lt;li&gt;onCreateViewHolder: ViewHolder를 생성하고 ItemLayout의 Binding 객체를 만들어 ViewHodler의 생성자로 넘겨주는 함수
+        &lt;ul&gt;
+          &lt;li&gt;LayoutInflator: xml layout을 코드에서 쓸 수 있도록 하는 과정은 inflate 였다. 이러한 inflate 과정을 통해 뷰를 만들거나 RecylcerView에 ViewHolder에서 뷰를 만들떄 LayoutInflater라는 것을 사용한다. 간단하게 말해서 액티비티, 프래그먼트와 다르게 뷰를 만들어주는 친구의 도움을 받는다고 생각하자&lt;/li&gt;
+          &lt;li&gt;.from(): 이렇게 뷰를 만들어주는 LayoutInflater에는 Context가 필요하다. Context란 간단하게 말해서 앱의 흐름이자 정보를 담는 친구이다. 해당 Context라는 친구가 있어야 우리가 만드는 앱의 리소스에도 접근할 수 있다. 간단히 뷰홀더 안에 우리가 사용할 뷰의 참조할 친구를 전달하기 위해서 어떤 layout에 접근해야할지 앱의 흐름이자 정보를 알아야 한다&lt;/li&gt;
+          &lt;li&gt;parent에는 뷰그룹이라는 친구가 들어온다. 해당 뷰를 보여줄 뷰그룹을 받아서 해당 뷰그룹은 어떤 흐름(Context)에 생성되야 할지 정보를 가지고 있다&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;onBindViewHolder(): 재활용 되는 뷰(ViewHodler의 뷰)가 호출하여 실행되는 함수, ViewHolder와 postion의 데이터를 결합시키는 역할을 하는 함수이다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;4.RecyclerView 배치, RecyclerView item 배치 확인하기 (LayoutManager)&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;?&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xml&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.0&quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;encoding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;androidx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;constraintlayout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;widget&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ConstraintLayout&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;xmlns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.android.com/apk/res/android&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;xmlns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.android.com/apk/res-auto&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;xmlns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tools&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.android.com/tools&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;tools&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;.MainActivity&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;androidx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;recyclerview&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;widget&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;RecyclerView&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/rv_follower&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layoutManager&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;androidx.recyclerview.widget.LinearLayoutManager&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;tools&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;itemCount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;4&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;tools&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;listitem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@layout/item_sample_list&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;/&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;androidx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;constraintlayout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;widget&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ConstraintLayout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;itemCount: Preview상에서 몇개의 아이템을 띄워줄 것인지 결정&lt;/li&gt;
+  &lt;li&gt;listItem: Preview상에서 어떤 listLayout을 리스트에 띄울 지 결정&lt;/li&gt;
+  &lt;li&gt;LayoutManager: Item의 배치 규칙을 관리하는 클래스
+    &lt;ul&gt;
+      &lt;li&gt;LinearLayoutManager: 선형(수평/수직)으로 Item을 보여줄 때 사용&lt;/li&gt;
+      &lt;li&gt;GridLayoutManager: 격자식으로 Item을 보여줄 때 사용 코드 또는 xml 상에서 가로로 몇 칸 보여줄 지 설정가능&lt;/li&gt;
+      &lt;li&gt;StageredGridLayoutManager: 높이가 불규칙한 형태의 격자식 Item 리스트를 보여줄 때 사용&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;5.RecyclerView Adapter 연결하기, Adapter 데이터 갱신하기&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.lee989898.soptlee&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;androidx.appcompat.app.AppCompatActivity&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.os.Bundle&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.lee989898.soptlee.databinding.ActivityMainBinding&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MainActivity&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AppCompatActivity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;lateinit&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;followerAdapter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FollowerAdapter&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;lateinit&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ActivityMainBinding&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Bundle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ActivityMainBinding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;inflate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layoutInflater&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;setContentView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;nf&quot;&gt;initAdapter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initAdapter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;followerAdapter&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FollowerAdapter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rvFollower&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;adapter&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;followerAdapter&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;followerAdapter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;userList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;addAll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+            &lt;span class=&quot;nf&quot;&gt;listOf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+                &lt;span class=&quot;nc&quot;&gt;UserData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;이강민&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;안드로이드 파트장&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+                &lt;span class=&quot;nc&quot;&gt;UserData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;김태현&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;IOS 파트장&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+                &lt;span class=&quot;nc&quot;&gt;UserData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;김두범&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;기획 파트장&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+                &lt;span class=&quot;nc&quot;&gt;UserData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;권혁진&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;웹 파트장&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+                &lt;span class=&quot;nc&quot;&gt;UserData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;채정아&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;서버 파트장&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+                &lt;span class=&quot;nc&quot;&gt;UserData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;박수아&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;디자인 파트장&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;followerAdapter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;notifyDataSetChanged&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;private lateinit var followerAdapter: FollowerAdapter, follwerAdapter = FollowerAdapter() -&amp;gt; Adapter 초기화&lt;/li&gt;
+  &lt;li&gt;followerAdapter = FollowerAdapter(): Adapter와 RecyclerView 연동&lt;/li&gt;
+  &lt;li&gt;followerAdapter.userList.addAll(): Adapter에 List로 보여줄 데이터를 넣어준다&lt;/li&gt;
+  &lt;li&gt;followerAdapter.notifyDataSetChanged(): Adpater에 전체 리스트의 데이터가 갱신되었다고 알려주는 메소드&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>lee989898</name></author><category term="android" /><summary type="html">2차 세미나</summary></entry><entry><title type="html">MVVM</title><link href="https://lee989898.github.io/ad" rel="alternate" type="text/html" title="MVVM" /><published>2022-04-11T01:06:00+09:00</published><updated>2022-04-11T01:06:00+09:00</updated><id>https://lee989898.github.io/ad</id><content type="html" xml:base="https://lee989898.github.io/ad">&lt;h2 id=&quot;mvvm&quot;&gt;&lt;strong&gt;MVVM&lt;/strong&gt;&lt;/h2&gt;
 
 &lt;hr /&gt;
 
@@ -2573,288 +3023,4 @@ null이 필요할 때를 생각해서 사용해야 한다!&lt;/p&gt;
   &lt;li&gt;보안 목적에는 개체의 행동을 유일하게 추적해서 찾아낼 수 있어야 한다는 사항이 포함되어야 한다. 여기에는 부인 방지(메시지의 송수신이나 교환 후, 또는 통신이나 처리가 실행된 후에 그 사실을 사후에 증명함으로써 사실 부인을 방지하는 보안 기술), 억제, 결함분리, 침입탐지예방, 사후복구와 법적인 조치 등이 포함된다&lt;/li&gt;
   &lt;li&gt;진정으로 안전한 시스템을 만든다는 것은 불가능하기 때문에, 보안 침해에 대한 책임 소재를 추적할 수 있어야만 한다&lt;/li&gt;
   &lt;li&gt;시스템은 반드시 이들의 활동 상황을 기록하고, 나중에 포렌식 분석을 통해 보안 침해를 추적할 수 있거나 전송과 관련된 분쟁을 해결할 수 있도록 해야한다&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>lee989898</name></author><category term="systemcloud" /><summary type="html">정보보안 기본 3원칙</summary></entry><entry><title type="html">컴퓨터과학 면접 준비</title><link href="https://lee989898.github.io/ad" rel="alternate" type="text/html" title="컴퓨터과학 면접 준비" /><published>2022-03-17T01:06:00+09:00</published><updated>2022-03-17T01:06:00+09:00</updated><id>https://lee989898.github.io/ad</id><content type="html" xml:base="https://lee989898.github.io/ad">&lt;h2 id=&quot;컴퓨터과학-면접-준비&quot;&gt;&lt;strong&gt;컴퓨터과학 면접 준비&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;1분자기소개&lt;/p&gt;
-
-&lt;p&gt;안녕하십니까 명지대학교 컴퓨터공학과 4학년 이준경입니다.
-일단 면접의 기회를 주셔서 고맙습니다
-제가 솝트에 지원하게 된 이유는&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;인성-질문&quot;&gt;&lt;strong&gt;인성 질문&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;자신의 장점과 단점 3가지&lt;/p&gt;
-
-&lt;p&gt;자신의 단점을 극복했던 방법&lt;/p&gt;
-
-&lt;p&gt;협업 중 갈등상황을 겪었던 경험이 있는지, 어떻게 해소했는지&lt;/p&gt;
-
-&lt;p&gt;팀 내에 자기주장이 강한 사람/사기가 없는 사람 이 있을 때 어떻게 해결할 것인가?&lt;/p&gt;
-
-&lt;p&gt;팀 내에 실력적으로 부족한 팀원이 있을 때 어떻게 할 것인가?&lt;/p&gt;
-
-&lt;p&gt;갈등이 일어나지 않게 하기 위해 노력할 부분은 무엇일까?&lt;/p&gt;
-
-&lt;p&gt;협업할 때 지원자와 가장 안 맞는 유형&lt;/p&gt;
-
-&lt;p&gt;협업에서 가장 중요하다고 생각하는 것&lt;/p&gt;
-
-&lt;p&gt;솝트를 통해서 얻고 싶은 3가지&lt;/p&gt;
-
-&lt;p&gt;친구들 사이에서 지원자는 어떤 친구인가?&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;컴퓨터-과학&quot;&gt;&lt;strong&gt;컴퓨터 과학&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;프레임워크와 라이브러리&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;자동차의 뼈대(프레임워크)가 있고 이 뼈대를 기초로 승용차, suv등의 자동차를 완성한다. 여기에 추가적인 기능인 네비게이션이나
-쿠션, 유리 등(라이브러리)을 가져와 차를 꾸민다.&lt;/p&gt;
-
-&lt;h2 id=&quot;프레임워크-란-&quot;&gt;프레임워크 란 ?&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;기본적인 뼈대가 완성되어 있고, 규칙이 존재하는 개발 환경&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;특징&quot;&gt;특징&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;개발자들이 따라야 할 가이드라인을 가진다.&lt;/li&gt;
-  &lt;li&gt;개발할 수 있는 범위가 정해져 있다.&lt;/li&gt;
-  &lt;li&gt;개발자를 위한 다양한 도구들이 지원된다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;장점&quot;&gt;장점&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;개발 편의성이 오르고 시간을 절약할 수 있다.&lt;/li&gt;
-  &lt;li&gt;오류의 폭을 좁힐 수 있다.&lt;/li&gt;
-  &lt;li&gt;어느 정도의 코드 품질을 보장한다.&lt;/li&gt;
-  &lt;li&gt;유지 보수하기 좋다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;단점&quot;&gt;단점&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;프레임워크의 의존도가 늘어나 개발 능력이 저하될 수 있다.&lt;/li&gt;
-  &lt;li&gt;개발자의 자유도가 떨어진다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;라이브러리-란&quot;&gt;라이브러리 란?&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;개발 시 활용 가능한 도구들을 모아 모듈화한 것&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;라이브러리와-api-차이&quot;&gt;라이브러리와 API 차이&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;라이브러리 : 실제로 “실행이 되는 기능”을 담당하는 단편화된 프로그램&lt;/li&gt;
-  &lt;li&gt;API(Application Programming Interface) : 다른 목적으로 개발된 프로그램/라이브러리 들의 특정 기능을 “호출”하기 위해서 인터페이스를 노출시킨 것&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;프레임워크와-라이브러리-&quot;&gt;프레임워크와 라이브러리 ?&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;프레임워크는 단순히 “라이브러리의 집합”은 아니다!&lt;/li&gt;
-  &lt;li&gt;프레임워크는 개발자들의 “환경”을 제한하는 대신 일정 “환경”을 제공&lt;/li&gt;
-  &lt;li&gt;라이브러리는 내가 원하는 코드를 원할 때 원하는 곳에 가져다 넣을 수 있다. → 즉, “환경”은 없고 의도와 목적만이 존재&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;큐와 스택&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;큐queue&quot;&gt;큐(Queue)&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;FIFO(First In First Out), 즉, 선입선출의 방식으로 동작하며, 프로세스 처리, CPU관리 등에 많이 사용된다.&lt;/li&gt;
-  &lt;li&gt;큐에 자료를 한 개 집어 넣는 동작을 인큐(EnQueue)라고 하며, 큐 안에 있는 자료를 한 개 꺼내는 동작을 디큐(DeQueue)라고 한다.&lt;/li&gt;
-  &lt;li&gt;리스트를 이용한 큐 구현(Linear Queue(선형 큐)) 에서는 디큐로 맨 앞자리를 날렸을 때 남은 부분이 앞으로 한 칸씩 땡겨져 오다 보니 속도 측면에서 단점이 있다.&lt;/li&gt;
-  &lt;li&gt;Linear Queue를 보완하기 위해 Circular Queue(원형 큐)가 등장했고, 이는 디큐로 빼 놓은 자리에 인큐로 넣음으로써 낭비를 막는다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;ex) 버스 또는 택시 등 줄 서기, 롤에서 “큐를 돌린다” 등의 예가 있다.&lt;/p&gt;
-
-&lt;h3 id=&quot;스택stack&quot;&gt;스택(Stack)&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;LIFO(Last In First Out), 즉, 후입선출의 방식으로 동작하며, 문서 작업에서 ctrl+z, 캐시 등에 많이 사용된다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;ex) 쌓여 있는 접시 또는 책 등&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;쿠키, 세션, 캐시&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;HTTP(HyperText Transfer Protocol)은 브라우저 같은 응용 프로그램을 통해 사용자와 서버 사이에 전송하는 프로토콜이며, 이는 연결 상태를 유지하지 않는 비 연결 프로토콜이라는 특징을 가짐&lt;/li&gt;
-  &lt;li&gt;사용자의 요청에 따라 서버에 접속해 응답 데이터를 전송한 뒤 연결을 종료시켜 주다 보니, 매 번 재 연결을 해야 했고, 이러한 단점을 해결하기 위해 쿠키나 세션을 사용한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;쿠키cookie&quot;&gt;쿠키(Cookie)&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;사용자의 브라우저에 저장되기 때문에 서버의 자원을 사용할 수 없고, 사용자의 컴퓨터만 있으면 누구나 쿠키 안에 데이터를 확인할 수 있기 때문에 보안성이 낮다.&lt;/li&gt;
-  &lt;li&gt;Cookie는 인터넷 사용자가 특정 웹서버에 접속할 때, 생성되는 개인 아이디와 비밀번호, 방문한 사이트의 정보를 담은 임시 파일로써, Server가 아닌 Client에 텍스트 파일로 저장되어 다음에 해당 웹서버를 찾을 경우 웹서버에서는 그가 누구인지 어떤 정보를 주로 찾았는지 등을 파악할 때 사용&lt;/li&gt;
-  &lt;li&gt;예를 들어, 검색 키워드 정보나 자동 로그인 유지 정보, 팝업 보지 않기, 쇼핑 카트나 위시 리스트 저장, 특정 웹사이트에 방문한 적이 있는지, 또 접속했다면 얼마나 자주 방문했는지 등에 관한 정보들을 담고 있다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;세션session&quot;&gt;세션(Session)&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;클라이언트와 웹 서버간에 네트워크 연결이 지속적으로 유지되고 있는 상태&lt;/li&gt;
-  &lt;li&gt;서버에 접속하지 않는 이상 데이터를 탈취할 수 어렵기 때문에 중요한 데이터를 저장하는데 주로 사용&lt;/li&gt;
-  &lt;li&gt;세션에 관련된 데이터는 서버에 저장 → 쿠키에 비해 보안성이 높음&lt;/li&gt;
-  &lt;li&gt;웹 브라우저의 캐시에 저장되어 브라우저가 닫히거나 서버에서 삭제 시 사라짐&lt;/li&gt;
-  &lt;li&gt;예를 들어, 로그인 정보 유지에 사용&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;캐시cache&quot;&gt;캐시(Cache)&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;데이터나 값을 미리 복사해 임시로 저장해두는 장소를 의미&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Process vs Thread&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;process&quot;&gt;Process&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;운영체제로부터 자원을 할당받는 작업의 단위&lt;/li&gt;
-  &lt;li&gt;컴퓨터에서 실행 중인 컴퓨터 프로그램&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;thread&quot;&gt;Thread&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;프로세스가 할당받은 자원을 이용하는 실행의 단위&lt;/li&gt;
-  &lt;li&gt;하나의 프로세스가 생성되면 하나의 스레드가 같이 생성 → 메인 스레드&lt;/li&gt;
-  &lt;li&gt;여러 개의 스레드를 가질 수 있음 → 멀티 스레드&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;컨텍스트 스위칭 오버헤드 정도&lt;/li&gt;
-  &lt;li&gt;자원 공유 가능 여부&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;MultiThread 에서 작업할 때 발생하는 문제&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Thread 란? 위에 설명 했듯, 프로그램의 흐름을 말한다.&lt;/li&gt;
-  &lt;li&gt;Multi Thread 란? 프로그램의 흐름이 2개 이상인 것을 말한다. 매우 빠른 시간 간격으로 스위칭 되기 때문에 동시( = concurrent )에 실행되는 것처럼 보인다.&lt;/li&gt;
-  &lt;li&gt;Process Synchronization(프로세스 동기화 = Thread Synchronization) 이란? 서로 간에 영향을 주고 받는 데이터들 간에 데이터의 일관성이 유지될 수 있도록 해주는 것!&lt;/li&gt;
-  &lt;li&gt;MultiThead 실행 방법&lt;br /&gt;
-동시성( Concurrency ) : 멀티 작업을 위해 1개의 코어로 스레드마다 돌아가면서 실행하지만, 너무 빨라 독립적으로 돌아가는 것 처럼 보임&lt;br /&gt;
-병렬성( Parallelism ) : 스레드마다 독립적인 core가 할당되어 독립적인 core에서 작업이 이뤄지는 것을 말함&lt;br /&gt;
-코어 &amp;gt; 쓰레드 → 병렬성 보장&lt;br /&gt;
-코어 &amp;lt; 쓰레드 → 병렬설 보장 x, 동시성 보장을 위해 우선순위를 매겨줌 → 쓰레드 스케쥴링&lt;/li&gt;
-  &lt;li&gt;쓰레드 스케쥴링 방식&lt;br /&gt;
-우선 순위( Priority ) 방식 : 우선 순위가 높은( 1 : 낮음, 10 : 높음 ) 쓰레드가 실행을 더 많이 하도록 스케줄링하는 방법&lt;br /&gt;
-순환 할당( Round-Robin ) 방식 : 시간 할당량을 정해 쓰레드를 정해진 시간 만큼만 실행하는 방법으로, JVM 안에서 이루어 지기 떄문에 개발자가 제어할 수 없음&lt;/li&gt;
-  &lt;li&gt;Multi Thread(Thread 2개)에서 하나의 공통된 값을 가져다 쓰면서 변경해, 그럴 경우 값을 유지하는 방법은?&lt;br /&gt;
-3번에서 얘기한 대로, 동기화를 이용하면 된다. 동기화 방법으로 동기화 메소드와 동기화 블록 방법 등이 있다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Hash 란?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Hash 함수 ? Hash 알고리즘을 구현하여 원본 데이터만 넣으면 Hash 값을 내보내 주는 함수&lt;br /&gt;
-Hash 알고리즘 ? 가변적인 데이터의 길이를 고정적인 데이터 길이로 변환해 주는 알고리즘&lt;/p&gt;
-
-&lt;p&gt;Hash 값의 특징 ?&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Hash 값은 원본으로 되돌릴 수 없음( 계산을 통해 원본을 얻어내기 어렵다 → 원본을 알아낼 수 없게 암호화하는 단방향 암호화에 많이 사용 )&lt;/li&gt;
-  &lt;li&gt;원본 데이터가 같으면 Hash 값도 일정( 정해진 알고리즘을 통해 원본 데이터를 규칙에 맞게 변경하므로 원본 데이터가 같으면 Hash도 같다  )&lt;/li&gt;
-  &lt;li&gt;충돌 가능성이 존재( Hash 값은 정해진 길이(길이는 알고리즘마다 다르게 정해짐)의 값 이기 때문에 원본이 다르다고 무조건 다른 값을 만들 순 없다 → 확률이 적다 )&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Hash 알고리즘의 용도 ?&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;무결성의 확인 ?&lt;br /&gt;
-무결성이란 데이터가 변했는지 변하지 않았는지의 여부&lt;br /&gt;
-Hash 알고리즘을 사용하면 원본이 같으면 같은 Hash 값 나오기 때문에, 원본과 Hash 값을 직접 비교할 수 있다는 장점이 있다.&lt;br /&gt;
-아무리 큰 데이터여도 고정된 길이의 Hash 값으로 바꿀 수 있기 때문에 비교 속다가 빠르다는 장점이 있다.&lt;/li&gt;
-  &lt;li&gt;검색 속도를 높이는 용도로 사용 ?&lt;br /&gt;
-예를 들어, 많은 데이터를 가진 DB에서 “chu”를 찾기 위해선 한 글자씩 찾아야 한다. → 퍼포먼스 떨어짐 → Hash 함수를 통해 DB의 데이터를 고정된 크기의 Hash 값을 가진 공간(Bucket)을 만들어 저장하고 원본에 링크해 놓는 다면, 검색 값인 “chu”를 Hash 함수를 거친 Hash 값으로 bucket과 매칭시킨다면, 바로 링크된 원본을 찾아낼 수 있다. → bucket을 만드는 공간이 소요되지만, 검색이 굉장히 빨라지는 장점이 있다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;질문!&lt;br /&gt;
-Hash 값으로 변경되더라도 하나씩 비교해줘야 하는거 같은데, 왜 빠르지?&lt;br /&gt;
-해시 검색을 위해서는 검색에 효율적인 이진 트리 방식을 사용한다. 이를 사용하기 위해서는 모든 값이 같은 크기의 공간에 담을 수 있는 서로 비교 가능한 숫자여야 하기 때문에 &lt;em&gt;Hash 함수를 통해 정수 값으로 만든 후 이진 트리 형태로 정렬하여 검색에 사용&lt;/em&gt;하는 것.&lt;br /&gt;
-Hash 함수는 Hash 형식에 따라 특정 길이(128비트, 256비트, 512비트 등)로 정해져 있다. 이는 해당 길이 만큼의 정수 값으로 변환 시켜주는 것. 따라서 구조적으로 가변적인 길이의 문자열을 1바이트씩 직접 비교하는 것보다 빠릅니다.&lt;/p&gt;
-
-&lt;p&gt;Hash 함수 사용 시 주의점 ?&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Salt 의 사용?&lt;br /&gt;
-보안 목적으로 사용 시 반드시 사용 → 원본 데이터에 첨가(salt)해서 Hash 알고리즘을 통해 salt를 첨가한 Hash 값을 보낸다.&lt;br /&gt;
-→ 즉, 원본 데이터에 salt를 첨가해 Hash 값을 다르게 만들기 위해 사용한다.&lt;br /&gt;
-→ 왜 다르게 하지? → Hash 값을 통해 원본을 알아낼 수 있는 방법이 있다!? → Brute-Forca Attack( 무작위로 문자열을 대입하는 해킹 방법 ) 으로 가능하며, 이는 Hash 함수에 무작위 값을 넣어 나온 Hash 값을 해킹해 낸 Hash 값과 대조하여 원본을 알아내는 것이다.&lt;br /&gt;
-따라서, 아래와 같은 사항을 따르는게 좋다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;1) Salt를 첨가하여 Hash 값을 다르게 한다.&lt;br /&gt;
-2) Salt의 길이를 허용하는 한 길게 함&lt;br /&gt;
-3) Salt를 안전하게 보관함&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Key stretching 의 사용?&lt;br /&gt;
-Hash 함수를 여러 번 통과시키는데 사용 → 이는 Hash 함수를 거쳐 나온 Hash 값을 다른 Hash 함수에 거치는 작업을 반복함으로써 어렵게 하는 방식이다.&lt;/li&gt;
-  &lt;li&gt;충돌의 회피 ?&lt;br /&gt;
-데이터 저장의 목적으로 사용 시 사용 → 단점인 서로 다른 값 이더라도 Hash 값이 같을 확률이 존재! → 보안에도, 데이터 저장에도 큰 문제!! → 이를 위해 아래와 같은 사항이 추가된다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;1) 리스트로 데이터를 관리하는 Chaining&lt;br /&gt;
-2) 위치를 조정하는 Open Addressing&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;RestFul Api ?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;REpresentational State Transfer, 즉, 서버로 자원을 전달 시, 대표적인 “상태”를 함께 주고 그 상태에 맞는 응답을 서버에서 받는 것을 의미한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;rest-&quot;&gt;REST ?&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;HTTP URI(Uniform Resource Identifier)를 통해 자원(Resource)을 명시하고, HTTP Method(POST, GET, PUT, DELETE)를 통해 해당 자원에 대한 CRUD Operation을 적용하는 방식으로 동작&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;rest-api-&quot;&gt;REST API ?&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;REST 기반으로 서비스 API를 구현한 것&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;http-method&quot;&gt;HTTP Method&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;POST : URI 요청 시 리소스 생성을 위해 설계되었기 때문에 body에 데이터를 담아 보내기 때문에 url에 보이지 않는다. 즉, 정보를 생성하기 위해 만들어짐.&lt;/li&gt;
-  &lt;li&gt;GET : 해당 리소스를 조회하게 설계되었기 때문에, 원하는 값을 url에 보여준다. 즉, 정보를 조회하기 위해 만들어짐.&lt;/li&gt;
-  &lt;li&gt;PUT or PATCH or UPDATE : 해당 리소스를 수정&lt;/li&gt;
-  &lt;li&gt;DELETE : 해당 리소스를 삭제&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>lee989898</name></author><category term="android" /><summary type="html">컴퓨터과학 면접 준비</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>lee989898</name></author><category term="systemcloud" /><summary type="html">정보보안 기본 3원칙</summary></entry></feed>
