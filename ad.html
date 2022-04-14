@@ -11,7 +11,7 @@
 
 
 
-    <title>2차 세미나</title>
+    <title>Data Binding</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -83,18 +83,18 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="2차 세미나" />
-    <meta property="og:description" content="2차 세미나 1차 세미나 확장하기 Activity를 만들 떄 어디에 어떤게 추가될까? 자동으로 Activity를 만들 떄 android studio가 우리가 만드는 Activity를 manifest파일에 추가해준다 위와 같은 화면의 전환을 담당하는 메시징 객체 Intent Intent 객체를 이용해 다른 액티비티를 호출하고 화면의 전환을 할 수 있다 인텐트에는 명시적 인텐트, 암시적 인텐트 2가지 유형이 있다 명시적" />
+    <meta property="og:title" content="Data Binding" />
+    <meta property="og:description" content="findViewById() 함수를 사용할 때마다 Android 시스템은 뷰 계층 구조를 만들고 런타임때 찾아서 사용한다 크기가 큰 안드로이드 앱에는 많은 레이아웃과 수백개의 View가 있다. 그래서 런타임때 뷰 계층 구조를 계속해서 보는 것은 안드로이드 앱의 성능을 감소시킨다 데이터 바인딩을 사용할 떄 레이아웃의 각 View에 대한 참조를 포함하는 바인딩 객체를 만든다 바인딩 객체가 생성되면" />
     <meta property="og:url" content="https://lee989898.github.io/ad" />
     <meta property="og:image" content="https://lee989898.github.io/assets/built/images/android-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2022-04-13T01:06:00+09:00" />
-    <meta property="article:modified_time" content="2022-04-13T01:06:00+09:00" />
+    <meta property="article:published_time" content="2022-04-13T16:07:07+09:00" />
+    <meta property="article:modified_time" content="2022-04-13T16:07:07+09:00" />
     <meta property="article:tag" content="Android" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="2차 세미나" />
-    <meta name="twitter:description" content="2차 세미나 1차 세미나 확장하기 Activity를 만들 떄 어디에 어떤게 추가될까? 자동으로 Activity를 만들 떄 android studio가 우리가 만드는 Activity를 manifest파일에 추가해준다 위와 같은 화면의 전환을 담당하는 메시징 객체 Intent Intent 객체를 이용해 다른 액티비티를 호출하고 화면의 전환을 할 수 있다 인텐트에는 명시적 인텐트, 암시적 인텐트 2가지 유형이 있다 명시적" />
+    <meta name="twitter:title" content="Data Binding" />
+    <meta name="twitter:description" content="findViewById() 함수를 사용할 때마다 Android 시스템은 뷰 계층 구조를 만들고 런타임때 찾아서 사용한다 크기가 큰 안드로이드 앱에는 많은 레이아웃과 수백개의 View가 있다. 그래서 런타임때 뷰 계층 구조를 계속해서 보는 것은 안드로이드 앱의 성능을 감소시킨다 데이터 바인딩을 사용할 떄 레이아웃의 각 View에 대한 참조를 포함하는 바인딩 객체를 만든다 바인딩 객체가 생성되면" />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
     <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/android-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -126,7 +126,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
         "@type": "WebPage",
         "@id": "https://lee989898.github.io/ad"
     },
-    "description": "2차 세미나 1차 세미나 확장하기 Activity를 만들 떄 어디에 어떤게 추가될까? 자동으로 Activity를 만들 떄 android studio가 우리가 만드는 Activity를 manifest파일에 추가해준다 위와 같은 화면의 전환을 담당하는 메시징 객체 Intent Intent 객체를 이용해 다른 액티비티를 호출하고 화면의 전환을 할 수 있다 인텐트에는 명시적 인텐트, 암시적 인텐트 2가지 유형이 있다 명시적"
+    "description": "findViewById() 함수를 사용할 때마다 Android 시스템은 뷰 계층 구조를 만들고 런타임때 찾아서 사용한다 크기가 큰 안드로이드 앱에는 많은 레이아웃과 수백개의 View가 있다. 그래서 런타임때 뷰 계층 구조를 계속해서 보는 것은 안드로이드 앱의 성능을 감소시킨다 데이터 바인딩을 사용할 떄 레이아웃의 각 View에 대한 참조를 포함하는 바인딩 객체를 만든다 바인딩 객체가 생성되면"
 }
     </script>
 
@@ -139,7 +139,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="2차 세미나" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Data Binding" href="/feed.xml" />
 
 
 </head>
@@ -222,7 +222,7 @@ into the {body} of the default.hbs template -->
                         
                     
                 </section>
-                <h1 class="post-full-title">2차 세미나</h1>
+                <h1 class="post-full-title">Data Binding</h1>
             </header>
 
             <!--
@@ -233,457 +233,86 @@ into the {body} of the default.hbs template -->
             -->
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <h2 id="2차-세미나"><strong>2차 세미나</strong></h2>
-
-<hr />
-
-<h3 id="1차-세미나-확장하기"><strong>1차 세미나 확장하기</strong></h3>
-
-<blockquote>
-  <p>Activity를 만들 떄 어디에 어떤게 추가될까?</p>
-</blockquote>
-
-<p>자동으로 Activity를 만들 떄 android studio가 우리가 만드는 Activity를 manifest파일에 추가해준다</p>
-
-<p><img src="\assets\built\images\ad\ad08.png" alt="안드로이드" /></p>
-
-<p><img src="\assets\built\images\ad\ad09.png" alt="안드로이드" /></p>
-
-<p>위와 같은 화면의 전환을 담당하는 메시징 객체 Intent<br />
-Intent 객체를 이용해 다른 액티비티를 호출하고 화면의 전환을 할 수 있다</p>
-
-<p>인텐트에는 명시적 인텐트, 암시적 인텐트 2가지 유형이 있다</p>
-
-<ul>
-  <li>명시적 인텐트: 내가 시작하려는 구성요소가 무엇인지 명시적으로 지정할때 사용</li>
-</ul>
-
-<p><img src="\assets\built\images\ad\ad10.png" alt="안드로이드" /></p>
-
-<ul>
-  <li>암시적 인텐트: 내가 하려는 인텐트의 활동과 데이터를 지정하긴 했는데 호출할 대상이 달라질 수 있는 경우 사용, 쉽게 말하면 어떤 활동과 데이터를 보낼지는 있는데 무엇을 켜야할지 모를때 사용한다</li>
-</ul>
-
-<p><img src="\assets\built\images\ad\ad11.png" alt="안드로이드" /></p>
-
-<blockquote>
-  <p>백스택이란?</p>
-</blockquote>
-
-<p>액티비티들은 실행된 순서대로 스택에 차곡차곡 쌓이는데,  이때 이 스택을 백스택이라고 한다</p>
-
-<p><img src="\assets\built\images\ad\ad12.png" alt="안드로이드" /></p>
-
-<p>startActivity()는 액티비를 호출하는 함수이고, finish()는 액티비티를 (destroy)종료 하는 함수이다<br />
-startActivity() 함수만 사용해서 Activity를 전환한다면<br />
-ex) 버튼을 클릭해서 화면 전환시 : 로그인 화면 -&gt; 회원가입 화면 -&gt; 로그인 화면<br />
-뒤로가기 버튼 클릭시: 앱꺼짐 &lt;- 로그인 화면 &lt;- 회원가입 화면 &lt;- 로그인 화면</p>
-
-<p>finish() 함수를 사용할 경우: 스택 관리를 통해 화면전환을 관리할 수 있다<br />
-ex) 버튼을 클릭해서 화면 전환시: 로그인 화면 -&gt; 회원가입 화면, 로그인 화면 &lt;- 회원가입 화면<br />
-뒤로가기 버튼 클릭시: 업꺼짐 &lt;- 로그인 화면</p>
-
-<h3 id="fragment"><strong>Fragment</strong></h3>
-
-<p>액태비티 만으로 개발을 한다면 윗 부분은 같은 화면이고 아래 부분만 다른 화면을 만들어야 하면 다른 액티비티에 같은 뷰를 또 만들어야 해서 비효율 적이다<br />
-중복되는 화면을 처리하고 싶고 다양한 기기에 적용하고 싶을 때 fragment를 이용한다<br />
-Fragment: fragment UI를 개별적으로 분할할 수 있도록 하여 Acitivty UI에 모듈성과 재사용성을 올려준다</p>
-
-<blockquote>
-  <p>Fragment의 특징</p>
-</blockquote>
-
-<ul>
-  <li>Fragment는 자체 레이아웃, 자체 생명주기, 자체 이벤트 처리를 가질 수 있다</li>
-  <li>여러 Activity에서 하나의 Fragment를 사용해서 UI 표현 가능 -&gt; 재사용성이 뛰어나다</li>
-  <li>런타임 동안 Acitivty 내에서 Fragment의 추가/교체/삭제 가능</li>
-  <li>Fragment는 독립적으로 존재할 수 없고, 반드시 Activity나 다른 Fragment에 호스팅 되어야 한다</li>
-</ul>
-
-<p><img src="\assets\built\images\ad\ad13.png" alt="안드로이드" /></p>
-
-<blockquote>
-  <p>Fragment의 생명주기</p>
-</blockquote>
-
-<p><img src="\assets\built\images\ad\ad14.png" alt="안드로이드" /></p>
-
-<ul>
-  <li>onCreate(): Fragment가 생성될 때 호출(UI 초기화는 불가능) (Fragment 생성)</li>
-  <li>onCreateView(): Fragment의 뷰를 그리는 시점. 뷰 관련된 초기화가 이루어짐(대부분의 코드는 우선 여기서 작성) (뷰 생성)</li>
-  <li>onViewCreated(): onActivityCreated가 Deprecated되고 추가된 콜백 메소드, View가 만들어지고 난 후이며 이때부터 Fragment가 Activity에 온전히 접근 가능</li>
-  <li>onDestroyView(): Fragment의 뷰가 소멸되는 시점(Fragment가 소멸되는건 아님) (뷰 소멸)</li>
-  <li>onDestroy(): Activity 또는 Fragment가 소멸될 때 호출 (Fragment 소멸)</li>
-</ul>
-
-<blockquote>
-  <p>Fragment</p>
-</blockquote>
-
-<ul>
-  <li>return inflater.inflate(R.layout.fragment_sample, container, fasle): xml을 메모리에 객체화 시키는 함수, xml 리소스 정보를 해석하여 View를 생성하고 rootView를 리턴한다</li>
-  <li>
-    <p>만약 ViewGroup이 FramLayout이라면 ConstraintLayout으로 바꾸면 된다</p>
-  </li>
-  <li>Activity내에서 Fragment를 띄우기 위해서는 xml 파일에 FragmentContainerView를 추가하면 된다</li>
-  <li>android:name=”com.lee989898.soptlee.SampleFragment”처럼 android:name 속성을 통해 xml상에서 바로 Fragment를 inflate 시킬 수도 있지만 유연하지 못하다</li>
-  <li>
-    <p>Activity 레이아웃 내의 Fragment UI 위치를 지정할 때는 FragmentContainerView를 사용하길 권장한다</p>
-  </li>
-  <li>Fragment Transaction: 액티비티에서 프래그먼트를 추가,교체,삭제 작업을 수행하기 위해 사용한다
-    <ul>
-      <li>FragmentManager 클래스에 구현되어 있음</li>
-      <li>수행한 트랜잭션의 상태를 백스택에 저장 가능</li>
-      <li>Fragment 전환 애니메이션 설정 가능</li>
-    </ul>
-  </li>
-</ul>
-
-<blockquote>
-  <p>실습</p>
-</blockquote>
-
-<ul>
-  <li>
-    <p>Fragment Transaction을 이용해서 Fragment를 Acitivty에 추가하고 교체하기</p>
-  </li>
-  <li>
-    <p>SampleActivity.kt</p>
-  </li>
-</ul>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="nn">com.lee989898.soptlee</span>
-
-<span class="k">import</span> <span class="nn">androidx.appcompat.app.AppCompatActivity</span>
-<span class="k">import</span> <span class="nn">android.os.Bundle</span>
-<span class="k">import</span> <span class="nn">com.lee989898.soptlee.databinding.ActivitySampleBinding</span>
-
-<span class="kd">class</span> <span class="nc">SampleActivity</span> <span class="p">:</span> <span class="nc">AppCompatActivity</span><span class="p">()</span> <span class="p">{</span>
-
-    <span class="k">companion</span> <span class="k">object</span><span class="p">{</span>
-        <span class="k">const</span> <span class="kd">val</span> <span class="py">FIRST_POSITION</span> <span class="p">=</span> <span class="mi">1</span>
-        <span class="k">const</span> <span class="kd">val</span> <span class="py">SECOND_POSITION</span> <span class="p">=</span> <span class="mi">2</span>
-    <span class="p">}</span>
-
-    <span class="k">private</span> <span class="kd">var</span> <span class="py">position</span> <span class="p">=</span> <span class="nc">FIRST_POSITION</span>
-    <span class="k">private</span> <span class="k">lateinit</span> <span class="kd">var</span> <span class="py">binding</span><span class="p">:</span> <span class="nc">ActivitySampleBinding</span>
-
-    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">:</span> <span class="nc">Bundle</span><span class="p">?)</span> <span class="p">{</span>
-        <span class="k">super</span><span class="p">.</span><span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">)</span>
-        <span class="n">binding</span> <span class="p">=</span> <span class="nc">ActivitySampleBinding</span><span class="p">.</span><span class="nf">inflate</span><span class="p">(</span><span class="n">layoutInflater</span><span class="p">)</span>
-        <span class="nf">setContentView</span><span class="p">(</span><span class="n">binding</span><span class="p">.</span><span class="n">root</span><span class="p">)</span>
-
-        <span class="nf">initTransactionEvent</span><span class="p">()</span>
-
-    <span class="p">}</span>
-
-    <span class="k">private</span> <span class="k">fun</span> <span class="nf">initTransactionEvent</span><span class="p">(){</span>
-        <span class="kd">val</span> <span class="py">fragment1</span> <span class="p">=</span> <span class="nc">SampleFragment</span><span class="p">()</span>
-        <span class="kd">val</span> <span class="py">fragment2</span> <span class="p">=</span> <span class="nc">SampleFragment2</span><span class="p">()</span>
-
-        <span class="n">supportFragmentManager</span><span class="p">.</span><span class="nf">beginTransaction</span><span class="p">().</span><span class="nf">add</span><span class="p">(</span><span class="nc">R</span><span class="p">.</span><span class="n">id</span><span class="p">.</span><span class="n">fragment_main</span><span class="p">,</span> <span class="n">fragment1</span><span class="p">).</span><span class="nf">commit</span><span class="p">()</span>
-
-        <span class="n">binding</span><span class="p">.</span><span class="n">btnFragment</span><span class="p">.</span><span class="nf">setOnClickListener</span> <span class="p">{</span>
-            <span class="kd">val</span> <span class="py">transaction</span> <span class="p">=</span> <span class="n">supportFragmentManager</span><span class="p">.</span><span class="nf">beginTransaction</span><span class="p">()</span>
-
-            <span class="k">when</span><span class="p">(</span><span class="n">position</span><span class="p">){</span>
-                <span class="nc">FIRST_POSITION</span> <span class="p">-&gt;</span> <span class="p">{</span>
-                    <span class="n">transaction</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="nc">R</span><span class="p">.</span><span class="n">id</span><span class="p">.</span><span class="n">fragment_main</span><span class="p">,</span> <span class="n">fragment2</span><span class="p">)</span>
-                    <span class="n">position</span> <span class="p">=</span> <span class="nc">SECOND_POSITION</span>
-                <span class="p">}</span>
-                <span class="nc">SECOND_POSITION</span> <span class="p">-&gt;</span> <span class="p">{</span>
-                    <span class="n">transaction</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="nc">R</span><span class="p">.</span><span class="n">id</span><span class="p">.</span><span class="n">fragment_main</span><span class="p">,</span> <span class="n">fragment1</span><span class="p">)</span>
-                    <span class="n">position</span> <span class="p">=</span> <span class="nc">FIRST_POSITION</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-            <span class="n">transaction</span><span class="p">.</span><span class="nf">commit</span><span class="p">()</span>
-        <span class="p">}</span>
-
-    <span class="p">}</span>
-
-<span class="p">}</span>
-</code></pre></div></div>
-
-<ul>
-  <li>add(): 프래그먼트를 추가</li>
-  <li>replace(): 이전 프래그먼트를 제거 후 추가(교체)</li>
-  <li>SupportFragmentManager로 FragmentManage를 호출</li>
-  <li>beginTransation()을 통해 트랜잭션 작업(추가/교체/삭제)생성</li>
-  <li>commit()을 통해 작업을 수행</li>
-  <li>가독성을 위해 상수 값 선언(자바에서 static final과 유사)</li>
-</ul>
-
-<blockquote>
-  <p>Fragment에서 ViewBinding 사용법</p>
-</blockquote>
-
-<p>Activiy와 같은 방식으로 만들면 안된다<br />
-Fragment View(화면)의 생명주기가 Fragment 자제의 생명주기보다 짧기 때문에 View는 죽어도 Fragment 자체는 살아있는 상황이 생길 수 있다</p>
-
-<p><img src="\assets\built\images\ad\ad15.png" alt="안드로이드" /></p>
-
-<p>Fragment를 보유한 Activity가 화면 회전을 할 떄 (화면 회전시 Activity는 OnDestroy()를 호출 했다가 다시 onCreate()를 호출한다)<br />
-Activity는 onDestroy() 되었지만 그 안에 Fragment인 경우 onDestroyView()까지만 호출되고 onDestroy()가 호출되지 않는다</p>
-
-<p>Binding은 뷰참조를 하기 위해 생성하는 것인데 Fragment는 살아있고 Fragment의 View가 파괴된다면?<br />
-만약 Fragment에서 onDestroy()가 호출되지 않고 onDestroyView()만 호출된다면, Fragment는 계속 살아있으니깐 binding 변수에는 다시 onCreateView()가 호출되기 전까지 이미 죽은 View가 계속 참조될 수 있다. 이럴 경우 분명히 죽어야 되는데 죽지않은 좀비 객체가 생기게 된다. 이러한 좀비 객체의 발생은 휴대폰의 메모리 누수를 유발하게 된다</p>
-
-<p><img src="\assets\built\images\ad\ad16.png" alt="안드로이드" /></p>
-
-<p>구글 공식문서에서는 Property(filed + getter + setter)을 이용해서 해결한다<br />
-앨비스 연산자를 활용해서 private val binding get() = _binding ?: error(“Binding이 초기화 되지 않았습니다.”)처럼 작성도 가능하다</p>
-
-<p><img src="\assets\built\images\ad\ad17.png" alt="안드로이드" /></p>
-
-<h3 id="recyclerview"><strong>RecyclerView</strong></h3>
-
-<p>RecyclerView: 앱에서의 List를 표현할 떄 사용하는 뷰</p>
-
-<ul>
-  <li>가로/세로/격자방향을 지원</li>
-  <li>ItemDecoration을 이용해 동적인 데코레이션 가능</li>
-  <li>ItemAnimator를 이용해 애니메이션을 넣을 수 있다</li>
-  <li>이름 그대로 View를 재사용하기 때문에 효율적</li>
-  <li>ListView보다 유연 -&gt; 커스텀이 편함</li>
-  <li>ViewHolder 패턴이 강제 되기 때문에 스크롤 시 마다 View를 Create하는게 아닌 재활용을 할 수 있다</li>
-</ul>
-
-<p><img src="\assets\built\images\ad\ad18.png" alt="안드로이드" /></p>
-
-<p>RecylcerView 작업 순서</p>
-
-<ul>
-  <li>item 하나의 UI를 확인</li>
-  <li>확인한 하나의 UI Layout 파일 만들기</li>
-  <li>item data class 만들기</li>
-  <li>UI의 요소가 들고있는 ViewHolder 만들기</li>
-  <li>RecyclerView Adapter 만들기</li>
-  <li>RecyclerView 배치</li>
-  <li>RecyclerView item 배치 확인하기 (LayoutManager)</li>
-  <li>RecyclerView Adater 연결하기</li>
-  <li>Adapter 데이터 갱신하기</li>
-</ul>
-
-<p>1.아이템 레이아웃 만들기</p>
-
-<ul>
-  <li>item_sample_list.xml</li>
-</ul>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&lt;?</span><span class="n">xml</span> <span class="n">version</span><span class="p">=</span><span class="s">"1.0"</span> <span class="n">encoding</span><span class="p">=</span><span class="s">"utf-8"</span><span class="p">?&gt;</span>
-<span class="p">&lt;</span><span class="n">androidx</span><span class="p">.</span><span class="n">constraintlayout</span><span class="p">.</span><span class="n">widget</span><span class="p">.</span><span class="nc">ConstraintLayout</span> <span class="n">xmlns</span><span class="p">:</span><span class="n">android</span><span class="p">=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
-    <span class="n">xmlns</span><span class="p">:</span><span class="n">app</span><span class="p">=</span><span class="s">"http://schemas.android.com/apk/res-auto"</span>
-    <span class="n">xmlns</span><span class="p">:</span><span class="n">tools</span><span class="p">=</span><span class="s">"http://schemas.android.com/tools"</span>
-    <span class="n">android</span><span class="p">:</span><span class="n">layout_width</span><span class="p">=</span><span class="s">"match_parent"</span>
-    <span class="n">android</span><span class="p">:</span><span class="n">layout_height</span><span class="p">=</span><span class="s">"wrap_content"</span>
-    <span class="n">android</span><span class="p">:</span><span class="n">paddingVertical</span><span class="p">=</span><span class="s">"10dp"</span><span class="p">&gt;</span>
-
-    <span class="p">&lt;</span><span class="nc">ImageView</span>
-        <span class="n">android</span><span class="p">:</span><span class="n">id</span><span class="p">=</span><span class="s">"@+id/iv_profile"</span>
-        <span class="n">android</span><span class="p">:</span><span class="n">layout_width</span><span class="p">=</span><span class="s">"0dp"</span>
-        <span class="n">android</span><span class="p">:</span><span class="n">layout_height</span><span class="p">=</span><span class="s">"0dp"</span>
-        <span class="n">android</span><span class="p">:</span><span class="n">src</span><span class="p">=</span><span class="s">"@drawable/profile"</span>
-        <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintBottom_toBottomOf</span><span class="p">=</span><span class="s">"parent"</span>
-        <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintDimensionRatio</span><span class="p">=</span><span class="s">"1:1"</span>
-        <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintStart_toStartOf</span><span class="p">=</span><span class="s">"parent"</span>
-        <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintTop_toTopOf</span><span class="p">=</span><span class="s">"parent"</span>
-        <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintWidth_percent</span><span class="p">=</span><span class="s">"0.25"</span> <span class="p">/&gt;</span>
-
-    <span class="p">&lt;</span><span class="nc">TextView</span>
-        <span class="n">android</span><span class="p">:</span><span class="n">id</span><span class="p">=</span><span class="s">"@+id/tv_name"</span>
-        <span class="n">android</span><span class="p">:</span><span class="n">layout_width</span><span class="p">=</span><span class="s">"wrap_content"</span>
-        <span class="n">android</span><span class="p">:</span><span class="n">layout_height</span><span class="p">=</span><span class="s">"wrap_content"</span>
-        <span class="n">android</span><span class="p">:</span><span class="n">layout_marginStart</span><span class="p">=</span><span class="s">"20dp"</span>
-        <span class="n">android</span><span class="p">:</span><span class="n">textColor</span><span class="p">=</span><span class="s">"@color/black"</span>
-        <span class="n">android</span><span class="p">:</span><span class="n">textSize</span><span class="p">=</span><span class="s">"20sp"</span>
-        <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintStart_toEndOf</span><span class="p">=</span><span class="s">"@id/iv_profile"</span>
-        <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintTop_toTopOf</span><span class="p">=</span><span class="s">"@id/iv_profile"</span>
-        <span class="n">tools</span><span class="p">:</span><span class="n">text</span><span class="p">=</span><span class="s">"이름"</span> <span class="p">/&gt;</span>
-
-    <span class="p">&lt;</span><span class="nc">TextView</span>
-        <span class="n">android</span><span class="p">:</span><span class="n">id</span><span class="p">=</span><span class="s">"@+id/tv_introduce"</span>
-        <span class="n">android</span><span class="p">:</span><span class="n">layout_width</span><span class="p">=</span><span class="s">"wrap_content"</span>
-        <span class="n">android</span><span class="p">:</span><span class="n">layout_height</span><span class="p">=</span><span class="s">"wrap_content"</span>
-        <span class="n">android</span><span class="p">:</span><span class="n">textColor</span><span class="p">=</span><span class="s">"@color/black"</span>
-        <span class="n">android</span><span class="p">:</span><span class="n">textSize</span><span class="p">=</span><span class="s">"14sp"</span>
-        <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintBottom_toBottomOf</span><span class="p">=</span><span class="s">"parent"</span>
-        <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintStart_toStartOf</span><span class="p">=</span><span class="s">"@id/tv_name"</span>
-        <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintTop_toBottomOf</span><span class="p">=</span><span class="s">"@id/tv_name"</span>
-        <span class="n">tools</span><span class="p">:</span><span class="n">text</span><span class="p">=</span><span class="s">"자기 소개 텍스트 입니다"</span> <span class="p">/&gt;</span>
-
-<span class="p">&lt;/</span><span class="n">androidx</span><span class="p">.</span><span class="n">constraintlayout</span><span class="p">.</span><span class="n">widget</span><span class="p">.</span><span class="nc">ConstraintLayout</span><span class="p">&gt;</span>
-</code></pre></div></div>
-
-<ul>
-  <li>tools: 레이아웃 편집기 상에서는 preview에 반영되어 나타나지만 컴파일 시에는 앱에 반영되지 않는 속성(미리보기 속성)</li>
-</ul>
-
-<p>2.데이터 클래스 만들기</p>
-
-<ul>
-  <li>UserData.kt</li>
-</ul>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="nn">com.lee989898.soptlee</span>
-
-<span class="kd">data class</span> <span class="nc">UserData</span><span class="p">(</span>
-    <span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span>
-    <span class="kd">val</span> <span class="py">introduction</span><span class="p">:</span> <span class="nc">String</span>
-<span class="p">)</span>
-</code></pre></div></div>
-
-<ul>
-  <li>Data ckass: kotlin에서 제공하는 데이터만을 다루는 클래스<br />
-Data들은 어디다 띄워야 할까? -&gt; ViewHolder가 가지고 있는 View(Item Layout)안에 넣어주면 된다</li>
-</ul>
-
-<p>ViewHolder: RecyclerView의 재활용 되는 Item Layout(View)을 붙잡고 관리하는 역할<br />
-Adapter에서 전달받은 데이터를 Item Layout에 Bind 시켜주는 역할<br />
-한 번 ViewHolder가 생성되고 나면 계속해서 재활용 된다</p>
-
-<p>Adapter: ViewHolder를 생성하고 ItemLayout을 ViewHolder에 넘겨준다<br />
-리스트로 보여줄 Data를 각 ViewHodelr에 전달해준다</p>
-
-<p>3.ViewHodelr와 Adapter 만들기</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="nn">com.lee989898.soptlee</span>
-
-<span class="k">import</span> <span class="nn">android.view.LayoutInflater</span>
-<span class="k">import</span> <span class="nn">android.view.ViewGroup</span>
-<span class="k">import</span> <span class="nn">androidx.recyclerview.widget.RecyclerView</span>
-<span class="k">import</span> <span class="nn">com.lee989898.soptlee.databinding.ItemSampleListBinding</span>
-
-<span class="kd">class</span> <span class="nc">FollowerAdapter</span> <span class="p">:</span> <span class="nc">RecyclerView</span><span class="p">.</span><span class="nc">Adapter</span><span class="p">&lt;</span><span class="nc">FollowerAdapter</span><span class="err">.</span><span class="nc">FollowerViewHolder</span><span class="p">&gt;()</span> <span class="p">{</span>
-
-    <span class="k">private</span> <span class="kd">val</span> <span class="py">userList</span> <span class="p">=</span> <span class="n">mutableListOf</span><span class="p">&lt;</span><span class="nc">UserData</span><span class="p">&gt;()</span>
-
-    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onCreateViewHolder</span><span class="p">(</span><span class="n">parent</span><span class="p">:</span> <span class="nc">ViewGroup</span><span class="p">,</span> <span class="n">viewType</span><span class="p">:</span> <span class="nc">Int</span><span class="p">):</span> <span class="nc">FollowerViewHolder</span> <span class="p">{</span>
-        <span class="kd">val</span> <span class="py">binding</span> <span class="p">=</span>
-            <span class="nc">ItemSampleListBinding</span><span class="p">.</span><span class="nf">inflate</span><span class="p">(</span><span class="nc">LayoutInflater</span><span class="p">.</span><span class="nf">from</span><span class="p">(</span><span class="n">parent</span><span class="p">.</span><span class="n">context</span><span class="p">),</span> <span class="n">parent</span><span class="p">,</span> <span class="k">false</span><span class="p">)</span>
-        <span class="k">return</span> <span class="nc">FollowerViewHolder</span><span class="p">(</span><span class="n">binding</span><span class="p">)</span>
-    <span class="p">}</span>
-
-    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onBindViewHolder</span><span class="p">(</span><span class="n">holder</span><span class="p">:</span> <span class="nc">FollowerViewHolder</span><span class="p">,</span> <span class="n">position</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">holder</span><span class="p">.</span><span class="nf">onBind</span><span class="p">(</span><span class="n">userList</span><span class="p">[</span><span class="n">position</span><span class="p">])</span>
-    <span class="p">}</span>
-
-    <span class="k">override</span> <span class="k">fun</span> <span class="nf">getItemCount</span><span class="p">():</span> <span class="nc">Int</span> <span class="p">=</span> <span class="n">userList</span><span class="p">.</span><span class="n">size</span>
-
-
-    <span class="kd">class</span> <span class="nc">FollowerViewHolder</span><span class="p">(</span>
-        <span class="k">private</span> <span class="kd">val</span> <span class="py">binding</span><span class="p">:</span> <span class="nc">ItemSampleListBinding</span>
-    <span class="p">)</span> <span class="p">:</span> <span class="nc">RecyclerView</span><span class="p">.</span><span class="nc">ViewHolder</span><span class="p">(</span><span class="n">binding</span><span class="p">.</span><span class="n">root</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">fun</span> <span class="nf">onBind</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nc">UserData</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">binding</span><span class="p">.</span><span class="n">tvName</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">data</span><span class="p">.</span><span class="n">name</span>
-            <span class="n">binding</span><span class="p">.</span><span class="n">tvIntroduce</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">data</span><span class="p">.</span><span class="n">introduction</span>
-        <span class="p">}</span>
+                    <p>findViewById() 함수를 사용할 때마다 Android 시스템은 뷰 계층 구조를 만들고 런타임때 찾아서 사용한다<br />
+크기가 큰 안드로이드 앱에는 많은 레이아웃과 수백개의 View가 있다. 그래서 런타임때 뷰 계층 구조를 계속해서 보는 것은 안드로이드 앱의 성능을 감소시킨다</p>
+
+<p>데이터 바인딩을 사용할 떄 레이아웃의 각 View에 대한 참조를 포함하는 바인딩 객체를 만든다<br />
+바인딩 객체가 생성되면 앱의 모든 구성 요소가 View에 액세스 할 수 있다. 그러면 안드로이드 시스템은 뷰 게층 구조를 반복해서 탐색할 필요가 없어진다. 결과적으로 데이터 바인딩은 앱의 성능을 크게 향상시킨다<br />
+또한 findViewById() 함수를 대체하여 코드를 간결하고 읽기 쉽고 유지 관라하기 쉽게 만든다<br />
+그리고 데이터 바인딩 객체 생성은 컴파일 때 하여 오류가 있는 경우 컴파일 하는 동안 인식한다. 그래서 View 관련된 사용자가 앱과 상호 작용할 때 같은 런타임에서의 에러가 발생하지 않는다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 데이터 바인딩 활성화</span>
+<span class="c1">// build.gradle</span>
+<span class="nf">android</span> <span class="p">{</span>
+    
+    <span class="o">..</span><span class="p">.</span>
+
+    <span class="nf">dataBinding</span><span class="p">{</span>
+        <span class="n">enabled</span> <span class="p">=</span> <span class="k">true</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
-<ul>
-  <li>ViewHolder 코드 분석
-    <ul>
-      <li>class FollwerViewHolder에서 Binding 객체를 생성자로 가지게 만들고, RecyclerView.ViewHolder 클래스 상속 이 때 RecyclerView.ViewHodler 클래스로 생성자로 View를 요구하므로, binding.root(root뷰)를 넘겨준다</li>
-      <li>onBind 함수는 ViewHolder가 가진 View에 Adapter로 부터 전달받은 데이터를 붙여주는 함수(onBindViewHolder 호출 시 실행되는 함수)</li>
-    </ul>
-  </li>
-  <li>Adapter 코드 분석
-    <ul>
-      <li>RecyclerView.Adapter()를 상속 받는다, &lt;&gt;안에 해당 Adapter가 데이터를 전달할 ViewHolder 클래스 작성</li>
-      <li>getItemCount(): RecyclerView로 보여줄 전체 데이터의 개수 반환</li>
-      <li>onCreateViewHolder: ViewHolder를 생성하고 ItemLayout의 Binding 객체를 만들어 ViewHodler의 생성자로 넘겨주는 함수
-        <ul>
-          <li>LayoutInflator: xml layout을 코드에서 쓸 수 있도록 하는 과정은 inflate 였다. 이러한 inflate 과정을 통해 뷰를 만들거나 RecylcerView에 ViewHolder에서 뷰를 만들떄 LayoutInflater라는 것을 사용한다. 간단하게 말해서 액티비티, 프래그먼트와 다르게 뷰를 만들어주는 친구의 도움을 받는다고 생각하자</li>
-          <li>.from(): 이렇게 뷰를 만들어주는 LayoutInflater에는 Context가 필요하다. Context란 간단하게 말해서 앱의 흐름이자 정보를 담는 친구이다. 해당 Context라는 친구가 있어야 우리가 만드는 앱의 리소스에도 접근할 수 있다. 간단히 뷰홀더 안에 우리가 사용할 뷰의 참조할 친구를 전달하기 위해서 어떤 layout에 접근해야할지 앱의 흐름이자 정보를 알아야 한다</li>
-          <li>parent에는 뷰그룹이라는 친구가 들어온다. 해당 뷰를 보여줄 뷰그룹을 받아서 해당 뷰그룹은 어떤 흐름(Context)에 생성되야 할지 정보를 가지고 있다</li>
-        </ul>
-      </li>
-      <li>onBindViewHolder(): 재활용 되는 뷰(ViewHodler의 뷰)가 호출하여 실행되는 함수, ViewHolder와 postion의 데이터를 결합시키는 역할을 하는 함수이다</li>
-    </ul>
-  </li>
-</ul>
+<p>바인딩을 생성하려면 xml파일을 layout 태그로 감싸줘야 한다<br />
+안드로이드에서 레이아웃의 네임스페이스 선언은 가장 바깥쪽 태그에 있어야 한다</p>
 
-<p>4.RecyclerView 배치, RecyclerView item 배치 확인하기 (LayoutManager)</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&lt;?</span><span class="n">xml</span> <span class="n">version</span><span class="p">=</span><span class="s">"1.0"</span> <span class="n">encoding</span><span class="p">=</span><span class="s">"utf-8"</span><span class="p">?&gt;</span>
-<span class="p">&lt;</span><span class="n">androidx</span><span class="p">.</span><span class="n">constraintlayout</span><span class="p">.</span><span class="n">widget</span><span class="p">.</span><span class="nc">ConstraintLayout</span> <span class="n">xmlns</span><span class="p">:</span><span class="n">android</span><span class="p">=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// activity_main.xml</span>
+<span class="p">&lt;?</span><span class="n">xml</span> <span class="n">version</span><span class="p">=</span><span class="s">"1.0"</span> <span class="n">encoding</span><span class="p">=</span><span class="s">"utf-8"</span><span class="p">?&gt;</span>
+<span class="p">&lt;</span><span class="n">layout</span> <span class="n">xmlns</span><span class="p">:</span><span class="n">android</span><span class="p">=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
     <span class="n">xmlns</span><span class="p">:</span><span class="n">app</span><span class="p">=</span><span class="s">"http://schemas.android.com/apk/res-auto"</span>
-    <span class="n">xmlns</span><span class="p">:</span><span class="n">tools</span><span class="p">=</span><span class="s">"http://schemas.android.com/tools"</span>
-    <span class="n">android</span><span class="p">:</span><span class="n">layout_width</span><span class="p">=</span><span class="s">"match_parent"</span>
-    <span class="n">android</span><span class="p">:</span><span class="n">layout_height</span><span class="p">=</span><span class="s">"match_parent"</span>
-    <span class="n">tools</span><span class="p">:</span><span class="n">context</span><span class="p">=</span><span class="s">".MainActivity"</span><span class="p">&gt;</span>
-
-    <span class="p">&lt;</span><span class="n">androidx</span><span class="p">.</span><span class="n">recyclerview</span><span class="p">.</span><span class="n">widget</span><span class="p">.</span><span class="nc">RecyclerView</span>
-        <span class="n">android</span><span class="p">:</span><span class="n">id</span><span class="p">=</span><span class="s">"@+id/rv_follower"</span>
-        <span class="n">app</span><span class="p">:</span><span class="n">layoutManager</span><span class="p">=</span><span class="s">"androidx.recyclerview.widget.LinearLayoutManager"</span>
-        <span class="n">tools</span><span class="p">:</span><span class="n">itemCount</span><span class="p">=</span><span class="s">"4"</span>
-        <span class="n">tools</span><span class="p">:</span><span class="n">listitem</span><span class="p">=</span><span class="s">"@layout/item_sample_list"</span>
+    <span class="n">xmlns</span><span class="p">:</span><span class="n">tools</span><span class="p">=</span><span class="s">"http://schemas.android.com/tools"</span><span class="p">&gt;</span>
+    
+    <span class="p">&lt;</span><span class="n">androidx</span><span class="p">.</span><span class="n">constraintlayout</span><span class="p">.</span><span class="n">widget</span><span class="p">.</span><span class="nc">ConstraintLayout</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">id</span><span class="p">=</span><span class="s">"@+id/name_text"</span>
         <span class="n">android</span><span class="p">:</span><span class="n">layout_width</span><span class="p">=</span><span class="s">"match_parent"</span>
-        <span class="n">android</span><span class="p">:</span><span class="n">layout_height</span><span class="p">=</span><span class="s">"match_parent"</span><span class="p">/&gt;</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">layout_height</span><span class="p">=</span><span class="s">"match_parent"</span>
+        <span class="n">tools</span><span class="p">:</span><span class="n">context</span><span class="p">=</span><span class="s">".MainActivity"</span><span class="p">&gt;</span>
 
-<span class="p">&lt;/</span><span class="n">androidx</span><span class="p">.</span><span class="n">constraintlayout</span><span class="p">.</span><span class="n">widget</span><span class="p">.</span><span class="nc">ConstraintLayout</span><span class="p">&gt;</span>
+        <span class="o">..</span><span class="p">.</span>
+
+    <span class="p">&lt;/</span><span class="n">androidx</span><span class="p">.</span><span class="n">constraintlayout</span><span class="p">.</span><span class="n">widget</span><span class="p">.</span><span class="nc">ConstraintLayout</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="n">layout</span><span class="p">&gt;</span>
 </code></pre></div></div>
 
-<ul>
-  <li>itemCount: Preview상에서 몇개의 아이템을 띄워줄 것인지 결정</li>
-  <li>listItem: Preview상에서 어떤 listLayout을 리스트에 띄울 지 결정</li>
-  <li>LayoutManager: Item의 배치 규칙을 관리하는 클래스
-    <ul>
-      <li>LinearLayoutManager: 선형(수평/수직)으로 Item을 보여줄 때 사용</li>
-      <li>GridLayoutManager: 격자식으로 Item을 보여줄 때 사용 코드 또는 xml 상에서 가로로 몇 칸 보여줄 지 설정가능</li>
-      <li>StageredGridLayoutManager: 높이가 불규칙한 형태의 격자식 Item 리스트를 보여줄 때 사용</li>
-    </ul>
-  </li>
-</ul>
+<p>안드로이드 데이터 바인딩 라이브러리은 activity_main.xml을 이용하여 ActivityMainBinding이라는 이름으로 바인딩 객체를 만든다<br />
+xml 레이아웃의 각 이름의 첫글자를 대문자로 만들고 밑줄을 제거하고 바인딩을 추가하여 이름을 짓는다</p>
 
-<p>5.RecyclerView Adapter 연결하기, Adapter 데이터 갱신하기</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="nn">com.lee989898.soptlee</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MainActivity.kt</span>
+<span class="k">package</span> <span class="nn">com.anushka.bindingdemo1</span>
 
 <span class="k">import</span> <span class="nn">androidx.appcompat.app.AppCompatActivity</span>
 <span class="k">import</span> <span class="nn">android.os.Bundle</span>
-<span class="k">import</span> <span class="nn">com.lee989898.soptlee.databinding.ActivityMainBinding</span>
+<span class="k">import</span> <span class="nn">androidx.databinding.DataBindingUtil</span>
+<span class="k">import</span> <span class="nn">com.anushka.bindingdemo1.databinding.ActivityMainBinding</span>
 
 <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="p">:</span> <span class="nc">AppCompatActivity</span><span class="p">()</span> <span class="p">{</span>
 
-    <span class="k">private</span> <span class="k">lateinit</span> <span class="kd">var</span> <span class="py">followerAdapter</span><span class="p">:</span> <span class="nc">FollowerAdapter</span>
     <span class="k">private</span> <span class="k">lateinit</span> <span class="kd">var</span> <span class="py">binding</span><span class="p">:</span> <span class="nc">ActivityMainBinding</span>
 
     <span class="k">override</span> <span class="k">fun</span> <span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">:</span> <span class="nc">Bundle</span><span class="p">?)</span> <span class="p">{</span>
         <span class="k">super</span><span class="p">.</span><span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">)</span>
-        <span class="n">binding</span> <span class="p">=</span> <span class="nc">ActivityMainBinding</span><span class="p">.</span><span class="nf">inflate</span><span class="p">(</span><span class="n">layoutInflater</span><span class="p">)</span>
-        <span class="nf">setContentView</span><span class="p">(</span><span class="n">binding</span><span class="p">.</span><span class="n">root</span><span class="p">)</span>
+        <span class="n">binding</span> <span class="p">=</span> <span class="nc">DataBindingUtil</span><span class="p">.</span><span class="nf">setContentView</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nc">R</span><span class="p">.</span><span class="n">layout</span><span class="p">.</span><span class="n">activity_main</span><span class="p">)</span>
 
-        <span class="nf">initAdapter</span><span class="p">()</span>
+        <span class="n">binding</span><span class="p">.</span><span class="n">submitButton</span><span class="p">.</span><span class="nf">setOnClickListener</span> <span class="p">{</span>
+            <span class="nf">displayGreeting</span><span class="p">()</span>
+        <span class="p">}</span>
     <span class="p">}</span>
 
-    <span class="k">private</span> <span class="k">fun</span> <span class="nf">initAdapter</span><span class="p">()</span> <span class="p">{</span>
-        <span class="n">followerAdapter</span> <span class="p">=</span> <span class="nc">FollowerAdapter</span><span class="p">()</span>
-        <span class="n">binding</span><span class="p">.</span><span class="n">rvFollower</span><span class="p">.</span><span class="n">adapter</span> <span class="p">=</span> <span class="n">followerAdapter</span>
-
-        <span class="n">followerAdapter</span><span class="p">.</span><span class="n">userList</span><span class="p">.</span><span class="nf">addAll</span><span class="p">(</span>
-            <span class="nf">listOf</span><span class="p">(</span>
-                <span class="nc">UserData</span><span class="p">(</span><span class="s">"이강민"</span><span class="p">,</span> <span class="s">"안드로이드 파트장"</span><span class="p">),</span>
-                <span class="nc">UserData</span><span class="p">(</span><span class="s">"김태현"</span><span class="p">,</span> <span class="s">"IOS 파트장"</span><span class="p">),</span>
-                <span class="nc">UserData</span><span class="p">(</span><span class="s">"김두범"</span><span class="p">,</span> <span class="s">"기획 파트장"</span><span class="p">),</span>
-                <span class="nc">UserData</span><span class="p">(</span><span class="s">"권혁진"</span><span class="p">,</span> <span class="s">"웹 파트장"</span><span class="p">),</span>
-                <span class="nc">UserData</span><span class="p">(</span><span class="s">"채정아"</span><span class="p">,</span> <span class="s">"서버 파트장"</span><span class="p">),</span>
-                <span class="nc">UserData</span><span class="p">(</span><span class="s">"박수아"</span><span class="p">,</span> <span class="s">"디자인 파트장"</span><span class="p">)</span>
-            <span class="p">)</span>
-        <span class="p">)</span>
-        <span class="n">followerAdapter</span><span class="p">.</span><span class="nf">notifyDataSetChanged</span><span class="p">()</span>
+    <span class="k">private</span> <span class="k">fun</span> <span class="nf">displayGreeting</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">binding</span><span class="p">.</span><span class="nf">apply</span> <span class="p">{</span>
+           <span class="n">greetingTextView</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="s">"Hello "</span> <span class="p">+</span> <span class="n">nameEditText</span><span class="p">.</span><span class="n">text</span>
+        <span class="p">}</span>
     <span class="p">}</span>
-
 <span class="p">}</span>
 </code></pre></div></div>
 
-<ul>
-  <li>private lateinit var followerAdapter: FollowerAdapter, follwerAdapter = FollowerAdapter() -&gt; Adapter 초기화</li>
-  <li>followerAdapter = FollowerAdapter(): Adapter와 RecyclerView 연동</li>
-  <li>followerAdapter.userList.addAll(): Adapter에 List로 보여줄 데이터를 넣어준다</li>
-  <li>followerAdapter.notifyDataSetChanged(): Adpater에 전체 리스트의 데이터가 갱신되었다고 알려주는 메소드</li>
-</ul>
+<p>setconview 함수는 화면에 레이아웃을 렌더링하는데 도움이 된다. 사용자가 제공한 값을 기준으로 xml 레이아웃 파일에서 뷰는 화면의 측정에 때라 inflated 되고 렌더링 된다<br />
+하지만 데이터 바인딩을 사용하면 이 기능이 필요하지 않다. 바인딩 객체를 사용하여 동일한 작업을 보다 효율적이고 효과적으로 수행할 수 있다</p>
+
+<p>android id 속성은 카멜 케이스로 밑줄을 제거하고 생성된다<br />
+greeting_text_view -&gt; greetingTextView</p>
+
+<p>kotlin의 apply scope 기능을 사용하여 데이터 바인딩 이름의 반복을 줄일 수 있다</p>
 
                 </div>
             </section>
@@ -752,7 +381,7 @@ Adapter에서 전달받은 데이터를 Item Layout에 Bind 시켜주는 역할<
                         var disqus_config = function () {
                             var this_page_url = 'https://lee989898.github.io/ad';
                             var this_page_identifier = '/ad';
-                            var this_page_title = '2차 세미나';
+                            var this_page_title = 'Data Binding';
                         };
                         (function() {
                             var d = document, s = d.createElement('script');
@@ -800,6 +429,15 @@ Adapter에서 전달받은 데이터를 Item Layout에 Bind 시켜주는 역할<
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                            <li><a href="/ad">2차 세미나</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
                                 
                                   
                                     
@@ -828,8 +466,6 @@ Adapter에서 전달받은 데이터를 Item Layout에 Bind 시켜주는 역할<
                                   
                                     
                                         
-                                        
-                                            <li><a href="/ad">안드로이드 면접 준비</a></li>
                                         
                                     
                                   
@@ -1001,7 +637,7 @@ Adapter에서 전달받은 데이터를 Item Layout에 Bind 시켜주는 역할<
                         <footer class="read-next-card-footer">
                             <a href="/tag/android/">
                                 
-                                    See all 5 posts  →
+                                    See all 6 posts  →
                                 
                             </a>
                         </footer>
@@ -1018,28 +654,26 @@ Adapter에서 전달받은 데이터를 Item Layout에 Bind 시켜주는 역할<
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/sc2-05">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/systemcloud-logo.png)"></div>
+            <a class="post-card-image-link" href="/ad">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/android-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/sc2-05">
+            <a class="post-card-content-link" href="/ad">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Systemcloud</span>
+                                <span class="post-card-tags">Android</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">환경변수와 공격들</h2>
+                    <h2 class="post-card-title">2차 세미나</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>
-  Environment Variables
-
+                        <p>2차 세미나
 
 </p>
                     
@@ -1059,7 +693,7 @@ Adapter에서 전달받은 데이터를 Item Layout에 Bind 시켜주는 역할<
                 <span class="reading-time">
                     
                     
-                      2 min read
+                      6 min read
                     
                 </span>
             </footer>
@@ -1081,13 +715,13 @@ Adapter에서 전달받은 데이터를 Item Layout에 Bind 시켜주는 역할<
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">2차 세미나</div>
+    <div class="floating-header-title">Data Binding</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=2%EC%B0%A8+%EC%84%B8%EB%AF%B8%EB%82%98&amp;url=https://lee989898.github.io/ad"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Data+Binding&amp;url=https://lee989898.github.io/ad"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
