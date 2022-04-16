@@ -8,6 +8,38 @@
     
       
       <item>
+        <title>Live Data</title>
+        
+          <description>&lt;p&gt;View Model에서 데이터를 관찰하기 위해서는 Live Data를 사용하면된다. 시간도 절약하게 해준다&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Fri, 15 Apr 2022 16:07:07 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/ad</link>
+        <guid isPermaLink="true">https://lee989898.github.io/ad</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>View Model</title>
+        
+          <description>&lt;p&gt;Android 앱을 사용할 떄 화면 회전과 같은 구성 변경이 발생하면 destroy 되고 다시 recreate 한다. 그래서 실행 중에 생성된 값은 사라지게 된다&lt;br /&gt;
+구성 변경에는 화면회전, 키보드 변경, 언어 변경, 다중 창 모드 활성화 등이 있다&lt;br /&gt;
+높은 수준의 안드로이드 앱을 개발할 때 가장 일반적으로 필요한 것 중 하나는 구성 변경이다&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 14 Apr 2022 16:07:07 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/ad</link>
+        <guid isPermaLink="true">https://lee989898.github.io/ad</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>Data Binding</title>
         
           <description>&lt;p&gt;findViewById() 함수를 사용할 때마다 Android 시스템은 뷰 계층 구조를 만들고 런타임때 찾아서 사용한다&lt;br /&gt;
