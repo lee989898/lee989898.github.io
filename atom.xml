@@ -8,6 +8,21 @@
     
       
       <item>
+        <title>View Model &amp; Live Data with Data Binding</title>
+        
+          <description>&lt;p&gt;data binding 객체를 View Model 객체에 직접 연결한다&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sat, 16 Apr 2022 16:07:07 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/ad</link>
+        <guid isPermaLink="true">https://lee989898.github.io/ad</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>Live Data</title>
         
           <description>&lt;p&gt;View Model에서 데이터를 관찰하기 위해서는 Live Data를 사용하면된다. 시간도 절약하게 해준다&lt;/p&gt;

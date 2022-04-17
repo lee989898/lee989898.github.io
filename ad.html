@@ -11,7 +11,7 @@
 
 
 
-    <title>Live Data</title>
+    <title>View Model & Live Data with Data Binding</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -83,18 +83,18 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Live Data" />
-    <meta property="og:description" content="View Model에서 데이터를 관찰하기 위해서는 Live Data를 사용하면된다. 시간도 절약하게 해준다 View Model에서 값을 불러오는 함수를 MainActivity에서 호출하여 값을 얻는 코드를 작성했었는데 더 좋은 방법이 있다 Live Data로 Activity 또는 Fragment에서 View Model의 데이터를 관찰하는 코드를 작성할 수 있다 변경 사항이 있는 경우 혹은 해당 데이터에 대한 업데이트가 발생하면 Live" />
+    <meta property="og:title" content="View Model & Live Data with Data Binding" />
+    <meta property="og:description" content="data binding 객체를 View Model 객체에 직접 연결한다 data binding 객체와 View Model 객체를 연결하려면 View Model을 data binding 변수로 추가해야 한다 먼저 data 태그를 추가하고 variable 태그를 추가하고 이름과 타입도 추가한다 // activity_main.xml &lt;layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"&gt; &lt;data&gt; &lt;variable name="myViewModel" type="com.anushka.viewmodeldemo1.MainActivityViewModel" /&gt; &lt;/data&gt; &lt;/layout&gt; Mainactiviy에서 xml에서 생성한 뷰 모델" />
     <meta property="og:url" content="https://lee989898.github.io/ad" />
     <meta property="og:image" content="https://lee989898.github.io/assets/built/images/android-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2022-04-15T16:07:07+09:00" />
-    <meta property="article:modified_time" content="2022-04-15T16:07:07+09:00" />
+    <meta property="article:published_time" content="2022-04-16T16:07:07+09:00" />
+    <meta property="article:modified_time" content="2022-04-16T16:07:07+09:00" />
     <meta property="article:tag" content="Android" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Live Data" />
-    <meta name="twitter:description" content="View Model에서 데이터를 관찰하기 위해서는 Live Data를 사용하면된다. 시간도 절약하게 해준다 View Model에서 값을 불러오는 함수를 MainActivity에서 호출하여 값을 얻는 코드를 작성했었는데 더 좋은 방법이 있다 Live Data로 Activity 또는 Fragment에서 View Model의 데이터를 관찰하는 코드를 작성할 수 있다 변경 사항이 있는 경우 혹은 해당 데이터에 대한 업데이트가 발생하면 Live" />
+    <meta name="twitter:title" content="View Model & Live Data with Data Binding" />
+    <meta name="twitter:description" content="data binding 객체를 View Model 객체에 직접 연결한다 data binding 객체와 View Model 객체를 연결하려면 View Model을 data binding 변수로 추가해야 한다 먼저 data 태그를 추가하고 variable 태그를 추가하고 이름과 타입도 추가한다 // activity_main.xml &lt;layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"&gt; &lt;data&gt; &lt;variable name="myViewModel" type="com.anushka.viewmodeldemo1.MainActivityViewModel" /&gt; &lt;/data&gt; &lt;/layout&gt; Mainactiviy에서 xml에서 생성한 뷰 모델" />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
     <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/android-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -126,7 +126,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
         "@type": "WebPage",
         "@id": "https://lee989898.github.io/ad"
     },
-    "description": "View Model에서 데이터를 관찰하기 위해서는 Live Data를 사용하면된다. 시간도 절약하게 해준다 View Model에서 값을 불러오는 함수를 MainActivity에서 호출하여 값을 얻는 코드를 작성했었는데 더 좋은 방법이 있다 Live Data로 Activity 또는 Fragment에서 View Model의 데이터를 관찰하는 코드를 작성할 수 있다 변경 사항이 있는 경우 혹은 해당 데이터에 대한 업데이트가 발생하면 Live"
+    "description": "data binding 객체를 View Model 객체에 직접 연결한다 data binding 객체와 View Model 객체를 연결하려면 View Model을 data binding 변수로 추가해야 한다 먼저 data 태그를 추가하고 variable 태그를 추가하고 이름과 타입도 추가한다 // activity_main.xml &lt;layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"&gt; &lt;data&gt; &lt;variable name="myViewModel" type="com.anushka.viewmodeldemo1.MainActivityViewModel" /&gt; &lt;/data&gt; &lt;/layout&gt; Mainactiviy에서 xml에서 생성한 뷰 모델"
 }
     </script>
 
@@ -139,7 +139,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="Live Data" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="View Model & Live Data with Data Binding" href="/feed.xml" />
 
 
 </head>
@@ -212,7 +212,7 @@ into the {body} of the default.hbs template -->
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="15 April 2022">15 April 2022</time>
+                    <time class="post-full-meta-date" datetime="16 April 2022">16 April 2022</time>
                     
                         <span class="date-divider">/</span>
                         
@@ -222,7 +222,7 @@ into the {body} of the default.hbs template -->
                         
                     
                 </section>
-                <h1 class="post-full-title">Live Data</h1>
+                <h1 class="post-full-title">View Model & Live Data with Data Binding</h1>
             </header>
 
             <!--
@@ -233,97 +233,124 @@ into the {body} of the default.hbs template -->
             -->
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <p>View Model에서 데이터를 관찰하기 위해서는 Live Data를 사용하면된다. 시간도 절약하게 해준다</p>
+                    <p>data binding 객체를 View Model 객체에 직접 연결한다</p>
 
-<p>View Model에서 값을 불러오는 함수를 MainActivity에서 호출하여 값을 얻는 코드를 작성했었는데 더 좋은 방법이 있다<br />
-Live Data로 Activity 또는 Fragment에서 View Model의 데이터를 관찰하는 코드를 작성할 수 있다<br />
-변경 사항이 있는 경우 혹은 해당 데이터에 대한 업데이트가 발생하면 Live Data를 사용하여 Activity 또는 Fragment를 자동으로 업데이트 하는 코드를 작성할 수 있다</p>
+<p>data binding 객체와 View Model 객체를 연결하려면 View Model을 data binding 변수로 추가해야 한다
+먼저 data 태그를 추가하고 variable 태그를 추가하고 이름과 타입도 추가한다</p>
 
-<p>Live Data는 안드로이드 제트팩 아키텍처 구성 요소의 일부이다<br />
-Live Data는 생명주기를 인식하는 관찰 가능한 데이터 홀더 클래스이다<br />
-안드로이드에서 생명주기가 있는 3개의 앱 구성요소는 Activity,Fragment,Service가 있다. 그러므로 Activity, Fragment, Service를 Live Data 개체의 관찰자로 사용할 수 있다<br />
-Live Data는 활성화된 생명 주기 상태의 관찰자만 업데이트 한다. Rx java를 사용할 때 Activity,Fragment,Service가 비활성화일때 처리할 코드를 주의 깊게 작성해야 하는데 Live Data를 사용하면 걱정할 필요가 없다</p>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// activity_main.xml</span>
+<span class="p">&lt;</span><span class="n">layout</span> <span class="n">xmlns</span><span class="p">:</span><span class="n">android</span><span class="p">=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+    <span class="n">xmlns</span><span class="p">:</span><span class="n">app</span><span class="p">=</span><span class="s">"http://schemas.android.com/apk/res-auto"</span>
+    <span class="n">xmlns</span><span class="p">:</span><span class="n">tools</span><span class="p">=</span><span class="s">"http://schemas.android.com/tools"</span><span class="p">&gt;</span>
 
-<p>Live Data는 앱 데이터가 변경되면 자동으로 UI를 업데이트 한다. 그러므로 Live Data를 사용하면 항상 최신 데이터를 갖게 된다. 그리고 연결된 생명 주기가 파괴되면 스스로 정리한다. 그래서 destroy된 Activity나 Fragment로 인한 메모리 누수나 충돌이 발생하지 않는다<br />
-또한 Live Data를 사용하여 앱의 서로 다른 구성 요소 간에 앱 서비스를 공유할 수 있다</p>
+    <span class="p">&lt;</span><span class="n">data</span><span class="p">&gt;</span>
 
-<p>build.gradle 파일에 LiveData dependenices를 추가해야한다</p>
+        <span class="p">&lt;</span><span class="n">variable</span>
+            <span class="n">name</span><span class="p">=</span><span class="s">"myViewModel"</span>
+            <span class="n">type</span><span class="p">=</span><span class="s">"com.anushka.viewmodeldemo1.MainActivityViewModel"</span> <span class="p">/&gt;</span>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// build.gradle</span>
-<span class="nf">dependencies</span><span class="p">{</span>
-    <span class="n">def</span> <span class="n">lifecycle_version</span> <span class="p">=</span> <span class="s">"2.4.1"</span>
 
-    <span class="o">..</span><span class="p">.</span>
+    <span class="p">&lt;/</span><span class="n">data</span><span class="p">&gt;</span>
 
-    <span class="c1">// LiveData</span>
-    <span class="nf">implementation</span><span class="p">(</span><span class="s">"androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"</span><span class="p">)</span>
-<span class="p">}</span>
+<span class="p">&lt;/</span><span class="n">layout</span><span class="p">&gt;</span>
 </code></pre></div></div>
 
-<p>int 유형의 변경 가능한 라이브 데이터를 선언한다<br />
-init에 .value를 활용해 대입한다<br />
-MainActivity에서 관찰해야 하므로 private은 없어야 한다</p>
+<p>Mainactiviy에서 xml에서 생성한 뷰 모델 객체를 바인딩 객체에 할당해야 한다</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MainActivityViewModel.kt</span>
-<span class="kd">class</span> <span class="nc">MainActivityViewModel</span><span class="p">(</span><span class="n">startingTotal</span> <span class="p">:</span> <span class="nc">Int</span><span class="p">)</span> <span class="p">:</span> <span class="nc">ViewModel</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="py">total</span> <span class="p">=</span> <span class="nc">MutableLiveData</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;()</span>
-
-    <span class="nf">init</span> <span class="p">{</span>
-        <span class="n">total</span><span class="p">.</span><span class="n">value</span> <span class="p">=</span> <span class="n">startingTotal</span>
-    <span class="p">}</span>
-
-    <span class="k">fun</span> <span class="nf">setTotal</span><span class="p">(</span><span class="n">input</span><span class="p">:</span><span class="nc">Int</span><span class="p">){</span>
-        <span class="n">total</span><span class="p">.</span><span class="n">value</span> <span class="p">=</span> <span class="p">(</span><span class="n">total</span><span class="p">.</span><span class="n">value</span><span class="p">)</span><span class="o">?.</span><span class="nf">plus</span><span class="p">(</span><span class="n">input</span><span class="p">)</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MainActivity.kt</span>
+<span class="n">binding</span><span class="p">.</span><span class="n">myViewModel</span> <span class="p">=</span> <span class="n">viewModel</span>
 </code></pre></div></div>
 
-<p>MutableLiveData와 LiveData의 차이점</p>
+<p>onClick 이벤트에 대한 리스너 바인딩을 사용한다. 그러면 Main Acitivity에서 해주지 않아도 된다<br />
+여기에서 코드의 양을 줄이기 위해 람다 식을 사용했다</p>
 
-<ul>
-  <li>LiveData: 객체의 데이터를 읽을 수만 있다, 데이터를 업데이트 할 수 없다</li>
-  <li>MutableLiveData: MutableLiveData 클래스는 LiveData 클래스의 하위 클래스이다. 데이터를 업데이트 할 수 있다</li>
-</ul>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// activity_main.xml</span>
+ <span class="p">&lt;</span><span class="nc">Button</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">id</span><span class="p">=</span><span class="s">"@+id/button"</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">layout_width</span><span class="p">=</span><span class="s">"wrap_content"</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">layout_height</span><span class="p">=</span><span class="s">"wrap_content"</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">text</span><span class="p">=</span><span class="s">"Click Here"</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">onClick</span><span class="p">=</span><span class="s">"@{() -&gt; myViewModel.updateCount()}"</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">textSize</span><span class="p">=</span><span class="s">"30sp"</span>
+        <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintBottom_toBottomOf</span><span class="p">=</span><span class="s">"parent"</span>
+        <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintEnd_toEndOf</span><span class="p">=</span><span class="s">"parent"</span>
+        <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintHorizontal_bias</span><span class="p">=</span><span class="s">"0.5"</span>
+        <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintStart_toStartOf</span><span class="p">=</span><span class="s">"parent"</span>
+        <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintTop_toTopOf</span><span class="p">=</span><span class="s">"parent"</span> <span class="p">/&gt;</span>
+</code></pre></div></div>
 
-<p>데이터를 관찰할 것이기 때문에 getTotal 같은 함수는 필요가 없다</p>
+<hr />
 
-<p>MainActivity에서 값을 관찰하는 코드를 작성한다</p>
+<p>LiveData와 data binding을 통합해보자<br />
+LiveData Observe 코드 부분을 제거하고 대신에 LiveData를 xml 레이아웃 파일의 data binding 객체에 대한 data binding 소스로 사용한다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// acitivity_main.xml</span>
+<span class="p">&lt;</span><span class="nc">TextView</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">id</span><span class="p">=</span><span class="s">"@+id/count_text"</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">layout_width</span><span class="p">=</span><span class="s">"wrap_content"</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">layout_height</span><span class="p">=</span><span class="s">"wrap_content"</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">textSize</span><span class="p">=</span><span class="s">"66sp"</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">textStyle</span><span class="p">=</span><span class="s">"bold"</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">typeface</span><span class="p">=</span><span class="s">"serif"</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">text</span><span class="p">=</span><span class="s">"@{String.valueOf(myViewModel.count)"</span>
+        <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintBottom_toBottomOf</span><span class="p">=</span><span class="s">"parent"</span>
+        <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintEnd_toEndOf</span><span class="p">=</span><span class="s">"parent"</span>
+        <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintHorizontal_bias</span><span class="p">=</span><span class="s">"0.5"</span>
+        <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintStart_toStartOf</span><span class="p">=</span><span class="s">"parent"</span>
+        <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintTop_toTopOf</span><span class="p">=</span><span class="s">"parent"</span>
+        <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintVertical_bias</span><span class="p">=</span><span class="s">"0.262"</span> <span class="p">/&gt;</span>
+</code></pre></div></div>
+
+<p>또한 뷰 모델 객체에 실제 생명 주기 소유자를 제공해야 한다</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MainActivity.kt</span>
 <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="p">:</span> <span class="nc">AppCompatActivity</span><span class="p">()</span> <span class="p">{</span>
-    <span class="o">..</span><span class="p">.</span>
+    <span class="k">private</span> <span class="k">lateinit</span> <span class="kd">var</span> <span class="py">binding</span><span class="p">:</span> <span class="nc">ActivityMainBinding</span>
     <span class="k">private</span> <span class="k">lateinit</span> <span class="kd">var</span> <span class="py">viewModel</span><span class="p">:</span> <span class="nc">MainActivityViewModel</span>
-    <span class="o">..</span><span class="p">.</span>
     <span class="k">override</span> <span class="k">fun</span> <span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">:</span> <span class="nc">Bundle</span><span class="p">?)</span> <span class="p">{</span>
         <span class="k">super</span><span class="p">.</span><span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">)</span>
         <span class="n">binding</span> <span class="p">=</span> <span class="nc">DataBindingUtil</span><span class="p">.</span><span class="nf">setContentView</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nc">R</span><span class="p">.</span><span class="n">layout</span><span class="p">.</span><span class="n">activity_main</span><span class="p">)</span>
+        <span class="n">viewModel</span> <span class="p">=</span> <span class="nc">ViewModelProvider</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="k">get</span><span class="p">(</span><span class="nc">MainActivityViewModel</span><span class="o">::</span><span class="k">class</span><span class="p">.</span><span class="n">java</span><span class="p">)</span>
 
-        <span class="o">..</span><span class="p">.</span>
-
-        <span class="n">viewModel</span><span class="p">.</span><span class="n">total</span><span class="p">.</span><span class="nf">observe</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nc">Observer</span> <span class="p">{</span>
-            <span class="n">binding</span><span class="p">.</span><span class="n">resultTextView</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">it</span><span class="p">.</span><span class="nf">toString</span><span class="p">()</span>
-        <span class="p">})</span>
-        
-        <span class="o">..</span><span class="p">.</span>
-
+        <span class="n">binding</span><span class="p">.</span><span class="n">myViewModel</span> <span class="p">=</span> <span class="n">viewModel</span>
+        <span class="n">binding</span><span class="p">.</span><span class="n">lifecycleOwner</span> <span class="p">=</span> <span class="k">this</span>
     <span class="p">}</span>
 <span class="p">}</span>
-
 </code></pre></div></div>
 
-<p>지금까지 작성한 Live Data에는 한가지 문제가 있다. private로 되어있지 않아 직접 변수에 엑세스 할 수 있다는 점이다<br />
-데이터를 캡술화 해야한다<br />
-코틀린의 Backing property를 활용해 getter 함수에서 Live Data 객체를 반환할 수 있다</p>
+<p>Two Way Data Binding을 적용해보자<br />
+Two Way Data Binding을 사용하면 객체의 값이 변경되면 UI가 변경되고 UI가 변경되면 값이 변경된다</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MainActivityViewModel.kt</span>
- <span class="kd">val</span> <span class="py">totalData</span><span class="p">:</span> <span class="nc">LiveData</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;</span>
-        <span class="k">get</span><span class="p">()</span> <span class="p">=</span> <span class="n">total</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// activity_main.xml</span>
+ <span class="p">&lt;</span><span class="nc">TextView</span>
+            <span class="n">android</span><span class="p">:</span><span class="n">layout_width</span><span class="p">=</span><span class="s">"wrap_content"</span>
+            <span class="n">android</span><span class="p">:</span><span class="n">layout_height</span><span class="p">=</span><span class="s">"wrap_content"</span>
+            <span class="n">android</span><span class="p">:</span><span class="n">text</span><span class="p">=</span><span class="s">"@{viewModel.userName}"</span>
+            <span class="n">android</span><span class="p">:</span><span class="n">textSize</span><span class="p">=</span><span class="s">"40sp"</span>
+            <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintBottom_toBottomOf</span><span class="p">=</span><span class="s">"parent"</span>
+            <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintLeft_toLeftOf</span><span class="p">=</span><span class="s">"parent"</span>
+            <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintRight_toRightOf</span><span class="p">=</span><span class="s">"parent"</span>
+            <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintTop_toTopOf</span><span class="p">=</span><span class="s">"parent"</span> <span class="p">/&gt;</span>
+
+        <span class="p">&lt;</span><span class="nc">EditText</span>
+            <span class="n">android</span><span class="p">:</span><span class="n">id</span><span class="p">=</span><span class="s">"@+id/editText"</span>
+            <span class="n">android</span><span class="p">:</span><span class="n">ems</span><span class="p">=</span><span class="s">"10"</span>
+            <span class="n">android</span><span class="p">:</span><span class="n">inputType</span><span class="p">=</span><span class="s">"textPersonName"</span>
+            <span class="n">android</span><span class="p">:</span><span class="n">text</span><span class="p">=</span><span class="s">"@={viewModel.userName}"</span>
+            <span class="n">android</span><span class="p">:</span><span class="n">textSize</span><span class="p">=</span><span class="s">"40sp"</span>
+            <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintBottom_toBottomOf</span><span class="p">=</span><span class="s">"parent"</span>
+            <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintEnd_toEndOf</span><span class="p">=</span><span class="s">"parent"</span>
+            <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintStart_toStartOf</span><span class="p">=</span><span class="s">"parent"</span>
+            <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintTop_toTopOf</span><span class="p">=</span><span class="s">"parent"</span>
+            <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintVertical_bias</span><span class="p">=</span><span class="s">"0.294"</span>
+            <span class="n">android</span><span class="p">:</span><span class="n">layout_width</span><span class="p">=</span><span class="s">"wrap_content"</span>
+            <span class="n">android</span><span class="p">:</span><span class="n">layout_height</span><span class="p">=</span><span class="s">"wrap_content"</span><span class="p">/&gt;</span>
 </code></pre></div></div>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MainActivity.kt</span>
-<span class="n">viewModel</span><span class="p">.</span><span class="n">totalData</span><span class="p">.</span><span class="nf">observe</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nc">Observer</span> <span class="p">{</span>
-            <span class="n">binding</span><span class="p">.</span><span class="n">resultTextView</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">it</span><span class="p">.</span><span class="nf">toString</span><span class="p">()</span>
-<span class="p">})</span>
+<p>lifeCycleOwner를 this로 해주고 binding.viewModel에 viewModel을 대입한다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">binding</span><span class="p">.</span><span class="n">viewModel</span> <span class="p">=</span> <span class="n">viewModel</span>
+<span class="n">binding</span><span class="p">.</span><span class="n">lifecycleOwner</span> <span class="p">=</span> <span class="k">this</span>
 </code></pre></div></div>
 
                 </div>
@@ -393,7 +420,7 @@ MainActivity에서 관찰해야 하므로 private은 없어야 한다</p>
                         var disqus_config = function () {
                             var this_page_url = 'https://lee989898.github.io/ad';
                             var this_page_identifier = '/ad';
-                            var this_page_title = 'Live Data';
+                            var this_page_title = 'View Model & Live Data with Data Binding';
                         };
                         (function() {
                             var d = document, s = d.createElement('script');
@@ -444,6 +471,15 @@ MainActivity에서 관찰해야 하므로 private은 없어야 한다</p>
                                     
                                         
                                         
+                                            <li><a href="/ad">Live Data</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
                                             <li><a href="/ad">View Model</a></li>
                                         
                                     
@@ -461,8 +497,6 @@ MainActivity에서 관찰해야 하므로 private은 없어야 한다</p>
                                   
                                     
                                         
-                                        
-                                            <li><a href="/ad">2차 세미나</a></li>
                                         
                                     
                                   
@@ -663,7 +697,7 @@ MainActivity에서 관찰해야 하므로 private은 없어야 한다</p>
                         <footer class="read-next-card-footer">
                             <a href="/tag/android/">
                                 
-                                    See all 8 posts  →
+                                    See all 9 posts  →
                                 
                             </a>
                         </footer>
@@ -695,11 +729,13 @@ MainActivity에서 관찰해야 하므로 private은 없어야 한다</p>
                         
                     
 
-                    <h2 class="post-card-title">View Model</h2>
+                    <h2 class="post-card-title">Live Data</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>Android 앱을 사용할 떄 화면 회전과 같은 구성 변경이 발생하면 destroy 되고 다시 recreate 한다. 그래서 실행 중에 생성된 값은 사라지게 된다 구성 변경에는 화면회전, 키보드 변경, 언어 변경, 다중 창 모드 활성화</p>
+                        <p>View Model에서 데이터를 관찰하기 위해서는 Live Data를 사용하면된다. 시간도 절약하게 해준다
+
+</p>
                     
                 </section>
             </a>
@@ -717,7 +753,7 @@ MainActivity에서 관찰해야 하므로 private은 없어야 한다</p>
                 <span class="reading-time">
                     
                     
-                      2 min read
+                      1 min read
                     
                 </span>
             </footer>
@@ -739,13 +775,13 @@ MainActivity에서 관찰해야 하므로 private은 없어야 한다</p>
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">Live Data</div>
+    <div class="floating-header-title">View Model & Live Data with Data Binding</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Live+Data&amp;url=https://lee989898.github.io/ad"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=View+Model+%26+Live+Data+with+Data+Binding&amp;url=https://lee989898.github.io/ad"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
