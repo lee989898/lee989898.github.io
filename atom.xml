@@ -8,6 +8,22 @@
     
       
       <item>
+        <title>Navigation Architecture Component</title>
+        
+          <description>&lt;p&gt;Activity와 Fragment, 화면 간 전환을 제공하는 것은 복잡한 작업이 었다&lt;br /&gt;
+최근에 소개된 Android jetpack 탐색 아키텍처 구성 요소 라이브러리는 인앱 탐색에 필요한 모든 것을 처리하기 위해 많은 빌드 도구를 제공함으로써 훨씬 더 개발 작업을 쉽게 만들어준다&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 17 Apr 2022 16:07:07 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/ad</link>
+        <guid isPermaLink="true">https://lee989898.github.io/ad</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>View Model &amp; Live Data with Data Binding</title>
         
           <description>&lt;p&gt;data binding 객체를 View Model 객체에 직접 연결한다&lt;/p&gt;

@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/author/lee989898/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-04-17T09:01:49+09:00</updated>
+  <updated>2022-04-17T22:25:29+09:00</updated>
   <id>https://lee989898.github.io/author/lee989898/feed.xml</id>
 
   
@@ -30,6 +30,243 @@
   
   
 
+  
+    <entry>
+      <title type="html">Navigation Architecture Component</title>
+      <link href="https://lee989898.github.io/ad" rel="alternate" type="text/html" title="Navigation Architecture Component" />
+      <published>2022-04-17T16:07:07+09:00</published>
+      <updated>2022-04-17T16:07:07+09:00</updated>
+      <id>https://lee989898.github.io/ad</id>
+      <content type="html" xml:base="https://lee989898.github.io/ad">&lt;p&gt;Activity와 Fragment, 화면 간 전환을 제공하는 것은 복잡한 작업이 었다&lt;br /&gt;
+최근에 소개된 Android jetpack 탐색 아키텍처 구성 요소 라이브러리는 인앱 탐색에 필요한 모든 것을 처리하기 위해 많은 빌드 도구를 제공함으로써 훨씬 더 개발 작업을 쉽게 만들어준다&lt;/p&gt;
+
+&lt;p&gt;Android 개발의 새로운 추세는 단일 Activity, 다중 Fragment 모델이다
+네비게이션을 사용할 때 아키텍처 구성 요소에서 일반적으로 기반 역할을 하는 하나의 빈 Activity를 만든다&lt;br /&gt;
+그 외 모든 것들 앱의 화면은 Fragment를 사용하여 생성된다&lt;/p&gt;
+
+&lt;p&gt;라이브러리는 명령을 고려하여 뒤에서 많은 지원 클래스를 생성한다. 이렇게 생성된 클래스는 작업을 더 간단하고 쉽게 만든다
+탐색 구성 요소에는 세 가지 주요 부분이 있다. 네비게이션 그래프, NavHostFragment 및 NavController&lt;/p&gt;
+
+&lt;p&gt;네비게이션 그래프는 모든 탐색 관련 정보를 포함하는 XML 리소스 파일이다/ 이를 통해 단일 위치에서 탐색 관련 작업을 관리할 수 있다
+NavHostFragment는 네비게이션 그래프를 유지하는 활동을 한다
+NavController는 네비게이션에 의해 생성된 클래스이다. 네비게이션 그래프에 추가한 목적지 간의 탐색을 관리하기 위한 라이브러리이다&lt;/p&gt;
+
+&lt;p&gt;네비게이션 아키텍처 구성 요소를 사용할 떄 프래그먼트 간에 데이터를 전달하려면 안전한 인수를 사용해야 한다
+그리고 safe args 플러그인도 추가해야 한다&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// buil.gradle&lt;/span&gt;
+ &lt;span class=&quot;n&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nav_version&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;2.4.1&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;classpath&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;네비게이션 그래프에서 앱의 모든 화면과 사용자가 화면에 접근할 수 있는 방법을 보여준다&lt;br /&gt;
+목적지라고 불리운다&lt;/p&gt;
+
+&lt;p&gt;android stuido에서 네비게이션 그래프를 만든다. New Resource File에서 파일 이름을 nav_graph로 한다. 그 다음 Resource 유형을 네비게이션으로 선택한다&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// nav_graph.xml&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;&amp;lt;?&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xml&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.0&quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;encoding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;navigation&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;xmlns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.android.com/apk/res/android&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;xmlns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.android.com/apk/res-auto&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/nav_graph&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;navigation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;아직은 목적지와 NavHostFragment가 없다&lt;br /&gt;
+nav_graph.xml design 부분에서 add a destination을 클릭하여 홈프래그먼트를 Blank로 추가해준다&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// homeFragment.xml&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;&amp;lt;?&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xml&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.0&quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;encoding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;FrameLayout&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;xmlns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.android.com/apk/res/android&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;xmlns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tools&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.android.com/tools&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;tools&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;.HomeFragment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;&amp;lt;!--&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TODO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Update&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;blank&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fragment&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;layout&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;--&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;TextView&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@string/hello_blank_fragment&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;/&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;FrameLayout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;TextView를 제거해주고 FrameLayout을 ConstraintLayout으로 교체해준다&lt;br /&gt;
+이제 앱을 시작하면 홈프래그먼트가 실행된다&lt;br /&gt;
+데이터 바인딩을 사용해야 하므로 xml을 layout으로 감싸준다. 그리고 데이터 바인딩 코드도 추가한다&lt;br /&gt;
+프래그먼트에서 데이터 바인딩을 사용할 때는 루트 속성을 반환해야 한다&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// HomeFragment.kt&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HomeFragment&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Fragment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;lateinit&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FragmentHomeBinding&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCreateView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;inflater&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LayoutInflater&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;container&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ViewGroup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?,&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Bundle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;View&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DataBindingUtil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;inflate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;inflater&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fragment_home&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;container&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;action을 추가하면 fargment에서 fragment로 이동할 수 있다&lt;br /&gt;
+action은 nav.graph.xml에서 연결해주면 id도 자동으로 만들어준다&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// nav_graph.xml&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;&amp;lt;?&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xml&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.0&quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;encoding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;navigation&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;xmlns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.android.com/apk/res/android&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;xmlns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.android.com/apk/res-auto&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;xmlns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tools&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.android.com/tools&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/nav_graph&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;startDestination&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@id/homeFragment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fragment&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/homeFragment&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;com.lee989898.navdemo1.HomeFragment&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fragment_home&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;tools&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@layout/fragment_home&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;action&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/action_homeFragment_to_secondFragment&quot;&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;destination&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@id/secondFragment&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fragment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fragment&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/secondFragment&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;com.lee989898.navdemo1.SecondFragment&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fragment_second&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;tools&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@layout/fragment_second&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;navigation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;findNavController에 정해진 id를 통해서 다른 fragment로 이동한다&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// HomeFragment.kt&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;button&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setOnClickListener&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;findNavController&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;navigate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;action_homeFragment_to_secondFragment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;navController를 사용하여 지금, fragment에서 다른 fragment로 데이터를 전달할 수 있다&lt;br /&gt;
+HomeFragment에서 SecondFragment의 TextView에 입력을 표시하는 코드를 작성한다&lt;br /&gt;
+사용자 입력을 번들로 받는다. 이 editText의 값을 id editText로 가져온다&lt;br /&gt;
+EditText 값의 이름을 “user_input”으로 지정한다. 그런 다음 해당 번들을 이 탐색 함수의 두 번째 인수로 전달해야 합니다
+대상 간에 데이터를 전달하는 것은 권장되지 않는다. 가장 좋은 방법은 뷰 모델을 사용하는 것이다&lt;br /&gt;
+그러나 Android Navigation 아키텍처 구성 요소를 사용하면 데이터를 전달할 수 있다&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// HomeFragment&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;button&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setOnClickListener&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;bundle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Bundle&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;bundleOf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;user_input&quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;editText&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;findNavController&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;navigate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;action_homeFragment_to_secondFragment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bundle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;인수에서 가져오는 코드이다&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// SecondFragment&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arguments&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;getString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;user_input&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;textView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;null 입력을 피하기 위해, EditText에 약간의 유효성 검사를 추가한다&lt;br /&gt;
+TextUtils.isEmpty로 binding.editText.text.toString() 유효성 검사를 하여 사용자는 입력을 비워둘 수 엇ㅂ다&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// HomeFragment&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;button&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setOnClickListener&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(!&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;TextUtils&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;isEmpty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;editText&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())){&lt;/span&gt;
+                &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;bundle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Bundle&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;bundleOf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;user_input&quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;editText&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;findNavController&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;navigate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;action_homeFragment_to_secondFragment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bundle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;nc&quot;&gt;Toast&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;makeText&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;activity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Please insert your name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Toast&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;LENGTH_LONG&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;nav_graph.xml에서 action_homeFragment_to_secondFragment, action_homeFragment_to_secondFragment 이 두 속성 창에서 4개의 애니메이션을 위한 공간이 있음을 알 수 있다. (입력, 종료, 팝업 입력 및 팝업 종료)&lt;/p&gt;
+
+&lt;p&gt;한 목적지에서 다른 목적지로 또는 한 화면에서 다른 화면으로 이동할 때 새 화면이 나타난다&lt;br /&gt;
+Enter 애니메이션과 함께 이전 창이 종료 애니메이션과 함께 사라진다&lt;br /&gt;
+사용자가 전화기의 뒤로 버튼을 클릭하면 화면이 뒤로 이동하면 현재 화면이 사라진다&lt;br /&gt;
+팝업 종료 애니메이션과 함께 이전 창이 팝업 입력 애니메이션과 함께 나타난다&lt;/p&gt;
+
+&lt;p&gt;지금 나의 앱은 특별한 애니메이션을 보여주지 않는다. 그저 화면이 나타나고 사라진다. 따라서 앱 화면에 애니메이션을 추가해 보겠다&lt;/p&gt;
+
+&lt;p&gt;안드로이드에서 애니메이션은 애니메이션 리소스 파일에 xml로 작성된다. 가장 먼저, 프로젝트에 애니메이션 리소스 파일을 추가해야 한다&lt;br /&gt;
+검색하면 Android 애니메이션 리소스 파일용 Google, 많은 xml 샘플을 찾을 수 있다. stack over flow에서 좋은 애니메이션 리소스 파일 세트를 찾았다&lt;/p&gt;
+
+&lt;p&gt;push_down_in, push_down_out, push_up_in, push_up_out, slide_in_left, Slide_in_right, slide_out_left 및 slide_out_right ,rotation, scale_from_corner, scale_torwards_corner, 페이드인과 페이드아웃 등 많은 애니메이션 리소스 파일이 있다&lt;/p&gt;
+
+&lt;p&gt;나는 Slide_in_left, slide_in_right, slide_out_left 및 slide_out_right 기능을 추가하겠다&lt;br /&gt;
+앱을 선택하고, 새로운 Android 리소스 파일. 웹에서 파일 이름과 xml 코드를 복사하여 붙여넣고 있다&lt;br /&gt;
+리소스 유형은 애니메이션이어야 한다&lt;br /&gt;
+이제 프로젝트에 애니메이션을 추가해 보겠다&lt;br /&gt;
+나는 Slide_in_left로 애니메이션 입력을 선택했다. 그리고 종료 애니메이션을 slide_out_right로 선택했다
+뒤로 버튼의 경우 팝 입력 애니메이션을 slide_in_right로 선택하고 팝 종료 애니메이션으로 Slide_out_left을 선택했다&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// slide_in_left.xml&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;&amp;lt;?&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xml&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.0&quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;encoding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;xmlns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.android.com/apk/res/android&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shareInterpolator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;false&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;translate&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;duration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;5000&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fromXDelta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;-100%&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;toXDelta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0%&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;alpha&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;duration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;5000&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fromAlpha&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0.0&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;toAlpha&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.0&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;/&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;애니메이션이 조금 느리면. 그럼 애니메이션 리소스 파일을 열어서 시간을 줄이면된다&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// nav_graph.xml&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fragment&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/homeFragment&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;com.lee989898.navdemo1.HomeFragment&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fragment_home&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;tools&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@layout/fragment_home&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;action&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/action_homeFragment_to_secondFragment&quot;&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;destination&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@id/secondFragment&quot;&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;enterAnim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@anim/slid_in_left&quot;&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exitAnim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@anim/slide_out_right&quot;&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;popEnterAnim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@anim/slide_in_right&quot;&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;popExitAnim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@anim/slide_out_left&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fragment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="android" />
+      
+
+      
+        <summary type="html">Activity와 Fragment, 화면 간 전환을 제공하는 것은 복잡한 작업이 었다 최근에 소개된 Android jetpack 탐색 아키텍처 구성 요소 라이브러리는 인앱 탐색에 필요한 모든 것을 처리하기 위해 많은 빌드 도구를 제공함으로써 훨씬 더 개발 작업을 쉽게 만들어준다</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">View Model &amp;amp; Live Data with Data Binding</title>
@@ -1119,6 +1356,165 @@ Adapter에서 전달받은 데이터를 Item Layout에 Bind 시켜주는 역할&
     </entry>
   
     <entry>
+      <title type="html">MVVM</title>
+      <link href="https://lee989898.github.io/ad" rel="alternate" type="text/html" title="MVVM" />
+      <published>2022-04-11T01:06:00+09:00</published>
+      <updated>2022-04-11T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/ad</id>
+      <content type="html" xml:base="https://lee989898.github.io/ad">&lt;h2 id=&quot;mvvm&quot;&gt;&lt;strong&gt;MVVM&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;디자인패턴을 쓰는 이유&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;디자인 패턴은 소프트웨어 개발 방법을 문서로 공식화한 것인데, 디자인 패턴이란 한마디로 패턴이다. 기존에 앱을 만들면서 사람들이 여러가지 공법들을 적용해서 문제를 해결해 나갔는데, 이렇게 기존의 많은 개발자들이 쌓아놓은 경험을 통해서 쌓인 정리되어있는 패턴으로 만들면 일정한 규칙에 의해서 문제를 해결해 나가기에 코드의 가독성도 좋아지고 일정한 패턴으로 짜여져있어 테스트도 쉬워지고 타인의 코드를 봐도 이해하는데 쉽다. 또한 유지보수하는데 굉장히 유용하게 된다&lt;/p&gt;
+
+&lt;p&gt;협업을 위해서 어느 위치에 어떤 로직이 들어있나를 미리 정의해 놓으면&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;비슷한 코드를 보고 알아보기 쉬워짐&lt;/li&gt;
+  &lt;li&gt;유지보수가 수월해짐&lt;/li&gt;
+  &lt;li&gt;코드들의 역할분리가 명확해짐 (객체간의 관심사 분리)&lt;/li&gt;
+  &lt;li&gt;의존관계과 분리됨 (변화에 유연함 새로운 기능이나 코드가 좀 바뀌어도 코드가 유지됨)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;아래는 위키피다이의 설명이다&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;소프트웨어 개발 방법에서 사용되는 디자인 패턴은, 프로그램 개발에서 자주 나타나는 과제를 해결하기 위한 방법 중 하나로, 과거의 소프트웨어 개발 과정에서 발견된 설계의 노하우를 축적하여 이름을 붙여, 이후에 재이용하기 좋은 형태로 특정의 규약을 묶어서 정리한 것이다. 알고리즘과 같이 프로그램 코드로 바로 변환될 수 있는 형태는 아니지만, 특정한 상황에서 구조적인 문제를 해결하는 방식을 설명해준다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;처음 개발할때 안드로이드 개발을 하면 스파게티 코드를 짜서 나중에 봤을떄 답도 없었던 기억이 있는데, 간단한 앱에서는 문제가 없을수 있지만 디자인 패턴없이 복잡한 로직의 앱을 만들다보면 수정사항이 있을 떄마다 화면을 구성하는 코드와 비지니스 로직이 들어간 코드를 매번 동시에 수정해야한다. (ex) xml파일이랑 액티비티 파일)
+이 말은 서로간의 의존성이 강하다는 것이다. 의존성이 강해질수록 유지보수가 힘들기에 이러한 의존성을 해결하는 방법으로 model과 view의 관계를 해결하는 mvp, mvvm 같은 여러 패턴을 사용한다&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;MVVM&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;MVVM패턴이란 Model, View, ViewModel의 줄임말이다. 하나의 소프트웨어를 최대한 기능적으로 작은 단위로 나누어 테스트가 쉽고 큰 프로젝트도 상대적으로 관리하기가 좋은 구조이다&lt;/p&gt;
+
+&lt;p&gt;MVVM이 나오게 된 과정&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;처음 스파게티 코드&lt;/li&gt;
+  &lt;li&gt;mvc 스파게티 코드와 다를 바 없다. 안드로이드 특성상 뷰와 컨트롤러 자체가 모두 액티비티, 프래그먼트에 포함되어 있기 때문이다. 컨트롤러가 코틀린 파일이고 view가 xml이 된다. 모델은 따로 분리되어있지만 어차피 코틀린 파일에서 직접호출하여 결합도는 높다&lt;/li&gt;
+  &lt;li&gt;mvp 액티비티/프래그먼트 자체가 뷰이다. 프리젠터는 따로 클래스 자체가 분리된것이다. 뷰는 프리젠터에 일을 시키고 프리젠터는 모델에서 정보를 가져온다. 데이터 프리젠터가 가공해서 뷰에 넘겨준다. (개선점: 뷰량 모델을 완전히 분리하게 됨) (문제점: 프리젠터가 너무 커지고 뷰랑 프리젠터에 양방향 의존성이 생겨 1:1 관계가 만들어져서 재활용이 안된다)&lt;/li&gt;
+  &lt;li&gt;그래서 mvvvm이 나왔다. 뷰는 뷰모델을 알지만 뷰모델은 뷰가 뭔지 모름 어디서 쓰이는지 그걸 느슨하게 데이터 바인딩으로 묶어 놓음, 뷰에 대한 상태 같은 것들을 뷰모델에 박아놓음, 뷰는 뷰모델을 관찰하고 있고 변경점이 생기면 뷰가 알아채서 스스로 갱신하는 것이 mvvm이다. 근데 사실 여기에 바인더라는 레이어가 뷰랑 뷰모델 사이에 숨어있다-&amp;gt; 안드로이드에서는 데이터 바인딩으로 지원한다. 데이터 바인딩을 안쓰면 그건 그냥 mvp로 봐도 무방하다. 그리고 Viewmodel은 aac의 뷰모델이 아니다 -&amp;gt; aac뷰모델은 안드로이드 라이프사이클에 종속되고 사실상 가로뷰 세로뷰 다른뷰라고 봐도 무방하다. 다시 정리하자면 뷰와 모델은 이미 mvp에서 분리되었고 뷰랑 뷰모델을 분리시키는 것이 mvvm의 목표이다 결론은 xml로 다 옮기자&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\ad\ad07.png&quot; alt=&quot;안드로이드&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;기본적인 mvvm구조인데&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;View
+    &lt;ul&gt;
+      &lt;li&gt;사용자에게 보여지는 UI 부분이다&lt;/li&gt;
+      &lt;li&gt;View는 액티비티나 프래그먼트 같은 화면에 표현되는 레이아웃을 정의함&lt;/li&gt;
+      &lt;li&gt;View는 기본적으로 데이터를 보여주기만 해야 해서 비즈니스 로직을 포함하지 않지만 UI 변경과 관련된 일부 로직은 포함될 수 있음
+(안드로이드는 다른 플랫폼과는 다르게 생명주기라는 특수한 순서를 가지고 있기 때문에 이것을 처리하는 것만으로도 View는 상당히 복잡해지기 때문임)&lt;/li&gt;
+      &lt;li&gt;View는 ViewModel을 관찰하고 있다가 상태 변화가 전달되면 화면을 갱신해야함&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;ViewModel
+    &lt;ul&gt;
+      &lt;li&gt;View를 표현하기 위해 만든 View를 위한 Model이다. View를 나타내 주기 위한 Model이자 View를 나타내기 위한 데이터 처리를 하는 부분이다&lt;/li&gt;
+      &lt;li&gt;View와 Model 사이의 매개체 역할음 함&lt;/li&gt;
+      &lt;li&gt;모든 View와 관련된 비즈니스 로직은 이 곳에 들어가게 되며 데이터를 잘 가공해서 View에서 뿌리기 쉬운 Model로 바꾸는 역할을 함&lt;/li&gt;
+      &lt;li&gt;View와 ViewModel은 MVP와는 다르게 1:n의 관계를 가질 수 있으며 여러 개의 프래그먼트가 하나의 ViewModel을 가질 수 있음&lt;/li&gt;
+      &lt;li&gt;ViewModel은 View가 데이터 바인딩 할 수 있는 속성과 명령으로 구성되어 있음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Model
+    &lt;ul&gt;
+      &lt;li&gt;어플리케이션에서 사용되는 데이터와 그 데이터를 처리하는 부분이다&lt;/li&gt;
+      &lt;li&gt;MVC의 Model과 역할은 동일하다&lt;/li&gt;
+      &lt;li&gt;DataModel이라고도 하며 DB, Network, SharedPreference 등 다양한 데이터 소스로부터 필요한 데이터를 준비함&lt;/li&gt;
+      &lt;li&gt;ViewModel에서 데이터를 가져갈 수 있게 데이터를 준비하고 그에 대한 “이벤트”를 보냄&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;동작&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;사용자의 Action들은 View를 통해 들어오게 된다&lt;/li&gt;
+  &lt;li&gt;View에 Action이 들어오면, Command 패턴(실행될 기능을 캡슐화함으로써 주어진 여러 기능을 실행할 수 있는 재사용성이 높은 클래스를 설계하는 패턴)으로 View Model에 Action을 전달합니다&lt;/li&gt;
+  &lt;li&gt;View Model은 Model에게 데이터를 요청한다&lt;/li&gt;
+  &lt;li&gt;Model은 View Model에게 요청받은 데이터를 응답한다&lt;/li&gt;
+  &lt;li&gt;View Model은 응답 받은 데이터를 가공하여 저장한다&lt;/li&gt;
+  &lt;li&gt;View는 View Model과 Data Binding 하여 화면을 나타낸다&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;모든 입력들은 View로  전달되며 ViewModel은 입력에 해당하는 Presentation Logic (말 그대로 보여주기 위한 로직, 화면상의 디자인 구성을 위한 로직, ex) 게시판에서의 표시하기 위한 for문 등의 사용 &amp;lt;-&amp;gt; 비즈니스 로직: 백엔드에서 일어나는 각종 처리를 일컫는 말)을 처리하여 View에 데이터를 전달한다.&lt;br /&gt;
+ViewModel은 View를 따로 참조하지 않기 때문에 독립적으로 ViewModel과 View는 1:n의 관계이다. (자유롭다)&lt;/p&gt;
+
+&lt;p&gt;따라서 View는 자신이 이용할 ViewModel을 선택해 데이터를 바인딩하여 업데이트를 받게 된다
+그 후 Model이 상태 및 데이터가 변경되면 해당하는 ViewModel을 이용하는 View가 자동으로 업데이트 된다&lt;br /&gt;
+마지막으로 ViewModel은 View를 나타내기 위한 Model이자, View의 Presentaition Logic을 처리한다&lt;br /&gt;
+MVP와 마찬가지로 M-V 사이의 의존성이 없고, MVP처럼 V-VM이 1:1 관계가 아닌 독립적이기 때문에 이 둘 사이의 의존성도 없다&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;결론&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;MVVM 패턴은 Command 패턴과 Data Binding 두 가지 패턴을 사용하여 구현된다&lt;br /&gt;
+Command 패턴과 Data Binding을 이용하여 View와 View Model 사이의 의존성을 없앤다&lt;/p&gt;
+
+&lt;p&gt;뷰는 뷰모델을 알지만 뷰모델은 뷰가 뭔지, 어디서 쓰이는지 모른다. 그걸 느슨하게 데이터 바인딩으로 묶어논다&lt;br /&gt;
+뷰에 대한 상태 같은 것들을 뷰모델에 저장한다&lt;br /&gt;
+뷰는 뷰모델을 관찰하고 있고 변경점이 생기면 뷰가 알아채서 스스로 갱신하는 것이 MVVM이다&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;장점&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;각각의 부분은 독립적이기 때문에 모듈화 하여 개발할 수 있다&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;단점&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;View Model의 설계가 쉽지 않다&lt;/li&gt;
+  &lt;li&gt;특정 아키텍처로 개발을 시작하면 다른 아키텍쳐로 변환이 거의 불가능하다 -&amp;gt; 프로젝트를 다시 만드는 수준&lt;/li&gt;
+  &lt;li&gt;프로젝트에 아키텍쳐별 상성있어서 나중에 프로젝트가 안맞다고 꺠닳으면 늦는다 -&amp;gt; 비효율적인 코드 생성&lt;/li&gt;
+  &lt;li&gt;생산속도 엄청나게 느려진다 -&amp;gt; 기능 하나 만들때마다 파일을 엄청 많이 만들어야한다. 레이어 마다 파일들을 만들어야 해서 보일러 플레이트 코드(최소한의 변경으로 여러곳에서 재사용되며, 반복적으로 비슷한 형태를 띄는 코드)가 양산된다&lt;/li&gt;
+&lt;/ol&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="android" />
+      
+
+      
+        <summary type="html">MVVM</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">환경변수와 공격들</title>
       <link href="https://lee989898.github.io/sc2-05" rel="alternate" type="text/html" title="환경변수와 공격들" />
       <published>2022-04-11T01:06:00+09:00</published>
@@ -1316,165 +1712,6 @@ Adapter에서 전달받은 데이터를 Item Layout에 Bind 시켜주는 역할&
 
       
         <summary type="html">Environment Variables</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">MVVM</title>
-      <link href="https://lee989898.github.io/ad" rel="alternate" type="text/html" title="MVVM" />
-      <published>2022-04-11T01:06:00+09:00</published>
-      <updated>2022-04-11T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/ad</id>
-      <content type="html" xml:base="https://lee989898.github.io/ad">&lt;h2 id=&quot;mvvm&quot;&gt;&lt;strong&gt;MVVM&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;디자인패턴을 쓰는 이유&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;디자인 패턴은 소프트웨어 개발 방법을 문서로 공식화한 것인데, 디자인 패턴이란 한마디로 패턴이다. 기존에 앱을 만들면서 사람들이 여러가지 공법들을 적용해서 문제를 해결해 나갔는데, 이렇게 기존의 많은 개발자들이 쌓아놓은 경험을 통해서 쌓인 정리되어있는 패턴으로 만들면 일정한 규칙에 의해서 문제를 해결해 나가기에 코드의 가독성도 좋아지고 일정한 패턴으로 짜여져있어 테스트도 쉬워지고 타인의 코드를 봐도 이해하는데 쉽다. 또한 유지보수하는데 굉장히 유용하게 된다&lt;/p&gt;
-
-&lt;p&gt;협업을 위해서 어느 위치에 어떤 로직이 들어있나를 미리 정의해 놓으면&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;비슷한 코드를 보고 알아보기 쉬워짐&lt;/li&gt;
-  &lt;li&gt;유지보수가 수월해짐&lt;/li&gt;
-  &lt;li&gt;코드들의 역할분리가 명확해짐 (객체간의 관심사 분리)&lt;/li&gt;
-  &lt;li&gt;의존관계과 분리됨 (변화에 유연함 새로운 기능이나 코드가 좀 바뀌어도 코드가 유지됨)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;아래는 위키피다이의 설명이다&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;소프트웨어 개발 방법에서 사용되는 디자인 패턴은, 프로그램 개발에서 자주 나타나는 과제를 해결하기 위한 방법 중 하나로, 과거의 소프트웨어 개발 과정에서 발견된 설계의 노하우를 축적하여 이름을 붙여, 이후에 재이용하기 좋은 형태로 특정의 규약을 묶어서 정리한 것이다. 알고리즘과 같이 프로그램 코드로 바로 변환될 수 있는 형태는 아니지만, 특정한 상황에서 구조적인 문제를 해결하는 방식을 설명해준다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;처음 개발할때 안드로이드 개발을 하면 스파게티 코드를 짜서 나중에 봤을떄 답도 없었던 기억이 있는데, 간단한 앱에서는 문제가 없을수 있지만 디자인 패턴없이 복잡한 로직의 앱을 만들다보면 수정사항이 있을 떄마다 화면을 구성하는 코드와 비지니스 로직이 들어간 코드를 매번 동시에 수정해야한다. (ex) xml파일이랑 액티비티 파일)
-이 말은 서로간의 의존성이 강하다는 것이다. 의존성이 강해질수록 유지보수가 힘들기에 이러한 의존성을 해결하는 방법으로 model과 view의 관계를 해결하는 mvp, mvvm 같은 여러 패턴을 사용한다&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;MVVM&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;MVVM패턴이란 Model, View, ViewModel의 줄임말이다. 하나의 소프트웨어를 최대한 기능적으로 작은 단위로 나누어 테스트가 쉽고 큰 프로젝트도 상대적으로 관리하기가 좋은 구조이다&lt;/p&gt;
-
-&lt;p&gt;MVVM이 나오게 된 과정&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;처음 스파게티 코드&lt;/li&gt;
-  &lt;li&gt;mvc 스파게티 코드와 다를 바 없다. 안드로이드 특성상 뷰와 컨트롤러 자체가 모두 액티비티, 프래그먼트에 포함되어 있기 때문이다. 컨트롤러가 코틀린 파일이고 view가 xml이 된다. 모델은 따로 분리되어있지만 어차피 코틀린 파일에서 직접호출하여 결합도는 높다&lt;/li&gt;
-  &lt;li&gt;mvp 액티비티/프래그먼트 자체가 뷰이다. 프리젠터는 따로 클래스 자체가 분리된것이다. 뷰는 프리젠터에 일을 시키고 프리젠터는 모델에서 정보를 가져온다. 데이터 프리젠터가 가공해서 뷰에 넘겨준다. (개선점: 뷰량 모델을 완전히 분리하게 됨) (문제점: 프리젠터가 너무 커지고 뷰랑 프리젠터에 양방향 의존성이 생겨 1:1 관계가 만들어져서 재활용이 안된다)&lt;/li&gt;
-  &lt;li&gt;그래서 mvvvm이 나왔다. 뷰는 뷰모델을 알지만 뷰모델은 뷰가 뭔지 모름 어디서 쓰이는지 그걸 느슨하게 데이터 바인딩으로 묶어 놓음, 뷰에 대한 상태 같은 것들을 뷰모델에 박아놓음, 뷰는 뷰모델을 관찰하고 있고 변경점이 생기면 뷰가 알아채서 스스로 갱신하는 것이 mvvm이다. 근데 사실 여기에 바인더라는 레이어가 뷰랑 뷰모델 사이에 숨어있다-&amp;gt; 안드로이드에서는 데이터 바인딩으로 지원한다. 데이터 바인딩을 안쓰면 그건 그냥 mvp로 봐도 무방하다. 그리고 Viewmodel은 aac의 뷰모델이 아니다 -&amp;gt; aac뷰모델은 안드로이드 라이프사이클에 종속되고 사실상 가로뷰 세로뷰 다른뷰라고 봐도 무방하다. 다시 정리하자면 뷰와 모델은 이미 mvp에서 분리되었고 뷰랑 뷰모델을 분리시키는 것이 mvvm의 목표이다 결론은 xml로 다 옮기자&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\ad\ad07.png&quot; alt=&quot;안드로이드&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;기본적인 mvvm구조인데&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;View
-    &lt;ul&gt;
-      &lt;li&gt;사용자에게 보여지는 UI 부분이다&lt;/li&gt;
-      &lt;li&gt;View는 액티비티나 프래그먼트 같은 화면에 표현되는 레이아웃을 정의함&lt;/li&gt;
-      &lt;li&gt;View는 기본적으로 데이터를 보여주기만 해야 해서 비즈니스 로직을 포함하지 않지만 UI 변경과 관련된 일부 로직은 포함될 수 있음
-(안드로이드는 다른 플랫폼과는 다르게 생명주기라는 특수한 순서를 가지고 있기 때문에 이것을 처리하는 것만으로도 View는 상당히 복잡해지기 때문임)&lt;/li&gt;
-      &lt;li&gt;View는 ViewModel을 관찰하고 있다가 상태 변화가 전달되면 화면을 갱신해야함&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;ViewModel
-    &lt;ul&gt;
-      &lt;li&gt;View를 표현하기 위해 만든 View를 위한 Model이다. View를 나타내 주기 위한 Model이자 View를 나타내기 위한 데이터 처리를 하는 부분이다&lt;/li&gt;
-      &lt;li&gt;View와 Model 사이의 매개체 역할음 함&lt;/li&gt;
-      &lt;li&gt;모든 View와 관련된 비즈니스 로직은 이 곳에 들어가게 되며 데이터를 잘 가공해서 View에서 뿌리기 쉬운 Model로 바꾸는 역할을 함&lt;/li&gt;
-      &lt;li&gt;View와 ViewModel은 MVP와는 다르게 1:n의 관계를 가질 수 있으며 여러 개의 프래그먼트가 하나의 ViewModel을 가질 수 있음&lt;/li&gt;
-      &lt;li&gt;ViewModel은 View가 데이터 바인딩 할 수 있는 속성과 명령으로 구성되어 있음&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Model
-    &lt;ul&gt;
-      &lt;li&gt;어플리케이션에서 사용되는 데이터와 그 데이터를 처리하는 부분이다&lt;/li&gt;
-      &lt;li&gt;MVC의 Model과 역할은 동일하다&lt;/li&gt;
-      &lt;li&gt;DataModel이라고도 하며 DB, Network, SharedPreference 등 다양한 데이터 소스로부터 필요한 데이터를 준비함&lt;/li&gt;
-      &lt;li&gt;ViewModel에서 데이터를 가져갈 수 있게 데이터를 준비하고 그에 대한 “이벤트”를 보냄&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;동작&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;사용자의 Action들은 View를 통해 들어오게 된다&lt;/li&gt;
-  &lt;li&gt;View에 Action이 들어오면, Command 패턴(실행될 기능을 캡슐화함으로써 주어진 여러 기능을 실행할 수 있는 재사용성이 높은 클래스를 설계하는 패턴)으로 View Model에 Action을 전달합니다&lt;/li&gt;
-  &lt;li&gt;View Model은 Model에게 데이터를 요청한다&lt;/li&gt;
-  &lt;li&gt;Model은 View Model에게 요청받은 데이터를 응답한다&lt;/li&gt;
-  &lt;li&gt;View Model은 응답 받은 데이터를 가공하여 저장한다&lt;/li&gt;
-  &lt;li&gt;View는 View Model과 Data Binding 하여 화면을 나타낸다&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;모든 입력들은 View로  전달되며 ViewModel은 입력에 해당하는 Presentation Logic (말 그대로 보여주기 위한 로직, 화면상의 디자인 구성을 위한 로직, ex) 게시판에서의 표시하기 위한 for문 등의 사용 &amp;lt;-&amp;gt; 비즈니스 로직: 백엔드에서 일어나는 각종 처리를 일컫는 말)을 처리하여 View에 데이터를 전달한다.&lt;br /&gt;
-ViewModel은 View를 따로 참조하지 않기 때문에 독립적으로 ViewModel과 View는 1:n의 관계이다. (자유롭다)&lt;/p&gt;
-
-&lt;p&gt;따라서 View는 자신이 이용할 ViewModel을 선택해 데이터를 바인딩하여 업데이트를 받게 된다
-그 후 Model이 상태 및 데이터가 변경되면 해당하는 ViewModel을 이용하는 View가 자동으로 업데이트 된다&lt;br /&gt;
-마지막으로 ViewModel은 View를 나타내기 위한 Model이자, View의 Presentaition Logic을 처리한다&lt;br /&gt;
-MVP와 마찬가지로 M-V 사이의 의존성이 없고, MVP처럼 V-VM이 1:1 관계가 아닌 독립적이기 때문에 이 둘 사이의 의존성도 없다&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;결론&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;MVVM 패턴은 Command 패턴과 Data Binding 두 가지 패턴을 사용하여 구현된다&lt;br /&gt;
-Command 패턴과 Data Binding을 이용하여 View와 View Model 사이의 의존성을 없앤다&lt;/p&gt;
-
-&lt;p&gt;뷰는 뷰모델을 알지만 뷰모델은 뷰가 뭔지, 어디서 쓰이는지 모른다. 그걸 느슨하게 데이터 바인딩으로 묶어논다&lt;br /&gt;
-뷰에 대한 상태 같은 것들을 뷰모델에 저장한다&lt;br /&gt;
-뷰는 뷰모델을 관찰하고 있고 변경점이 생기면 뷰가 알아채서 스스로 갱신하는 것이 MVVM이다&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;장점&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;각각의 부분은 독립적이기 때문에 모듈화 하여 개발할 수 있다&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;단점&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;View Model의 설계가 쉽지 않다&lt;/li&gt;
-  &lt;li&gt;특정 아키텍처로 개발을 시작하면 다른 아키텍쳐로 변환이 거의 불가능하다 -&amp;gt; 프로젝트를 다시 만드는 수준&lt;/li&gt;
-  &lt;li&gt;프로젝트에 아키텍쳐별 상성있어서 나중에 프로젝트가 안맞다고 꺠닳으면 늦는다 -&amp;gt; 비효율적인 코드 생성&lt;/li&gt;
-  &lt;li&gt;생산속도 엄청나게 느려진다 -&amp;gt; 기능 하나 만들때마다 파일을 엄청 많이 만들어야한다. 레이어 마다 파일들을 만들어야 해서 보일러 플레이트 코드(최소한의 변경으로 여러곳에서 재사용되며, 반복적으로 비슷한 형태를 띄는 코드)가 양산된다&lt;/li&gt;
-&lt;/ol&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="android" />
-      
-
-      
-        <summary type="html">MVVM</summary>
       
 
       
@@ -1983,349 +2220,6 @@ EUID를 기준으로 시스템의 접근제어가 이루어진다&lt;/p&gt;
 
       
         <summary type="html">Set-UID Privileged Programs</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">Bitcoin, white paper</title>
-      <link href="https://lee989898.github.io/bc-02" rel="alternate" type="text/html" title="Bitcoin, white paper" />
-      <published>2022-03-29T01:06:00+09:00</published>
-      <updated>2022-03-29T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/bc-02</id>
-      <content type="html" xml:base="https://lee989898.github.io/bc-02">&lt;h2 id=&quot;introduction&quot;&gt;&lt;strong&gt;Introduction&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;hr /&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Introduction&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;TTP 기반 금융시스템의 한계
-    &lt;ul&gt;
-      &lt;li&gt;non-reversible 거래는 불가&lt;/li&gt;
-      &lt;li&gt;mediation 비용은 거래 비용을 증가 시킴&lt;/li&gt;
-      &lt;li&gt;TTP 없이 통신을 통한 결제 수단 없음&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;새로운 전자결제시스템이 필요
-    &lt;ul&gt;
-      &lt;li&gt;신뢰가 아닌 암호화 증명 기반&lt;/li&gt;
-      &lt;li&gt;사실상 계산할 수 없는 되돌릴 수 없는 트랜잭션&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;이중 지출 문제 해결
-    &lt;ul&gt;
-      &lt;li&gt;P2P 분산 타임스탬프 서버는 트랜잭션의 만성적 순서를 계산적으로 증명한다&lt;/li&gt;
-      &lt;li&gt;정직한 노드 만큼 보안성이 높다&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Transactions&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\bc\bc18.png&quot; alt=&quot;블록체인&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Coin = 일련의 디지털 서명&lt;/li&gt;
-  &lt;li&gt;T ${x_i}$ : A는 B에게 코인을 전송한다
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;table&gt;
-          &lt;tbody&gt;
-            &lt;tr&gt;
-              &lt;td&gt;Coin += $Pub_B$, H ( T $x_{i-1}$&lt;/td&gt;
-              &lt;td&gt;$Pub_B$ ), $Sign_A$ H ( T $x_{i-1}$&lt;/td&gt;
-              &lt;td&gt;$Pub_B$ )&lt;/td&gt;
-            &lt;/tr&gt;
-          &lt;/tbody&gt;
-        &lt;/table&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;One can
-    &lt;ul&gt;
-      &lt;li&gt;$Tx_i^,$ 지출이 $Tx_{i-1}^,$’s 수신자 인지 확인&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;One cannot
-    &lt;ul&gt;
-      &lt;li&gt;$Tx_{i-1}^,$’s 수신자가 한번만 지출한지 확인&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Double Spending&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;TTP (mint) model
-    &lt;ul&gt;
-      &lt;li&gt;TTP는 이중 지출에 대한 모든 거래를 확인해야 한다&lt;/li&gt;
-      &lt;li&gt;TTP는 새로운 코인을 발행하고 TTP에서 발행한 코인만 신뢰할 수 있다&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Distributed way
-    &lt;ul&gt;
-      &lt;li&gt;Payee는 지급인이 처음르로 트랜잭션에 서명했는지 확인한다&lt;/li&gt;
-      &lt;li&gt;Payee는 모든 거래를 알아야 하므로 알려져야 한다&lt;/li&gt;
-      &lt;li&gt;모든 참여자는 거래의 단일 주문 기록에 동의해야 한다&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Timestamp Server&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;타임스탬프 서버 게시
-    &lt;ul&gt;
-      &lt;li&gt;Ht = 해쉬(H-1, Blockt)&lt;/li&gt;
-      &lt;li&gt;Blockt = 시간 t에 존재했던 항목 집합&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;신문이나 게시판에 게시
-    &lt;ul&gt;
-      &lt;li&gt;à 중앙 집중식 타임스탬프 서버 = TTP ?&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\bc\bc17.png&quot; alt=&quot;블록체인&quot; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Proof of Work&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;목표: 분산 타임스탬프 서버&lt;/li&gt;
-  &lt;li&gt;Proof-of-work
-    &lt;ul&gt;
-      &lt;li&gt;0비트 시작 값으로 해시되는 값 찾기
-        &lt;ul&gt;
-          &lt;li&gt;시작 0비트 수만큼 기하급수적으로 어렵다&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;하나의 해싱으로 확인됨&lt;/li&gt;
-      &lt;li&gt;해시캐시&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;비트코인 PoW
-    &lt;ul&gt;
-      &lt;li&gt;Nonce 찾기
-        &lt;ul&gt;
-          &lt;li&gt;H(Blockt) = {0}n{0,1}*
-            &lt;ul&gt;
-              &lt;li&gt;
-                &lt;table&gt;
-                  &lt;tbody&gt;
-                    &lt;tr&gt;
-                      &lt;td&gt;where Blockt := H(Blockt-1)&lt;/td&gt;
-                      &lt;td&gt;Tx’s&lt;/td&gt;
-                      &lt;td&gt;Nonce&lt;/td&gt;
-                    &lt;/tr&gt;
-                  &lt;/tbody&gt;
-                &lt;/table&gt;
-              &lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;비트코인 PoW 해결
-    &lt;ul&gt;
-      &lt;li&gt;Block&amp;gt;=t에 대한 PoW를 다시 실행하지 않고 블록을 변경할 수 없다&lt;/li&gt;
-      &lt;li&gt;CPU 과반수 의사 결정당 투표 구현
-        &lt;ul&gt;
-          &lt;li&gt;Longest chain wins&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;이동 목표: 시간당 평균 블록 수 = 6을 유지하기 위해 n 증가&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;해시캐쉬&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Cynthia Dwork이 제안함&lt;/li&gt;
-  &lt;li&gt;Adam Back이 해시캐쉬 제안&lt;/li&gt;
-  &lt;li&gt;이메일을 보내면 PoW 비용이 발생한다
-    &lt;ul&gt;
-      &lt;li&gt;&amp;lt; counter &amp;gt; 찾기
-        &lt;ul&gt;
-          &lt;li&gt;SHA-1(1:20:&amp;lt; time &amp;gt;:&amp;lt; recipient &amp;gt;:&amp;lt; rand &amp;gt;:&amp;lt; counter &amp;gt;)= ${10}^{(20)}$ ${0,1}^{140}$&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;약 1초 걸린다&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;수신자는 다음 경우에만 이메일을 수락한다
-    &lt;ul&gt;
-      &lt;li&gt;&amp;lt; time &amp;gt;은 최근(2일), &amp;lt; recipient &amp;gt;는 맞을때&lt;/li&gt;
-      &lt;li&gt;유효한 PoW&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;이것은 스팸 발송자를 방지한다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;네트워크&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;새로운 트랜잭션은 모든 노드에 브로드캐스트된다&lt;/li&gt;
-  &lt;li&gt;각 노드는 새로운 트랜잭션을 블록으로 수집한다&lt;/li&gt;
-  &lt;li&gt;각 노드는 각각의 블록에서 어려운 proof-of-work을 찾기 위해 노력합니다.&lt;/li&gt;
-  &lt;li&gt;노드가 proof-of-work를 찾으면 모든 노드들에 브로드캐스트 한다&lt;/li&gt;
-  &lt;li&gt;노드는 모든 트랜잭션이 다음과 같은 경우에만 블록을 수락한다. 유효하며 아직 사용하지 않았을 때&lt;/li&gt;
-  &lt;li&gt;노드는 다음 블록을 체인에 만들며 받아들인 블록의 이전 해쉬 값을 이용하며 블록을 허용한다&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;인센티브&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;노드는 인센티브를 얻을 수 있다
-    &lt;ul&gt;
-      &lt;li&gt;블록의 첫 번째 트랜잭션은 블록의 새 코인을 시작한다&lt;/li&gt;
-      &lt;li&gt;거래 수수료 = input – output의 트랜잭션&lt;/li&gt;
-      &lt;li&gt;충분한 비트코인이 만들어 졌으면 트랜잭션 수수료만이 인센티브이다&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;인센티브는 공격자들이 공격하지 않고 참여하게 장려한다
-    &lt;ul&gt;
-      &lt;li&gt;시스템을 훼손하는 것보다 수익성이 높기 때문이다&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Reclaiming Disk Space&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;블록 체인이 늘어나면 디스크를 소진할 수 있다&lt;/li&gt;
-  &lt;li&gt;충분한 블록에 묻힌 오래된 거래는 폐기될 수 있다
-    &lt;ul&gt;
-      &lt;li&gt;그러나 블록의 해시를 변경하여 대량의 복잡함이 생긴다&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Merkle Tree를 사용하여 일련의 트랜잭션 해시
-    &lt;ul&gt;
-      &lt;li&gt;트랜잭션 세트(예: 분기)는 영향을 주지 않고 정리할 수 있다. 트리의 루트 해시&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\bc\bc19.png&quot; alt=&quot;블록체인&quot; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Simplified Payment Verification&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;노드(광부)는 이중 지출에 대한 지불을 확인할 수 있다
-    &lt;ul&gt;
-      &lt;li&gt;가장 긴 체인의 모든 블록과 트랜잭션을 가지고 있기 때문에&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;사용자(채굴자가 아님)는 다음을 통해 간소화된 검증을 수행할 수 있다
-    &lt;ul&gt;
-      &lt;li&gt;가장 긴 체인의 블록 헤더만 유지&lt;/li&gt;
-      &lt;li&gt;트랜잭션의 MTree 브랜치를 확인하기 위해 가져온다&lt;/li&gt;
-      &lt;li&gt;트랜잭션이 MTree와 일치하는지 확인&lt;/li&gt;
-      &lt;li&gt;블록 생성자가 트랜잭션을 확인했으며 블록이 가장 긴 사슬에서 받아들여진다&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\bc\bc20.png&quot; alt=&quot;블록체인&quot; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Combining and Splitting Value&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;값 결합/분할을 허용하려면
-    &lt;ul&gt;
-      &lt;li&gt;트랜잭션에 여러 입력/출력이 포함됨&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;최대 2개 출력
-    &lt;ul&gt;
-      &lt;li&gt;결제 1개&lt;/li&gt;
-      &lt;li&gt;보낸 사람에게 다시 한 번&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Privacy&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;TTP 모델은 액세스 제어를 통해 개인 정보를 보호한다&lt;/li&gt;
-  &lt;li&gt;Bitcoin 개인 정보는 다음으로 보호된다
-    &lt;ul&gt;
-      &lt;li&gt;거래당 생성된 공개 키의 익명성&lt;/li&gt;
-      &lt;li&gt;모든 거래가 공개적으로 발표되었음&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;그러나 일부 거래간 연계는 불가피
-    &lt;ul&gt;
-      &lt;li&gt;트랜잭션당 다중 입력을 사용할 때&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\bc\bc21.png&quot; alt=&quot;블록체인&quot; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Probability&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Why probability?
-    &lt;ul&gt;
-      &lt;li&gt;블록체인 proof-of-work은 확률을 기반으로 한다&lt;/li&gt;
-      &lt;li&gt;따라서 블록체인 보안은 확률에 기반한다&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;이중 지출 공격 성공 확률은?&lt;/li&gt;
-&lt;/ul&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="blockchain" />
-      
-
-      
-        <summary type="html">Introduction</summary>
       
 
       

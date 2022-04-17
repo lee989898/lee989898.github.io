@@ -11,7 +11,7 @@
 
 
 
-    <title>View Model & Live Data with Data Binding</title>
+    <title>Navigation Architecture Component</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -83,18 +83,18 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="View Model & Live Data with Data Binding" />
-    <meta property="og:description" content="data binding 객체를 View Model 객체에 직접 연결한다 data binding 객체와 View Model 객체를 연결하려면 View Model을 data binding 변수로 추가해야 한다 먼저 data 태그를 추가하고 variable 태그를 추가하고 이름과 타입도 추가한다 // activity_main.xml &lt;layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"&gt; &lt;data&gt; &lt;variable name="myViewModel" type="com.anushka.viewmodeldemo1.MainActivityViewModel" /&gt; &lt;/data&gt; &lt;/layout&gt; Mainactiviy에서 xml에서 생성한 뷰 모델" />
+    <meta property="og:title" content="Navigation Architecture Component" />
+    <meta property="og:description" content="Activity와 Fragment, 화면 간 전환을 제공하는 것은 복잡한 작업이 었다 최근에 소개된 Android jetpack 탐색 아키텍처 구성 요소 라이브러리는 인앱 탐색에 필요한 모든 것을 처리하기 위해 많은 빌드 도구를 제공함으로써 훨씬 더 개발 작업을 쉽게 만들어준다 Android 개발의 새로운 추세는 단일 Activity, 다중 Fragment 모델이다 네비게이션을 사용할 때 아키텍처 구성" />
     <meta property="og:url" content="https://lee989898.github.io/ad" />
     <meta property="og:image" content="https://lee989898.github.io/assets/built/images/android-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2022-04-16T16:07:07+09:00" />
-    <meta property="article:modified_time" content="2022-04-16T16:07:07+09:00" />
+    <meta property="article:published_time" content="2022-04-17T16:07:07+09:00" />
+    <meta property="article:modified_time" content="2022-04-17T16:07:07+09:00" />
     <meta property="article:tag" content="Android" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="View Model & Live Data with Data Binding" />
-    <meta name="twitter:description" content="data binding 객체를 View Model 객체에 직접 연결한다 data binding 객체와 View Model 객체를 연결하려면 View Model을 data binding 변수로 추가해야 한다 먼저 data 태그를 추가하고 variable 태그를 추가하고 이름과 타입도 추가한다 // activity_main.xml &lt;layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"&gt; &lt;data&gt; &lt;variable name="myViewModel" type="com.anushka.viewmodeldemo1.MainActivityViewModel" /&gt; &lt;/data&gt; &lt;/layout&gt; Mainactiviy에서 xml에서 생성한 뷰 모델" />
+    <meta name="twitter:title" content="Navigation Architecture Component" />
+    <meta name="twitter:description" content="Activity와 Fragment, 화면 간 전환을 제공하는 것은 복잡한 작업이 었다 최근에 소개된 Android jetpack 탐색 아키텍처 구성 요소 라이브러리는 인앱 탐색에 필요한 모든 것을 처리하기 위해 많은 빌드 도구를 제공함으로써 훨씬 더 개발 작업을 쉽게 만들어준다 Android 개발의 새로운 추세는 단일 Activity, 다중 Fragment 모델이다 네비게이션을 사용할 때 아키텍처 구성" />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
     <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/android-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -126,7 +126,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
         "@type": "WebPage",
         "@id": "https://lee989898.github.io/ad"
     },
-    "description": "data binding 객체를 View Model 객체에 직접 연결한다 data binding 객체와 View Model 객체를 연결하려면 View Model을 data binding 변수로 추가해야 한다 먼저 data 태그를 추가하고 variable 태그를 추가하고 이름과 타입도 추가한다 // activity_main.xml &lt;layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"&gt; &lt;data&gt; &lt;variable name="myViewModel" type="com.anushka.viewmodeldemo1.MainActivityViewModel" /&gt; &lt;/data&gt; &lt;/layout&gt; Mainactiviy에서 xml에서 생성한 뷰 모델"
+    "description": "Activity와 Fragment, 화면 간 전환을 제공하는 것은 복잡한 작업이 었다 최근에 소개된 Android jetpack 탐색 아키텍처 구성 요소 라이브러리는 인앱 탐색에 필요한 모든 것을 처리하기 위해 많은 빌드 도구를 제공함으로써 훨씬 더 개발 작업을 쉽게 만들어준다 Android 개발의 새로운 추세는 단일 Activity, 다중 Fragment 모델이다 네비게이션을 사용할 때 아키텍처 구성"
 }
     </script>
 
@@ -139,7 +139,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="View Model & Live Data with Data Binding" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Navigation Architecture Component" href="/feed.xml" />
 
 
 </head>
@@ -212,7 +212,7 @@ into the {body} of the default.hbs template -->
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="16 April 2022">16 April 2022</time>
+                    <time class="post-full-meta-date" datetime="17 April 2022">17 April 2022</time>
                     
                         <span class="date-divider">/</span>
                         
@@ -222,7 +222,7 @@ into the {body} of the default.hbs template -->
                         
                     
                 </section>
-                <h1 class="post-full-title">View Model & Live Data with Data Binding</h1>
+                <h1 class="post-full-title">Navigation Architecture Component</h1>
             </header>
 
             <!--
@@ -233,124 +233,209 @@ into the {body} of the default.hbs template -->
             -->
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <p>data binding 객체를 View Model 객체에 직접 연결한다</p>
+                    <p>Activity와 Fragment, 화면 간 전환을 제공하는 것은 복잡한 작업이 었다<br />
+최근에 소개된 Android jetpack 탐색 아키텍처 구성 요소 라이브러리는 인앱 탐색에 필요한 모든 것을 처리하기 위해 많은 빌드 도구를 제공함으로써 훨씬 더 개발 작업을 쉽게 만들어준다</p>
 
-<p>data binding 객체와 View Model 객체를 연결하려면 View Model을 data binding 변수로 추가해야 한다
-먼저 data 태그를 추가하고 variable 태그를 추가하고 이름과 타입도 추가한다</p>
+<p>Android 개발의 새로운 추세는 단일 Activity, 다중 Fragment 모델이다
+네비게이션을 사용할 때 아키텍처 구성 요소에서 일반적으로 기반 역할을 하는 하나의 빈 Activity를 만든다<br />
+그 외 모든 것들 앱의 화면은 Fragment를 사용하여 생성된다</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// activity_main.xml</span>
-<span class="p">&lt;</span><span class="n">layout</span> <span class="n">xmlns</span><span class="p">:</span><span class="n">android</span><span class="p">=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
-    <span class="n">xmlns</span><span class="p">:</span><span class="n">app</span><span class="p">=</span><span class="s">"http://schemas.android.com/apk/res-auto"</span>
-    <span class="n">xmlns</span><span class="p">:</span><span class="n">tools</span><span class="p">=</span><span class="s">"http://schemas.android.com/tools"</span><span class="p">&gt;</span>
+<p>라이브러리는 명령을 고려하여 뒤에서 많은 지원 클래스를 생성한다. 이렇게 생성된 클래스는 작업을 더 간단하고 쉽게 만든다
+탐색 구성 요소에는 세 가지 주요 부분이 있다. 네비게이션 그래프, NavHostFragment 및 NavController</p>
 
-    <span class="p">&lt;</span><span class="n">data</span><span class="p">&gt;</span>
+<p>네비게이션 그래프는 모든 탐색 관련 정보를 포함하는 XML 리소스 파일이다/ 이를 통해 단일 위치에서 탐색 관련 작업을 관리할 수 있다
+NavHostFragment는 네비게이션 그래프를 유지하는 활동을 한다
+NavController는 네비게이션에 의해 생성된 클래스이다. 네비게이션 그래프에 추가한 목적지 간의 탐색을 관리하기 위한 라이브러리이다</p>
 
-        <span class="p">&lt;</span><span class="n">variable</span>
-            <span class="n">name</span><span class="p">=</span><span class="s">"myViewModel"</span>
-            <span class="n">type</span><span class="p">=</span><span class="s">"com.anushka.viewmodeldemo1.MainActivityViewModel"</span> <span class="p">/&gt;</span>
+<p>네비게이션 아키텍처 구성 요소를 사용할 떄 프래그먼트 간에 데이터를 전달하려면 안전한 인수를 사용해야 한다
+그리고 safe args 플러그인도 추가해야 한다</p>
 
-
-    <span class="p">&lt;/</span><span class="n">data</span><span class="p">&gt;</span>
-
-<span class="p">&lt;/</span><span class="n">layout</span><span class="p">&gt;</span>
-</code></pre></div></div>
-
-<p>Mainactiviy에서 xml에서 생성한 뷰 모델 객체를 바인딩 객체에 할당해야 한다</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MainActivity.kt</span>
-<span class="n">binding</span><span class="p">.</span><span class="n">myViewModel</span> <span class="p">=</span> <span class="n">viewModel</span>
-</code></pre></div></div>
-
-<p>onClick 이벤트에 대한 리스너 바인딩을 사용한다. 그러면 Main Acitivity에서 해주지 않아도 된다<br />
-여기에서 코드의 양을 줄이기 위해 람다 식을 사용했다</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// activity_main.xml</span>
- <span class="p">&lt;</span><span class="nc">Button</span>
-        <span class="n">android</span><span class="p">:</span><span class="n">id</span><span class="p">=</span><span class="s">"@+id/button"</span>
-        <span class="n">android</span><span class="p">:</span><span class="n">layout_width</span><span class="p">=</span><span class="s">"wrap_content"</span>
-        <span class="n">android</span><span class="p">:</span><span class="n">layout_height</span><span class="p">=</span><span class="s">"wrap_content"</span>
-        <span class="n">android</span><span class="p">:</span><span class="n">text</span><span class="p">=</span><span class="s">"Click Here"</span>
-        <span class="n">android</span><span class="p">:</span><span class="n">onClick</span><span class="p">=</span><span class="s">"@{() -&gt; myViewModel.updateCount()}"</span>
-        <span class="n">android</span><span class="p">:</span><span class="n">textSize</span><span class="p">=</span><span class="s">"30sp"</span>
-        <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintBottom_toBottomOf</span><span class="p">=</span><span class="s">"parent"</span>
-        <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintEnd_toEndOf</span><span class="p">=</span><span class="s">"parent"</span>
-        <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintHorizontal_bias</span><span class="p">=</span><span class="s">"0.5"</span>
-        <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintStart_toStartOf</span><span class="p">=</span><span class="s">"parent"</span>
-        <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintTop_toTopOf</span><span class="p">=</span><span class="s">"parent"</span> <span class="p">/&gt;</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// buil.gradle</span>
+ <span class="n">def</span> <span class="n">nav_version</span> <span class="p">=</span> <span class="s">"2.4.1"</span>
+<span class="n">classpath</span> <span class="s">"androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"</span>
 </code></pre></div></div>
 
 <hr />
 
-<p>LiveData와 data binding을 통합해보자<br />
-LiveData Observe 코드 부분을 제거하고 대신에 LiveData를 xml 레이아웃 파일의 data binding 객체에 대한 data binding 소스로 사용한다</p>
+<p>네비게이션 그래프에서 앱의 모든 화면과 사용자가 화면에 접근할 수 있는 방법을 보여준다<br />
+목적지라고 불리운다</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// acitivity_main.xml</span>
-<span class="p">&lt;</span><span class="nc">TextView</span>
-        <span class="n">android</span><span class="p">:</span><span class="n">id</span><span class="p">=</span><span class="s">"@+id/count_text"</span>
-        <span class="n">android</span><span class="p">:</span><span class="n">layout_width</span><span class="p">=</span><span class="s">"wrap_content"</span>
-        <span class="n">android</span><span class="p">:</span><span class="n">layout_height</span><span class="p">=</span><span class="s">"wrap_content"</span>
-        <span class="n">android</span><span class="p">:</span><span class="n">textSize</span><span class="p">=</span><span class="s">"66sp"</span>
-        <span class="n">android</span><span class="p">:</span><span class="n">textStyle</span><span class="p">=</span><span class="s">"bold"</span>
-        <span class="n">android</span><span class="p">:</span><span class="n">typeface</span><span class="p">=</span><span class="s">"serif"</span>
-        <span class="n">android</span><span class="p">:</span><span class="n">text</span><span class="p">=</span><span class="s">"@{String.valueOf(myViewModel.count)"</span>
-        <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintBottom_toBottomOf</span><span class="p">=</span><span class="s">"parent"</span>
-        <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintEnd_toEndOf</span><span class="p">=</span><span class="s">"parent"</span>
-        <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintHorizontal_bias</span><span class="p">=</span><span class="s">"0.5"</span>
-        <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintStart_toStartOf</span><span class="p">=</span><span class="s">"parent"</span>
-        <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintTop_toTopOf</span><span class="p">=</span><span class="s">"parent"</span>
-        <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintVertical_bias</span><span class="p">=</span><span class="s">"0.262"</span> <span class="p">/&gt;</span>
+<p>android stuido에서 네비게이션 그래프를 만든다. New Resource File에서 파일 이름을 nav_graph로 한다. 그 다음 Resource 유형을 네비게이션으로 선택한다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// nav_graph.xml</span>
+<span class="p">&lt;?</span><span class="n">xml</span> <span class="n">version</span><span class="p">=</span><span class="s">"1.0"</span> <span class="n">encoding</span><span class="p">=</span><span class="s">"utf-8"</span><span class="p">?&gt;</span>
+<span class="p">&lt;</span><span class="n">navigation</span> <span class="n">xmlns</span><span class="p">:</span><span class="n">android</span><span class="p">=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+    <span class="n">xmlns</span><span class="p">:</span><span class="n">app</span><span class="p">=</span><span class="s">"http://schemas.android.com/apk/res-auto"</span>
+    <span class="n">android</span><span class="p">:</span><span class="n">id</span><span class="p">=</span><span class="s">"@+id/nav_graph"</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="n">navigation</span><span class="p">&gt;</span>
 </code></pre></div></div>
 
-<p>또한 뷰 모델 객체에 실제 생명 주기 소유자를 제공해야 한다</p>
+<p>아직은 목적지와 NavHostFragment가 없다<br />
+nav_graph.xml design 부분에서 add a destination을 클릭하여 홈프래그먼트를 Blank로 추가해준다</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MainActivity.kt</span>
-<span class="kd">class</span> <span class="nc">MainActivity</span> <span class="p">:</span> <span class="nc">AppCompatActivity</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">private</span> <span class="k">lateinit</span> <span class="kd">var</span> <span class="py">binding</span><span class="p">:</span> <span class="nc">ActivityMainBinding</span>
-    <span class="k">private</span> <span class="k">lateinit</span> <span class="kd">var</span> <span class="py">viewModel</span><span class="p">:</span> <span class="nc">MainActivityViewModel</span>
-    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">:</span> <span class="nc">Bundle</span><span class="p">?)</span> <span class="p">{</span>
-        <span class="k">super</span><span class="p">.</span><span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">)</span>
-        <span class="n">binding</span> <span class="p">=</span> <span class="nc">DataBindingUtil</span><span class="p">.</span><span class="nf">setContentView</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nc">R</span><span class="p">.</span><span class="n">layout</span><span class="p">.</span><span class="n">activity_main</span><span class="p">)</span>
-        <span class="n">viewModel</span> <span class="p">=</span> <span class="nc">ViewModelProvider</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="k">get</span><span class="p">(</span><span class="nc">MainActivityViewModel</span><span class="o">::</span><span class="k">class</span><span class="p">.</span><span class="n">java</span><span class="p">)</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// homeFragment.xml</span>
+<span class="p">&lt;?</span><span class="n">xml</span> <span class="n">version</span><span class="p">=</span><span class="s">"1.0"</span> <span class="n">encoding</span><span class="p">=</span><span class="s">"utf-8"</span><span class="p">?&gt;</span>
+<span class="p">&lt;</span><span class="nc">FrameLayout</span> <span class="n">xmlns</span><span class="p">:</span><span class="n">android</span><span class="p">=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+    <span class="n">xmlns</span><span class="p">:</span><span class="n">tools</span><span class="p">=</span><span class="s">"http://schemas.android.com/tools"</span>
+    <span class="n">android</span><span class="p">:</span><span class="n">layout_width</span><span class="p">=</span><span class="s">"match_parent"</span>
+    <span class="n">android</span><span class="p">:</span><span class="n">layout_height</span><span class="p">=</span><span class="s">"match_parent"</span>
+    <span class="n">tools</span><span class="p">:</span><span class="n">context</span><span class="p">=</span><span class="s">".HomeFragment"</span><span class="p">&gt;</span>
 
-        <span class="n">binding</span><span class="p">.</span><span class="n">myViewModel</span> <span class="p">=</span> <span class="n">viewModel</span>
-        <span class="n">binding</span><span class="p">.</span><span class="n">lifecycleOwner</span> <span class="p">=</span> <span class="k">this</span>
+    <span class="p">&lt;!--</span> <span class="nc">TODO</span><span class="p">:</span> <span class="nc">Update</span> <span class="n">blank</span> <span class="n">fragment</span> <span class="n">layout</span> <span class="p">--&gt;</span>
+    <span class="p">&lt;</span><span class="nc">TextView</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">layout_width</span><span class="p">=</span><span class="s">"match_parent"</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">layout_height</span><span class="p">=</span><span class="s">"match_parent"</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">text</span><span class="p">=</span><span class="s">"@string/hello_blank_fragment"</span> <span class="p">/&gt;</span>
+
+<span class="p">&lt;/</span><span class="nc">FrameLayout</span><span class="p">&gt;</span>
+</code></pre></div></div>
+
+<p>TextView를 제거해주고 FrameLayout을 ConstraintLayout으로 교체해준다<br />
+이제 앱을 시작하면 홈프래그먼트가 실행된다<br />
+데이터 바인딩을 사용해야 하므로 xml을 layout으로 감싸준다. 그리고 데이터 바인딩 코드도 추가한다<br />
+프래그먼트에서 데이터 바인딩을 사용할 때는 루트 속성을 반환해야 한다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// HomeFragment.kt</span>
+<span class="kd">class</span> <span class="nc">HomeFragment</span> <span class="p">:</span> <span class="nc">Fragment</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="k">private</span> <span class="k">lateinit</span> <span class="kd">var</span> <span class="py">binding</span><span class="p">:</span> <span class="nc">FragmentHomeBinding</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onCreateView</span><span class="p">(</span>
+        <span class="n">inflater</span><span class="p">:</span> <span class="nc">LayoutInflater</span><span class="p">,</span> <span class="n">container</span><span class="p">:</span> <span class="nc">ViewGroup</span><span class="p">?,</span>
+        <span class="n">savedInstanceState</span><span class="p">:</span> <span class="nc">Bundle</span><span class="p">?</span>
+    <span class="p">):</span> <span class="nc">View</span><span class="p">?</span> <span class="p">{</span>
+        <span class="n">binding</span> <span class="p">=</span> <span class="nc">DataBindingUtil</span><span class="p">.</span><span class="nf">inflate</span><span class="p">(</span><span class="n">inflater</span><span class="p">,</span> <span class="nc">R</span><span class="p">.</span><span class="n">layout</span><span class="p">.</span><span class="n">fragment_home</span><span class="p">,</span> <span class="n">container</span><span class="p">,</span> <span class="k">false</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">binding</span><span class="p">.</span><span class="n">root</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>Two Way Data Binding을 적용해보자<br />
-Two Way Data Binding을 사용하면 객체의 값이 변경되면 UI가 변경되고 UI가 변경되면 값이 변경된다</p>
+<p>action을 추가하면 fargment에서 fragment로 이동할 수 있다<br />
+action은 nav.graph.xml에서 연결해주면 id도 자동으로 만들어준다</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// activity_main.xml</span>
- <span class="p">&lt;</span><span class="nc">TextView</span>
-            <span class="n">android</span><span class="p">:</span><span class="n">layout_width</span><span class="p">=</span><span class="s">"wrap_content"</span>
-            <span class="n">android</span><span class="p">:</span><span class="n">layout_height</span><span class="p">=</span><span class="s">"wrap_content"</span>
-            <span class="n">android</span><span class="p">:</span><span class="n">text</span><span class="p">=</span><span class="s">"@{viewModel.userName}"</span>
-            <span class="n">android</span><span class="p">:</span><span class="n">textSize</span><span class="p">=</span><span class="s">"40sp"</span>
-            <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintBottom_toBottomOf</span><span class="p">=</span><span class="s">"parent"</span>
-            <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintLeft_toLeftOf</span><span class="p">=</span><span class="s">"parent"</span>
-            <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintRight_toRightOf</span><span class="p">=</span><span class="s">"parent"</span>
-            <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintTop_toTopOf</span><span class="p">=</span><span class="s">"parent"</span> <span class="p">/&gt;</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// nav_graph.xml</span>
+<span class="p">&lt;?</span><span class="n">xml</span> <span class="n">version</span><span class="p">=</span><span class="s">"1.0"</span> <span class="n">encoding</span><span class="p">=</span><span class="s">"utf-8"</span><span class="p">?&gt;</span>
+<span class="p">&lt;</span><span class="n">navigation</span> <span class="n">xmlns</span><span class="p">:</span><span class="n">android</span><span class="p">=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+    <span class="n">xmlns</span><span class="p">:</span><span class="n">app</span><span class="p">=</span><span class="s">"http://schemas.android.com/apk/res-auto"</span>
+    <span class="n">xmlns</span><span class="p">:</span><span class="n">tools</span><span class="p">=</span><span class="s">"http://schemas.android.com/tools"</span>
+    <span class="n">android</span><span class="p">:</span><span class="n">id</span><span class="p">=</span><span class="s">"@+id/nav_graph"</span>
+    <span class="n">app</span><span class="p">:</span><span class="n">startDestination</span><span class="p">=</span><span class="s">"@id/homeFragment"</span><span class="p">&gt;</span>
 
-        <span class="p">&lt;</span><span class="nc">EditText</span>
-            <span class="n">android</span><span class="p">:</span><span class="n">id</span><span class="p">=</span><span class="s">"@+id/editText"</span>
-            <span class="n">android</span><span class="p">:</span><span class="n">ems</span><span class="p">=</span><span class="s">"10"</span>
-            <span class="n">android</span><span class="p">:</span><span class="n">inputType</span><span class="p">=</span><span class="s">"textPersonName"</span>
-            <span class="n">android</span><span class="p">:</span><span class="n">text</span><span class="p">=</span><span class="s">"@={viewModel.userName}"</span>
-            <span class="n">android</span><span class="p">:</span><span class="n">textSize</span><span class="p">=</span><span class="s">"40sp"</span>
-            <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintBottom_toBottomOf</span><span class="p">=</span><span class="s">"parent"</span>
-            <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintEnd_toEndOf</span><span class="p">=</span><span class="s">"parent"</span>
-            <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintStart_toStartOf</span><span class="p">=</span><span class="s">"parent"</span>
-            <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintTop_toTopOf</span><span class="p">=</span><span class="s">"parent"</span>
-            <span class="n">app</span><span class="p">:</span><span class="n">layout_constraintVertical_bias</span><span class="p">=</span><span class="s">"0.294"</span>
-            <span class="n">android</span><span class="p">:</span><span class="n">layout_width</span><span class="p">=</span><span class="s">"wrap_content"</span>
-            <span class="n">android</span><span class="p">:</span><span class="n">layout_height</span><span class="p">=</span><span class="s">"wrap_content"</span><span class="p">/&gt;</span>
+    <span class="p">&lt;</span><span class="n">fragment</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">id</span><span class="p">=</span><span class="s">"@+id/homeFragment"</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="p">=</span><span class="s">"com.lee989898.navdemo1.HomeFragment"</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">label</span><span class="p">=</span><span class="s">"fragment_home"</span>
+        <span class="n">tools</span><span class="p">:</span><span class="n">layout</span><span class="p">=</span><span class="s">"@layout/fragment_home"</span> <span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="n">action</span>
+            <span class="n">android</span><span class="p">:</span><span class="n">id</span><span class="p">=</span><span class="s">"@+id/action_homeFragment_to_secondFragment"</span>
+            <span class="n">app</span><span class="p">:</span><span class="n">destination</span><span class="p">=</span><span class="s">"@id/secondFragment"</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="n">fragment</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="n">fragment</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">id</span><span class="p">=</span><span class="s">"@+id/secondFragment"</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="p">=</span><span class="s">"com.lee989898.navdemo1.SecondFragment"</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">label</span><span class="p">=</span><span class="s">"fragment_second"</span>
+        <span class="n">tools</span><span class="p">:</span><span class="n">layout</span><span class="p">=</span><span class="s">"@layout/fragment_second"</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="n">navigation</span><span class="p">&gt;</span>
 </code></pre></div></div>
 
-<p>lifeCycleOwner를 this로 해주고 binding.viewModel에 viewModel을 대입한다</p>
+<p>findNavController에 정해진 id를 통해서 다른 fragment로 이동한다</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">binding</span><span class="p">.</span><span class="n">viewModel</span> <span class="p">=</span> <span class="n">viewModel</span>
-<span class="n">binding</span><span class="p">.</span><span class="n">lifecycleOwner</span> <span class="p">=</span> <span class="k">this</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// HomeFragment.kt</span>
+<span class="n">binding</span><span class="p">.</span><span class="n">button</span><span class="p">.</span><span class="nf">setOnClickListener</span> <span class="p">{</span>
+            <span class="n">it</span><span class="p">.</span><span class="nf">findNavController</span><span class="p">().</span><span class="nf">navigate</span><span class="p">(</span><span class="nc">R</span><span class="p">.</span><span class="n">id</span><span class="p">.</span><span class="n">action_homeFragment_to_secondFragment</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>navController를 사용하여 지금, fragment에서 다른 fragment로 데이터를 전달할 수 있다<br />
+HomeFragment에서 SecondFragment의 TextView에 입력을 표시하는 코드를 작성한다<br />
+사용자 입력을 번들로 받는다. 이 editText의 값을 id editText로 가져온다<br />
+EditText 값의 이름을 “user_input”으로 지정한다. 그런 다음 해당 번들을 이 탐색 함수의 두 번째 인수로 전달해야 합니다
+대상 간에 데이터를 전달하는 것은 권장되지 않는다. 가장 좋은 방법은 뷰 모델을 사용하는 것이다<br />
+그러나 Android Navigation 아키텍처 구성 요소를 사용하면 데이터를 전달할 수 있다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// HomeFragment</span>
+<span class="n">binding</span><span class="p">.</span><span class="n">button</span><span class="p">.</span><span class="nf">setOnClickListener</span> <span class="p">{</span>
+            <span class="kd">val</span> <span class="py">bundle</span><span class="p">:</span> <span class="nc">Bundle</span> <span class="p">=</span> <span class="nf">bundleOf</span><span class="p">(</span><span class="s">"user_input"</span> <span class="n">to</span> <span class="n">binding</span><span class="p">.</span><span class="n">editText</span><span class="p">.</span><span class="n">text</span><span class="p">.</span><span class="nf">toString</span><span class="p">())</span>
+            <span class="n">it</span><span class="p">.</span><span class="nf">findNavController</span><span class="p">().</span><span class="nf">navigate</span><span class="p">(</span><span class="nc">R</span><span class="p">.</span><span class="n">id</span><span class="p">.</span><span class="n">action_homeFragment_to_secondFragment</span><span class="p">,</span> <span class="n">bundle</span><span class="p">)</span>
+        <span class="p">}</span>
+</code></pre></div></div>
+
+<p>인수에서 가져오는 코드이다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// SecondFragment</span>
+<span class="kd">val</span> <span class="py">input</span><span class="p">:</span> <span class="nc">String</span><span class="p">?</span> <span class="p">=</span> <span class="n">arguments</span><span class="o">!!</span><span class="p">.</span><span class="nf">getString</span><span class="p">(</span><span class="s">"user_input"</span><span class="p">)</span>
+    <span class="n">binding</span><span class="p">.</span><span class="n">textView</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">input</span><span class="p">.</span><span class="nf">toString</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>null 입력을 피하기 위해, EditText에 약간의 유효성 검사를 추가한다<br />
+TextUtils.isEmpty로 binding.editText.text.toString() 유효성 검사를 하여 사용자는 입력을 비워둘 수 엇ㅂ다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// HomeFragment</span>
+<span class="n">binding</span><span class="p">.</span><span class="n">button</span><span class="p">.</span><span class="nf">setOnClickListener</span> <span class="p">{</span>
+            <span class="k">if</span><span class="p">(!</span><span class="nc">TextUtils</span><span class="p">.</span><span class="nf">isEmpty</span><span class="p">(</span><span class="n">binding</span><span class="p">.</span><span class="n">editText</span><span class="p">.</span><span class="n">text</span><span class="p">.</span><span class="nf">toString</span><span class="p">())){</span>
+                <span class="kd">val</span> <span class="py">bundle</span><span class="p">:</span> <span class="nc">Bundle</span> <span class="p">=</span> <span class="nf">bundleOf</span><span class="p">(</span><span class="s">"user_input"</span> <span class="n">to</span> <span class="n">binding</span><span class="p">.</span><span class="n">editText</span><span class="p">.</span><span class="n">text</span><span class="p">.</span><span class="nf">toString</span><span class="p">())</span>
+                <span class="n">it</span><span class="p">.</span><span class="nf">findNavController</span><span class="p">().</span><span class="nf">navigate</span><span class="p">(</span><span class="nc">R</span><span class="p">.</span><span class="n">id</span><span class="p">.</span><span class="n">action_homeFragment_to_secondFragment</span><span class="p">,</span> <span class="n">bundle</span><span class="p">)</span>
+            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                <span class="nc">Toast</span><span class="p">.</span><span class="nf">makeText</span><span class="p">(</span><span class="n">activity</span><span class="p">,</span> <span class="s">"Please insert your name"</span><span class="p">,</span> <span class="nc">Toast</span><span class="p">.</span><span class="nc">LENGTH_LONG</span><span class="p">).</span><span class="nf">show</span><span class="p">()</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>nav_graph.xml에서 action_homeFragment_to_secondFragment, action_homeFragment_to_secondFragment 이 두 속성 창에서 4개의 애니메이션을 위한 공간이 있음을 알 수 있다. (입력, 종료, 팝업 입력 및 팝업 종료)</p>
+
+<p>한 목적지에서 다른 목적지로 또는 한 화면에서 다른 화면으로 이동할 때 새 화면이 나타난다<br />
+Enter 애니메이션과 함께 이전 창이 종료 애니메이션과 함께 사라진다<br />
+사용자가 전화기의 뒤로 버튼을 클릭하면 화면이 뒤로 이동하면 현재 화면이 사라진다<br />
+팝업 종료 애니메이션과 함께 이전 창이 팝업 입력 애니메이션과 함께 나타난다</p>
+
+<p>지금 나의 앱은 특별한 애니메이션을 보여주지 않는다. 그저 화면이 나타나고 사라진다. 따라서 앱 화면에 애니메이션을 추가해 보겠다</p>
+
+<p>안드로이드에서 애니메이션은 애니메이션 리소스 파일에 xml로 작성된다. 가장 먼저, 프로젝트에 애니메이션 리소스 파일을 추가해야 한다<br />
+검색하면 Android 애니메이션 리소스 파일용 Google, 많은 xml 샘플을 찾을 수 있다. stack over flow에서 좋은 애니메이션 리소스 파일 세트를 찾았다</p>
+
+<p>push_down_in, push_down_out, push_up_in, push_up_out, slide_in_left, Slide_in_right, slide_out_left 및 slide_out_right ,rotation, scale_from_corner, scale_torwards_corner, 페이드인과 페이드아웃 등 많은 애니메이션 리소스 파일이 있다</p>
+
+<p>나는 Slide_in_left, slide_in_right, slide_out_left 및 slide_out_right 기능을 추가하겠다<br />
+앱을 선택하고, 새로운 Android 리소스 파일. 웹에서 파일 이름과 xml 코드를 복사하여 붙여넣고 있다<br />
+리소스 유형은 애니메이션이어야 한다<br />
+이제 프로젝트에 애니메이션을 추가해 보겠다<br />
+나는 Slide_in_left로 애니메이션 입력을 선택했다. 그리고 종료 애니메이션을 slide_out_right로 선택했다
+뒤로 버튼의 경우 팝 입력 애니메이션을 slide_in_right로 선택하고 팝 종료 애니메이션으로 Slide_out_left을 선택했다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// slide_in_left.xml</span>
+<span class="p">&lt;?</span><span class="n">xml</span> <span class="n">version</span><span class="p">=</span><span class="s">"1.0"</span> <span class="n">encoding</span><span class="p">=</span><span class="s">"utf-8"</span><span class="p">?&gt;</span>
+<span class="p">&lt;</span><span class="k">set</span> <span class="n">xmlns</span><span class="p">:</span><span class="n">android</span><span class="p">=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+    <span class="n">android</span><span class="p">:</span><span class="n">shareInterpolator</span><span class="p">=</span><span class="s">"false"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="n">translate</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">duration</span><span class="p">=</span><span class="s">"5000"</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">fromXDelta</span><span class="p">=</span><span class="s">"-100%"</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">toXDelta</span><span class="p">=</span><span class="s">"0%"</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;</span><span class="n">alpha</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">duration</span><span class="p">=</span><span class="s">"5000"</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">fromAlpha</span><span class="p">=</span><span class="s">"0.0"</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">toAlpha</span><span class="p">=</span><span class="s">"1.0"</span> <span class="p">/&gt;</span>
+
+<span class="p">&lt;/</span><span class="k">set</span><span class="p">&gt;</span>
+</code></pre></div></div>
+
+<p>애니메이션이 조금 느리면. 그럼 애니메이션 리소스 파일을 열어서 시간을 줄이면된다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// nav_graph.xml</span>
+<span class="p">&lt;</span><span class="n">fragment</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">id</span><span class="p">=</span><span class="s">"@+id/homeFragment"</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="p">=</span><span class="s">"com.lee989898.navdemo1.HomeFragment"</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">label</span><span class="p">=</span><span class="s">"fragment_home"</span>
+        <span class="n">tools</span><span class="p">:</span><span class="n">layout</span><span class="p">=</span><span class="s">"@layout/fragment_home"</span> <span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="n">action</span>
+            <span class="n">android</span><span class="p">:</span><span class="n">id</span><span class="p">=</span><span class="s">"@+id/action_homeFragment_to_secondFragment"</span>
+            <span class="n">app</span><span class="p">:</span><span class="n">destination</span><span class="p">=</span><span class="s">"@id/secondFragment"</span>
+            <span class="n">app</span><span class="p">:</span><span class="n">enterAnim</span><span class="p">=</span><span class="s">"@anim/slid_in_left"</span>
+            <span class="n">app</span><span class="p">:</span><span class="n">exitAnim</span><span class="p">=</span><span class="s">"@anim/slide_out_right"</span>
+            <span class="n">app</span><span class="p">:</span><span class="n">popEnterAnim</span><span class="p">=</span><span class="s">"@anim/slide_in_right"</span>
+            <span class="n">app</span><span class="p">:</span><span class="n">popExitAnim</span><span class="p">=</span><span class="s">"@anim/slide_out_left"</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="n">fragment</span><span class="p">&gt;</span>
 </code></pre></div></div>
 
                 </div>
@@ -420,7 +505,7 @@ Two Way Data Binding을 사용하면 객체의 값이 변경되면 UI가 변경�
                         var disqus_config = function () {
                             var this_page_url = 'https://lee989898.github.io/ad';
                             var this_page_identifier = '/ad';
-                            var this_page_title = 'View Model & Live Data with Data Binding';
+                            var this_page_title = 'Navigation Architecture Component';
                         };
                         (function() {
                             var d = document, s = d.createElement('script');
@@ -471,6 +556,15 @@ Two Way Data Binding을 사용하면 객체의 값이 변경되면 UI가 변경�
                                     
                                         
                                         
+                                            <li><a href="/ad">View Model & Live Data with Data Binding</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
                                             <li><a href="/ad">Live Data</a></li>
                                         
                                     
@@ -488,8 +582,6 @@ Two Way Data Binding을 사용하면 객체의 값이 변경되면 UI가 변경�
                                   
                                     
                                         
-                                        
-                                            <li><a href="/ad">Data Binding</a></li>
                                         
                                     
                                   
@@ -697,7 +789,7 @@ Two Way Data Binding을 사용하면 객체의 값이 변경되면 UI가 변경�
                         <footer class="read-next-card-footer">
                             <a href="/tag/android/">
                                 
-                                    See all 9 posts  →
+                                    See all 10 posts  →
                                 
                             </a>
                         </footer>
@@ -729,11 +821,11 @@ Two Way Data Binding을 사용하면 객체의 값이 변경되면 UI가 변경�
                         
                     
 
-                    <h2 class="post-card-title">Live Data</h2>
+                    <h2 class="post-card-title">View Model & Live Data with Data Binding</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>View Model에서 데이터를 관찰하기 위해서는 Live Data를 사용하면된다. 시간도 절약하게 해준다
+                        <p>data binding 객체를 View Model 객체에 직접 연결한다
 
 </p>
                     
@@ -775,13 +867,13 @@ Two Way Data Binding을 사용하면 객체의 값이 변경되면 UI가 변경�
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">View Model & Live Data with Data Binding</div>
+    <div class="floating-header-title">Navigation Architecture Component</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=View+Model+%26+Live+Data+with+Data+Binding&amp;url=https://lee989898.github.io/ad"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Navigation+Architecture+Component&amp;url=https://lee989898.github.io/ad"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
