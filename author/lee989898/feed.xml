@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/author/lee989898/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-04-19T23:44:26+09:00</updated>
+  <updated>2022-04-20T22:43:46+09:00</updated>
   <id>https://lee989898.github.io/author/lee989898/feed.xml</id>
 
   
@@ -32,37 +32,142 @@
 
   
     <entry>
+      <title type="html">ViewModel + Livedata + 코루틴</title>
+      <link href="https://lee989898.github.io/ad" rel="alternate" type="text/html" title="ViewModel + Livedata + 코루틴" />
+      <published>2022-04-20T16:07:07+09:00</published>
+      <updated>2022-04-20T16:07:07+09:00</updated>
+      <id>https://lee989898.github.io/ad</id>
+      <content type="html" xml:base="https://lee989898.github.io/ad">&lt;p&gt;mvvm 아키텍처를 적용할때 액티비티와 프래그먼트에 대한 뷰 모델을 항상 생성해야 한다, viewmodel 및 livedata와 함께 코루틴을 사용해보겠다&lt;/p&gt;
+
+&lt;p&gt;viewModel 클래스를 만들고 이름을 MainActivityViewModel로 지정한다. 그런 다음 viewModel 클래스를 상속한다&lt;br /&gt;
+안드로이드에서 viewmodel이 메모리에서 지워질 때마다, clearing 직전에 viewmodel은 onCleared() 메서드를 부른다&lt;br /&gt;
+하지만 지우기 직전에 무언가를 하고 싶다면 onCleared 메서드를 수동으로 재정의할 수 있다&lt;br /&gt;
+하지만, 만약 우리 앱에 20개의 viewmodel 클래스가 있다면, 이 작업을 수동으로 수행하는 것은 불필요한 시간 낭비일 수 있다
+따라서 이를 피하기 위해 viewModelScope를 사용할 수 있다. 이 새로운 viewModelScope는 ViewModel의 수명 주기에 묶여 있다. 취소를 자동으로 처리하도록 만들었다&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// MainActivityViewModel&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MainActivityViewModel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ViewModel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;userRepository&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UserRepository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MutableLiveData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MutableLiveData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getUserData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;viewModelScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;launch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;
+            &lt;span class=&quot;nf&quot;&gt;withContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Dispatchers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;IO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;userRepository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;getUsers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!!&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// User.kt&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;data class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// UserRepository.kt&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UserRepository&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;suspend&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getUsers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;delay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;listOf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+            &lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Sam&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+            &lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Taro&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+            &lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Jane&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+            &lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Amy&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// MainActivity.kt&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MainActivity&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AppCompatActivity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;lateinit&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;mainActivityViewModel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MainActivityViewModel&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Bundle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;setContentView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;activity_main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;mainActivityViewModel&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ViewModelProvider&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;MainActivityViewModel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;mainActivityViewModel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;getUserData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;mainActivityViewModel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;observe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Observer&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;myUsers-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;myUsers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;nc&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;MyTag&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; name is ${it.name}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="android" />
+      
+
+      
+        <summary type="html">mvvm 아키텍처를 적용할때 액티비티와 프래그먼트에 대한 뷰 모델을 항상 생성해야 한다, viewmodel 및 livedata와 함께 코루틴을 사용해보겠다</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">Coroutines</title>
       <link href="https://lee989898.github.io/ad" rel="alternate" type="text/html" title="Coroutines" />
       <published>2022-04-19T16:07:07+09:00</published>
       <updated>2022-04-19T16:07:07+09:00</updated>
       <id>https://lee989898.github.io/ad</id>
-      <content type="html" xml:base="https://lee989898.github.io/ad">&lt;p&gt;컴퓨터 과학에는 여러 동시 프로세스를 관리하는 두 가지 유형의 멀티태스킹 방법이 있다&lt;br /&gt;
-한 종류로 운영 체제는 프로세스 간의 전환을 제어한다&lt;br /&gt;
-다른 유형은 프로세스가 스스로 행동을 제어하는 ​​협력적 멀티태스킹이라고 한다&lt;/p&gt;
+      <content type="html" xml:base="https://lee989898.github.io/ad">&lt;blockquote&gt;
+  &lt;p&gt;Coroutines&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;컴퓨터 여러 프로세스를 관리하는 두 가지 멀티태스킹 방법이 있다. 하나는 운영 체제가 프로세스 간의 전환을 제어한다. 다른 하나는 프로세스가 스스로 행동을 제어하는 ​​협력적 멀티태스킹이 있다&lt;/p&gt;
 
 &lt;p&gt;코루틴은 협력적 멀티태스킹을 위한 하위 루틴을 생성하는 소프트웨어 구성 요소이다&lt;br /&gt;
-잘 관리되는 “sub-task”의 순서로. 코루틴은 경량 스레드로 간주될 수 있다&lt;br /&gt;
-단일 스레드에서 많은 코루틴을 실행할 수 있다. 또 코루틴은 스레드 간에 전환될 수도 있다&lt;br /&gt;
-즉, 코루틴은 한 스레드에서 일시 중단되고 다른 스레드에서 재개될 수 있다&lt;/p&gt;
+잘 관리되는 “sub-task”로 코루틴은 가벼운 스레드로 간주될 수 있다&lt;/p&gt;
 
-&lt;p&gt;rxjava, asynctask에서의 고통스러운 멀티스레딩 작업 또는 executors, HandlerThreads 및 IntentServices을 Corotuine을 사용하여 쉽고 효율적으로 수행할 수 있다&lt;/p&gt;
+&lt;p&gt;단일 스레드에서 많은 코루틴을 실행할 수 있다&lt;br /&gt;
+또 코루틴은 스레드 간에 전환될 수도 있다. 즉, 코루틴은 한 스레드에서 일시 중단되고 다른 스레드에서 재개될 수 있다&lt;/p&gt;
 
-&lt;p&gt;Coroutines API를 사용하면 비동기식 코드를 순차적으로 작성할 수 있다&lt;br /&gt;
+&lt;p&gt;rxjava, asynctask, executors, HandlerThreads 및 IntentServices에서의 작업은 Corotuine을 사용하여 쉽고 효율적으로 수행할 수 있다&lt;/p&gt;
+
+&lt;p&gt;Coroutines API를 사용하면 비동기 코드를 순차적으로 작성할 수 있다&lt;br /&gt;
 불필요한 보일러 플레이트 코드를 피하는 Hense는 콜백과 함께 제공되며 코드를 더 읽기 쉽게 만든다&lt;/p&gt;
 
-&lt;p&gt;대부분의 스마트폰은 재생 빈도가 60hz 이상이다. 1000밀리초를 60으로 나누면 16.666.. 이 나온다&lt;br /&gt;
-따라서 앱은 스마트폰에서 실행되면 화면을 그려야 한다&lt;br /&gt;
-약 16초마다 메인 스레드를 사용한다&lt;/p&gt;
+&lt;p&gt;대부분의 스마트폰은 재생 빈도가 60hz 이상이다. 1000밀리초를 60으로 나누면 16.666.. 이 나온다. 앱은 스마트폰에서 실행되면 화면을 그려야 하는데 그러면 약 16초마다 메인 스레드를 사용한다&lt;br /&gt;
+더 좋은 스마트폰은 90hz, 120hz와 같은 더 높은 재생 빈도를 가지고 있다. 전화기의 새로 고침 수준이 90hz인 경우 1000밀리초를 90으로 나누면 앱은 Android 메인 스레드에서 작업을 수행하는 데 11ms밖에 없다&lt;br /&gt;
+새로 고침 레벨이 120hz인 경우 1000은 120으로 나누면 8ms만 가질 가진다&lt;/p&gt;
 
-&lt;p&gt;더 좋은 스마트폰은 90hz, 120hz와 같은 더 높은 재생 빈도를 가지고 있다&lt;br /&gt;
-전화기의 새로 고침 수준이 90hz인 경우 1000밀리초를 90으로 나누면 앱은 Android 메인 스레드에서 작업을 수행하는 데 11ms밖에 없다&lt;br /&gt;
-새로 고침 레벨이 120hz인 경우 1000은 120으로 나누면 8ms만 가질 가진다&lt;br /&gt;
-기본적으로 Android 메인 스레드에는 일련의 일반 책임이 있다. 항상 xml을 구문 분석하고 뷰 구성 요소를 확장하고 새로 고칠 때마다 계속해서 그려야 한다. 메인 스레드는 또한 클릭 이벤트와 같은 사용자 상호 작용을 처리해야 한다. 따라서 메인 스레드에 더 많은 작업을 추가하면 실행 시간이 다음과 같은 매우 작은 시간 간격을 초과하면 두 번 새로 고침하면 앱에 성능 오류가 표시되고, 화면이 멈출 수 있다. 그 결과 사용자는 예측할 수 없는 행동을 보게 된다. 또 View 컴포넌트에서, 응용 프로그램이 응답하지 않는 오류가 발생하기도 한다&lt;/p&gt;
+&lt;p&gt;기본적으로 Android 메인 스레드에는 일련의 책임이 있다. 항상 xml을 구문 분석하고 뷰 구성 요소를 확장하고 새로 고칠 때마다 계속해서 그려야 한다. 메인 스레드는 또한 클릭 이벤트와 같은 사용자 상호 작용을 처리해야 한다. 따라서 메인 스레드에 더 많은 작업을 추가하면 실행 시간이 다음과 같은 매우 작은 시간 간격을 초과하면 앱에 성능 오류가 표시되고, 화면이 멈출 수 있다. 그 결과 사용자는 예측할 수 없는 행동을 보게 된다. 또 View 컴포넌트에서, 응용 프로그램이 응답하지 않는 오류가 발생하기도 한다&lt;/p&gt;
 
-&lt;p&gt;기술 발전의 결과로 이러한 재생 빈도는 매년 점점 더 높아지고 있다&lt;br /&gt;
+&lt;p&gt;기술 발전의 결과로 매년 재생 빈도가 점점 더 높아지고 있다&lt;br /&gt;
 따라서 안드로이드 개발자로서 우리는 항상 장기 실행 작업을 비동기적으로 실행하도록 노력해야 한다&lt;br /&gt;
 별도의 스레드에서 이를 달성하기 위해 오늘날 우리가 보유한 가장 효율적이고 효과적인 최신 기술이 코틀린 코루틴이다&lt;/p&gt;
+
+&lt;p&gt;코투린과 스레드 같은건인가?&lt;br /&gt;
+메인, UI, 백그라운드 스레드와 코루틴은 같지 않다&lt;br /&gt;
+모든 스레드다 같은 시간에 많은 코루틴을 가지고 있을 수 있다&lt;/p&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// MainActivity.kt&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MainActivity&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AppCompatActivity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -100,7 +205,6 @@
 &lt;p&gt;CoroutineScope는 코루틴의 범위를 제공하는 인터페이스이다&lt;/p&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// MainActivity.kt&lt;/span&gt;
-
 &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MainActivity&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AppCompatActivity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
 
@@ -113,10 +217,9 @@
         &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;btnDownloadUserData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setOnClickListener&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 
-            &lt;span class=&quot;nc&quot;&gt;CoroutineScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Dispatchers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;IO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;launch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nc&quot;&gt;CoroutineScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Dispatchers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;IO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;launch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
                 &lt;span class=&quot;nf&quot;&gt;downloadUserData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
             &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
         &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
@@ -129,34 +232,26 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;코루틴은 코루틴을 추적하거나 코루틴이 수행하는 작업을 추적하는 데 도움이 되지 않는다&lt;br /&gt;
-매우 신중하게 관리하지 않으면 메모리에 코루틴 누수가 발생할 수 있다&lt;br /&gt;
-리소스는 불필요하게 낭비되며 애플리케이션 성능에도 영향을 미친다&lt;/p&gt;
+매우 신중하게 관리하지 않으면 메모리에 코루틴 누수가 발생할 수 있다. 리소스는 불필요하게 낭비되며 애플리케이션 성능에도 영향을 미친다&lt;/p&gt;
 
-&lt;p&gt;하지만 다행스럽게도 Kotlin 프로그래밍 언어 제작자는 이미 그 문제를 해결했다&lt;br /&gt;
-Kotlin 코루틴에서는 범위 내에서 모든 코루틴을 시작해야 한다. 우리는 쉽게 코루틴을 추적하고 코룬틴을 취소하고 오류 또는 예외를 처리할 수 있다&lt;br /&gt;
+&lt;p&gt;다행스럽게도 Kotlin 프로그래밍 언어 제작자는 이미 그 문제를 해결했다. Kotlin 코루틴에서는 범위 내에서 모든 코루틴을 시작해야 한다. 우리는 쉽게 코루틴을 추적하고 코룬틴을 취소하고 오류 또는 예외를 처리할 수 있다&lt;br /&gt;
 CoroutineScope는 코루틴에 범위를 제공하는 데 사용한 인터페이스이다&lt;br /&gt;
-코틀린 코루틴에서 GlobalScope라는 또 다른 범위 인터페이스가 있다. 전역 범위는 최상위 코루틴을 시작하는 데 사용된다&lt;br /&gt;
-전체 응용 프로그램 수명 동안 작동하지만 안드로이드 개발에서 우리는 거의 사용하지 않는다&lt;/p&gt;
+코틀린 코루틴에서 GlobalScope라는 또 다른 범위 인터페이스가 있다. 전역 범위는 최상위 코루틴을 시작하는 데 사용된다. 전체 응용 프로그램 수명 동안 작동하지만 안드로이드 개발에서 거의 사용하지 않는다&lt;/p&gt;
 
 &lt;p&gt;이 두 범위는 모두 코루틴 컨텍스트에 대한 참조 역할도 한다. Dispatchers.IO가 CoroutineScope의 컨텍스트이다&lt;br /&gt;
 명시적 작업 인스턴스를 사용하려는 경우 작업 인스턴스의 이름과 디스패처를 포함할 수 있다. 더하기 연산자는 여러 코루틴 컨텍스트를 병합하는 데 사용할 수 있다&lt;/p&gt;
 
-&lt;p&gt;Dispatcher는 코루틴이 있는 스레드의 종류를 설명한다. Kotlin Android 구조적 동시성에서는 항상 메인 스레드를 사용하여 코루틴을 시작한 다음 백그라운드 스레드로 전환하는 것이 좋다&lt;br /&gt;
-Dispatcher.Main을 사용한다, IO 디스패처도 있다. Dispatchers.IO, Dispatchers.Default 및 Dispatchers.Unconfined&lt;br /&gt;
-따라서 Dispatcher.Main 을 사용하면 코루틴이 메인 스레드에서 실행된다  Android에서는 UI 스레드라고도 한다. Main 또는 UI 스레드는 하나만 있다&lt;br /&gt;
+&lt;p&gt;Dispatcher는 코루틴이 있는 스레드의 종류를 설명한다. Kotlin Android 구조적 동시성에서는 항상 메인 스레드를 사용하여 코루틴을 시작한 다음 백그라운드 스레드로 전환하는 것이 좋다&lt;/p&gt;
+
+&lt;p&gt;Dispatcher.Main, Dispatchers.IO, Dispatchers.Default 및 Dispatchers.Unconfined이 있다&lt;br /&gt;
+Dispatcher.Main 을 사용하면 코루틴이 메인 스레드에서 실행된다  Android에서는 UI 스레드라고도 한다. Main 또는 UI 스레드는 하나만 있다&lt;br /&gt;
 따라서 Dispatchers.Main을 컨텍스트로 사용하여 범위 내에서 10개의 코루틴을 생성하면 10개의 모든 코루틴은 동일한 메인 스레드에서 실행된다&lt;/p&gt;
 
-&lt;p&gt;우리는 UI 함수 호출, 일시 중단 호출과 같은 작고 가벼운 작업에만 기본 디스패처를 사용한다&lt;br /&gt;
-기능을 사용하거나 livedata에서 업데이트를 가져온다&lt;/p&gt;
+&lt;p&gt;UI 함수 호출, 일시 중단 호출과 같은 작고 가벼운 작업에만 Main 디스패처를 사용한다. 기능을 사용하거나 livedata에서 업데이트를 가져온다&lt;/p&gt;
 
-&lt;p&gt;항상 메인 스레드에서 코루틴을 시작하고 나중에 background 스레드로 전환&lt;/p&gt;
+&lt;p&gt;Dispatchers.IO를 사용하는 경우 코루틴은 백그라운드 스레드에서 실행된다. 이 IO 디스패처를 사용하여 로컬 데이터베이스와 작업한다. 네트워크와 통신하고 파일 작업을 수행한다&lt;/p&gt;
 
-&lt;p&gt;Dispatchers.IO를 사용하는 경우 코루틴은 주문형 공유 풀의 백그라운드 스레드에서 실행된다&lt;br /&gt;
-만들어진 스레드. 우리는 이 IO 디스패처를 사용하여 로컬 데이터베이스와 작업한다&lt;br /&gt;
-네트워크와 통신하고 파일 작업을 수행한다&lt;/p&gt;
-
-&lt;p&gt;Default 디스패처는 CPU 집약적인 작업에 사용된다&lt;br /&gt;
-예를 들어 10000개의 목록 항목으로 데이터 목록을 정렬하거나 100000개의 영화에 대한 세부 정보가 포함된 거대한 JSON 파일을 구문 분석한다&lt;/p&gt;
+&lt;p&gt;Default 디스패처는 CPU 집약적인 작업에 사용된다. 예를 들어 10000개의 목록 항목으로 데이터 목록을 정렬하거나 100000개의 영화에 대한 세부 정보가 포함된 거대한 JSON 파일을 구문 분석한다&lt;/p&gt;
 
 &lt;p&gt;Dispatcher.Uncomfined는 GlobalScope와 함께 사용되는 디스패처이다&lt;br /&gt;
 Dispatchers.Unconfined Coroutine을 사용하면 현재 스레드에서 실행되지만 일시 중단되고 다시 시작되면 일시 중단 기능이 실행 중인 스레드에서 실행된다 사용하지 않는 것이 좋다. Android 개발용 디스패처이다&lt;/p&gt;
@@ -164,79 +259,92 @@ Dispatchers.Unconfined Coroutine을 사용하면 현재 스레드에서 실행�
 &lt;p&gt;이 4개의 디스패처 코루틴 외에도 API는 실행자를 디스패처로 변환하는 것을 용이하게 한다&lt;br /&gt;
 뿐만 아니라 자신의 맞춤형 디스패처를 생성한다. room 및 retrofit과 같은 라이브러리 제작자는 별도의 백그라운드 스레드에서 작업을 실행하기 위해 자체 사용자 지정 디스패처를 사용한다&lt;/p&gt;
 
-&lt;p&gt;메인 디스패처에서 쉽게 사용할 수 있다. 스레드를 변경하는 코드를 작성하지 않고. 안드로이드 개발자로서 대부분의 경우 Dispatchers.Main 및 Dispathcers.IO를 사용한다&lt;/p&gt;
+&lt;p&gt;안드로이드 개발자는 대부분의 경우 Dispatchers.Main 및 Dispathcers.IO를 사용한다&lt;/p&gt;
 
-&lt;p&gt;launch는 코루틴 빌더로 코루틴의 확장 기능이다. 새로운 코루틴을 시작하는 데 사용되는 범위. 네 가지 주요 코루틴 빌더. launch, async, produce 및 runblocking&lt;/p&gt;
+&lt;p&gt;launch는 코루틴 빌더로 새로운 코루틴을 시작하는 데 사용되는 범위. 네 가지 주요 코루틴 빌더. launch, async, produce 및 runblocking이 있다&lt;/p&gt;
 
-&lt;p&gt;Launch coroutine builder는 현재 스레드를 차단 없이 새로운 co 루틴을 시작한다&lt;br /&gt;
-이 빌더는 코루틴에 대한 참조로 사용할 수 있는 작업 인스턴스를 반환하고 그것을 사용할 수 있다&lt;br /&gt;
-반환된 작업 인스턴스를 사용하여 코루틴을 추적하고 코루틴을 취소할 수 있다. 코루틴에 런치 빌더를 사용하면 반환 값으로 결과가 없다. 이 빌더는 작업 인스턴스를 반환하지만 모든 계산 결과를 반환하지 않는다. 우리는 이 코루틴을 사용하여 무언가를 계산하고 반환된 값으로 최종 답을 얻을 수 없다&lt;/p&gt;
+&lt;p&gt;launch coroutine builder는 현재 스레드를 차단 없이 새로운 코루틴을 시작한다. launch 빌더는 코루틴에 대한 참조로 사용할 수 있는 작업 인스턴스를 반환하고 그것을 사용할 수 있다 . 반환된 작업 인스턴스를 사용하여 코루틴을 추적하고 코루틴을 취소할 수 있다. 코루틴에 launch 빌더를 사용하면 반환 값으로 결과가 없다. 이 빌더는 작업 인스턴스를 반환하지만 모든 계산 결과를 반환하지 않는다. 우리는 이 코루틴을 사용하여 무언가를 계산하고 반환된 값으로 최종 답을 얻을 수 없다&lt;/p&gt;
 
-&lt;p&gt;이러한 결과를 반환된 값으로 얻으려면 비동기 코루틴 빌더를 사용해야 한다. 뿐만 아니라 비동기 빌더의 주요 특징은 코루틴을 병렬로 시작할 수 있다는 것이다&lt;br /&gt;
-async 빌더 또한 현재 스레드를 차단하지 않고 새 코루틴을 시작한다&lt;br /&gt;
-이 빌더는 결과 유형의 지연된 인스턴스를 리턴한다. 실제로 지연된 인터페이스는 작업 인터페이스의 확장. 따라서 코루틴을 취소하는 작업에 대해 작업을 사용하는 것처럼 사용할 수 있다&lt;br /&gt;
-결과가 문자열 값인 경우 유형은 문자열이고 결과가 Int 값이면 이 유형은 Int이다&lt;br /&gt;
-지연된 객체에서 값을 얻으려면 wait() 함수를 호출해야 한다&lt;/p&gt;
+&lt;p&gt;결과를 반환된 값으로 얻으려면 async 코루틴 빌더를 사용해야 한다. 뿐만 아니라 async 빌더의 주요 특징은 코루틴을 병렬로 시작할 수 있다는 것이다&lt;br /&gt;
+async 빌더 또한 현재 스레드를 차단하지 않고 새 코루틴을 시작한다. 이 빌더는 결과 유형의 지연된 인스턴스를 리턴한다. 실제로 지연된 인터페이스는 작업 인터페이스의 확장. 따라서 코루틴을 취소하는 작업에 대해 작업을 사용하는 것처럼 사용할 수 있다. 결과가 문자열 값인 경우 유형은 문자열이고 결과가 Int 값이면 이 유형은 Int이다. async 객체에서 값을 얻으려면 await() 함수를 호출해야 한다&lt;/p&gt;
 
-&lt;p&gt;안드로이드 개발 시작 및 비동기 빌더는 코루틴 빌더이다. 그러나 Produce 및 runBlocking 빌더도 있다. 프로듀스 빌더는 코루틴용이다&lt;br /&gt;
-요소 스트림을 생성하고 이 빌더는 ReceiveChannel의 인스턴스를 반환한다&lt;br /&gt;
-안드로이드 개발에서 우리는 주로 테스트를 위해 runblocking builder를 사용한다&lt;br /&gt;
-다른 코루틴과 달리, 이 빌더를 사용하여 생성한 코루틴은 실행이 끝날 때까지 스레드를 차단한다. 그리고 직접 사용할 수 있는 결과를 반환한다&lt;/p&gt;
+&lt;p&gt;produce 및 runBlocking 빌더도 있다. produce 빌더는 코루틴용이다. 요소 스트림을 생성하고 이 빌더는 ReceiveChannel의 인스턴스를 반환한다&lt;/p&gt;
 
-&lt;p&gt;백그라운드 스레드에서 ui 스레드에서 실행 중인 뷰 구성 요소를 직접 호출할 수 없다. 실행하면 이제 CalledFromWrongThreadException 표시가 나온다&lt;br /&gt;
-뷰 계층 구조를 만든 원래 스레드만 해당 뷰를 접근할 수 있다&lt;br /&gt;
-따라서 UI 스레드에서 뷰를 호출해야 한다. 하지만 코루틴에는 전환하는 가장 쉬운 방법이 있다&lt;br /&gt;
-스레드 사이. 컨텍스트 기능과 함께 사용하면 한 스레드에서 다른 스레드로 코루틴을 전환할 수 있다&lt;/p&gt;
+&lt;p&gt;안드로이드 개발에서 우리는 주로 테스트를 위해 runblocking builder를 사용한다. 다른 코루틴과 달리, 이 빌더를 사용하여 생성한 코루틴은 실행이 끝날 때까지 스레드를 차단한다. 그리고 직접 사용할 수 있는 결과를 반환한다&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;연습&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// MainActivity.kt&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MainActivity&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AppCompatActivity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-
     &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Bundle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
         &lt;span class=&quot;nf&quot;&gt;setContentView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;activity_main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-        &lt;span class=&quot;n&quot;&gt;btnCount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setOnClickListener&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;tvCount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;++.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
+        &lt;span class=&quot;nc&quot;&gt;CoroutineScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Dispatchers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;IO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;launch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nc&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;MyTag&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;currentThread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
         &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;btnDownloadUserData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setOnClickListener&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+        &lt;span class=&quot;nc&quot;&gt;CoroutineScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Dispatchers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;launch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nf&quot;&gt;repeat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;nc&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;MY&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;currentThread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;백그라운드 스레드에서 ui 스레드에서 실행 중인 뷰 구성 요소를 직접 호출할 수 없다. 실행하면 이제 CalledFromWrongThreadException 표시가 나온다. 뷰 계층 구조를 만든 원래 스레드만 해당 뷰를 접근할 수 있다. 따라서 UI 스레드에서 뷰를 호출해야 한다&lt;br /&gt;
+하지만 코루틴에는 전환하는 가장 쉬운 방법이 있다. 컨텍스트 기능과 함께 사용하면 한 스레드에서 다른 스레드로 코루틴을 전환할 수 있다&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// MainActivity.kt&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MainActivity&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AppCompatActivity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;lateinit&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ActivityMainBinding&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Bundle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DataBindingUtil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setContentView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;activity_main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;btnCount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setOnClickListener&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tvCount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;++.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;btnDownloadUserData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setOnClickListener&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 
             &lt;span class=&quot;nc&quot;&gt;CoroutineScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Dispatchers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;IO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;launch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
                 &lt;span class=&quot;nf&quot;&gt;downloadUserData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
             &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
         &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
     &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;suspend&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;downloadUserData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 
-            &lt;span class=&quot;nf&quot;&gt;withContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Dispatchers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-                &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;200000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;tvUserMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Downloading user $i in ${Thread.currentThread().name}&quot;&lt;/span&gt;
-                    &lt;span class=&quot;nf&quot;&gt;delay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//            Log.i(&quot;MyTag&quot;, &quot;Downloading user $i in ${Thread.currentThread().name}&quot;)&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;withContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Dispatchers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;200000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tvUserMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Downloading user $i in ${Thread.currentThread().name}&quot;&lt;/span&gt;
+                &lt;span class=&quot;nf&quot;&gt;delay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
             &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
         &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;kotlin 코루틴에서 코루틴이 일시 중단될 때마다 함수의 현재 스택 프레임이 복사되어 메모리에 저장된다&lt;br /&gt;
-이후에 기능이 재개될 때 임무를 완수하고, 스택 프레임은 저장된 위치에서 다시 복사되고 다시 실행되기 시작한다&lt;br /&gt;
-Kotlin 코루틴 API는 작업을 더 쉽게 만들어주는 많은 기능을 제공한다. 거의 기능을 일시 중단하는것&lt;br /&gt;
-withContext(), withTimeout(), withTimeoutOrNull(), Join(), delay(), await(), supervisorScope, coroutineScope&lt;br /&gt;
-많은 일시 중단 기능이 있다&lt;br /&gt;
-코루틴 라이브러리 뿐만 아니라, room 및 retroift과 같은 다른 라이브러리도 일할 수 있도록 지원하는 일시 중단 기능을 제공한다&lt;/p&gt;
+&lt;p&gt;kotlin 코루틴에서 코루틴이 일시 중단될 때마다 함수의 현재 스택 프레임이 복사되어 메모리에 저장된다. 이후에 기능이 재개될 때 스택 프레임은 저장된 위치에서 다시 복사되고 다시 실행되기 시작한다&lt;br /&gt;
+Kotlin 코루틴 API는 작업을 더 쉽게 만들어주는 많은 기능을 제공한다. 대부분의 기능이 일시 중단하는 기능이다&lt;br /&gt;
+withContext(), withTimeout(), withTimeoutOrNull(), Join(), delay(), await(), supervisorScope, coroutineScope 등 많은 일시 중단 기능이 있다&lt;br /&gt;
+코루틴 라이브러리 뿐만 아니라, room 및 retroift과 같은 다른 라이브러리도 일시 중단 기능을 제공한다&lt;/p&gt;
 
-&lt;p&gt;코루틴으로. 함수에서 함수를 일시 중단하는 첫 번째 클래스를 호출하려는 경우 suspend modifier로 함수를 표시해야 한다&lt;br /&gt;
-withContext와 같은 일시 중단 함수를 사용하려면 호출 함수를 표시해야 한다. suspend modifiter와 함께&lt;br /&gt;
-또한 우리가 만든 다른 일시 중단 함수를 호출하려면 suspend 수정자를 사용하여 함수를 호출한다. suspending modifier로 실제로 함수의 사용을 제한하고 있다&lt;br /&gt;
-코루틴에만 해당한다. suspending 함수는 코루틴 블록에서 호출할 수 있다. 또는 다른 일시 중단 기능에서만&lt;br /&gt;
-일반 함수 또는 다른 위치에서 일시 중단 함수를 호출할 수 없다&lt;br /&gt;
-실제로 suspend modifier를 사용하여 함수에 장기 실행 작업이 많은 함수라는 레이블을 지정한다
-코루틴은 일시 중단 함수와 일반 함수를 모두 호출할 수 있지만 suspending 함수는 코루틴만 인 것을 기억하자&lt;/p&gt;
+&lt;p&gt;코루틴으로 함수에서 함수를 일시 중단하는 첫 번째 클래스를 호출하려는 경우 suspend 로 함수를 표시해야 한다. withContext와 같은 일시 중단 함수를 사용하려면 호출 함수를 suspend로 표시해야 한다&lt;br /&gt;
+또한 다른 일시 중단 함수를 호출하려면 suspend 를 사용하여 함수를 호출한다. suspend로 실제로 함수의 사용을 제한하고 있다. 코루틴에만 해당한다&lt;br /&gt;
+suspend 함수는 코루틴 블록 또는 다른 suspend 함수에서 호출할 수 있다. 실제로 suspend를 사용하여 함수에 장기 실행 작업이 많은 함수라는 레이블을 지정한다
+코루틴은 suspend 함수와 일반 함수를 모두 호출할 수 있지만 suspend 함수는 코루틴만 호출 할 수 있다는 것을 기억하자&lt;/p&gt;
 
 &lt;p&gt;Suspending Functions의 작동&lt;/p&gt;
 
@@ -272,19 +380,20 @@ withContext와 같은 일시 중단 함수를 사용하려면 호출 함수를 �
 
 &lt;p&gt;suspend 키워드로 표시된 함수는 소스 코드에서 동기적으로 나타나더라도 컴파일 시간에 변환되어 내부에서 비동기화된다&lt;/p&gt;
 
-&lt;p&gt;일시 중단 함수는 스레드를 차단하지 않는다&lt;br /&gt;
-그러나 코루틴 자체만 일시 중단합니다. (하나의 스레드가 더 많은 코루틴을 가질 수 있음)&lt;br /&gt;
+&lt;p&gt;suspend 함수는 스레드를 차단하지 않고 코루틴 자체만 일시 중단한다 (하나의 스레드가 더 많은 코루틴을 가질 수 있음)&lt;br /&gt;
 코루틴이 기다리는 동안 스레드는 풀로 반환된다. 대기가 완료되면 코루틴은 풀의 여유 스레드에서 재개된다&lt;/p&gt;
 
-&lt;p&gt;4개의 온라인 데이터 소스에서 결과를 가져와 모두 결합하여 사용자에게 최종 결과를 제공한다고 할 떄 첫 번째 작업은 10초 소요, 두 번째 작업은 15초 소요, 세 번째 작업은 12초, 그리고 네 번째 작업은 13초가 걸린다&lt;br /&gt;
-이러한 데이터 세트를 하나씩 다운로드하는 코드를 쉽게 작성할 수 있다&lt;br /&gt;
-하지만 그렇게 하면 사용자는 최종 결과를 보기 위해 최소 50초를 기다려야 한다&lt;br /&gt;
-일부 사용자는 화를 내며 앱을 제거할 수 있다&lt;/p&gt;
+&lt;hr /&gt;
 
-&lt;p&gt;이 모든 데이터를 병렬로 다운로드할 수 있다면 어떨까?&lt;br /&gt;
-만약에 우리가 할 수 있다면 단 15초 만에 결과를 표시할 수 있다&lt;br /&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;async &amp;amp; await&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;4개의 온라인 데이터에서 결과를 가져와 모두 결합하여 사용자에게 최종 결과를 제공한다고 할 떄 첫 번째 작업은 10초 소요, 두 번째 작업은 15초 소요, 세 번째 작업은 12초, 그리고 네 번째 작업은 13초가 걸린다. 이러한 데이터 세트를 하나씩 다운로드하는 코드를 쉽게 작성할 수 있다. 하지만 그렇게 하면 사용자는 최종 결과를 보기 위해 최소 50초를 기다려야 한다&lt;/p&gt;
+
+&lt;p&gt;이 모든 데이터를 병렬로 다운로드할 수 있다면 좋을 것이다. 그렇게 할 수 있다면 단 15초 만에 결과를 표시할 수 있다&lt;br /&gt;
 이러한 데이터를 병렬로 다운로드하고 마지막에 결합하는 코드를 작성하는 것을 parallel 이라고 한다&lt;br /&gt;
-Parallel Decomposition은 그러헥 쉽지 않다. 이를 위해 복잡하고 길고 읽기 어렵고 유지 관리하기 어려운 코드를 작성해야 했다&lt;br /&gt;
+Parallel Decomposition은 그렇게 쉽지 않다. 이를 위해 복잡하고 길고 읽기 어렵고 유지 관리하기 어려운 코드를 작성해야 했다&lt;br /&gt;
 그러나 Kotlin 코루틴을 사용하면 쉽다&lt;/p&gt;
 
 &lt;p&gt;먼저 순차분해이다&lt;/p&gt;
@@ -323,7 +432,7 @@ Parallel Decomposition은 그러헥 쉽지 않다. 이를 위해 복잡하고 �
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;asyc를 활용해서 병렬로 해보자&lt;br /&gt;
+&lt;p&gt;asnyc를 활용해서 병렬로 해보자&lt;br /&gt;
 대부분의 경우. 코루틴 launch builder 작업을 반환하고 asyc 코루틴 빌더는 Deferred의 값을 반환한다&lt;/p&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// MainActivity.kt&lt;/span&gt;
@@ -364,20 +473,22 @@ Parallel Decomposition은 그러헥 쉽지 않다. 이를 위해 복잡하고 �
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;병렬 분해 덕분에 비동기 빌더와 await 함수 호출을 사용하여 구현했다&lt;br /&gt;
+&lt;p&gt;병렬 분해로 async 빌더와 await 함수 호출을 사용하여 구현했다&lt;br /&gt;
 위 코드에서 IO 스레드 풀에 속하는 백그라운드 스레드에서 코루틴을 시작하고 모든 병렬 작업을 수행했다&lt;/p&gt;
+
+&lt;hr /&gt;
 
 &lt;p&gt;구조적 동시성을 적용해 보자&lt;br /&gt;
 그전에 먼저 구조화 되지 않은 동시성을 보자&lt;/p&gt;
 
-&lt;p&gt;일시 중단 함수에서 동시에 둘 이상의 코루틴을 사용하고 일부 결과를 반환한다&lt;br /&gt;
+&lt;p&gt;suspend 함수에서 동시에 둘 이상의 코루틴을 사용하고 일부 결과를 반환한다&lt;br /&gt;
 두 가지 방법이 있다. 그것들을 구조적 동시성과 비구조적 동시성이라고 부른다&lt;br /&gt;
 먼저 구조화되지 않은 동시성에 대해 보자. 이것은 잘못된 방법이다&lt;/p&gt;
 
-&lt;p&gt;UserDataManager1 클래스를 만들고 result를 사용하여 계산된 int 값을 반환하는 일시 중단 함수를 만든다
-두 개의 동시 작업 중. MainActivity에서 새 일시 중단 함수를 호출하고 반환된 값을 텍스트뷰에 넣는다&lt;br /&gt;
+&lt;p&gt;UserDataManager1 클래스를 만들고 result를 사용하여 계산된 int 값을 반환하는 suspend 함수를 만든다
+두 개의 동시 작업 중. MainActivity에서 새 suspend 함수를 호출하고 반환된 값을 텍스트뷰에 넣는다&lt;br /&gt;
 IO 디스패처에서 새 코루틴을 시작한다. 장기 실행 작업을 시뮬레이션하려면 이 코루틴을 1초 동안 지연시킨다&lt;br /&gt;
-그런 다음 count 변수에 값 50을 설정해 보겠다. 마지막으로 우리는 반환한다&lt;/p&gt;
+그런 다음 count 변수에 값 50을 설정 한다&lt;/p&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// UserDataManager.kt&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UserDataManager&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -395,30 +506,42 @@ IO 디스패처에서 새 코루틴을 시작한다. 장기 실행 작업을 시
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;이제 MainActivity로 다시 전환해 보겠습니다. 여기 MainActivity에서 이 클릭 이벤트를 사용하여 반환된 카운트 값을 표시할 수 있다&lt;br /&gt;
+&lt;p&gt;이제 MainActivity로 다시 전환해 보겠다. 여기 MainActivity에서 이 클릭 이벤트를 사용하여 반환된 카운트 값을 표시할 수 있다&lt;br /&gt;
 또한 코루틴의 디스패처를 Main으로 변경해야 한다. 그렇지 않으면 텍스트 보기에 값을 표시할 수 없다&lt;/p&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// MainActivity.kt&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;btnDownloadUserData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setOnClickListener&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MainActivity&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AppCompatActivity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;lateinit&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ActivityMainBinding&lt;/span&gt;
 
-            &lt;span class=&quot;nc&quot;&gt;CoroutineScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Dispatchers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;IO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;launch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;tvUserMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UserDataManager&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;getTotalUserCount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Bundle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DataBindingUtil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setContentView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;activity_main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;btnCount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setOnClickListener&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tvCount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;++.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;btnDownloadUserData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setOnClickListener&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+            &lt;span class=&quot;nc&quot;&gt;CoroutineScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Dispatchers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;launch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tvUserMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UserDataManager&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;getTotalUserCount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
             &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;이 앱을 실행하면 반환된 값으로 0을 얻는다. 반환된 값은 50이어야 한다. 하지만 0을 받았다&lt;br /&gt;
-여기에서 이 코루틴 범위는 새 코루틴을 만든다. 이는 MainActivity에서 이 상위 코루틴과 별도로 작동한다&lt;br /&gt;
+&lt;p&gt;이 앱을 실행하면 반환된 값으로 0을 얻는다. 반환된 값은 50이어야 한다&lt;br /&gt;
+코루틴 범위는 새 코루틴을 만든다. 이는 MainActivity에서 이 상위 코루틴과 별도로 작동한다&lt;br /&gt;
 따라서 이 함수는 끝에 도달하고 완료되기 전에 이 카운트 변수의 값을 반환한다. 그 이유 때문에 50 대신 0을 얻었다&lt;br /&gt;
-이것이 비구조화의 약점이다&lt;br /&gt;
-구조화되지 않은 동시성 일시 중단 기능의 모든 작업을 완료하는 것을 보장하지 않으며, 돌아오기 전에. 실제로 자식 코루틴은 부모 코루틴이 완료된 후에도 계속 실행될 수 있다.launch 코루틴 빌더를 사용하는 경우 그 결과 예측할 수 없는 오류가 발생할 수 있다&lt;/p&gt;
+이것이 비구조화의 약점이다&lt;/p&gt;
+
+&lt;p&gt;구조화되지 않은 동시 suspend 기능의 모든 작업을 완료하는 것을 보장하지 않으며, 돌아오기 전에. 실제로 자식 코루틴은 부모 코루틴이 완료된 후에도 계속 실행될 수 있다.launch 코루틴 빌더를 사용하는 경우 그 결과 예측할 수 없는 오류가 발생할 수 있다&lt;/p&gt;
 
 &lt;p&gt;그러나 asyn 빌더를 사용하고 반환 값에 대해 await 함수 호출을 사용하는 경우 비동기 코루틴의 예상 결과를 얻을 수 있다&lt;br /&gt;
 이제 비동기 빌더를 사용하여 다른 코루틴을 실행해보자&lt;br /&gt;
-70을 반환합시다. 비동기 블록에서 반환하기 때문에 return 대신 return@async를 사용한다&lt;br /&gt;
-이게 구조화되지 않은 동시성이 괜찮다는 것을 의미하는가? 아직 문제가 있다&lt;br /&gt;
-Android에서 함수에 오류가 발생하면 함수는 예외를 throw한다. 따라서 호출자 함수에서 예외를 포착하고 상황을 처리할 수 있다. 구조화되지 않은 동시성에서  launch 또는 async 빌더를 사용하던간에 예외를 적절하게 처리하는 방법을 알고 있다. 따라서 일부 시나리오에서는 잘 작동하는 것처럼 보이지만 구조화되지 않은
+70을 반환하자. 비동기 블록에서 반환하기 때문에 return 대신 return@async를 사용한다&lt;br /&gt;
+이게 구조화되지 않은 동시성이 괜찮다는 것을 의미할까? 아니다 아직 문제가 있다&lt;br /&gt;
+Android에서 함수에 오류가 발생하면 함수는 예외를 throw한다. 따라서 호출자 함수에서 예외를 포착하고 상황을 처리할 수 있다. 구조화되지 않은 동시성에서  launch 또는 async 빌더를 사용하던간에 예외를 적절하게 처리하는 방법이 없다. 따라서 일부 시나리오에서는 잘 작동하는 것처럼 보이지만 구조화되지 않은
 동시성이 있다&lt;/p&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// UserDataManger.kt&lt;/span&gt;
@@ -442,13 +565,13 @@ Android에서 함수에 오류가 발생하면 함수는 예외를 throw한다. 
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;이 코루틴 범위 기능으로 위 문제를 해결할 수 있다. 대문자 ‘C’가 있는 CoroutineScope가 아니라 coroutineScope이다&lt;br /&gt;
+&lt;p&gt;코루틴 범위 기능으로 위 문제를 해결할 수 있다. 대문자 ‘C’가 있는 CoroutineScope가 아니라 coroutineScope이다&lt;br /&gt;
 CoroutineScope 인터페이스를 사용하여 코루틴을 생성/실행하는 대신, 새로운 일시 중단 기능 내에서 coroutineScope 일시 중단 기능을 사용하여 자식을 제공한다&lt;br /&gt;
-자식 범위 내에서 비동기 빌더 실행을 사용할 수 있다. 런치 코루틴 빌더를 직접 사용하여 코루틴을 시작할 수 있다&lt;br /&gt;
+자식 범위 내에서 async 빌더 실행을 사용할 수 있다. launch 코루틴 빌더를 직접 사용하여 코루틴을 시작할 수 도 있다&lt;br /&gt;
 여기에 디스패처를 추가하지 않으면 이 코루틴은 상위 범위의 디스패처에서 시작된다. 따라서 부모 범위에는 Dispatchers.Main이 있다&lt;br /&gt;
-여기에서 어떤 Dispatcher에서도 사용하지 않으려면 이 코루틴은 메인 스레드에서 실행된다&lt;br /&gt;
+여기에서 어떤 Dispatcher에서도 사용하지 않으면 이 코루틴은 메인 스레드에서 실행된다&lt;br /&gt;
 인터페이스는 반환 전에 제공한 자식 범위 내의 모든 작업 완료를 보장한다&lt;br /&gt;
-따라서 일단 이 get total user count 함수를 호출하면 호출자에게 반환되기 전에 이 범위 내에서 시작된 모든 코루틴이 완료된다&lt;/p&gt;
+따라서 함수를 호출하면 호출자에게 반환되기 전에 이 범위 내에서 시작된 모든 코루틴이 완료된다&lt;/p&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// UserDataManger2.kt&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UserDataManager2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -473,21 +596,34 @@ CoroutineScope 인터페이스를 사용하여 코루틴을 생성/실행하는 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// MainActivity.kt&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;btnDownloadUserData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setOnClickListener&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MainActivity&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AppCompatActivity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;lateinit&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ActivityMainBinding&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Bundle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DataBindingUtil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setContentView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;activity_main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;btnCount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setOnClickListener&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tvCount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;++.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;btnDownloadUserData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setOnClickListener&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 
             &lt;span class=&quot;nc&quot;&gt;CoroutineScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Dispatchers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;launch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;tvUserMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UserDataManager2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;getTotalUserCount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//                binding.tvUserMessage.text = UserDataManager().getTotalUserCount().toString()&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tvUserMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UserDataManager2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;getTotalUserCount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
         &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;실행해보면 suspending 함수가 제대로 작동하는것을 볼 수 있다&lt;/p&gt;
 
-&lt;p&gt;자, 여기 ‘c’ 로 시작하는 이 coroutineScope 기능 MainActivity에서 생성된 상위 범위의 제어 하에 있는 하위 범위를 가질 수 있다&lt;br /&gt;
+&lt;p&gt;‘c’ 로 시작하는 이 coroutineScope 기능 MainActivity에서 생성된 상위 범위의 제어 하에 있는 하위 범위를 가질 수 있다&lt;br /&gt;
 따라서 이것이 권장되는 모범 사례이다. 하나 이상의 코루틴이 있는 경우 항상 Dispatchers.Main으로 시작해야 한다. 항상 CoroutineScope 인터페이스로 시작해야 한다 그리고 내부 일시 중단 기능 coroutineScope 기능을 사용해야한다. 간단한 ‘c’로 시작하며 자식 scope를 제공한다&lt;br /&gt;
 그래서 이것은 구조화된 동시성이다. 시작된 모든 작업을 완료하기 위한 구조적 동시성 보장, 일시 중단 기능이 반환되기 전에 자식 범위 내에서 코루틴에 의해. 실제로 이 코루틴스코프 자식 코루틴이 완료될 때까지 기다린다&lt;br /&gt;
-뿐만 아니라 이 구조화된 동시성의 다른 이점이 있다. 오류가 발생하고 예외가 발생하면 구조화된 동시성이 호출자에게 알리도록 보장한다. 그래서 우리는 예외를 쉽고 효과적으로 처리할 수 있다&lt;br /&gt;
+뿐만 아니라 이 구조화된 동시성의 다른 이점이 있다. 오류가 발생하고 예외가 발생하면 구조화된 동시성이 호출자에게 알리도록 보장한다. 그래서 예외를 쉽고 효과적으로 처리할 수 있다&lt;br /&gt;
 또한 구조화된 동시성을 사용하여 취소할 수 있다. 전체 자식 범위를 취소하면 해당 범위 내에서 발생하는 모든 작업이 취소된다. 코루틴을 별도로 취소할 수도 있다&lt;/p&gt;</content>
 
       
@@ -509,7 +645,7 @@ CoroutineScope 인터페이스를 사용하여 코루틴을 생성/실행하는 
       
 
       
-        <summary type="html">컴퓨터 과학에는 여러 동시 프로세스를 관리하는 두 가지 유형의 멀티태스킹 방법이 있다 한 종류로 운영 체제는 프로세스 간의 전환을 제어한다 다른 유형은 프로세스가 스스로 행동을 제어하는 ​​협력적 멀티태스킹이라고 한다</summary>
+        <summary type="html">Coroutines</summary>
       
 
       
@@ -2969,210 +3105,6 @@ Command 패턴과 Data Binding을 이용하여 View와 View Model 사이의 의�
 
       
         <summary type="html">MVVM</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">환경변수와 공격들</title>
-      <link href="https://lee989898.github.io/sc2-05" rel="alternate" type="text/html" title="환경변수와 공격들" />
-      <published>2022-04-11T01:06:00+09:00</published>
-      <updated>2022-04-11T01:06:00+09:00</updated>
-      <id>https://lee989898.github.io/sc2-05</id>
-      <content type="html" xml:base="https://lee989898.github.io/sc2-05">&lt;blockquote&gt;
-  &lt;p&gt;Environment Variables&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;동적으로 이름지어진 값의 집합&lt;/li&gt;
-  &lt;li&gt;프로세스가 진행되는 운영 환경의 일부&lt;/li&gt;
-  &lt;li&gt;실행 중인 프로세스가 동작하는 방식에 영향&lt;/li&gt;
-  &lt;li&gt;Unix에 도입되었으며 Microsoft Windows에서도 채택됨&lt;/li&gt;
-  &lt;li&gt;ex) PATH 변수
-    &lt;ul&gt;
-      &lt;li&gt;프로그램이 실행될 때 쉘 프로세스는 환경을 사용한다. 전체 경로가 제공되지 않은 경우 변수를 사용하여 프로그램이 있는 위치를 찾는다&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;환경 변수에 접근하는 방법&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;방법 1: 메인 함수에서&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc54.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;방법 2: 전역 변수를 사용하여&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc55.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;프로세스는 어떻게 환경 변수를 얻을까?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;프로세스는 두가지 방법으로 환경 변수를 가져온다&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;fokr() 시스템 호출을 사용하여 새 프로세스가 생성되면 자식 프로세스는 부모 프로세스의 환경 변수를 상속한다&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;프로세스가 자체적으로 새 프로그램을 실행하는 경우 일반적으로 execve 시스템 호출을 사용한다. 이경우 메모리 공간을 덮어쓰고 모든 이전 환경 변수가 사라진다. execve()는 전달하기 위해 특별한 방식으로 호출 될 수 있다&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;execve() 호출 시 환경 변수 전달:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc56.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;execve()와 환경변수&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;프로그램은 새로운 프로그램 /usr/bin/env, 현재 프로세스의 환경 변수를 출력한다&lt;br /&gt;
-새로운 변수 newenv를 3번째로 사용&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc57.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;
-&lt;img src=&quot;\assets\built\images\sc2\sc58.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;환경 변수의 메모리 위치&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc59.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;envp 및 환경은 처음에는 같은 장소를 가리킨다&lt;/li&gt;
-  &lt;li&gt;envp는 내부에서 메인 함수에서 액세스할 수 있다. Environ은 전역 변수&lt;/li&gt;
-  &lt;li&gt;환경 변수에 변경 사항이 있을 때(예: 새로 추가됨), 환경변수의 저장 위치는 힙으로 바뀔 수 있다, 그래서 environ은 변경될 것이다(envp는 바뀌지 않는다)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;셸 변수 및 환경 변수&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;사람들은 종종 쉘 변수와 환경 변수를 똑같다고 착각한다&lt;/li&gt;
-  &lt;li&gt;쉘 변수
-    &lt;ul&gt;
-      &lt;li&gt;쉘에서 사용하는 내부 변수&lt;/li&gt;
-      &lt;li&gt;쉘은 사용자가 쉘을 생성, 할당 및 삭제할 수 있도록 내장 명령을 제공한다&lt;/li&gt;
-      &lt;li&gt;예제에서는 FOO라는 쉘 변수를 생성한다&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;쉘 프로그램이 시작될 때 환경 변수를 자체 쉘에 복사합니다. 자체 쉘 변수에 대한 변경 사항은 반영되지 않는다, 아래 그림은 그 예이다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc61.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc60.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;아래 사진은 쉘 변수가 자식 프로세스의 환경 변수에 영향을 미치는 방법을 보여준다&lt;/li&gt;
-  &lt;li&gt;또한 부모 쉘의 환경 변수가 자식 프로세스의 환경 변수가 되는 것을 보여준다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc62.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;쉘 프롬프트에 env를 입력하면 쉘은 자식 프로세스를 생성한다&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc63.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;/proc 파일 시스템에 대한 참고 사항&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;/proc은 Linux의 가상 파일 시스템이다.프로세스 ID를 디렉터리 이름으로 사용 하여 디렉토리를 포함한다&lt;/li&gt;
-  &lt;li&gt;각 프로세스 디렉토리에는 Environ이라는 가상 파일이 포함되어 있다. 프로세스의 환경
-    &lt;ul&gt;
-      &lt;li&gt;예를 들어 가상 파일 /proc/932/environ은 다음과 같은 환경 변수를 포함한다. 프로세스 932&lt;/li&gt;
-      &lt;li&gt;“strings /proc/\(/environ&quot; 명령은 현재 프로세스의 환경변수를 출력한다. (셸은\)를 자체 프로세스 ID로 대체함)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;env 프로그램은 bash 셸에서 호출될 때 자식 프로세스에서 실행된다. 따라서 자기 것이 아닌 쉘의 자식 환경 변수를 출력한다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;환경 변수에 대한 공격&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;환경변수를 숨은 의도로 사용하면 매우 위험하다&lt;/li&gt;
-  &lt;li&gt;사용자가 환경 변수를 설정할 수 있기 때문에 그것들은 Set-UId 프로그램 공격의 일부가 된다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc64.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Dynamic Linker를 통한 공격&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Linking은 프로그램에서 참조하는 외부 라이브러리 코드를 찾는 것이다&lt;/li&gt;
-  &lt;li&gt;링크는 런타임 또는 컴파일 시간 동안 수행할 수 있다
-    &lt;ul&gt;
-      &lt;li&gt;Dynamic Linking: 환경 변수를 사용하며, 공격 surface의 일부가 된다&lt;/li&gt;
-      &lt;li&gt;Static Linking&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;다음 예를 사용하여 정적 및 동적을 구별한다. 연결:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc65.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Static Linking
-    &lt;ul&gt;
-      &lt;li&gt;링커는 프로그램 코드와 라이브러리 코드를 결합한다. printf() 함수를 포함하여&lt;/li&gt;
-      &lt;li&gt;정적 컴파일된 프로그램의 크기가 100배임을 알 수 있다. 동적 프로그램보다 크다&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc66.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Dynamic Linking
-    &lt;ul&gt;
-      &lt;li&gt;Linking은 런타임 중에 수행된다
-        &lt;ul&gt;
-          &lt;li&gt;공유 라이브러리(Windows의 DLL)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;동적 연결로 컴파일된 프로그램이 실행되기 전에 해당 실행 파일이 메모리에 먼저 로드됨&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc67.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;“ldd” 명령을 사용하여 어떤 공유 라이브러리가 의존하는 지 확인할 수 있다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc68.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>lee989898</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="systemcloud" />
-      
-
-      
-        <summary type="html">Environment Variables</summary>
       
 
       

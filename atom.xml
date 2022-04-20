@@ -8,11 +8,26 @@
     
       
       <item>
+        <title>ViewModel + Livedata + 코루틴</title>
+        
+          <description>&lt;p&gt;mvvm 아키텍처를 적용할때 액티비티와 프래그먼트에 대한 뷰 모델을 항상 생성해야 한다, viewmodel 및 livedata와 함께 코루틴을 사용해보겠다&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Wed, 20 Apr 2022 16:07:07 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/ad</link>
+        <guid isPermaLink="true">https://lee989898.github.io/ad</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>Coroutines</title>
         
-          <description>&lt;p&gt;컴퓨터 과학에는 여러 동시 프로세스를 관리하는 두 가지 유형의 멀티태스킹 방법이 있다&lt;br /&gt;
-한 종류로 운영 체제는 프로세스 간의 전환을 제어한다&lt;br /&gt;
-다른 유형은 프로세스가 스스로 행동을 제어하는 ​​협력적 멀티태스킹이라고 한다&lt;/p&gt;
+          <description>&lt;blockquote&gt;
+  &lt;p&gt;Coroutines&lt;/p&gt;
+&lt;/blockquote&gt;
 
 </description>
         
