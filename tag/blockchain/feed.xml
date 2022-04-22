@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/blockchain/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-04-20T22:43:46+09:00</updated>
+  <updated>2022-04-22T22:37:16+09:00</updated>
   <id>https://lee989898.github.io/tag/blockchain/feed.xml</id>
 
   
@@ -30,6 +30,112 @@
   
   
 
+  
+    <entry>
+      <title type="html">Bitcoin Keys and Addresses</title>
+      <link href="https://lee989898.github.io/bc-03" rel="alternate" type="text/html" title="Bitcoin Keys and Addresses" />
+      <published>2022-04-22T01:06:00+09:00</published>
+      <updated>2022-04-22T01:06:00+09:00</updated>
+      <id>https://lee989898.github.io/bc-03</id>
+      <content type="html" xml:base="https://lee989898.github.io/bc-03">&lt;blockquote&gt;
+  &lt;p&gt;비트코인의 소유권&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Digital Keys
+    &lt;ul&gt;
+      &lt;li&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Digital signatures
+    &lt;ul&gt;
+      &lt;li&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Bitcoin addresses
+    &lt;ul&gt;
+      &lt;li&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Address&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;h2 id=&quot;address는&quot;&gt;Address는&lt;/h2&gt;
+    &lt;p&gt;-&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Base58Check + Version(type)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Vanity Address&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+  &lt;li&gt;왜 쓸까?
+    &lt;ul&gt;
+      &lt;li&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;안전할까?
+    &lt;ul&gt;
+      &lt;li&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Vanity Address: 장점과 단점&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;-
+ -
+ -
+ -
+-
+ -
+  -
+  -
+  -&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>lee989898</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="blockchain" />
+      
+
+      
+        <summary type="html">비트코인의 소유권</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">Bitcoin, white paper</title>

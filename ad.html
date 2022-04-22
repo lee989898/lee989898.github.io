@@ -11,7 +11,7 @@
 
 
 
-    <title>ViewModel + Livedata + 코루틴</title>
+    <title>Room</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -83,18 +83,18 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="LEE" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="ViewModel + Livedata + 코루틴" />
-    <meta property="og:description" content="mvvm 아키텍처를 적용할때 액티비티와 프래그먼트에 대한 뷰 모델을 항상 생성해야 한다, viewmodel 및 livedata와 함께 코루틴을 사용해보겠다 viewModel 클래스를 만들고 이름을 MainActivityViewModel로 지정한다. 그런 다음 viewModel 클래스를 상속한다 안드로이드에서 viewmodel이 메모리에서 지워질 때마다, clearing 직전에 viewmodel은 onCleared() 메서드를 부른다 하지만 지우기 직전에 무언가를 하고 싶다면 onCleared 메서드를 수동으로 재정의할 수" />
+    <meta property="og:title" content="Room" />
+    <meta property="og:description" content="모바일 애플리케이션에 사용하는 SQLite는 SQL 데이터베이스 엔진이다. 수백만 개의 안드로이드 및 IOS 애플리케이션이 있어서 SQLite는 세계에서 가장 많이 사용되는 데이터베이스 엔진으로 간주된다 옛날 부터 안드로이드는 SQLite를 사용해 왔는데 SQLite와 함께 작동하는 코드 작성은 시간이 많이 걸리고 매우 어려운 작업이고 보일러 플레이트 코드를 반복해서 작성해야 했다 그러나 다행스럽게도 2017년에 Room data" />
     <meta property="og:url" content="https://lee989898.github.io/ad" />
     <meta property="og:image" content="https://lee989898.github.io/assets/built/images/android-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2022-04-20T16:07:07+09:00" />
-    <meta property="article:modified_time" content="2022-04-20T16:07:07+09:00" />
+    <meta property="article:published_time" content="2022-04-22T16:07:07+09:00" />
+    <meta property="article:modified_time" content="2022-04-22T16:07:07+09:00" />
     <meta property="article:tag" content="Android" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="ViewModel + Livedata + 코루틴" />
-    <meta name="twitter:description" content="mvvm 아키텍처를 적용할때 액티비티와 프래그먼트에 대한 뷰 모델을 항상 생성해야 한다, viewmodel 및 livedata와 함께 코루틴을 사용해보겠다 viewModel 클래스를 만들고 이름을 MainActivityViewModel로 지정한다. 그런 다음 viewModel 클래스를 상속한다 안드로이드에서 viewmodel이 메모리에서 지워질 때마다, clearing 직전에 viewmodel은 onCleared() 메서드를 부른다 하지만 지우기 직전에 무언가를 하고 싶다면 onCleared 메서드를 수동으로 재정의할 수" />
+    <meta name="twitter:title" content="Room" />
+    <meta name="twitter:description" content="모바일 애플리케이션에 사용하는 SQLite는 SQL 데이터베이스 엔진이다. 수백만 개의 안드로이드 및 IOS 애플리케이션이 있어서 SQLite는 세계에서 가장 많이 사용되는 데이터베이스 엔진으로 간주된다 옛날 부터 안드로이드는 SQLite를 사용해 왔는데 SQLite와 함께 작동하는 코드 작성은 시간이 많이 걸리고 매우 어려운 작업이고 보일러 플레이트 코드를 반복해서 작성해야 했다 그러나 다행스럽게도 2017년에 Room data" />
     <meta name="twitter:url" content="https://lee989898.github.io/" />
     <meta name="twitter:image" content="https://lee989898.github.io/assets/built/images/android-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -126,7 +126,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
         "@type": "WebPage",
         "@id": "https://lee989898.github.io/ad"
     },
-    "description": "mvvm 아키텍처를 적용할때 액티비티와 프래그먼트에 대한 뷰 모델을 항상 생성해야 한다, viewmodel 및 livedata와 함께 코루틴을 사용해보겠다 viewModel 클래스를 만들고 이름을 MainActivityViewModel로 지정한다. 그런 다음 viewModel 클래스를 상속한다 안드로이드에서 viewmodel이 메모리에서 지워질 때마다, clearing 직전에 viewmodel은 onCleared() 메서드를 부른다 하지만 지우기 직전에 무언가를 하고 싶다면 onCleared 메서드를 수동으로 재정의할 수"
+    "description": "모바일 애플리케이션에 사용하는 SQLite는 SQL 데이터베이스 엔진이다. 수백만 개의 안드로이드 및 IOS 애플리케이션이 있어서 SQLite는 세계에서 가장 많이 사용되는 데이터베이스 엔진으로 간주된다 옛날 부터 안드로이드는 SQLite를 사용해 왔는데 SQLite와 함께 작동하는 코드 작성은 시간이 많이 걸리고 매우 어려운 작업이고 보일러 플레이트 코드를 반복해서 작성해야 했다 그러나 다행스럽게도 2017년에 Room data"
 }
     </script>
 
@@ -139,7 +139,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="ViewModel + Livedata + 코루틴" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Room" href="/feed.xml" />
 
 
 </head>
@@ -212,7 +212,7 @@ into the {body} of the default.hbs template -->
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="20 April 2022">20 April 2022</time>
+                    <time class="post-full-meta-date" datetime="22 April 2022">22 April 2022</time>
                     
                         <span class="date-divider">/</span>
                         
@@ -222,7 +222,7 @@ into the {body} of the default.hbs template -->
                         
                     
                 </section>
-                <h1 class="post-full-title">ViewModel + Livedata + 코루틴</h1>
+                <h1 class="post-full-title">Room</h1>
             </header>
 
             <!--
@@ -233,72 +233,638 @@ into the {body} of the default.hbs template -->
             -->
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <p>mvvm 아키텍처를 적용할때 액티비티와 프래그먼트에 대한 뷰 모델을 항상 생성해야 한다, viewmodel 및 livedata와 함께 코루틴을 사용해보겠다</p>
+                    <p>모바일 애플리케이션에 사용하는 SQLite는 SQL 데이터베이스 엔진이다. 수백만 개의 안드로이드 및 IOS 애플리케이션이 있어서 SQLite는 세계에서 가장 많이 사용되는 데이터베이스 엔진으로 간주된다<br />
+옛날 부터 안드로이드는 SQLite를 사용해 왔는데 SQLite와 함께 작동하는 코드 작성은 시간이 많이 걸리고 매우 어려운 작업이고 보일러 플레이트 코드를 반복해서 작성해야 했다</p>
 
-<p>viewModel 클래스를 만들고 이름을 MainActivityViewModel로 지정한다. 그런 다음 viewModel 클래스를 상속한다<br />
-안드로이드에서 viewmodel이 메모리에서 지워질 때마다, clearing 직전에 viewmodel은 onCleared() 메서드를 부른다<br />
-하지만 지우기 직전에 무언가를 하고 싶다면 onCleared 메서드를 수동으로 재정의할 수 있다<br />
-하지만, 만약 우리 앱에 20개의 viewmodel 클래스가 있다면, 이 작업을 수동으로 수행하는 것은 불필요한 시간 낭비일 수 있다
-따라서 이를 피하기 위해 viewModelScope를 사용할 수 있다. 이 새로운 viewModelScope는 ViewModel의 수명 주기에 묶여 있다. 취소를 자동으로 처리하도록 만들었다</p>
+<p>그러나 다행스럽게도 2017년에 Room data 라이브러리가 도입되었다. 공식 문서에 따르면 Room은 SQLite를 통해 추상화 계층을 제공하여 능숙한 데이터베이스 액세스를 허용한다. Room 라이브러리가 하는 일은 백그라운드에서 많은 코드를 생성하는 것이다</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MainActivityViewModel</span>
-<span class="kd">class</span> <span class="nc">MainActivityViewModel</span><span class="p">:</span> <span class="nc">ViewModel</span><span class="p">()</span> <span class="p">{</span>
+<p>Room annotation을 사용하여 Room 라이브러리에 정보를 제공한다. annotation을 고려하여 Room 작업에 필요한 코드 생성한다. 프로젝트에서 Room data 라이브러리를 사용하려고 할 때 3가지 유형의 Room 클래스를 생성해야 한다</p>
 
-    <span class="k">private</span> <span class="kd">var</span> <span class="py">userRepository</span> <span class="p">=</span> <span class="nc">UserRepository</span><span class="p">()</span>
-    <span class="kd">var</span> <span class="py">users</span><span class="p">:</span> <span class="nc">MutableLiveData</span><span class="p">&lt;</span><span class="nc">List</span><span class="p">&lt;</span><span class="nc">User</span><span class="p">&gt;&gt;</span> <span class="p">=</span> <span class="nc">MutableLiveData</span><span class="p">()</span>
+<ol>
+  <li>Room database 클래스 실제 sqlite 데이터베이스를 나타냄</li>
+  <li>Entitiy 클래스 해당 데이터베이스의 테이블을 나타냄</li>
+  <li>DAO 인터페이스, 데이터 액세스 개체 인터페이스를 만들어야 한다. 즉, 데이터베이스에 액세스하는 데 사용되는 메서드를 포함하는 DAO 인터페이스이다</li>
+</ol>
 
-    <span class="k">fun</span> <span class="nf">getUserData</span><span class="p">(){</span>
-        <span class="n">viewModelScope</span><span class="p">.</span><span class="nf">launch</span> <span class="p">{</span>
-            <span class="kd">var</span> <span class="py">result</span><span class="p">:</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">User</span><span class="p">&gt;?</span> <span class="p">=</span> <span class="k">null</span>
-            <span class="nf">withContext</span><span class="p">(</span><span class="nc">Dispatchers</span><span class="p">.</span><span class="nc">IO</span><span class="p">){</span>
-                <span class="n">result</span> <span class="p">=</span> <span class="n">userRepository</span><span class="p">.</span><span class="nf">getUsers</span><span class="p">()</span>
-            <span class="p">}</span>
-            <span class="n">users</span><span class="p">.</span><span class="n">value</span> <span class="p">=</span> <span class="n">result</span><span class="o">!!</span>
-        <span class="p">}</span>
+<hr />
+
+<p>프로젝트를 시작하기 전에 데이터 바인딩을 활성화 하고 ViewModel, LiveData, kapt(kotlin 주석 프로세서), Room, Coroutine dependency를 추가해야한다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// build.gradle</span>
+<span class="nf">buildFeatures</span><span class="p">{</span>
+        <span class="n">dataBinding</span> <span class="k">true</span>
     <span class="p">}</span>
+
+<span class="nf">dependencies</span> <span class="p">{</span>
+    <span class="n">def</span> <span class="n">lifecycle_version</span> <span class="p">=</span> <span class="s">"2.5.0-alpha06"</span>
+    <span class="n">def</span> <span class="n">room_version</span> <span class="p">=</span> <span class="s">"2.4.2"</span>
+
+    <span class="c1">// optional - RxJava2 support for Room</span>
+    <span class="n">implementation</span> <span class="s">"androidx.room:room-rxjava2:$room_version"</span>
+    <span class="n">implementation</span> <span class="s">"androidx.room:room-runtime:$room_version"</span>
+    <span class="n">kapt</span> <span class="s">"androidx.room:room-compiler:$room_version"</span>
+
+    <span class="c1">// ViewModel</span>
+    <span class="n">implementation</span> <span class="s">"androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"</span>
+    <span class="c1">// LiveData</span>
+    <span class="n">implementation</span> <span class="s">"androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"</span>
+    <span class="n">kapt</span> <span class="s">"androidx.lifecycle:lifecycle-compiler:$lifecycle_version"</span>
+
+    <span class="c1">// Coroutine</span>
+    <span class="n">implementation</span> <span class="err">'</span><span class="n">org</span><span class="p">.</span><span class="n">jetbrains</span><span class="p">.</span><span class="n">kotlinx</span><span class="p">:</span><span class="n">kotlinx-coroutines-android</span><span class="p">:</span><span class="mf">1.3.9</span><span class="err">'</span>
+    <span class="n">implementation</span> <span class="err">'</span><span class="n">org</span><span class="p">.</span><span class="n">jetbrains</span><span class="p">.</span><span class="n">kotlinx</span><span class="p">:</span><span class="n">kotlinx-coroutines-core</span><span class="p">:</span><span class="mf">1.3.9</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// User.kt</span>
-<span class="kd">data class</span> <span class="nc">User</span><span class="p">(</span>
-    <span class="kd">val</span> <span class="py">id</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span>
+<p>데이터베이스에 테이블을 생성해야 한다. 테이블 이름은 Subscriber_data_table 이고 subscriberId, name, email 3개의 열이 있다. SubscriberId는 기본 키이다<br />
+Room 라이브러리는 “@Entity”로 주석이 달린 각 클래스에 대한 테이블을 생성한다. 클래스의 이름을 Subscriber로 지정한다
+여기에서 Room에게 제공할 데이터베이스 테이블 이름을 정할 수 있다. 이름을 지정하지 않으면 Room은 클래스 이름 “Subscriber”를 테이블로 사용한다. “@ColumnInfo” 주석을 사용하여 테이블에서 해당 열의 이름을 지정할 수도 있다. 멤버 변수의 이름과 다르게 하려면. 데이터베이스에 별도의 이름을 지정한다<br />
+데이터 클래스의 이름을 사용하는 것보다 모범 사례이다. 더 큰 프로젝트에서 다른 작업 및 다른 라이브러리에 이 동일한 데이터 클래스를 사용해야 하기 때문이다
+다음으로 이 데이터베이스 테이블에 대한 기본 키를 지정해야 한다. 이 SubscriberId 필드에 “@PrimaryKey” 주석을 추가하여 기본 키를 설정할 수 있다<br />
+이 기본 키가 자동 생성되기를 원하면 autoGenerate 속성을 true로 설정한다<br />
+Room 데이터베이스에 대한 Entity 클래스를 만드는 방법이다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Entity</span><span class="p">(</span><span class="n">tableName</span> <span class="p">=</span> <span class="s">"subscriber_data_table"</span><span class="p">)</span>
+<span class="kd">data class</span> <span class="nc">Subscriber</span><span class="p">(</span>
+
+    <span class="nd">@PrimaryKey</span><span class="p">(</span><span class="n">autoGenerate</span> <span class="p">=</span> <span class="k">true</span><span class="p">)</span>
+    <span class="nd">@ColumnInfo</span><span class="p">(</span><span class="n">name</span> <span class="p">=</span> <span class="s">"subscriber_name"</span><span class="p">)</span>
+    <span class="kd">val</span> <span class="py">id</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span>
+
+    <span class="nd">@ColumnInfo</span><span class="p">(</span><span class="n">name</span> <span class="p">=</span> <span class="s">"subscriber_id"</span><span class="p">)</span>
+    <span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span>
+
+    <span class="nd">@ColumnInfo</span><span class="p">(</span><span class="n">name</span> <span class="p">=</span> <span class="s">"subscriber_email"</span><span class="p">)</span>
+    <span class="kd">val</span> <span class="py">email</span><span class="p">:</span> <span class="nc">String</span>
 <span class="p">)</span>
 </code></pre></div></div>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// UserRepository.kt</span>
-<span class="kd">class</span> <span class="nc">UserRepository</span> <span class="p">{</span>
+<p>Data access object 인터페이스 또는 DAO 인터페이스는 데이터베이스에 액세스하는 기능을 정의하는 곳이다<br />
+sqlite를 직접 사용했을 때, 더 큰 데이터베이스 쿼리를 별도의 파일에 작성해야 했다. 커서 개체를 사용하려면 복잡한 코드 논리를 작성해야 했다</p>
 
-    <span class="k">suspend</span> <span class="k">fun</span> <span class="nf">getUsers</span><span class="p">():</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">User</span><span class="p">&gt;</span> <span class="p">{</span>
-        <span class="nf">delay</span><span class="p">(</span><span class="mi">8000</span><span class="p">)</span>
-        <span class="k">return</span> <span class="nf">listOf</span><span class="p">(</span>
-            <span class="nc">User</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">"Sam"</span><span class="p">),</span>
-            <span class="nc">User</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">"Taro"</span><span class="p">),</span>
-            <span class="nc">User</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s">"Jane"</span><span class="p">),</span>
-            <span class="nc">User</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s">"Amy"</span><span class="p">)</span>
-        <span class="p">)</span>
+<p>Room이 모든 힘든 일을 한다. 제공하는 정보를 읽고 annotations를 사용한다<br />
+SubscriberDAO라고 하는 새로운 인터페이스를 만들겠다. 그리고 @Dao로 annotations을 단다
+Room은 이 @Dao 주석을 본 후 이 인터페이스를 DAO 인터페이스로 인식한다</p>
+
+<p>이제 Subscriber 객체를 데이터베이스에 삽입하는 함수를 작성해 보겠다<br />
+“@Insert” 주석을 사용한다. 여기에 함수 이름을 insert로 썼다. 이 이름은 중요하지 않다<br />
+원하는 의미 있는 이름을 제공할 수 있다. 가장 중요한 것은 이 “@Insert” 주석이다. 룸 라이브러리는 다음을 읽어서 이 기능을 인식하여 데이터베이스에 Subscribe 객체를 삽입해야 하는것이 그리고 Room은 백그라운드에서 필요한 코드를 생성한다</p>
+
+<p>suspend 가 있는 이유는 Room은 메인 스레드에서 데이터베이스 액세스를 지원하지 않아서 오랜 시간 동안 UI를 잠글 수 있기 때문이다<br />
+따라서 백그라운드 스레드에서 이러한 기능을 실행해야 한다. 이를 위해 비동기 작업을 사용할 수 있다<br />
+그러나 가장 발전되고 가장 쉽고 효율적인 방법은 Kotlin 코루틴이다. Room이 직접 제공하기 때문에 Kotlin 코루틴 지원, room은 이러한 기능을 suspend 기능으로 작성할 수 있도록 한다<br />
+suspend 와 함께. suspend 기능은 단순히 다음 시간에 suspend 했다가 다시 시작할 수 있는 기능이다</p>
+
+<p>이제 어떻게든 코루틴을 사용하지 않기로 결정했다면 suspend 없이 함수를 작성할 수 있다. 호출 클래스에서 다른 백그라운드 처리 방법을 사용하는 경우에도 작동한다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Dao</span>
+<span class="kd">interface</span> <span class="nc">SubscriberDAO</span> <span class="p">{</span>
+
+    <span class="nd">@Insert</span>
+    <span class="k">suspend</span> <span class="k">fun</span> <span class="nf">insertSubscriber</span><span class="p">(</span><span class="n">subscriber</span><span class="p">:</span> <span class="nc">Subscriber</span><span class="p">):</span> <span class="nc">Long</span>
+
+    <span class="nd">@Insert</span>
+    <span class="k">fun</span> <span class="nf">insertSubscriber2</span><span class="p">(</span><span class="n">subscriber</span><span class="p">:</span> <span class="nc">Subscriber</span><span class="p">):</span> <span class="nc">Long</span>
+
+    <span class="nd">@Insert</span>
+    <span class="k">fun</span> <span class="nf">insertSubscriber3</span><span class="p">(</span><span class="n">subscriber1</span><span class="p">:</span> <span class="nc">Subscriber</span><span class="p">,</span> <span class="n">subscriber2</span><span class="p">:</span> <span class="nc">Subscriber</span><span class="p">,</span> <span class="n">subscriber3</span><span class="p">:</span> <span class="nc">Subscriber</span><span class="p">):</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Long</span><span class="p">&gt;</span>
+
+    <span class="nd">@Insert</span>
+    <span class="k">fun</span> <span class="nf">insertSubscriber4</span><span class="p">(</span><span class="n">subscribers</span><span class="p">:</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Subscriber</span><span class="p">&gt;):</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Long</span><span class="p">&gt;</span>
+
+    <span class="nd">@Insert</span>
+    <span class="k">fun</span> <span class="nf">insertSubscriber5</span><span class="p">(</span><span class="n">subscriber</span><span class="p">:</span> <span class="nc">Subscriber</span><span class="p">,</span> <span class="n">subscribers</span><span class="p">:</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Subscriber</span><span class="p">&gt;):</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Long</span><span class="p">&gt;</span>   
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>insert 함수의 다른 버전도 가능하다</p>
+
+<p>확인을 위해 반환 값을 얻어야 할 수도 있다. 실제로 새로운 rowId 또는 rowIds를 type의 반환 값으로 얻을 수 있다. 유형은 long이거나 배열이거나 긴 값 목록이어야 한다</p>
+
+<p>OnConflictStrategy는 또 다른 중요한 속성이다. 우리는 이러한 기능을 설정할 수 있습니다<br />
+OnConflictStrategy.REPLACE, 엔티티 삽입을 시도한다. 동일한 ID 값을 가진 기존 행이 있는 경우 이전 엔터티를 삭제하고 대체한다<br />
+IGNORE로 설정하면 충돌을 무시한다</p>
+
+<p>Subscriber_data_table 의 행을 업데이트한다. 함수 매개변수는 구독자 개체의 인스턴스여야 한다</p>
+
+<p>@Update 어노테이션으로 이것을 어노테이션하는 것이 가장 중요하다. 함수 이름은 중요하지 않다<br />
+전체 목록을 업데이트하는 매개변수로 구독자 목록을 추가하여 이 함수를 작성할 수도 있다<br />
+int 반환 유형 작성할 수 있다. 데이터베이스에서 업데이트된 행 수를 반환한다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// SubscriberDAO</span>
+<span class="nd">@Update</span>
+<span class="k">suspend</span> <span class="k">fun</span> <span class="nf">updateSubscriber</span><span class="p">(</span><span class="n">subscriber</span><span class="p">:</span> <span class="nc">Subscriber</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>이제 구독자를 삭제하는 함수를 정의해 보겠다. “@Delete” 주석으로 여기에 주석을 추가한다. 삭제 기능도 다른 변형을 가질 수도 있다. 하나 이상의 엔터티를 매개변수로 추가할 수 있다. 엔티티 목록을 매개변수로 추가할 수도 있다. 이 삭제 함수는 int를 반환할 수도 있다. 값은 삭제된 행 수이다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// SubscriberDAO</span>
+<span class="nd">@Delete</span>
+<span class="k">suspend</span> <span class="k">fun</span> <span class="nf">deleteSubscriber</span><span class="p">(</span><span class="n">subscriber</span><span class="p">:</span> <span class="nc">Subscriber</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>이제 @Query 주석을 사용하여 room을 사용하면 함수가 실행될 때 실행할 SQL 쿼리를 포함할 수 있다<br />
+가장 중요한 것은 이 쿼리가 컴파일 시간에 Room에서 확인되어 데이터베이스와 잘 작동하는지 확인하는 것이다
+그래서 런타임 오류와 관련된 데이터베이스 쿼리가 없다. 이것이 주요 이점이다</p>
+
+<p>테이블에서 모든 행을 삭제하는 함수를 만들어 보겠다<br />
+그런 다음 @Query 주석으로 이를 주석 처리한다. 그런 다음 SQL 쿼리 DELETE에 subscriber_data_table</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// SubscriberDAO</span>
+<span class="nd">@Query</span><span class="p">(</span><span class="s">"DELETE FROM subscriber_data_table"</span><span class="p">)</span>
+<span class="k">suspend</span> <span class="k">fun</span> <span class="nf">deleteAll</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>다음으로 subscriber_data_table에서 모든 데이터를 가져오는 함수를 작성해보겠다<br />
+Room을 사용하면 데이터베이스 테이블에서 엔티티 목록의 라이브 데이터로 데이터를 쉽게 얻을 수 있다<br />
+이러한 쿼리를 비동기 쿼리라고 한다. LiveData를 반환 값으로 갖기 때문이다. 백그라운드 스레드에서 단독으로 실행된다<br />
+따라서 백그라운드 스레드에서 실행하기 위해 특별한 코드를 작성할 필요가 없다. 따라서 이러한 기능을 실행하기 위해 코루틴, AsyncTask 또는 Excutor를 사용할 필요가 없다</p>
+
+<p>라이브 데이터로 데이터베이스에서 모든 구독자 엔터티 목록을 가져오는 함수를 작성한다<br />
+구독자 목록의 LiveData를 반환한다<br />
+그런 다음 @Query SELECT * FROM ubscriber_data_table</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Query</span><span class="p">(</span><span class="s">"SELECT * FROM subscriber_data_table"</span><span class="p">)</span>
+<span class="k">fun</span> <span class="nf">getAllSubscribers</span><span class="p">():</span> <span class="nc">LiveData</span><span class="p">&lt;</span><span class="nc">List</span><span class="p">&lt;</span><span class="nc">Subscriber</span><span class="p">&gt;&gt;</span>
+</code></pre></div></div>
+
+<p>이 함수와 그전에 정의한 다른 함수의 차이점은 무엇인가요? suspend를 추가하지 않았다<br />
+코루틴을 사용하여 백그라운드 스레드에서 이 함수를 실행할 필요가 없기 때문이다. Room 라이브러리는 백그라운드 스레드에서 작업을 수행한다</p>
+
+<hr />
+
+<p>앱의 실제 데이터베이스를 나타내기 위해 absctract 클래스를 만든다. abstract이고 RoomDatabase를 상속받아야 한다. 그리고 @Database로 annotation을 달아야 한다. entity 클래스 목록을 제공해야 한다. 그 다음 데이터베이스의 버전 번호를 추가한다 버전 번호는 데이터베이스를 한 버전에서 다른 버전으로 마이그레이션할 때 중요하다</p>
+
+<p>그런 다음 DAO 인터페이스에 대한 추상 참조를 선언해야 한다. 작은 프로젝트여서 하나의 엔티티 클래스와 해당 DAO 인터페이스만 가지고 있는데 엔티티 클래스가 더 많았다면 여기에 모두 나열하고 해당 클래스에 대한 참조를 정의하면된다</p>
+
+<p>새 개체를 만들고 프로젝트의 다른 위치에서 이 데이터베이스 클래스를 사용할 수 있다. 하지만 좋은 방법은 아니다. 예기치 않은 오류를 방지하려면 일반적으로 전체 앱에 대해 하나의 Room 데이터베이스 인스턴스만 사용해야 한다. 그리고 성능 문제가 있는 경우 여러 데이터베이스 인스턴스가 동시에 열리도록 해서는 안 된다. 따라서 여기에서 싱글톤을 생성해야 한다<br />
+@Volatile annotation 처리한다. Volatile annotation은 필드를 즉시 다른 스레드에서 볼 수 있도록 한다. 상용구라 이 코드 부분을 복사하여 모든 Room에 붙여넣을 수 있다. 데이터베이스 클래스를 변경하고 클래스 이름과 데이터베이스 이름을 변경하면 된다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// SubscriberDatabase.kt</span>
+<span class="nd">@Database</span><span class="p">(</span><span class="n">entities</span> <span class="p">=</span> <span class="p">[</span><span class="nc">Subscriber</span><span class="o">::</span><span class="k">class</span><span class="p">],</span> <span class="n">version</span> <span class="p">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">exportSchema</span> <span class="p">=</span> <span class="k">false</span><span class="p">)</span>
+<span class="k">abstract</span> <span class="kd">class</span> <span class="nc">SubscriberDatabase</span> <span class="p">:</span> <span class="nc">RoomDatabase</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="k">abstract</span> <span class="kd">val</span> <span class="py">subscriberDao</span><span class="p">:</span> <span class="nc">SubscriberDAO</span>
+
+    <span class="k">companion</span> <span class="k">object</span> <span class="p">{</span>
+        <span class="nd">@Volatile</span>
+        <span class="k">private</span> <span class="kd">var</span> <span class="py">INSTANCE</span><span class="p">:</span> <span class="nc">SubscriberDatabase</span><span class="p">?</span> <span class="p">=</span> <span class="k">null</span>
+        <span class="k">fun</span> <span class="nf">getInstance</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="nc">Context</span><span class="p">):</span> <span class="nc">SubscriberDatabase</span> <span class="p">{</span>
+            <span class="nf">synchronized</span><span class="p">(</span><span class="k">this</span><span class="p">)</span> <span class="p">{</span>
+                <span class="kd">var</span> <span class="py">instance</span> <span class="p">=</span> <span class="nc">INSTANCE</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">instance</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">instance</span> <span class="p">=</span> <span class="nc">Room</span><span class="p">.</span><span class="nf">databaseBuilder</span><span class="p">(</span>
+                        <span class="n">context</span><span class="p">.</span><span class="n">applicationContext</span><span class="p">,</span>
+                        <span class="nc">SubscriberDatabase</span><span class="o">::</span><span class="k">class</span><span class="p">.</span><span class="n">java</span><span class="p">,</span>
+                        <span class="s">"subscriber_data_database"</span>
+                    <span class="p">).</span><span class="nf">build</span><span class="p">()</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="n">instance</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
     <span class="p">}</span>
 
 <span class="p">}</span>
 </code></pre></div></div>
+
+<hr />
+
+<p>MVVM을 따라서 해보자. 모델은 모든 데이터 관리 관련 구성 요소를 의미한다<br />
+모델에는 로컬 데이터베이스 관련 구성 요소, 원격 데이터 소스 관련 구성 요소 및 저장소가 있다. 여기서는 원격 데이터 소스를 사용하지 않을 것이다</p>
+
+<p>이 부분을 완료하는 엔터티 클래스, DAO 인터페이스 및 데이터베이스 클래스를 이미 만들었다</p>
+
+<p>프로젝트에 대한 저장소 클래스를 만들자. 리포지토리 클래스의 목적은 뷰 모델이 데이터를 쉽게 가져오고 보낼 수 있는 깨끗한 API를 제공하는 것이다<br />
+Google 문서에서 알 수 있듯이 리포지토리를 서로 다른 데이터 소스 간의 중재자로 생각할 수 있다. 로컬 데이터베이스, 웹 서비스 및 캐시와 같은 우리의 간단한 프로젝트에는 로컬 데이터베이스만 있다</p>
+
+<p>이것을 SubscriberRepository로 명명한다. 이 클래스의 생성자 매개변수로 SubscriberDAO 인터페이스의 인스턴스를 추가하고 있다. 왜냐하면 리포지토리에서 DAO의 기능을 호출할 것이기 때문이다<br />
+먼저 subscribers 목록의 라이브 데이터에 대한 변수를 정의하고 있다. 이것은 dao.getAllSubscribers() 여야 한다. 백그라운드 스레드에서 이 getAllSubscribers 함수를 호출할 필요는 없다. 룸 라이브러리가 백그라운드 스레드에서 라이브 데이터를 반환 유형으로 사용하여 이러한 함수를 자동으로 처리한다</p>
+
+<p>다른 모든 DAO 함수는 백그라운드 스레드에서 호출해야 한다. 뷰 모델 클래스에서 코루틴을 사용하여 실행한다. 하지만 이를 지원하려면 이러한 기능을 suspend 함스로 정의한다. subscriber 데이터를 삽입하는 함수를 만들어 보자</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// SubscriberRepository.kt</span>
+<span class="kd">class</span> <span class="nc">SubscriberRepository</span><span class="p">(</span><span class="k">private</span> <span class="kd">val</span> <span class="py">dao</span><span class="p">:</span> <span class="nc">SubscriberDAO</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="kd">val</span> <span class="py">subscribers</span> <span class="p">=</span> <span class="n">dao</span><span class="p">.</span><span class="nf">getAllSubscribers</span><span class="p">()</span>
+
+    <span class="k">suspend</span> <span class="k">fun</span> <span class="nf">insert</span><span class="p">(</span><span class="n">subscriber</span><span class="p">:</span> <span class="nc">Subscriber</span><span class="p">){</span>
+        <span class="n">dao</span><span class="p">.</span><span class="nf">insertSubscriber</span><span class="p">(</span><span class="n">subscriber</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="k">suspend</span> <span class="k">fun</span> <span class="nf">update</span><span class="p">(</span><span class="n">subscriber</span><span class="p">:</span> <span class="nc">Subscriber</span><span class="p">){</span>
+        <span class="n">dao</span><span class="p">.</span><span class="nf">updateSubscriber</span><span class="p">(</span><span class="n">subscriber</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="k">suspend</span> <span class="k">fun</span> <span class="nf">delete</span><span class="p">(</span><span class="n">subscriber</span><span class="p">:</span> <span class="nc">Subscriber</span><span class="p">){</span>
+        <span class="n">dao</span><span class="p">.</span><span class="nf">deleteSubscriber</span><span class="p">(</span><span class="n">subscriber</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="k">suspend</span> <span class="k">fun</span> <span class="nf">deleteAll</span><span class="p">(){</span>
+        <span class="n">dao</span><span class="p">.</span><span class="nf">deleteAll</span><span class="p">()</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<blockquote>
+  <p>ViewModel</p>
+</blockquote>
+
+<p>이제 뷰 모델 클래스의 다른 기능을 완성해 보자. subscriber 목록을 라이브 데이터로 가져온다<br />
+repository의 구독자 변수를 호출할 수 있다</p>
+
+<p>subscriber를 insert하는 함수를 만들어 보자. 여기에서 subscriber 인스턴스를 전달하는 repository의 insert 기능을 호출할 수 있다. 우리가 논의한 바와 같이
+이전에는 백그라운드 스레드에서 이 함수 호출을 수행해야 하는데 이를 위해 viewModelScope.launch를 사용할 수 있다
+이제 update, delete 및 deleteAll를 위한 유사한 기능을 만들어 보겠다</p>
+
+<p>기본 키 subscriber ID를 autogenerate로 설정했기 때문에 다음과 같이 0을 추가할 수 있다. 모든 구독자 엔터티의 ID이다. Room은 이를 무시하고 autogenerate 값을 추가한다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// SubscriberViewModel.kt</span>
+<span class="kd">class</span> <span class="nc">SubscriberViewModel</span><span class="p">(</span><span class="k">private</span> <span class="kd">val</span> <span class="py">repository</span><span class="p">:</span> <span class="nc">SubscriberRepository</span><span class="p">)</span> <span class="p">:</span> <span class="nc">ViewModel</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="kd">val</span> <span class="py">inputName</span> <span class="p">=</span> <span class="nc">MutableLiveData</span><span class="p">&lt;</span><span class="nc">String</span><span class="err">?</span><span class="p">&gt;()</span>
+    <span class="kd">val</span> <span class="py">inputEmail</span> <span class="p">=</span> <span class="nc">MutableLiveData</span><span class="p">&lt;</span><span class="nc">String</span><span class="err">?</span><span class="p">&gt;()</span>
+
+    <span class="kd">val</span> <span class="py">saveOrUpdateButtonText</span> <span class="p">=</span> <span class="nc">MutableLiveData</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;()</span>
+    <span class="kd">val</span> <span class="py">clearAllOrDeleteButtonText</span> <span class="p">=</span> <span class="nc">MutableLiveData</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;()</span>
+
+    <span class="nf">init</span> <span class="p">{</span>
+        <span class="n">saveOrUpdateButtonText</span><span class="p">.</span><span class="n">value</span> <span class="p">=</span> <span class="s">"Save"</span>
+        <span class="n">clearAllOrDeleteButtonText</span><span class="p">.</span><span class="n">value</span> <span class="p">=</span> <span class="s">"Clear All"</span>
+    <span class="p">}</span>
+
+    <span class="k">fun</span> <span class="nf">saveOrUpdate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">val</span> <span class="py">name</span> <span class="p">=</span> <span class="n">inputName</span><span class="p">.</span><span class="n">value</span><span class="o">!!</span>
+        <span class="kd">val</span> <span class="py">email</span> <span class="p">=</span> <span class="n">inputEmail</span><span class="p">.</span><span class="n">value</span><span class="o">!!</span>
+        <span class="nf">insert</span><span class="p">(</span><span class="nc">Subscriber</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">email</span><span class="p">))</span>
+        <span class="n">inputName</span><span class="p">.</span><span class="n">value</span> <span class="p">=</span> <span class="k">null</span>
+        <span class="n">inputEmail</span><span class="p">.</span><span class="n">value</span> <span class="p">=</span> <span class="k">null</span>
+    <span class="p">}</span>
+
+    <span class="k">fun</span> <span class="nf">clearAllOrDelete</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nf">clearAll</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="k">fun</span> <span class="nf">insert</span><span class="p">(</span><span class="n">subscriber</span><span class="p">:</span> <span class="nc">Subscriber</span><span class="p">)</span> <span class="p">=</span>
+        <span class="n">viewModelScope</span><span class="p">.</span><span class="nf">launch</span> <span class="p">{</span>
+            <span class="n">repository</span><span class="p">.</span><span class="nf">insert</span><span class="p">(</span><span class="n">subscriber</span><span class="p">)</span>
+        <span class="p">}</span>
+
+    <span class="k">fun</span> <span class="nf">update</span><span class="p">(</span><span class="n">subscriber</span><span class="p">:</span> <span class="nc">Subscriber</span><span class="p">)</span> <span class="p">=</span>
+        <span class="n">viewModelScope</span><span class="p">.</span><span class="nf">launch</span> <span class="p">{</span>
+            <span class="n">repository</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span><span class="n">subscriber</span><span class="p">)</span>
+        <span class="p">}</span>
+
+    <span class="k">fun</span> <span class="nf">delete</span><span class="p">(</span><span class="n">subscriber</span><span class="p">:</span> <span class="nc">Subscriber</span><span class="p">)</span> <span class="p">=</span>
+        <span class="n">viewModelScope</span><span class="p">.</span><span class="nf">launch</span> <span class="p">{</span>
+            <span class="n">repository</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="n">subscriber</span><span class="p">)</span>
+        <span class="p">}</span>
+
+    <span class="k">fun</span> <span class="nf">clearAll</span><span class="p">()</span> <span class="p">=</span> <span class="n">viewModelScope</span><span class="p">.</span><span class="nf">launch</span> <span class="p">{</span>
+        <span class="n">repository</span><span class="p">.</span><span class="nf">deleteAll</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="k">fun</span> <span class="nf">getSaveSubscribers</span><span class="p">()</span> <span class="p">=</span> <span class="nf">liveData</span> <span class="p">{</span>
+        <span class="n">repository</span><span class="p">.</span><span class="n">subscribers</span><span class="p">.</span><span class="nf">collect</span> <span class="p">{</span>
+            <span class="nf">emit</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>뷰 모델에는 생성자 매개변수가 있으므로 뷰 모델 팩토리 클래스를 생성해야 한다<br />
+viewmodel 클래스에는 생성자 매개변수로 SubscriberRepository의 인스턴스가 있으므로 이 팩토리는 클래스에도 생성자 매개변수로 SubscriberRepository의 인스턴스가 있어야 한다. 아래 코드 부분은 모든 뷰 모델 팩토리에 사용하는 상용구 코드이다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// SubscriberViewModelFactory.kt</span>
+<span class="kd">class</span> <span class="nc">SubscriberViewModelFactory</span><span class="p">(</span><span class="k">private</span> <span class="kd">val</span> <span class="py">repository</span><span class="p">:</span> <span class="nc">SubscriberRepository</span><span class="p">):</span> <span class="nc">ViewModelProvider</span><span class="p">.</span><span class="nc">Factory</span> <span class="p">{</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="p">&lt;</span><span class="nc">T</span> <span class="p">:</span> <span class="nc">ViewModel</span><span class="p">&gt;</span> <span class="nf">create</span><span class="p">(</span><span class="n">modelClass</span><span class="p">:</span> <span class="nc">Class</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;):</span> <span class="nc">T</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">modelClass</span><span class="p">.</span><span class="nf">isAssignableFrom</span><span class="p">(</span><span class="nc">SubscriberViewModel</span><span class="o">::</span><span class="k">class</span><span class="p">.</span><span class="n">java</span><span class="p">)){</span>
+            <span class="k">return</span> <span class="nc">SubscriberViewModel</span><span class="p">(</span><span class="n">repository</span><span class="p">)</span> <span class="k">as</span> <span class="nc">T</span>
+        <span class="p">}</span>
+        <span class="k">throw</span> <span class="nc">IllegalArgumentException</span><span class="p">(</span><span class="s">"Unknown View Model class"</span><span class="p">)</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>이제 MainActivity로 이동하여 뷰 모델을 사용하는 코드를 작성해 보자</p>
+
+<p>먼저 데이터 바인딩 개체를 가져오는 코드를 작성하자<br />
+다음 SubscriberViewModel 인스턴스에 대한 참조 변수를 정의한다. 그러나 뷰 모델을 얻기 전에 팩토리 클래스를 사용하는 인스턴스, 팩토리 인스턴스를 생성해야 한다. SubscriberViewModelFactory 인스턴스를 생성하려면 dao 인스턴스를 인수로 전달해야 한다<br />
+dao 인스턴스를 생성하여 시작하자</p>
+
+<p>이제 데이터베이스에서 구독자의 데이터 목록을 관찰하는 함수를 만들자</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MainActivity.kt</span>
 <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="p">:</span> <span class="nc">AppCompatActivity</span><span class="p">()</span> <span class="p">{</span>
 
-    <span class="k">private</span> <span class="k">lateinit</span> <span class="kd">var</span> <span class="py">mainActivityViewModel</span><span class="p">:</span> <span class="nc">MainActivityViewModel</span>
+    <span class="k">private</span> <span class="k">lateinit</span> <span class="kd">var</span> <span class="py">binding</span><span class="p">:</span> <span class="nc">ActivityMainBinding</span>
+    <span class="k">private</span> <span class="k">lateinit</span> <span class="kd">var</span> <span class="py">subscriberViewModel</span><span class="p">:</span> <span class="nc">SubscriberViewModel</span>
 
     <span class="k">override</span> <span class="k">fun</span> <span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">:</span> <span class="nc">Bundle</span><span class="p">?)</span> <span class="p">{</span>
         <span class="k">super</span><span class="p">.</span><span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">)</span>
-        <span class="nf">setContentView</span><span class="p">(</span><span class="nc">R</span><span class="p">.</span><span class="n">layout</span><span class="p">.</span><span class="n">activity_main</span><span class="p">)</span>
-        <span class="n">mainActivityViewModel</span> <span class="p">=</span> <span class="nc">ViewModelProvider</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="k">get</span><span class="p">(</span><span class="nc">MainActivityViewModel</span><span class="o">::</span><span class="k">class</span><span class="p">.</span><span class="n">java</span><span class="p">)</span>
-        <span class="n">mainActivityViewModel</span><span class="p">.</span><span class="nf">getUserData</span><span class="p">()</span>
-        <span class="n">mainActivityViewModel</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="nf">observe</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nc">Observer</span> <span class="p">{</span><span class="n">myUsers-</span><span class="p">&gt;</span>
-            <span class="n">myUsers</span><span class="p">.</span><span class="nf">forEach</span><span class="p">{</span>
-                <span class="nc">Log</span><span class="p">.</span><span class="nf">i</span><span class="p">(</span><span class="s">"MyTag"</span><span class="p">,</span> <span class="s">" name is ${it.name}"</span><span class="p">)</span>
-            <span class="p">}</span>
-
-        <span class="p">})</span>
+        <span class="n">binding</span> <span class="p">=</span> <span class="nc">DataBindingUtil</span><span class="p">.</span><span class="nf">setContentView</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nc">R</span><span class="p">.</span><span class="n">layout</span><span class="p">.</span><span class="n">activity_main</span><span class="p">)</span>
+        <span class="kd">val</span> <span class="py">dao</span> <span class="p">=</span> <span class="nc">SubscriberDatabase</span><span class="p">.</span><span class="nf">getInstance</span><span class="p">(</span><span class="n">application</span><span class="p">).</span><span class="n">subscriberDao</span>
+        <span class="kd">val</span> <span class="py">repository</span> <span class="p">=</span> <span class="nc">SubscriberRepository</span><span class="p">(</span><span class="n">dao</span><span class="p">)</span>
+        <span class="kd">val</span> <span class="py">factory</span> <span class="p">=</span> <span class="nc">SubscriberViewModelFactory</span><span class="p">(</span><span class="n">repository</span><span class="p">)</span>
+        <span class="n">subscriberViewModel</span> <span class="p">=</span> <span class="nc">ViewModelProvider</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">factory</span><span class="p">).</span><span class="k">get</span><span class="p">(</span><span class="nc">SubscriberViewModel</span><span class="o">::</span><span class="k">class</span><span class="p">.</span><span class="n">java</span><span class="p">)</span>
+        <span class="n">binding</span><span class="p">.</span><span class="n">myViewModel</span> <span class="p">=</span> <span class="n">subscriberViewModel</span>
+        <span class="n">binding</span><span class="p">.</span><span class="n">lifecycleOwner</span> <span class="p">=</span> <span class="k">this</span>
+        <span class="nf">displaySubscribersList</span><span class="p">()</span>
 
     <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">fun</span> <span class="nf">displaySubscribersList</span><span class="p">(){</span>
+        <span class="n">subscriberViewModel</span><span class="p">.</span><span class="nf">getSaveSubscribers</span><span class="p">().</span><span class="nf">observe</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nc">Observer</span> <span class="p">{</span>
+            <span class="nc">Log</span><span class="p">.</span><span class="nf">i</span><span class="p">(</span><span class="s">"MYTAG"</span><span class="p">,</span> <span class="n">it</span><span class="p">.</span><span class="nf">toString</span><span class="p">())</span>
+        <span class="p">})</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>list_item xml 레이아웃을 만들자</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// list_item.xml</span>
+<span class="p">&lt;?</span><span class="n">xml</span> <span class="n">version</span><span class="p">=</span><span class="s">"1.0"</span> <span class="n">encoding</span><span class="p">=</span><span class="s">"utf-8"</span><span class="p">?&gt;</span>
+<span class="p">&lt;</span><span class="nc">LinearLayout</span> <span class="n">xmlns</span><span class="p">:</span><span class="n">android</span><span class="p">=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+    <span class="n">xmlns</span><span class="p">:</span><span class="n">app</span><span class="p">=</span><span class="s">"http://schemas.android.com/apk/res-auto"</span>
+    <span class="n">android</span><span class="p">:</span><span class="n">layout_width</span><span class="p">=</span><span class="s">"match_parent"</span>
+    <span class="n">android</span><span class="p">:</span><span class="n">layout_height</span><span class="p">=</span><span class="s">"wrap_content"</span>
+    <span class="n">android</span><span class="p">:</span><span class="n">layout_marginBottom</span><span class="p">=</span><span class="s">"20dp"</span>
+    <span class="n">android</span><span class="p">:</span><span class="n">orientation</span><span class="p">=</span><span class="s">"vertical"</span><span class="p">&gt;</span>
+
+
+    <span class="p">&lt;</span><span class="n">androidx</span><span class="p">.</span><span class="n">cardview</span><span class="p">.</span><span class="n">widget</span><span class="p">.</span><span class="nc">CardView</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">id</span><span class="p">=</span><span class="s">"@+id/card_view"</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">layout_width</span><span class="p">=</span><span class="s">"match_parent"</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">layout_height</span><span class="p">=</span><span class="s">"wrap_content"</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">layout_gravity</span><span class="p">=</span><span class="s">"center"</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">clickable</span><span class="p">=</span><span class="s">"true"</span>
+        <span class="n">android</span><span class="p">:</span><span class="n">focusable</span><span class="p">=</span><span class="s">"true"</span>
+        <span class="n">app</span><span class="p">:</span><span class="n">cardBackgroundColor</span><span class="p">=</span><span class="s">"@color/teal_700"</span>
+        <span class="n">app</span><span class="p">:</span><span class="n">cardCornerRadius</span><span class="p">=</span><span class="s">"10dp"</span>
+        <span class="n">app</span><span class="p">:</span><span class="n">cardElevation</span><span class="p">=</span><span class="s">"10dp"</span> <span class="p">&gt;</span>
+
+        <span class="p">&lt;</span><span class="nc">LinearLayout</span>
+            <span class="n">android</span><span class="p">:</span><span class="n">id</span><span class="p">=</span><span class="s">"@+id/list_item_layout"</span>
+            <span class="n">android</span><span class="p">:</span><span class="n">layout_width</span><span class="p">=</span><span class="s">"match_parent"</span>
+            <span class="n">android</span><span class="p">:</span><span class="n">layout_height</span><span class="p">=</span><span class="s">"match_parent"</span>
+            <span class="n">android</span><span class="p">:</span><span class="n">orientation</span><span class="p">=</span><span class="s">"vertical"</span><span class="p">&gt;</span>
+
+            <span class="p">&lt;</span><span class="nc">TextView</span>
+                <span class="n">android</span><span class="p">:</span><span class="n">id</span><span class="p">=</span><span class="s">"@+id/name_text_view"</span>
+                <span class="n">android</span><span class="p">:</span><span class="n">layout_width</span><span class="p">=</span><span class="s">"wrap_content"</span>
+                <span class="n">android</span><span class="p">:</span><span class="n">layout_height</span><span class="p">=</span><span class="s">"wrap_content"</span>
+                <span class="n">android</span><span class="p">:</span><span class="n">layout_margin</span><span class="p">=</span><span class="s">"10dp"</span>
+                <span class="n">android</span><span class="p">:</span><span class="n">text</span><span class="p">=</span><span class="s">"TextView"</span>
+                <span class="n">android</span><span class="p">:</span><span class="n">textColor</span><span class="p">=</span><span class="s">"@color/white"</span>
+                <span class="n">android</span><span class="p">:</span><span class="n">textSize</span><span class="p">=</span><span class="s">"30sp"</span>
+                <span class="n">android</span><span class="p">:</span><span class="n">textStyle</span><span class="p">=</span><span class="s">"bold"</span> <span class="p">/&gt;</span>
+
+            <span class="p">&lt;</span><span class="nc">TextView</span>
+                <span class="n">android</span><span class="p">:</span><span class="n">id</span><span class="p">=</span><span class="s">"@+id/email_text_view"</span>
+                <span class="n">android</span><span class="p">:</span><span class="n">layout_width</span><span class="p">=</span><span class="s">"wrap_content"</span>
+                <span class="n">android</span><span class="p">:</span><span class="n">layout_height</span><span class="p">=</span><span class="s">"wrap_content"</span>
+                <span class="n">android</span><span class="p">:</span><span class="n">layout_margin</span><span class="p">=</span><span class="s">"10dp"</span>
+                <span class="n">android</span><span class="p">:</span><span class="n">text</span><span class="p">=</span><span class="s">"TextView"</span>
+                <span class="n">android</span><span class="p">:</span><span class="n">textColor</span><span class="p">=</span><span class="s">"@color/white"</span>
+                <span class="n">android</span><span class="p">:</span><span class="n">textSize</span><span class="p">=</span><span class="s">"24sp"</span>
+                <span class="n">android</span><span class="p">:</span><span class="n">textStyle</span><span class="p">=</span><span class="s">"bold"</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;/</span><span class="nc">LinearLayout</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="n">androidx</span><span class="p">.</span><span class="n">cardview</span><span class="p">.</span><span class="n">widget</span><span class="p">.</span><span class="nc">CardView</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nc">LinearLayout</span><span class="p">&gt;</span>
+</code></pre></div></div>
+
+<p>이제 RecyclerView 어댑터에 대한 클래스를 생성한다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MyRecylcerViewAdapter.kt</span>
+<span class="kd">class</span> <span class="nc">MyRecyclerViewAdapter</span><span class="p">(</span><span class="k">private</span> <span class="kd">val</span> <span class="py">subscribersList</span><span class="p">:</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Subscriber</span><span class="p">&gt;):</span> <span class="nc">RecyclerView</span><span class="p">.</span><span class="nc">Adapter</span><span class="p">&lt;</span><span class="nc">MyViewHolder</span><span class="p">&gt;()</span> <span class="p">{</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onCreateViewHolder</span><span class="p">(</span><span class="n">parent</span><span class="p">:</span> <span class="nc">ViewGroup</span><span class="p">,</span> <span class="n">viewType</span><span class="p">:</span> <span class="nc">Int</span><span class="p">):</span> <span class="nc">MyViewHolder</span> <span class="p">{</span>
+        <span class="kd">val</span> <span class="py">layoutInflater</span> <span class="p">=</span> <span class="nc">LayoutInflater</span><span class="p">.</span><span class="nf">from</span><span class="p">(</span><span class="n">parent</span><span class="p">.</span><span class="n">context</span><span class="p">)</span>
+        <span class="kd">val</span> <span class="py">binding</span><span class="p">:</span> <span class="nc">ListItemBinding</span> <span class="p">=</span>
+            <span class="nc">DataBindingUtil</span><span class="p">.</span><span class="nf">inflate</span><span class="p">(</span><span class="n">layoutInflater</span><span class="p">,</span> <span class="nc">R</span><span class="p">.</span><span class="n">layout</span><span class="p">.</span><span class="n">list_item</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="k">false</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nc">MyViewHolder</span><span class="p">(</span><span class="n">binding</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onBindViewHolder</span><span class="p">(</span><span class="n">holder</span><span class="p">:</span> <span class="nc">MyViewHolder</span><span class="p">,</span> <span class="n">position</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">holder</span><span class="p">.</span><span class="nf">bind</span><span class="p">(</span><span class="n">subscribersList</span><span class="p">[</span><span class="n">position</span><span class="p">])</span>
+    <span class="p">}</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">getItemCount</span><span class="p">():</span> <span class="nc">Int</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">subscribersList</span><span class="p">.</span><span class="n">size</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">MyViewHolder</span><span class="p">(</span><span class="kd">val</span> <span class="py">binding</span><span class="p">:</span> <span class="nc">ListItemBinding</span><span class="p">):</span> <span class="nc">RecyclerView</span><span class="p">.</span><span class="nc">ViewHolder</span><span class="p">(</span><span class="n">binding</span><span class="p">.</span><span class="n">root</span><span class="p">){</span>
+    <span class="k">fun</span> <span class="nf">bind</span><span class="p">(</span><span class="n">subscriber</span><span class="p">:</span> <span class="nc">Subscriber</span><span class="p">){</span>
+        <span class="n">binding</span><span class="p">.</span><span class="n">nameTextView</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">subscriber</span><span class="p">.</span><span class="n">name</span>
+        <span class="n">binding</span><span class="p">.</span><span class="n">emailTextView</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">subscriber</span><span class="p">.</span><span class="n">email</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>그리고 MainActivity에서 연결한다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MainActivity.kt</span>
+<span class="kd">class</span> <span class="nc">MainActivity</span> <span class="p">:</span> <span class="nc">AppCompatActivity</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="k">private</span> <span class="k">lateinit</span> <span class="kd">var</span> <span class="py">binding</span><span class="p">:</span> <span class="nc">ActivityMainBinding</span>
+    <span class="k">private</span> <span class="k">lateinit</span> <span class="kd">var</span> <span class="py">subscriberViewModel</span><span class="p">:</span> <span class="nc">SubscriberViewModel</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">:</span> <span class="nc">Bundle</span><span class="p">?)</span> <span class="p">{</span>
+        <span class="k">super</span><span class="p">.</span><span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">)</span>
+        <span class="n">binding</span> <span class="p">=</span> <span class="nc">DataBindingUtil</span><span class="p">.</span><span class="nf">setContentView</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nc">R</span><span class="p">.</span><span class="n">layout</span><span class="p">.</span><span class="n">activity_main</span><span class="p">)</span>
+        <span class="kd">val</span> <span class="py">dao</span> <span class="p">=</span> <span class="nc">SubscriberDatabase</span><span class="p">.</span><span class="nf">getInstance</span><span class="p">(</span><span class="n">application</span><span class="p">).</span><span class="n">subscriberDao</span>
+        <span class="kd">val</span> <span class="py">repository</span> <span class="p">=</span> <span class="nc">SubscriberRepository</span><span class="p">(</span><span class="n">dao</span><span class="p">)</span>
+        <span class="kd">val</span> <span class="py">factory</span> <span class="p">=</span> <span class="nc">SubscriberViewModelFactory</span><span class="p">(</span><span class="n">repository</span><span class="p">)</span>
+        <span class="n">subscriberViewModel</span> <span class="p">=</span> <span class="nc">ViewModelProvider</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">factory</span><span class="p">).</span><span class="k">get</span><span class="p">(</span><span class="nc">SubscriberViewModel</span><span class="o">::</span><span class="k">class</span><span class="p">.</span><span class="n">java</span><span class="p">)</span>
+        <span class="n">binding</span><span class="p">.</span><span class="n">myViewModel</span> <span class="p">=</span> <span class="n">subscriberViewModel</span>
+        <span class="n">binding</span><span class="p">.</span><span class="n">lifecycleOwner</span> <span class="p">=</span> <span class="k">this</span>
+        <span class="nf">initRecyclerView</span><span class="p">()</span>
+
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">fun</span> <span class="nf">initRecyclerView</span><span class="p">(){</span>
+        <span class="n">binding</span><span class="p">.</span><span class="n">subscriberRecyclerView</span><span class="p">.</span><span class="n">layoutManager</span> <span class="p">=</span> <span class="nc">LinearLayoutManager</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+        <span class="nf">displaySubscribersList</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">fun</span> <span class="nf">displaySubscribersList</span><span class="p">(){</span>
+        <span class="n">subscriberViewModel</span><span class="p">.</span><span class="nf">getSaveSubscribers</span><span class="p">().</span><span class="nf">observe</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nc">Observer</span> <span class="p">{</span>
+            <span class="nc">Log</span><span class="p">.</span><span class="nf">i</span><span class="p">(</span><span class="s">"MYTAG"</span><span class="p">,</span> <span class="n">it</span><span class="p">.</span><span class="nf">toString</span><span class="p">())</span>
+            <span class="n">binding</span><span class="p">.</span><span class="n">subscriberRecyclerView</span><span class="p">.</span><span class="n">adapter</span> <span class="p">=</span> <span class="nc">MyRecyclerViewAdapter</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+        <span class="p">})</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>RecyclerView에 클릭 리스너를 추가하자</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MainActivity.kt</span>
+<span class="kd">class</span> <span class="nc">MainActivity</span> <span class="p">:</span> <span class="nc">AppCompatActivity</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="k">private</span> <span class="k">lateinit</span> <span class="kd">var</span> <span class="py">binding</span><span class="p">:</span> <span class="nc">ActivityMainBinding</span>
+    <span class="k">private</span> <span class="k">lateinit</span> <span class="kd">var</span> <span class="py">subscriberViewModel</span><span class="p">:</span> <span class="nc">SubscriberViewModel</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">:</span> <span class="nc">Bundle</span><span class="p">?)</span> <span class="p">{</span>
+        <span class="k">super</span><span class="p">.</span><span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">)</span>
+        <span class="n">binding</span> <span class="p">=</span> <span class="nc">DataBindingUtil</span><span class="p">.</span><span class="nf">setContentView</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nc">R</span><span class="p">.</span><span class="n">layout</span><span class="p">.</span><span class="n">activity_main</span><span class="p">)</span>
+        <span class="kd">val</span> <span class="py">dao</span> <span class="p">=</span> <span class="nc">SubscriberDatabase</span><span class="p">.</span><span class="nf">getInstance</span><span class="p">(</span><span class="n">application</span><span class="p">).</span><span class="n">subscriberDao</span>
+        <span class="kd">val</span> <span class="py">repository</span> <span class="p">=</span> <span class="nc">SubscriberRepository</span><span class="p">(</span><span class="n">dao</span><span class="p">)</span>
+        <span class="kd">val</span> <span class="py">factory</span> <span class="p">=</span> <span class="nc">SubscriberViewModelFactory</span><span class="p">(</span><span class="n">repository</span><span class="p">)</span>
+        <span class="n">subscriberViewModel</span> <span class="p">=</span> <span class="nc">ViewModelProvider</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">factory</span><span class="p">).</span><span class="k">get</span><span class="p">(</span><span class="nc">SubscriberViewModel</span><span class="o">::</span><span class="k">class</span><span class="p">.</span><span class="n">java</span><span class="p">)</span>
+        <span class="n">binding</span><span class="p">.</span><span class="n">myViewModel</span> <span class="p">=</span> <span class="n">subscriberViewModel</span>
+        <span class="n">binding</span><span class="p">.</span><span class="n">lifecycleOwner</span> <span class="p">=</span> <span class="k">this</span>
+        <span class="nf">initRecyclerView</span><span class="p">()</span>
+
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">fun</span> <span class="nf">initRecyclerView</span><span class="p">(){</span>
+        <span class="n">binding</span><span class="p">.</span><span class="n">subscriberRecyclerView</span><span class="p">.</span><span class="n">layoutManager</span> <span class="p">=</span> <span class="nc">LinearLayoutManager</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+        <span class="nf">displaySubscribersList</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">fun</span> <span class="nf">displaySubscribersList</span><span class="p">(){</span>
+        <span class="n">subscriberViewModel</span><span class="p">.</span><span class="nf">getSaveSubscribers</span><span class="p">().</span><span class="nf">observe</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nc">Observer</span> <span class="p">{</span>
+            <span class="nc">Log</span><span class="p">.</span><span class="nf">i</span><span class="p">(</span><span class="s">"MYTAG"</span><span class="p">,</span> <span class="n">it</span><span class="p">.</span><span class="nf">toString</span><span class="p">())</span>
+            <span class="n">binding</span><span class="p">.</span><span class="n">subscriberRecyclerView</span><span class="p">.</span><span class="n">adapter</span> <span class="p">=</span> <span class="nc">MyRecyclerViewAdapter</span><span class="p">(</span><span class="n">it</span><span class="p">)</span> <span class="p">{</span> <span class="n">selectedItem</span><span class="p">:</span> <span class="nc">Subscriber</span> <span class="p">-&gt;</span>
+                <span class="nf">listItemClicked</span><span class="p">(</span>
+                    <span class="n">selectedItem</span>
+                <span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">})</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">fun</span> <span class="nf">listItemClicked</span><span class="p">(</span><span class="n">subscriber</span><span class="p">:</span> <span class="nc">Subscriber</span><span class="p">){</span>
+        <span class="nc">Toast</span><span class="p">.</span><span class="nf">makeText</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="s">"selected name is ${subscriber.name}"</span> <span class="p">,</span><span class="nc">Toast</span><span class="p">.</span><span class="nc">LENGTH_SHORT</span><span class="p">).</span><span class="nf">show</span><span class="p">()</span>
+        <span class="n">subscriberViewModel</span><span class="p">.</span><span class="nf">initUpdateAndDelete</span><span class="p">(</span><span class="n">subscriber</span><span class="p">)</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>업데이트 및 삭제 기능을 구현하기 위해 이 클릭 리스너를 추가했다</p>
+
+<p>텍스트 입력 필드에 선택한 이름과 이메일을 표시하는 코드를 작성하자<br />
+그리고 모두 지우기 및 삭제 기능을 구현하자. 저장 또는 업데이트도 구현하자</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// SubscriberViewModel.kt</span>
+<span class="kd">class</span> <span class="nc">SubscriberViewModel</span><span class="p">(</span><span class="k">private</span> <span class="kd">val</span> <span class="py">repository</span><span class="p">:</span> <span class="nc">SubscriberRepository</span><span class="p">)</span> <span class="p">:</span> <span class="nc">ViewModel</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="k">private</span> <span class="kd">var</span> <span class="py">isUpdateOrDelete</span> <span class="p">=</span> <span class="k">false</span>
+    <span class="k">private</span> <span class="k">lateinit</span> <span class="kd">var</span> <span class="py">subscriberToUpdateOrDelete</span><span class="p">:</span> <span class="nc">Subscriber</span>
+
+    <span class="kd">val</span> <span class="py">inputName</span> <span class="p">=</span> <span class="nc">MutableLiveData</span><span class="p">&lt;</span><span class="nc">String</span><span class="err">?</span><span class="p">&gt;()</span>
+    <span class="kd">val</span> <span class="py">inputEmail</span> <span class="p">=</span> <span class="nc">MutableLiveData</span><span class="p">&lt;</span><span class="nc">String</span><span class="err">?</span><span class="p">&gt;()</span>
+
+    <span class="kd">val</span> <span class="py">saveOrUpdateButtonText</span> <span class="p">=</span> <span class="nc">MutableLiveData</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;()</span>
+    <span class="kd">val</span> <span class="py">clearAllOrDeleteButtonText</span> <span class="p">=</span> <span class="nc">MutableLiveData</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;()</span>
+
+    <span class="nf">init</span> <span class="p">{</span>
+        <span class="n">saveOrUpdateButtonText</span><span class="p">.</span><span class="n">value</span> <span class="p">=</span> <span class="s">"Save"</span>
+        <span class="n">clearAllOrDeleteButtonText</span><span class="p">.</span><span class="n">value</span> <span class="p">=</span> <span class="s">"Clear All"</span>
+    <span class="p">}</span>
+
+    <span class="k">fun</span> <span class="nf">saveOrUpdate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">isUpdateOrDelete</span><span class="p">){</span>
+            <span class="n">subscriberToUpdateOrDelete</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="n">inputName</span><span class="p">.</span><span class="n">value</span><span class="o">!!</span>
+            <span class="n">subscriberToUpdateOrDelete</span><span class="p">.</span><span class="n">email</span> <span class="p">=</span> <span class="n">inputEmail</span><span class="p">.</span><span class="n">value</span><span class="o">!!</span>
+            <span class="nf">update</span><span class="p">(</span><span class="n">subscriberToUpdateOrDelete</span><span class="p">)</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="kd">val</span> <span class="py">name</span> <span class="p">=</span> <span class="n">inputName</span><span class="p">.</span><span class="n">value</span><span class="o">!!</span>
+            <span class="kd">val</span> <span class="py">email</span> <span class="p">=</span> <span class="n">inputEmail</span><span class="p">.</span><span class="n">value</span><span class="o">!!</span>
+            <span class="nf">insert</span><span class="p">(</span><span class="nc">Subscriber</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">email</span><span class="p">))</span>
+            <span class="n">inputName</span><span class="p">.</span><span class="n">value</span> <span class="p">=</span> <span class="k">null</span>
+            <span class="n">inputEmail</span><span class="p">.</span><span class="n">value</span> <span class="p">=</span> <span class="k">null</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+
+    <span class="k">fun</span> <span class="nf">clearAllOrDelete</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">isUpdateOrDelete</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nf">delete</span><span class="p">(</span><span class="n">subscriberToUpdateOrDelete</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nf">clearAll</span><span class="p">()</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">fun</span> <span class="nf">insert</span><span class="p">(</span><span class="n">subscriber</span><span class="p">:</span> <span class="nc">Subscriber</span><span class="p">)</span> <span class="p">=</span>
+        <span class="n">viewModelScope</span><span class="p">.</span><span class="nf">launch</span> <span class="p">{</span>
+            <span class="n">repository</span><span class="p">.</span><span class="nf">insert</span><span class="p">(</span><span class="n">subscriber</span><span class="p">)</span>
+        <span class="p">}</span>
+
+    <span class="k">fun</span> <span class="nf">update</span><span class="p">(</span><span class="n">subscriber</span><span class="p">:</span> <span class="nc">Subscriber</span><span class="p">)</span> <span class="p">=</span>
+        <span class="n">viewModelScope</span><span class="p">.</span><span class="nf">launch</span> <span class="p">{</span>
+            <span class="n">repository</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span><span class="n">subscriber</span><span class="p">)</span>
+            <span class="n">inputName</span><span class="p">.</span><span class="n">value</span> <span class="p">=</span> <span class="k">null</span>
+            <span class="n">inputEmail</span><span class="p">.</span><span class="n">value</span> <span class="p">=</span> <span class="k">null</span>
+            <span class="n">isUpdateOrDelete</span> <span class="p">=</span> <span class="k">false</span>
+            <span class="n">saveOrUpdateButtonText</span><span class="p">.</span><span class="n">value</span> <span class="p">=</span> <span class="s">"Save"</span>
+            <span class="n">clearAllOrDeleteButtonText</span><span class="p">.</span><span class="n">value</span> <span class="p">=</span> <span class="s">"Clear All"</span>
+        <span class="p">}</span>
+
+    <span class="k">fun</span> <span class="nf">delete</span><span class="p">(</span><span class="n">subscriber</span><span class="p">:</span> <span class="nc">Subscriber</span><span class="p">)</span> <span class="p">=</span>
+        <span class="n">viewModelScope</span><span class="p">.</span><span class="nf">launch</span> <span class="p">{</span>
+            <span class="n">repository</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="n">subscriber</span><span class="p">)</span>
+            <span class="n">inputName</span><span class="p">.</span><span class="n">value</span> <span class="p">=</span> <span class="k">null</span>
+            <span class="n">inputEmail</span><span class="p">.</span><span class="n">value</span> <span class="p">=</span> <span class="k">null</span>
+            <span class="n">isUpdateOrDelete</span> <span class="p">=</span> <span class="k">false</span>
+            <span class="n">saveOrUpdateButtonText</span><span class="p">.</span><span class="n">value</span> <span class="p">=</span> <span class="s">"Save"</span>
+            <span class="n">clearAllOrDeleteButtonText</span><span class="p">.</span><span class="n">value</span> <span class="p">=</span> <span class="s">"Clear All"</span>
+        <span class="p">}</span>
+
+    <span class="k">fun</span> <span class="nf">clearAll</span><span class="p">()</span> <span class="p">=</span> <span class="n">viewModelScope</span><span class="p">.</span><span class="nf">launch</span> <span class="p">{</span>
+        <span class="n">repository</span><span class="p">.</span><span class="nf">deleteAll</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="k">fun</span> <span class="nf">getSaveSubscribers</span><span class="p">()</span> <span class="p">=</span> <span class="nf">liveData</span> <span class="p">{</span>
+        <span class="n">repository</span><span class="p">.</span><span class="n">subscribers</span><span class="p">.</span><span class="nf">collect</span> <span class="p">{</span>
+            <span class="nf">emit</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">fun</span> <span class="nf">initUpdateAndDelete</span><span class="p">(</span><span class="n">subscriber</span><span class="p">:</span> <span class="nc">Subscriber</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">inputName</span><span class="p">.</span><span class="n">value</span> <span class="p">=</span> <span class="n">subscriber</span><span class="p">.</span><span class="n">name</span>
+        <span class="n">inputEmail</span><span class="p">.</span><span class="n">value</span> <span class="p">=</span> <span class="n">subscriber</span><span class="p">.</span><span class="n">email</span>
+        <span class="n">isUpdateOrDelete</span> <span class="p">=</span> <span class="k">true</span>
+        <span class="n">subscriberToUpdateOrDelete</span> <span class="p">=</span> <span class="n">subscriber</span>
+        <span class="n">saveOrUpdateButtonText</span><span class="p">.</span><span class="n">value</span> <span class="p">=</span> <span class="s">"Update"</span>
+        <span class="n">clearAllOrDeleteButtonText</span><span class="p">.</span><span class="n">value</span> <span class="p">=</span> <span class="s">"Delete"</span>
+    <span class="p">}</span>
+
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>다른 상황에서는 뷰 모델에서 뷰와 통신해야 할 수도 있다. 사용자에게 결과를 알리기 위해 토스트 메시지나 스낵바를 표시해야 할 수도 있다. 이를 수행하는 한 가지 방법은 일부 기능으로 별도의 인터페이스를 만드는 것이다. 그런 다음 Activity가 해당 인터페이스를 구현하고 뷰 모델에서 해당 기능을 호출하도록 한다. 그러나 그것은 올바른 접근 방식이 아니다. MVVM 아키텍처의 기본 사항을 위반하기 때문이다. MVVM에서 뷰 모델은 뷰에 대해 알지 않아야 한다. 뷰 모델에는 뷰에 대한 참조가 없어야 한다.</p>
+
+<p>Evnet 클래스를 생성하여 이벤트에 대한 라이브 데이터를 사용할 수 있다. SingleLiveEvent 클래스. SingleLiveEvent의 문제는 관찰자가 한 명으로 제한된다는 것이다. Event 래퍼를 사용하는 것이 권장되는 모범 사례이다. Event 래퍼 클래스는 이벤트의 상태를 명시적으로 고려합니다.
+MVVM 아키텍처를 위반하지 않고 View에 메시지를 표시하는 방법이다</p>
+
+<p>아래 코드는 상용구 코드이다</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Event.kt</span>
+<span class="k">open</span> <span class="kd">class</span> <span class="nc">Event</span><span class="p">&lt;</span><span class="k">out</span> <span class="nc">T</span><span class="p">&gt;(</span><span class="k">private</span> <span class="kd">val</span> <span class="py">content</span><span class="p">:</span> <span class="nc">T</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="kd">var</span> <span class="py">hasBeenHandled</span> <span class="p">=</span> <span class="k">false</span>
+        <span class="k">private</span> <span class="k">set</span>
+
+
+    <span class="k">fun</span> <span class="nf">getContentIfNotHandled</span><span class="p">():</span> <span class="nc">T</span><span class="p">?{</span>
+        <span class="k">return</span> <span class="k">if</span><span class="p">(</span><span class="n">hasBeenHandled</span><span class="p">){</span>
+            <span class="k">null</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="n">hasBeenHandled</span> <span class="p">=</span> <span class="k">true</span>
+            <span class="n">content</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">fun</span> <span class="nf">peekContent</span><span class="p">():</span> <span class="nc">T</span> <span class="p">=</span> <span class="n">content</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
@@ -369,7 +935,7 @@ into the {body} of the default.hbs template -->
                         var disqus_config = function () {
                             var this_page_url = 'https://lee989898.github.io/ad';
                             var this_page_identifier = '/ad';
-                            var this_page_title = 'ViewModel + Livedata + 코루틴';
+                            var this_page_title = 'Room';
                         };
                         (function() {
                             var d = document, s = d.createElement('script');
@@ -417,6 +983,26 @@ into the {body} of the default.hbs template -->
                                   
                                 
                                   
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/ad">LifeCycleScope</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/ad">ViewModel + Livedata + 코루틴</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
                                     
                                         
                                         
@@ -429,16 +1015,12 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
-                                            <li><a href="/ad">RecyclerView</a></li>
-                                        
                                     
                                   
                                 
                                   
                                     
                                         
-                                        
-                                            <li><a href="/ad">Navigation Architecture Component</a></li>
                                         
                                     
                                   
@@ -674,7 +1256,7 @@ into the {body} of the default.hbs template -->
                         <footer class="read-next-card-footer">
                             <a href="/tag/android/">
                                 
-                                    See all 13 posts  →
+                                    See all 15 posts  →
                                 
                             </a>
                         </footer>
@@ -691,27 +1273,27 @@ into the {body} of the default.hbs template -->
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/ad">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/android-logo.png)"></div>
+            <a class="post-card-image-link" href="/bc-03">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/blockchain-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/ad">
+            <a class="post-card-content-link" href="/bc-03">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Android</span>
+                                <span class="post-card-tags">Blockchain</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">Coroutines</h2>
+                    <h2 class="post-card-title">Bitcoin Keys and Addresses</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
                         <p>
-  Coroutines
+  비트코인의 소유권
 
 
 </p>
@@ -732,7 +1314,7 @@ into the {body} of the default.hbs template -->
                 <span class="reading-time">
                     
                     
-                      12 min read
+                      1 min read
                     
                 </span>
             </footer>
@@ -754,13 +1336,13 @@ into the {body} of the default.hbs template -->
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">ViewModel + Livedata + 코루틴</div>
+    <div class="floating-header-title">Room</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=ViewModel+%2B+Livedata+%2B+%EC%BD%94%EB%A3%A8%ED%8B%B4&amp;url=https://lee989898.github.io/ad"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Room&amp;url=https://lee989898.github.io/ad"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
