@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/tag/systemcloud/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-04-23T10:36:46+09:00</updated>
+  <updated>2022-04-26T21:00:57+09:00</updated>
   <id>https://lee989898.github.io/tag/systemcloud/feed.xml</id>
 
   
@@ -207,7 +207,195 @@
   &lt;li&gt;“ldd” 명령을 사용하여 어떤 공유 라이브러리가 의존하는 지 확인할 수 있다&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc68.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;</content>
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc68.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Dynamic Linker를 통한 공격: the Risk&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Dynamic Linkeking은 메모리를 저장한다. 프로그램 코드의 일부가 컴파일 시간동안 결정되지 않았음을 의미한다&lt;/li&gt;
+  &lt;li&gt;사용자가 누락된 코드에 영향을 줄 수 있는 경우 프로그램의 무결성을 compromise 할 수 있다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;Review: Dynamic Linker&lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Linking은 프로그램에서 참조된 외부 라이브러리 코드를 찾는 과정을 말한다&lt;/li&gt;
+  &lt;li&gt;Linking은 런타임 또는 컴파일 시간 동안 수행할 수 있다
+    &lt;ul&gt;
+      &lt;li&gt;Dynamic Linking – 환경 변수를 사용 (공격 표면)&lt;/li&gt;
+      &lt;li&gt;정적 연결&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc69.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;Dynamic Linker를 통한 공격 :Case Study 1&lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;LD_PRELOAD는 linker가 먼저 검색할 공유 라이브러리 목록을 포함한다&lt;/li&gt;
+  &lt;li&gt;모든 기능을 찾지 못한 경우 링커는 여러 목록(LD_LIBRARY_PATH에 의해 지정된 폴더를 포함하는 폴더) 중에서 검색한다&lt;/li&gt;
+  &lt;li&gt;두 변수 모두 사용자가 설정할 수 있으므로 연결 프로세스의 결과 제어를 보여준다&lt;/li&gt;
+  &lt;li&gt;해당 프로그램이 Set-UID 프로그램인 경우 보안 문제로 이어질 수 있다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;ex 1 - 일반적인 프로그램&lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;프로그램은 동적으로 연결된 sleep 함수를 호출한다&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;unistd.h&amp;gt;
+&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;sleep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;-&amp;gt; &lt;img src=&quot;\assets\built\images\sc2\sc70.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이제 우리 소유의 sleep() 함수를 구현한다&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;stiod.h&amp;gt;
+&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;sleep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;I am not sleeping!&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;위의 코드를 컴파일하고 공유 라이브러리를 만들고 LD_PRELOAD 환경 변수에 공유 라이브러리를 추가해야 한다&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc71.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;ex 2 - Set-UID 프로그램&lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;예제 1의 기술이 Set-UID 프로그램에서 작동하면 매우 위험하다 위의 프로그램을 Set-UID로 변환하자&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc72.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;sleep() 함수가 호출되지 않는다
+    &lt;ul&gt;
+      &lt;li&gt;동적 링커에서 구현한 대책 때문입니다. EUID와 RUID가 다른 경우 LD_PRELOAD 및 LD_LIBRARY_PATH 환경 변수를  무시한다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;Dynamic Linker를 통한 공격 :Case Study 2&lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Case: OS X Dynmaic Linker&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;애플 OS X 10.10은 보안 영향을 완벽하게 분석하지 않고 새로운 환경 변수를 추가 했다&lt;/li&gt;
+  &lt;li&gt;DYLD_PRINT_TO_FILE
+    &lt;ul&gt;
+      &lt;li&gt;사용자가 dyld의 파일 이름을 제공할 수 있는 기능&lt;/li&gt;
+      &lt;li&gt;Set-UID 프로그램인 경우 사용자는 보호된 파일에 쓸 수 있다&lt;/li&gt;
+      &lt;li&gt;기능 누출 – file descriptor가 닫히지 않음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;악용 예:
+    &lt;ul&gt;
+      &lt;li&gt;Set DYLD_PRINT_TO_FILE to /etc/sudoers&lt;/li&gt;
+      &lt;li&gt;Switch to Bob’s account&lt;/li&gt;
+      &lt;li&gt;The echo command writes to /etc/sudoers&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc73.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;외부 프로그램을 통한 공격&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;응용 프로그램은 외부 프로그램을 호출할 수 있다&lt;/li&gt;
+  &lt;li&gt;응용 프로그램 자체는 환경 변수를 사용하지 않을 수 있지만 호출된 외부 프로그램은 사용할 수 있다&lt;/li&gt;
+  &lt;li&gt;외부 프로그램을 호출하는 일반적인 방법:
+    &lt;ul&gt;
+      &lt;li&gt;execve()를 호출하는 함수의 exec() 계열: 프로그램을 직접 실행&lt;/li&gt;
+      &lt;li&gt;system()
+        &lt;ul&gt;
+          &lt;li&gt;system() 함수는 execl()을 호출한다&lt;/li&gt;
+          &lt;li&gt;execl()은 결국 execve()를 호출하여 /bin/sh를 실행한다&lt;/li&gt;
+          &lt;li&gt;쉘 프로그램은 프로그램을 실행한다&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;이 두 접근 방식은 공격 표면이 다르다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;외부 프로그램을 통한 공격: Attack Surfaces&lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;system()에 비해 execve()의 공격면이 적음&lt;/li&gt;
+  &lt;li&gt;execve()는 셸을 호출하지 않으므로 환경변수의 영향을 받지 않는다&lt;/li&gt;
+  &lt;li&gt;권한 있는 프로그램에서 외부 프로그램을 호출할 때 execve() 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;라이브러리를 통한 공격&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;프로그램은 종종 외부 라이브러리의 기능을 사용한다. 이러한 기능의 경우 환경 변수를 사용하여 공격 표면에 추가
+ex – UNIX의 Locale&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;메시지를 인쇄해야 할 때마다 프로그램은 번역된 메시지에 대한 라이브러리 기능을 사용한다&lt;/li&gt;
+  &lt;li&gt;Unix는 libc 라이브러리에서 gettext() 및 catopen()을 사용한다&lt;/li&gt;
+  &lt;li&gt;다음 코드는 프로그램이 로케일 하위 시스템을 사용하는 방법을 보여준다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc74.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;이 하위 시스템은 다음 환경 변수에 의존한다. LANG,LANGUAGE, NLSPATH, LOCPATH, LC_ALL, LC_MESSAGES&lt;/li&gt;
+  &lt;li&gt;이러한 변수는 사용자가 설정할 수 있으므로 번역된 메시지는 사용자에 의해 제어될 수 있다&lt;/li&gt;
+  &lt;li&gt;공격자는 형식 문자열 취약점을 사용하여 printf() 형식을 지정할 수 있다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;어플리케이션 코드를 통한 공격&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\built\images\sc2\sc75.png&quot; alt=&quot;시스템클라우드보안&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;프로그램은 환경 변수를 직접 사용한다. 만약 privileged 프로그램이면, 신뢰할 수 없는 입력이다&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;프로그램은 getenv()를 사용하여 PWD의 현재 디렉토리 안다&lt;/li&gt;
+  &lt;li&gt;프로그램은 이것을 배열에 복사합니다. 길이 확인하는 것을 잊으면 잠재적인 버퍼 오버플로가 있다&lt;/li&gt;
+  &lt;li&gt;PWD의 값은 셸에서 가져온다. 프로그램을 변경할 때마다 폴더 쉘 프로그램 업데이트&lt;/li&gt;
+  &lt;li&gt;내가 쉘 변수를 변경할 수 있다&lt;/li&gt;
+&lt;/ul&gt;</content>
 
       
       

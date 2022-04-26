@@ -8,6 +8,72 @@
     
       
       <item>
+        <title>Dagger2</title>
+        
+          <description>&lt;blockquote&gt;
+  &lt;p&gt;Dependency Injection이란?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        
+        <pubDate>Tue, 26 Apr 2022 16:07:07 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/ad</link>
+        <guid isPermaLink="true">https://lee989898.github.io/ad</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Work Manager</title>
+        
+          <description>&lt;blockquote&gt;
+  &lt;p&gt;WorkManager&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        
+        <pubDate>Mon, 25 Apr 2022 16:07:07 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/ad</link>
+        <guid isPermaLink="true">https://lee989898.github.io/ad</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Notification</title>
+        
+          <description>
+</description>
+        
+        <pubDate>Sun, 24 Apr 2022 16:07:07 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/ad</link>
+        <guid isPermaLink="true">https://lee989898.github.io/ad</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Retrofit</title>
+        
+          <description>&lt;p&gt;여앱은 데이터를 가져오고, 업로드, 인증, 이미지 및 기타파일을 저장하기 위해 웹 서버가 필요하다&lt;br /&gt;
+웹 서버 또는 웹 서비스에는 일반적으로 통신을 위한 REST API가 있다. REST API는 데이터를 가져오기 위해 다른 URL을 제공한다&lt;br /&gt;
+그런 다음 앱에서 URL에 HTTP 요청을 해야 한다. http 요청에는 경로 및 쿼리 매개변수에 대한 헤더 및 기타 데이터도 포함된다&lt;br /&gt;
+요청을 받은 후 api는 응답 객체를 앱에 다시 보낸다. 응답 객체에는 응답 코드가 있다. 요청의 성공 또는 실패에 대한 정보이다&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sat, 23 Apr 2022 16:07:07 +0900</pubDate>
+        <link>
+        https://lee989898.github.io/ad</link>
+        <guid isPermaLink="true">https://lee989898.github.io/ad</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>Room</title>
         
           <description>&lt;p&gt;모바일 애플리케이션에 사용하는 SQLite는 SQL 데이터베이스 엔진이다. 수백만 개의 안드로이드 및 IOS 애플리케이션이 있어서 SQLite는 세계에서 가장 많이 사용되는 데이터베이스 엔진으로 간주된다&lt;br /&gt;
