@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://lee989898.github.io/author/lee989898/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://lee989898.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-04-29T20:25:55+09:00</updated>
+  <updated>2022-05-01T22:25:43+09:00</updated>
   <id>https://lee989898.github.io/author/lee989898/feed.xml</id>
 
   
@@ -1976,66 +1976,18 @@ GET 요청은 서버에서 데이터를 요청하는 데만 사용된다&lt;br /
       <published>2022-04-22T16:07:07+09:00</published>
       <updated>2022-04-22T16:07:07+09:00</updated>
       <id>https://lee989898.github.io/ad</id>
-      <content type="html" xml:base="https://lee989898.github.io/ad">&lt;p&gt;모바일 애플리케이션은 사용하는 SQLite를 데이터베이스 엔진으로 사용한다. 수백만 개의 안드로이드 및 IOS 애플리케이션이 있어서 SQLite는 세계에서 가장 많이 사용되는 데이터베이스 엔진으로 간주된다&lt;br /&gt;
-옛날 부터 안드로이드는 SQLite를 사용해 왔는데 SQLite와 함께 작동하는 코드 작성은 시간이 많이 걸리고 매우 어려운 작업이고 보일러 플레이트 코드를 반복해서 작성해야 했다&lt;/p&gt;
+      <content type="html" xml:base="https://lee989898.github.io/ad">&lt;p&gt;모바일 애플리케이션은 SQLite를 데이터베이스 엔진으로 사용한다. 수백만 개의 안드로이드 및 IOS 애플리케이션이 사용하는 SQLite는 세계에서 가장 많이 사용되는 데이터베이스 엔진으로 간주된다&lt;br /&gt;
+Room이 없을 때 안드로이드는 SQLite 라이브러리를 사용했는대 SQLite로 작동하는 코드 작성은 보일러 플레이트 코드를 반복해서 작성해서 시간이 많이 걸리고 어려운 작업이었다. 2017년에 Room data 라이브러리가 도입되어서 문제들이 해결되었다&lt;/p&gt;
 
-&lt;p&gt;그러나 다행스럽게도 2017년에 Room data 라이브러리가 도입되었다. 공식 문서에 따르면 Room은 SQLite를 통해 추상화 계층을 제공하여 능숙한 데이터베이스 액세스를 허용한다. Room 라이브러리가 하는 일은 백그라운드에서 많은 코드를 생성하는 것이다&lt;/p&gt;
+&lt;p&gt;Room 지속성 라이브러리는 SQLite에 추상화 레이어를 제공하여 SQLite를 완벽히 활용하면서 더 견고한 데이터베이스 액세스를 가능하게 합니다&lt;/p&gt;
 
-&lt;p&gt;Room annotation을 사용하여 Room 라이브러리에 정보를 제공한다. annotation을 고려하여 Room 작업에 필요한 코드 생성한다. 프로젝트에서 Room data 라이브러리를 사용하려고 할 때 3가지 유형의 Room 클래스를 생성해야 한다&lt;/p&gt;
+&lt;p&gt;Room 라이브러리가 하는 일은 원래는 내가 작성해야 했던 코드들을 백그라운드에서 많은 코드를 생성해준다. 나는 코드를 작성하는 대시 Room annotation을 사용하여 Room 라이브러리에 정보를 제공해야한다. 그러면 Room은 annotation을 고려하여 작업에 필요한 코드를 생성한다&lt;/p&gt;
 
-&lt;p&gt;SQLite is the SQL database&lt;/p&gt;
+&lt;p&gt;프로젝트에서 Room data 라이브러리를 사용하려고 할 때 3가지 유형의 Room 클래스를 생성해야 한다&lt;/p&gt;
 
-&lt;p&gt;engine we use for mobile applications. Since there are millions of android and IOS applications, SQLite&lt;/p&gt;
-
-&lt;p&gt;is considered as the most used database engine in the world. As android developers&lt;/p&gt;
-
-&lt;p&gt;we have been working with SQLite from the very beginning. But writing codes to work with SQLite&lt;/p&gt;
-
-&lt;p&gt;was a very time consuming, very difficult task.&lt;/p&gt;
-
-&lt;p&gt;We had to repeatedly write boilerplate codes again and again.&lt;/p&gt;
-
-&lt;p&gt;But fortunately, in 2017 Room data persistence library introduced. As official documentations says&lt;/p&gt;
-
-&lt;p&gt;Room provides an abstraction layer over SQLite to allow fluent database access while harnessing the&lt;/p&gt;
-
-&lt;p&gt;full power of SQLite. What room library does is, it generates a lot of codes for us in the background .&lt;/p&gt;
-
-&lt;p&gt;So we don’t have to write them.&lt;/p&gt;
-
-&lt;p&gt;We need to provide information to room library using room annotations. Considering those annotations, room&lt;/p&gt;
-
-&lt;p&gt;generates necessary codes to work with&lt;/p&gt;
-
-&lt;p&gt;sqlite. When we are going to use Room data persistence library in a project,&lt;/p&gt;
-
-&lt;p&gt;we need to create 3 types of Room specific classes for that. A room database class, which represents&lt;/p&gt;
-
-&lt;p&gt;the actual sqlite database.&lt;/p&gt;
-
-&lt;p&gt;and entity classes to represent tables of that database .&lt;/p&gt;
-
-&lt;p&gt;And we also need to create data access objects interfaces&lt;/p&gt;
-
-&lt;p&gt;In other words, DAO interfaces which contains the methods used for accessing the database.&lt;/p&gt;
-
-&lt;p&gt;So, this is the simple room data base app&lt;/p&gt;
-
-&lt;p&gt;I am going to create with you to introduce you this library. Later, after learning the basics properly,&lt;/p&gt;
-
-&lt;p&gt;we will build more complex project examples with Room during other sections of this course.&lt;/p&gt;
-
-&lt;p&gt;so during the next lesson, let’s start with project setup. Thank you very much for listening.&lt;/p&gt;
-
-&lt;p&gt;See you soon.&lt;/p&gt;
-
-&lt;p&gt;with the next lesson&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Room database 클래스 실제 sqlite 데이터베이스를 나타냄&lt;/li&gt;
-  &lt;li&gt;Entitiy 클래스 해당 데이터베이스의 테이블을 나타냄&lt;/li&gt;
-  &lt;li&gt;DAO 인터페이스, 데이터 액세스 개체 인터페이스를 만들어야 한다. 즉, 데이터베이스에 액세스하는 데 사용되는 메서드를 포함하는 DAO 인터페이스이다&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;첫번째는 Room database 클래스로 실제 sqlite 데이터베이스를 나타내는 클래스&lt;br /&gt;
+두번째는 Entity 클래스로 데이터베이스의 테이블을 나타내는 클래스
+세번째는 DAO(data access objects) 인터페이스로 다시말해 데이터베이스에 액세스 하는데 필요한 메서스를 포함하는 인터페이스&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -2231,7 +2183,7 @@ Google 문서에서 알 수 있듯이 리포지토리를 서로 다른 데이터
 &lt;p&gt;이것을 SubscriberRepository로 명명한다. 이 클래스의 생성자 매개변수로 SubscriberDAO 인터페이스의 인스턴스를 추가하고 있다. 왜냐하면 리포지토리에서 DAO의 기능을 호출할 것이기 때문이다&lt;br /&gt;
 먼저 subscribers 목록의 라이브 데이터에 대한 변수를 정의하고 있다. 이것은 dao.getAllSubscribers() 여야 한다. 백그라운드 스레드에서 이 getAllSubscribers 함수를 호출할 필요는 없다. 룸 라이브러리가 백그라운드 스레드에서 라이브 데이터를 반환 유형으로 사용하여 이러한 함수를 자동으로 처리한다&lt;/p&gt;
 
-&lt;p&gt;다른 모든 DAO 함수는 백그라운드 스레드에서 호출해야 한다. 뷰 모델 클래스에서 코루틴을 사용하여 실행한다. 하지만 이를 지원하려면 이러한 기능을 suspend 함스로 정의한다. subscriber 데이터를 삽입하는 함수를 만들어 보자&lt;/p&gt;
+&lt;p&gt;다른 모든 DAO 함수는 백그라운드 스레드에서 호출해야 한다. 뷰 모델 클래스에서 코루틴을 사용하여 실행한다. 하지만 이를 지원하려면 이러한 기능을 suspend 함수로 정의한다. subscriber 데이터를 삽입하는 함수를 만들어 보자&lt;/p&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// SubscriberRepository.kt&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SubscriberRepository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;dao&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SubscriberDAO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -2678,7 +2630,7 @@ MVVM 아키텍처를 위반하지 않고 View에 메시지를 표시하는 방�
       
 
       
-        <summary type="html">모바일 애플리케이션은 사용하는 SQLite를 데이터베이스 엔진으로 사용한다. 수백만 개의 안드로이드 및 IOS 애플리케이션이 있어서 SQLite는 세계에서 가장 많이 사용되는 데이터베이스 엔진으로 간주된다 옛날 부터 안드로이드는 SQLite를 사용해 왔는데 SQLite와 함께 작동하는 코드 작성은 시간이 많이 걸리고 매우 어려운 작업이고 보일러 플레이트 코드를 반복해서 작성해야 했다</summary>
+        <summary type="html">모바일 애플리케이션은 SQLite를 데이터베이스 엔진으로 사용한다. 수백만 개의 안드로이드 및 IOS 애플리케이션이 사용하는 SQLite는 세계에서 가장 많이 사용되는 데이터베이스 엔진으로 간주된다 Room이 없을 때 안드로이드는 SQLite 라이브러리를 사용했는대 SQLite로 작동하는 코드 작성은 보일러 플레이트 코드를 반복해서 작성해서 시간이 많이 걸리고 어려운 작업이었다. 2017년에 Room data 라이브러리가 도입되어서 문제들이 해결되었다</summary>
       
 
       
